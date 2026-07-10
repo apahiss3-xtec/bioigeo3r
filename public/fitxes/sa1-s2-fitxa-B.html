@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SA1 · S2 · Com entren i surten les coses de la cèl·lula?</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple:#7B68C8; --purple-ink:#4a3b8c; --purple-light:#c5b8f0; --purple-tint:#f0edfb;
+  --ink:#1A1428; --ink-2:#3a3050; --muted:#7a7090; --surface:#fdfcff;
+  --rule:#e8e2f6; --rule-dark:#c8bfe8;
+  --orange:#e8834a; --orange-tint:#fdf0e8;
+  --teal:#3a9e8c;   --teal-tint:#e6f4f1;
+  --rose:#d44a6c;   --rose-tint:#fce8ed;
+  --yellow:#c8960a; --yellow-tint:#fdf7e2; --yellow-ink:#7a5800;
+  --green:#4a9e5c;  --green-tint:#eaf4ec;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Fira Sans Extra Condensed', sans-serif;
+  background:#b0a8c8;
+  color:var(--ink); font-size:13px; line-height:1.5;
+  padding:52px 20px 60px;
+}
+#toolbar {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  background:rgba(20,15,40,.93); backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(123,104,200,.35);
+  height:44px; display:flex; align-items:center; gap:10px; padding:0 18px;
+}
+.tb-tip { font-family:'Inter',sans-serif; font-size:11px; color:rgba(190,180,230,.65); flex:1; }
+.tb-tip strong { color:#b8aef0; }
+.tb-sep { width:1px; height:20px; background:rgba(123,104,200,.3); }
+.tb-btn {
+  font-family:'Inter',sans-serif; font-size:12px; font-weight:600;
+  border:none; border-radius:6px; padding:6px 13px; cursor:pointer;
+  transition:opacity .15s; white-space:nowrap;
+}
+.tb-print { background:var(--purple); color:white; }
+.tb-print:hover { opacity:.85; }
+.tb-bold { background:rgba(123,104,200,.2); border:1px solid rgba(123,104,200,.4); color:#c5b8f0; font-size:14px; font-weight:900; padding:4px 11px; }
+.tb-bold:hover { background:rgba(123,104,200,.38); }
+.tb-undo { background:rgba(212,74,108,.2); border:1px solid rgba(212,74,108,.4); color:#f0a0b8; font-size:12px; opacity:.5; transition:opacity .2s; pointer-events:none; }
+.tb-undo.active { opacity:1; pointer-events:auto; }
+.tb-undo.active:hover { background:rgba(212,74,108,.35); }
+.tb-spacer { background:rgba(123,104,200,.2); border:1px solid rgba(123,104,200,.4); color:#c5b8f0; font-size:12px; }
+.tb-spacer:hover { background:rgba(123,104,200,.35); }
+.page-wrap { width:794px; margin:0 auto; background:var(--surface); box-shadow:0 2px 30px rgba(0,0,0,.22); position:relative; }
+.page-break-line { position:absolute; left:0; right:0; border-top:2px dashed #9080bc; pointer-events:none; z-index:10; }
+.page-break-label { position:absolute; right:10px; top:-11px; background:#9080bc; color:white; font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
+[contenteditable] { outline:none; cursor:text; border-radius:3px; transition:background .12s, box-shadow .12s; }
+[contenteditable]:hover { background:rgba(123,104,200,.08); box-shadow:0 0 0 2px rgba(123,104,200,.3); }
+[contenteditable]:focus { background:rgba(123,104,200,.12); box-shadow:0 0 0 2.5px var(--purple); }
+.header-band [contenteditable]:hover { background:rgba(255,255,255,.15); box-shadow:0 0 0 2px rgba(255,255,255,.3); }
+.header-band [contenteditable]:focus { background:rgba(255,255,255,.2); box-shadow:0 0 0 2.5px #fff; }
+span[contenteditable] { display:inline-block; }
+.wline { display:block; width:100%; min-height:32px; background:white; outline:none; padding:4px 4px; border-bottom:1.5px solid #C8C2DD; word-break:break-word; cursor:text; line-height:1.7; }
+.wline:focus { border-bottom-color:var(--purple); background:rgba(123,104,200,.04); }
+.frase-completar { font-size:11.5px; line-height:2.4; margin:4px 0 6px; }
+.blank { display:inline-block; border-bottom:1.5px solid #C8C2DD; vertical-align:bottom; margin:0 3px; height:1.1em; }
+.blank-s  { width: 60px; }
+.blank-m  { width:100px; }
+.blank-l  { width:140px; }
+.blank-xl { width:200px; }
+.nom-field { margin-left:auto; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; font-family:'Fira Sans Extra Condensed',sans-serif; color:var(--ink); }
+.input-span.data-span { min-width:65px; }
+.input-span:focus { border-bottom-color:var(--purple); }
+.nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(123,104,200,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); flex-shrink:0; }
+.deletable { position:relative; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; border-radius:50%; background:#d44a6c; color:white; border:none; cursor:pointer; align-items:center; justify-content:center; font-size:12px; font-weight:900; line-height:1; z-index:100; box-shadow:0 1px 4px rgba(0,0,0,.3); transition:background .1s, transform .1s; }
+.del-btn:hover { background:#b83054; transform:scale(1.15); }
+.deletable:hover > .del-btn { display:flex; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+.nivell-strip .deletable { display:inline-flex; align-items:center; }
+.header-band { background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%); color:#fff; padding:14px 18px; display:grid; grid-template-columns:72px 1fr 178px; gap:14px; align-items:center; position:relative; overflow:hidden; }
+.header-band::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 100% at 110% 50%, rgba(255,255,255,.07) 0%, transparent 70%); pointer-events:none; }
+.header-emoji-col { display:flex; align-items:center; justify-content:center; }
+.header-emoji-box { width:62px; height:62px; border-radius:14px; background:rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center; font-size:36px; user-select:none; flex-shrink:0; }
+.header-main { min-width:0; }
+.header-sa { font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; opacity:.55; margin-bottom:4px; }
+.header-title { font-size:24px; font-weight:900; letter-spacing:-.01em; line-height:1.05; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-style:italic; font-size:13px; opacity:.72; margin-top:4px; }
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:5px; }
+.logo-box { background:rgba(255,255,255,.92); border-radius:7px; padding:5px 6px; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 1px 6px rgba(0,0,0,.18); }
+.header-meta { font-size:9.5px; opacity:.52; text-align:right; line-height:1.7; }
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.nivell-label { font-size:11px; color:var(--muted); font-style:italic; }
+.temps-badge { font-size:10px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
+.oa-box { background:linear-gradient(to right,#f5f2ff,var(--surface)); border-left:4px solid var(--purple); padding:10px 16px; }
+.oa-title { font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:6px; }
+.oa-list { list-style:none; padding:0; margin:0; }
+.oa-list li { font-size:11.5px; padding:3px 0 3px 22px; position:relative; line-height:1.4; border-bottom:1px dashed var(--rule); }
+.oa-list li:last-child { border-bottom:none; }
+.oa-list li::before { content:'○'; position:absolute; left:4px; top:3px; font-size:11px; color:var(--purple-light); }
+.meta-oa-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-oa-title { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; font-size:11px; margin-bottom:4px; padding:2px 0; }
+.meta-oa-item:last-child { margin-bottom:0; }
+.meta-oa-check { width:16px; height:16px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; margin-top:1px; }
+.meta-oa-text { flex:1; line-height:1.35; }
+.content { padding:14px 24px 24px; }
+.section { margin-top:14px; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:10.5px; color:var(--ink-2); font-style:italic; font-family:'Crimson Pro',serif; }
+.temps { font-size:10px; color:var(--purple-ink); font-weight:700; margin-left:4px; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
+.previ-box p { font-size:12px; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-icon { font-size:24px; flex-shrink:0; }
+.connexio-text { font-size:11px; line-height:1.4; }
+.connexio-text strong { color:var(--purple-ink); }
+.hipotesi-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin-bottom:10px; }
+.hipotesi-box p { font-size:12px; font-weight:700; color:var(--purple-ink); margin-bottom:4px; }
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow-ink); margin-bottom:2px; }
+.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+.data-table { width:100%; border-collapse:collapse; font-size:11px; margin-bottom:10px; }
+.data-table th { background:var(--purple-ink); color:white; padding:6px 9px; text-align:left; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table th:first-child { border-radius:5px 0 0 0; }
+.data-table th:last-child { border-radius:0 5px 0 0; }
+.data-table th small { font-size:8.5px; font-weight:400; letter-spacing:0; text-transform:none; opacity:.75; display:block; margin-top:1px; }
+.data-table td { padding:5px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table tr:nth-child(even) td { background:var(--purple-tint); }
+.icon-cell { font-size:16px; text-align:center; width:32px; }
+.fill-cell { display:block; width:100%; min-height:22px; outline:none; padding:2px 3px; word-break:break-word; cursor:text; }
+.fill-cell:focus { background:rgba(123,104,200,.08); outline:1px solid var(--purple-light); border-radius:2px; }
+.label-cell { font-size:11px; font-weight:700; color:var(--ink-2); }
+.draw-box { border:2px dashed var(--purple-light); border-radius:10px; background:#fff; min-height:120px; display:flex; align-items:flex-start; justify-content:flex-start; padding:8px 10px; }
+.draw-label { font-size:9px; color:var(--purple-light); letter-spacing:.1em; text-transform:uppercase; font-family:'Inter',sans-serif; }
+.explore-q { display:flex; gap:8px; margin-bottom:10px; align-items:flex-start; }
+.explore-qnum { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--orange); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.explore-qtext { font-size:11.5px; flex:1; }
+.exit-box { background:#EFEAF5; border:2px solid #5a4aa0; border-radius:10px; padding:12px 14px; }
+.exit-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:#5a4aa0; margin-bottom:8px; }
+.exit-q { font-size:11px; margin-bottom:4px; line-height:1.4; }
+.exit-opts { display:grid; grid-template-columns:repeat(2,1fr); gap:3px; margin:3px 0 6px; }
+.exit-opt { display:flex; align-items:center; gap:5px; font-size:10.5px; }
+.chk { width:12px; height:12px; border:1.5px solid #5a4aa0; border-radius:3px; flex-shrink:0; background:white; }
+.meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+.meta-item { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-icon { font-size:18px; display:block; margin-bottom:3px; }
+.meta-label { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px; }
+.stars { display:flex; gap:4px; margin-top:4px; }
+.star { font-size:18px; color:#9080bc; cursor:default; }
+.tasca-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:10px 14px; margin-top:12px; }
+.tasca-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:6px; font-size:11px; }
+.tasca-item:last-child { margin-bottom:0; }
+.tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(123,104,200,.05) 6px, rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
+.spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+.page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:0.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
+.small { font-size:10px; color:var(--muted); }
+.mt8 { margin-top:8px; }
+.footer { margin-top:12px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
+.footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+@media print {
+  @page { size:A4; margin:10mm 12mm; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { background:white; padding:0; }
+  #toolbar, .page-break-line, .del-btn { display:none !important; }
+  .page-footer-bar { display:flex !important; }
+  .footer { display:none !important; }
+  .page-wrap { box-shadow:none; width:100%; }
+  .header-emoji-box { background:#ede8f8 !important; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline { background:transparent; padding:0; }
+  .fill-cell { background:transparent; outline:none; }
+  .input-span { border-bottom-color:#C8C2DD; }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .nivell-badge-small { background:transparent !important; border-color:#C8C2DD !important; }
+}
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span class="tb-tip">✎ Clica per editar · <strong>Ctrl+B</strong> negreta · <strong>×</strong> rosa elimina · <strong>Ctrl+Z</strong> desfés</span>
+  <div class="tb-sep"></div>
+  <button class="tb-btn tb-undo" id="btn-undo" onclick="undoDelete()">↩ Desfer eliminació</button>
+  <button class="tb-btn tb-bold" onclick="document.execCommand('bold')"><b>N</b></button>
+  <button class="tb-btn tb-spacer" onclick="insertSpacer()" title="Insereix un bloc d'espai en blanc per ajustar la paginació">＋ Espai</button>
+  <button class="tb-btn tb-print" onclick="window.print()">🖨️ Imprimir / PDF</button>
+  <button class="tb-btn tb-desa" onclick="desaFitxa()" title="Desa els canvis al fitxer (Ctrl+S)">💾 Desa</button>
+</div>
+
+<div class="page-wrap" id="doc">
+
+  <div class="header-band deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="header-emoji-col">
+      <div class="header-emoji-box" contenteditable="true">🥚</div>
+    </div>
+    <div class="header-main">
+      <div class="header-sa" contenteditable="true">SA1 · La cèl·lula viva · Sessió 2 de 4</div>
+      <div class="header-title" contenteditable="true">Com entren i surten les coses de la cèl·lula?</div>
+      <div class="header-subtitle" contenteditable="true">La membrana, una frontera viva — l'experiment de l'ou sense closca</div>
+    </div>
+    <div class="header-right">
+      <div class="logo-box">
+        <img src="../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
+      </div>
+      <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
+    </div>
+  </div>
+
+  <div class="nivell-strip deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <span class="nivell-label deletable" contenteditable="true">Semiguiat<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <span class="temps-badge deletable" contenteditable="true">⏱️ 2h total<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <div class="nom-field deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
+      &nbsp;&nbsp;Data:&nbsp;<span class="input-span data-span" contenteditable="true"></span>
+      &nbsp;<span class="nivell-badge-small" title="Versió B — Estàndard">B</span>
+    </div>
+  </div>
+
+  <div class="oa-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="oa-title">🎯 Objectius d'aprenentatge d'avui</div>
+    <ul class="oa-list">
+      <li contenteditable="true">Sé <strong>predir</strong> i comprovar què li passa a una cèl·lula segons com és l'aigua del seu voltant.</li>
+      <li contenteditable="true">Explico amb els termes <strong>osmosi</strong> i <strong>membrana semipermeable</strong> per què l'aigua entra o surt de la cèl·lula.</li>
+      <li contenteditable="true">Aplico la idea d'osmosi a <strong>casos reals</strong>: diàlisi renal, plantes amb massa adob i sèrum fisiològic.</li>
+    </ul>
+  </div>
+
+  <div class="content">
+
+    <!-- ── Secció 0: Engage — prediccions ── -->
+    <div class="section deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="section-header">
+        <div class="snum" style="background:var(--muted)">0</div>
+        <div>
+          <div class="stitle">Prediccions <span class="temps deletable" contenteditable="true">⏱️ 10 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="sdesc" contenteditable="true">Què creus que passarà ABANS de fer l'experiment — no es corregeix</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="previ-box">
+        <p contenteditable="true">Un ou posat en vinagre 48 h perd la closca dura i queda cobert <strong>només per la membrana</strong>. Ara el posarem en aigües diferents per veure si la membrana deixa passar l'aigua.</p>
+
+        <p style="margin-top:10px">✏️ <span contenteditable="true"><strong>1.</strong> Ou en <strong>AIGUA PURA (destil·lada)</strong>: creus que guanyarà pes, en perdrà o quedarà igual? Per què?</span></p>
+        <div class="wline" contenteditable="true">Crec que </div>
+
+        <p style="margin-top:8px">✏️ <span contenteditable="true"><strong>2.</strong> Ou en <strong>AIGUA AMB MOLTA SAL (sèrum salí)</strong>: guanyarà pes, en perdrà o quedarà igual? Per què?</span></p>
+        <div class="wline" contenteditable="true">Crec que </div>
+
+        <p style="margin-top:8px">✏️ <span contenteditable="true"><strong>3.</strong> Com creus que es veurà cada ou (mida, forma, fermesa)?</span></p>
+        <div class="wline" contenteditable="true"></div>
+      </div>
+
+      <div class="connexio-box mt8 deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="connexio-icon">🔗</div>
+        <div class="connexio-text" contenteditable="true"><strong>Recorda la S1!</strong> Vam dir que la <strong>membrana</strong> és la frontera que decideix què entra i què surt. Avui ho posarem a prova de veritat amb un ou de laboratori.</div>
+      </div>
+    </div>
+
+    <!-- ── Secció 1: Explore — lab ou sense closca ── -->
+    <div class="section deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="section-header">
+        <div class="snum" style="background:var(--orange)">1</div>
+        <div>
+          <div class="stitle" contenteditable="true">Lab: l'ou sense closca <span class="temps deletable" contenteditable="true">⏱️ 35 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="sdesc" contenteditable="true">Mesura, observa i anota — la membrana com a frontera viva</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <figure class="deletable" style="margin:4px 0 12px;text-align:center;position:relative">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <img src="../imatges_material_grafic/ou_sense_closca.png"
+             alt="Ou sense closca, cobert només per la membrana"
+             style="max-width:100%;max-height:200px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
+             onerror="this.style.display='none'">
+        <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">Ou sense closca — la membrana queda al descobert</figcaption>
+      </figure>
+
+      <p style="font-size:11px;color:var(--muted);margin-bottom:8px;font-style:italic" contenteditable="true">✏️ Pesa cada ou ABANS i DESPRÉS (24 h) i anota-ho. La primera columna ja porta una pista del que has de mirar.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Condició</th>
+            <th>Massa inicial <small>(g)</small></th>
+            <th>Massa final <small>(g)</small></th>
+            <th>Diferència <small>(g)</small></th>
+            <th>Què s'observa <small>(forma, fermesa)</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="deletable">
+            <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="label-cell">💧 Aigua pura</span></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+          </tr>
+          <tr class="deletable">
+            <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="label-cell">🧂 Aigua amb sal</span></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+          </tr>
+          <tr class="deletable">
+            <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="label-cell">🍶 Vinagre (referència)</span></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="font-size:11px;margin-bottom:4px" contenteditable="true">✏️ Dibuixa l'ou en cada condició (esquemàtic — que es noti la diferència de mida):</p>
+      <div class="draw-box deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <span class="draw-label">✏️ dibuixa aquí · aigua pura / aigua amb sal / vinagre</span>
+      </div>
+
+      <div class="epist-box deletable" style="margin-top:10px">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div style="font-size:22px;flex-shrink:0">🔬</div>
+        <div>
+          <div class="epist-title" contenteditable="true">Moment epistèmic — com es fa ciència de veritat</div>
+          <div class="epist-text" contenteditable="true">Amb <strong>20 ous</strong> de tota la classe, en sabríem prou per publicar-ho? Quants ous caldrien per estar segurs? El got de <strong>vinagre</strong> hi és perquè és el <strong>control</strong>: ens diu què passa quan NO canviem la concentració de sal.</div>
+          <p style="font-size:10.5px;color:var(--yellow-ink);font-weight:700;margin:5px 0 5px" contenteditable="true">💡 Per quina raó un sol ou no seria una prova fiable?</p>
+          <div class="wline" contenteditable="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Secció 2: Explain — osmosi i membrana ── -->
+    <div class="section deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="section-header">
+        <div class="snum" style="background:var(--teal)">2</div>
+        <div>
+          <div class="stitle" contenteditable="true">Osmosi: l'aigua busca l'equilibri <span class="temps deletable" contenteditable="true">⏱️ 25 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="sdesc" contenteditable="true">Per què l'aigua entra o surt segons la concentració de sal</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <p style="font-size:11.5px;color:var(--ink-2);margin-bottom:8px" contenteditable="true">La membrana és <strong>semipermeable</strong>: deixa passar l'<strong>aigua</strong>, però no deixa passar fàcilment la <strong>sal</strong>. Quan a dins i a fora hi ha diferent quantitat de sal, l'aigua es mou per igualar-ho. Aquest moviment de l'aigua a través de la membrana es diu <strong>osmosi</strong>.</p>
+
+      <figure class="deletable" style="margin:4px 0 12px;text-align:center;position:relative">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <img src="../imatges_material_grafic/osmosi_membrana_semipermeable.png"
+             alt="Dos compartiments separats per una membrana semipermeable; l'aigua passa cap al costat amb més sal fins a igualar els nivells"
+             style="max-width:100%;max-height:200px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
+             onerror="this.style.display='none'">
+        <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">L'aigua travessa la membrana cap al costat amb més sal fins que els dos costats s'igualen</figcaption>
+      </figure>
+
+      <div class="connexio-box deletable" style="background:var(--teal-tint);border-color:#8cc8be">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="connexio-icon">💧</div>
+        <div class="connexio-text" contenteditable="true"><strong>La regla:</strong> l'aigua va cap on hi ha <em>més sal</em>. Si fora hi ha aigua pura (poca sal), l'aigua entra a l'ou i s'infla. Si fora hi ha molta sal, l'aigua surt de l'ou i s'arruga.</div>
+      </div>
+
+      <p class="frase-completar" contenteditable="true" style="margin-top:8px">Completa: el moviment de l'<span class="blank blank-m"></span> a través de la membrana es diu <span class="blank blank-l"></span>. La membrana deixa passar l'aigua però no la sal, per això es diu <span class="blank blank-xl"></span>.</p>
+
+      <div class="hipotesi-box deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <p>🧠 <span contenteditable="true">Explica el teu experiment amb l'estructura <strong>AER</strong>: Afirmació (què ha passat) → Evidència (les dades de la taula) → Raonament (per què, fent servir "osmosi").</span></p>
+        <div class="wline" contenteditable="true">L'ou en aigua pura ha </div>
+        <div class="wline" contenteditable="true"></div>
+        <div class="wline" contenteditable="true"></div>
+      </div>
+
+      <div class="connexio-box deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="connexio-icon">🫁</div>
+        <div class="connexio-text" contenteditable="true"><strong>Mira endavant (SA2):</strong> aquest mateix intercanvi a través de membranes el retrobaràs als <strong>pulmons</strong> (entrada d'oxigen) i als <strong>ronyons</strong> (filtrat de la sang). Avui en poses la primera peça.</div>
+      </div>
+    </div>
+
+    <!-- ── Secció 3: Elaborate — connexió vida real ── -->
+    <div class="section deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="section-header">
+        <div class="snum" style="background:var(--rose)">3</div>
+        <div>
+          <div class="stitle" contenteditable="true">L'osmosi a la vida real <span class="temps deletable" contenteditable="true">⏱️ 20 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="sdesc" contenteditable="true">El que has vist a l'ou passa al teu cos i a les plantes</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="explore-q deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="explore-qnum">a</div>
+        <div class="explore-qtext">
+          <span contenteditable="true"><strong>🩺 Ronyons i diàlisi.</strong> A la diàlisi, la sang passa per una màquina amb una membrana i un líquid especial. Per què aquest líquid ha de tenir la <strong>mateixa</strong> quantitat de sal que la sang?</span>
+          <figure class="deletable" style="margin:6px 0;text-align:center;position:relative">
+            <div class="del-btn" onclick="deleteEl(this)">✕</div>
+            <img src="../imatges_material_grafic/dialisi_renal.png"
+                 alt="Esquema de diàlisi: la sang amb residus passa per una membrana semipermeable que filtra els residus cap al fluid de diàlisi i retorna sang neta"
+                 style="max-width:100%;max-height:170px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
+                 onerror="this.style.display='none'">
+            <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">La membrana de diàlisi filtra els residus de la sang</figcaption>
+          </figure>
+          <div class="wline" contenteditable="true"></div>
+        </div>
+      </div>
+
+      <div class="explore-q deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="explore-qnum">b</div>
+        <div class="explore-qtext">
+          <span contenteditable="true"><strong>🌱 Plantes i massa adob.</strong> Si reguem una planta amb massa adob (molta sal), les arrels es marceixen tot i que hi ha aigua al terra. Per què?</span>
+          <figure class="deletable" style="margin:6px 0;text-align:center;position:relative">
+            <div class="del-btn" onclick="deleteEl(this)">✕</div>
+            <img src="../imatges_material_grafic/planta_marcida_sal.png"
+                 alt="Planta marcida: la sal del sòl fa que l'aigua surti de les arrels per osmosi i la planta es deshidrata"
+                 style="max-width:100%;max-height:170px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
+                 onerror="this.style.display='none'">
+            <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">Massa sal al sòl: l'aigua surt de les arrels i la planta es marceix</figcaption>
+          </figure>
+          <div class="wline" contenteditable="true"></div>
+        </div>
+      </div>
+
+      <div class="explore-q deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="explore-qnum">c</div>
+        <div class="explore-qtext">
+          <span contenteditable="true"><strong>💉 Sèrum fisiològic.</strong> Als hospitals fan servir sèrum (0,9% de sal) i no aigua pura per a les goteres. Si haguessis de dissenyar el líquid d'una gotera, quina quantitat de sal hauria de tenir respecte a les cèl·lules de la sang? Justifica-ho.</span>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exit ticket: full independent -> exit_ticket_s2_VISUAL.html (regla "exit ticket separat"; abans incrustat aqui) -->
+
+    <!-- ── METACOGNICIÓ ── -->
+    <div class="section deletable" style="margin-top:14px">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <p style="font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:6px">🧠 Metacognició — 3 min</p>
+
+      <div class="meta-oa-box deletable" style="margin-bottom:8px">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="meta-oa-title">🎯 Torna als objectius del principi — Marca el que has après avui:</div>
+        <div class="meta-oa-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="meta-oa-check"></div>
+          <div class="meta-oa-text" contenteditable="true">Sé predir i comprovar què li passa a una cèl·lula segons com és l'aigua del seu voltant.</div>
+        </div>
+        <div class="meta-oa-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="meta-oa-check"></div>
+          <div class="meta-oa-text" contenteditable="true">Explico amb els termes osmosi i membrana semipermeable per què l'aigua entra o surt de la cèl·lula.</div>
+        </div>
+        <div class="meta-oa-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="meta-oa-check"></div>
+          <div class="meta-oa-text" contenteditable="true">Aplico la idea d'osmosi a casos reals: diàlisi renal, plantes amb massa adob i sèrum fisiològic.</div>
+        </div>
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <span class="meta-icon">❓</span>
+          <div class="meta-label">Encara em pregunto...</div>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
+        </div>
+        <div class="meta-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <span class="meta-icon">⭐</span>
+          <div class="meta-label">Puntuació de la sessió</div>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <div style="font-size:9.5px;color:var(--muted);margin-top:4px">Encercla les estrelles que consideres</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TASCA PER A CASA ── -->
+    <div class="tasca-box deletable" style="margin-top:14px">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="tasca-title">📚 Tasca per a casa — per a la Sessió 3</div>
+      <div class="tasca-item deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="tasca-num">1</div>
+        <div contenteditable="true"><strong>📖 Lectura de preparació:</strong> Llegeix el text curt de la web de Biologia i Geologia sobre <em>per què el cos fabrica cèl·lules noves</em>. Subratlla dues coses que t'hagin sorprès — les comentarem a l'inici de la S3.</div>
+      </div>
+      <div class="tasca-item deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="tasca-num">2</div>
+        <div contenteditable="true"><strong>🏗️ Entrega de la maqueta dels nivells d'organització:</strong> recorda portar acabada la maqueta (àtom → ecosistema) que vas començar després de la S1.</div>
+      </div>
+      <div class="tasca-item deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="tasca-num">3</div>
+        <div contenteditable="true"><strong>🔎 Observa a casa:</strong> deixa un tros de pastanaga o api en un got amb molta sal una estona i mira què li passa. Anota-ho en una frase: és el mateix que ha passat a l'ou?</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-l">SA1 · La cèl·lula viva · Sessió 2 · IE Temple · Biologia i Geologia 3r ESO</div>
+      <div class="footer-r">©2025–2026</div>
+    </div>
+
+  </div><!-- .content -->
+</div><!-- .page-wrap -->
+
+<script>
+const delStack = [];
+function deleteEl(btn) {
+  const target = btn.closest('.deletable');
+  if (!target) return;
+  const parent = target.parentNode;
+  const sibling = target.nextSibling;
+  target.remove();
+  delStack.push({ el:target, parent, sibling });
+  document.getElementById('btn-undo').classList.add('active');
+}
+function undoDelete() {
+  if (!delStack.length) return;
+  const { el, parent, sibling } = delStack.pop();
+  parent.insertBefore(el, sibling);
+  if (!delStack.length) document.getElementById('btn-undo').classList.remove('active');
+  updatePageBreaks();
+}
+document.addEventListener('keydown', e => {
+  if (e.key==='z' && (e.ctrlKey||e.metaKey)) {
+    if (document.activeElement && document.activeElement.contentEditable==='true') return;
+    e.preventDefault(); undoDelete();
+  }
+});
+
+const PAGE_H = 1047;
+let _pbTimer = null;
+const PB_OPTS = { childList:true, subtree:true, characterData:true, attributes:false };
+function up

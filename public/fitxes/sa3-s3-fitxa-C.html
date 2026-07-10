@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SA3 · S3 · Vacunes: ciència o mite? — Amb suport visual — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --purple:#2F6B5E; --purple-ink:#173328; --purple-light:#84BBA8; --purple-tint:#EAF4F0;
+  --ink:#1A2820; --ink-2:#2e4a3f; --muted:#6a8a7e; --surface:#fdfffe;
+  --rule:#C8DDD8; --rule-dark:#84BBA8;
+  --orange:#e8834a; --orange-tint:#fdf0e8;
+  --teal:#3a9e8c;   --teal-tint:#e6f4f1;
+  --rose:#d44a6c;   --rose-tint:#fce8ed;
+  --yellow:#c8960a; --yellow-tint:#fdf7e2; --yellow-ink:#7a5800;
+  --green:#4a9e5c;  --green-tint:#eaf4ec;
+  --red:#c0392b;    --red-tint:#fdf2f0;
+  --blue:#2563a8;   --blue-tint:#e8f0fb;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Fira Sans Extra Condensed', sans-serif; background:#6e9d95; color:var(--ink); font-size:13px; line-height:1.5; padding:52px 20px 60px; }
+#toolbar { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(8,25,20,.93); backdrop-filter:blur(10px); border-bottom:1px solid rgba(47,107,94,.35); height:44px; display:flex; align-items:center; gap:10px; padding:0 18px; }
+.tb-tip { font-family:'Inter',sans-serif; font-size:11px; color:rgba(180,220,210,.65); flex:1; }
+.tb-tip strong { color:#a8d8cc; }
+.tb-sep { width:1px; height:20px; background:rgba(47,107,94,.3); }
+.tb-btn { font-family:'Inter',sans-serif; font-size:12px; font-weight:600; border:none; border-radius:6px; padding:6px 13px; cursor:pointer; transition:opacity .15s; white-space:nowrap; }
+.tb-print { background:var(--purple); color:white; }
+.tb-print:hover { opacity:.85; }
+.tb-bold { background:rgba(47,107,94,.2); border:1px solid rgba(47,107,94,.4); color:#a8d8cc; font-size:14px; font-weight:900; padding:4px 11px; }
+.tb-bold:hover { background:rgba(47,107,94,.38); }
+.tb-undo { background:rgba(212,74,108,.2); border:1px solid rgba(212,74,108,.4); color:#f0a0b8; font-size:12px; opacity:.5; transition:opacity .2s; pointer-events:none; }
+.tb-undo.active { opacity:1; pointer-events:auto; }
+.tb-undo.active:hover { background:rgba(212,74,108,.35); }
+.tb-spacer { background:rgba(47,107,94,.2); border:1px solid rgba(47,107,94,.4); color:#a8d8cc; font-size:12px; }
+.tb-spacer:hover { background:rgba(47,107,94,.35); }
+.tb-save { background:#2F6B5E; color:#dff3ec; border:1px solid rgba(132,187,168,.55); }
+.tb-save:hover { background:#3a8071; }
+.tb-save.saved { background:#4a9e5c; color:#fff; }
+.page-wrap { width:794px; margin:0 auto; background:var(--surface); box-shadow:0 2px 30px rgba(0,0,0,.22); position:relative; }
+.page-break-line { position:absolute; left:0; right:0; border-top:2px dashed #5a9e8c; pointer-events:none; z-index:10; }
+.page-break-label { position:absolute; right:10px; top:-11px; background:#5a9e8c; color:white; font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
+[contenteditable] { outline:none; cursor:text; border-radius:3px; transition:background .12s, box-shadow .12s; }
+[contenteditable]:hover { background:rgba(47,107,94,.08); box-shadow:0 0 0 2px rgba(47,107,94,.3); }
+[contenteditable]:focus { background:rgba(47,107,94,.12); box-shadow:0 0 0 2.5px var(--purple); }
+.header-band [contenteditable]:hover { background:rgba(255,255,255,.15); box-shadow:0 0 0 2px rgba(255,255,255,.3); }
+.header-band [contenteditable]:focus { background:rgba(255,255,255,.2); box-shadow:0 0 0 2.5px #fff; }
+span[contenteditable] { display:inline-block; }
+.wline { display:block; width:100%; min-height:32px; background:white; outline:none; padding:4px 4px; border-bottom:1.5px solid #C8DDD8; word-break:break-word; cursor:text; line-height:1.7; }
+.wline:focus { border-bottom-color:var(--purple); background:rgba(47,107,94,.04); }
+.frase-completar { font-size:11.5px; line-height:2.4; margin:4px 0 6px; }
+.blank { display:inline-block; border-bottom:1.5px solid #C8DDD8; vertical-align:bottom; margin:0 3px; height:1.1em; }
+.blank-s { width:60px; } .blank-m { width:100px; } .blank-l { width:140px; } .blank-xl { width:200px; }
+.nom-field { margin-left:auto; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; font-family:'Fira Sans Extra Condensed',sans-serif; color:var(--ink); }
+.input-span.data-span { min-width:65px; }
+.input-span:focus { border-bottom-color:var(--purple); }
+.nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(47,107,94,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); flex-shrink:0; }
+.deletable { position:relative; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; border-radius:50%; background:#d44a6c; color:white; border:none; cursor:pointer; align-items:center; justify-content:center; font-size:12px; font-weight:900; line-height:1; z-index:100; box-shadow:0 1px 4px rgba(0,0,0,.3); transition:background .1s,transform .1s; }
+.del-btn:hover { background:#b83054; transform:scale(1.15); }
+.deletable:hover > .del-btn { display:flex; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+.nivell-strip .deletable { display:inline-flex; align-items:center; }
+.header-band { background:linear-gradient(135deg,#173328 0%,#2F6B5E 100%); color:#fff; padding:14px 18px; display:grid; grid-template-columns:72px 1fr 178px; gap:14px; align-items:center; position:relative; overflow:hidden; }
+.header-band::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 100% at 110% 50%,rgba(255,255,255,.07) 0%,transparent 70%); pointer-events:none; }
+.header-emoji-col { display:flex; align-items:center; justify-content:center; }
+.header-emoji-box { width:62px; height:62px; border-radius:14px; background:rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center; font-size:36px; user-select:none; flex-shrink:0; }
+.header-main { min-width:0; }
+.header-sa { font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; opacity:.55; margin-bottom:4px; }
+.header-title { font-size:24px; font-weight:900; letter-spacing:-.01em; line-height:1.05; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-style:italic; font-size:13px; opacity:.72; margin-top:4px; }
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:5px; }
+.logo-box { background:rgba(255,255,255,.92); border-radius:7px; padding:5px 6px; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 1px 6px rgba(0,0,0,.18); }
+.header-meta { font-size:9.5px; opacity:.52; text-align:right; line-height:1.7; }
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.nivell-label { font-size:11px; color:var(--muted); font-style:italic; }
+.temps-badge { font-size:10px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
+.oa-box { background:linear-gradient(to right,var(--purple-tint),var(--surface)); border-left:4px solid var(--purple); padding:10px 16px; }
+.oa-title { font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:6px; }
+.oa-list { list-style:none; padding:0; margin:0; }
+.oa-list li { font-size:11.5px; padding:3px 0 3px 22px; position:relative; line-height:1.4; border-bottom:1px dashed var(--rule); }
+.oa-list li:last-child { border-bottom:none; }
+.oa-list li::before { content:'○'; position:absolute; left:4px; top:3px; font-size:11px; color:var(--purple-light); }
+.meta-oa-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-oa-title { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; font-size:11px; margin-bottom:4px; padding:2px 0; }
+.meta-oa-item:last-child { margin-bottom:0; }
+.meta-oa-check { width:16px; height:16px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; margin-top:1px; }
+.meta-oa-text { flex:1; line-height:1.35; }
+.content { padding:14px 24px 24px; }
+.section { margin-top:14px; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:10.5px; color:var(--ink-2); font-style:italic; font-family:'Crimson Pro',serif; }
+.temps { font-size:10px; color:var(--purple-ink); font-weight:700; margin-left:4px; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
+.previ-box p { font-size:12px; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-icon { font-size:24px; flex-shrink:0; }
+.connexio-text { font-size:11px; line-height:1.4; }
+.connexio-text strong { color:var(--purple-ink); }
+.hipotesi-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin-bottom:10px; }
+.hipotesi-box p { font-size:12px; font-weight:700; color:var(--purple-ink); margin-bottom:4px; }
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow-ink); margin-bottom:2px; }
+.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+.data-table { width:100%; border-collapse:collapse; font-size:11px; margin-bottom:10px; }
+.data-table th { background:var(--purple-ink); color:white; padding:6px 9px; text-align:left; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table th:first-child { border-radius:5px 0 0 0; }
+.data-table th:last-child { border-radius:0 5px 0 0; }
+.data-table th small { font-size:8.5px; font-weight:400; letter-spacing:0; text-transform:none; opacity:.75; display:block; margin-top:1px; }
+.data-table td { padding:5px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table tr:nth-child(even) td { background:var(--purple-tint); }
+.icon-cell { font-size:16px; text-align:center; width:32px; }
+.fill-cell { display:block; width:100%; min-height:22px; outline:none; padding:2px 3px; word-break:break-word; cursor:text; }
+.fill-cell:focus { background:rgba(47,107,94,.08); outline:1px solid var(--purple-light); border-radius:2px; }
+.label-cell { font-size:11px; font-weight:700; color:var(--ink-2); }
+.explore-q { display:flex; gap:8px; margin-bottom:10px; align-items:flex-start; }
+.explore-qnum { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--orange); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.explore-qtext { font-size:11.5px; flex:1; }
+.exit-box { background:#E8F4F0; border:2px solid var(--purple); border-radius:10px; padding:12px 14px; }
+.exit-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.exit-q { font-size:11px; margin-bottom:4px; line-height:1.4; }
+.exit-opts { display:grid; grid-template-columns:repeat(2,1fr); gap:3px; margin:3px 0 6px; }
+.exit-opt { display:flex; align-items:center; gap:5px; font-size:10.5px; }
+.chk { width:12px; height:12px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; }
+.meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+.meta-item { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-icon { font-size:18px; display:block; margin-bottom:3px; }
+.meta-label { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px; }
+.stars { display:flex; gap:4px; margin-top:4px; }
+.star { font-size:18px; color:#5a9e8c; cursor:default; }
+.tasca-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:10px 14px; margin-top:12px; }
+.tasca-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:6px; font-size:11px; }
+.tasca-item:last-child { margin-bottom:0; }
+.tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(47,107,94,.05) 6px,rgba(47,107,94,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
+.spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+.page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:0.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
+.footer { margin-top:12px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
+.footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+.info-box { background:white; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.info-label { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.info-box p { font-size:11px; line-height:1.5; margin-bottom:3px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0 3px; }
+.chain-chip { font-size:10.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:13px; }
+.circ-row { font-size:11.5px; line-height:2.4; margin-bottom:3px; }
+.circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:white; }
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
+.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.chips { display:flex; flex-wrap:wrap; gap:4px; }
+.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:white; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.fig { margin:10px 0; text-align:center; }
+.fig-frame { position:relative; display:inline-block; max-width:100%; border:1.5px solid var(--purple-light); border-radius:9px; background:var(--purple-tint); overflow:hidden; box-shadow:0 1px 6px rgba(47,107,94,.12); }
+.fig-frame img { display:block; max-width:100%; object-fit:contain; }
+.fig-ph { display:none; align-items:center; justify-content:center; min-height:118px; padding:16px 20px; font-size:10.5px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
+.fig-ph .ph-ico { font-size:26px; display:block; margin-bottom:5px; }
+.figcap { font-size:9.5px; color:var(--muted); margin-top:5px; font-style:italic; line-height:1.4; }
+.pista { font-size:11px; color:var(--ink-2); font-style:italic; line-height:1.45; margin:3px 0 4px; padding-left:3px; }
+.pista b, .pista strong { color:var(--purple-ink); font-style:normal; }
+@media print {
+  @page { size:A4; margin:10mm 12mm; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { background:white; padding:0; }
+  #toolbar, .page-break-line, .del-btn { display:none !important; }
+  .page-footer-bar { display:flex !important; }
+  .footer { display:none !important; }
+  .page-wrap { box-shadow:none; width:100%; }
+  .header-emoji-box { background:#d0ece6 !important; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline { background:transparent; padding:0; }
+  .fill-cell { background:transparent; outline:none; }
+  .input-span { border-bottom-color:#C8DDD8; }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .nivell-badge-small { background:transparent !important; border-color:#C8DDD8 !important; }
+}
+
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span class="tb-tip">✎ Clica per editar · <strong>Ctrl+B</strong> negreta · <strong>×</strong> rosa elimina · <strong>Ctrl+Z</strong> desfés · <strong>Ctrl+S</strong> desa</span>
+  <div class="tb-sep"></div>
+  <button class="tb-btn tb-undo" id="btn-undo" onclick="undoDelete()">↩ Desfés</button>
+  <button class="tb-btn tb-bold" onclick="document.execCommand('bold')"><b>N</b></button>
+  <button class="tb-btn tb-spacer" onclick="insertSpacer()">＋ Espai</button>
+  <button class="tb-btn tb-save" id="btn-save" onclick="saveDoc()">💾 Desa</button>
+  <button class="tb-btn tb-print" onclick="window.print()">🖨️ Imprimir / PDF</button>
+</div>
+
+<div class="page-wrap" id="doc">
+
+  <div class="header-band deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="header-emoji-col">
+      <div class="header-emoji-box" contenteditable="true">💉</div>
+    </div>
+    <div class="header-main">
+      <div class="header-sa" contenteditable="true">Defensors del cos · Sessió 3 de 5</div>
+      <div class="header-title" contenteditable="true">Vacunes: ciència o mite?</div>
+      <div class="header-subtitle" contenteditable="true">Com funcionen, immunitat de grup i avaluar les fonts</div>
+    </div>
+    <div class="header-right">
+      <div class="logo-box">
+        <img src="../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
+      </div>
+      <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
+    </div>
+  </div>
+
+  <div class="nivell-strip deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <span class="nivell-label deletable" contenteditable="true">Amb suport visual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <span class="temps-badge deletable" contenteditable="true">⏱️ 2h total<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <div class="nom-field deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
+      &nbsp;&nbsp;Data:&nbsp;<span class="input-span data-span" contenteditable="true"></span>
+      &nbsp;<span class="nivell-badge-small" title="Versió C — Adaptació">C</span>
+    </div>
+  </div>
+
+  <div class="oa-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="oa-title">🎯 Objectius d'aprenentatge d'avui (Nivell C)</div>
+    <ul class="oa-list">
+      <li contenteditable="true">Sé que una <strong>vacuna</strong> ensenya el cos a fabricar anticossos sense causar la malaltia.</li>
+      <li contenteditable="true">Sé que la <strong>immunitat de grup</strong> protegeix qui no es pot vacunar si la majoria ho fa.</li>
+      <li contenteditable="true">Sé que cal mirar <strong>qui escriu</strong> i on es publica una notícia per saber si és fiable.</li>
+      <li contenteditable="true">Sé que el mite vacuna-autisme es basava en un estudi de <strong>12 nens</strong>, que és massa poc.</li>
+    </ul>
+  </div>
+
+  <div class="content">
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--muted)">0</div><div><div class="stitle" contenteditable="true">Idees prèvies ⏱️ 5 min</div><div class="sdesc" contenteditable="true">Escriu sense por</div></div></div><div class="divider"></div><div class="previ-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><p>✏️ <strong>1.</strong> Què és exactament una vacuna? Què creus que conté i què li fa al teu cos?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="margin-top:8px">✏️ <strong>2.</strong> Hi ha persones que no es poden vacunar (nadons, persones malaltes). Com creus que es poden protegir, doncs?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--orange)">1</div><div><div class="stitle" contenteditable="true">Observar i avaluar fonts ⏱️ 30 min</div><div class="sdesc" contenteditable="true">Anàlisi crítica de notícies</div></div></div><div class="divider"></div><p style="font-size:11.5px;margin:6px 0 4px">✏️ Après de les plaques (48h). Ha sortit el que esperaves?</p><p class="pista">💡 Compara el que esperaves amb el que ha passat de veritat a les plaques.</p><div class="wline" contenteditable="true"></div><div class="info-box"><div class="info-label">📖 Per llegir</div><p>Per avaluar si una font és fiable, mira: <strong>Qui l'ha escrit</strong> (doctor? anònim?), <strong>on es publica</strong> (revista científica? xarxes?), <strong>quantes persones</strong> han participat a l'estudi i <strong>si hi ha conflicte d'interès</strong> (ven alguna cosa?).</p></div><p style="font-size:11.5px;margin:6px 0 4px">✏️ Llegeix els articles A, B, C. Puntua 0 (no) o 1 (sí) a cada criteri:</p><table class="data-table"><thead><tr><th style="width:46%">Criteri</th><th style="width:18%">Art. A</th><th style="width:18%">Art. B</th><th style="width:18%">Art. C</th></tr></thead><tbody><tr><td class="label-cell">1. L'autor té credencials?</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">2. Publicació científica?</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">3. Esmenta estudis?</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">TOTAL (0–3)</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><div class="callout">💡 <b>Recorda:</b> 12 nens = molt poc per treure conclusions. L'estudi vacuna-autisme tenia solo 12 nens i va ser retirat.</div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--teal)">2</div><div><div class="stitle" contenteditable="true">Com funcionen les vacunes ⏱️ 20 min</div><div class="sdesc" contenteditable="true">Del antigen a la protecció comunitària</div></div></div><div class="divider"></div><div class="info-box"><div class="info-label">📖 Per llegir</div><p>Una <strong>vacuna</strong> introdueix un antigen (debilitat o mort) → el cos fabrica <strong>anticossos</strong> i <strong>cèl·lules de memòria</strong> → quan arriba el patogen real, la resposta és molt ràpida. No causa la malaltia perquè el patogen és inactiu.</p></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s3_com_funciona_vacuna.png" alt="Com funciona una vacuna" style="max-height:175px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Com funciona una vacuna</span></div></div><figcaption class="figcap" contenteditable="true">Vacuna → anticossos i memòria → resposta ràpida.</figcaption></figure><div class="frase-completar">La vacuna introdueix l'<span class="blank blank-m"></span> → el cos crea cèl·lules de <span class="blank blank-m"></span> → quan arriba el patogen real, la resposta és molt més <span class="blank blank-m"></span>.</div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s3_immunitat_grup.png" alt="Immunitat de grup" style="max-height:175px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Immunitat de grup</span></div></div><figcaption class="figcap" contenteditable="true">La persona vulnerable queda protegida si la majoria és immune.</figcaption></figure><div class="circ-row">Immunitat de grup: si molta gent és immune, el patogen <span class="circ-opt">troba</span> / <span class="circ-opt">no troba</span> a qui infectar → l'epidèmia <span class="circ-opt">s'estén</span> / <span class="circ-opt">s'atura</span>.</div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--rose)">3</div><div><div class="stitle" contenteditable="true">Donació d'òrgans i resolució de l'enigma ⏱️ 20 min</div><div class="sdesc" contenteditable="true">Compatibilitat i evidència</div></div></div><div class="divider"></div><div class="info-box"><div class="info-label">📖 Per llegir</div><p>El cos reconeix l'òrgan nou com a 'estrany' pels <strong>antígens HLA</strong> de superfície. Si l'HLA del donant no és similar al del receptor, el sistema immunitari ataca l'òrgan. Per això cal compatibilitat.</p></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s3_donacio_organs.png" alt="Compatibilitat de trasplantament" style="max-height:175px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Compatibilitat de trasplantament</span></div></div><figcaption class="figcap" contenteditable="true">Antígens HLA del donant i receptor.</figcaption></figure><div class="callout"><b>Enigma B (resolució):</b> Estudi vacunes-autisme → <b>12 nens</b> → massa poc. Estudis posteriors → <b>+1.200.000 nens</b> → relació trobada: <b>CAP</b>.</div><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">🔗</div><div class="connexio-text" contenteditable="true"><strong>Enigma B:</strong> Les vacunes causen autisme? Respon amb una frase usant les dades.</div></div><p class="pista">💡 Fes servir les dades: quants nens tenia l'estudi antic i quants en tenien els estudis posteriors?</p><div class="wline" contenteditable="true"></div></div><div class="section deletable" style="margin-top:16px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="exit-box"><div class="exit-title">🎟️ Exit Ticket — Sessió 3 · 5 min</div><div class="deletable" style="margin-top:8px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="exit-q" contenteditable="true"><strong>1.</strong> Encercla: Una vacuna <span class='circ-opt'>A) introdueix la malaltia</span> / <span class='circ-opt'>B) introdueix l'antigen per crear memòria sense la malaltia</span>.</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="deletable" style="margin-top:8px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="exit-q" contenteditable="true"><strong>2.</strong> Per quina raó la persona que no es pot vacunar queda protegida si la majoria ho fa? <span class='circ-opt'>A) Perquè la vacuna del veí la protegeix directament</span> / <span class='circ-opt'>B) Perquè el patogen no troba a qui infectar i no arriba a ella</span></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div></div><div class="section deletable" style="margin-top:14px"><div class="del-btn" onclick="deleteEl(this)">✕</div><p style="font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:6px">🧠 Metacognició — 3 min</p><div class="meta-oa-box deletable" style="margin-bottom:8px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-title">🎯 Torna als objectius — Marca el que has après avui:</div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que una <strong>vacuna</strong> ensenya el cos a fabricar anticossos sense causar la malaltia.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que la <strong>immunitat de grup</strong> protegeix qui no es pot vacunar si la majoria ho fa.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que cal mirar <strong>qui escriu</strong> i on es publica una notícia per saber si és fiable.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que el mite vacuna-autisme es basava en un estudi de <strong>12 nens</strong>, que és massa poc.</div></div></div><div class="meta-grid"><div class="meta-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="meta-icon">❓</span><div class="meta-label">Encara em pregunto...</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="meta-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="meta-icon">⭐</span><div class="meta-label">Puntuació de la sessió</div><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><div style="font-size:9.5px;color:var(--muted);margin-top:4px">Encercla les estrelles que consideres</div></div></div></div><div class="tasca-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-title">📚 Tasca per a casa — Sessió 4</div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">1</div><div contenteditable="true">Pensa en alguna cosa que et canvia el comportament (cafè, ansietat, cansament). A classe explicaràs si creus que és una droga o no.</div></div></div><div class="footer"><div class="footer-l">Defensors del cos · Sessió 3 · Vacunes · IE Temple</div><div class="footer-r">CC BY-NC · Albert Pahissa</div></div>
+  </div><!-- .content -->
+</div><!-- .page-wrap -->
+
+<script>
+const delStack = [];
+function deleteEl(btn) {
+  const target = btn.closest('.deletable');
+  if (!target) return;
+  const parent = target.parentNode;
+  const sibling = target.nextSibling;
+  target.remove();
+  delStack.push({ el:target, parent, sibling });
+  document.getElementById('btn-undo').classList.add('active');
+}
+function undoDelete() {
+  if (!delStack.length) return;
+  const { el, parent, sibling } = delStack.pop();
+  parent.insertBefore(el, sibling);
+  if (!delStack.length) document.getElementById('btn-undo').classList.remove('active');
+  updatePageBreaks();
+}
+document.addEventListener('keydown', e => {
+  if (e.key==='z' && (e.ctrlKey||e.metaKey)) {
+    if (document.activeElement && document.activeElement.contentEditable==='true') return;
+    e.preventDefault(); undoDelete();
+  }
+});
+const PAGE_H = 1047;
+let _pbTimer = null;
+function updatePageBreaks() {
+  const doc = document.getElementById('doc');
+  if (!doc) return;
+  doc.querySelectorAll('.page-break-line,.page-footer-bar').forEach(e=>e.remove());
+  for (let i=1; i<8; i++) {
+    const y = i*PAGE_H;
+    const line = document.createElement('div');
+    line.className='page-break-line';
+    line.style.top=y+'px';
+    const lbl = document.createElement('div');
+    lbl.className='page-break-label';
+    lbl.textContent='Pàgina '+i;
+    line.appendChild(lbl);
+    const bar = document.createElement('div');
+    bar.className='page-footer-bar';
+    bar.style.top=(y-20)+'px';
+    bar.innerHTML='<span>SA3 · S3 · Vacunes · IE Temple · Bio/Geo 3r ESO</span><span>CC BY-NC · Albert Pahissa · Pàg. '+i+'</span>';
+    doc.appendChild(line);
+    doc.appendChild(bar);
+  }
+}
+function insertSpacer() {
+  const sel = window.getSelection();
+  let ref = sel && sel.rangeCount ? sel.getRangeAt(0).startContainer : null;
+  while (ref && ref !== document.getElementById('doc')) {
+    if (ref.classList && ref.classList.contains('section')) break;
+    ref = ref.parentNode;
+  }
+  const spacer = document.createElement('div');
+  spacer.className='spacer-block deletable';
+  spacer.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">espai en blanc</span>';
+  if (ref && ref.classList && ref.classList.contains('section')) {
+    ref.parentNode.insertBefore(spacer, ref.nextSibling);
+  } else {
+    document.querySelector('.content').appendChild(spacer);
+  }
+  setTimeout(updatePageBreaks, 100);
+}
+// ── Desar i recuperar les modificacions (al navegador) ──────────────
+const SAVE_KEY = 'fitxa-sa3:' + (location.pathname.split('/').pop() || document.title);
+function saveDoc(silent){
+  try{
+    const c = document.getElementById('doc').cloneNode(true);
+    c.querySelectorAll('.page-break-line,.page-footer-bar').forEach(e=>e.remove());
+    localStorage.setItem(SAVE_KEY, c.innerHTML);
+    if(!silent) flashSaved();
+  }catch(e){ if(!silent) alert('Aquest navegador no permet desar (prova de no fer servir mode privat).'); }
+}
+function flashSaved(){
+  const b=document.getElementById('btn-save'); if(!b) return;
+  const t=b.innerHTML; b.innerHTML='✓ Desat'; b.classList.add('saved');
+  setTimeout(()=>{ b.innerHTML=t; b.classList.remove('saved'); },1400);
+}
+function restoreDoc(){
+  try{
+    const s=localStorage.getItem(SAVE_KEY);
+    if(s){ document.getElementById('doc').innerHTML=s; }
+  }catch(e){}
+}
+let _saveTimer=null;
+document.addEventListener('input', ()=>{ clearTimeout(_saveTimer); _saveTimer=setTimeout(()=>saveDoc(true),900); });
+document.addEventListener('keydown', e => {
+  if (e.key==='s' && (e.ctrlKey||e.metaKey)) { e.preventDefault(); saveDoc(); }
+});
+const obs = new MutationObserver(()=>{ clearTimeout(_pbTimer); _pbTimer=setTimeout(updatePageBreaks, 250); });
+window.addEventListener('load', ()=>{
+  restoreDoc();
+  obs.observe(document.getElementById('doc'), { childList:true, subtree:true, characterData:true });
+  updatePageBreaks();
+});
+</script>
+</body></html>

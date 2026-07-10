@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SA1 · S1 · Per què ens morim si no mengem ni respirem?</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple:#7B68C8; --purple-ink:#4a3b8c; --purple-light:#c5b8f0; --purple-tint:#f0edfb;
+  --ink:#1A1428; --ink-2:#3a3050; --muted:#7a7090; --surface:#fdfcff;
+  --rule:#e8e2f6; --rule-dark:#c8bfe8;
+  --orange:#e8834a; --orange-tint:#fdf0e8;
+  --teal:#3a9e8c;   --teal-tint:#e6f4f1;
+  --rose:#d44a6c;   --rose-tint:#fce8ed;
+  --yellow:#c8960a; --yellow-tint:#fdf7e2; --yellow-ink:#7a5800;
+  --green:#4a9e5c;  --green-tint:#eaf4ec;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Fira Sans Extra Condensed', sans-serif;
+  background:#b0a8c8;
+  color:var(--ink); font-size:13px; line-height:1.5;
+  padding:52px 20px 60px;
+}
+
+/* ── BARRA ────────────────────────────────────────── */
+#toolbar {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  background:rgba(20,15,40,.93); backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(123,104,200,.35);
+  height:44px; display:flex; align-items:center; gap:10px; padding:0 18px;
+}
+.tb-tip { font-family:'Inter',sans-serif; font-size:11px; color:rgba(190,180,230,.65); flex:1; }
+.tb-tip strong { color:#b8aef0; }
+.tb-sep { width:1px; height:20px; background:rgba(123,104,200,.3); }
+.tb-btn {
+  font-family:'Inter',sans-serif; font-size:12px; font-weight:600;
+  border:none; border-radius:6px; padding:6px 13px; cursor:pointer;
+  transition:opacity .15s; white-space:nowrap;
+}
+.tb-print { background:var(--purple); color:white; }
+.tb-print:hover { opacity:.85; }
+.tb-bold { background:rgba(123,104,200,.2); border:1px solid rgba(123,104,200,.4); color:#c5b8f0; font-size:14px; font-weight:900; padding:4px 11px; }
+.tb-bold:hover { background:rgba(123,104,200,.38); }
+.tb-undo { background:rgba(212,74,108,.2); border:1px solid rgba(212,74,108,.4); color:#f0a0b8; font-size:12px; opacity:.5; transition:opacity .2s; pointer-events:none; }
+.tb-undo.active { opacity:1; pointer-events:auto; }
+.tb-undo.active:hover { background:rgba(212,74,108,.35); }
+.tb-spacer { background:rgba(123,104,200,.2); border:1px solid rgba(123,104,200,.4); color:#c5b8f0; font-size:12px; }
+.tb-spacer:hover { background:rgba(123,104,200,.35); }
+
+/* ── DOCUMENT ─────────────────────────────────────── */
+.page-wrap {
+  width:794px; margin:0 auto;
+  background:var(--surface);
+  box-shadow:0 2px 30px rgba(0,0,0,.22);
+  position:relative;
+}
+
+/* ── INDICADOR DE SALT DE PÀGINA ───────────────────── */
+.page-break-line { position:absolute; left:0; right:0; border-top:2px dashed #9080bc; pointer-events:none; z-index:10; }
+.page-break-label { position:absolute; right:10px; top:-11px; background:#9080bc; color:white; font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
+
+/* ── EDITABLES ────────────────────────────────────── */
+[contenteditable] { outline:none; cursor:text; border-radius:3px; transition:background .12s, box-shadow .12s; }
+[contenteditable]:hover { background:rgba(123,104,200,.08); box-shadow:0 0 0 2px rgba(123,104,200,.3); }
+[contenteditable]:focus { background:rgba(123,104,200,.12); box-shadow:0 0 0 2.5px var(--purple); }
+.header-band [contenteditable]:hover { background:rgba(255,255,255,.15); box-shadow:0 0 0 2px rgba(255,255,255,.3); }
+.header-band [contenteditable]:focus { background:rgba(255,255,255,.2); box-shadow:0 0 0 2.5px #fff; }
+span[contenteditable] { display:inline-block; }
+
+/* ── LÍNIES D'ESCRIPTURA ──────────────────────────── */
+.wline {
+  display:block; width:100%; min-height:32px;
+  background:white; outline:none; padding:4px 4px;
+  border-bottom:1.5px solid #C8C2DD;
+  word-break:break-word; cursor:text; line-height:1.7;
+}
+.wline:focus { border-bottom-color:var(--purple); background:rgba(123,104,200,.04); }
+/* Cap text dins els wlines buits — els requadres d'escriptura han d'estar nets */
+/* Els "inici de frase" (text negre preimprès) s'afegeixen com a contingut HTML, no com a data-hint */
+
+/* ── FRASES A COMPLETAR AMB BLANCS (inline) ─────── */
+/* Regla fonamental: la frase sencera es veu d'una vegada; mai partir-la en dues wlines */
+.frase-completar { font-size:11.5px; line-height:2.4; margin:4px 0 6px; }
+.blank { display:inline-block; border-bottom:1.5px solid #C8C2DD; vertical-align:bottom; margin:0 3px; height:1.1em; }
+.blank-s  { width: 60px; }   /* 3-4 car.: "cor", "ATP" */
+.blank-m  { width:100px; }   /* 5-6 car.: "nucli", "teixit" */
+.blank-l  { width:140px; }   /* 7-9 car.: "glucosa", "membrana" */
+.blank-xl { width:200px; }   /* 10+ car.: "mitocondri", "fotosíntesi" */
+
+/* ── CAMP NOM / DATA: contenteditable, sense text preimprès ─── */
+/* NO usar <input> amb placeholder — el text del placeholder pot confondre l'alumne */
+.nom-field { margin-left:auto; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.input-span {
+  display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark);
+  font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px;
+  font-family:'Fira Sans Extra Condensed',sans-serif; color:var(--ink);
+}
+.input-span.data-span { min-width:65px; }
+.input-span:focus { border-bottom-color:var(--purple); }
+
+/* ── INDICADOR DE NIVELL (petit, per al docent) ──── */
+/* No mostrar "Nivell A/B/C" a la fitxa; només una lletra discreta */
+.nivell-badge-small {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:17px; height:17px; border-radius:50%;
+  background:rgba(123,104,200,.12); border:1px solid var(--purple-light);
+  font-size:9px; font-weight:900; color:var(--purple-ink); flex-shrink:0;
+}
+
+/* ── BOTONS D'ELIMINAR ────────────────────────────── */
+.deletable { position:relative; }
+.del-btn {
+  display:none; position:absolute; top:-8px; right:-8px;
+  width:18px; height:18px; border-radius:50%;
+  background:#d44a6c; color:white; border:none;
+  cursor:pointer; align-items:center; justify-content:center;
+  font-size:12px; font-weight:900; line-height:1; z-index:100;
+  box-shadow:0 1px 4px rgba(0,0,0,.3); transition:background .1s, transform .1s;
+}
+.del-btn:hover { background:#b83054; transform:scale(1.15); }
+.deletable:hover > .del-btn { display:flex; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+.nivell-strip .deletable { display:inline-flex; align-items:center; }
+
+/* ── CAPÇALERA — 3 columnes: emoji (esq.) | contingut (centre) | logo (dreta) ── */
+.header-band {
+  background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%);
+  color:#fff; padding:14px 18px;
+  display:grid; grid-template-columns:72px 1fr 178px;
+  gap:14px; align-items:center;
+  position:relative; overflow:hidden;
+}
+.header-band::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 60% 100% at 110% 50%, rgba(255,255,255,.07) 0%, transparent 70%);
+  pointer-events:none;
+}
+/* Col 1: emoji temàtic en caixa pròpia (esquerra) */
+.header-emoji-col { display:flex; align-items:center; justify-content:center; }
+.header-emoji-box {
+  width:62px; height:62px; border-radius:14px;
+  background:rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.28);
+  display:flex; align-items:center; justify-content:center;
+  font-size:36px; user-select:none; flex-shrink:0;
+}
+/* Col 2: SA, títol, subtítol (centre) */
+.header-main { min-width:0; }
+.header-sa { font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; opacity:.55; margin-bottom:4px; }
+.header-title { font-size:24px; font-weight:900; letter-spacing:-.01em; line-height:1.05; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-style:italic; font-size:13px; opacity:.72; margin-top:4px; }
+/* Col 3: logo + matèria/centre (dreta) */
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:5px; }
+.logo-box {
+  background:rgba(255,255,255,.92); border-radius:7px; padding:5px 6px;
+  display:inline-flex; align-items:center; justify-content:center;
+  box-shadow:0 1px 6px rgba(0,0,0,.18);
+}
+.header-meta { font-size:9.5px; opacity:.52; text-align:right; line-height:1.7; }
+
+/* ── STRIP ────────────────────────────────────────── */
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.nivell-label { font-size:11px; color:var(--muted); font-style:italic; }
+.temps-badge { font-size:10px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
+
+/* ── OBJECTIUS D'APRENENTATGE ─────────────────────── */
+.oa-box {
+  background:linear-gradient(to right,#f5f2ff,var(--surface));
+  border-left:4px solid var(--purple); padding:10px 16px;
+}
+.oa-title { font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:6px; }
+.oa-list { list-style:none; padding:0; margin:0; }
+.oa-list li { font-size:11.5px; padding:3px 0 3px 22px; position:relative; line-height:1.4; border-bottom:1px dashed var(--rule); }
+.oa-list li:last-child { border-bottom:none; }
+.oa-list li::before { content:'○'; position:absolute; left:4px; top:3px; font-size:11px; color:var(--purple-light); }
+
+/* ── METACOGNICIÓ OA ─────────────────────────────── */
+.meta-oa-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-oa-title { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; font-size:11px; margin-bottom:4px; padding:2px 0; }
+.meta-oa-item:last-child { margin-bottom:0; }
+.meta-oa-check { width:16px; height:16px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; margin-top:1px; }
+.meta-oa-text { flex:1; line-height:1.35; }
+
+/* ── FRANJA D'IMATGES: escala de la vida ─────────── */
+.img-strip { display:flex; gap:4px; justify-content:center; align-items:flex-end; margin:8px 0 4px; }
+.img-strip figure { text-align:center; margin:0; flex:0 0 auto; }
+.img-strip figcaption { font-size:8.5px; font-weight:700; color:var(--ink-2); margin-top:4px; text-transform:uppercase; letter-spacing:.03em; }
+.img-arrow { font-size:12px; color:var(--muted); align-self:center; padding-bottom:16px; }
+.img-arrow-star { font-size:13px; color:var(--orange); font-weight:900; align-self:center; padding-bottom:16px; }
+
+/* ── SECCIONS ─────────────────────────────────────── */
+.content { padding:14px 24px 24px; }
+.section { margin-top:14px; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:10.5px; color:var(--ink-2); font-style:italic; font-family:'Crimson Pro',serif; }
+.temps { font-size:10px; color:var(--purple-ink); font-weight:700; margin-left:4px; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
+.previ-box p { font-size:12px; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-icon { font-size:24px; flex-shrink:0; }
+.connexio-text { font-size:11px; line-height:1.4; }
+.connexio-text strong { color:var(--purple-ink); }
+.hipotesi-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin-bottom:10px; }
+.hipotesi-box p { font-size:12px; font-weight:700; color:var(--purple-ink); margin-bottom:4px; }
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow-ink); margin-bottom:2px; }
+.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+
+/* ── CAIXA DE DIBUIX (idees prèvies) ──────────────── */
+.draw-box { border:2px dashed var(--purple-light); border-radius:10px; background:#fff; min-height:150px; display:flex; align-items:flex-start; justify-content:flex-start; padding:8px 10px; }
+.draw-label { font-size:9px; color:var(--purple-light); letter-spacing:.1em; text-transform:uppercase; font-family:'Inter',sans-serif; }
+
+/* ── TAULES ───────────────────────────────────────── */
+.data-table { width:100%; border-collapse:collapse; font-size:11px; margin-bottom:10px; }
+.data-table th { background:var(--purple-ink); color:white; padding:6px 9px; text-align:left; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table th:first-child { border-radius:5px 0 0 0; }
+.data-table th:last-child { border-radius:0 5px 0 0; }
+.data-table th small { font-size:8.5px; font-weight:400; letter-spacing:0; text-transform:none; opacity:.75; display:block; margin-top:1px; }
+.data-table td { padding:5px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table tr:nth-child(even) td { background:var(--purple-tint); }
+.icon-cell { font-size:16px; text-align:center; width:32px; }
+.fill-cell { display:block; width:100%; min-height:22px; outline:none; padding:2px 3px; word-break:break-word; cursor:text; }
+.fill-cell:focus { background:rgba(123,104,200,.08); outline:1px solid var(--purple-light); border-radius:2px; }
+.label-cell { font-size:11px; font-weight:700; color:var(--ink-2); }
+
+/* ── PLACEHOLDER IMATGE ───────────────────────────── */
+.img-placeholder { border:2px dashed var(--purple-light); border-radius:8px; background:var(--purple-tint); min-height:120px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--muted); font-size:13px; padding:16px; margin:12px 0; position:relative; }
+.img-placeholder-inner { line-height:1.6; }
+
+/* ── EXPLORE / EXIT TICKET ────────────────────────── */
+.explore-q { display:flex; gap:8px; margin-bottom:10px; align-items:flex-start; }
+.explore-qnum { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--orange); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.explore-qtext { font-size:11.5px; flex:1; }
+.exit-box { background:#EFEAF5; border:2px solid #5a4aa0; border-radius:10px; padding:12px 14px; }
+.exit-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:#5a4aa0; margin-bottom:8px; }
+.exit-q { font-size:11px; margin-bottom:4px; line-height:1.4; }
+.exit-opts { display:grid; grid-template-columns:repeat(2,1fr); gap:3px; margin:3px 0 6px; }
+.exit-opt { display:flex; align-items:center; gap:5px; font-size:10.5px; }
+.chk { width:12px; height:12px; border:1.5px solid #5a4aa0; border-radius:3px; flex-shrink:0; background:white; }
+
+/* ── METACOGNICIÓ ─────────────────────────────────── */
+.meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+.meta-item { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-icon { font-size:18px; display:block; margin-bottom:3px; }
+.meta-label { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px; }
+.stars { display:flex; gap:4px; margin-top:4px; }
+.star { font-size:18px; color:#9080bc; cursor:default; }
+
+/* ── TASCA PER A CASA ─────────────────────────────── */
+.tasca-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:10px 14px; margin-top:12px; }
+.tasca-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:6px; font-size:11px; }
+.tasca-item:last-child { margin-bottom:0; }
+.tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
+
+/* ── BLOC ESPAI ───────────────────────────────────── */
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(123,104,200,.05) 6px, rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
+.spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+
+/* ── PEU DE PÀGINA ────────────────────────────────── */
+.page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:0.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
+
+.small { font-size:10px; color:var(--muted); }
+.mt8 { margin-top:8px; }
+.footer { margin-top:12px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
+.footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+
+/* ── IMPRESSIÓ ────────────────────────────────────── */
+@media print {
+  @page { size:A4; margin:10mm 12mm; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { background:white; padding:0; }
+  #toolbar, .page-break-line, .del-btn { display:none !important; }
+  .page-footer-bar { display:flex !important; }
+  .footer { display:none !important; }
+  .page-wrap { box-shadow:none; width:100%; }
+  .header-emoji-box { background:#ede8f8 !important; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline { background:transparent; padding:0; }
+  .fill-cell { background:transparent; outline:none; }
+  .input-span { border-bottom-color:#C8C2DD; }
+  .img-placeholder { -webkit-print-color-adjust:exact; }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .nivell-badge-small { background:transparent !important; border-color:#C8C2DD !important; }
+}
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span class="tb-tip">✎ Clica per editar · <strong>Ctrl+B</strong> negreta · <strong>×</strong> rosa elimina · <strong>Ctrl+Z</strong> desfés</span>
+  <div class="tb-sep"></div>
+  <button class="tb-btn tb-undo" id="btn-undo" onclick="undoDelete()">↩ Desfer eliminació</button>
+  <button class="tb-btn tb-bold" onclick="document.execCommand('bold')"><b>N</b></button>
+  <button class="tb-btn tb-spacer" onclick="insertSpacer()" title="Insereix un bloc d'espai en blanc per ajustar la paginació">＋ Espai</button>
+  <button class="tb-btn tb-print" onclick="window.print()">🖨️ Imprimir / PDF</button>
+  <button class="tb-btn tb-desa" onclick="desaFitxa()" title="Desa els canvis al fitxer (Ctrl+S)">💾 Desa</button>
+</div>
+
+<div class="page-wrap" id="doc">
+
+  <!-- ── CAPÇALERA: emoji (esquerra) | SA+títol+subtítol (centre) | logo (dreta) ── -->
+  <div class="header-band deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+
+    <!-- Col 1: emoji temàtic (esquerra) -->
+    <div class="header-emoji-col">
+      <div class="header-emoji-box" contenteditable="true">🍎</div>
+    </div>
+
+    <!-- Col 2: SA, títol, subtítol (centre) -->
+    <div class="header-main">
+      <div class="header-sa" contenteditable="true">SA1 · La cèl·lula viva · Sessió 1 de 4</div>
+      <div class="header-title" contenteditable="true">Per què ens morim si no mengem ni respirem?</div>
+      <div class="header-subtitle" contenteditable="true">La cèl·lula: la cosa viva més petita, i necessita menjar i aire</div>
+    </div>
+
+    <!-- Col 3: logo + matèria/centre (dreta) -->
+    <div class="header-right">
+      <div class="logo-box">
+        <img src="../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
+      </div>
+      <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
+    </div>
+  </div>
+
+  <!-- ── Strip: nivell descriptiu + temps + nom/data + lletra de nivell per al docent ── -->
+  <div class="nivell-strip deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <span class="nivell-label deletable" contenteditable="true">Autònom<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <span class="temps-badge deletable" contenteditable="true">⏱️ 2h total<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <div class="nom-field deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
+      &nbsp;&nbsp;Data:&nbsp;<span class="input-span data-span" contenteditable="true"></span>
+      <!-- Indicador discret: només el docent sap que "C" = Adaptació -->
+      &nbsp;<span class="nivell-badge-small" title="Versió A — Ampliació">A</span>
+    </div>
+  </div>
+
+  <!-- ── OBJECTIUS D'APRENENTATGE (es revisaran a la metacognició) ── -->
+  <div class="oa-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="oa-title">🎯 Objectius d'aprenentatge d'avui</div>
+    <ul class="oa-list">
+      <li contenteditable="true">Justifico per què la <strong>cèl·lula</strong> és la primera estructura considerada "viva", i no l'orgànul ni la molècula.</li>
+      <li contenteditable="true">Explico, en termes de <strong>flux d'energia</strong>, per què un heteròtrof ha de menjar i un autòtrof no (fotosíntesi vs. respiració).</li>
+      <li contenteditable="true">Raono com un defecte al <strong>mitocondri</strong> afectaria tota la cèl·lula i quins teixits ho notarien més.</li>
+      <li contenteditable="true">Valoro què implica que el mitocondri fos un bacteri lliure (<strong>Margulis</strong>): el model de cèl·lula és revisable.</li>
+    </ul>
+  </div>
+
+  <div class="content">
+
+    <!-- ── Secció 0: Idees prèvies ── -->
+    <div class="section deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="section-header">
+        <div class="snum" style="background:var(--muted)">0</div>
+        <div>
+          <div class="stitle">Idees prèvies <span class="temps deletable" contenteditable="true">⏱️ 5 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="sdesc" contenteditable="true">Activa el que ja saps — no hi ha respostes dolentes</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="previ-box">
+        <p>✏️ <span contenteditable="true"><strong>1.</strong> Dibuixa una cosa viva molt petita del teu cos (per exemple, una cèl·lula). Com creus que és?</span></p>
+        <div class="draw-box deletable" style="margin-top:6px">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <span class="draw-label">✏️ dibuixa aquí</span>
+        </div>
+
+        <p style="margin-top:10px">✏️ <span contenteditable="true"><strong>2.</strong> Què necessita aquesta cosa viva per seguir viva? Formula una <strong>hipòtesi</strong> i justifica-la.</span></p>
+        <div class="wline" contenteditable="true"></div>
+        <div class="wline" contenteditable="true"></div>
+
+        <p style="margin-top:8px">✏️ <span contenteditable="true"><strong>3.</strong> Pots aguantar setmanes sense menjar, però només uns minuts sense respirar. Per què? Relaciona-ho amb el que necessita una cèl·lula <em>en cada moment</em>.</span></p>
+        <div class="wline" contenteditable="true"></div>
+        <div class="wline" contenteditable="true"></div>
+      </div>
+
+      <div class="connexio-box mt8 deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="connexio-icon">🔗</div>
+        <div class="connexio-text" contenteditable="true"><strong>Punt de partida de la SA:</strong> Avui no estudiem "totes les parts" de la cèl·lula. Estudiem una pregunta: <em>per què el teu cos necessita menjar i aire</em>. La resposta està dins de cada cèl·lula. Anota sense por: les idees prèvies incorrectes <em>no resten puntuació</em>.</div>
+      </div>
+    </div>
+
+    <!-- ── Secció 1: Explore ── -->
+    <div class="section deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="section-header">
+        <div class="snum" style="background:var(--orange)">1</div>
+        <div>
+          <div class="stitle" contenteditable="true">Explore: mira dins la cèl·lula <span class="temps deletable" contenteditable="true">⏱️ 25 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="sdesc" contenteditable="true">Obre la web de Biologia i Geologia i busca on passa cada cosa</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="hipotesi-box deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <p>🤔 <span contenteditable="true">Abans de mirar, fes una <strong>predicció raonada</strong>: on es "crema" el menjar i l'aire per fer energia? I per on entren i surten les substàncies? Per què ho creus?</span></p>
+        <div class="wline" contenteditable="true"></div>
+      </div>
+
+      <p style="font-size:11.5px;color:var(--ink-2);margin-bottom:8px" contenteditable="true">Explora la cèl·lula a la web. Per a cada part, no només diguis <em>què fa</em>, sinó <strong>per què és imprescindible</strong> per estar viu:</p>
+
+      <!-- Pregunta 1: mitocondri — raonament obert -->
+      <div class="explore-q deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="explore-qnum">1</div>
+        <div class="explore-qtext">
+          <span contenteditable="true">Busca el <strong>mitocondri</strong>. Explica què hi entra, què en surt i per què la cèl·lula no podria viure sense ell.</span>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
+        </div>
+      </div>
+
+      <!-- Pregunta 2: membrana — raonament obert -->
+      <div class="explore-q deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="explore-qnum">2</div>
+        <div class="explore-qtext">
+          <span contenteditable="true">Busca la <strong>membrana</strong>. Què passaria si deixés entrar i sortir <em>qualsevol</em> substància sense control? Justifica-ho.</span>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
+        </div>
+      </div>
+
+      <!-- Pregunta 3: nucli — raonament obert -->
+      <div class="explore-q deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="explore-qnum">3</div>
+        <div class="explore-qtext">
+          <span contenteditable="true">Busca el <strong>nucli</strong>. Si totes les cèl·lules d'un cos guarden el <em>mateix</em> ADN, com pot ser que una de la pell i una del múscul siguin tan diferents?</span>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
+        </div>
+      </div>
+
+      <!-- Moment epistèmic: Margulis (dona a la ciència + provisionalitat) -->
+      <div class="epist-box deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div style="font-size:22px;flex-shrink:0">🔬</div>
+        <div>
+          <div class="epist-title" contenteditable="true">Moment epistèmic — el model de cèl·lula ha canviat</div>
+          <div class="epist-text" contenteditable="true">La científica <strong>Lynn Margulis</strong> va proposar que, fa molts milions d'anys, el <strong>mitocondri</strong> era un bacteri lliure que va passar a viure dins d'una cèl·lula. Durant anys ningú la va creure. Avui sabem que tenia raó.</div>
+          <p style="font-size:10.5px;color:var(--yellow-ink);font-weight:700;margin:5px 0 5px" contenteditable="true">💡 Pensa-hi: si el mitocondri va ser un bacteri independent, què ens diu això sobre si el "model de cèl·lula" és una veritat tancada o una idea que encara pot canviar? Argumenta-ho.</p>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Secció 2: La cèl·lula, unitat viva ── -->
+    <div class="section deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="section-header">
+        <div class="snum" style="background:var(--teal)">2</div>
+        <div>
+          <div class="stitle" contenteditable="true">La cèl·lula necessita menjar i respirar <span class="temps deletable" contenteditable="true">⏱️ 20 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="sdesc" contenteditable="true">La cosa viva més petita: per estar viva ha d'aconseguir matèria i energia</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <p style="font-size:11.5px;color:var(--ink-2);margin-bottom:8px" contenteditable="true">La <strong>cèl·lula</strong> és la cosa viva més petita. Tot el teu cos n'està fet. Per seguir <em>viva</em>, cada cèl·lula necessita <strong>matèria</strong> (per construir-se i reparar-se) i <strong>energia</strong> (per funcionar). D'aquí ve la resposta a la pregunta del títol:</p>
+
+      <!-- Escala completa dels nivells d'organització: àtom → biosfera. La cèl·lula és el 1r nivell viu -->
+      <div class="img-strip deletable" style="flex-wrap:wrap">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <figure>
+          <span style="font-size:32px;display:flex;align-items:center;justify-content:center;height:50px">⚛️</span>
+          <figcaption>Àtom</figcaption>
+        </figure>
+        <div class="img-arrow">→</div>
+        <figure>
+          <span style="font-size:32px;display:flex;align-items:center;justify-content:center;height:50px">🧬</span>
+          <figcaption>Molècula</figcaption>
+        </figure>
+        <div class="img-arrow-star">→ ⭐</div>
+        <figure>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Simple_diagram_of_animal_cell_%28en%29.svg/120px-Simple_diagram_of_animal_cell_%28en%29.svg.png"
+               alt="Cèl·lula" style="height:50px;width:auto;display:block;margin:0 auto"
+               onerror="this.style.display='none'">
+          <figcaption style="color:var(--orange);font-weight:900">⭐ Cèl·lula = 1r nivell viu</figcaption>
+        </figure>
+        <div class="img-arrow">→</div>
+        <figure>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Skeletal_muscle_-_longitudinal_section.jpg/120px-Skeletal_muscle_-_longitudinal_section.jpg"
+               alt="Teixit" style="height:42px;width:auto;display:block;margin:0 auto;border-radius:3px"
+               onerror="this.style.display='none'">
+          <figcaption>Teixit</figcaption>
+        </figure>
+        <div class="img-arrow">→</div>
+        <figure>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Heart_diagram-en.svg/120px-Heart_diagram-en.svg.png"
+               alt="Òrgan" style="height:42px;width:auto;display:block;margin:0 auto"
+               onerror="this.style.display='none'">
+          <figcaption>Òrgan</figcaption>
+        </figure>
+        <div class="img-arrow">→</div>
+        <figure>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Human_body_silhouette.svg/120px-Human_body_silhouette.svg.png"
+               alt="Organisme" style="height:42px;width:auto;display:block;margin:0 auto"
+               onerror="this.style.display='none'">
+          <figcaption>Organisme</figcaption>
+        </figure>
+        <div class="img-arrow">→</div>
+        <figure>
+          <span style="font-size:32px;display:flex;align-items:center;justify-content:center;height:50px">🏞️</span>
+          <figcaption>Ecosistema</figcaption>
+        </figure>
+        <div class="img-arrow">→</div>
+        <figure>
+          <span style="font-size:32px;display:flex;align-items:center;justify-content:center;height:50px">🌍</span>
+          <figcaption>Biosfera</figcaption>
+        </figure>
+      </div>
+      <p style="font-size:8px;color:var(--muted);text-align:center;margin-bottom:10px;font-style:italic">Imatges: Wikimedia Commons — CC BY-SA</p>
+
+      <!-- Infografia completa dels nivells d'organització de la vida -->
+      <figure class="deletable" style="margin:6px 0 12px;text-align:center;position:relative">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <img src="../imatges_material_grafic/nivells_organitzacio_vida.png"
+             alt="Els nivells d'organització de la vida: de l'àtom a l'organisme"
+             style="max-width:100%;height:auto;border:1px solid var(--rule);border-radius:6px"
+             onerror="this.style.display='none'">
+        <figcaption style="font-size:10px;color:var(--ink-2);margin-top:4px" contenteditable="true">Els nivells d'organització de la vida: <strong>de l'àtom a l'organisme</strong>. Cada nivell està format pel nivell anterior.</figcaption>
+      </figure>
+
+      <div class="connexio-box deletable" style="background:var(--teal-tint);border-color:#8cc8be">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="connexio-icon">⚡</div>
+        <div class="connexio-text" contenteditable="true"><strong>La respiració cel·lular:</strong> dins el mitocondri, el menjar (<strong>glucosa</strong>) es combina amb l'<strong>oxigen</strong> de l'aire i s'allibera <strong>energia</strong>. Per això <em>mengem</em> (per la glucosa) i <em>respirem</em> (per l'oxigen). Sense una de les dues coses, la cèl·lula es queda sense energia i mor.</div>
+      </div>
+
+      <p style="font-size:11.5px;margin-top:8px" contenteditable="true">✏️ <strong>Flux d'energia:</strong> explica per què un <em>heteròtrof</em> (com tu) ha de menjar altres éssers vius, mentre que un <em>autòtrof</em> (una planta) no. D'on treu l'energia cadascú i com la transforma?</p>
+      <div class="wline" contenteditable="true"></div>
+      <div class="wline" contenteditable="true"></div>
+
+      <div class="connexio-box deletable" style="background:var(--green-tint);border-color:#90c898">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="connexio-icon">🌿</div>
+        <div class="connexio-text" contenteditable="true"><strong>I les plantes?</strong> Les plantes no mengen: fabriquen el seu propi aliment amb la llum del sol. Aquest procés es diu <strong>fotosíntesi</strong>. Per això les plantes són <em>autòtrofes</em> ("es fan el menjar elles mateixes") i els animals som <em>heteròtrofs</em> ("hem de menjar altres éssers vius").</div>
+      </div>
+    </div>
+
+    <!-- ── Secció 3: Les 3 parts clau ── -->
+    <div class="section deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="section-header">
+        <div class="snum" style="background:var(--rose)">3</div>
+        <div>
+          <div class="stitle" contenteditable="true">Les 3 parts clau de la cèl·lula <span class="temps deletable" contenteditable="true">⏱️ 20 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="sdesc" contenteditable="true">Només tres, però cada una és essencial per estar viva</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <figure class="deletable" style="margin:8px 0 12px;text-align:center;position:relative">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <img src="../imatges_material_grafic/celula_animal_etiquetable.png"
+             alt="Cèl·lula amb les seves parts"
+             style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
+             onerror="this.style.display='none'">
+        <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">Cèl·lula — localitza la membrana, el nucli i el mitocondri</figcaption>
+      </figure>
+
+      <p style="font-size:11px;color:var(--muted);margin-bottom:8px;font-style:italic" contenteditable="true">✏️ A la columna de la dreta, escriu la funció de cada part i <strong>què deixaria de funcionar a la cèl·lula si li faltés</strong>.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:28px"></th>
+            <th>Part</th>
+            <th>Què fa? <small>(explica-ho amb les teves paraules)</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="deletable">
+            <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="icon-cell">🛡️</span></td>
+            <td class="label-cell">Membrana</td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+          </tr>
+          <tr class="deletable">
+            <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="icon-cell">🔵</span></td>
+            <td class="label-cell">Nucli</td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+          </tr>
+          <tr class="deletable">
+            <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="icon-cell">⚡</span></td>
+            <td class="label-cell">Mitocondri</td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pregunta causal central (substitueix "descriu el mitocondri") -->
+      <div class="hipotesi-box deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <p>🧠 <span contenteditable="true">Pregunta per pensar: imagina una persona amb un <strong>defecte als mitocondris</strong>. Quins teixits ho notarien primer i més fort (múscul, cervell, pell...)? Per què? <em>Pista — pensa quins òrgans estudiarem a la SA2 i quant treballen.</em></span></p>
+        <div class="wline" contenteditable="true"></div>
+        <div class="wline" contenteditable="true"></div>
+      </div>
+    </div>
+
+    <!-- Exit ticket: full independent -> exit_ticket_s1_VISUAL.html (regla "exit ticket separat"; abans incrustat aqui) -->
+
+    <!-- ── METACOGNICIÓ — revisió dels objectius d'aprenentatge ── -->
+    <div class="section deletable" style="margin-top:14px">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <p style="font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:6px">🧠 Metacognició — 3 min</p>
+
+      <!-- Revisió OA: les mateixes frases que al principi — ara l'alumne les marca -->
+      <div class="meta-oa-box deletable" style="margin-bottom:8px">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="meta-oa-title">🎯 Torna als objectius del principi — Marca el que has après avui:</div>
+        <div class="meta-oa-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="meta-oa-check"></div>
+          <div class="meta-oa-text" contenteditable="true">Justifico per què la cèl·lula és la primera estructura considerada "viva", i no l'orgànul ni la molècula.</div>
+        </div>
+        <div class="meta-oa-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="meta-oa-check"></div>
+          <div class="meta-oa-text" contenteditable="true">Explico, en termes de flux d'energia, per què un heteròtrof ha de menjar i un autòtrof no.</div>
+        </div>
+        <div class="meta-oa-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="meta-oa-check"></div>
+          <div class="meta-oa-text" contenteditable="true">Raono com un defecte al mitocondri afectaria tota la cèl·lula i quins teixits ho notarien més.</div>
+        </div>
+        <div class="meta-oa-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="meta-oa-check"></div>
+          <div class="meta-oa-text" contenteditable="true">Valoro què implica que el mitocondri fos un bacteri lliure (Margulis): el model de cèl·lula és revisable.</div>
+        </div>
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <span class="meta-icon">❓</span>
+          <div class="meta-label">Encara em pregunto...</div>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
+        </div>
+        <div class="meta-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <span class="meta-icon">⭐</span>
+          <div class="meta-label">Puntuació de la sessió</div>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <div style="font-size:9.5px;color:var(--muted);margin-top:4px">Encercla les estrelles que consideres</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TASCA PER A CASA ── -->
+    <div class="tasca-box deletable" style="margin-top:14px">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="tasca-title">📚 Tasca per a casa — per a la Sessió 2</div>
+      <div class="tasca-item deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="tasca-num">1</div>
+        <div contenteditable="true"><strong>🎨 Dibuix de memòria:</strong> Sense mirar cap apunt, dibuixa una cèl·lula amb les <strong>3 parts</strong> (membrana, nucli, mitocondri) i escriu què fa cada una. A S2 ho compararàs amb el dibuix d'avui.</div>
+      </div>
+      <div class="tasca-item deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="tasca-num">2</div>
+        <div contenteditable="true"><strong>🥚 Experiment de l'ou (preparació S2):</strong> Posa un ou sencer <em>amb closca</em> dins un got alt amb <strong>vinagre blanc</strong>. Tapa'l i deixa'l 48 hores. Anota els canvis: just en posar-lo, al cap d'1h i al cap de 24h.</div>
+      </div>
+      <div class="tasca-item deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="tasca-num">3</div>
+        <div contenteditable="true"><strong>🏗️ Representa els nivells d'organització (llarg termini — entrega S2):</strong> Prepara una manera d'explicar els 10 nivells (àtom → biosfera). Tu tries el format: maqueta, llibreta de cartulines, pòster, còmic... El que vulguis! Tens una fitxa-bastida per planificar-ho.</div>
+      </div>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <div class="footer">
+      <div class="footer-l">SA1 · La cèl·lula viva · Sessió 1 · IE Temple · Biologia i Geologia 3r ESO</div>
+      <div class="footer-r">©2025–2026</div>
+    </div>
+
+  </div><!-- .content -->
+</div><!-- .page-wrap -->
+
+<script>
+const delStack = [];
+function deleteEl(btn) {
+  const target = btn.closest('.deletable');
+  if (!target) return;
+  const parent = target.parentNode;
+  const sibling = target.nextSibling;
+  target.remove();
+  delStack.push({ el:target, parent, sibling });
+  document.getElementById('btn-undo').classList.add('active');
+}
+function undoDelete() {
+  if (!delStack.length) return;
+  const { el, parent, sibling } = delStack.pop();
+  parent.insertBefore(el, sibling);
+  if (!delStack.length) document.getElementById('btn-undo').classList.remove('active');
+  updatePageBreaks();
+}
+document.addEventListener('keydown', e => {
+  if (e.key==='z' && (e.ctrlKey||e.metaKey)) {
+    if (document.activeElement && document.activeElement.contentEditable==='true') return;
+    e.preventDefault(); undoDelete();
+  }
+});
+
+const PAGE_H = 1047;
+let _pbTimer = null;
+const PB_OPTS = { childList:true, subtree:true, characterData:true, attributes:false };
+function updatePageBreaks() {
+  pbObserver.disconnect();
+  const doc = document.getElementById('doc');
+  doc.querySelectorAll('.page-break-line').forEach(n=>n.remove());
+  doc.querySelectorAll('.page-footer-bar').forEach(n=>n.remove());
+  const total = doc.scrollHeight;
+  const numPages = Math.ceil(total/PAGE_H);
+  for (let p=1; p*PAGE_H<total; p++) {
+    const line=document.createElement('div'); line.className='page-break-line'; line.style.top=(p*PAGE_H)+'px';
+    const label=document.createElement('div'); label.className='page-break-label'; label.textContent='Pàgina '+(p+1);
+    line.appendChild(label); doc.appendChild(line);
+  }
+  for (let p=1; p<=numPages; p++) {
+    const bar=document.createElement('div'); bar.className='page-footer-bar'; bar.style.top=(p*PAGE_H-22)+'px';
+    bar.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span>'+p+' / '+numPages+'</span>';
+    doc.appendChild(bar);
+  }
+  pbObserver.observe(document.getElementById('doc'), PB_OPTS);
+}
+function schedulePageBreaks() { clearTimeout(_pbTimer); _pbTimer=setTimeout(updatePageBreaks,350); }
+window.addEventListener('load', updatePageBreaks);
+const pbObserver = new MutationObserver(schedulePageBreaks);
+pbObserver.observe(document.getElementById('doc'), PB_OPTS);
+
+let _lastClickedBlock = null;
+document.addEventListen

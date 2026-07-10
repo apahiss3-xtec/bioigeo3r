@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S2 · El Sistema Digestiu — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple:       #7B68C8;
+  --purple-ink:   #4a3b8c;
+  --purple-light: #c5b8f0;
+  --purple-tint:  #f0edfb;
+  --ink:          #1A1428;
+  --ink-2:        #3a3050;
+  --muted:        #7a7090;
+  --surface:      #fdfcff;
+  --rule:         #e8e2f6;
+  --rule-dark:    #c8bfe8;
+  --orange:  #e8834a; --orange-tint:  #fdf0e8;
+  --teal:    #3a9e8c; --teal-tint:    #e6f4f1;
+  --rose:    #d44a6c; --rose-tint:    #fce8ed;
+  --yellow:  #c8960a; --yellow-tint:  #fdf7e2;
+  --green:   #4a9e5c; --green-tint:   #eaf4ec;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:13px; line-height:1.5; }
+
+/* ── TOOLBAR ── */
+#toolbar {
+  position:fixed; top:0; left:0; right:0; z-index:9000;
+  background:#2d2347; display:flex; gap:6px; align-items:center;
+  padding:6px 12px; box-shadow:0 2px 10px rgba(0,0,0,.25);
+}
+.tb-btn {
+  font-family:'Inter',sans-serif; font-size:12px; font-weight:600;
+  color:#fff; background:rgba(255,255,255,.12); border:none; cursor:pointer;
+  padding:6px 11px; border-radius:7px;
+}
+.tb-btn:hover { background:rgba(255,255,255,.24); }
+.tb-btn.active { background:var(--purple); }
+.tb-title { font-family:'Inter',sans-serif; font-size:11px; color:#cfc6ec; margin-left:auto; letter-spacing:.04em; }
+
+.page-wrap { max-width:794px; margin:48px auto 30px; background:var(--surface); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.14); }
+#doc { position:relative; }
+
+/* ── CAPÇALERA ── */
+.header-band {
+  background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%);
+  color:#fff; padding:14px 18px 12px;
+  display:grid; grid-template-columns:56px 1fr auto; gap:0 14px; align-items:center;
+  position:relative;
+}
+.header-emoji-box { width:50px; height:50px; background:rgba(255,255,255,.18); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+.header-center { min-width:0; }
+.header-sa { font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; opacity:.75; margin-bottom:2px; }
+.header-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:30px; font-weight:900; line-height:1.05; color:#fff; margin:0; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-size:13px; font-style:italic; opacity:.85; margin-top:2px; }
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:6px; flex-shrink:0; }
+.logo-box img { height:46px; display:block; }
+.header-meta { font-family:'Inter',sans-serif; font-size:8px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; opacity:.8; text-align:right; line-height:1.4; }
+
+/* ── STRIP NIVELL ── */
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:6px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
+.badge { font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
+.temps-badge { font-size:10px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
+.nom-field { font-size:11px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
+.nom-field:first-of-type { margin-left:auto; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
+.input-span.data-span { min-width:70px; }
+.input-span:empty::before { content:attr(data-hint); color:#c0b8d8; font-style:italic; pointer-events:none; font-size:10px; }
+.nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(123,104,200,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); vertical-align:middle; margin-left:4px; flex-shrink:0; }
+
+/* ── OA BOX ── */
+.oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin:12px 18px 4px; position:relative; }
+.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:13px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:6px; }
+.oa-list { margin:0; padding-left:18px; list-style:none; }
+.oa-list li { font-size:11px; line-height:1.5; color:var(--ink-2); margin-bottom:3px; padding-left:4px; }
+.oa-list li::before { content:"□ "; color:var(--purple); font-weight:700; margin-left:-18px; margin-right:4px; }
+
+/* ── CONTINGUT ── */
+.content { padding:4px 18px 14px; }
+.section { margin-top:15px; position:relative; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.snum.n0 { background:var(--muted); } .snum.n1 { background:var(--orange); } .snum.n2 { background:var(--teal); }
+.snum.n3 { background:var(--rose); } .snum.n4 { background:var(--yellow); } .snum.n5 { background:var(--green); }
+.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:10px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+
+/* ── BLOCS ── */
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
+.previ-box p { font-size:12px; }
+.wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:6px; background:#fff; outline:none; }
+.pista { font-size:10px; color:var(--muted); font-style:italic; margin:4px 0 2px; }
+.card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:10px 12px; margin-bottom:8px; }
+.card.orange { border-color:var(--orange); background:var(--orange-tint); }
+.card.teal { border-color:var(--teal); background:var(--teal-tint); }
+.card.rose { border-color:var(--rose); background:var(--rose-tint); }
+.card.yellow { border-color:var(--yellow); background:var(--yellow-tint); }
+.card-label { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+
+/* ── DIAGRAMA ── */
+.diagram-layout { display:grid; grid-template-columns:230px 1fr; gap:18px; align-items:start; margin:10px 0 12px; }
+.diagram-img-wrap img { width:100%; border-radius:6px; border:1px solid var(--rule); display:block; }
+.diagram-caption { font-size:9px; color:var(--muted); font-style:italic; text-align:center; margin-top:3px; line-height:1.3; }
+
+/* ── TAULES ── */
+.label-table, .data-table { width:100%; border-collapse:collapse; font-size:11px; }
+.label-table th, .data-table th { background:var(--purple-ink); color:#fff; padding:5px 8px; text-align:left; font-size:9px; letter-spacing:.05em; text-transform:uppercase; }
+.label-table th:first-child, .data-table th:first-child { border-radius:5px 0 0 0; }
+.label-table th:last-child, .data-table th:last-child { border-radius:0 5px 0 0; }
+.label-table td, .data-table td { padding:5px 8px; border-bottom:1px solid var(--rule); vertical-align:top; }
+.label-table tr:nth-child(even) td, .data-table tr:nth-child(even) td { background:var(--purple-tint); }
+.num-cell { width:26px; text-align:center; font-weight:900; color:var(--purple-ink); font-size:13px; }
+.fill-cell { display:block; border-bottom:1.5px solid #C8C2DD; min-height:24px; background:#fff; outline:none; }
+.hint-cell { font-size:10px; color:var(--muted); }
+
+/* ── WORD BANK ── */
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
+.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.chips { display:flex; flex-wrap:wrap; gap:4px; }
+.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+
+/* ── MODELITZACIÓ ── */
+.model-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:6px 0; }
+.model-col { border-radius:8px; padding:8px 10px; }
+.model-col.good { background:var(--green-tint); border:1.5px solid var(--green); }
+.model-col.bad { background:var(--rose-tint); border:1.5px solid var(--rose); }
+.model-col-title { font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; margin-bottom:4px; }
+.model-col.good .model-col-title { color:var(--green); }
+.model-col.bad .model-col-title { color:var(--rose); }
+
+/* ── IDEA CLAU (bàner) ── */
+.clau { display:flex; align-items:center; gap:10px; background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%); color:#fff; border-radius:8px; padding:9px 14px; margin:10px 0; }
+.clau-icon { font-size:20px; flex-shrink:0; }
+.clau-text { font-size:12px; font-weight:700; line-height:1.4; }
+
+/* ── RAONO EN 4 PASSOS (OBSERVO→EM PREGUNTO→CONNECTO→DEDUEIXO) ── */
+.raona-box { border:2px solid var(--purple-light); border-radius:12px; padding:0; margin:8px 0; overflow:hidden; }
+.raona-cap { background:var(--purple-ink); color:#fff; font-size:11px; font-weight:900; letter-spacing:.05em; text-transform:uppercase; padding:6px 12px; }
+.raona-pas { padding:7px 12px; border-bottom:1px dashed var(--rule); }
+.raona-pas:last-child { border-bottom:none; }
+.raona-pas-lab { font-size:10px; font-weight:900; color:var(--purple-ink); letter-spacing:.06em; text-transform:uppercase; margin-bottom:3px; }
+
+/* ── EXEMPLE RESOLT ── */
+.exemple-box { background:var(--green-tint); border:1.5px solid var(--green); border-radius:8px; padding:8px 12px; margin-bottom:8px; }
+.exemple-label { font-size:9px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin-bottom:3px; }
+
+/* ── GRAELLA CANVI D'UNITATS (moure la coma) ── */
+.conv-fila { display:flex; align-items:center; gap:10px; margin:8px 0; flex-wrap:wrap; }
+.conv-pas { display:flex; flex-direction:column; align-items:center; gap:2px; }
+.conv-pas-label { font-size:8.5px; font-weight:800; color:var(--purple-ink); text-transform:uppercase; text-align:center; max-width:90px; }
+.conv-digits { display:flex; }
+.conv-digit { width:22px; height:26px; border:1.5px solid var(--rule-dark); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:13px; background:#fff; outline:none; }
+.conv-comma { width:9px; display:flex; align-items:flex-end; justify-content:center; font-weight:900; font-size:16px; padding-bottom:2px; }
+.conv-unit { font-size:8px; color:var(--muted); text-align:center; margin-top:1px; }
+.conv-arrow { font-size:15px; color:var(--purple); font-weight:900; flex-shrink:0; }
+
+/* ── PER LLEGIR ── */
+.perllegir-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:9px 12px; margin-bottom:8px; }
+.perllegir-label { font-size:9px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+
+/* ── MICROBIOTA ── */
+.micro-fact { display:flex; align-items:center; gap:10px; background:var(--teal-tint); border:1.5px solid var(--teal); border-radius:8px; padding:8px 10px; }
+.micro-icon { font-size:28px; flex-shrink:0; }
+.micro-text { font-size:11px; line-height:1.4; }
+.micro-text strong { color:var(--teal); font-size:13px; }
+
+/* ── BRISTOL ── */
+.bristol-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:3px; margin:6px 0; }
+.bristol-item { text-align:center; background:var(--purple-tint); border-radius:5px; padding:4px 2px; border:1px solid var(--rule); }
+.bristol-item.ok { border-color:var(--green); background:var(--green-tint); }
+.bristol-num { font-size:15px; font-weight:900; color:var(--purple-ink); }
+.bristol-item.ok .bristol-num { color:var(--green); }
+.bristol-emoji { font-size:13px; line-height:1.4; }
+.bristol-label { font-size:7.5px; color:var(--muted); line-height:1.2; margin-top:1px; }
+.bristol-write { display:block; width:100%; border-bottom:1px solid var(--rule-dark); height:22px; margin-top:2px; background:#fff; outline:none; }
+
+/* ── EPIST ── */
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
+.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+
+/* ── METACOGNICIÓ OA-BASED ── */
+.meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin-top:12px; position:relative; }
+.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:12px; font-weight:900; color:var(--purple-ink); margin-bottom:8px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:5px; }
+.meta-oa-check { width:14px; height:14px; flex-shrink:0; border:1.5px solid var(--purple); border-radius:3px; margin-top:1px; print-color-adjust:exact; }
+.meta-oa-text { font-size:10.5px; color:var(--ink-2); line-height:1.4; }
+.meta-open { margin-top:8px; padding-top:8px; border-top:1px solid var(--rule-dark); }
+.meta-open-label { font-size:10px; font-weight:700; color:var(--muted); margin-bottom:3px; }
+
+/* ── TASCA CASA ── */
+.tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:10px 12px; margin-top:10px; position:relative; }
+
+/* ── FOOTER ── */
+.footer { margin-top:14px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
+.footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+
+/* ── ELIMINABLES ── */
+.deletable { position:relative; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; background:var(--rose); color:#fff; border-radius:50%; font-size:11px; line-height:18px; text-align:center; cursor:pointer; z-index:50; box-shadow:0 1px 4px rgba(0,0,0,.3); }
+.deletable:hover > .del-btn { display:flex; align-items:center; justify-content:center; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+
+/* ── SPACER ── */
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; }
+.spacer-label { font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+
+/* ── SALTS DE PÀGINA ── */
+.page-break-line { position:absolute; left:0; right:0; border-top:2px dashed #9080bc; pointer-events:none; z-index:10; }
+.page-break-label { position:absolute; right:10px; top:-11px; background:#9080bc; color:#fff; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
+.page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
+
+.mt8 { margin-top:8px; } .bold { font-weight:700; } .small { font-size:10px; color:var(--muted); }
+
+@media print {
+  @page { size:A4; margin:10mm 12mm; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { background:#fff; padding:0; }
+  #toolbar, .page-break-line, .del-btn { display:none !important; }
+  .page-footer-bar { display:flex !important; }
+  .footer { display:none !important; }
+  .page-wrap { box-shadow:none; width:100%; margin:0; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline,.fill-cell,.bristol-write { background:transparent; }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .input-span:empty::before { display:none; }
+  .header-emoji-box { background:#ede8f8; }
+}
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <button class="tb-btn" id="btn-undo" onclick="undoDelete()" title="Desfés l'última eliminació (Ctrl+Z)">↩ Desfés</button>
+  <button class="tb-btn" onclick="document.execCommand('bold')" title="Negreta">𝐁 Negreta</button>
+  <button class="tb-btn" onclick="insertSpacer()" title="Insereix un espai en blanc">＋ Espai</button>
+  <button class="tb-btn" onclick="window.print()" title="Imprimeix">🖨️ Imprimeix</button>
+  <button class="tb-btn tb-desa" onclick="desaFitxa()" title="Desa els canvis al fitxer (Ctrl+S)">💾 Desa</button>
+  <span class="tb-title">Fitxa S2 · El Sistema Digestiu · Versió C · IE Temple</span>
+</div>
+
+<div class="page-wrap">
+<div id="doc">
+
+<!-- ══ CAPÇALERA ══ -->
+<div class="header-band deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="header-emoji-box">🫃</div>
+  <div class="header-center">
+    <div class="header-sa" contenteditable="true">SA2 · El nostre cos en marxa · Sessió 2 de 7</div>
+    <div class="header-title" contenteditable="true">El Sistema Digestiu</div>
+    <div class="header-subtitle" contenteditable="true">Del plat al mitocondri del corredor</div>
+  </div>
+  <div class="header-right">
+    <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
+    <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
+  </div>
+</div>
+
+<!-- ══ STRIP NIVELL ══ -->
+<div class="nivell-strip deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <span class="badge deletable" contenteditable="true">Amb suport visual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+  <span class="temps-badge deletable">⏱️ 2h total<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+  <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true" data-hint="escriu el teu nom"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true" data-hint="dia/mes/any"></span><span class="nivell-badge-small" title="Versió C — Adaptació">C</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+</div>
+
+<!-- ══ OA ══ -->
+<div class="oa-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="oa-title">🎯 Objectius d'aprenentatge d'avui</div>
+  <ul class="oa-list">
+    <li contenteditable="true">Sé dir el nom de 4 òrgans del sistema digestiu.</li>
+    <li contenteditable="true">Sé per on entra el menjar i per on surt (l'ordre del recorregut).</li>
+    <li contenteditable="true">Sé que l'aliment s'absorbeix a l'intestí prim.</li>
+    <li contenteditable="true">Sé que l'estómac té àcid que ajuda a desfer el menjar.</li>
+    <li contenteditable="true">Sé que la glucosa va a la cèl·lula per donar energia (com a SA1).</li>
+  </ul>
+</div>
+
+<div class="content">
+
+<!-- ══ 0 · IDEES PRÈVIES ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle">Idees prèvies</div><div class="sdesc">Activa el que ja saps — no hi ha respostes dolentes</div></div></div>
+  <div class="divider"></div>
+  <div class="previ-box">
+    <p>Escriu les parts del sistema digestiu que recordes. Pots començar amb aquests inicis:</p>
+    <div class="wline" contenteditable="true">Una part del digestiu que conec és </div>
+    <div class="wline" contenteditable="true">El menjar primer entra per la </div>
+    <div class="wline" contenteditable="true">Una altra part que recordo és </div>
+  </div>
+</div>
+
+<!-- ══ 1 · POSA NOM AL DIGESTIU ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle">Posa nom al sistema digestiu</div><div class="sdesc">El diagrama té els òrgans numerats. Escriu el nom i la funció de cadascun.</div></div></div>
+  <div class="divider"></div>
+
+  <div class="perllegir-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="perllegir-label">📖 Per llegir</div>
+    <p style="font-size:11.5px" contenteditable="true">El menjar viatja per un tub llarg que travessa tot el cos. Cada part d'aquest tub fa una feina diferent: unes trossegen el menjar, unes altres el desfan amb sucs, i una part molt llarga (l'intestí prim) el deixa passar cap a la sang. El diagrama numera cada part.</p>
+  </div>
+
+  <div class="word-bank deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="word-bank-title">Banc de paraules (només 4 — les que necessites avui)</div>
+    <div class="chips">
+      <span class="chip">Boca — on comences a mastegar</span><span class="chip">Estómac — bossa amb àcid que desfà el menjar</span>
+      <span class="chip">Intestí prim — tub llarg on passen els nutrients a la sang</span><span class="chip">Intestí gros — absorbeix aigua abans de sortir</span>
+    </div>
+  </div>
+
+  <div class="diagram-layout deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="diagram-img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Digestive_system_diagram_numbered.svg/500px-Digestive_system_diagram_numbered.svg.png" alt="Sistema digestiu humà numerat" onerror="this.style.display='none'">
+      <div class="diagram-caption">Sistema digestiu humà numerat de l'1 al 4 · imatge pendent de substituir per una versió amb només aquests 4 òrgans</div>
+    </div>
+    <div>
+      <div class="exemple-box">
+        <div class="exemple-label">✓ Exemple ja fet</div>
+        <p style="font-size:10.5px">La fila 1 (Boca) ja està completa. Fixa-t'hi: així has d'omplir les altres.</p>
+      </div>
+      <table class="label-table">
+        <thead><tr><th>#</th><th>Nom de l'òrgan</th><th>Funció principal</th></tr></thead>
+        <tbody>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">1</td><td><span class="fill-cell" contenteditable="true">Boca</span></td><td class="hint-cell">Masticació + amilasa salival (una substància de la saliva)</td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">2</td><td><span class="fill-cell" contenteditable="true"></span></td><td class="hint-cell">Àcid + pepsina: desfan el menjar → es diu "quimo"</td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">3</td><td><span class="fill-cell" contenteditable="true"></span></td><td class="hint-cell">Aquí passen els nutrients cap a la sang</td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">4</td><td><span class="fill-cell" contenteditable="true"></span></td><td class="hint-cell">Absorbeix l'aigua que queda · hi viu la microbiota</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="raona-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="raona-cap">✏️ Raono en 4 passos — Per quina raó l'intestí prim és tan llarg (6 m) si l'esòfag només fa 25 cm?</div>
+    <div class="raona-pas"><div class="raona-pas-lab">👁️ Observo</div><div class="wline" contenteditable="true">A l'intestí prim </div></div>
+    <div class="raona-pas"><div class="raona-pas-lab">❓ Em pregunto</div><div class="wline" contenteditable="true"></div></div>
+    <div class="raona-pas"><div class="raona-pas-lab">🔗 Connecto</div><div class="wline" contenteditable="true"></div></div>
+    <div class="raona-pas"><div class="raona-pas-lab">✅ Dedueixo</div><div class="wline" contenteditable="true">Per tant, l'intestí prim és tan llarg perquè així </div></div>
+  </div>
+</div>
+
+<div class="clau deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="clau-icon">💡</div>
+  <div class="clau-text" contenteditable="true">Idea clau: com més llarg és l'intestí prim, més superfície té per fer passar els nutrients a la sang.</div>
+</div>
+
+<!-- ══ 2 · OVILLO DE LLANA ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n2">2</div><div><div class="stitle">El cabdell de llana — longitud real</div><div class="sdesc">Activitat d'escala 1:100 · cada metre real = 1 cm de llana</div></div></div>
+  <div class="divider"></div>
+
+  <div class="perllegir-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="perllegir-label">📖 Per llegir — dos passos per canviar l'escala</div>
+    <p style="font-size:11.5px" contenteditable="true">Per passar d'una longitud real a la mida del cabdell de llana cal fer <strong>dos passos, un darrere l'altre</strong>. Pas 1: redueixo l'escala dividint entre 100 (moc la coma 2 posicions cap a l'esquerra). Pas 2: com que el resultat és molt petit, el passo de cm a mm multiplicant per 10 (moc la coma 1 posició cap a la dreta).</p>
+  </div>
+
+  <div class="exemple-box">
+    <div class="exemple-label">✓ Exemple ja fet — Esòfag (25 cm)</div>
+    <div class="conv-fila">
+      <div class="conv-pas">
+        <div class="conv-pas-label">Longitud real</div>
+        <div class="conv-digits"><div class="conv-digit">2</div><div class="conv-digit">5</div></div>
+        <div class="conv-unit">cm</div>
+      </div>
+      <div class="conv-arrow">÷100 →</div>
+      <div class="conv-pas">
+        <div class="conv-pas-label">Pas 1: moc la coma 2 xifres a l'esquerra</div>
+        <div class="conv-digits"><div class="conv-digit">0</div><div class="conv-comma">,</div><div class="conv-digit">2</div><div class="conv-digit">5</div></div>
+        <div class="conv-unit">cm</div>
+      </div>
+      <div class="conv-arrow">×10 →</div>
+      <div class="conv-pas">
+        <div class="conv-pas-label">Pas 2: de cm a mm, moc la coma 1 xifra a la dreta</div>
+        <div class="conv-digits"><div class="conv-digit">2</div><div class="conv-comma">,</div><div class="conv-digit">5</div></div>
+        <div class="conv-unit">mm ← resultat final</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card orange mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">Ara tu — Intestí prim (600 cm)</div>
+    <div class="conv-fila">
+      <div class="conv-pas">
+        <div class="conv-pas-label">Longitud real</div>
+        <div class="conv-digits"><div class="conv-digit">6</div><div class="conv-digit">0</div><div class="conv-digit">0</div></div>
+        <div class="conv-unit">cm</div>
+      </div>
+      <div class="conv-arrow">÷100 →</div>
+      <div class="conv-pas">
+        <div class="conv-pas-label">Pas 1</div>
+        <div class="conv-digits"><div class="conv-digit" contenteditable="true"></div><div class="conv-digit" contenteditable="true"></div></div>
+        <div class="conv-unit">cm</div>
+      </div>
+      <div class="conv-arrow">×10 →</div>
+      <div class="conv-pas">
+        <div class="conv-pas-label">Pas 2 · resultat final</div>
+        <div class="conv-digits"><div class="conv-digit" contenteditable="true"></div><div class="conv-digit" contenteditable="true"></div></div>
+        <div class="conv-unit">mm</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card teal mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">Ara tu — Intestí gros (150 cm)</div>
+    <div class="conv-fila">
+      <div class="conv-pas">
+        <div class="conv-pas-label">Longitud real</div>
+        <div class="conv-digits"><div class="conv-digit">1</div><div class="conv-digit">5</div><div class="conv-digit">0</div></div>
+        <div class="conv-unit">cm</div>
+      </div>
+      <div class="conv-arrow">÷100 →</div>
+      <div class="conv-pas">
+        <div class="conv-pas-label">Pas 1</div>
+        <div class="conv-digits"><div class="conv-digit" contenteditable="true"></div><div class="conv-comma">,</div><div class="conv-digit" contenteditable="true"></div></div>
+        <div class="conv-unit">cm</div>
+      </div>
+      <div class="conv-arrow">×10 →</div>
+      <div class="conv-pas">
+        <div class="conv-pas-label">Pas 2 · resultat final</div>
+        <div class="conv-digits"><div class="conv-digit" contenteditable="true"></div><div class="conv-digit" contenteditable="true"></div></div>
+        <div class="conv-unit">mm</div>
+      </div>
+    </div>
+  </div>
+  <p class="pista mt8">Pista: fixa't en com s'ha mogut la coma a l'exemple de l'esòfag i fes exactament el mateix moviment.</p>
+</div>
+
+<!-- ══ 3 · SIMULACIÓ ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle">Simulació de la digestió pas a pas</div><div class="sdesc">Observa l'experiment de taula i completa les columnes buides</div></div></div>
+  <div class="divider"></div>
+
+  <div class="perllegir-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="perllegir-label">📖 Per llegir</div>
+    <p style="font-size:11.5px" contenteditable="true">A cada part del tub digestiu s'afegeixen substàncies diferents que van desfent el menjar una mica més. La fila de la Boca ja està feta com a exemple, amb l'observació ja escrita: fixa-t'hi per completar la resta. A "La teva observació" escriu, en poques paraules, què li passa al menjar en aquella fase.</p>
+  </div>
+  <p class="pista">Pista Estómac: l'àcid i la pepsina desfan sobretot les proteïnes (com la carn o l'ou). Pista Intestí prim: les vellositats deixen passar més quantitat de nutrients cap a la sang.</p>
+
+  <table class="data-table">
+    <thead><tr><th>Fase</th><th>Substàncies</th><th>Funció</th><th>La teva observació</th></tr></thead>
+    <tbody>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold" style="color:var(--orange)">Boca</td><td>Amilasa salival + masticació</td><td>Midó → maltosa (dos sucres)</td><td class="hint-cell">Exemple: "El midó del pa comença a fer-se sucre."</td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold" style="color:var(--rose)">Estómac</td><td>Àcid (HCl) + pepsina</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold" style="color:var(--yellow)">Duodè</td><td>Bicarbonat + bilis</td><td>Neutralitza l'àcid; ajuda a desfer els greixos</td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold" style="color:var(--green)">Intestí prim</td><td>Paret amb vellositats (com pèls petits)</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="model-grid deletable" style="margin-top:8px">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="model-col good">
+      <div class="model-col-title">✔ El model representa bé…</div>
+      <div class="wline" contenteditable="true" style="border-color:var(--green)">El model s'assembla a la digestió real perquè </div>
+      <div class="wline" contenteditable="true" style="border-color:var(--green);margin-top:4px"></div>
+    </div>
+    <div class="model-col bad">
+      <div class="model-col-title">✘ El model NO reflecteix…</div>
+      <div class="wline" contenteditable="true" style="border-color:var(--rose)">El model NO és igual que el cos real perquè </div>
+      <div class="wline" contenteditable="true" style="border-color:var(--rose);margin-top:4px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 4 · MICROBIOTA ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n4">4</div><div><div class="stitle">La microbiota intestinal</div></div></div>
+  <div class="divider"></div>
+  <div class="micro-fact deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="micro-icon">🦠</div>
+    <div class="micro-text"><strong>📖 Per llegir:</strong> Tenim <strong>més de 500 espècies</strong> de bacteris beneficiosos a l'intestí · pes total: <strong>~0,5 kg</strong>.<br>Ajuden a digerir la fibra, produir vitamines i protegir-nos d'altres bacteris que ens fan mal.</div>
+  </div>
+  <div class="card teal mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">Pregunta competencial</div>
+    <p style="font-size:12px;font-weight:700">Per quina raó prendre antibiòtics pot provocar diarrea?</p>
+    <p class="pista">Pista: els antibiòtics maten bacteris… i a l'intestí n'hi ha de beneficiosos.</p>
+    <div class="wline" contenteditable="true">Els antibiòtics poden provocar diarrea perquè </div>
+    <div class="wline" contenteditable="true"></div>
+  </div>
+</div>
+
+<!-- ══ 5 · BRISTOL ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n5">5</div><div><div class="stitle">L'escala de Bristol — indicador de salut intestinal</div><div class="sdesc">Escriu com es relaciona cada tipus amb la dieta o la salut</div></div></div>
+  <div class="divider"></div>
+
+  <div class="perllegir-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="perllegir-label">📖 Per llegir</div>
+    <p style="font-size:11.5px" contenteditable="true">Els metges observen la forma de la femta per saber com va l'intestí. El tipus 3-4 és normal. El tipus 1-2 (boletes dures) vol dir poca fibra o poca aigua. El tipus 6-7 (líquida) vol dir diarrea.</p>
+  </div>
+  <p class="pista">A cada quadre, escriu la causa més probable en poques paraules. Exemples: "poca aigua", "poca fibra", "dieta equilibrada", "possible infecció".</p>
+
+  <div class="bristol-grid deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="bristol-item"><div class="bristol-num">1</div><div class="bristol-emoji">⚫</div><div class="bristol-label">Boletes dures separades</div><span class="bristol-write" contenteditable="true"></span></div>
+    <div class="bristol-item"><div class="bristol-num">2</div><div class="bristol-emoji">🟤</div><div class="bristol-label">Salsitxa grumollosa</div><span class="bristol-write" contenteditable="true"></span></div>
+    <div class="bristol-item ok"><div class="bristol-num">3</div><div class="bristol-emoji">🌭</div><div class="bristol-label">Salsitxa amb esquerdes</div><span class="bristol-write" contenteditable="true"></span></div>
+    <div class="bristol-item ok"><div class="bristol-num">4</div><div class="bristol-emoji">🍌</div><div class="bristol-label">Salsitxa suau · ideal ⭐</div><span class="bristol-write" contenteditable="true"></span></div>
+    <div class="bristol-item"><div class="bristol-num">5</div><div class="bristol-emoji">🫐</div><div class="bristol-label">Trossos tous</div><span class="bristol-write" contenteditable="true"></span></div>
+    <div class="bristol-item" style="border-color:var(--rose);background:var(--rose-tint)"><div class="bristol-num" style="color:var(--rose)">6</div><div class="bristol-emoji">🌊</div><div class="bristol-label">Massa esponjosa</div><span class="bristol-write" contenteditable="true"></span></div>
+    <div class="bristol-item" style="border-color:var(--rose);background:var(--rose-tint)"><div class="bristol-num" style="color:var(--rose)">7</div><div class="bristol-emoji">💧</div><div class="bristol-label">Totalment líquida</div><span class="bristol-write" contenteditable="true"></span></div>
+  </div>
+
+  <div class="epist-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div style="font-size:22px;flex-shrink:0">🔬</div>
+    <div>
+      <div class="epist-title">Moment epistèmic — Beaumont (1822)</div>
+      <div class="epist-text">William Beaumont va poder observar la digestió en directe gràcies a una ferida oberta a l'estómac d'un pacient: Alexis St. Martin, que treballava per a ell i li devia diners. Va ser el primer científic que va veure com actua el suc gàstric.</div>
+      <p class="pista mt8">Avui en dia, un experiment així només és acceptable si el pacient hi consent lliurement: li han explicat bé què se li farà i pot dir que no en qualsevol moment (és el que en diem consentiment informat).</p>
+      <p style="font-size:11px;font-weight:700" contenteditable="true">Creus que Alexis St. Martin va poder dir que no lliurement, tenint en compte que depenia econòmicament de Beaumont? Per quina raó?</p>
+      <div class="wline" contenteditable="true">Crec que </div>
+    </div>
+  </div>
+</div>
+
+<div class="clau deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="clau-icon">💡</div>
+  <div class="clau-text" contenteditable="true">Idea clau: com més llarg és l'intestí prim, més superfície té per fer passar els nutrients a la sang.</div>
+</div>
+
+<!-- ══ METACOGNICIÓ OA-BASED ══ -->
+<div class="meta-oa-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="meta-oa-title">🎯 Torna als objectius del principi — Marca el que has après avui:</div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé dir el nom de 4 òrgans del sistema digestiu.</div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé per on entra el menjar i per on surt (l'ordre del recorregut).</div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que l'aliment s'absorbeix a l'intestí prim.</div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que l'estómac té àcid que ajuda a desfer el menjar.</div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que la glucosa va a la cèl·lula per donar energia (com a SA1).</div></div>
+  <div class="meta-open"><div class="meta-open-label">❓ Encara em pregunto…</div><div class="wline" contenteditable="true" data-hint="Escriu aquí el que et genera dubte…"></div></div>
+</div>
+
+<!-- ══ TASCA CASA ══ -->
+<div class="tasca-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="card-label">📚 Tasca per a casa (opcional) — Prepara la S3</div>
+  <p style="font-size:12px;font-weight:700;color:var(--purple-ink)">Observa la teva femta i memoritza a quin tipus de l'escala de Bristol s'assembla (no cal escriure-ho). A classe ho respondràs de manera anònima.</p>
+  <p class="small mt8">És una observació personal: no es pot fer amb cap IA.</p>
+</div>
+
+<div class="footer deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="footer-l">IE Temple · Biologia i Geologia 3r ESO · SA2 S2 · Versió C</div>
+  <div class="footer-r">Curs 2025–2026</div>
+</div>
+
+</div><!-- /doc -->
+</div><!-- /page-wrap -->
+
+<script>
+/* ── 1. ELIMINACIÓ + HISTORIAL ── */
+const delStack = [];
+function deleteEl(btn){
+  const el = btn.closest('.deletable');
+  if(!el) return;
+  delStack.push({ el, parent: el.parentNode, sibling: el.nextSibling });
+  el.remove();
+  document.getElementById('btn-undo').classList.add('active');
+  schedulePageBreaks();
+}
+function undoDelete(){
+  const last = delStack.pop();
+  if(!last) return;
+  last.parent.insertBefore(last.el, last.sibling);
+  if(delStack.length===0) document.getElementById('btn-undo').classList.remove('active');
+  schedulePageBreaks();
+}
+document.addEventListener('keydown', e=>{
+  if(e.key==='z' && (e.ctrlKey||e.metaKey)){
+    const ed = document.activeElement && document.activeElement.isContentEditable;
+    if(!ed){ e.preventDefault(); undoDelete(); }
+  }
+});
+
+/* ── 2. SALTS DE PÀGINA + PEU ── */
+const PAGE_H = 1047;
+let _pbTimer = null;
+const PB_OPTS = { childList:true, subtree:true, characterData:true, attributes:false };
+function updatePageBreaks(){
+  pbObserver.disconnect();
+  const doc = document.getElementById('doc');
+  doc.querySelectorAll('.page-break-line').forEach(n=>n.remove());
+  doc.querySelectorAll('.page-footer-bar').forEach(n=>n.remove());
+  const total = doc.scrollHeight;
+  const numPages = Math.ceil(total / PAGE_H);
+  for(let p=1; p*PAGE_H<total; p++){
+    const line=document.createElement('div'); line.className='page-break-line'; line.style.top=(p*PAGE_H)+'px';
+    const label=document.createElement('div'); label.className='page-break-label'; label.textContent='Pàgina '+(p+1);
+    line.appendChild(label); doc.appendChild(line);
+  }
+  for(let p=1; p<=numPages; p++){
+    const bar=document.createElement('div'); bar.className='page-footer-bar'; bar.style.top=(p*PAGE_H-22)+'px';
+    bar.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span>'+p+' / '+numPages+'</span>';
+    doc.appendChild(bar);
+  }
+  pbObserver.observe(doc, PB_OPTS);
+}
+function schedulePageBreaks(){ clearTimeout(_pbTimer); _pbTimer=setTimeout(updatePageBreaks,350); }
+window.addEventListener('load', updatePageBreaks);
+const pbObserver = new MutationObserver(schedulePageBreaks);
+pbObserver.observe(document.getElementById('doc'), PB_OPTS);
+
+/* ── 3. BLOC ESPAI ── */
+let _lastClickedBlock = null;
+document.addEventListener('click', e=>{
+  const content = document.querySelector('.content');
+  if(!content) return;
+  let node = e.target;
+  while(node && node.parentElement !== content) node = node.parentElement;
+  if(node && node !== content && !node.classList.contains('spacer-block')) _lastClickedBlock = node;
+});
+function insertSpacer(){
+  const sp=document.createElement('div'); sp.className='spacer-block deletable';
+  sp.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai en blanc</span>';
+  const content=document.querySelector('.content');
+  let ref=null;
+  if(_lastClickedBlock && _lastClickedBlock.parentElement===content) ref=_lastClickedBlock.nextSibling;
+  content.insertBefore(sp, ref);
+  delStack.push({ el:sp, parent:content, sibling:sp.nextSibling });
+  document.getElementById('btn-undo').classList.add('active');
+  schedulePageBreaks();
+}
+
+/* ── 4. DESAR AL FITXER ── */
+function _fitxaToast(msg){
+  let t=document.getElementById('fitxa-toast');
+  if(!t){t=document.createElement('div');t.id='fitxa-toast';
+    t.style.cssText='position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3a2d6e;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s';
+    document.body.appendChild(t);}
+  t.textContent=msg;t.style.opacity='1';clearTimeout(t._h);t._h=setTimeout(()=>t.style.opacity='0',2200);
+}
+async function desaFitxa(){
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelectorAll('.page-break-line,.page-footer-bar,#fitxa-toast').forEach(n=>n.remove());
+  const html='<!DOCTYPE html>\n'+clone.outerHTML;
+  const fname=(location.pathname.split('/').pop()||'fitxa.html');
+  if(window.showSaveFilePicker){
+    try{
+      const h=await window.showSaveFilePicker({suggestedName:fname,types:[{description:'Pàgina HTML',accept:{'text/html':['.html']}}]});
+      const w=await h.createWritable();await w.write(html);await w.close();
+      _fitxaToast('✓ Canvis desats al fitxer');return;
+    }catch(e){if(e.name==='AbortError')return;}
+  }
+  const blob=new Blob([html],{type:'text/html'

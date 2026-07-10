@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SA1 · S1 · Per què ens morim si no mengem ni respirem? (suport visual)</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple:#7B68C8; --purple-ink:#4a3b8c; --purple-light:#c5b8f0; --purple-tint:#f0edfb;
+  --ink:#1A1428; --ink-2:#3a3050; --muted:#7a7090; --surface:#fdfcff;
+  --rule:#e8e2f6; --rule-dark:#c8bfe8;
+  --orange:#e8834a; --orange-tint:#fdf0e8;
+  --teal:#3a9e8c;   --teal-tint:#e6f4f1;
+  --rose:#d44a6c;   --rose-tint:#fce8ed;
+  --yellow:#c8960a; --yellow-tint:#fdf7e2; --yellow-ink:#7a5800;
+  --green:#4a9e5c;  --green-tint:#eaf4ec;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Fira Sans Extra Condensed', sans-serif;
+  background:#b0a8c8;
+  color:var(--ink); font-size:13px; line-height:1.5;
+  padding:52px 20px 60px;
+}
+#toolbar {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  background:rgba(20,15,40,.93); backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(123,104,200,.35);
+  height:44px; display:flex; align-items:center; gap:10px; padding:0 18px;
+}
+.tb-tip { font-family:'Inter',sans-serif; font-size:11px; color:rgba(190,180,230,.65); flex:1; }
+.tb-tip strong { color:#b8aef0; }
+.tb-sep { width:1px; height:20px; background:rgba(123,104,200,.3); }
+.tb-btn {
+  font-family:'Inter',sans-serif; font-size:12px; font-weight:600;
+  border:none; border-radius:6px; padding:6px 13px; cursor:pointer;
+  transition:opacity .15s; white-space:nowrap;
+}
+.tb-print { background:var(--purple); color:white; }
+.tb-print:hover { opacity:.85; }
+.tb-bold { background:rgba(123,104,200,.2); border:1px solid rgba(123,104,200,.4); color:#c5b8f0; font-size:14px; font-weight:900; padding:4px 11px; }
+.tb-bold:hover { background:rgba(123,104,200,.38); }
+.tb-undo { background:rgba(212,74,108,.2); border:1px solid rgba(212,74,108,.4); color:#f0a0b8; font-size:12px; opacity:.5; transition:opacity .2s; pointer-events:none; }
+.tb-undo.active { opacity:1; pointer-events:auto; }
+.tb-undo.active:hover { background:rgba(212,74,108,.35); }
+.tb-spacer { background:rgba(123,104,200,.2); border:1px solid rgba(123,104,200,.4); color:#c5b8f0; font-size:12px; }
+.tb-spacer:hover { background:rgba(123,104,200,.35); }
+.page-wrap { width:794px; margin:0 auto; background:var(--surface); box-shadow:0 2px 30px rgba(0,0,0,.22); position:relative; }
+.page-break-line { position:absolute; left:0; right:0; border-top:2px dashed #9080bc; pointer-events:none; z-index:10; }
+.page-break-label { position:absolute; right:10px; top:-11px; background:#9080bc; color:white; font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
+[contenteditable] { outline:none; cursor:text; border-radius:3px; transition:background .12s, box-shadow .12s; }
+[contenteditable]:hover { background:rgba(123,104,200,.08); box-shadow:0 0 0 2px rgba(123,104,200,.3); }
+[contenteditable]:focus { background:rgba(123,104,200,.12); box-shadow:0 0 0 2.5px var(--purple); }
+.header-band [contenteditable]:hover { background:rgba(255,255,255,.15); box-shadow:0 0 0 2px rgba(255,255,255,.3); }
+.header-band [contenteditable]:focus { background:rgba(255,255,255,.2); box-shadow:0 0 0 2.5px #fff; }
+span[contenteditable] { display:inline-block; }
+.wline { display:block; width:100%; min-height:32px; background:white; outline:none; padding:4px 4px; border-bottom:1.5px solid #C8C2DD; word-break:break-word; cursor:text; line-height:1.7; }
+.wline:focus { border-bottom-color:var(--purple); background:rgba(123,104,200,.04); }
+.frase-completar { font-size:11.5px; line-height:2.4; margin:4px 0 6px; }
+.blank { display:inline-block; border-bottom:1.5px solid #C8C2DD; vertical-align:bottom; margin:0 3px; height:1.1em; }
+.blank-s  { width: 60px; }
+.blank-m  { width:100px; }
+.blank-l  { width:140px; }
+.blank-xl { width:200px; }
+.nom-field { margin-left:auto; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; font-family:'Fira Sans Extra Condensed',sans-serif; color:var(--ink); }
+.input-span.data-span { min-width:65px; }
+.input-span:focus { border-bottom-color:var(--purple); }
+.nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(123,104,200,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); flex-shrink:0; }
+.deletable { position:relative; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; border-radius:50%; background:#d44a6c; color:white; border:none; cursor:pointer; align-items:center; justify-content:center; font-size:12px; font-weight:900; line-height:1; z-index:100; box-shadow:0 1px 4px rgba(0,0,0,.3); transition:background .1s, transform .1s; }
+.del-btn:hover { background:#b83054; transform:scale(1.15); }
+.deletable:hover > .del-btn { display:flex; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+.nivell-strip .deletable { display:inline-flex; align-items:center; }
+.header-band { background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%); color:#fff; padding:14px 18px; display:grid; grid-template-columns:72px 1fr 178px; gap:14px; align-items:center; position:relative; overflow:hidden; }
+.header-band::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 100% at 110% 50%, rgba(255,255,255,.07) 0%, transparent 70%); pointer-events:none; }
+.header-emoji-col { display:flex; align-items:center; justify-content:center; }
+.header-emoji-box { width:62px; height:62px; border-radius:14px; background:rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center; font-size:36px; user-select:none; flex-shrink:0; }
+.header-main { min-width:0; }
+.header-sa { font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; opacity:.55; margin-bottom:4px; }
+.header-title { font-size:24px; font-weight:900; letter-spacing:-.01em; line-height:1.05; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-style:italic; font-size:13px; opacity:.72; margin-top:4px; }
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:5px; }
+.logo-box { background:rgba(255,255,255,.92); border-radius:7px; padding:5px 6px; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 1px 6px rgba(0,0,0,.18); }
+.header-meta { font-size:9.5px; opacity:.52; text-align:right; line-height:1.7; }
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.nivell-label { font-size:11px; color:var(--muted); font-style:italic; }
+.temps-badge { font-size:10px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
+.oa-box { background:linear-gradient(to right,#f5f2ff,var(--surface)); border-left:4px solid var(--purple); padding:10px 16px; }
+.oa-title { font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:6px; }
+.oa-list { list-style:none; padding:0; margin:0; }
+.oa-list li { font-size:11.5px; padding:3px 0 3px 22px; position:relative; line-height:1.4; border-bottom:1px dashed var(--rule); }
+.oa-list li:last-child { border-bottom:none; }
+.oa-list li::before { content:'○'; position:absolute; left:4px; top:3px; font-size:11px; color:var(--purple-light); }
+.meta-oa-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-oa-title { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; font-size:11px; margin-bottom:4px; padding:2px 0; }
+.meta-oa-item:last-child { margin-bottom:0; }
+.meta-oa-check { width:16px; height:16px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; margin-top:1px; }
+.meta-oa-text { flex:1; line-height:1.35; }
+.content { padding:14px 24px 24px; }
+.section { margin-top:14px; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:10.5px; color:var(--ink-2); font-style:italic; font-family:'Crimson Pro',serif; }
+.temps { font-size:10px; color:var(--purple-ink); font-weight:700; margin-left:4px; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
+.previ-box p { font-size:12px; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-icon { font-size:24px; flex-shrink:0; }
+.connexio-text { font-size:11px; line-height:1.4; }
+.connexio-text strong { color:var(--purple-ink); }
+
+/* ── CÀPSULA "PER LLEGIR" (text de suport perquè l'alumne segueixi sense dependre del professor) ── */
+.info-box { background:#fff; border:2px solid var(--purple-light); border-radius:12px; padding:9px 12px; margin:8px 0; }
+.info-head { font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:5px; display:flex; align-items:center; gap:6px; }
+.info-box p { font-size:11.5px; line-height:1.5; margin:0 0 4px; }
+.info-box p:last-child { margin-bottom:0; }
+/* cadena causal en xips */
+.cadena { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:6px 0 2px; }
+.chip { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:9999px; padding:3px 11px; font-size:11px; font-weight:700; color:var(--purple-ink); }
+.chip.b { background:var(--teal-tint); border-color:#8cc8be; color:var(--teal); }
+.chip.c { background:var(--orange-tint); border-color:#eebda0; color:var(--orange); }
+.cadena-arrow { font-size:14px; color:var(--muted); font-weight:900; }
+
+/* ── BANNER DE LA IDEA CLAU (àncora visual, es repeteix) ── */
+.clau { text-align:center; font-size:14px; font-weight:900; color:var(--teal); background:#fff; border:2px dashed var(--teal); border-radius:10px; padding:8px 10px; margin:8px 0; letter-spacing:.01em; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; }
+.clau .big { color:var(--orange); }
+
+/* ── MÈTODE DELS 3 PASSOS (exemple resolt + en blanc) ── */
+.passos-box { border:2px solid var(--purple-light); border-radius:12px; padding:0; margin:8px 0 6px; overflow:hidden; }
+.passos-cap { background:var(--purple-ink); color:#fff; font-size:11px; font-weight:900; letter-spacing:.05em; text-transform:uppercase; padding:6px 12px; display:flex; align-items:center; gap:8px; }
+.passos-cap .cas-tag { margin-left:auto; font-size:9.5px; font-weight:700; background:rgba(255,255,255,.18); border-radius:9999px; padding:2px 10px; letter-spacing:.04em; }
+.passos-box.exemple { border-color:var(--green); }
+.passos-box.exemple .passos-cap { background:var(--green); }
+.pas { display:flex; align-items:flex-start; gap:10px; padding:8px 12px; border-bottom:1px dashed var(--rule); }
+.pas:last-child { border-bottom:none; }
+.pas-num { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:var(--purple); color:#fff; font-size:12px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.passos-box.exemple .pas-num { background:var(--green); }
+.pas-cos { flex:1; }
+.pas-q { font-size:11.5px; font-weight:700; color:var(--ink-2); margin-bottom:5px; }
+.pas-opts { display:flex; gap:18px; flex-wrap:wrap; }
+.pas-opt { display:inline-flex; align-items:center; gap:6px; font-size:12px; }
+.pas-box { width:15px; height:15px; border:1.8px solid var(--purple); border-radius:4px; display:inline-block; position:relative; flex-shrink:0; background:#fff; }
+.pas-opt.marcat .pas-box { background:var(--green); border-color:var(--green); }
+.pas-opt.marcat .pas-box::after { content:'✓'; position:absolute; top:-4px; left:1px; color:#fff; font-size:13px; font-weight:900; line-height:1; }
+.pas-opt b { color:var(--purple-ink); }
+.pas-frase { padding:8px 12px; background:var(--purple-tint); }
+.pas-frase-lab { font-size:10.5px; font-weight:700; color:var(--purple-ink); margin-bottom:3px; }
+.pas-frase .wline { background:#fff; }
+.exemple-nota { font-size:10px; color:var(--green); font-style:italic; padding:5px 12px 8px; display:flex; align-items:center; gap:6px; }
+
+/* ── ENCERCLA L'OPCIÓ (per al vocabulari de les 3 parts) ── */
+.circ-row { display:flex; align-items:center; gap:8px; padding:7px 0; border-bottom:1px dashed var(--rule); flex-wrap:wrap; }
+.circ-row:last-child { border-bottom:none; }
+.circ-pic { font-size:22px; flex-shrink:0; width:30px; text-align:center; }
+.circ-lab { font-size:12px; font-weight:900; color:var(--ink-2); min-width:88px; }
+.circ-opts { display:flex; gap:10px; flex-wrap:wrap; }
+.circ-opt { display:inline-block; font-size:11.5px; padding:4px 12px; border:2px solid var(--purple-light); border-radius:9999px; background:#fff; color:var(--ink-2); cursor:default; }
+.circ-help { font-size:10px; color:var(--muted); font-style:italic; margin:2px 0 6px; }
+
+/* ── FRANJA D'IMATGES ── */
+.data-table { width:100%; border-collapse:collapse; font-size:11px; margin-bottom:10px; }
+.data-table th { background:var(--purple-ink); color:white; padding:6px 9px; text-align:left; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table td { padding:5px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.find-list { list-style:none; padding:0; margin:6px 0; }
+.find-list li { display:flex; align-items:center; gap:9px; font-size:12px; padding:5px 0; border-bottom:1px dashed var(--rule); }
+.find-list li:last-child { border-bottom:none; }
+.find-chk { width:18px; height:18px; border:2px solid var(--purple); border-radius:5px; flex-shrink:0; background:#fff; }
+.find-pic { font-size:18px; width:26px; text-align:center; }
+.draw-box { border:2px dashed var(--purple-light); border-radius:10px; background:#fff; min-height:130px; display:flex; align-items:flex-start; justify-content:flex-start; padding:8px 10px; }
+.draw-label { font-size:9px; color:var(--purple-light); letter-spacing:.1em; text-transform:uppercase; font-family:'Inter',sans-serif; }
+.explore-q { display:flex; gap:8px; margin-bottom:10px; align-items:flex-start; }
+.explore-qnum { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--orange); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.explore-qtext { font-size:11.5px; flex:1; }
+.exit-box { background:#EFEAF5; border:2px solid #5a4aa0; border-radius:10px; padding:12px 14px; }
+.exit-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:#5a4aa0; margin-bottom:8px; }
+.exit-q { font-size:11px; margin-bottom:4px; line-height:1.4; }
+.exit-opts { display:grid; grid-template-columns:repeat(2,1fr); gap:3px; margin:3px 0 6px; }
+.exit-opt { display:flex; align-items:center; gap:5px; font-size:10.5px; }
+.chk { width:12px; height:12px; border:1.5px solid #5a4aa0; border-radius:3px; flex-shrink:0; background:white; }
+.meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+.meta-item { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-icon { font-size:18px; display:block; margin-bottom:3px; }
+.meta-label { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px; }
+.stars { display:flex; gap:4px; margin-top:4px; }
+.star { font-size:18px; color:#9080bc; cursor:default; }
+.tasca-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:10px 14px; margin-top:12px; }
+.tasca-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:6px; font-size:11px; }
+.tasca-item:last-child { margin-bottom:0; }
+.tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(123,104,200,.05) 6px, rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
+.spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+.page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:0.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
+.small { font-size:10px; color:var(--muted); }
+.mt8 { margin-top:8px; }
+.footer { margin-top:12px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
+.footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+
+@media print {
+  @page { size:A4; margin:10mm 12mm; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { background:white; padding:0; }
+  #toolbar, .page-break-line, .del-btn { display:none !important; }
+  .page-footer-bar { display:flex !important; }
+  .footer { display:none !important; }
+  .page-wrap { box-shadow:none; width:100%; }
+  .header-emoji-box { background:#ede8f8 !important; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline { background:transparent; padding:0; }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .nivell-badge-small { background:transparent !important; border-color:#C8C2DD !important; }
+}
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span class="tb-tip">✎ Clica per editar · <strong>Ctrl+B</strong> negreta · <strong>×</strong> rosa elimina · <strong>Ctrl+Z</strong> desfés</span>
+  <div class="tb-sep"></div>
+  <button class="tb-btn tb-undo" id="btn-undo" onclick="undoDelete()">↩ Desfer eliminació</button>
+  <button class="tb-btn tb-bold" onclick="document.execCommand('bold')"><b>N</b></button>
+  <button class="tb-btn tb-spacer" onclick="insertSpacer()" title="Insereix un bloc d'espai en blanc per ajustar la paginació">＋ Espai</button>
+  <button class="tb-btn tb-print" onclick="window.print()">🖨️ Imprimir / PDF</button>
+  <button class="tb-btn tb-desa" onclick="desaFitxa()" title="Desa els canvis al fitxer (Ctrl+S)">💾 Desa</button>
+</div>
+
+<div class="page-wrap" id="doc">
+
+  <div class="header-band deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="header-emoji-col">
+      <div class="header-emoji-box" contenteditable="true">🍎</div>
+    </div>
+    <div class="header-main">
+      <div class="header-sa" contenteditable="true">SA1 · La cèl·lula viva · Sessió 1 de 4</div>
+      <div class="header-title" contenteditable="true">Per què ens morim si no mengem ni respirem?</div>
+      <div class="header-subtitle" contenteditable="true">La cèl·lula és la cosa viva més petita. Necessita menjar i aire.</div>
+    </div>
+    <div class="header-right">
+      <div class="logo-box">
+        <img src="../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
+      </div>
+      <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
+    </div>
+  </div>
+
+  <div class="nivell-strip deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <span class="nivell-label deletable" contenteditable="true">Amb suport visual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <span class="temps-badge deletable" contenteditable="true">⏱️ 2h total<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <div class="nom-field deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
+      &nbsp;&nbsp;Data:&nbsp;<span class="input-span data-span" contenteditable="true"></span>
+      &nbsp;<span class="nivell-badge-small" title="Versió C — Amb suport visual">C</span>
+    </div>
+  </div>
+
+  <div class="oa-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="oa-title">🎯 Què aprendré avui</div>
+    <ul class="oa-list">
+      <li contenteditable="true">Sé que la <strong>cèl·lula</strong> és la cosa viva més petita.</li>
+      <li contenteditable="true">Sé les <strong>3 parts</strong> de la cèl·lula: membrana, nucli i mitocondri.</li>
+      <li contenteditable="true">Sé què fa <strong>cada part</strong>.</li>
+      <li contenteditable="true">Sé que el <strong>menjar</strong> + l'<strong>aire</strong> fan <strong>energia</strong> dins el mitocondri.</li>
+    </ul>
+  </div>
+
+  <div class="content">
+
+    <!-- ── Secció 0: Què crec (idees prèvies) ── -->
+    <div class="section deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="section-header">
+        <div class="snum" style="background:var(--muted)">0</div>
+        <div>
+          <div class="stitle">Què crec <span class="temps deletable" contenteditable="true">⏱️ 10 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="sdesc" contenteditable="true">Escriu el que penses. Això NO es corregeix.</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="previ-box">
+        <p>✏️ <span contenteditable="true"><strong>1.</strong> Dibuixa una cosa viva molt petita del teu cos. Com creus que és?</span></p>
+        <div class="draw-box deletable" style="margin-top:6px">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <span class="draw-label">✏️ dibuixa aquí</span>
+        </div>
+
+        <p style="margin-top:10px">✏️ <span contenteditable="true"><strong>2.</strong> Pots estar molts dies sense menjar. Però només uns minuts sense respirar. Què creus que passa si NO respires? Acaba la frase:</span></p>
+        <div class="wline" contenteditable="true">Si no respiro, el meu cos </div>
+      </div>
+
+      <div class="connexio-box mt8 deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="connexio-icon">🔗</div>
+        <div class="connexio-text" contenteditable="true"><strong>La pregunta d'avui:</strong> per què el teu cos necessita <strong>menjar</strong> i <strong>aire</strong>? La resposta és molt petita: està dins de cada <strong>cèl·lula</strong>.</div>
+      </div>
+    </div>
+
+    <!-- ── Secció 1: Mira dins la cèl·lula (Explore + web) ── -->
+    <div class="section deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="section-header">
+        <div class="snum" style="background:var(--orange)">1</div>
+        <div>
+          <div class="stitle" contenteditable="true">Mira dins la cèl·lula <span class="temps deletable" contenteditable="true">⏱️ 25 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="sdesc" contenteditable="true">Obre la web i busca les 3 parts</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <!-- CÀPSULA PER LLEGIR -->
+      <div class="info-box deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="info-head">📖 Per llegir</div>
+        <p contenteditable="true">La <strong>cèl·lula</strong> és la cosa viva més petita. Tot el teu cos està fet de cèl·lules: la pell, els músculs, la sang...</p>
+        <p contenteditable="true">Una cèl·lula té parts. Avui en mirem <strong>3</strong>: la <strong>membrana</strong>, el <strong>nucli</strong> i el <strong>mitocondri</strong>.</p>
+      </div>
+
+      <figure class="deletable" style="margin:8px 0 10px;text-align:center;position:relative">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <img src="../imatges_material_grafic/celula_animal_etiquetable.png"
+             alt="Cèl·lula amb les seves parts"
+             style="max-width:100%;max-height:240px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
+             onerror="this.style.display='none'">
+        <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">Una cèl·lula i les seves parts</figcaption>
+      </figure>
+
+      <p style="font-size:11.5px;color:var(--ink-2);margin-bottom:4px" contenteditable="true">✏️ Obre la web de Biologia. Busca aquestes 3 parts. Marca la casella ✔ quan trobis cada una:</p>
+      <ul class="find-list">
+        <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="find-chk"></span><span class="find-pic">🛡️</span><span contenteditable="true"><strong>La membrana</strong> — la "pell" que envolta la cèl·lula</span></li>
+        <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="find-chk"></span><span class="find-pic">🔵</span><span contenteditable="true"><strong>El nucli</strong> — la bola del mig que mana</span></li>
+        <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="find-chk"></span><span class="find-pic">⚡</span><span contenteditable="true"><strong>El mitocondri</strong> — on es fa l'energia</span></li>
+      </ul>
+    </div>
+
+    <!-- ── Secció 2: La cèl·lula necessita menjar i aire ── -->
+    <div class="section deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="section-header">
+        <div class="snum" style="background:var(--teal)">2</div>
+        <div>
+          <div class="stitle" contenteditable="true">Menjar + aire = energia <span class="temps deletable" contenteditable="true">⏱️ 25 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="sdesc" contenteditable="true">Per què mengem i per què respirem</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <!-- CÀPSULA PER LLEGIR amb cadena causal -->
+      <div class="info-box deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="info-head">📖 Per llegir</div>
+        <p contenteditable="true">Per estar <strong>viva</strong>, la cèl·lula necessita <strong>energia</strong>. L'energia es fa dins el <strong>mitocondri</strong>.</p>
+        <p contenteditable="true">El mitocondri necessita <strong>2 coses</strong>: el <strong>menjar</strong> (un sucre que es diu glucosa) i l'<strong>aire</strong> (l'oxigen).</p>
+        <div class="cadena">
+          <span class="chip">🍎 Menjar</span>
+          <span class="cadena-arrow">+</span>
+          <span class="chip b">💨 Aire</span>
+          <span class="cadena-arrow">→</span>
+          <span class="chip c">⚡ Energia</span>
+        </div>
+      </div>
+
+      <figure class="deletable" style="margin:4px 0 8px;text-align:center;position:relative">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <img src="../imatges/science_bits/96_respiracio_cellular_mitocondri.jpg"
+             alt="Dins el mitocondri, el menjar i l'oxigen fan energia"
+             style="max-width:100%;max-height:190px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
+             onerror="this.style.display='none'">
+        <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">Dins el mitocondri: el menjar + l'aire fan energia</figcaption>
+      </figure>
+
+      <!-- BANNER IDEA CLAU -->
+      <div class="clau deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        🍎 MENJAR <span class="big">+</span> 💨 AIRE <span class="big">→</span> ⚡ ENERGIA
+      </div>
+
+      <!-- MÈTODE DELS 3 PASSOS — EXEMPLE RESOLT -->
+      <div class="passos-box exemple deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="passos-cap">✅ Pensem en 3 passos — EXEMPLE FET <span class="cas-tag">Per què ens morim si no respirem?</span></div>
+        <div class="pas">
+          <div class="pas-num">1</div>
+          <div class="pas-cos">
+            <div class="pas-q">Què necessita el cos per funcionar?</div>
+            <div class="pas-opts">
+              <span class="pas-opt marcat"><span class="pas-box"></span> <b>⚡ ENERGIA</b></span>
+              <span class="pas-opt"><span class="pas-box"></span> colors</span>
+            </div>
+          </div>
+        </div>
+        <div class="pas">
+          <div class="pas-num">2</div>
+          <div class="pas-cos">
+            <div class="pas-q">On es fa l'energia?</div>
+            <div class="pas-opts">
+              <span class="pas-opt"><span class="pas-box"></span> al nucli</span>
+              <span class="pas-opt marcat"><span class="pas-box"></span> <b>al MITOCONDRI</b></span>
+            </div>
+          </div>
+        </div>
+        <div class="pas">
+          <div class="pas-num">3</div>
+          <div class="pas-cos">
+            <div class="pas-q">Si no respires, què li falta al mitocondri?</div>
+            <div class="pas-opts">
+              <span class="pas-opt marcat"><span class="pas-box"></span> <b>l'AIRE (oxigen)</b></span>
+              <span class="pas-opt"><span class="pas-box"></span> l'aigua</span>
+            </div>
+          </div>
+        </div>
+        <div class="exemple-nota">💡 Sense aire → el mitocondri no pot fer energia → ens morim. Aquest exemple ja està resolt. Ara ho faràs tu a la Secció 3.</div>
+      </div>
+    </div>
+
+    <!-- ── Secció 3: Ara ho fas tu ── -->
+    <div class="section deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="section-header">
+        <div class="snum" style="background:var(--rose)">3</div>
+        <div>
+          <div class="stitle" contenteditable="true">Ara ho fas tu <span class="temps deletable" contenteditable="true">⏱️ 20 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="sdesc" contenteditable="true">El mateix mètode, però amb el menjar</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <!-- recordatori idea clau (repetició) -->
+      <div class="clau deletable" style="margin-top:4px">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        🍎 MENJAR <span class="big">+</span> 💨 AIRE <span class="big">→</span> ⚡ ENERGIA
+      </div>
+
+      <!-- MÈTODE DELS 3 PASSOS — EN BLANC -->
+      <div class="passos-box deletable" style="margin-top:8px">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="passos-cap">✏️ Pensem en 3 passos — MARCA TU <span class="cas-tag">Per què ens morim si no mengem?</span></div>
+        <div class="pas">
+          <div class="pas-num">1</div>
+          <div class="pas-cos">
+            <div class="pas-q">Què necessita el cos per funcionar?</div>
+            <div class="pas-opts">
+              <span class="pas-opt"><span class="pas-box"></span> ⚡ energia</span>
+              <span class="pas-opt"><span class="pas-box"></span> colors</span>
+            </div>
+          </div>
+        </div>
+        <div class="pas">
+          <div class="pas-num">2</div>
+          <div class="pas-cos">
+            <div class="pas-q">On es fa l'energia?</div>
+            <div class="pas-opts">
+              <span class="pas-opt"><span class="pas-box"></span> al nucli</span>
+              <span class="pas-opt"><span class="pas-box"></span> al mitocondri</span>
+            </div>
+          </div>
+        </div>
+        <div class="pas">
+          <div class="pas-num">3</div>
+          <div class="pas-cos">
+            <div class="pas-q">Si no menges, què li falta al mitocondri?</div>
+            <div class="pas-opts">
+              <span class="pas-opt"><span class="pas-box"></span> el menjar (glucosa)</span>
+              <span class="pas-opt"><span class="pas-box"></span> el so</span>
+            </div>
+          </div>
+        </div>
+        <div class="pas-frase">
+          <div class="pas-frase-lab">✏️ Ara escriu UNA frase. Comença així:</div>
+          <div class="wline" contenteditable="true">Si no menjo, el mitocondri no pot </div>
+        </div>
+      </div>
+
+      <!-- ENCERCLA LA FUNCIÓ DE CADA PART -->
+      <p style="font-size:11.5px;color:var(--ink-2);margin:10px 0 2px" contenteditable="true">✏️ <strong>Encercla</strong> què fa cada part de la cèl·lula:</p>
+      <div class="circ-help" contenteditable="true">Pensa: la membrana és la "pell", el nucli "mana", el mitocondri fa "energia".</div>
+      <div class="passos-box deletable" style="margin-top:2px">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div style="padding:6px 12px">
+          <div class="circ-row">
+            <span class="circ-pic">🛡️</span>
+            <span class="circ-lab">Membrana</span>
+            <span class="circ-opts">
+              <span class="circ-opt" contenteditable="true">deixa entrar i sortir coses</span>
+              <span class="circ-opt" contenteditable="true">fa l'energia</span>
+            </span>
+          </div>
+          <div class="circ-row">
+            <span class="circ-pic">🔵</span>
+            <span class="circ-lab">Nucli</span>
+            <span class="circ-opts">
+              <span class="circ-opt" contenteditable="true">mana i guarda l'ADN</span>
+              <span class="circ-opt" contenteditable="true">deixa passar l'aigua</span>
+            </span>
+          </div>
+          <div class="circ-row">
+            <span class="circ-pic">⚡</span>
+            <span class="circ-lab">Mitocondri</span>
+            <span class="circ-opts">
+              <span class="circ-opt" contenteditable="true">fa l'energia</span>
+              <span class="circ-opt" contenteditable="true">protegeix la cèl·lula</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plantes vs animals — molt senzill, encercla -->
+      <div class="info-box deletable" style="margin-top:10px">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="info-head">📖 Per llegir — i les plantes?</div>
+        <p contenteditable="true">Els <strong>animals</strong> han de <strong>menjar</strong> altres éssers vius. Les <strong>plantes</strong> NO mengen: fabriquen el seu menjar amb la llum del sol. Això es diu <strong>fotosíntesi</strong>.</p>
+      </div>
+      <div class="frase-completar deletable" contenteditable="true">
+        <span class="del-btn" onclick="deleteEl(this)">✕</span>
+        ✏️ Encercla: una <strong>planta</strong> fa el seu menjar amb la llum del&nbsp;
+        <span class="circ-opt" contenteditable="true">sol</span>&nbsp;
+        <span class="circ-opt" contenteditable="true">televisor</span>.
+      </div>
+    </div>
+
+    <!-- Exit ticket: full independent -> exit_ticket_s1_VISUAL.html (regla "exit ticket separat"; abans incrustat aqui) -->
+
+    <!-- ── METACOGNICIÓ ── -->
+    <div class="section deletable" style="margin-top:14px">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <p style="font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:6px">🧠 Metacognició — 3 min</p>
+
+      <div class="meta-oa-box deletable" style="margin-bottom:8px">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="meta-oa-title">🎯 Torna als objectius del principi — Marca el que has après avui:</div>
+        <div class="meta-oa-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="meta-oa-check"></div>
+          <div class="meta-oa-text" contenteditable="true">Sé que la cèl·lula és la cosa viva més petita.</div>
+        </div>
+        <div class="meta-oa-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="meta-oa-check"></div>
+          <div class="meta-oa-text" contenteditable="true">Sé les 3 parts: membrana, nucli i mitocondri.</div>
+        </div>
+        <div class="meta-oa-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="meta-oa-check"></div>
+          <div class="meta-oa-text" contenteditable="true">Sé què fa cada part.</div>
+        </div>
+        <div class="meta-oa-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="meta-oa-check"></div>
+          <div class="meta-oa-text" contenteditable="true">Sé que el menjar + l'aire fan energia al mitocondri.</div>
+        </div>
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <span class="meta-icon">❓</span>
+          <div class="meta-label">Una cosa que encara no entenc</div>
+          <div class="wline" contenteditable="true"></div>
+        </div>
+        <div class="meta-item deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <span class="meta-icon">⭐</span>
+          <div class="meta-label">Puntuació de la sessió</div>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <div style="font-size:9.5px;color:var(--muted);margin-top:4px">Encercla les estrelles que consideres</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TASCA PER A CASA ── -->
+    <div class="tasca-box deletable" style="margin-top:14px">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="tasca-title">📚 Tasca per a casa — per a la Sessió 2</div>
+      <div class="tasca-item deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="tasca-num">1</div>
+        <div contenteditable="true"><strong>🎨 Dibuixa de memòria:</strong> sense mirar els apunts, dibuixa una cèl·lula amb les <strong>3 parts</strong> (membrana, nucli, mitocondri). Escriu el nom de cada part.</div>
+      </div>
+      <div class="tasca-item deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="tasca-num">2</div>
+        <div contenteditable="true"><strong>🥚 Posa un ou en vinagre (per a la S2):</strong> posa un ou sencer dins un got amb <strong>vinagre blanc</strong>. Tapa'l i deixa'l <strong>48 hores</strong>. Mira què li passa a la closca.</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-l">SA1 · La cèl·lula viva · Sessió 1 · IE Temple · Biologia i Geologia 3r ESO</div>
+      <div class="footer-r">©2025–2026</div>
+    </div>
+
+  </div><!-- .content -->
+</div><!-- .page-wrap -->
+
+<script>
+const delStack = [];
+function deleteEl(btn) {
+  const target = btn.closest('.deletable');
+  if (!target) return;
+  const parent = target.parentNode;
+  const sibling = target.nextSibling;
+  target.remove();
+  delStack.push({ el:target, parent, sibling });
+  document.getElementById('btn-undo').classList.add('active');
+}
+function undoDelete() {
+  if (!delStack.length) return;
+  const { el, parent, sibling } = delStack.pop();
+  parent.insertBefore(el, sibling);
+  if (!delStack.length) document.getElementById('btn-undo').classList.remove('active');
+  updatePageBreaks();
+}
+document.addEventListener('keydown', e => {
+  if (e.key==='z' && (e.ctrlKey||e.metaKey)) {
+    if (document.activeElement && document.activeElement.contentEditable==='true') return;
+    e.preventDefault(); undoDelete();
+  }
+});
+
+const PAGE_H = 1047;
+let _pbTimer = null;
+const PB_OPTS = { childList:true, subtree:true, characterData:true, attributes:false };
+function updatePageBreaks() {
+  pbObserver.disconnect();
+  const doc = document.getElementById('doc');
+  doc.querySelectorAll('.page-break-line').forEach(n=>n.remove());
+  doc.querySelectorAll('.page-footer-bar').forEach(n=>n.remove());
+  const total = doc.scrollHeight;
+  const numPages = Math.ceil(total/PAGE_H);
+  for (let p=1; p*PAGE_H<total; p++) {
+    const line=document.createElement('div'); line.className='page-break-line'; line.style.top=(p*PAGE_H)+'px';
+    const label=document.createElement('div'); label.className='page-break-label'; label.textContent='Pàgina '+(p+1);
+    line.appendChild(label); doc.appendChild(line);
+  }
+  for (let p=1; p<=numPages; p++) {
+    const bar=document.createElement('div'); bar.className='page-footer-bar'; bar.style.top=(p*PAGE_H-22)+'px';
+    bar.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span>'+p+' / '+numPages+'</span>';
+    doc.appendChild(bar);
+  }
+  pbObserver.observe(document.getElementById('doc'), PB_OPTS);
+}
+function schedulePageBreaks() { clearTimeout(_pbTimer); _pbTimer=setTimeout(updatePageBreaks,350); }
+window.addEventListener('load', updatePageBreaks);
+const pbObserver = new MutationObserver(schedulePageBreaks);
+pbObserver.observe(document.getElementById('doc'), PB_OPTS);
+
+let _lastClickedBlock = null;
+document.addEventListener('click', e => {
+  const content=document.querySelector('.content'); if (!content) return;
+  let node=e.target;
+  while (node && node.parentElement!==content) node=node.parentElement;
+  if (node && node!==content && !node.classList.contains('spacer-block')) _lastClickedBlock=node;
+});
+function insertSpacer() {
+  const content=document.querySelector('.content'); const footer=document.querySelector('.footer');
+  const sp=document.createElement('div'); sp.className='spacer-block deletable';
+  sp.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai en blanc</span>';
+  let ref=footer||null;
+  if (_lastClickedBlock && _lastClickedBlock.parentElement===content) ref=_lastClickedBlock.nextSibling;
+  content.insertBefore(sp,ref);
+  delStack.push({el:sp,parent:content,sibling:sp.nextSibling});
+  document.getElementById('btn-undo').classList.add('active');
+  schedulePageBreaks();
+}
+</script>
+
+<script>
+/* === DESAR EDICIONS AL FITXER === */
+function _fitxaToast(msg){
+  let t=document.getElementById('fitxa-toast');
+  if(!t){t=document.createElement('div');t.id='fitxa-toast';
+    t.style.cssText='position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3a2d6e;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s';
+    document.body.appendChild(t);}
+  t.textContent=msg;t.style.opacity='1';
+  clearTimeout(t._h);t._h=setTimeout(()=>t.style.opacity='0',2200);
+}
+async function desaFitxa(){
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelectorAll('.page-break-line,.page-footer-bar,#fitxa-toast').forEach(n=>n.remove());
+  const html='<!DOCTYPE html>\n'+clone.outerHTML;
+  const fname=(location.pathname.split('/').pop()||'fitxa.html');
+  if(window.showSaveFilePicker){
+    try{
+      const h=await window.showSaveFilePicker({suggestedName:fname,types:[{description:'Pàgina HTML',accept:{'text/html':['.html']}}]});
+      const w=await h.createWritable();await w.write(html);await w.close();
+      _fitxaToast('✓ Canvis desats al fitxer');return;
+    }catch(e){if(e.name==='AbortError')return;}
+  }
+  const blob=new Blob([html],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+  _fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='s'&&(e.ctrlKey||e.metaKey)){e.preventDefault();desaFitxa();}
+});
+</script>
+
+</body>
+</html>

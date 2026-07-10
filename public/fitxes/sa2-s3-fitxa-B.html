@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S3 · El Sistema Circulatori i la Sang — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple:       #7B68C8;
+  --purple-ink:   #4a3b8c;
+  --purple-light: #c5b8f0;
+  --purple-tint:  #f0edfb;
+  --ink:          #1A1428;
+  --ink-2:        #3a3050;
+  --muted:        #7a7090;
+  --surface:      #fdfcff;
+  --rule:         #e8e2f6;
+  --rule-dark:    #c8bfe8;
+  --art:     #c0474a; --art-tint:     #fef5f5;
+  --ven:     #6b7ab5; --ven-tint:     #f0f2ff;
+  --plasma:  #f0c040;
+  --orange:  #e8834a; --orange-tint:  #fdf0e8;
+  --teal:    #3a9e8c; --teal-tint:    #e6f4f1;
+  --rose:    #d44a6c; --rose-tint:    #fce8ed;
+  --yellow:  #c8960a; --yellow-tint:  #fdf7e2;
+  --green:   #4a9e5c; --green-tint:   #eaf4ec;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:13px; line-height:1.5; }
+
+/* ── TOOLBAR ── */
+#toolbar {
+  position:fixed; top:0; left:0; right:0; z-index:9000;
+  background:#2d2347; display:flex; gap:6px; align-items:center;
+  padding:6px 12px; box-shadow:0 2px 10px rgba(0,0,0,.25);
+}
+.tb-btn {
+  font-family:'Inter',sans-serif; font-size:12px; font-weight:600;
+  color:#fff; background:rgba(255,255,255,.12); border:none; cursor:pointer;
+  padding:6px 11px; border-radius:7px;
+}
+.tb-btn:hover { background:rgba(255,255,255,.24); }
+.tb-btn.active { background:var(--purple); }
+.tb-title { font-family:'Inter',sans-serif; font-size:11px; color:#cfc6ec; margin-left:auto; letter-spacing:.04em; }
+
+.page-wrap { max-width:794px; margin:48px auto 30px; background:var(--surface); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.14); }
+#doc { position:relative; }
+
+/* ── CAPÇALERA ── */
+.header-band {
+  background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%);
+  color:#fff; padding:14px 18px 12px;
+  display:grid; grid-template-columns:56px 1fr auto; gap:0 14px; align-items:center;
+  position:relative;
+}
+.header-emoji-box { width:50px; height:50px; background:rgba(255,255,255,.18); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+.header-center { min-width:0; }
+.header-sa { font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; opacity:.75; margin-bottom:2px; }
+.header-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:30px; font-weight:900; line-height:1.05; color:#fff; margin:0; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-size:13px; font-style:italic; opacity:.85; margin-top:2px; }
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:6px; flex-shrink:0; }
+.logo-box img { height:46px; display:block; }
+.header-meta { font-family:'Inter',sans-serif; font-size:8px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; opacity:.8; text-align:right; line-height:1.4; }
+
+/* ── STRIP NIVELL ── */
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:6px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
+.badge { font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
+.temps-badge { font-size:10px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
+.nom-field { font-size:11px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
+.nom-field:first-of-type { margin-left:auto; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
+.input-span.data-span { min-width:70px; }
+.input-span:empty::before { content:attr(data-hint); color:#c0b8d8; font-style:italic; pointer-events:none; font-size:10px; }
+.nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(123,104,200,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); vertical-align:middle; margin-left:4px; flex-shrink:0; }
+
+/* ── OA BOX ── */
+.oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin:12px 18px 4px; position:relative; }
+.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:13px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:6px; }
+.oa-list { margin:0; padding-left:18px; list-style:none; }
+.oa-list li { font-size:11px; line-height:1.5; color:var(--ink-2); margin-bottom:3px; padding-left:4px; }
+.oa-list li::before { content:"□ "; color:var(--purple); font-weight:700; margin-left:-18px; margin-right:4px; }
+
+/* ── CONTINGUT ── */
+.content { padding:4px 18px 14px; }
+.section { margin-top:15px; position:relative; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.snum.n0 { background:var(--muted); } .snum.n1 { background:var(--art); } .snum.n2 { background:var(--art); }
+.snum.n3 { background:var(--purple); } .snum.n4 { background:var(--rose); } .snum.n5 { background:var(--green); }
+.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:10px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+
+/* ── BLOCS ── */
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
+.previ-box p { font-size:12px; }
+.wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:6px; background:#fff; outline:none; padding:3px 4px; }
+.wline:empty::before { content:attr(data-hint); color:#c0b8d8; font-style:italic; pointer-events:none; font-size:11px; }
+.pista { font-size:10px; color:var(--muted); font-style:italic; margin:4px 0 2px; }
+.card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:10px 12px; margin-bottom:8px; }
+.card.orange { border-color:var(--orange); background:var(--orange-tint); }
+.card.teal { border-color:var(--teal); background:var(--teal-tint); }
+.card.rose { border-color:var(--rose); background:var(--rose-tint); }
+.card.yellow { border-color:var(--yellow); background:var(--yellow-tint); }
+.card-label { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+
+/* ── CONNEXIÓ ── */
+.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-icon { font-size:24px; flex-shrink:0; }
+.connexio-text { font-size:11px; line-height:1.4; }
+.connexio-text strong { color:var(--purple-ink); }
+
+/* ── SANG ── */
+.sang-layout { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:10px 0; align-items:start; }
+.sang-img-wrap img { width:100%; border-radius:8px; border:1.5px solid var(--rule); display:block; }
+.sang-img-caption { font-size:9px; color:var(--muted); font-style:italic; text-align:center; margin-top:3px; line-height:1.3; }
+.sang-bar { display:flex; height:28px; border-radius:6px; overflow:hidden; margin:8px 0; border:1.5px solid var(--rule-dark); }
+.sang-bar-plasma { background:var(--plasma); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:#7a5010; }
+.sang-bar-eritro { background:var(--art); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:#fff; }
+.sang-bar-altres { background:#9080c0; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:700; color:#fff; }
+.sang-comp-row { display:flex; align-items:center; gap:8px; font-size:11px; margin-bottom:4px; }
+.sang-comp-dot { width:14px; height:14px; border-radius:50%; flex-shrink:0; }
+.sang-comp-pct { font-size:13px; font-weight:900; min-width:35px; }
+.sang-comp-name { font-weight:700; min-width:90px; }
+.sang-comp-fun { font-size:10px; color:var(--muted); flex:1; }
+
+/* ── COR ── */
+.cor-layout { display:grid; grid-template-columns:1fr 1.25fr; gap:16px; margin:10px 0; align-items:start; }
+.cor-img-big { text-align:center; margin:12px 0 6px; }
+.cor-img-big img { width:100%; max-width:560px; border-radius:8px; border:1.5px solid var(--rule-dark); display:inline-block; }
+.cor-img-wrap img { width:100%; border-radius:8px; border:1.5px solid var(--rule-dark); display:block; }
+.cor-img-caption { font-size:9px; color:var(--muted); font-style:italic; text-align:center; margin-top:3px; line-height:1.3; }
+
+/* ── WORD BANK ── */
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
+.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.chips { display:flex; flex-wrap:wrap; gap:4px; }
+.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.chip.art { border-color:var(--art); color:var(--art); }
+.chip.ven { border-color:var(--ven); color:var(--ven); }
+
+/* ── TAULES ── */
+.label-table, .data-table { width:100%; border-collapse:collapse; font-size:11px; }
+.data-table th { background:var(--purple-ink); color:#fff; padding:5px 8px; text-align:left; font-size:9px; letter-spacing:.05em; text-transform:uppercase; }
+.label-table th { background:var(--art); color:#fff; padding:5px 8px; text-align:left; font-size:9px; letter-spacing:.05em; text-transform:uppercase; }
+.label-table th:first-child, .data-table th:first-child { border-radius:5px 0 0 0; }
+.label-table th:last-child, .data-table th:last-child { border-radius:0 5px 0 0; }
+.label-table td, .data-table td { padding:5px 8px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table tr:nth-child(even) td { background:var(--purple-tint); }
+.label-table tr:nth-child(even) td { background:var(--art-tint); }
+.fill-cell { display:block; width:100%; min-height:22px; border-bottom:1.5px solid #C8C2DD; background:#fff; outline:none; padding:2px 3px; }
+.hint-cell { font-size:10px; color:var(--muted); }
+.yes-no { display:flex; gap:8px; }
+.yn-opt { font-size:11px; display:flex; align-items:center; gap:3px; }
+.chk-sq { width:12px; height:12px; border:1.5px solid var(--rule-dark); border-radius:2px; flex-shrink:0; display:inline-block; }
+.val-low { color:var(--rose); font-weight:900; }
+.val-ok { color:var(--green); font-weight:700; }
+.val-flag > td { background:var(--rose-tint) !important; }
+
+/* ── DOBLE CIRCULACIÓ ── */
+.circ-schema { display:grid; grid-template-columns:1fr 110px 1fr; margin:10px 0; background:#fff; border:1.5px solid var(--rule); border-radius:10px; overflow:hidden; }
+.circ-col { padding:10px 12px; text-align:center; }
+.circ-col.left { background:var(--art-tint); }
+.circ-col.right { background:var(--ven-tint); }
+.circ-center { background:var(--purple-tint); padding:10px 8px; text-align:center; border-left:1px solid var(--rule); border-right:1px solid var(--rule); }
+.circ-label { font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; margin-bottom:4px; }
+.circ-col.left .circ-label { color:var(--art); }
+.circ-col.right .circ-label { color:var(--ven); }
+.circ-center .circ-label { color:var(--purple-ink); font-size:11px; }
+.circ-text { font-size:9.5px; color:var(--ink-2); line-height:1.4; }
+
+/* ── EPIST ── */
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
+.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+
+/* ── METACOGNICIÓ OA-BASED ── */
+.meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin-top:12px; position:relative; }
+.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:12px; font-weight:900; color:var(--purple-ink); margin-bottom:8px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:5px; }
+.meta-oa-check { width:14px; height:14px; flex-shrink:0; border:1.5px solid var(--purple); border-radius:3px; margin-top:1px; print-color-adjust:exact; }
+.meta-oa-text { font-size:10.5px; color:var(--ink-2); line-height:1.4; }
+.meta-open { margin-top:8px; padding-top:8px; border-top:1px solid var(--rule-dark); }
+.meta-open-label { font-size:10px; font-weight:700; color:var(--muted); margin-bottom:3px; }
+
+/* ── TASCA CASA ── */
+.tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:10px 12px; margin-top:10px; position:relative; }
+
+/* ── FOOTER ── */
+.footer { margin-top:14px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
+.footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+
+/* ── ELIMINABLES ── */
+.deletable { position:relative; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; background:var(--rose); color:#fff; border-radius:50%; font-size:11px; line-height:18px; text-align:center; cursor:pointer; z-index:50; box-shadow:0 1px 4px rgba(0,0,0,.3); }
+.deletable:hover > .del-btn { display:flex; align-items:center; justify-content:center; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+
+/* ── SPACER ── */
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; }
+.spacer-label { font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+
+/* ── SALTS DE PÀGINA ── */
+.page-break-line { position:absolute; left:0; right:0; border-top:2px dashed #9080bc; pointer-events:none; z-index:10; }
+.page-break-label { position:absolute; right:10px; top:-11px; background:#9080bc; color:#fff; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
+.page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
+
+.mt8 { margin-top:8px; } .bold { font-weight:700; } .small { font-size:10px; color:var(--muted); }
+
+@media print {
+  @page { size:A4; margin:10mm 12mm; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { background:#fff; padding:0; }
+  #toolbar, .page-break-line, .del-btn { display:none !important; }
+  .page-footer-bar { display:flex !important; }
+  .footer { display:none !important; }
+  .page-wrap { box-shadow:none; width:100%; margin:0; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline,.fill-cell { background:transparent; }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .input-span:empty::before { display:none; }
+  .header-emoji-box { background:#ede8f8; }
+}
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <button class="tb-btn" id="btn-undo" onclick="undoDelete()" title="Desfés l'última eliminació (Ctrl+Z)">↩ Desfés</button>
+  <button class="tb-btn" onclick="document.execCommand('bold')" title="Negreta">𝐁 Negreta</button>
+  <button class="tb-btn" onclick="insertSpacer()" title="Insereix un espai en blanc">＋ Espai</button>
+  <button class="tb-btn" onclick="window.print()" title="Imprimeix">🖨️ Imprimeix</button>
+  <button class="tb-btn tb-desa" onclick="desaFitxa()" title="Desa els canvis al fitxer (Ctrl+S)">💾 Desa</button>
+  <span class="tb-title">Fitxa S3 · El Sistema Circulatori i la Sang · IE Temple</span>
+</div>
+
+<div class="page-wrap">
+<div id="doc">
+
+<!-- ══ CAPÇALERA ══ -->
+<div class="header-band deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="header-emoji-box">❤️</div>
+  <div class="header-center">
+    <div class="header-sa" contenteditable="true">SA2 · El nostre cos en marxa · Sessió 3 de 7</div>
+    <div class="header-title" contenteditable="true">El Sistema Circulatori i la Sang</div>
+    <div class="header-subtitle" contenteditable="true">Per quina raó la sang sembla vermella si el 55% és groga?</div>
+  </div>
+  <div class="header-right">
+    <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
+    <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
+  </div>
+</div>
+
+<!-- ══ STRIP NIVELL ══ -->
+<div class="nivell-strip deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <span class="badge deletable" contenteditable="true">Semiguiat<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+  <span class="temps-badge deletable">⏱️ 2h total<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+  <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió B — Estàndard">B</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+</div>
+
+<!-- ══ OA ══ -->
+<div class="oa-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="oa-title">🎯 Objectius d'aprenentatge d'avui</div>
+  <ul class="oa-list">
+    <li contenteditable="true">Sé la composició de la sang (plasma, eritròcits, leucòcits i plaquetes) i les seves proporcions aproximades.</li>
+    <li contenteditable="true">Puc explicar com l'hemoglobina i el ferro transporten l'oxigen fins als músculs.</li>
+    <li contenteditable="true">Sé situar les cavitats del cor i entenc per quina raó la circulació humana és doble (per què calen 4 cavitats).</li>
+    <li contenteditable="true">Començo a interpretar una analítica de sang real i relaciono l'anèmia ferropènica amb la fatiga del corredor.</li>
+  </ul>
+</div>
+
+<div class="content">
+
+<!-- ══ VOCABULARI CLAU ══ -->
+<div class="word-bank deletable" style="margin-top:10px">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="word-bank-title">📖 Vocabulari clau d'avui</div>
+  <div class="chips">
+    <span class="chip">plasma = part líquida groga de la sang</span>
+    <span class="chip">eritròcit = glòbul vermell, transporta oxigen</span>
+    <span class="chip">leucòcit = glòbul blanc, defensa del cos</span>
+    <span class="chip">plaqueta = ajuda a tapar ferides (coagulació)</span>
+    <span class="chip">hemoglobina = proteïna amb ferro que agafa l'O₂</span>
+    <span class="chip">hematòcrit = proporció de glòbuls vermells a la sang</span>
+    <span class="chip">anèmia = poca hemoglobina o pocs eritròcits</span>
+    <span class="chip">circulació sistèmica = la que va a tot el cos</span>
+    <span class="chip">circulació pulmonar = la que va als pulmons</span>
+  </div>
+</div>
+
+<!-- ══ 0 · IDEES PRÈVIES ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle">Idees prèvies</div><div class="sdesc">Activa el que ja saps — no hi ha respostes dolentes</div></div></div>
+  <div class="divider"></div>
+  <div class="previ-box">
+    <p>Escriu tot el que creus que la <strong>sang</strong> transporta pel cos (oxigen, nutrients, cèl·lules de defensa, deixalles…):</p>
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+  </div>
+  <div class="connexio-box mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="connexio-icon">🔗</div>
+    <div class="connexio-text">
+      <strong>Connexió amb la S2 (digestió):</strong> a la sessió anterior vam veure que els nutrients absorbits a l'<strong>intestí prim</strong> passen a la sang. Avui descobrim <em>com</em> la sang els transporta fins a cada cèl·lula — i per quina raó el <strong>Marc Fontana</strong> s'acaba el combustible a mig camí tot i menjar correctament.
+    </div>
+  </div>
+</div>
+
+<!-- ══ 1 · COMPOSICIÓ DE LA SANG ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle">Les targetes de la sang — composició real</div><div class="sdesc">El sobre té 100 targetes que simulen la proporció real de la sang</div></div></div>
+  <div class="divider"></div>
+
+  <div class="card mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">🤔 Hipòtesi prèvia</div>
+    <p style="font-size:11px">De cada 100 targetes, quantes creus que seran eritròcits (glòbuls vermells)? I quants leucòcits?</p>
+    <div class="wline" contenteditable="true"></div>
+  </div>
+
+  <div class="sang-layout">
+    <div>
+      <div class="sang-img-wrap">
+        <img src="../imatges-cientifiques/frotis_celules_sang.png" alt="Frotis de sang al microscopi òptic: ① glòbuls vermells (eritròcits), ② glòbuls blancs (leucòcits), ③ plaquetes" onerror="this.style.display='none'">
+      </div>
+      <div class="sang-img-caption">Frotis de sang real al microscopi òptic — ① eritròcits · ② leucòcits · ③ plaquetes<br>Imatge IE Temple (ús escolar)</div>
+      <div style="margin-top:8px">
+        <p style="font-size:11px;font-weight:700;margin-bottom:5px">Observa la imatge i identifica:</p>
+        <div style="font-size:11px;margin-bottom:4px">① Cèl·lules bicòncaves, vermelles, sense nucli → <span class="fill-cell" contenteditable="true" style="display:inline-block;width:110px;vertical-align:bottom"></span></div>
+        <div style="font-size:11px;margin-bottom:4px">② Cèl·lules irregulars amb nucli lobulat → <span class="fill-cell" contenteditable="true" style="display:inline-block;width:110px;vertical-align:bottom"></span></div>
+        <div style="font-size:11px">③ Fragments petits, irregulars → <span class="fill-cell" contenteditable="true" style="display:inline-block;width:110px;vertical-align:bottom"></span></div>
+        <div class="card mt8 deletable" style="background:var(--purple-tint)">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="card-label">📖 Glossari — paraules de la imatge</div>
+          <p style="font-size:10.5px;margin:2px 0"><strong>Cèl·lula bicòncava:</strong> cèl·lula aplanada i enfonsada pel centre per les dues cares (com un disc xafat al mig). Aquesta forma li dona més superfície per agafar i deixar oxigen. És la forma dels eritròcits (glòbuls vermells).</p>
+          <p style="font-size:10.5px;margin:2px 0"><strong>Nucli lobulat:</strong> nucli dividit en diversos lòbuls (trossos units) en comptes de ser rodó. És típic de molts leucòcits (glòbuls blancs), les cèl·lules de defensa.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:11px;font-weight:700;margin-bottom:5px">Proporcions reals (contrasta-ho amb les targetes):</p>
+      <div class="sang-img-wrap">
+        <img src="../imatges-cientifiques/composicio_sang_humana.png" alt="Composició de la sang humana en volum: 55% plasma i 45% cèl·lules sanguínies (>99% glòbuls vermells, <1% glòbuls blancs i plaquetes)" onerror="this.style.display='none'">
+      </div>
+      <div class="sang-img-caption" style="margin-bottom:8px">Composició de la sang humana en volum (sang centrifugada)<br>Imatge IE Temple (ús escolar)</div>
+      <div class="sang-comp-row">
+        <div class="sang-comp-dot" style="background:var(--plasma);border:1px solid #c8960a"></div>
+        <span class="sang-comp-pct">55%</span><span class="sang-comp-name">Plasma</span>
+        <span class="sang-comp-fun">Aigua + nutrients + hormones + proteïnes</span>
+      </div>
+      <div class="sang-comp-row">
+        <div class="sang-comp-dot" style="background:var(--art)"></div>
+        <span class="sang-comp-pct">44%</span><span class="sang-comp-name">Eritròcits</span>
+        <span class="sang-comp-fun">Transport d'O₂ via <strong>hemoglobina</strong>. Sense nucli, vida ~120 dies.</span>
+      </div>
+      <div class="sang-comp-row">
+        <div class="sang-comp-dot" style="background:#9080c0"></div>
+        <span class="sang-comp-pct">&lt;1%</span><span class="sang-comp-name">Leucòcits + Plaquetes</span>
+        <span class="sang-comp-fun">Defensa immunològica + coagulació</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card rose mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">🔑 Pregunta clau</div>
+    <p style="font-size:12px;font-weight:700">Per quina raó la sang sembla completament vermella si el 55% és de color groc (plasma)?</p>
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+  </div>
+</div>
+
+<!-- ══ 2 · ETIQUETA EL COR ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n2">2</div><div><div class="stitle">Etiqueta el cor</div><div class="sdesc">Usa el banc de paraules. Diagrama en secció (vista anterior)</div></div></div>
+  <div class="divider"></div>
+
+  <div class="word-bank deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="word-bank-title">Banc de paraules</div>
+    <div class="chips">
+      <span class="chip art">Aurícula dreta</span><span class="chip art">Ventricle dret</span>
+      <span class="chip ven">Aurícula esquerra</span><span class="chip ven">Ventricle esquerre</span>
+      <span class="chip art">Artèria pulmonar</span><span class="chip ven">Venes pulmonars</span>
+      <span class="chip art">Aorta</span><span class="chip">Venes caves</span>
+      <span class="chip">Vàlvula tricúspide</span><span class="chip">Vàlvula mitral</span><span class="chip">Tabic interventricular</span>
+    </div>
+  </div>
+
+  <div class="cor-img-big">
+    <img src="../imatges-cientifiques/parts_cor_mut.png" alt="Cor humà en secció amb línies sense etiquetar, per completar amb el banc de paraules" onerror="this.style.display='none'">
+    <div class="cor-img-caption">Cor humà en secció · <strong>mut</strong> — posa-hi les etiquetes amb el banc de paraules<br>Imatge pròpia IE Temple<br><span style="color:var(--art)">●</span> Sang desoxigenada &nbsp; <span style="color:var(--ven)">●</span> Sang oxigenada</div>
+  </div>
+
+  <div class="cor-layout">
+    <div>
+      <div class="card rose mt8 deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="card-label">💡 Observació</div>
+        <p style="font-size:11px">El ventricle <strong>esquerre</strong> té la paret molt més gruixuda que el dret. Per quina raó?</p>
+        <div class="wline" contenteditable="true"></div>
+        <div class="wline" contenteditable="true"></div>
+      </div>
+    </div>
+    <div>
+      <table class="label-table">
+        <thead><tr><th>Cavitat / Estructura</th><th>Rep sang de…</th><th>Envia sang a…</th></tr></thead>
+        <tbody>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td style="color:var(--art);font-weight:700">Aurícula dreta</td><td class="hint-cell">Venes caves (tot el cos)</td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td style="color:var(--art);font-weight:700">Ventricle dret</td><td><span class="fill-cell" contenteditable="true"></span></td><td class="hint-cell">Art. pulmonar → pulmons</td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td style="color:var(--ven);font-weight:700">Aurícula esquerra</td><td class="hint-cell">Venes pulmonars (pulmons)</td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td style="color:var(--ven);font-weight:700">Ventricle esquerre</td><td><span class="fill-cell" contenteditable="true"></span></td><td class="hint-cell">Artèria aorta → tot el cos</td></tr>
+        </tbody>
+      </table>
+      <div class="card mt8 deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="card-label">🚪 Les vàlvules cardíaques</div>
+        <table style="width:100%;border-collapse:collapse;font-size:10.5px">
+          <tr style="background:var(--purple-tint)"><td style="padding:3px 6px;font-weight:700">Tricúspide</td><td style="padding:3px 6px">Entre aurícula i ventricle <span class="fill-cell" contenteditable="true" style="display:inline-block;width:40px;vertical-align:bottom"></span></td><td style="padding:3px 6px;color:var(--muted)">3 làmines</td></tr>
+          <tr><td style="padding:3px 6px;font-weight:700">Mitral (bicúspide)</td><td style="padding:3px 6px">Entre aurícula i ventricle <span class="fill-cell" contenteditable="true" style="display:inline-block;width:40px;vertical-align:bottom"></span></td><td style="padding:3px 6px;color:var(--muted)">2 làmines</td></tr>
+          <tr style="background:var(--purple-tint)"><td style="padding:3px 6px;font-weight:700">Semilunars (×2)</td><td style="padding:3px 6px">A la sortida dels ventricles — eviten el reflux</td><td style="padding:3px 6px;color:var(--muted)">3 làmines</td></tr>
+        </table>
+        <p style="font-size:10px;margin-top:5px">🔊 El so "lub-dub" correspon a: <span class="fill-cell" contenteditable="true" style="display:inline-block;width:170px;vertical-align:bottom"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card teal mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">⚠️ Cas clínic — Comunicació Interventricular (CIV)</div>
+    <p style="font-size:11px">El <strong>tabic interventricular</strong> separa els dos ventricles. Si hi ha un forat (CIV), la sang oxigenada i la desoxigenada es barregen. Quins símptomes esperes? (marca'ls)</p>
+    <div style="display:flex;gap:14px;margin-top:5px;font-size:11px;flex-wrap:wrap">
+      <label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Cianosi (color blavós)</label>
+      <label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Fatiga constant</label>
+      <label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Febre alta</label>
+      <label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Cap símptoma</label>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CLAU AUTOCORRECCIÓ COR ══ -->
+<div class="card mt8 deletable" style="border:1.5px dashed var(--rule)">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="card-label">🔑 Clau d'autocorrecció — obre-la NOMÉS quan hagis acabat d'etiquetar</div>
+  <p style="font-size:10.5px;margin-bottom:5px">Tapa aquesta imatge mentre treballes. Quan hagis posat totes les etiquetes pel teu compte, compara-les amb el cor etiquetat i corregeix els errors amb un altre color.</p>
+  <div style="text-align:center">
+    <img src="../imatges-cientifiques/cor_etiquetes_propi.jpg.png" alt="Cor humà en secció amb totes les etiquetes: aurícules, ventricles, vàlvules, venes caves, aorta i artèria pulmonar" style="max-width:300px;width:100%;height:auto" onerror="this.style.display='none'">
+    <div style="font-size:9px;color:var(--muted);font-style:italic;margin-top:2px">Solució · Imatge pròpia IE Temple</div>
+  </div>
+</div>
+
+<!-- ══ 3 · DOBLE CIRCULACIÓ ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle">La doble circulació — per quina raó en calen dues?</div></div></div>
+  <div class="divider"></div>
+
+  <div class="deletable" style="text-align:center;margin:6px 0">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <img src="../imatges-cientifiques/circulacio_doble.png" alt="Diagrama de la circulació doble: circuit pulmonar (cor-pulmons) i circuit sistèmic (cor-resta del cos), amb intercanvi de gasos a l'alvèol i a la cèl·lula muscular" style="max-width:340px;width:100%;height:auto" onerror="this.style.display='none'">
+    <div style="font-size:9px;color:var(--muted);margin-top:2px;line-height:1.4">Circulació <strong>doble</strong>: el <strong>circuit pulmonar</strong> (cor ↔ pulmons, la sang agafa O₂) i el <strong>circuit sistèmic</strong> (cor ↔ resta del cos, la sang lliura O₂). La sang passa <strong>dos cops</strong> pel cor a cada volta. · Imatge pròpia IE Temple</div>
+  </div>
+  <div class="circ-schema deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="circ-col left">
+      <div class="circ-label">🔴 Circulació gran (sistèmica)</div>
+      <div style="font-size:20px;margin:4px 0">🫀</div>
+      <div class="circ-text">Cor esquerre<br>↓<br><strong>Aorta</strong><br>↓<br>Tot el cos<br>(músculs, òrgans, cervell)<br>↓<br>Intercanvi O₂ / CO₂<br>↓<br><strong>Venes caves</strong><br>↓<br>Cor dret</div>
+    </div>
+    <div class="circ-center">
+      <div class="circ-label">❤️ COR</div>
+      <div style="font-size:24px;margin:6px 0">↕</div>
+      <div style="font-size:9px;color:var(--muted);line-height:1.5">Pressió:<br>gran circ. ALTA<br>petita circ. BAIXA<br>(protegeix els alvèols)</div>
+    </div>
+    <div class="circ-col right">
+      <div class="circ-label">🔵 Circulació petita (pulmonar)</div>
+      <div style="font-size:20px;margin:4px 0">🫁</div>
+      <div class="circ-text">Cor dret<br>↓<br><strong>Art. pulmonar</strong><br>↓<br>Pulmons<br>(alvèols: O₂ entra, CO₂ surt)<br>↓<br>Sang oxigenada<br>↓<br><strong>Venes pulmonars</strong><br>↓<br>Cor esquerre</div>
+    </div>
+  </div>
+
+  <div class="card teal mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">❓ Reflexiona</div>
+    <p style="font-size:12px;font-weight:700">Per quina raó calen dues circulacions separades i no una de sola?</p>
+    <p class="pista">Pista: pensa en la pressió necessària per arribar als peus vs. la que aguanten els delicats alvèols pulmonars.</p>
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+  </div>
+
+  <div class="epist-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div style="font-size:22px;flex-shrink:0">🏛️</div>
+    <div>
+      <div class="epist-title">Moment epistèmic — William Harvey (1628)</div>
+      <div class="epist-text">Harvey va calcular matemàticament que el cor bombeja tant de volum per hora que és impossible que el fetge el produís contínuament (com creia Galè). Va demostrar la circulació tancada amb càlcul <em>abans</em> que existís el microscopi. <strong>Lliçó:</strong> la raó pot precedir l'observació directa.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 4 · ANALÍTICA DEL MARC ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n4">4</div><div><div class="stitle">Desxifra l'analítica del Marc</div><div class="sdesc">Marc Fontana, 28 anys, corredor. Analítica de sang (fictícia però realista)</div></div></div>
+  <div class="divider"></div>
+
+  <table class="data-table">
+    <thead><tr><th>Paràmetre</th><th>Valor del Marc</th><th>Rang de referència</th><th>Nivell? (compara amb el rang i marca)</th><th>Què vol dir? (només si està fora del rang)</th></tr></thead>
+    <tbody>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Hemoglobina (Hb)</td><td>9,2 g/dL</td><td>13,5–17,5 g/dL</td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div><div class="yn-opt"><span class="chk-sq"></span>Alt</div></div></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Eritròcits</td><td>3,8×10⁶/µL</td><td>4,5–5,5×10⁶/µL</td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div><div class="yn-opt"><span class="chk-sq"></span>Alt</div></div></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">VCM (mida eritròcit)</td><td>68 fL</td><td>80–100 fL</td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div><div class="yn-opt"><span class="chk-sq"></span>Alt</div></div></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Ferro sèric</td><td>38 µg/dL</td><td>60–180 µg/dL</td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div><div class="yn-opt"><span class="chk-sq"></span>Alt</div></div></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Leucòcits</td><td>6.200/µL</td><td>4.000–11.000/µL</td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div><div class="yn-opt"><span class="chk-sq"></span>Alt</div></div></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Glucosa</td><td>94 mg/dL</td><td>70–100 mg/dL</td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div><div class="yn-opt"><span class="chk-sq"></span>Alt</div></div></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="card rose deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">🔍 Completa el diagnòstic</div>
+    <p style="font-size:11px;margin-top:2px">La peça que falla és <span class="fill-cell" contenteditable="true" style="display:inline-block;width:100px;vertical-align:bottom"></span> perquè el ferro baix provoca que la <span class="fill-cell" contenteditable="true" style="display:inline-block;width:120px;vertical-align:bottom"></span> baixi, i per tant els músculs reben menys <span class="fill-cell" contenteditable="true" style="display:inline-block;width:50px;vertical-align:bottom"></span> → fatiga precoç.</p>
+    <p class="small mt8">Diagnòstic: <strong>anèmia ferropènica</strong>. Tractament: suplements de ferro + vitamina C (millora l'absorció intestinal del ferro).</p>
+  </div>
+</div>
+
+<!-- ══ METACOGNICIÓ OA-BASED ══ -->
+<div class="meta-oa-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="meta-oa-title">🎯 Torna als objectius del principi — Marca el que has après avui:</div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé la composició de la sang (plasma, eritròcits, leucòcits i plaquetes) i les seves proporcions aproximades.</div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Puc explicar com l'hemoglobina i el ferro transporten l'oxigen fins als músculs.</div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé situar les cavitats del cor i entenc per quina raó la circulació humana és doble (per què calen 4 cavitats).</div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Començo a interpretar una analítica de sang real i relaciono l'anèmia ferropènica amb la fatiga del corredor.</div></div>
+  <div class="meta-open"><div class="meta-open-label">❓ Encara em pregunto…</div><div class="wline" contenteditable="true"></div></div>
+</div>
+
+<!-- ══ TASCA CASA ══ -->
+<div class="tasca-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="card-label">📚 Tasca per a casa — Prepara la S4</div>
+  <p style="font-size:12px;font-weight:700;color:var(--purple-ink)">Mesura el teu pols en repòs (sense haver fet exercici l'última hora). Posa els dits índex i mig al coll o al canell, compta les pulsacions durant 30 segons i multiplica per 2. Anota el resultat i porta'l a la S4.</p>
+  <p class="small mt8">El meu pols en repòs: ______ ppm · Hora de la mesura: ______</p>
+  <p class="small mt8">⏱️ 2 minuts · Necessites un rellotge i els teus propis dits · No es pot fer amb IA.</p>
+</div>
+
+<div class="footer deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="footer-l">IE Temple · Biologia i Geologia 3r ESO · SA2 S3 · Versió B</div>
+  <div class="footer-r">Curs 2025–2026</div>
+</div>
+
+</div><!-- /content -->
+</div><!-- /doc -->
+</div><!-- /page-wrap -->
+
+<script>
+/* ── 1. ELIMINACIÓ + HISTORIAL ── */
+const delStack = [];
+function deleteEl(btn){
+  const el = btn.closest('.deletable');
+  if(!el) return;
+  delStack.push({ el, parent: el.parentNode, sibling: el.nextSibling });
+  el.remove();
+  document.getElementById('btn-undo').classList.add('active');
+  schedulePageBreaks();
+}
+function undoDelete(){
+  const last = delStack.pop();
+  if(!last) return;
+  last.parent.insertBefore(last.el, last.sibling);
+  if(delStack.length===0) document.getElementById('btn-undo').classList.remove('active');
+  schedulePageBreaks();
+}
+document.addEventListener('keydown', e=>{
+  if(e.key==='z' && (e.ctrlKey||e.metaKey)){
+    const ed = document.activeElement && document.activeElement.isContentEditable;
+    if(!ed){ e.preventDefault(); undoDelete(); }
+  }
+});
+
+/* ── 2. SALTS DE PÀGINA + PEU ── */
+const PAGE_H = 1047;
+let _pbTimer = null;
+const PB_OPTS = { childList:true, subtree:true, characterData:true, attributes:false };
+function updatePageBreaks(){
+  pbObserver.disconnect();
+  const doc = document.getElementById('doc');
+  doc.querySelectorAll('.page-break-line').forEach(n=>n.remove());
+  doc.querySelectorAll('.page-footer-bar').forEach(n=>n.remove());
+  const total = doc.scrollHeight;
+  const numPages = Math.ceil(total / PAGE_H);
+  for(let p=1; p*PAGE_H<total; p++){
+    const line=document.createElement('div'); line.className='page-break-line'; line.style.top=(p*PAGE_H)+'px';
+    const label=document.createElement('div'); label.className='page-break-label'; label.textContent='Pàgina '+(p+1);
+    line.appendChild(label); doc.appendChild(line);
+  }
+  for(let p=1; p<=numPages; p++){
+    const bar=document.createElement('div'); bar.className='page-footer-bar'; bar.style.top=(p*PAGE_H-22)+'px';
+    bar.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span>'+p+' / '+numPages+'</span>';
+    doc.appendChild(bar);
+  }
+  pbObserver.observe(doc, PB_OPTS);
+}
+function schedulePageBreaks(){ clearTimeout(_pbTimer); _pbTimer=setTimeout(updatePageBreaks,350); }
+window.addEventListener('load', updatePageBreaks);
+const pbObserver = new MutationObserver(schedulePageBreaks);
+pbObserver.observe(document.getElementById('doc'), PB_OPTS);
+
+/* ── 3. BLOC ESPAI ── */
+let _lastClickedBlock = null;
+document.addEventListener('click', e=>{
+  const content = document.querySelector('.content');
+  if(!content) return;
+  let node = e.target;
+  while(node && node.parentElement !== content) node = node.parentElement;
+  if(node && node !== content && !node.classList.contains('spacer-block')) _lastClickedBlock = node;
+});
+function insertSpacer(){
+  const sp=document.createElement('div'); sp.className='spacer-block deletable';
+  sp.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai en blanc</span>';
+  const content=document.querySelector('.content');
+  let ref=null;
+  if(_lastClickedBlock && _lastClickedBlock.parentElement===content) ref=_lastClickedBlock.nextSibling;
+  content.insertBefore(sp, ref);
+  delStack.push({ el:sp, parent:content, sibling:sp.nextSibling });
+  document.getElementById('btn-undo').classList.add('active');
+  schedulePageBreaks();
+}
+
+/* ── 4. DESAR AL FITXER ── */
+function _fitxaToast(msg){
+  let t=document.getElementById('fitxa-toast');
+  if(!t){t=document.createElement('div');t.id='fitxa-toast';
+    t.style.cssText='position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3a2d6e;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s';
+    document.body.appendChild(t);}
+  t.textContent=msg;t.style.opacity='1';clearTimeout(t._h);t._h=setTimeout(()=>t.style.opacity='0',2200);
+}
+async function desaFitxa(){
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelectorAll('.page-break-line,.page-footer-bar,#fitxa-toast').forEach(n=>n.remove());
+  const html='<!DOCTYPE html>\n'+clone.outerHTML;
+  const fname=(location.pathname.split('/').pop()||'fitxa.html');
+  if(window.showSaveFilePicker){
+    try{
+      const h=await window.showSaveFilePicker({suggestedName:fname,types:[{description:'Pàgina HTML',accept:{'text/html':['.html']}}]});
+      const w=await h.createWritable();await w.write(html);await w.close();
+      _fitxaToast('✓ Canvis desats al fitxer');return;
+    }catch(e){if(e.name==='AbortError')return;}
+  }
+  const blob=new Blob([html],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+  _fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');
+}
+document.addEventListener('keydown',e=>{ if(e.key==='s'&&(e.ctrlKey||e.metaKey)){e.preventDefault();desaFitxa();} });
+</script>
+</body>
+</html>

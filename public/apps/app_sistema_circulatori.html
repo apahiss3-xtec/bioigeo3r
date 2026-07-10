@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El viatge de l'oxigen · Sistema circulatori · IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#c084fc;--purple-ink:#5a4aa0;--purple-deep:#7B68C8;
+  --ink:#1A1A2E;--ink-2:#4A3F3F;--muted:#666666;
+  --surface:#fdfafb;--card:#ffffff;--rule:#EAE6F6;--rule-dark:#C8C2DD;
+  --purple-tint:#EFEAF5;--yellow-tint:#FFF9E0;--green:#3fa15a;--green-tint:#EAF4EB;
+  --oxy:#d64550;--oxy-soft:#f6d4d7;--oxy-tint:#fbecec;
+  --deoxy:#2f6fb0;--deoxy-soft:#c7dcef;--deoxy-tint:#e9f1f9;
+  --amber:#e0a92b;
+  --shadow:0 1px 2px rgba(26,26,46,.06),0 8px 24px rgba(26,26,46,.07);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Fira Sans Extra Condensed',system-ui,sans-serif;background:var(--surface);color:var(--ink-2);min-height:100vh;}
+button{font-family:inherit;cursor:pointer;}
+
+/* ── HEADER ── */
+header{background:var(--purple-ink);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.header-left{display:flex;flex-direction:column;line-height:1.08;}
+.header-eyebrow{font-size:11px;font-weight:700;color:var(--purple);letter-spacing:.1em;text-transform:uppercase;}
+.header-title{font-size:22px;font-weight:700;color:#fff;}
+.header-sub{font-size:12.5px;color:rgba(255,255,255,.55);font-style:italic;}
+.header-right{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;}
+.lang-btn,.simplify-btn{font-family:inherit;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:none;border-radius:9999px;padding:6px 14px;transition:all .2s;}
+.simplify-btn{background:var(--yellow-tint);color:var(--purple-ink);}
+.simplify-btn:hover{background:#f9dc5c;}
+.simplify-btn.active{background:#f9dc5c;box-shadow:0 0 0 2px #fff;}
+.lang-btn{background:rgba(255,255,255,.12);color:#fff;}
+.lang-btn:hover{background:rgba(255,255,255,.22);}
+.lang-btn.active{background:var(--purple);color:var(--ink);}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1220px;margin:0 auto;padding:20px 20px 60px;}
+.intro{background:var(--card);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);padding:16px 20px;margin-bottom:18px;}
+.intro h1{font-size:20px;color:var(--ink);font-weight:700;margin-bottom:4px;}
+.intro p{font-size:15px;line-height:1.55;max-width:78ch;}
+.mission{margin-top:10px;font-size:14px;background:var(--purple-tint);border-left:4px solid var(--purple-deep);border-radius:8px;padding:9px 13px;color:var(--purple-ink);font-weight:600;}
+
+.grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;align-items:start;}
+@media(max-width:900px){.grid{grid-template-columns:1fr;}}
+
+.stage{background:var(--card);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;}
+.stage svg{display:block;width:100%;height:auto;background:linear-gradient(180deg,#fdfbff,#f4f0fb);}
+
+/* Controls */
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:12px 16px;border-top:1px solid var(--rule);background:var(--card);}
+.btn{display:inline-flex;align-items:center;gap:7px;border:none;background:var(--purple-deep);color:#fff;font-size:14px;font-weight:700;padding:9px 16px;border-radius:10px;transition:filter .15s,transform .1s;}
+.btn:hover{filter:brightness(1.08);}
+.btn:active{transform:translateY(1px);}
+.btn.ghost{background:transparent;color:var(--purple-ink);border:1.5px solid var(--purple-deep);}
+.btn:disabled{opacity:.4;cursor:not-allowed;}
+.toggle-anemia{margin-left:auto;display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--ink-2);}
+.switch{position:relative;width:44px;height:24px;background:var(--rule-dark);border-radius:9999px;transition:background .2s;flex-shrink:0;}
+.switch.on{background:var(--oxy);}
+.switch::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;background:#fff;border-radius:50%;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,.3);}
+.switch.on::after{left:22px;}
+
+.legend{display:flex;gap:18px;flex-wrap:wrap;padding:10px 16px;font-size:13px;border-top:1px solid var(--rule);background:var(--card);}
+.legend span{display:inline-flex;align-items:center;gap:7px;}
+.dot{width:13px;height:13px;border-radius:50%;flex-shrink:0;}
+.dot.oxy{background:var(--oxy);}
+.dot.deoxy{background:var(--deoxy);}
+
+/* Panel */
+.panel{background:var(--card);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);padding:18px 20px;position:sticky;top:14px;}
+.panel-step{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:6px;}
+.panel-title{font-size:22px;font-weight:700;color:var(--ink);line-height:1.1;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.panel-num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--purple-ink);color:#fff;font-size:17px;flex-shrink:0;}
+.panel-body{font-size:15.5px;line-height:1.6;}
+.panel-body p+p{margin-top:10px;}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:9999px;margin-bottom:8px;}
+.tag.oxy{background:var(--oxy-tint);color:var(--oxy);}
+.tag.deoxy{background:var(--deoxy-tint);color:var(--deoxy);}
+.tag.cell{background:var(--green-tint);color:var(--green);}
+.anemia-note{margin-top:12px;font-size:14px;background:var(--oxy-tint);border-left:4px solid var(--oxy);border-radius:8px;padding:9px 12px;color:var(--oxy);font-weight:600;display:none;}
+.anemia-on .anemia-note{display:block;}
+.pips{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap;}
+.pip{width:11px;height:11px;border-radius:50%;background:var(--rule-dark);transition:background .2s;}
+.pip.active{background:var(--purple-deep);}
+
+/* Tooltip multilingüe */
+.tr-word{cursor:help;border-bottom:1px dashed var(--purple-deep);position:relative;display:inline;}
+.tr-word .tooltip-box{display:none;position:absolute;bottom:130%;left:50%;transform:translateX(-50%);background:var(--purple-ink);color:#fff;font-size:14px;font-weight:700;padding:4px 10px;border-radius:6px;white-space:nowrap;z-index:100;pointer-events:none;}
+.tr-word .tooltip-box::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--purple-ink);}
+.lang-ar .tr-word .tooltip-ar,.lang-es .tr-word .tooltip-es,.lang-ur .tr-word .tooltip-ur{display:block;}
+
+/* Simplify */
+.simple-only{display:none;}
+body.simplified .simple-hide{display:none;}
+body.simplified .simple-only{display:block;}
+
+/* SVG helpers */
+.node-box{fill:#fff;stroke:var(--rule-dark);stroke-width:2;}
+.node-lung{fill:var(--deoxy-tint);}
+.node-heart{fill:#fff;}
+.node-muscle{fill:var(--oxy-tint);}
+.node-label{font-family:'Fira Sans Extra Condensed',sans-serif;font-weight:700;fill:var(--ink);}
+.node-sub{font-family:'Fira Sans Extra Condensed',sans-serif;fill:var(--muted);}
+.hotspot{cursor:pointer;}
+.hotspot circle.hs{fill:var(--purple-ink);stroke:#fff;stroke-width:2.5;transition:r .15s;}
+.hotspot text{fill:#fff;font-weight:700;font-family:'Fira Sans Extra Condensed',sans-serif;pointer-events:none;}
+.hotspot.current circle.hs{fill:var(--amber);}
+.hotspot:hover circle.hs{r:17;}
+
+/* Quiz */
+.quiz{background:var(--card);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);padding:18px 20px;margin-top:18px;}
+.quiz h2{font-size:18px;color:var(--purple-ink);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em;}
+.quiz .q{margin-top:14px;}
+.quiz .q p{font-size:15.5px;font-weight:600;color:var(--ink);margin-bottom:8px;}
+.opt{display:block;width:100%;text-align:left;background:var(--surface);border:1.5px solid var(--rule);border-radius:10px;padding:10px 14px;font-size:14.5px;margin-bottom:7px;transition:all .15s;color:var(--ink-2);}
+.opt:hover{border-color:var(--purple-deep);}
+.opt.correct{background:var(--green-tint);border-color:var(--green);color:#256b39;font-weight:700;}
+.opt.wrong{background:var(--oxy-tint);border-color:var(--oxy);color:var(--oxy);}
+.opt.dim{opacity:.5;}
+.feedback{font-size:14px;margin-top:6px;font-weight:600;min-height:1.2em;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <span class="header-eyebrow">Biologia i Geologia · 3r ESO · IE Temple</span>
+    <span class="header-title">El viatge de l'oxigen</span>
+    <span class="header-sub">De l'alvèol al mitocondri del peu del corredor</span>
+  </div>
+  <div class="header-right">
+    <button class="simplify-btn" id="btnSimplify" onclick="toggleSimplify()">Simplifica</button>
+    <button class="lang-btn" id="btnAr" onclick="setLang('ar')">عربي</button>
+    <button class="lang-btn" id="btnEs" onclick="setLang('es')">Castellano</button>
+    <button class="lang-btn" id="btnUr" onclick="setLang('ur')">اردو</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="intro">
+    <h1>Segueix una molècula d'<span class="tr-word">oxigen<span class="tooltip-box tooltip-ar">أكسجين</span><span class="tooltip-box tooltip-es">oxígeno</span><span class="tooltip-box tooltip-ur">آکسیجن</span></span> pel cos</h1>
+    <p class="simple-hide">El corredor respira aire pels pulmons. Però l'<b>O₂</b> ha d'arribar fins als músculs de les cames per donar-los energia. Prem <b>Reprodueix</b> i mira com viatja: primer vermell (amb O₂), després blau (sense O₂). Clica cada punt <b>①–⑦</b> per llegir què passa.</p>
+    <p class="simple-only">L'aire entra pels pulmons. L'oxigen (O₂) va per la sang fins al múscul del peu. Prem <b>Reprodueix</b>. Vermell = amb oxigen. Blau = sense oxigen. Clica els punts.</p>
+    <div class="mission">🎯 Missió: descobreix per quina raó, si el Marc té poca <span class="tr-word">hemoglobina<span class="tooltip-box tooltip-ar">هيموغلوبين</span><span class="tooltip-box tooltip-es">hemoglobina</span><span class="tooltip-box tooltip-ur">ہیموگلوبن</span></span>, els seus músculs es cansen tan aviat.</div>
+  </div>
+
+  <div class="grid">
+    <!-- ESQUEMA -->
+    <div class="stage">
+      <svg id="diagram" viewBox="0 0 920 600" role="img" aria-label="Esquema del recorregut de l'oxigen pel sistema circulatori">
+        <!-- Path invisible: recorregut complet (anada vermella + tornada blava) -->
+        <path id="route" d="M 200 150
+          C 260 175, 330 205, 415 255
+          C 445 273, 460 285, 470 300
+          C 485 325, 560 360, 660 420
+          C 700 443, 740 460, 790 470
+          C 740 505, 700 505, 660 490
+          C 560 455, 470 420, 440 360
+          C 425 330, 360 250, 260 200
+          C 235 187, 215 175, 200 175 Z"
+          fill="none" stroke="none"/>
+
+        <!-- Traç de referència (visual) -->
+        <use href="#route" stroke="var(--oxy-soft)" stroke-width="7" fill="none"/>
+
+        <!-- PULMONS -->
+        <rect class="node-box node-lung" x="60" y="70" width="230" height="140" rx="18"/>
+        <text class="node-label" x="175" y="102" font-size="20" text-anchor="middle">PULMONS</text>
+        <text class="node-sub" x="175" y="124" font-size="14" text-anchor="middle">alvèols · intercanvi de gasos</text>
+        <ellipse cx="130" cy="165" rx="42" ry="30" fill="var(--deoxy-soft)" stroke="var(--deoxy)" stroke-width="1.5"/>
+        <ellipse cx="222" cy="165" rx="42" ry="30" fill="var(--oxy-soft)" stroke="var(--oxy)" stroke-width="1.5"/>
+
+        <!-- COR -->
+        <rect class="node-box node-heart" x="370" y="235" width="180" height="150" rx="18"/>
+        <text class="node-label" x="460" y="266" font-size="20" text-anchor="middle">COR</text>
+        <text class="node-sub" x="460" y="286" font-size="13" text-anchor="middle">4 cavitats · la bomba</text>
+        <rect x="388" y="300" width="70" height="70" rx="8" fill="var(--deoxy-tint)" stroke="var(--deoxy)" stroke-width="1.5"/>
+        <text class="node-sub" x="423" y="332" font-size="11" text-anchor="middle" fill="var(--deoxy)">costat</text>
+        <text class="node-sub" x="423" y="346" font-size="11" text-anchor="middle" fill="var(--deoxy)">dret</text>
+        <rect x="462" y="300" width="70" height="70" rx="8" fill="var(--oxy-tint)" stroke="var(--oxy)" stroke-width="1.5"/>
+        <text class="node-sub" x="497" y="332" font-size="11" text-anchor="middle" fill="var(--oxy)">costat</text>
+        <text class="node-sub" x="497" y="346" font-size="11" text-anchor="middle" fill="var(--oxy)">esq.</text>
+
+        <!-- MÚSCUL DEL PEU -->
+        <rect class="node-box node-muscle" x="630" y="400" width="255" height="165" rx="18"/>
+        <text class="node-label" x="757" y="432" font-size="19" text-anchor="middle">MÚSCUL DEL PEU</text>
+        <text class="node-sub" x="757" y="452" font-size="13" text-anchor="middle">capil·lars · cèl·lula · mitocondri</text>
+        <circle cx="700" cy="500" r="30" fill="#fff" stroke="var(--green)" stroke-width="2"/>
+        <text class="node-sub" x="700" y="504" font-size="11" text-anchor="middle" fill="var(--green)">cèl·lula</text>
+        <ellipse cx="800" cy="500" rx="46" ry="26" fill="var(--green-tint)" stroke="var(--green)" stroke-width="1.8"/>
+        <text class="node-sub" x="800" y="497" font-size="11.5" text-anchor="middle" fill="var(--green)">mitocondri</text>
+        <text class="node-sub" x="800" y="511" font-size="11.5" text-anchor="middle" fill="var(--green)">→ ATP ⚡</text>
+
+        <!-- Molècula viatgera -->
+        <g id="traveller">
+          <circle id="molecule" cx="200" cy="150" r="13" fill="var(--oxy)" stroke="#fff" stroke-width="2.5"/>
+          <text id="molLabel" x="200" y="154" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">O₂</text>
+        </g>
+
+        <!-- Hotspots (es generen amb JS) -->
+        <g id="hotspots"></g>
+      </svg>
+      <div class="controls">
+        <button class="btn" id="btnPlay" onclick="togglePlay()">▶ Reprodueix</button>
+        <button class="btn ghost" id="btnPrev" onclick="stepStation(-1)">◀ Anterior</button>
+        <button class="btn ghost" id="btnNext" onclick="stepStation(1)">Següent ▶</button>
+        <button class="btn ghost" onclick="resetJourney()">↺ Reinicia</button>
+        <label class="toggle-anemia" onclick="toggleAnemia()">
+          Mode anèmia
+          <span class="switch" id="anemiaSwitch"></span>
+        </label>
+      </div>
+      <div class="legend">
+        <span><span class="dot oxy"></span> Sang amb O₂ (oxigenada)</span>
+        <span><span class="dot deoxy"></span> Sang sense O₂ (desoxigenada) + CO₂</span>
+        <span>①–⑦ Estacions del recorregut</span>
+      </div>
+    </div>
+
+    <!-- PANELL -->
+    <div class="panel" id="panel">
+      <div class="panel-step" id="pStep">Estació 1 de 7</div>
+      <div class="panel-title"><span class="panel-num" id="pNum">1</span><span id="pTitle">L'alvèol</span></div>
+      <span class="tag oxy" id="pTag">amb oxigen</span>
+      <div class="panel-body" id="pBody"></div>
+      <div class="anemia-note" id="pAnemia"></div>
+      <div class="pips" id="pips"></div>
+    </div>
+  </div>
+
+  <!-- QUIZ AUTOCORRECTIU -->
+  <div class="quiz" id="quiz">
+    <h2>Comprova-ho</h2>
+    <p style="font-size:14px;color:var(--muted);">3 preguntes ràpides. Es corregeixen soles.</p>
+    <div id="quizBody"></div>
+  </div>
+</div>
+
+<script>
+/* ══════════════ DADES ══════════════ */
+const stations = [
+  { n:1, f:0.00, title:"L'alvèol pulmonar", tag:"oxy",
+    body:`<p>Respires i l'aire arriba als <b>alvèols</b> dels <span class="tr-word">pulmons<span class="tooltip-box tooltip-ar">رئتان</span><span class="tooltip-box tooltip-es">pulmones</span><span class="tooltip-box tooltip-ur">پھیپھڑے</span></span>. Aquí l'<b>O₂</b> de l'aire travessa una paret finíssima i entra a la sang.</p>
+      <p class="simple-hide">Cada alvèol és una bosseta minúscula envoltada de capil·lars: molta superfície en poc espai per capturar oxigen ràpid.</p>
+      <p class="simple-only">Els alvèols són bossetes petites. Agafen l'oxigen de l'aire.</p>`,
+    anemia:"" },
+  { n:2, f:0.12, title:"L'hemoglobina agafa l'O₂", tag:"oxy",
+    body:`<p>Dins els <span class="tr-word">eritròcits<span class="tooltip-box tooltip-ar">كريات الدم الحمراء</span><span class="tooltip-box tooltip-es">glóbulos rojos</span><span class="tooltip-box tooltip-ur">سرخ خلیے</span></span> (glòbuls vermells) hi ha <b>hemoglobina</b>, una proteïna amb <b>ferro</b>. El ferro s'uneix a l'O₂ i la sang es torna <span style="color:var(--oxy);font-weight:700">vermell brillant</span>.</p>
+      <p class="simple-hide">Sense ferro no es forma hemoglobina, i sense hemoglobina la sang gairebé no pot transportar oxigen.</p>
+      <p class="simple-only">L'oxigen s'enganxa al ferro de l'hemoglobina. Per això la sang és vermella.</p>`,
+    anemia:"⚠️ Amb anèmia hi ha poca hemoglobina → cada litre de sang porta MENYS O₂." },
+  { n:3, f:0.30, title:"El cor esquerre bomba", tag:"oxy",
+    body:`<p>La sang oxigenada torna al <b>costat esquerre</b> del cor. El <span class="tr-word">ventricle<span class="tooltip-box tooltip-ar">بطين</span><span class="tooltip-box tooltip-es">ventrículo</span><span class="tooltip-box tooltip-ur">بطن</span></span> esquerre l'empeny amb molta força cap a tot el cos.</p>
+      <p class="simple-hide">El cor té 4 cavitats. El costat dret i l'esquerre no es barregen: així la sang amb O₂ i la sang sense O₂ van per separat.</p>
+      <p class="simple-only">El cor és la bomba. El costat esquerre envia la sang amb oxigen a tot el cos.</p>`,
+    anemia:"⚠️ El cor batega MÉS de pressa per compensar: si cada litre porta poc O₂, n'ha de moure més." },
+  { n:4, f:0.44, title:"L'aorta i les artèries", tag:"oxy",
+    body:`<p>La sang surt per l'<b>aorta</b> i viatja per les <span class="tr-word">artèries<span class="tooltip-box tooltip-ar">شرايين</span><span class="tooltip-box tooltip-es">arterias</span><span class="tooltip-box tooltip-ur">شریانیں</span></span>: tubs de paret gruixuda que aguanten <b>pressió alta</b>. És l'autopista cap al peu.</p>
+      <p class="simple-hide">Les artèries tenen parets fortes perquè la sang hi surt amb molta força. Per això la doble circulació separa pressions: els pulmons no aguantarien tanta pressió.</p>
+      <p class="simple-only">Les artèries són tubs forts. Porten la sang amb pressió alta cap al peu.</p>`,
+    anemia:"" },
+  { n:5, f:0.55, title:"El capil·lar del múscul", tag:"oxy",
+    body:`<p>Al múscul del peu, la sang passa pels <span class="tr-word">capil·lars<span class="tooltip-box tooltip-ar">شعيرات دموية</span><span class="tooltip-box tooltip-es">capilares</span><span class="tooltip-box tooltip-ur">کیپلری</span></span>: tubs d'una sola cèl·lula de gruix. Aquí l'hemoglobina <b>cedeix l'O₂</b>, que surt cap a la cèl·lula muscular.</p>
+      <p class="simple-hide">Els capil·lars són tan prims que l'oxigen pot travessar la paret i arribar a les cèl·lules.</p>
+      <p class="simple-only">Els capil·lars són molt prims. L'oxigen surt aquí cap al múscul.</p>`,
+    anemia:"⚠️ Si arriba poc O₂ al capil·lar, el múscul en rep poc." },
+  { n:6, f:0.63, title:"El mitocondri fa energia", tag:"cell",
+    body:`<p>Dins la cèl·lula, l'O₂ entra al <b>mitocondri</b>. Allà es crema la <b>glucosa</b> amb l'oxigen (<span class="tr-word">respiració cel·lular<span class="tooltip-box tooltip-ar">التنفس الخلوي</span><span class="tooltip-box tooltip-es">respiración celular</span><span class="tooltip-box tooltip-ur">خلوی تنفس</span></span>) i s'obté <b>ATP</b> ⚡, l'energia per córrer.</p>
+      <p class="simple-hide">Glucosa + O₂ → energia (ATP) + CO₂ + aigua. Sense oxigen, el mitocondri no pot fer prou energia i el múscul es cansa.</p>
+      <p class="simple-only">Al mitocondri: glucosa + oxigen → energia (ATP). Recorda-ho de la respiració cel·lular!</p>`,
+    anemia:"⚠️ AQUÍ ESTÀ LA CLAU: menys O₂ al mitocondri → menys ATP → el múscul es fatiga aviat. Aquesta és la causa del cansament del Marc." },
+  { n:7, f:0.85, title:"La tornada: sang sense O₂", tag:"deoxy",
+    body:`<p>Un cop lliurat l'O₂, la sang es torna <span style="color:var(--deoxy);font-weight:700">blava/fosca</span> i carrega el <b>CO₂</b> de rebuig. Torna per les <span class="tr-word">venes<span class="tooltip-box tooltip-ar">أوردة</span><span class="tooltip-box tooltip-es">venas</span><span class="tooltip-box tooltip-ur">رگیں</span></span> al costat dret del cor, que la envia als pulmons per tornar a oxigenar-se.</p>
+      <p class="simple-hide">Aquest és el circuit petit (cor → pulmons → cor). El circuit gran és el que acabes de veure (cor → cos → cor). Per això la circulació és <b>doble</b>.</p>
+      <p class="simple-only">La sang sense oxigen (blava) torna al cor i va als pulmons a buscar més O₂. I torna a començar.</p>`,
+    anemia:"" }
+];
+
+const quiz = [
+  { q:"Per quina raó la sang es torna vermell brillant quan passa pels pulmons?",
+    opts:["Perquè el ferro de l'hemoglobina s'uneix a l'O₂","Perquè s'escalfa al cor","Perquè hi ha més plasma groc","Perquè perd el CO₂ i es dilata"],
+    correct:0,
+    fb:["Exacte! Ferro + O₂ = vermell brillant.","No: el color ve de l'hemoglobina amb oxigen.","No: el plasma és groc, no vermell.","No: el color el dona l'O₂ unit al ferro."] },
+  { q:"On es fa servir realment l'oxigen per obtenir energia?",
+    opts:["Al plasma de la sang","Al mitocondri de la cèl·lula muscular","A l'aorta","A les venes"],
+    correct:1,
+    fb:["No: el plasma només el transporta.","Sí! Al mitocondri: glucosa + O₂ → ATP.","No: l'aorta només el transporta.","No: les venes tornen la sang sense O₂."] },
+  { q:"El Marc té anèmia (poca hemoglobina). Per quina raó es cansa tan aviat corrent?",
+    opts:["Perquè té massa sang","Perquè arriba menys O₂ al mitocondri i es fa menys ATP","Perquè el cor batega massa a poc a poc","Perquè els pulmons són petits"],
+    correct:1,
+    fb:["No: el problema és el transport d'O₂, no la quantitat de sang.","Correcte! Poca Hb → poc O₂ al múscul → poc ATP → fatiga.","No: de fet el cor batega MÉS de pressa per compensar.","No: el problema és l'hemoglobina, no la mida dels pulmons."] }
+];
+
+/* ══════════════ ESTAT ══════════════ */
+let lang=null, simplified=false, anemia=false;
+let current=0, playing=false, rafId=null, progress=0;
+const OXY_THRESHOLD=0.66; // abans d'això, dot vermell; després, blau
+const route=document.getElementById('route');
+const totalLen=route.getTotalLength();
+const mol=document.getElementById('molecule');
+const molLabel=document.getElementById('molLabel');
+
+/* ══════════════ HOTSPOTS ══════════════ */
+const circledNums=['①','②','③','④','⑤','⑥','⑦'];
+function buildHotspots(){
+  const g=document.getElementById('hotspots');
+  stations.forEach((s,i)=>{
+    const pt=route.getPointAtLength(s.f*totalLen);
+    const grp=document.createElementNS('http://www.w3.org/2000/svg','g');
+    grp.setAttribute('class','hotspot');
+    grp.setAttribute('id','hs'+i);
+    grp.addEventListener('click',()=>{stopPlay();goStation(i);});
+    grp.innerHTML=`<circle class="hs" cx="${pt.x}" cy="${pt.y}" r="14"/><text x="${pt.x}" y="${pt.y+5}" font-size="15" text-anchor="middle">${s.n}</text>`;
+    g.appendChild(grp);
+  });
+}
+
+/* ══════════════ PANELL ══════════════ */
+function renderPanel(){
+  const s=stations[current];
+  document.getElementById('pStep').textContent=`Estació ${s.n} de ${stations.length}`;
+  document.getElementById('pNum').textContent=s.n;
+  document.getElementById('pTitle').textContent=s.title;
+  const tagEl=document.getElementById('pTag');
+  tagEl.className='tag '+s.tag;
+  tagEl.textContent = s.tag==='oxy'?'amb oxigen': s.tag==='deoxy'?'sense oxigen':'dins la cèl·lula';
+  document.getElementById('pBody').innerHTML=s.body;
+  const an=document.getElementById('pAnemia');
+  an.textContent=s.anemia||'';
+  an.style.display = (anemia && s.anemia)?'block':'none';
+  // pips
+  const pips=document.getElementById('pips');
+  pips.innerHTML=stations.map((_,i)=>`<span class="pip ${i===current?'active':''}"></span>`).join('');
+  // hotspot highlight
+  document.querySelectorAll('.hotspot').forEach((h,i)=>h.classList.toggle('current',i===current));
+}
+
+function placeMolecule(f){
+  const pt=route.getPointAtLength(f*totalLen);
+  mol.setAttribute('cx',pt.x); mol.setAttribute('cy',pt.y);
+  molLabel.setAttribute('x',pt.x); molLabel.setAttribute('y',pt.y+4);
+  const oxyNow = f < OXY_THRESHOLD;
+  mol.setAttribute('fill', oxyNow ? 'var(--oxy)' : 'var(--deoxy)');
+  molLabel.textContent = oxyNow ? 'O₂' : 'CO₂';
+}
+
+function goStation(i){
+  current=Math.max(0,Math.min(stations.length-1,i));
+  progress=stations[current].f;
+  placeMolecule(progress);
+  renderPanel();
+}
+function stepStation(d){ stopPlay(); goStation(current+d); }
+function resetJourney(){ stopPlay(); goStation(0); }
+
+/* ══════════════ ANIMACIÓ ══════════════ */
+function togglePlay(){ playing?stopPlay():startPlay(); }
+function startPlay(){
+  playing=true;
+  document.getElementById('btnPlay').textContent='⏸ Pausa';
+  if(progress>=0.999) progress=0;
+  let last=performance.now();
+  function frame(now){
+    if(!playing) return;
+    const dt=(now-last)/1000; last=now;
+    progress += dt*0.10; // ~10s per volta
+    if(progress>=1){ progress=1; placeMolecule(1); stopPlay(); goStation(stations.length-1); return; }
+    placeMolecule(progress);
+    // actualitza estació activa segons progrés
+    let idx=0;
+    for(let i=0;i<stations.length;i++){ if(progress>=stations[i].f-0.02) idx=i; }
+    if(idx!==current){ current=idx; renderPanel(); }
+    rafId=requestAnimationFrame(frame);
+  }
+  rafId=requestAnimationFrame(frame);
+}
+function stopPlay(){
+  playing=false;
+  if(rafId) cancelAnimationFrame(rafId);
+  document.getElementById('btnPlay').textContent='▶ Reprodueix';
+}
+
+/* ══════════════ CONTROLS TOP ══════════════ */
+function toggleSimplify(){
+  simplified=!simplified;
+  document.body.classList.toggle('simplified',simplified);
+  document.getElementById('btnSimplify').classList.toggle('active',simplified);
+}
+function setLang(l){
+  lang = lang===l ? null : l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  if(lang) document.getElementById('btn'+l.charAt(0).toUpperCase()+l.slice(1)).classList.add('active');
+  document.body.classList.remove('lang-ar','lang-es','lang-ur');
+  if(lang) document.body.classList.add('lang-'+lang);
+}
+function toggleAnemia(){
+  anemia=!anemia;
+  document.getElementById('anemiaSwitch').classList.toggle('on',anemia);
+  document.body.classList.toggle('anemia-on',anemia);
+  molLabel.textContent = (progress<OXY_THRESHOLD)?'O₂':'CO₂';
+  renderPanel();
+}
+
+/* ══════════════ QUIZ ══════════════ */
+function buildQuiz(){
+  const c=document.getElementById('quizBody');
+  c.innerHTML=quiz.map((q,qi)=>`
+    <div class="q" id="q${qi}">
+      <p>${qi+1}. ${q.q}</p>
+      ${q.opts.map((o,oi)=>`<button class="opt" onclick="answer(${qi},${oi})">${o}</button>`).join('')}
+      <div class="feedback" id="fb${qi}"></div>
+    </div>`).join('');
+}
+let answered={};
+function answer(qi,oi){
+  if(answered[qi]) return;
+  answered[qi]=true;
+  const q=quiz[qi];
+  const btns=document.querySelectorAll('#q'+qi+' .opt');
+  btns.forEach((b,i)=>{
+    b.disabled=true;
+    if(i===q.correct) b.classList.add('correct');
+    else if(i===oi) b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+  const fb=document.getElementById('fb'+qi);
+  fb.textContent=q.fb[oi];
+  fb.style.color = oi===q.correct ? 'var(--green)' : 'var(--oxy)';
+}
+
+/* ══════════════ INIT ══════════════ */
+buildHotspots();
+buildQuiz();
+goStation(0);
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight') stepStation(1);
+  if(e.key==='ArrowLeft') stepStation(-1);
+  if(e.key===' '){ e.preventDefault(); togglePlay(); }
+});
+</script>
+</body>
+</html>

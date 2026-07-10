@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'osmosi · Laboratori interactiu · IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   L'OSMOSI · Laboratori interactiu — IE Temple, Biologia 3r ESO
+   Full self-contained SPA. Cap dependència externa obligatòria.
+   Paleta heretada de les apps del vault (porpra IE Temple) + tints
+   d'aigua (teal) i de solut (coral).
+   ===================================================================== */
+:root{
+  /* Marca IE Temple */
+  --purple:#c084fc;--purple-ink:#5a4aa0;--purple-deep:#7B68C8;
+  --ink:#1A1A2E;--ink-2:#4A3F3F;--muted:#8a85a0;
+  --surface:#fdfafb;--card:#ffffff;--rule:#EAE6F6;
+  /* Semàntica de la simulació */
+  --water:#2f9fd0;--water-soft:#bfe6f4;--water-tint:#eaf6fb;
+  --solute:#f0883e;--solute-soft:#fad8b6;--solute-tint:#fdf1e6;
+  --green:#3fa15a;--green-tint:#eaf4ed;
+  --red:#d9534f;--red-tint:#fbecec;
+  --amber:#e0a92b;--amber-tint:#fbf3df;
+  /* Estats osmòtics */
+  --hipo:#2f9fd0;--iso:#3fa15a;--hiper:#f0883e;
+  --shadow:0 1px 2px rgba(26,26,46,.06),0 8px 24px rgba(26,26,46,.07);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  font-family:'Fira Sans Extra Condensed',system-ui,sans-serif;
+  background:var(--surface);color:var(--ink);
+  display:flex;flex-direction:column;min-height:100vh;
+}
+button{font-family:inherit;cursor:pointer;}
+img{max-width:100%;}
+
+/* ---------- Capçalera ---------- */
+.hdr{background:var(--ink);padding:10px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-shrink:0;position:sticky;top:0;z-index:30;}
+.hdr-l{display:flex;flex-direction:column;line-height:1.05;}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);}
+.h-title{font-size:22px;font-weight:700;color:#fff;}
+.h-sub{font-size:12.5px;color:rgba(255,255,255,.5);font-style:italic;}
+.hdr-prog{display:flex;flex-direction:column;align-items:flex-end;gap:5px;min-width:160px;}
+.hdr-prog-lbl{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);}
+.hdr-prog-track{width:160px;height:6px;background:rgba(255,255,255,.14);border-radius:9999px;overflow:hidden;}
+.hdr-prog-fill{height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--water));border-radius:9999px;transition:width .4s ease;}
+
+/* ---------- Navegació per fases ---------- */
+.nav{background:var(--card);border-bottom:1px solid var(--rule);padding:8px 14px;display:flex;gap:6px;overflow-x:auto;flex-shrink:0;position:sticky;top:54px;z-index:20;scrollbar-width:thin;}
+.nav::-webkit-scrollbar{height:5px;}
+.nav::-webkit-scrollbar-thumb{background:var(--rule);border-radius:9999px;}
+.nav-btn{display:flex;align-items:center;gap:7px;white-space:nowrap;font-size:13px;font-weight:600;padding:7px 13px;border-radius:9999px;border:1.5px solid var(--rule);background:transparent;color:var(--muted);transition:all .15s;}
+.nav-btn .num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--rule);color:var(--muted);font-size:11px;font-weight:700;transition:all .15s;}
+.nav-btn:hover{border-color:var(--purple-deep);color:var(--purple-ink);}
+.nav-btn.done .num{background:var(--green);color:#fff;}
+.nav-btn.current{background:var(--purple-ink);border-color:var(--purple-ink);color:#fff;}
+.nav-btn.current .num{background:rgba(255,255,255,.25);color:#fff;}
+
+/* ---------- Estructura de fase ---------- */
+.stage{flex:1;width:100%;max-width:1180px;margin:0 auto;padding:22px 20px 60px;}
+.phase{display:none;animation:fadeUp .28s ease;}
+.phase.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.phase-head{margin-bottom:18px;}
+.phase-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--purple-ink);background:var(--purple-tint,#efeaf5);padding:4px 11px;border-radius:9999px;margin-bottom:8px;}
+.phase-h{font-size:30px;font-weight:700;line-height:1.06;margin-bottom:6px;}
+.phase-lead{font-size:16px;color:var(--ink-2);line-height:1.5;max-width:62ch;}
+
+/* ---------- Targetes / graella ---------- */
+.grid{display:grid;gap:18px;}
+.grid-2{grid-template-columns:1fr 1fr;}
+.grid-sim{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:start;}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;}
+.card-pad{padding:18px 20px;}
+.card-title{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.muted{color:var(--muted);}
+.lead-sm{font-size:14.5px;line-height:1.6;color:var(--ink-2);}
+.lead-sm + .lead-sm{margin-top:9px;}
+
+/* ---------- Escenari de simulació ---------- */
+.sim-wrap{position:relative;background:linear-gradient(180deg,#f7fbfd,#eef6fb);border-bottom:1px solid var(--rule);}
+.sim-wrap canvas{display:block;width:100%;height:auto;touch-action:none;}
+.sim-badge{position:absolute;top:10px;left:12px;display:flex;gap:6px;flex-wrap:wrap;}
+.chip{font-size:12px;font-weight:700;padding:4px 10px;border-radius:9999px;background:rgba(255,255,255,.85);border:1px solid var(--rule);color:var(--ink-2);backdrop-filter:blur(3px);}
+.chip.state{color:#fff;border:none;}
+.legend{display:flex;gap:16px;flex-wrap:wrap;padding:10px 16px;font-size:13px;color:var(--ink-2);background:var(--card);}
+.legend span{display:inline-flex;align-items:center;gap:7px;}
+.dot{width:12px;height:12px;border-radius:50%;display:inline-block;flex-shrink:0;}
+.dot.water{background:var(--water);}
+.dot.solute{background:var(--solute);}
+.dot.mem{width:4px;height:14px;border-radius:2px;background:var(--purple-deep);}
+
+/* ---------- Controls (sliders) ---------- */
+.ctrl{margin:14px 0;}
+.ctrl-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;}
+.ctrl-label{font-size:14px;font-weight:600;color:var(--ink);}
+.ctrl-val{font-size:14px;font-weight:700;color:var(--purple-ink);font-variant-numeric:tabular-nums;}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:7px;border-radius:9999px;background:var(--rule);outline:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:var(--purple-deep);border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:pointer;transition:transform .1s;}
+input[type=range]::-webkit-slider-thumb:active{transform:scale(1.15);}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--purple-deep);border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:pointer;}
+.ctrl-water input[type=range]::-webkit-slider-thumb{background:var(--water);}
+.ctrl-water input[type=range]::-moz-range-thumb{background:var(--water);}
+.ctrl-scale{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);margin-top:3px;}
+
+/* ---------- Segmented / botoneres ---------- */
+.seg{display:inline-flex;background:var(--rule);border-radius:9999px;padding:4px;gap:4px;flex-wrap:wrap;}
+.seg button{border:none;background:transparent;font-size:13.5px;font-weight:600;color:var(--ink-2);padding:7px 15px;border-radius:9999px;transition:all .15s;}
+.seg button.active{background:#fff;color:var(--purple-ink);box-shadow:0 1px 3px rgba(0,0,0,.12);}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;background:var(--purple-deep);color:#fff;font-size:14.5px;font-weight:700;padding:11px 20px;border-radius:12px;transition:filter .15s,transform .1s;}
+.btn:hover{filter:brightness(1.08);}
+.btn:active{transform:translateY(1px);}
+.btn.ghost{background:transparent;color:var(--purple-ink);border:1.5px solid var(--purple-deep);}
+.btn.water{background:var(--water);}
+.btn:disabled{opacity:.45;cursor:not-allowed;}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:6px;}
+
+/* ---------- Bloc de revelació guiada (fase 2) ---------- */
+.reveal-step{border:1px solid var(--rule);border-radius:14px;padding:14px 16px;margin-bottom:10px;background:var(--card);opacity:.5;transition:opacity .3s,border-color .3s;}
+.reveal-step.on{opacity:1;border-color:var(--purple-deep);box-shadow:var(--shadow);}
+.reveal-step h4{font-size:16px;display:flex;align-items:center;gap:9px;margin-bottom:5px;}
+.reveal-step .bullet{width:26px;height:26px;border-radius:50%;background:var(--rule);color:var(--muted);display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;}
+.reveal-step.on .bullet{background:var(--purple-deep);color:#fff;}
+.reveal-step p{font-size:14px;color:var(--ink-2);line-height:1.55;}
+.def-box{margin-top:14px;border-radius:14px;padding:16px 18px;background:linear-gradient(135deg,var(--water-tint),var(--purple-tint,#efeaf5));border:1px solid var(--rule);}
+.def-box.hidden{display:none;}
+.def-box .lbl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:6px;}
+.def-box p{font-size:16.5px;line-height:1.55;color:var(--ink);}
+.def-box b{color:var(--purple-ink);}
+
+/* ---------- Caixa de predicció / quiz ---------- */
+.predict{background:var(--amber-tint);border:1px solid #f0dca0;border-radius:14px;padding:16px 18px;margin-top:14px;}
+.predict .q{font-size:15.5px;font-weight:700;margin-bottom:12px;display:flex;align-items:flex-start;gap:9px;}
+.predict .q .qi{flex-shrink:0;}
+.opts{display:flex;flex-direction:column;gap:9px;}
+.opt{text-align:left;border:1.5px solid var(--rule);background:#fff;border-radius:11px;padding:12px 14px;font-size:14.5px;color:var(--ink);display:flex;align-items:center;gap:11px;transition:all .15s;}
+.opt:hover{border-color:var(--purple-deep);}
+.opt .mk{width:22px;height:22px;border-radius:50%;border:2px solid var(--rule);flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:transparent;transition:all .15s;}
+.opt.correct{border-color:var(--green);background:var(--green-tint);}
+.opt.correct .mk{background:var(--green);border-color:var(--green);color:#fff;}
+.opt.wrong{border-color:var(--red);background:var(--red-tint);}
+.opt.wrong .mk{background:var(--red);border-color:var(--red);color:#fff;}
+.opt:disabled{cursor:default;}
+.feedback{margin-top:13px;border-radius:11px;padding:13px 15px;font-size:14.5px;line-height:1.55;display:none;}
+.feedback.show{display:block;animation:fadeUp .25s ease;}
+.feedback.ok{background:var(--green-tint);border:1px solid #bfe0c8;color:#1f5e32;}
+.feedback.no{background:var(--red-tint);border:1px solid #efc3c1;color:#7a2522;}
+.feedback b{font-weight:700;}
+
+/* ---------- Casos pràctics (acordió) ---------- */
+.cases{display:flex;flex-direction:column;gap:14px;}
+.case-head{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer;}
+.case-emoji{font-size:30px;flex-shrink:0;line-height:1;}
+.case-head h3{font-size:18px;font-weight:700;}
+.case-head p{font-size:13.5px;color:var(--muted);}
+.case-chev{margin-left:auto;color:var(--muted);transition:transform .2s;font-size:20px;}
+.case.open .case-chev{transform:rotate(90deg);}
+.case-body{display:none;border-top:1px solid var(--rule);}
+.case.open .case-body{display:block;animation:fadeUp .25s ease;}
+
+/* ---------- Mini-jocs ---------- */
+.game-score{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:14px;}
+.score-pill{display:flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--rule);border-radius:9999px;padding:8px 16px;box-shadow:var(--shadow);}
+.score-pill .big{font-size:24px;font-weight:700;color:var(--purple-ink);font-variant-numeric:tabular-nums;}
+.score-pill .lbl{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);}
+.streak{font-size:14px;font-weight:700;color:var(--amber);}
+.game-q{font-size:19px;font-weight:700;line-height:1.35;margin:6px 0 16px;}
+.game-scenario{background:var(--water-tint);border:1px solid var(--water-soft);border-radius:12px;padding:14px 16px;font-size:15.5px;color:var(--ink-2);line-height:1.5;margin-bottom:14px;}
+.game-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.game-opt{border:2px solid var(--rule);background:#fff;border-radius:13px;padding:15px 10px;font-size:15px;font-weight:700;color:var(--ink);transition:all .15s;display:flex;flex-direction:column;align-items:center;gap:6px;}
+.game-opt .ge{font-size:24px;}
+.game-opt:hover:not(:disabled){border-color:var(--purple-deep);transform:translateY(-2px);}
+.game-opt.correct{border-color:var(--green);background:var(--green-tint);}
+.game-opt.wrong{border-color:var(--red);background:var(--red-tint);}
+.game-result{text-align:center;padding:18px 10px;}
+.game-result .em{font-size:48px;}
+.game-result h3{font-size:26px;margin:8px 0 4px;}
+.game-result p{font-size:16px;color:var(--ink-2);}
+.minigame-pick{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}
+.mg-card{border:2px solid var(--rule);border-radius:16px;padding:18px;text-align:left;background:var(--card);transition:all .15s;}
+.mg-card:hover{border-color:var(--purple-deep);transform:translateY(-2px);box-shadow:var(--shadow);}
+.mg-card.active{border-color:var(--purple-deep);background:var(--purple-tint,#efeaf5);}
+.mg-card .mg-em{font-size:30px;}
+.mg-card h4{font-size:17px;margin:6px 0 3px;}
+.mg-card p{font-size:13.5px;color:var(--muted);line-height:1.45;}
+
+/* ---------- Diagrama de medis (fase 3) ---------- */
+.media-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.media-cell{border:2px solid var(--rule);border-radius:16px;overflow:hidden;background:var(--card);transition:all .2s;}
+.media-cell.active{box-shadow:var(--shadow);transform:translateY(-3px);}
+.media-cell.active[data-m=hipo]{border-color:var(--hipo);}
+.media-cell.active[data-m=iso]{border-color:var(--iso);}
+.media-cell.active[data-m=hiper]{border-color:var(--hiper);}
+.media-cell .mc-head{padding:11px 14px 8px;}
+.media-cell .mc-tag{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;}
+.media-cell[data-m=hipo] .mc-tag{color:var(--hipo);}
+.media-cell[data-m=iso] .mc-tag{color:var(--iso);}
+.media-cell[data-m=hiper] .mc-tag{color:var(--hiper);}
+.media-cell .mc-h{font-size:16px;font-weight:700;}
+.media-cell canvas{width:100%;height:auto;display:block;background:linear-gradient(180deg,#f7fbfd,#eef6fb);}
+.media-cell .mc-txt{padding:10px 14px;font-size:13.5px;color:var(--ink-2);line-height:1.45;}
+
+/* ---------- Utilitats ---------- */
+.note{font-size:13.5px;color:var(--muted);font-style:italic;}
+.callout{border-left:4px solid var(--purple-deep);background:var(--purple-tint,#efeaf5);border-radius:0 12px 12px 0;padding:12px 16px;font-size:14.5px;line-height:1.55;color:var(--ink-2);margin-top:14px;}
+.callout b{color:var(--purple-ink);}
+.spacer{height:18px;}
+.center{text-align:center;}
+.tag-state{display:inline-block;font-size:12px;font-weight:700;color:#fff;padding:3px 10px;border-radius:9999px;}
+.foot{text-align:center;font-size:12px;color:var(--muted);padding:22px;border-top:1px solid var(--rule);background:var(--card);}
+.phase-foot{display:flex;justify-content:space-between;margin-top:26px;gap:12px;}
+
+@media(max-width:820px){
+  .grid-2,.grid-sim{grid-template-columns:1fr;}
+  .media-row{grid-template-columns:1fr;}
+  .minigame-pick{grid-template-columns:1fr;}
+  .phase-h{font-size:25px;}
+  .hdr-prog{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================ CAPÇALERA ============================ -->
+<header class="hdr">
+  <div class="hdr-l">
+    <div class="kicker">Biologia · 3r ESO · La cèl·lula</div>
+    <div class="h-title">L'osmosi · Laboratori interactiu</div>
+    <div class="h-sub">Explora, manipula i descobreix com viatja l'aigua</div>
+  </div>
+  <div class="hdr-prog">
+    <div class="hdr-prog-lbl">Progrés</div>
+    <div class="hdr-prog-track"><div class="hdr-prog-fill" id="progFill"></div></div>
+  </div>
+</header>
+
+<!-- ====================== NAVEGACIÓ PER FASES ======================= -->
+<nav class="nav" id="phaseNav"><!-- generada per JS --></nav>
+
+<!-- ============================ ESCENARI ============================ -->
+<main class="stage" id="stage">
+
+  <!-- ============= FASE 1 · DESCOBRIMENT ============= -->
+  <section class="phase" data-phase="discover">
+    <div class="phase-head">
+      <span class="phase-tag">Fase 1 · Descobreix</span>
+      <h1 class="phase-h">Què passa en aquest recipient?</h1>
+      <p class="phase-lead">Aquest recipient està dividit per una membrana especial. A l'esquerra hi ha aigua gairebé pura; a la dreta, aigua amb molta sal dissolta. <b>Prem «Engega» i observa amb atenció.</b> Encara no et donem cap nom: el teu objectiu és descobrir què passa i intentar explicar-ho.</p>
+    </div>
+    <div class="grid grid-sim">
+      <div class="card">
+        <div class="sim-wrap">
+          <div class="sim-badge">
+            <span class="chip" id="discTime">Temps: 0 s</span>
+          </div>
+          <canvas id="cvDiscover" width="640" height="420"></canvas>
+        </div>
+        <div class="legend">
+          <span><i class="dot water"></i> Molècules d'aigua</span>
+          <span><i class="dot solute"></i> Sal dissolta (solut)</span>
+          <span><i class="dot mem"></i> Membrana</span>
+        </div>
+      </div>
+      <div class="card card-pad">
+        <div class="card-title">🔍 Observa i registra</div>
+        <p class="lead-sm">Mira durant uns segons i fixa't en aquestes preguntes:</p>
+        <ul class="lead-sm" style="margin:10px 0 4px 18px;display:flex;flex-direction:column;gap:7px;">
+          <li>El nivell d'aigua, ¿puja o baixa a cada costat?</li>
+          <li>Les boletes taronja (sal), ¿travessen la línia central?</li>
+          <li>I les boletes blaves (aigua)?</li>
+        </ul>
+        <div class="btn-row">
+          <button class="btn water" id="discPlay">▶ Engega</button>
+          <button class="btn ghost" id="discReset">↺ Reinicia</button>
+        </div>
+
+        <div class="predict" id="discPredictBox">
+          <div class="q"><span class="qi">🤔</span><span>Segons el que has vist, cap a quin costat es mou l'aigua?</span></div>
+          <div class="opts" data-quiz="disc">
+            <button class="opt" data-correct="0"><span class="mk">A</span> Cap al costat amb aigua pura (esquerra)</button>
+            <button class="opt" data-correct="1"><span class="mk">B</span> Cap al costat amb molta sal (dreta)</button>
+            <button class="opt" data-correct="0"><span class="mk">C</span> No es mou: tot es queda igual</button>
+          </div>
+          <div class="feedback" data-fb="disc"></div>
+        </div>
+      </div>
+    </div>
+    <div class="callout">💡 <b>Pista pedagògica:</b> no cal que encertis a la primera. Aquesta fase serveix per <b>fixar-te</b> en el fenomen. A la fase següent li posarem nom i l'explicarem pas a pas.</div>
+    <div class="phase-foot">
+      <span></span>
+      <button class="btn" data-go="build">Continuar → Construir el concepte</button>
+    </div>
+  </section>
+
+  <!-- ============= FASE 2 · CONSTRUCCIÓ DEL CONCEPTE ============= -->
+  <section class="phase" data-phase="build">
+    <div class="phase-head">
+      <span class="phase-tag">Fase 2 · Construeix el concepte</span>
+      <h1 class="phase-h">Anem a explicar-ho pas a pas</h1>
+      <p class="phase-lead">Tornem a la mateixa simulació, però ara la desmuntem. Prem cada botó per anar destacant els elements clau. Al final, tu mateix/a arribaràs a la definició d'<b>osmosi</b>.</p>
+    </div>
+    <div class="grid grid-sim">
+      <div class="card">
+        <div class="sim-wrap">
+          <div class="sim-badge">
+            <span class="chip state" id="buildHighlight" style="background:var(--purple-deep)">Membrana semipermeable</span>
+          </div>
+          <canvas id="cvBuild" width="640" height="420"></canvas>
+        </div>
+        <div class="legend">
+          <span><i class="dot water"></i> Aigua (pot travessar)</span>
+          <span><i class="dot solute"></i> Solut (NO pot travessar)</span>
+          <span><i class="dot mem"></i> Membrana semipermeable</span>
+        </div>
+      </div>
+      <div>
+        <div class="reveal-step" data-step="0">
+          <h4><span class="bullet">1</span> La membrana té porus minúsculs</h4>
+          <p>És <b>semipermeable</b>: té forats tan petits que deixen passar les molècules petites d'aigua, però no les partícules grans de solut.</p>
+        </div>
+        <div class="reveal-step" data-step="1">
+          <h4><span class="bullet">2</span> El solut queda atrapat</h4>
+          <p>Les partícules de sal (solut) <b>reboten</b> contra la membrana: són massa grans per passar. La seva quantitat a cada costat no canvia.</p>
+        </div>
+        <div class="reveal-step" data-step="2">
+          <h4><span class="bullet">3</span> L'aigua sí que travessa</h4>
+          <p>Les molècules d'aigua creuen la membrana en els dos sentits, però <b>netes</b> es mouen cap on hi ha més solut, per «diluir-lo».</p>
+        </div>
+        <div class="reveal-step" data-step="3">
+          <h4><span class="bullet">4</span> El nivell s'iguala (concentració)</h4>
+          <p>L'aigua puja al costat salat fins que les dues bandes queden igual de concentrades. Llavors el moviment net s'atura: hi ha <b>equilibri</b>.</p>
+        </div>
+        <div class="btn-row">
+          <button class="btn ghost" id="buildPrev" disabled>← Anterior</button>
+          <button class="btn" id="buildNext">Següent pas →</button>
+        </div>
+        <div class="def-box hidden" id="defBox">
+          <div class="lbl">Ja ho pots definir 🎉</div>
+          <p><b>L'osmosi</b> és el pas de l'<b>aigua</b> a través d'una <b>membrana semipermeable</b>, des de la zona on hi ha <b>menys solut</b> (més diluïda) cap a la zona on hi ha <b>més solut</b> (més concentrada), fins a igualar les concentracions.</p>
+        </div>
+      </div>
+    </div>
+    <div class="phase-foot">
+      <button class="btn ghost" data-go="discover">← Tornar</button>
+      <button class="btn" data-go="media">Continuar → Tipus de medi</button>
+    </div>
+  </section>
+
+  <!-- ============= FASE 3 · MEDIS HIPO / ISO / HIPER ============= -->
+  <section class="phase" data-phase="media">
+    <div class="phase-head">
+      <span class="phase-tag">Fase 3 · El llenguatge de la biologia</span>
+      <h1 class="phase-h">Hipotònic, isotònic i hipertònic</h1>
+      <p class="phase-lead">Per parlar d'osmosi comparem la concentració de solut <b>de fora</b> de la cèl·lula amb la <b>de dins</b>. Segons quina sigui més gran, el medi extern rep un nom. Passa el ratolí o toca cada cas:</p>
+    </div>
+    <div class="media-row" id="mediaRow">
+      <div class="media-cell" data-m="hipo">
+        <div class="mc-head"><div class="mc-tag">Menys solut fora</div><div class="mc-h">Medi HIPOtònic</div></div>
+        <canvas data-mcanvas="hipo" width="300" height="220"></canvas>
+        <div class="mc-txt">Fora hi ha <b>menys</b> solut que dins. L'aigua <b>entra</b> a la cèl·lula → s'infla. 💧→🔵</div>
+      </div>
+      <div class="media-cell" data-m="iso">
+        <div class="mc-head"><div class="mc-tag">Igual de solut</div><div class="mc-h">Medi ISOtònic</div></div>
+        <canvas data-mcanvas="iso" width="300" height="220"></canvas>
+        <div class="mc-txt">Fora i dins hi ha <b>la mateixa</b> concentració. L'aigua entra i surt igual → la cèl·lula <b>no canvia</b>. ⚖️</div>
+      </div>
+      <div class="media-cell" data-m="hiper">
+        <div class="mc-head"><div class="mc-tag">Més solut fora</div><div class="mc-h">Medi HIPERtònic</div></div>
+        <canvas data-mcanvas="hiper" width="300" height="220"></canvas>
+        <div class="mc-txt">Fora hi ha <b>més</b> solut que dins. L'aigua <b>surt</b> de la cèl·lula → s'arruga. 🔵→💧</div>
+      </div>
+    </div>
+    <div class="callout">🧠 <b>Truc per recordar-ho:</b> «hiper» = molt (molt solut fora, l'aigua fuig); «hipo» = poc (poc solut fora, l'aigua entra); «iso» = igual (empat, res no canvia). <b>L'aigua sempre va cap on hi ha més solut.</b></div>
+    <div class="predict">
+      <div class="q"><span class="qi">🤔</span><span>Una cèl·lula es posa en un líquid amb <b>molt més solut</b> que el seu interior. Quin medi és i què li passarà?</span></div>
+      <div class="opts" data-quiz="media">
+        <button class="opt" data-correct="0"><span class="mk">A</span> Hipotònic → s'inflarà</button>
+        <button class="opt" data-correct="1"><span class="mk">B</span> Hipertònic → perdrà aigua i s'arrugarà</button>
+        <button class="opt" data-correct="0"><span class="mk">C</span> Isotònic → es quedarà igual</button>
+      </div>
+      <div class="feedback" data-fb="media"></div>
+    </div>
+    <div class="phase-foot">
+      <button class="btn ghost" data-go="build">← Tornar</button>
+      <button class="btn" data-go="animal">Continuar → Cèl·lula animal</button>
+    </div>
+  </section>
+
+  <!-- ============= FASE 4 · CÈL·LULA ANIMAL ============= -->
+  <section class="phase" data-phase="animal">
+    <div class="phase-head">
+      <span class="phase-tag">Fase 4 · Cèl·lules animals</span>
+      <h1 class="phase-h">Què li passa a un glòbul vermell?</h1>
+      <p class="phase-lead">Les cèl·lules animals <b>no tenen paret cel·lular</b>: només la membrana, que és tova. Per això són molt sensibles als canvis d'aigua. Mou el control i observa el glòbul vermell en temps real.</p>
+    </div>
+    <div class="grid grid-sim">
+      <div class="card">
+        <div class="sim-wrap">
+          <div class="sim-badge">
+            <span class="chip" id="animalMedi" style="background:var(--green);color:#fff;border:none;font-weight:700">Medi isotònic</span>
+            <span class="chip state" id="animalState" style="background:var(--green)">Estat normal</span>
+          </div>
+          <canvas id="cvAnimal" width="640" height="420"></canvas>
+        </div>
+        <div class="legend">
+          <span><i class="dot water"></i> Aigua</span>
+          <span><i class="dot solute"></i> Solut del medi</span>
+        </div>
+      </div>
+      <div class="card card-pad">
+        <div class="card-title">🎛️ Controla el medi extern</div>
+        <div class="ctrl ctrl-water">
+          <div class="ctrl-top"><span class="ctrl-label">Concentració de solut FORA</span><span class="ctrl-val" id="animalVal">igual que dins</span></div>
+          <input type="range" id="animalSlider" min="0" max="100" value="50">
+          <div class="ctrl-scale"><span>0 · aigua pura</span><span>50 · isotònic</span><span>100 · molt salat</span></div>
+        </div>
+        <div id="animalExplain" class="callout">Mou el control cap a l'esquerra (menys solut fora) o cap a la dreta (més solut fora) per veure què li passa al glòbul.</div>
+        <div class="spacer"></div>
+        <div class="card-title">Els tres estats de la cèl·lula animal</div>
+        <p class="lead-sm">🔵 <b>Normal</b> — medi isotònic, forma de disc.<br>🍂 <b>Deshidratació (crenació)</b> — medi hipertònic: perd aigua i s'arruga.<br>💥 <b>Lisi cel·lular</b> — medi hipotònic extrem: entra tanta aigua que <b>rebenta</b>.</p>
+      </div>
+    </div>
+    <div class="phase-foot">
+      <button class="btn ghost" data-go="media">← Tornar</button>
+      <button class="btn" data-go="plant">Continuar → Cèl·lula vegetal</button>
+    </div>
+  </section>
+
+  <!-- ============= FASE 5 · CÈL·LULA VEGETAL ============= -->
+  <section class="phase" data-phase="plant">
+    <div class="phase-head">
+      <span class="phase-tag">Fase 5 · Cèl·lules vegetals</span>
+      <h1 class="phase-h">I una cèl·lula vegetal?</h1>
+      <p class="phase-lead">Les cèl·lules vegetals tenen una <b>paret cel·lular</b> rígida que envolta la membrana. Això ho canvia tot: no rebenten mai. Mou el control i observa la membrana (verda) dins la paret (marró).</p>
+    </div>
+    <div class="grid grid-sim">
+      <div class="card">
+        <div class="sim-wrap">
+          <div class="sim-badge">
+            <span class="chip" id="plantMedi" style="background:var(--green);color:#fff;border:none;font-weight:700">Medi isotònic</span>
+            <span class="chip state" id="plantState" style="background:var(--green)">Flàccida</span>
+          </div>
+          <canvas id="cvPlant" width="640" height="420"></canvas>
+        </div>
+        <div class="legend">
+          <span><i class="dot" style="background:#9a6a3a"></i> Paret cel·lular (rígida)</span>
+          <span><i class="dot" style="background:#3fa15a"></i> Membrana</span>
+          <span><i class="dot water"></i> Aigua</span>
+        </div>
+      </div>
+      <div class="card card-pad">
+        <div class="card-title">🎛️ Controla el medi extern</div>
+        <div class="ctrl ctrl-water">
+          <div class="ctrl-top"><span class="ctrl-label">Concentració de solut FORA</span><span class="ctrl-val" id="plantVal">igual que dins</span></div>
+          <input type="range" id="plantSlider" min="0" max="100" value="50">
+          <div class="ctrl-scale"><span>0 · aigua de pluja</span><span>50 · isotònic</span><span>100 · sòl salat</span></div>
+        </div>
+        <div id="plantExplain" class="callout">Mou el control per veure els tres estats típics de la cèl·lula vegetal.</div>
+        <div class="spacer"></div>
+        <div class="card-title">Els tres estats de la cèl·lula vegetal</div>
+        <p class="lead-sm">💪 <b>Turgent</b> — medi hipotònic: entra aigua, la membrana prem la paret. La planta està <b>ferma i dreta</b>.<br>😟 <b>Flàccida</b> — medi isotònic: la pressió baixa, la planta comença a <b>decandir-se</b>.<br>🥀 <b>Plasmòlisi</b> — medi hipertònic: surt tanta aigua que la membrana <b>se separa de la paret</b>. La planta es <b>marceix</b>.</p>
+      </div>
+    </div>
+    <div class="callout">🆚 <b>Diferència clau:</b> en medi hipotònic la cèl·lula animal pot fer <b>lisi</b> (rebenta), però la vegetal només es posa <b>turgent</b> perquè la paret rígida l'aguanta. La paret és l'armadura de les plantes!</div>
+    <div class="phase-foot">
+      <button class="btn ghost" data-go="animal">← Tornar</button>
+      <button class="btn" data-go="cases">Continuar → Aplicacions reals</button>
+    </div>
+  </section>
+
+  <!-- ============= FASE 6 · APLICACIONS REALS ============= -->
+  <section class="phase" data-phase="cases">
+    <div class="phase-head">
+      <span class="phase-tag">Fase 6 · Osmosi a la vida real</span>
+      <h1 class="phase-h">Quatre casos que pots viure</h1>
+      <p class="phase-lead">L'osmosi no és cosa de laboratori: passa al teu cos, a l'hort i a la cuina. Obre cada cas, <b>fes la teva predicció</b>, mira la simulació i comprova si tenies raó.</p>
+    </div>
+    <div class="cases" id="casesWrap"><!-- generats per JS --></div>
+    <div class="phase-foot">
+      <button class="btn ghost" data-go="plant">← Tornar</button>
+      <button class="btn" data-go="lab">Continuar → Laboratori lliure</button>
+    </div>
+  </section>
+
+  <!-- ============= LABORATORI LLIURE ============= -->
+  <section class="phase" data-phase="lab">
+    <div class="phase-head">
+      <span class="phase-tag">Laboratori lliure 🧪</span>
+      <h1 class="phase-h">Experimenta sense límits</h1>
+      <p class="phase-lead">Ara controles tu. Tria el tipus de cèl·lula, ajusta les concentracions de dins i de fora i fins i tot la permeabilitat de la membrana. La simulació respon a l'instant.</p>
+    </div>
+    <div class="grid grid-sim">
+      <div class="card">
+        <div class="sim-wrap">
+          <div class="sim-badge">
+            <span class="chip" id="labMedi" style="background:var(--green);color:#fff;border:none;font-weight:700">Isotònic</span>
+            <span class="chip state" id="labState" style="background:var(--green)">—</span>
+          </div>
+          <canvas id="cvLab" width="640" height="420"></canvas>
+        </div>
+        <div class="legend">
+          <span><i class="dot water"></i> Aigua</span>
+          <span><i class="dot solute"></i> Solut</span>
+        </div>
+      </div>
+      <div class="card card-pad">
+        <div class="card-title">⚗️ Paràmetres</div>
+        <div class="ctrl">
+          <div class="ctrl-top"><span class="ctrl-label">Tipus de cèl·lula</span></div>
+          <div class="seg" id="labType">
+            <button class="active" data-type="animal">🔴 Animal</button>
+            <button data-type="plant">🌱 Vegetal</button>
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-top"><span class="ctrl-label">Concentració interna (dins)</span><span class="ctrl-val" id="labInVal">50</span></div>
+          <input type="range" id="labIn" min="0" max="100" value="50">
+        </div>
+        <div class="ctrl ctrl-water">
+          <div class="ctrl-top"><span class="ctrl-label">Concentració externa (fora)</span><span class="ctrl-val" id="labOutVal">50</span></div>
+          <input type="range" id="labOut" min="0" max="100" value="50">
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-top"><span class="ctrl-label">Permeabilitat de la membrana</span><span class="ctrl-val" id="labPermVal">mitjana</span></div>
+          <input type="range" id="labPerm" min="0" max="100" value="55">
+          <div class="ctrl-scale"><span>impermeable</span><span>molt permeable</span></div>
+        </div>
+        <div id="labExplain" class="callout">Igualtat de concentracions: medi isotònic, la cèl·lula es manté estable.</div>
+        <div class="btn-row"><button class="btn ghost" id="labReset">↺ Tornar a l'equilibri</button></div>
+      </div>
+    </div>
+    <div class="callout">🔬 <b>Reptes per provar:</b> ¿pots provocar una <b>lisi</b> amb la cèl·lula animal? ¿I una <b>plasmòlisi</b> amb la vegetal? ¿Què passa si la membrana és gairebé <b>impermeable</b> encara que les concentracions siguin molt diferents?</div>
+    <div class="phase-foot">
+      <button class="btn ghost" data-go="cases">← Tornar</button>
+      <button class="btn" data-go="games">Continuar → Reptes finals</button>
+    </div>
+  </section>
+
+  <!-- ============= FASE 7 · MINI-JOCS ============= -->
+  <section class="phase" data-phase="games">
+    <div class="phase-head">
+      <span class="phase-tag">Fase 7 · Reptes finals</span>
+      <h1 class="phase-h">Demostra el que has après</h1>
+      <p class="phase-lead">Tria un repte. Cada encert suma punts i, si en fas uns quants seguits, guanyes ratxa. Al final tindràs la teva puntuació i retroalimentació.</p>
+    </div>
+
+    <div class="minigame-pick" id="gamePick">
+      <button class="mg-card active" data-game="classify">
+        <div class="mg-em">🏷️</div>
+        <h4>Classifica el medi</h4>
+        <p>Llegeix la situació i decideix si és hipotònic, isotònic o hipertònic.</p>
+      </button>
+      <button class="mg-card" data-game="predict">
+        <div class="mg-em">🔮</div>
+        <h4>Predí la cèl·lula</h4>
+        <p>Mira el cas i tria què li passarà a la cèl·lula (inflar, igual, arrugar, rebentar...).</p>
+      </button>
+    </div>
+
+    <div class="card card-pad" id="gameArea">
+      <div class="game-score">
+        <div class="score-pill"><span class="big" id="gScore">0</span><span class="lbl">Punts</span></div>
+        <div class="score-pill"><span class="big" id="gRound">1</span><span class="lbl">/ <span id="gTotal">8</span> preguntes</span></div>
+        <span class="streak" id="gStreak"></span>
+      </div>
+      <div id="gameBody"><!-- generat per JS --></div>
+    </div>
+
+    <div class="phase-foot">
+      <button class="btn ghost" data-go="lab">← Tornar</button>
+      <button class="btn" data-go="discover">↺ Tornar a començar</button>
+    </div>
+  </section>
+
+</main>
+
+<div class="foot">L'osmosi · Laboratori interactiu — IE Temple · Biologia 3r ESO · Fet per aprendre explorant 🔬💧</div>
+
+<script>
+/* =====================================================================
+   APP OSMOSI — JavaScript modern, organitzat en components reutilitzables.
+   Tot vanilla JS, sense dependències. Estructura:
+     · utils            → helpers (lerp, clamp, rand, color d'estat)
+     · ParticleField    → motor de partícules reutilitzable (canvas)
+     · CompartmentSim   → simulació de dos compartiments + membrana (fases 1-2)
+     · CellSim          → cèl·lula (animal/vegetal) dins un medi (fases 3-5, lab)
+     · Quiz             → preguntes predictives amb feedback
+     · Router           → navegació per fases + progrés
+     · Games            → mini-jocs amb puntuació
+   ===================================================================== */
+'use strict';
+
+/* ----------------------------- utils ----------------------------- */
+const U = {
+  clamp:(v,a,b)=>Math.max(a,Math.min(b,v)),
+  lerp:(a,b,t)=>a+(b-a)*t,
+  rand:(a,b)=>a+Math.random()*(b-a),
+  // Estat osmòtic a partir de la diferència fora-dins (cOut-cIn), normalitzada [-1,1]
+  mediFromDiff(diff){
+    if(diff>0.06) return {key:'hiper',nom:'Medi hipertònic',color:'#f0883e'};
+    if(diff<-0.06) return {key:'hipo',nom:'Medi hipotònic',color:'#2f9fd0'};
+    return {key:'iso',nom:'Medi isotònic',color:'#3fa15a'};
+  },
+  // Adapta canvas a densitat de píxels per nitidesa
+  hidpi(cv){
+    const r=window.devicePixelRatio||1;
+    const w=cv.width,h=cv.height;
+    if(cv._dpr===r) return cv.getContext('2d');
+    cv._dpr=r;
+    cv.style.width='100%';
+    const ctx=cv.getContext('2d');
+    // mantenim coordenades lògiques width/height; escalem el backing store
+    cv.width=w*r; cv.height=h*r;
+    cv._lw=w; cv._lh=h;
+    ctx.setTransform(r,0,0,r,0,0);
+    return ctx;
+  }
+};
+
+/* Bucle d'animació compartit: cada component s'hi registra i es dibuixa
+   només quan la seva fase és visible (per estalviar CPU). */
+const Loop = (()=>{
+  const items=new Set(); let last=performance.now();
+  function frame(now){
+    const dt=Math.min(0.05,(now-last)/1000); last=now;
+    items.forEach(it=>{ if(it.visible) it.tick(dt); });
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  return { add:it=>items.add(it) };
+})();
+
+/* ================================================================
+   COMPONENT · CompartmentSim
+   Dos compartiments (esquerra/dreta) separats per una membrana
+   semipermeable vertical. El solut no la travessa; l'aigua sí.
+   El nivell de líquid puja al costat més concentrat (osmosi).
+   ================================================================ */
+class CompartmentSim {
+  constructor(canvas, opts={}){
+    this.cv=canvas; this.ctx=U.hidpi(canvas);
+    this.W=canvas._lw; this.H=canvas._lh;
+    this.memX=this.W/2; this.memHalf=6;       // membrana central
+    this.soluteL=opts.soluteL ?? 4;            // unitats de solut esquerra
+    this.soluteR=opts.soluteR ?? 40;           // dreta (molt més salat)
+    this.running=opts.autostart||false;
+    this.t=0;
+    this.levelL=0.5; this.levelR=0.5;          // fracció d'altura ocupada
+    this.highlight=opts.highlight||'all';      // què destacar (fase 2)
+    this.onTime=opts.onTime||null;
+    this.waters=[]; this.solutes=[];
+    this._build();
+    this.visible=false;
+    Loop.add(this);
+  }
+  _build(){
+    this.waters=[]; this.solutes=[];
+    const mk=(side,arr,n,r,col)=>{
+      for(let i=0;i<n;i++) arr.push({
+        side, r, col,
+        x: side<0?U.rand(14,this.memX-this.memHalf-r):U.rand(this.memX+this.memHalf+r,this.W-14),
+        y: U.rand(40,this.H-14),
+        vx:U.rand(-26,26), vy:U.rand(-26,26)
+      });
+    };
+    // aigua a banda i banda (densitat fixa, decorativa però travessa)
+    mk(-1,this.waters,46,3.4,'#2f9fd0');
+    mk(1,this.waters,46,3.4,'#2f9fd0');
+    // solut proporcional a la concentració de cada costat
+    mk(-1,this.solutes,Math.round(this.soluteL),6.5,'#f0883e');
+    mk(1,this.solutes,Math.round(this.soluteR),6.5,'#f0883e');
+  }
+  reset(){ this.t=0; this.levelL=0.5; this.levelR=0.5; this.running=false; this._build(); this.draw(); }
+  setRunning(v){ this.running=v; }
+  setHighlight(h){ this.highlight=h; }
+
+  // concentració = solut / volum(=nivell). Aproximació pedagògica.
+  _conc(side){
+    const sol=this.solutes.filter(s=>s.side===side).length;
+    const vol=(side<0?this.levelL:this.levelR);
+    return sol/Math.max(0.12,vol);
+  }
+  tick(dt){
+    if(this.onTime && this.running){ this.t+=dt; this.onTime(this.t); }
+    if(this.running){
+      // flux osmòtic: aigua cap al costat més concentrat
+      const cL=this._conc(-1), cR=this._conc(1);
+      const flux=U.clamp((cR-cL)*0.0009,-0.06,0.06); // >0 → aigua va a la dreta
+      this.levelR=U.clamp(this.levelR+flux*dt*4,0.18,0.86);
+      this.levelL=U.clamp(this.levelL-flux*dt*4,0.18,0.86);
+    }
+    this._move(dt);
+    this.draw();
+  }
+  _surfaceY(side){ return this.H-(side<0?this.levelL:this.levelR)*(this.H-26)-8; }
+  _move(dt){
+    const bounce=(p)=>{
+      const surf=this._surfaceY(p.side);
+      const leftWall=14, rightWall=this.W-14;
+      // límits horitzontals segons costat i si pot creuar membrana
+      const canCross = p.col==='#2f9fd0' && this.running; // només aigua creua
+      p.x+=p.vx*dt; p.y+=p.vy*dt;
+      // rebot vertical (entre superfície i fons)
+      if(p.y<surf+p.r){p.y=surf+p.r;p.vy=Math.abs(p.vy);}
+      if(p.y>this.H-8-p.r){p.y=this.H-8-p.r;p.vy=-Math.abs(p.vy);}
+      // parets laterals
+      if(p.x<leftWall+p.r){p.x=leftWall+p.r;p.vx=Math.abs(p.vx);}
+      if(p.x>rightWall-p.r){p.x=rightWall-p.r;p.vx=-Math.abs(p.vx);}
+      // membrana
+      const mL=this.memX-this.memHalf, mR=this.memX+this.memHalf;
+      if(canCross){
+        // probabilitat de creuar, esbiaixada cap al costat més concentrat
+        if(p.side<0 && p.x>mL-p.r){
+          const cL=this._conc(-1),cR=this._conc(1);
+          if(cR>cL && Math.random()<0.7){ p.side=1; p.x=mR+p.r; }
+          else { p.x=mL-p.r; p.vx=-Math.abs(p.vx); }
+        } else if(p.side>0 && p.x<mR+p.r){
+          const cL=this._conc(-1),cR=this._conc(1);
+          if(cL>cR && Math.random()<0.7){ p.side=-1; p.x=mL-p.r; }
+          else { p.x=mR+p.r; p.vx=Math.abs(p.vx); }
+        }
+      } else {
+        // solut: rebot dur contra la membrana
+        if(p.side<0 && p.x>mL-p.r){p.x=mL-p.r;p.vx=-Math.abs(p.vx);}
+        if(p.side>0 && p.x<mR+p.r){p.x=mR+p.r;p.vx=Math.abs(p.vx);}
+      }
+      // manté la partícula sota la superfície del seu costat
+      const surf2=this._surfaceY(p.side);
+      if(p.y<surf2+p.r){p.y=surf2+p.r;}
+    };
+    this.solutes.forEach(bounce);
+    this.waters.forEach(bounce);
+  }
+  draw(){
+    const c=this.ctx,W=this.W,H=this.H;
+    c.clearRect(0,0,W,H);
+    // líquid a cada costat
+    const drawLiquid=(side,x0,x1)=>{
+      const surf=this._surfaceY(side);
+      const g=c.createLinearGradient(0,surf,0,H);
+      g.addColorStop(0,'rgba(120,200,235,.34)'); g.addColorStop(1,'rgba(70,170,215,.46)');
+      c.fillStyle=g; c.fillRect(x0,surf,x1-x0,H-8-surf);
+      // superfície brillant
+      c.strokeStyle='rgba(255,255,255,.55)'; c.lineWidth=2;
+      c.beginPath(); c.moveTo(x0,surf); c.lineTo(x1,surf); c.stroke();
+    };
+    drawLiquid(-1,14,this.memX-this.memHalf);
+    drawLiquid(1,this.memX+this.memHalf,W-14);
+    // partícules d'aigua
+    const dimWater = (this.highlight==='solute'||this.highlight==='membrane');
+    this.waters.forEach(p=>{
+      c.globalAlpha=dimWater?0.22:0.85;
+      c.fillStyle=p.col; c.beginPath(); c.arc(p.x,p.y,p.r,0,7); c.fill();
+    });
+    c.globalAlpha=1;
+    // partícules de solut
+    const dimSol = (this.highlight==='water'||this.highlight==='membrane');
+    this.solutes.forEach(p=>{
+      c.globalAlpha=dimSol?0.25:1;
+      c.fillStyle=p.col; c.beginPath(); c.arc(p.x,p.y,p.r,0,7); c.fill();
+      c.strokeStyle='rgba(180,90,20,.5)'; c.lineWidth=1; c.stroke();
+    });
+    c.globalAlpha=1;
+    // membrana semipermeable (amb porus)
+    const memOn = (this.highlight==='all'||this.highlight==='membrane');
+    c.fillStyle=memOn?'#7B68C8':'#b9b1da';
+    c.fillRect(this.memX-this.memHalf,6,this.memHalf*2,H-14);
+    // porus
+    c.fillStyle='rgba(255,255,255,.85)';
+    for(let y=18;y<H-14;y+=20){ c.fillRect(this.memX-this.memHalf,y,this.memHalf*2,5); }
+    if(this.highlight==='membrane'){
+      c.strokeStyle='#7B68C8'; c.lineWidth=3; c.setLineDash([6,5]);
+      c.strokeRect(this.memX-this.memHalf-3,4,this.memHalf*2+6,H-12); c.setLineDash([]);
+    }
+    // etiquetes de costat
+    c.fillStyle='rgba(26,26,46,.4)'; c.font='600 13px Fira Sans Extra Condensed';
+    c.textAlign='center';
+    c.fillText('poc solut',this.memX/2,22);
+    c.fillText('molt solut',this.memX+(W-this.memX)/2,22);
+  }
+}
+
+/* ================================================================
+   COMPONENT · CellSim
+   Una cèl·lula (animal o vegetal) submergida en un medi.
+   Paràmetres: cIn, cOut (0..1), permeabilitat (0..1).
+   El volum de la cèl·lula s'ajusta segons l'osmosi i es mostren
+   els estats: animal(normal/crenat/lisi) · vegetal(turgent/flàccid/plasmòlisi)
+   ================================================================ */
+class CellSim {
+  constructor(canvas, opts={}){
+    this.cv=canvas; this.ctx=U.hidpi(canvas);
+    this.W=canvas._lw; this.H=canvas._lh;
+    this.type=opts.type||'animal';
+    this.cIn=opts.cIn ?? 0.5;
+    this.cOut=opts.cOut ?? 0.5;
+    this.perm=opts.perm ?? 0.6;
+    this.scale=1; this.target=1;       // factor de volum de la membrana
+    this.burst=0;                       // animació de lisi (0..1)
+    this.onState=opts.onState||null;
+    this.mini=opts.mini||false;         // versió petita (fase 3)
+    this.baseR=this.mini?52:Math.min(this.W,this.H)*0.26;
+    this.cx=this.W/2; this.cy=this.H/2;
+    this.solutes=[]; this.waters=[];
+    this._buildMedium();
+    this.visible=false;
+    this._recompute();
+    this.scale=this.target;
+    Loop.add(this);
+  }
+  setType(t){ this.type=t; this._recompute(); }
+  setIn(v){ this.cIn=v; this._recompute(); }
+  setOut(v){ this.cOut=v; this._recompute(); }
+  setPerm(v){ this.perm=v; this._recompute(); }
+  _buildMedium(){
+    this.solutes=[]; this.waters=[];
+    const n=this.mini?10:26;
+    for(let i=0;i<n;i++) this.solutes.push({x:U.rand(10,this.W-10),y:U.rand(10,this.H-10),vx:U.rand(-20,20),vy:U.rand(-20,20)});
+    const nw=this.mini?14:34;
+    for(let i=0;i<nw;i++) this.waters.push({x:U.rand(10,this.W-10),y:U.rand(10,this.H-10),vx:U.rand(-30,30),vy:U.rand(-30,30)});
+  }
+  // calcula estat i volum objectiu segons el medi i la permeabilitat
+  _recompute(){
+    const diff=this.cOut-this.cIn;              // >0 hipertònic (surt aigua)
+    const medi=U.mediFromDiff(diff);
+    const eff=diff*U.clamp(this.perm,0,1);      // permeabilitat modula l'efecte
+    let target,stateKey,stateNom,stateCol;
+    if(this.type==='animal'){
+      // animal: sense paret. Pot inflar molt (lisi) o arrugar (crenació)
+      target=U.clamp(1-eff*1.15,0.6,1.6);
+      if(target>=1.42){ stateKey='lisi'; stateNom='Lisi cel·lular 💥'; stateCol='#2f9fd0'; }
+      else if(target>1.08){ stateKey='inflada'; stateNom='Inflada (turgent)'; stateCol='#2f9fd0'; }
+      else if(target<0.86){ stateKey='crenat'; stateNom='Deshidratació (crenació)'; stateCol='#f0883e'; }
+      else { stateKey='normal'; stateNom='Estat normal'; stateCol='#3fa15a'; }
+    } else {
+      // vegetal: paret rígida. No rebenta. Membrana de 0.62 a 1.0
+      target=U.clamp(1-eff*0.95,0.55,1.0);
+      if(target>=0.97){ stateKey='turgent'; stateNom='Turgent 💪'; stateCol='#3fa15a'; }
+      else if(target<0.74){ stateKey='plasmolisi'; stateNom='Plasmòlisi 🥀'; stateCol='#f0883e'; }
+      else { stateKey='flaccid'; stateNom='Flàccida'; stateCol='#e0a92b'; }
+      // matís: en isotònic la vegetal és flàccida, no turgent
+      if(medi.key==='iso'){ stateKey='flaccid'; stateNom='Flàccida'; stateCol='#e0a92b'; target=Math.min(target,0.86); }
+    }
+    this.target=target;
+    this.state={key:stateKey,nom:stateNom,color:stateCol,medi};
+    if(this.onState) this.onState(this.state,medi);
+  }
+  tick(dt){
+    // anima volum suaument cap a l'objectiu
+    this.scale=U.lerp(this.scale,this.target,Math.min(1,dt*3));
+    // animació de rebentada quan és lisi i ja gairebé inflada del tot
+    if(this.type==='animal' && this.state && this.state.key==='lisi' && this.scale>1.5){
+      this.burst=Math.min(1,this.burst+dt*0.8);
+    } else { this.burst=Math.max(0,this.burst-dt*1.5); }
+    this._moveMedium(dt);
+    this.draw();
+  }
+  _moveMedium(dt){
+    const all=[...this.solutes,...this.waters];
+    all.forEach(p=>{
+      p.x+=p.vx*dt; p.y+=p.vy*dt;
+      if(p.x<6){p.x=6;p.vx*=-1;} if(p.x>this.W-6){p.x=this.W-6;p.vx*=-1;}
+      if(p.y<6){p.y=6;p.vy*=-1;} if(p.y>this.H-6){p.y=this.H-6;p.vy*=-1;}
+    });
+  }
+  draw(){
+    const c=this.ctx,W=this.W,H=this.H,cx=this.cx,cy=this.cy;
+    c.clearRect(0,0,W,H);
+    // fons del medi tenyit segons concentració externa
+    const medi=this.state?this.state.medi:U.mediFromDiff(this.cOut-this.cIn);
+    // densitat visual de solut extern segons cOut
+    const solCount=Math.round(U.lerp(4,this.solutes.length,this.cOut));
+    this.solutes.forEach((p,i)=>{
+      if(i>=solCount) return;
+      c.fillStyle='rgba(240,136,62,.9)'; c.beginPath(); c.arc(p.x,p.y,this.mini?3.5:5,0,7); c.fill();
+    });
+    this.waters.forEach(p=>{
+      c.fillStyle='rgba(47,159,208,.5)'; c.beginPath(); c.arc(p.x,p.y,this.mini?2.4:3,0,7); c.fill();
+    });
+
+    // fletxes de direcció de l'aigua (entra/surt)
+    const diff=this.cOut-this.cIn;
+    if(Math.abs(diff)>0.06 && !this.mini){
+      const inward = diff<0; // hipotònic → entra
+      c.strokeStyle=inward?'rgba(47,159,208,.85)':'rgba(240,136,62,.9)';
+      c.fillStyle=c.strokeStyle; c.lineWidth=3;
+      for(let a=0;a<6;a++){
+        const ang=a/6*Math.PI*2;
+        const rOut=this.baseR*1.55, rIn=this.baseR*this.scale+10;
+        const x1=cx+Math.cos(ang)*(inward?rOut:rIn);
+        const y1=cy+Math.sin(ang)*(inward?rOut:rIn);
+        const x2=cx+Math.cos(ang)*(inward?rIn:rOut);
+        const y2=cy+Math.sin(ang)*(inward?rIn:rOut);
+        c.beginPath(); c.moveTo(x1,y1); c.lineTo(x2,y2); c.stroke();
+        // punta
+        const ah=Math.atan2(y2-y1,x2-x1);
+        c.beginPath(); c.moveTo(x2,y2);
+        c.lineTo(x2-Math.cos(ah-0.4)*7,y2-Math.sin(ah-0.4)*7);
+        c.lineTo(x2-Math.cos(ah+0.4)*7,y2-Math.sin(ah+0.4)*7);
+        c.closePath(); c.fill();
+      }
+    }
+
+    if(this.type==='animal') this._drawAnimal(c,cx,cy);
+    else this._drawPlant(c,cx,cy);
+  }
+  _drawAnimal(c,cx,cy){
+    const r=this.baseR*this.scale;
+    if(this.burst>0.5){
+      // efecte lisi: trossos escampats + esclat
+      c.fillStyle='rgba(217,83,79,.18)'; c.beginPath(); c.arc(cx,cy,r*1.4,0,7); c.fill();
+      c.fillStyle='rgba(217,83,79,.85)';
+      for(let i=0;i<10;i++){
+        const a=i/10*Math.PI*2, d=r*(0.9+this.burst*0.9);
+        c.beginPath(); c.arc(cx+Math.cos(a)*d,cy+Math.sin(a)*d,8-this.burst*3,0,7); c.fill();
+      }
+      c.fillStyle='#7a2522'; c.font='700 22px Fira Sans Extra Condensed'; c.textAlign='center';
+      c.fillText('💥 LISI!',cx,cy+8);
+      return;
+    }
+    // glòbul vermell: disc bicòncau (estilitzat)
+    const g=c.createRadialGradient(cx-r*0.3,cy-r*0.3,r*0.2,cx,cy,r);
+    g.addColorStop(0,'#e8645c'); g.addColorStop(1,'#c0352e');
+    c.fillStyle=g;
+    c.beginPath(); c.ellipse(cx,cy,r,r*0.92,0,0,7); c.fill();
+    c.strokeStyle='rgba(120,20,20,.5)'; c.lineWidth=2; c.stroke();
+    // sot central (només si no està massa inflat)
+    if(this.scale<1.2){
+      c.fillStyle='rgba(150,40,40,.45)';
+      c.beginPath(); c.ellipse(cx,cy,r*0.42,r*0.38,0,0,7); c.fill();
+    }
+    // arrugues si crenat
+    if(this.state && this.state.key==='crenat'){
+      c.strokeStyle='rgba(120,30,30,.6)'; c.lineWidth=2;
+      for(let i=0;i<10;i++){
+        const a=i/10*Math.PI*2;
+        c.beginPath();
+        c.moveTo(cx+Math.cos(a)*r*0.9,cy+Math.sin(a)*r*0.85);
+        c.lineTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r*0.92);
+        c.stroke();
+      }
+    }
+  }
+  _drawPlant(c,cx,cy){
+    const wallR=this.baseR*1.12;                 // paret rígida (fixa)
+    const memR=this.baseR*this.scale;            // membrana (variable)
+    // contingut/vacúol
+    // paret cel·lular rígida (rectangle arrodonit)
+    const rr=(x,y,w,h,rad)=>{c.beginPath();c.moveTo(x+rad,y);c.arcTo(x+w,y,x+w,y+h,rad);c.arcTo(x+w,y+h,x,y+h,rad);c.arcTo(x,y+h,x,y,rad);c.arcTo(x,y,x+w,y,rad);c.closePath();};
+    const ww=wallR*2, wh=wallR*1.7;
+    c.fillStyle='#caa46e'; rr(cx-ww/2,cy-wh/2,ww,wh,16); c.fill();
+    c.fillStyle='#f3ead8'; rr(cx-ww/2+8,cy-wh/2+8,ww-16,wh-16,12); c.fill();
+    c.lineWidth=8; c.strokeStyle='#9a6a3a'; rr(cx-ww/2,cy-wh/2,ww,wh,16); c.stroke();
+    // membrana + citoplasma (es contrau cap al centre en plasmòlisi)
+    const mw=(ww-22)*U.clamp(this.scale,0.55,1.0);
+    const mh=(wh-22)*U.clamp(this.scale,0.55,1.0);
+    const g=c.createRadialGradient(cx-mw*0.2,cy-mh*0.2,10,cx,cy,mw*0.7);
+    g.addColorStop(0,'#7fd29a'); g.addColorStop(1,'#3fa15a');
+    c.fillStyle=g; rr(cx-mw/2,cy-mh/2,mw,mh,14); c.fill();
+    c.lineWidth=3; c.strokeStyle='#2e7d46'; rr(cx-mw/2,cy-mh/2,mw,mh,14); c.stroke();
+    // vacúol central
+    c.fillStyle='rgba(120,200,235,.5)';
+    rr(cx-mw*0.3,cy-mh*0.3,mw*0.6,mh*0.6,10); c.fill();
+    // si plasmòlisi, marcar el buit entre membrana i paret
+    if(this.state && this.state.key==='plasmolisi'){
+      c.fillStyle='rgba(240,136,62,.18)';
+      c.fillRect(cx-ww/2+8,cy-wh/2+8,ww-16,wh-16);
+      c.fillStyle='#b96a25'; c.font='700 13px Fira Sans Extra Condensed'; c.textAlign='center';
+      c.fillText('aigua que ha sortit',cx,cy-wh/2-6);
+    }
+  }
+}
+
+/* ================================================================
+   COMPONENT · Quiz — preguntes predictives amb feedback immediat
+   ================================================================ */
+const Quiz = {
+  feedbacks:{
+    disc:{
+      ok:'✅ Exacte! L\'aigua es mou cap al costat amb <b>més sal</b>. La sal no pot travessar la membrana, així que és l\'aigua qui es desplaça per «diluir-la». A la fase següent veuràs per què.',
+      no:'❌ Fixa\'t bé: el nivell <b>puja al costat dret</b> (molta sal) i baixa a l\'esquerre. L\'aigua viatja cap on hi ha més solut. Reinicia i torna-ho a mirar!'
+    },
+    media:{
+      ok:'✅ Molt bé! Amb molt solut a fora és un medi <b>hipertònic</b>: l\'aigua surt de la cèl·lula i aquesta s\'arruga (perd volum).',
+      no:'❌ Recorda: més solut FORA = <b>hipertònic</b>. Com que l\'aigua va cap on hi ha més solut, surt de la cèl·lula i s\'arruga.'
+    }
+  },
+  bind(){
+    document.querySelectorAll('[data-quiz]').forEach(box=>{
+      const key=box.dataset.quiz;
+      const fb=document.querySelector(`[data-fb="${key}"]`);
+      box.querySelectorAll('.opt').forEach((opt,i)=>{
+        opt.addEventListener('click',()=>{
+          if(box.dataset.answered) return;
+          box.dataset.answered='1';
+          const correct=opt.dataset.correct==='1';
+          box.querySelectorAll('.opt').forEach(o=>{
+            o.disabled=true;
+            if(o.dataset.correct==='1'){ o.classList.add('correct'); o.querySelector('.mk').textContent='✓'; }
+          });
+          if(!correct){ opt.classList.add('wrong'); opt.querySelector('.mk').textContent='✗'; }
+          const f=Quiz.feedbacks[key];
+          fb.innerHTML=correct?f.ok:f.no;
+          fb.className='feedback show '+(correct?'ok':'no');
+        });
+      });
+    });
+  }
+};
+
+/* ================================================================
+   DADES · Casos pràctics (fase 6)
+   ================================================================ */
+const CASES=[
+  {
+    id:'mar', emoji:'🌊', title:'Beure aigua de mar',
+    sub:'Per què et deshidrata en comptes de calmar-te la set?',
+    type:'animal', cIn:0.5, cOut:0.9,
+    q:'Si beus aigua de mar, les cèl·lules del teu cos estan en un medi...',
+    opts:[
+      {t:'Hipotònic: agafen aigua i et rehidrates',ok:false},
+      {t:'Hipertònic: perden aigua i et deshidrates',ok:true},
+      {t:'Isotònic: no passa res',ok:false}
+    ],
+    explain:'L\'aigua de mar té <b>molta més sal</b> que les teves cèl·lules: és un medi <b>hipertònic</b>. Per osmosi, l\'aigua <b>surt</b> de les cèl·lules cap a l\'intestí i la perds. Per això, com més aigua de mar beus, <b>més set i més deshidratació</b>. 🚱'
+  },
+  {
+    id:'planta', emoji:'🪴', title:'Regar una planta amb aigua salada',
+    sub:'Per què es marceix encara que la regues?',
+    type:'plant', cIn:0.5, cOut:0.9,
+    q:'En regar amb aigua salada, les cèl·lules de l\'arrel pateixen...',
+    opts:[
+      {t:'Turgència: s\'inflen i la planta creix',ok:false},
+      {t:'Plasmòlisi: perden aigua i es marceix',ok:true},
+      {t:'Lisi: rebenten i moren a l\'instant',ok:false}
+    ],
+    explain:'El sòl salat és <b>hipertònic</b> respecte les cèl·lules de l\'arrel. L\'aigua <b>surt</b> de les cèl·lules cap al sòl: pateixen <b>plasmòlisi</b>, la membrana es separa de la paret i la planta es <b>marceix</b> tot i estar «regada». Per això la sal mata les plantes. 🥀'
+  },
+  {
+    id:'serum', emoji:'💉', title:'Sèrum fisiològic i glòbuls vermells',
+    sub:'Per què als hospitals usen sèrum i no aigua pura?',
+    type:'animal', cIn:0.5, cOut:0.5,
+    q:'El sèrum fisiològic té la <b>mateixa</b> concentració de sal que la sang. Així els glòbuls vermells...',
+    opts:[
+      {t:'Es queden igual (isotònic): no es danyen',ok:true},
+      {t:'S\'inflen i rebenten',ok:false},
+      {t:'S\'arruguen i moren',ok:false}
+    ],
+    explain:'El sèrum fisiològic (0,9% de sal) és <b>isotònic</b>: igual de concentrat que l\'interior dels glòbuls. Així no entra ni surt aigua neta i les cèl·lules es mantenen <b>intactes</b>. Si s\'injectés <b>aigua pura</b> (hipotònica), els glòbuls s\'inflarien i farien <b>lisi</b>. Per això sempre s\'usa sèrum. 🩸'
+  },
+  {
+    id:'sal', emoji:'🧂', title:'Conservar aliments amb sal',
+    sub:'Com és que el pernil o el bacallà no es fan malbé?',
+    type:'plant', cIn:0.5, cOut:0.95,
+    q:'Cobrir la carn o el peix amb sal crea un medi molt hipertònic. Què aconsegueix?',
+    opts:[
+      {t:'Hidratar l\'aliment perquè duri més',ok:false},
+      {t:'Treure aigua a l\'aliment i als microbis, que no poden viure',ok:true},
+      {t:'No té cap efecte sobre els bacteris',ok:false}
+    ],
+    explain:'La sal crea un medi <b>hipertònic</b> extrem. Per osmosi, l\'aigua <b>surt</b> tant de l\'aliment com dels <b>bacteris i fongs</b> que el volen colonitzar. Sense aigua, els microbis no poden créixer ni reproduir-se: l\'aliment <b>es conserva</b>. És la tècnica del salaó, usada des de fa mil·lennis. 🐟'
+  }
+];
+
+function buildCases(){
+  const wrap=document.getElementById('casesWrap');
+  CASES.forEach(cs=>{
+    const el=document.createElement('div');
+    el.className='card case'; el.dataset.case=cs.id;
+    el.innerHTML=`
+      <div class="case-head">
+        <span class="case-emoji">${cs.emoji}</span>
+        <div><h3>${cs.title}</h3><p>${cs.sub}</p></div>
+        <span class="case-chev">›</span>
+      </div>
+      <div class="case-body">
+        <div class="grid grid-sim" style="padding:18px;">
+          <div class="card" style="box-shadow:none;">
+            <div class="sim-wrap">
+              <div class="sim-badge"><span class="chip state" data-cstate style="background:#3fa15a">—</span></div>
+              <canvas data-ccanvas width="560" height="360"></canvas>
+            </div>
+          </div>
+          <div>
+            <div class="predict" style="margin-top:0">
+              <div class="q"><span class="qi">🔮</span><span>${cs.q}</span></div>
+              <div class="opts" data-copts></div>
+              <div class="feedback" data-cfb></div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    wrap.appendChild(el);
+
+    // toggle acordió (i activa la simulació quan s'obre)
+    const head=el.querySelector('.case-head');
+    let sim=null, answered=false;
+    head.addEventListener('click',()=>{
+      const open=el.classList.toggle('open');
+      if(open && !sim){
+        const cv=el.querySelector('[data-ccanvas]');
+        sim=new CellSim(cv,{type:cs.type,cIn:cs.cIn,cOut:cs.cOut,
+          onState:(st)=>{ const b=el.querySelector('[data-cstate]'); b.textContent=st.medi.nom; b.style.background=st.medi.color; }});
+        sim.visible=true;
+        // de moment mostrem en estat d'equilibri fins que respongui
+        sim.cOut=sim.cIn; sim._recompute(); sim.scale=sim.target;
+      }
+      if(sim) sim.visible=open;
+    });
+
+    // opcions de predicció
+    const optsWrap=el.querySelector('[data-copts]');
+    const fb=el.querySelector('[data-cfb]');
+    cs.opts.forEach((o,i)=>{
+      const b=document.createElement('button');
+      b.className='opt'; b.innerHTML=`<span class="mk">${String.fromCharCode(65+i)}</span> ${o.t}`;
+      b.addEventListener('click',()=>{
+        if(answered) return; answered=true;
+        optsWrap.querySelectorAll('.opt').forEach((x,xi)=>{
+          x.disabled=true;
+          if(cs.opts[xi].ok){x.classList.add('correct');x.querySelector('.mk').textContent='✓';}
+        });
+        if(!o.ok){b.classList.add('wrong');b.querySelector('.mk').textContent='✗';}
+        fb.innerHTML=(o.ok?'✅ <b>Correcte!</b> ':'❌ <b>No ben bé.</b> ')+cs.explain;
+        fb.className='feedback show '+(o.ok?'ok':'no');
+        // ara la simulació mostra el resultat real
+        if(sim){ sim.cOut=cs.cOut; sim._recompute(); }
+      });
+      optsWrap.appendChild(b);
+    });
+  });
+}
+
+/* ================================================================
+   MINI-JOCS (fase 7) — puntuació + ratxa + retroalimentació
+   ================================================================ */
+const GAMES={
+  classify:{
+    total:8,
+    bank:[
+      {s:'Una cirera dins un bol amb molta sucre. La cirera respecte el xarop:',a:'hiper'},
+      {s:'Un glòbul vermell dins sèrum fisiològic (mateixa sal que la sang):',a:'iso'},
+      {s:'Una patata tallada submergida en aigua destil·lada (sense sals):',a:'hipo'},
+      {s:'Cargols de mar posats en aigua dolça de riu:',a:'hipo'},
+      {s:'Cèl·lula de l\'arrel en un sòl regat amb aigua molt salada:',a:'hiper'},
+      {s:'Bacteri damunt un tall de bacallà cobert de sal:',a:'hiper'},
+      {s:'Cèl·lula vegetal en una solució amb la seva mateixa concentració:',a:'iso'},
+      {s:'Pansa (raïm sec) deixada tota la nit en un got d\'aigua:',a:'hipo'},
+      {s:'Enciam tallat deixat en aigua freda perquè quedi cruixent:',a:'hipo'},
+      {s:'Pernil curat amb molta sal al damunt:',a:'hiper'}
+    ],
+    opts:[
+      {k:'hipo',e:'💧',t:'Hipotònic'},
+      {k:'iso',e:'⚖️',t:'Isotònic'},
+      {k:'hiper',e:'🧂',t:'Hipertònic'}
+    ],
+    fb:{
+      hipo:'Poc solut fora → l\'aigua entra a la cèl·lula.',
+      iso:'Igual concentració → la cèl·lula no canvia.',
+      hiper:'Molt solut fora → l\'aigua surt de la cèl·lula.'
+    }
+  },
+  predict:{
+    total:8,
+    bank:[
+      {s:'Glòbul vermell (animal) en aigua destil·lada (hipotònic extrem):',a:'lisi'},
+      {s:'Glòbul vermell (animal) en aigua molt salada (hipertònic):',a:'arruga'},
+      {s:'Cèl·lula vegetal en aigua de pluja (hipotònic):',a:'turgent'},
+      {s:'Cèl·lula vegetal en un sòl molt salat (hipertònic):',a:'plasmo'},
+      {s:'Qualsevol cèl·lula en un medi isotònic:',a:'igual'},
+      {s:'Glòbul vermell en sèrum fisiològic:',a:'igual'},
+      {s:'Cèl·lula vegetal regada amb aigua salada:',a:'plasmo'},
+      {s:'Cèl·lula animal en una solució amb molt sucre dissolt:',a:'arruga'},
+      {s:'Cèl·lula vegetal en aigua destil·lada:',a:'turgent'},
+      {s:'Glòbul vermell injectat amb aigua pura a la vena:',a:'lisi'}
+    ],
+    opts:[
+      {k:'turgent',e:'💪',t:'Turgent'},
+      {k:'igual',e:'⚖️',t:'Igual'},
+      {k:'arruga',e:'🍂',t:'S\'arruga'},
+      {k:'plasmo',e:'🥀',t:'Plasmòlisi'},
+      {k:'lisi',e:'💥',t:'Lisi (rebenta)'}
+    ],
+    fb:{
+      turgent:'Entra aigua i la paret aguanta → turgent.',
+      igual:'No entra ni surt aigua neta → es manté igual.',
+      arruga:'Surt aigua i (sense paret) s\'arruga.',
+      plasmo:'Surt aigua i la membrana se separa de la paret → plasmòlisi.',
+      lisi:'Entra tanta aigua que (sense paret) rebenta → lisi.'
+    }
+  }
+};
+
+class GameEngine{
+  constructor(){
+    this.area=document.getElementById('gameArea');
+    this.body=document.getElementById('gameBody');
+    this.current='classify';
+    this.bindPicker();
+  }
+  bindPicker(){
+    document.querySelectorAll('#gamePick .mg-card').forEach(card=>{
+      card.addEventListener('click',()=>{
+        document.querySelectorAll('#gamePick .mg-card').forEach(c=>c.classList.remove('active'));
+        card.classList.add('active');
+        this.current=card.dataset.game;
+        this.start();
+      });
+    });
+  }
+  start(){
+    const g=GAMES[this.current];
+    // barreja i agafa N preguntes
+    this.questions=[...g.bank].sort(()=>Math.random()-0.5).slice(0,g.total);
+    this.idx=0; this.score=0; this.streak=0;
+    document.getElementById('gTotal').textContent=g.total;
+    this.render();
+  }
+  render(){
+    const g=GAMES[this.current];
+    document.getElementById('gScore').textContent=this.score;
+    document.getElementById('gRound').textContent=Math.min(this.idx+1,g.total);
+    const st=document.getElementById('gStreak');
+    st.textContent=this.streak>=2?`🔥 Ratxa de ${this.streak}!`:'';
+    if(this.idx>=g.total){ return this.finish(); }
+    const q=this.questions[this.idx];
+    this.body.innerHTML=`
+      <div class="game-scenario">${q.s}</div>
+      <div class="game-q">Tria la resposta correcta:</div>
+      <div class="game-opts">${g.opts.map(o=>`<button class="game-opt" data-k="${o.k}"><span class="ge">${o.e}</span>${o.t}</button>`).join('')}</div>
+      <div class="feedback" data-gfb></div>`;
+    const fb=this.body.querySelector('[data-gfb]');
+    let answered=false;
+    this.body.querySelectorAll('.game-opt').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        if(answered) return; answered=true;
+        const ok=btn.dataset.k===q.a;
+        this.body.querySelectorAll('.game-opt').forEach(b=>{
+          b.disabled=true;
+          if(b.dataset.k===q.a) b.classList.add('correct');
+        });
+        if(!ok) btn.classList.add('wrong');
+        if(ok){ this.score+=10+(this.streak*2); this.streak++; }
+        else { this.streak=0; }
+        const correctOpt=g.opts.find(o=>o.k===q.a);
+        fb.innerHTML=(ok?'✅ <b>Correcte!</b> ':`❌ <b>Era «${correctOpt.t}».</b> `)+g.fb[q.a]+
+          `<div style="margin-top:10px"><button class="btn" data-next>${this.idx+1>=g.total?'Veure resultat':'Següent →'}</button></div>`;
+        fb.className='feedback show '+(ok?'ok':'no');
+        fb.querySelector('[data-next]').addEventListener('click',()=>{ this.idx++; this.render(); });
+        document.getElementById('gScore').textContent=this.score;
+      });
+    });
+  }
+  finish(){
+    const g=GAMES[this.current];
+    const max=g.total*10;
+    const pct=Math.round(this.score/max*100);
+    let em,msg;
+    if(pct>=85){em='🏆';msg='Ets un crack de l\'osmosi! Domines el tema.';}
+    else if(pct>=60){em='💪';msg='Molt bé! Tens el concepte ben agafat.';}
+    else if(pct>=40){em='🙂';msg='Vas pel bon camí. Repassa els medis i torna-ho a provar.';}
+    else {em='📚';msg='Repassa les fases 3, 4 i 5 i torna a intentar-ho. Tu pots!';}
+    this.body.innerHTML=`
+      <div class="game-result">
+        <div class="em">${em}</div>
+        <h3>${this.score} punts</h3>
+        <p>${msg}</p>
+        <div class="btn-row" style="justify-content:center;margin-top:16px">
+          <button class="btn" data-replay>↺ Tornar a jugar</button>
+        </div>
+      </div>`;
+    this.body.querySelector('[data-replay]').addEventListener('click',()=>this.start());
+    document.getElementById('gStreak').textContent='';
+  }
+}
+
+/* ================================================================
+   ROUTER · navegació per fases + barra de progrés
+   ================================================================ */
+const PHASES=[
+  {id:'discover',label:'Descobreix'},
+  {id:'build',label:'Concepte'},
+  {id:'media',label:'Medis'},
+  {id:'animal',label:'Animal'},
+  {id:'plant',label:'Vegetal'},
+  {id:'cases',label:'Aplicacions'},
+  {id:'lab',label:'Laboratori'},
+  {id:'games',label:'Reptes'}
+];
+const Router={
+  visited:new Set(),
+  sims:{},  // registres de simulacions per fase, per controlar visible
+  init(){
+    const nav=document.getElementById('phaseNav');
+    PHASES.forEach((p,i)=>{
+      const b=document.createElement('button');
+      b.className='nav-btn'; b.dataset.nav=p.id;
+      b.innerHTML=`<span class="num">${i+1}</span>${p.label}`;
+      b.addEventListener('click',()=>this.go(p.id));
+      nav.appendChild(b);
+    });
+    document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>this.go(b.dataset.go)));
+    this.go('discover');
+  },
+  go(id){
+    document.querySelectorAll('.phase').forEach(s=>s.classList.toggle('active',s.dataset.phase===id));
+    document.querySelectorAll('[data-nav]').forEach(b=>b.classList.toggle('current',b.dataset.nav===id));
+    this.visited.add(id);
+    // marca fases visitades
+    PHASES.forEach(p=>{
+      const b=document.querySelector(`[data-nav="${p.id}"]`);
+      if(this.visited.has(p.id) && p.id!==id) b.classList.add('done');
+    });
+    // barra de progrés
+    const pct=Math.round(this.visited.size/PHASES.length*100);
+    document.getElementById('progFill').style.width=pct+'%';
+    // activa/desactiva simulacions segons visibilitat (estalvi CPU)
+    Object.entries(this.sims).forEach(([phase,list])=>{
+      list.forEach(s=>{ s.visible=(phase===id); });
+    });
+    // arrenca jocs en entrar
+    if(id==='games' && this.game) this.game.start();
+    window.scrollTo({top:0,behavior:'smooth'});
+  },
+  register(phase,sim){ (this.sims[phase]=this.sims[phase]||[]).push(sim); }
+};
+
+/* ================================================================
+   INICIALITZACIÓ — connecta tots els components
+   ================================================================ */
+window.addEventListener('DOMContentLoaded',()=>{
+
+  /* ---- Fase 1: Descobriment ---- */
+  const discSim=new CompartmentSim(document.getElementById('cvDiscover'),{
+    soluteL:4, soluteR:40,
+    onTime:(t)=>{ document.getElementById('discTime').textContent='Temps: '+t.toFixed(0)+' s'; }
+  });
+  Router.register('discover',discSim);
+  document.getElementById('discPlay').addEventListener('click',(e)=>{
+    discSim.setRunning(!discSim.running);
+    e.target.textContent=discSim.running?'⏸ Pausa':'▶ Engega';
+  });
+  document.getElementById('discReset').addEventListener('click',()=>{
+    discSim.reset(); document.getElementById('discPlay').textContent='▶ Engega';
+    document.getElementById('discTime').textContent='Temps: 0 s';
+  });
+
+  /* ---- Fase 2: Construcció guiada ---- */
+  const buildSim=new CompartmentSim(document.getElementById('cvBuild'),{
+    soluteL:4, soluteR:40, autostart:true, highlight:'membrane'
+  });
+  Router.register('build',buildSim);
+  const STEPS=[
+    {hl:'membrane',label:'Membrana semipermeable',color:'#7B68C8'},
+    {hl:'solute',label:'El solut queda atrapat',color:'#f0883e'},
+    {hl:'water',label:'L\'aigua travessa',color:'#2f9fd0'},
+    {hl:'all',label:'Cap a l\'equilibri',color:'#3fa15a'}
+  ];
+  let stepIdx=0;
+  function renderStep(){
+    document.querySelectorAll('.reveal-step').forEach((el,i)=>el.classList.toggle('on',i<=stepIdx));
+    const s=STEPS[stepIdx];
+    buildSim.setHighlight(s.hl);
+    buildSim.setRunning(stepIdx>=2); // el moviment net s'inicia al pas 3
+    const badge=document.getElementById('buildHighlight');
+    badge.textContent=s.label; badge.style.background=s.color;
+    document.getElementById('buildPrev').disabled=stepIdx===0;
+    document.getElementById('buildNext').disabled=stepIdx===STEPS.length-1;
+    document.getElementById('defBox').classList.toggle('hidden',stepIdx<STEPS.length-1);
+  }
+  document.getElementById('buildNext').addEventListener('click',()=>{ if(stepIdx<STEPS.length-1){stepIdx++;renderStep();} });
+  document.getElementById('buildPrev').addEventListener('click',()=>{ if(stepIdx>0){stepIdx--;renderStep();} });
+  renderStep();
+
+  /* ---- Fase 3: Medis (3 mini-cèl·lules) ---- */
+  [['hipo',0.15],['iso',0.5],['hiper',0.85]].forEach(([m,cOut])=>{
+    const cv=document.querySelector(`[data-mcanvas="${m}"]`);
+    const sim=new CellSim(cv,{type:'animal',cIn:0.5,cOut,mini:true});
+    Router.register('media',sim);
+  });
+  const mediaCells=document.querySelectorAll('#mediaRow .media-cell');
+  function activateMedia(el){ mediaCells.forEach(c=>c.classList.toggle('active',c===el)); }
+  mediaCells.forEach(el=>{
+    el.addEventListener('mouseenter',()=>activateMedia(el));
+    el.addEventListener('click',()=>activateMedia(el));
+  });
+  activateMedia(document.querySelector('#mediaRow [data-m="iso"]'));
+
+  /* ---- Fase 4: Cèl·lula animal ---- */
+  const animalSim=new CellSim(document.getElementById('cvAnimal'),{
+    type:'animal',cIn:0.5,cOut:0.5,perm:1,
+    onState:(st,medi)=>{
+      const sb=document.getElementById('animalState'); sb.textContent=st.nom; sb.style.background=st.color;
+      const mb=document.getElementById('animalMedi'); mb.textContent=medi.nom; mb.style.background=medi.color;
+    }
+  });
+  Router.register('animal',animalSim);
+  const animalExplain={
+    lisi:'💥 <b>Lisi cel·lular!</b> El medi és tan hipotònic que entra massa aigua i el glòbul <b>rebenta</b>. Les cèl·lules animals no tenen paret que les protegeixi.',
+    inflada:'🔵 Medi <b>hipotònic</b>: entra aigua i el glòbul s\'infla. Si segueixes, acabarà fent lisi.',
+    normal:'⚖️ Medi <b>isotònic</b>: entra i surt la mateixa aigua. El glòbul manté la seva forma de disc. És l\'estat saludable.',
+    crenat:'🍂 Medi <b>hipertònic</b>: surt aigua i el glòbul s\'arruga (crenació). Si en perd massa, es danya.'
+  };
+  document.getElementById('animalSlider').addEventListener('input',(e)=>{
+    const v=e.target.value/100; animalSim.setOut(v);
+    const lbl=document.getElementById('animalVal');
+    lbl.textContent = v<0.42?'menys que dins':v>0.58?'més que dins':'igual que dins';
+    document.getElementById('animalExplain').innerHTML=animalExplain[animalSim.state.key]||'';
+  });
+
+  /* ---- Fase 5: Cèl·lula vegetal ---- */
+  const plantSim=new CellSim(document.getElementById('cvPlant'),{
+    type:'plant',cIn:0.5,cOut:0.5,perm:1,
+    onState:(st,medi)=>{
+      const sb=document.getElementById('plantState'); sb.textContent=st.nom; sb.style.background=st.color;
+      const mb=document.getElementById('plantMedi'); mb.textContent=medi.nom; mb.style.background=medi.color;
+    }
+  });
+  Router.register('plant',plantSim);
+  const plantExplain={
+    turgent:'💪 Medi <b>hipotònic</b>: entra aigua, però la <b>paret rígida</b> impedeix que rebenti. La membrana prem la paret: la cèl·lula està <b>turgent</b> i la planta, ferma i dreta.',
+    flaccid:'😟 Medi <b>isotònic</b>: la pressió interna baixa. La cèl·lula està <b>flàccida</b> i la planta comença a decandir-se una mica.',
+    plasmolisi:'🥀 Medi <b>hipertònic</b>: surt tanta aigua que la membrana <b>se separa de la paret</b> (plasmòlisi). La planta es <b>marceix</b>.'
+  };
+  document.getElementById('plantSlider').addEventListener('input',(e)=>{
+    const v=e.target.value/100; plantSim.setOut(v);
+    const lbl=document.getElementById('plantVal');
+    lbl.textContent = v<0.42?'menys que dins':v>0.58?'més que dins':'igual que dins';
+    document.getElementById('plantExplain').innerHTML=plantExplain[plantSim.state.key]||'';
+  });
+
+  /* ---- Casos pràctics (fase 6) ---- */
+  buildCases();
+
+  /* ---- Laboratori lliure ---- */
+  const labSim=new CellSim(document.getElementById('cvLab'),{
+    type:'animal',cIn:0.5,cOut:0.5,perm:0.55,
+    onState:(st,medi)=>{
+      const sb=document.getElementById('labState'); sb.textContent=st.nom; sb.style.background=st.color;
+      const mb=document.getElementById('labMedi'); mb.textContent=medi.nom; mb.style.background=medi.color;
+    }
+  });
+  Router.register('lab',labSim);
+  function labExplainTxt(){
+    const d=labSim.cOut-labSim.cIn, medi=U.mediFromDiff(d);
+    const perm=labSim.perm;
+    if(perm<0.12) return '🔒 La membrana és gairebé <b>impermeable</b>: encara que les concentracions siguin molt diferents, l\'aigua amb prou feines passa i la cèl·lula gairebé no canvia.';
+    const k=labSim.state.key;
+    const map={
+      lisi:'💥 <b>Lisi!</b> Has aconseguit que la cèl·lula animal rebenti en un medi hipotònic extrem.',
+      inflada:'🔵 Medi hipotònic: entra aigua i la cèl·lula s\'infla.',
+      normal:'⚖️ Concentracions semblants: medi isotònic, cèl·lula estable.',
+      crenat:'🍂 Medi hipertònic: surt aigua i la cèl·lula animal s\'arruga.',
+      turgent:'💪 Medi hipotònic: la cèl·lula vegetal es posa turgent (la paret aguanta).',
+      flaccid:'😟 Medi isotònic: la cèl·lula vegetal està flàccida.',
+      plasmolisi:'🥀 <b>Plasmòlisi!</b> La membrana s\'ha separat de la paret en un medi hipertònic.'
+    };
+    return map[k]||medi.nom;
+  }
+  function updLab(){ document.getElementById('labExplain').innerHTML=labExplainTxt(); }
+  document.querySelectorAll('#labType button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      document.querySelectorAll('#labType button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active'); labSim.setType(b.dataset.type); updLab();
+    });
+  });
+  document.getElementById('labIn').addEventListener('input',e=>{ labSim.setIn(e.target.value/100); document.getElementById('labInVal').textContent=e.target.value; updLab(); });
+  document.getElementById('labOut').addEventListener('input',e=>{ labSim.setOut(e.target.value/100); document.getElementById('labOutVal').textContent=e.target.value; updLab(); });
+  document.getElementById('labPerm').addEventListener('input',e=>{
+    const v=e.target.value/100; labSim.setPerm(v);
+    document.getElementById('labPermVal').textContent=v<0.2?'molt baixa':v<0.45?'baixa':v<0.7?'mitjana':'alta';
+    updLab();
+  });
+  document.getElementById('labReset').addEventListener('click',()=>{
+    labSim.setIn(0.5); labSim.setOut(0.5); labSim.setPerm(0.55);
+    document.getElementById('labIn').value=50; document.getElementById('labOut').value=50; document.getElementById('labPerm').value=55;
+    document.getElementById('labInVal').textContent='50'; document.getElementById('labOutVal').textContent='50';
+    document.getElementById('labPermVal').textContent='mitjana'; updLab();
+  });
+  updLab();
+
+  /* ---- Mini-jocs ---- */
+  Router.game=new GameEngine();
+
+  /* ---- Quiz predictius (fases 1 i 3) ---- */
+  Quiz.bind();
+
+  /* ---- Arrenca el router ---- */
+  Router.init();
+});
+</script>
+</body>
+</html>
