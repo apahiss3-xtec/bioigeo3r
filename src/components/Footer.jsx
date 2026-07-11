@@ -21,7 +21,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="Guia docent (només per a professorat)"
             title="Guia docent"
-            className="ml-auto text-[10px] leading-none opacity-20 hover:opacity-60 transition-opacity no-underline"
+            className="text-[10px] leading-none opacity-30 hover:opacity-70 transition-opacity no-underline"
           >
             ·
           </a>

@@ -20,7 +20,7 @@ export default function NivellSelector({ className = '' }) {
             onClick={() => setNivell(n)}
             aria-pressed={nivell === n}
             title={t(`nivell.${n}.help`)}
-            className={`flex flex-col items-center rounded-full px-4 py-1.5 transition-colors ${
+            className={`tap flex flex-col items-center rounded-full px-4 py-1.5 ${
               nivell === n
                 ? 'bg-[var(--purple-ink)] text-white'
                 : 'text-[var(--muted)] hover:text-[var(--text)]'

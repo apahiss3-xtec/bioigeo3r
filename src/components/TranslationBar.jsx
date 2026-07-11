@@ -39,7 +39,7 @@ export default function TranslationBar() {
         <button
           key={label}
           onClick={() => setHelpLang(code)}
-          className={`font-display text-sm font-semibold rounded-full px-2.5 py-1 transition-colors ${
+          className={`tap font-display text-sm font-semibold rounded-full px-2.5 py-1 ${
             helpLang === code
               ? 'bg-[var(--purple-ink)] text-white'
               : 'text-[var(--muted)] hover:text-[var(--text)]'
@@ -57,7 +57,7 @@ export default function TranslationBar() {
       <span className="mx-1 h-5 w-px bg-[var(--rule-strong)]" aria-hidden="true" />
       <button
         onClick={toggleSimplified}
-        className={`font-display text-sm font-semibold rounded-full px-2.5 py-1 transition-colors ${
+        className={`tap font-display text-sm font-semibold rounded-full px-2.5 py-1 ${
           simplified
             ? 'bg-[var(--orange)] text-[#14121f]'
             : 'text-[var(--muted)] hover:text-[var(--text)]'

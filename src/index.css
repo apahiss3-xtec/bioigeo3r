@@ -37,6 +37,10 @@
   /* Bioma per defecte (es sobreescriu per SA) */
   --biome: #6b4fa0;
   --biome-accent: #7c3aed;
+
+  /* Corbes d'ease per a micro-interaccions (Emil Kowalski) */
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 /* Biomes per SA — primari (insígnies amb text blanc) + accent
@@ -238,6 +242,53 @@ body.simplified a {
 .gloss-rtl::after {
   direction: rtl;
   font-size: 1.05rem;
+}
+
+/* ──────────────────────────────────────────────────────────
+   Feedback de pressió per a botons interactius: en prémer,
+   una lleugera reducció d'escala confirma que la interfície
+   "ha sentit" el clic. Afegir la classe .tap als botons.
+   ────────────────────────────────────────────────────────── */
+.tap {
+  transition-property: transform, color, background-color, border-color, box-shadow;
+  transition-duration: 160ms;
+  transition-timing-function: var(--ease-out-strong);
+}
+
+.tap:active {
+  transform: scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tap:active {
+    transform: none;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────
+   Desplaçament del contingut quan el sonòmetre flotant
+   (SoundMeter, ancorat a la dreta) és obert, perquè el panell
+   no es solapi amb el text de la pàgina.
+   ────────────────────────────────────────────────────────── */
+.content-shift {
+  transform: translateX(0);
+  transition: transform 280ms var(--ease-out-strong);
+}
+
+.content-shift[data-shifted='true'] {
+  transform: translateX(-15rem);
+}
+
+@media (max-width: 640px) {
+  .content-shift[data-shifted='true'] {
+    transform: translateX(-9rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content-shift {
+    transition: none;
+  }
 }
 
 /* Scrollbar clara discreta */

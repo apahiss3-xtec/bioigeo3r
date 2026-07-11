@@ -25,7 +25,7 @@ export default function HomePage() {
           <motion.div key={sa.id} {...cardMotion(i)}>
             <Link
               to={`/sa/${sa.id}`}
-              className={`biome-${sa.biome} card group block overflow-hidden hover:border-[var(--biome-accent)] transition-colors`}
+              className={`tap biome-${sa.biome} card group block overflow-hidden hover:border-[var(--biome-accent)]`}
             >
               <div className="relative h-48 overflow-hidden">
                 <BiomeImage

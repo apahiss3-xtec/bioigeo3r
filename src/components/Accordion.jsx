@@ -8,7 +8,7 @@ export default function Accordion({ title, children, defaultOpen = false }) {
     <div className="card overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between gap-4 px-5 py-4 text-start"
+        className="tap w-full flex items-center justify-between gap-4 px-5 py-4 text-start"
         aria-expanded={open}
       >
         <span className="font-display font-semibold text-lg">{title}</span>

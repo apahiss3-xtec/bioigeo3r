@@ -15,7 +15,7 @@ export default function Hint({ hints }) {
       {shown === 0 ? (
         <button
           onClick={() => setShown(1)}
-          className="inline-flex items-center gap-2 rounded-full border border-[var(--orange)] px-4 py-1.5 text-sm font-semibold text-[var(--orange)] hover:bg-[rgba(238,141,58,0.12)] transition-colors"
+          className="tap inline-flex items-center gap-2 rounded-full border border-[var(--orange)] px-4 py-1.5 text-sm font-semibold text-[var(--orange)] hover:bg-[rgba(238,141,58,0.12)]"
         >
           💡 Necessites una pista?
         </button>
