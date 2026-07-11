@@ -6,6 +6,7 @@ export const sa1 = {
   color: { primary: "#6B4FA0", accent: "#7C3AED" },
   sessions: 4,
   portadaImage: "/images/sa1-portada.png",
+  guiaDocent: "/docs/sa1-guia-docent.docx",
   description: "Descobriràs que la cèl·lula no és un catàleg d'orgànuls sinó la resposta a una pregunta vital: per què necessitem menjar i respirar cada dia?",
   product: "Pòster híbrid digital + paper sobre la cèl·lula com a unitat de la vida",
   objectives: [

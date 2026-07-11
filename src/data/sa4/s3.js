@@ -2,7 +2,7 @@ export const sa4s3 = {
   id: "s3", saId: "sa4",
   title: "De la cèl·lula a la persona",
   sessionNumber: 3, biome: "sa4", duration: "2h",
-  engageImage: "/images/sa4-s3-fecundacio.jpg",
+  engageImage: "/images/sa4-s3-fecundacio.png",
 
   engageQuestion: "Cada un de vosaltres ha 'guanyat' una competició de 200 milions de candidats (els espermatozoides). I al mateix temps, l'òvul que va ser fecundat era 1 dels ~400 que allibera una dona en tota la vida. Per quina raó sou VOSALTRES i no una altra persona? Avui ho entendreu.",
   engageContext: "Revisió breu de la S2: tenim gàmetes (espermatozoides i òvuls). Avui: el que passa quan es troben. Connexió important amb SA1/S2 (meiosi): els gàmetes son el resultat de la meiosi. El producte final de la SA (fitxa de respostes) es comença a esbossar avui.",

@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import { t } from '../t.js'
 
 export default function NotFoundPage() {
-  const { t } = useTranslation()
-
   return (
     <div className="mx-auto max-w-3xl px-4 py-24 text-center">
       <p className="font-display text-7xl font-bold text-[var(--purple)] mb-4">404</p>

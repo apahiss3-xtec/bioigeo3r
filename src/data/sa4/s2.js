@@ -2,7 +2,7 @@ export const sa4s2 = {
   id: "s2", saId: "sa4",
   title: "Els canvis del cos",
   sessionNumber: 2, biome: "sa4", duration: "2h",
-  engageImage: "/images/sa4-s2-pubertat.jpg",
+  engageImage: "/images/sa4-s2-pubertat.png",
 
   engageQuestion: "El docent recollirà 1-2 preguntes anònimes de la bústia oberta a S1 (sense noms) i les llegirà en veu alta. Avui comencem a respondre-les amb ciència. Però primer: quins canvis físics creus que controla el cervell?",
   engageContext: "Presentació de l'enigma de la SA (el cicle de la Laia) que quedarà a la paret tota la SA. La bústia de preguntes anònimes (oberta a S1) continua activa tota la SA. El docent llegeix 1-2 preguntes ja dipositades i la classe en va seleccionant les que respondran a la fitxa de respostes (producte final de la SA, a S4).",

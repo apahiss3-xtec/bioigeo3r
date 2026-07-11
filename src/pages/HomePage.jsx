@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
+import { t } from '../t.js'
 import { publishedSAs, upcomingSAs } from '../data/sas.js'
 import BiomeImage from '../components/BiomeImage.jsx'
 
@@ -12,8 +12,6 @@ const cardMotion = (i) => ({
 })
 
 export default function HomePage() {
-  const { t } = useTranslation()
-
   return (
     <div className="mx-auto max-w-6xl px-4">
       <section className="py-12 md:py-16">
