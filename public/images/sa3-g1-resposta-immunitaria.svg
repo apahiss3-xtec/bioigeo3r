@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" font-family="'Fira Sans Extra Condensed','Fira Sans',sans-serif" role="img" aria-label="Corba de resposta immunitària: resposta primària lenta i secundària ràpida">
+  <rect width="640" height="420" fill="#ffffff"/>
+  <text x="320" y="34" text-anchor="middle" font-size="22" font-weight="800" fill="#2F6B5E">Corba de resposta immunitària</text>
+  <text x="320" y="54" text-anchor="middle" font-size="14" fill="#5a6b66">Concentració d'anticossos a la sang segons els dies</text>
+
+  <!-- axes -->
+  <line x1="70" y1="360" x2="610" y2="360" stroke="#33413d" stroke-width="2.5"/>
+  <line x1="70" y1="360" x2="70" y2="80" stroke="#33413d" stroke-width="2.5"/>
+  <text x="340" y="400" text-anchor="middle" font-size="14" font-weight="700" fill="#33413d">Temps (dies)</text>
+  <text x="26" y="220" text-anchor="middle" font-size="14" font-weight="700" fill="#33413d" transform="rotate(-90 26 220)">Anticossos</text>
+
+  <!-- midline separating 1a and 2a exposure -->
+  <line x1="340" y1="80" x2="340" y2="360" stroke="#C8DDD8" stroke-width="1.5" stroke-dasharray="5 5"/>
+
+  <!-- exposure arrows -->
+  <g fill="#C0392B">
+    <polygon points="110,372 118,388 102,388"/>
+    <polygon points="360,372 368,388 352,388"/>
+  </g>
+  <text x="110" y="410" text-anchor="middle" font-size="12.5" font-weight="700" fill="#C0392B">1r contacte</text>
+  <text x="360" y="410" text-anchor="middle" font-size="12.5" font-weight="700" fill="#C0392B">2n contacte (mateix patogen)</text>
+
+  <!-- primary response: slow, low -->
+  <path d="M110,358 C 150,356 170,300 200,250 C 220,220 240,235 270,275 C 295,308 320,345 340,352"
+        fill="none" stroke="#E67E22" stroke-width="3.5"/>
+  <text x="205" y="212" text-anchor="middle" font-size="14" font-weight="800" fill="#E67E22">Resposta primària</text>
+  <text x="205" y="230" text-anchor="middle" font-size="12" fill="#a35b18">lenta (5–10 dies) i baixa</text>
+
+  <!-- secondary response: fast, high -->
+  <path d="M360,356 C 372,352 380,180 400,130 C 415,100 445,100 470,130 C 500,165 540,270 600,320"
+        fill="none" stroke="#2F6B5E" stroke-width="3.5"/>
+  <text x="475" y="96" text-anchor="middle" font-size="14" font-weight="800" fill="#2F6B5E">Resposta secundària</text>
+  <text x="475" y="114" text-anchor="middle" font-size="12" fill="#1f4a40">ràpida (hores–dies) i molt més alta</text>
+
+  <!-- memory note -->
+  <text x="352" y="345" font-size="11.5" fill="#5a6b66">Entremig: queden</text>
+  <text x="352" y="360" font-size="11.5" font-weight="700" fill="#33413d">cèl·lules de memòria</text>
+</svg>

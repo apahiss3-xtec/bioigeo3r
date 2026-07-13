@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "sync-assets": "node sync_portal_assets.mjs",
+    "predev": "node sync_portal_assets.mjs",
     "dev": "vite",
+    "prebuild": "node sync_portal_assets.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },
