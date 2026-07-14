@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 420" font-family="'Fira Sans Extra Condensed','Fira Sans',sans-serif" role="img" aria-label="Diagrama d'immunitat de grup: comparació entre poblacions amb 0%, 50% i 95% de persones vacunades">
+  <rect width="660" height="420" fill="#ffffff"/>
+  <text x="330" y="32" text-anchor="middle" font-size="22" font-weight="800" fill="#2F6B5E">Immunitat de grup</text>
+  <text x="330" y="52" text-anchor="middle" font-size="13.5" fill="#5a6b66">Com el % de persones vacunades atura la circulació del virus</text>
+
+  <!-- Three panels -->
+  <!-- Panel coordinates: centers x = 130, 330, 530; grid 3x3 within each -->
+  <g>
+    <!-- PANEL 1: 0% vaccinated -->
+    <text x="130" y="84" text-anchor="middle" font-size="15" font-weight="800" fill="#33413d">0% vacunats</text>
+    <rect x="40" y="94" width="180" height="180" rx="10" fill="#FBEDEA" stroke="#E4C9C2" stroke-width="1.5"/>
+    <!-- 9 people: all susceptible (grey), infection spreads (red outline) -->
+    <!-- row helper: cx 78,130,182 ; cy 132,184,236 -->
+    <g>
+      <!-- infected/susceptible dots -->
+      <circle cx="78" cy="132" r="15" fill="#C0392B"/>
+      <circle cx="130" cy="132" r="15" fill="#C0392B"/>
+      <circle cx="182" cy="132" r="15" fill="#E08E80"/>
+      <circle cx="78" cy="184" r="15" fill="#C0392B"/>
+      <circle cx="130" cy="184" r="15" fill="#C0392B"/>
+      <circle cx="182" cy="184" r="15" fill="#C0392B"/>
+      <circle cx="78" cy="236" r="15" fill="#E08E80"/>
+      <circle cx="130" cy="236" r="15" fill="#C0392B"/>
+      <circle cx="182" cy="236" r="15" fill="#C0392B"/>
+      <!-- transmission arrows -->
+      <g stroke="#C0392B" stroke-width="2" opacity="0.55">
+        <line x1="93" y1="132" x2="167" y2="132"/>
+        <line x1="78" y1="147" x2="78" y2="221"/>
+        <line x1="130" y1="147" x2="130" y2="221"/>
+      </g>
+    </g>
+    <text x="130" y="296" text-anchor="middle" font-size="12.5" font-weight="700" fill="#C0392B">El virus circula lliurement</text>
+    <text x="130" y="312" text-anchor="middle" font-size="12.5" fill="#5a6b66">gairebé tothom emmalalteix</text>
+  </g>
+
+  <g>
+    <!-- PANEL 2: 50% vaccinated -->
+    <text x="330" y="84" text-anchor="middle" font-size="15" font-weight="800" fill="#33413d">50% vacunats</text>
+    <rect x="240" y="94" width="180" height="180" rx="10" fill="#FBF6E9" stroke="#E4D9BE" stroke-width="1.5"/>
+    <g>
+      <!-- green = vaccinated/immune, red = infected, grey = susceptible not infected -->
+      <circle cx="278" cy="132" r="15" fill="#3E8E7E"/>
+      <circle cx="330" cy="132" r="15" fill="#C0392B"/>
+      <circle cx="382" cy="132" r="15" fill="#3E8E7E"/>
+      <circle cx="278" cy="184" r="15" fill="#C0392B"/>
+      <circle cx="330" cy="184" r="15" fill="#3E8E7E"/>
+      <circle cx="382" cy="184" r="15" fill="#B9C4C0"/>
+      <circle cx="278" cy="236" r="15" fill="#3E8E7E"/>
+      <circle cx="330" cy="236" r="15" fill="#B9C4C0"/>
+      <circle cx="382" cy="236" r="15" fill="#3E8E7E"/>
+      <g stroke="#C0392B" stroke-width="2" opacity="0.5" stroke-dasharray="3 3">
+        <line x1="315" y1="140" x2="291" y2="172"/>
+      </g>
+    </g>
+    <text x="330" y="296" text-anchor="middle" font-size="12.5" font-weight="700" fill="#B8860B">El virus circula amb dificultat</text>
+    <text x="330" y="312" text-anchor="middle" font-size="12.5" fill="#5a6b66">alguns encara s'infecten</text>
+  </g>
+
+  <g>
+    <!-- PANEL 3: 95% vaccinated -->
+    <text x="530" y="84" text-anchor="middle" font-size="15" font-weight="800" fill="#33413d">95% vacunats</text>
+    <rect x="440" y="94" width="180" height="180" rx="10" fill="#ECF6F2" stroke="#BFDDD3" stroke-width="1.5"/>
+    <g>
+      <circle cx="478" cy="132" r="15" fill="#3E8E7E"/>
+      <circle cx="530" cy="132" r="15" fill="#3E8E7E"/>
+      <circle cx="582" cy="132" r="15" fill="#3E8E7E"/>
+      <circle cx="478" cy="184" r="15" fill="#3E8E7E"/>
+      <!-- vulnerable person, protected: baby (grey) but shielded -->
+      <circle cx="530" cy="184" r="17" fill="#F4C430" stroke="#B8860B" stroke-width="2.5"/>
+      <circle cx="582" cy="184" r="15" fill="#3E8E7E"/>
+      <circle cx="478" cy="236" r="15" fill="#3E8E7E"/>
+      <circle cx="530" cy="236" r="15" fill="#3E8E7E"/>
+      <circle cx="582" cy="236" r="15" fill="#3E8E7E"/>
+    </g>
+    <text x="530" y="296" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2F6B5E">El virus no pot circular</text>
+    <text x="530" y="312" text-anchor="middle" font-size="12.5" fill="#5a6b66">protegeix qui no es pot vacunar</text>
+  </g>
+
+  <!-- Legend -->
+  <g font-size="12.5" fill="#33413d">
+    <circle cx="70" cy="352" r="9" fill="#3E8E7E"/><text x="85" y="357">Vacunat/da (immune)</text>
+    <circle cx="255" cy="352" r="9" fill="#C0392B"/><text x="270" y="357">Infectat/da</text>
+    <circle cx="400" cy="352" r="9" fill="#B9C4C0"/><text x="415" y="357">Susceptible sa</text>
+    <circle cx="545" cy="352" r="10" fill="#F4C430" stroke="#B8860B" stroke-width="2"/><text x="562" y="357">No es pot vacunar</text>
+  </g>
+
+  <text x="330" y="394" text-anchor="middle" font-size="13" font-weight="700" fill="#2F6B5E">Llindar d'immunitat de grup = 1 − 1/R&#8320;   ·   xarampió (R&#8320;≈15) → cal vacunar el 93%</text>
+</svg>
