@@ -206,7 +206,7 @@ span[contenteditable] { display:inline-block; }
     </div>
     <div class="header-right">
       <div class="logo-box">
-        <img src="../../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
+        <img src="../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
       </div>
       <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
     </div>
@@ -341,7 +341,7 @@ span[contenteditable] { display:inline-block; }
       </div>      <div class="connexio-box deletable">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="connexio-icon">🔗</div>
-        <div class="connexio-text" contenteditable="true"><strong>Tancament — Enigmes A i B.</strong> Torna als dos cartells de la paret. Ara els pots respondre del tot? Escriu una frase per a cadascun.</div>
+        <div class="connexio-text" contenteditable="true"><strong>Tancament — Enigmes A i B (els dos cartells de la paret):</strong> <em>Enigma A</em> — a la grip, per quina raó uns es van encomanar i d'altres no? <em>Enigma B</em> — «les vacunes causen autisme»: és cert? Ara ja els pots respondre: escriu una frase per a cadascun.</div>
       </div>      <div class="wline" contenteditable="true"></div>
       <div class="wline" contenteditable="true"></div>
       <div class="wline" contenteditable="true"></div>
@@ -530,8 +530,4 @@ document.addEventListener('keydown', e => {
 const obs = new MutationObserver(()=>{ clearTimeout(_pbTimer); _pbTimer=setTimeout(updatePageBreaks, 250); });
 window.addEventListener('load', ()=>{
   restoreDoc();
-  obs.observe(document.getElementById('doc'), { childList:true, subtree:true, characterData:true });
-  updatePageBreaks();
-});
-</script>
-</body></html>
+  obs.observe(do
