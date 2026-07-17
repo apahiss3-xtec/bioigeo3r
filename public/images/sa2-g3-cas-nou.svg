@@ -87,13 +87,13 @@
   <text x="62.0" y="74.0" text-anchor="end" font-size="11" fill="#555555">220</text>
 
 <rect x="555.0" y="370.0" width="270" height="65" rx="5" fill="#F9F9F9" stroke="#BDBDBD" stroke-width="1"/>
-<text x="563.0" y="386.0" font-size="11" fill="#555555" font-weight="bold">Dades del subjecte (cas A)</text>
+<text x="563.0" y="386.0" font-size="11" fill="#555555" font-weight="bold">Dades del subjecte (cas nou)</text>
 <text x="563.0" y="400.0" font-size="10" fill="#555555">Persona de 28 anys. Exercici moderat (footing suau).</text>
-<text x="563.0" y="413.0" font-size="10" fill="#555555">Consulta l'analítica adjunta per interpretar</text>
-<text x="563.0" y="426.0" font-size="10" fill="#555555">el comportament d'aquesta corba de FC.</text>
+<text x="563.0" y="413.0" font-size="10" fill="#555555">Quin valor de sang esperaries trobar alterat?</text>
+<text x="563.0" y="426.0" font-size="10" fill="#555555">Raona-ho a partir de la forma de la corba.</text>
 
 <text x="450.0" y="515.0" text-anchor="middle" font-size="13" fill="#555555" font-weight="bold">Temps (minuts)</text>
 <text x="16" y="260.0" text-anchor="middle" font-size="13" fill="#555555" font-weight="bold" transform="rotate(-90,16,260.0)">Freqüència cardíaca (bpm)</text>
-<text x="450" y="22" text-anchor="middle" font-size="16" fill="#6B2D8B" font-weight="bold">G3 · Registre de freqüència cardíaca – Cas A (activitat avaluativa)</text>
+<text x="450" y="22" text-anchor="middle" font-size="16" fill="#6B2D8B" font-weight="bold">G3 · Registre de freqüència cardíaca – cas nou (activitat avaluativa)</text>
 <text x="450" y="40" text-anchor="middle" font-size="11" fill="#555555" font-style="italic">Dades recreades amb finalitat educativa · Analitza i respon les preguntes del formulari</text>
 </svg>
