@@ -377,9 +377,21 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="fc-calc-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-bottom:6px" contenteditable="true">Calcula la teva FC màxima pas a pas:</p>
+    <div style="background:#f3eefa;border:1px dashed var(--purple-ink);border-radius:8px;padding:6px 8px;margin-bottom:8px;font-size:10px;line-height:1.35" contenteditable="true">👀 <strong>Exemple ja resolt — la Bruna té 13 anys.</strong> Primer: FCmàx = 220 − 13 = <strong>207</strong> bat/min. Després busca «13 anys» a la taula de sota: el seu llindar és <strong>176</strong> bat/min. Vol dir que, si la FC de la Bruna passa de 176, ja està a la zona anaeròbica.</div>
     <p class="frase-completar" contenteditable="false">1️⃣ La meva edat: <span class="blank blank-s"></span> anys.</p>
-    <p class="frase-completar" contenteditable="false">2️⃣ FCmàx = 220 − la meva edat = <span class="blank blank-s"></span> bat/min.</p>
-    <p class="frase-completar" contenteditable="false">3️⃣ Llindar anaeròbic = FCmàx × 0,85 = <span class="blank blank-s"></span> bat/min.</p>
+    <p class="frase-completar" contenteditable="false">2️⃣ FCmàx = 220 − la meva edat = <span class="blank blank-s"></span> bat/min. <span style="font-size:9px;color:var(--muted)">(o copia'l de la columna del mig de la taula)</span></p>
+    <p class="frase-completar" contenteditable="false">3️⃣ El meu <strong>llindar anaeròbic</strong> (FCmàx × 0,85). No cal que multipliquis: <strong>busca la teva edat a la taula i copia el número de la columna verda.</strong></p>
+    <table style="width:100%;border-collapse:collapse;font-size:9.5px;margin:2px 0 6px;text-align:center">
+      <thead><tr style="background:var(--purple-ink);color:#fff"><th style="border:1px solid #d9cbe9;padding:3px 2px">La teva edat</th><th style="border:1px solid #d9cbe9;padding:3px 2px">FCmàx (220 − edat)</th><th style="border:1px solid #d9cbe9;padding:3px 2px;background:#4a8a5a">El teu llindar (× 0,85)</th></tr></thead>
+      <tbody>
+        <tr><td style="border:1px solid #d9cbe9;padding:3px 2px">12 anys</td><td style="border:1px solid #d9cbe9;padding:3px 2px">208</td><td style="border:1px solid #d9cbe9;padding:3px 2px;background:#eaf5ec;font-weight:700">177</td></tr>
+        <tr><td style="border:1px solid #d9cbe9;padding:3px 2px">13 anys</td><td style="border:1px solid #d9cbe9;padding:3px 2px">207</td><td style="border:1px solid #d9cbe9;padding:3px 2px;background:#eaf5ec;font-weight:700">176</td></tr>
+        <tr><td style="border:1px solid #d9cbe9;padding:3px 2px">14 anys</td><td style="border:1px solid #d9cbe9;padding:3px 2px">206</td><td style="border:1px solid #d9cbe9;padding:3px 2px;background:#eaf5ec;font-weight:700">175</td></tr>
+        <tr><td style="border:1px solid #d9cbe9;padding:3px 2px">15 anys</td><td style="border:1px solid #d9cbe9;padding:3px 2px">205</td><td style="border:1px solid #d9cbe9;padding:3px 2px;background:#eaf5ec;font-weight:700">174</td></tr>
+        <tr><td style="border:1px solid #d9cbe9;padding:3px 2px">16 anys</td><td style="border:1px solid #d9cbe9;padding:3px 2px">204</td><td style="border:1px solid #d9cbe9;padding:3px 2px;background:#eaf5ec;font-weight:700">173</td></tr>
+      </tbody>
+    </table>
+    <p class="frase-completar" contenteditable="false">El meu llindar anaeròbic és <span class="blank blank-s"></span> bat/min.</p>
     <p class="frase-completar" contenteditable="false">4️⃣ La meva FC just en acabar l'exercici ha estat de <span class="blank blank-s"></span> bat/min → he estat a la zona:&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> Aeròbica</span>&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> Anaeròbica</span></p>
     <div style="font-size:9px;color:var(--muted);margin:8px 0 2px" contenteditable="true">Escala de zones de FC (% de la teva FCmàx):</div>
     <div class="zones-bar"><div class="zone-seg" style="width:60%;background:#5a9e6a">Zona aeròbica · 60–85% FCmàx</div><div class="zone-seg" style="width:18%;background:#c0474a">Anaeròbica &gt;85%</div><div class="zone-seg" style="width:22%;background:#888;font-size:8px">FCmàx →</div></div>
@@ -423,7 +435,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <div class="card-label" contenteditable="true">He entrat a zona anaeròbica?</div>
       <div style="margin-top:6px;font-size:11px;display:flex;gap:16px"><span class="yn-opt"><span class="chk-sq"></span> Sí</span><span class="yn-opt"><span class="chk-sq"></span> No</span><span class="yn-opt"><span class="chk-sq"></span> No ho puc saber</span></div>
-      <p class="pista" contenteditable="true">Recorda: zona anaeròbica = anar tan fort que falta oxigen. Hi has entrat si la teva FC ha superat el llindar que has calculat (FCmàx × 0,85).</p>
+      <p class="pista" contenteditable="true">Recorda: zona anaeròbica = anar tan fort que falta oxigen. Hi has entrat si la teva FC ha superat el llindar que has trobat a la taula verda.</p>
     </div>
   </div>
 </div>
@@ -859,59 +871,4 @@ function makeWline(){
 }
 function decorateWlines(){
   document.querySelectorAll('.wline').forEach(w=>{
-    if(w.querySelector(':scope > .wline-del')) return;
-    w.insertAdjacentHTML('beforeend','<span class="wline-del" contenteditable="false" title="Treu aquesta línia" onmousedown="event.preventDefault();event.stopPropagation();delWline(this)">✕</span>');
-  });
-}
-function addWlineAfter(ref){
-  if(!ref||!ref.parentNode) return null;
-  const nw=makeWline(); ref.parentNode.insertBefore(nw, ref.nextSibling);
-  _lastWline=nw; placeCaretStart(nw); schedulePageBreaks(); return nw;
-}
-function delWline(btn){
-  const w=btn.closest('.wline'); if(!w) return;
-  const prev=w.previousElementSibling;
-  w.remove();
-  if(prev && prev.classList && prev.classList.contains('wline')){ _lastWline=prev; placeCaretStart(prev); }
-  schedulePageBreaks();
-}
-function addWlineToolbar(){
-  let ref=_lastWline && document.body.contains(_lastWline) ? _lastWline : null;
-  if(!ref){ const all=document.querySelectorAll('.wline'); ref=all[all.length-1]; }
-  if(ref) addWlineAfter(ref); else _fitxaToast('Fes clic dins d\'una línia d\'escriptura primer');
-}
-function placeCaretStart(el){
-  el.focus();
-  try{ const r=document.createRange(); r.setStart(el,0); r.collapse(true); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){}
-}
-document.addEventListener('focusin',e=>{ if(e.target.classList&&e.target.classList.contains('wline')) _lastWline=e.target; });
-document.addEventListener('keydown',e=>{
-  const t=e.target;
-  if(t&&t.classList&&t.classList.contains('wline')){
-    if(e.key==='Enter'){ e.preventDefault(); addWlineAfter(t); }
-    else if(e.key==='Backspace' && wlineText(t).trim()===''){
-      const prev=t.previousElementSibling;
-      if(prev&&prev.classList&&prev.classList.contains('wline')){ e.preventDefault(); t.remove(); _lastWline=prev; placeCaretEnd(prev); schedulePageBreaks(); }
-    }
-  }
-},true);
-function placeCaretEnd(el){
-  el.focus();
-  try{ const r=document.createRange(); r.selectNodeContents(el); r.collapse(false); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){}
-}
-
-window.addEventListener('load', ()=>{
-  flattenDoc();
-  makeEditable();
-  decorateWlines();
-  extractFlow();
-  makeMovable();
-  repaginate();
-  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(()=>repaginate()); }
-  document.querySelectorAll('img').forEach(img=>{ if(!img.complete) img.addEventListener('load', ()=>schedulePageBreaks(), {once:true}); });
-  setTimeout(repaginate, 400);
-  setTimeout(repaginate, 1200);
-});
-</script>
-
-</body></html>
+  
