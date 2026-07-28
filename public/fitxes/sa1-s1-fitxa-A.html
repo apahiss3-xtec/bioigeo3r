@@ -225,7 +225,7 @@ span[contenteditable] { display:inline-block; }
 .data-table td { padding:5px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
 .data-table tr:nth-child(even) td { background:var(--purple-tint); }
 .icon-cell { font-size:16px; text-align:center; width:32px; }
-.fill-cell { display:block; width:100%; min-height:22px; outline:none; padding:2px 3px; word-break:break-word; cursor:text; }
+.fill-cell { display:block; width:100%; min-height:46px; outline:none; padding:2px 3px; word-break:break-word; cursor:text; }
 .fill-cell:focus { background:rgba(123,104,200,.08); outline:1px solid var(--purple-light); border-radius:2px; }
 .label-cell { font-size:11px; font-weight:700; color:var(--ink-2); }
 
@@ -402,7 +402,7 @@ span[contenteditable] { display:inline-block; }
         <div class="snum" style="background:var(--orange)">1</div>
         <div>
           <div class="stitle" contenteditable="true">Explore: mira dins la cèl·lula <span class="temps deletable" contenteditable="true">⏱️ 25 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
-          <div class="sdesc" contenteditable="true">Obre la web de Biologia i Geologia i busca on passa cada cosa</div>
+          <div class="sdesc" contenteditable="true">Obre l'aplicació <strong>«La cèl·lula per dins»</strong> (app_celula.html, a la pàgina de la sessió al Classroom) i clica cada part per veure què hi passa</div>
         </div>
       </div>
       <div class="divider"></div>
@@ -442,7 +442,7 @@ span[contenteditable] { display:inline-block; }
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="explore-qnum">3</div>
         <div class="explore-qtext">
-          <span contenteditable="true">Busca el <strong>nucli</strong>. Si totes les cèl·lules d'un cos guarden el <em>mateix</em> ADN, com pot ser que una de la pell i una del múscul siguin tan diferents?</span>
+          <span contenteditable="true">Busca el <strong>nucli</strong>: hi ha guardat l'<strong>ADN</strong>, el manual d'instruccions de la cèl·lula. Totes les cèl·lules del teu cos en guarden una còpia <em>idèntica</em>... i tot i així una cèl·lula de la pell i una del múscul són molt diferents. <strong>Formula una hipòtesi:</strong> si el manual és el mateix, què deu ser diferent entre les dues? <em>(Pista: pensa què fa una cuina si té el mateix llibre de receptes però només cuina algunes pàgines.)</em></span>
           <div class="wline" contenteditable="true"></div>
           <div class="wline" contenteditable="true"></div>
         </div>
@@ -454,8 +454,8 @@ span[contenteditable] { display:inline-block; }
         <div style="font-size:22px;flex-shrink:0">🔬</div>
         <div>
           <div class="epist-title" contenteditable="true">Moment epistèmic — el model de cèl·lula ha canviat</div>
-          <div class="epist-text" contenteditable="true">La científica <strong>Lynn Margulis</strong> va proposar que, fa molts milions d'anys, el <strong>mitocondri</strong> era un bacteri lliure que va passar a viure dins d'una cèl·lula. Durant anys ningú la va creure. Avui sabem que tenia raó.</div>
-          <p style="font-size:10.5px;color:var(--yellow-ink);font-weight:700;margin:5px 0 5px" contenteditable="true">💡 Pensa-hi: si el mitocondri va ser un bacteri independent, què ens diu això sobre si el "model de cèl·lula" és una veritat tancada o una idea que encara pot canviar? Argumenta-ho.</p>
+          <div class="epist-text" contenteditable="true">La científica <strong>Lynn Margulis</strong> va proposar que, fa molts milions d'anys, el <strong>mitocondri</strong> era un <strong>bacteri</strong> lliure (un ésser viu format per una sola cèl·lula, molt més petita que les nostres) que va passar a viure dins d'una altra cèl·lula. Durant anys ningú la va creure. Avui se sap que tenia raó, i la prova és forta: el mitocondri <strong>té ADN propi</strong>, diferent del del nucli, i <strong>es divideix ell sol</strong>, com fan els bacteris.</div>
+          <p style="font-size:10.5px;color:var(--yellow-ink);font-weight:700;margin:5px 0 5px" contenteditable="true">💡 Pensa-hi: Margulis va trigar més de 15 anys a convèncer la comunitat científica. Quina mena de <strong>proves</strong> creus que va haver de portar? Per què no n'hi havia prou amb tenir la idea?</p>
           <div class="wline" contenteditable="true"></div>
           <div class="wline" contenteditable="true"></div>
         </div>
@@ -485,8 +485,13 @@ span[contenteditable] { display:inline-block; }
         </figure>
         <div class="img-arrow">→</div>
         <figure>
-          <span style="font-size:32px;display:flex;align-items:center;justify-content:center;height:50px">🧬</span>
+          <span style="font-size:32px;display:flex;align-items:center;justify-content:center;height:50px">💧</span>
           <figcaption>Molècula</figcaption>
+        </figure>
+        <div class="img-arrow">→</div>
+        <figure>
+          <span style="font-size:32px;display:flex;align-items:center;justify-content:center;height:50px">🫘</span>
+          <figcaption>Orgànul</figcaption>
         </figure>
         <div class="img-arrow-star">→ ⭐</div>
         <figure>
@@ -511,6 +516,11 @@ span[contenteditable] { display:inline-block; }
         </figure>
         <div class="img-arrow">→</div>
         <figure>
+          <span style="font-size:32px;display:flex;align-items:center;justify-content:center;height:50px">🫁</span>
+          <figcaption>Aparell / sistema</figcaption>
+        </figure>
+        <div class="img-arrow">→</div>
+        <figure>
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Human_body_silhouette.svg/120px-Human_body_silhouette.svg.png"
                alt="Organisme" style="height:42px;width:auto;display:block;margin:0 auto"
                onerror="this.style.display='none'">
@@ -527,7 +537,15 @@ span[contenteditable] { display:inline-block; }
           <figcaption>Biosfera</figcaption>
         </figure>
       </div>
-      <p style="font-size:8px;color:var(--muted);text-align:center;margin-bottom:10px;font-style:italic">Imatges: Wikimedia Commons — CC BY-SA</p>
+      <p style="font-size:8px;color:var(--muted);text-align:center;margin-bottom:8px;font-style:italic">Imatges: Wikimedia Commons — CC BY-SA</p>
+
+      <div class="deletable" style="position:relative;border-left:3px solid var(--teal);background:var(--teal-tint);border-radius:4px;padding:7px 11px;margin-bottom:10px;font-size:11px;line-height:1.45">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <span contenteditable="true"><strong>Vocabulari:</strong> un <strong>orgànul</strong> és cadascuna de les peces de dins la cèl·lula (el nucli, el mitocondri...). Un <strong>teixit</strong> és un grup de cèl·lules iguals que fan la mateixa feina (múscul, pell...).<br>
+        ✏️ <strong>Pensa-hi:</strong> per quina raó diem que un mitocondri tot sol <em>no</em> està viu, però una cèl·lula sí? Què pot fer la cèl·lula que l'orgànul no pot fer sol?</span>
+        <div class="wline" contenteditable="true"></div>
+        <div class="wline" contenteditable="true"></div>
+      </div>
 
       <!-- Infografia completa dels nivells d'organització de la vida -->
       <figure class="deletable" style="margin:6px 0 12px;text-align:center;position:relative">
@@ -536,7 +554,7 @@ span[contenteditable] { display:inline-block; }
              alt="Els nivells d'organització de la vida: de l'àtom a l'organisme"
              style="max-width:100%;height:auto;border:1px solid var(--rule);border-radius:6px"
              onerror="this.style.display='none'">
-        <figcaption style="font-size:10px;color:var(--ink-2);margin-top:4px" contenteditable="true">Els nivells d'organització de la vida: <strong>de l'àtom a l'organisme</strong>. Cada nivell està format pel nivell anterior.</figcaption>
+        <figcaption style="font-size:10px;color:var(--ink-2);margin-top:4px" contenteditable="true">Els nivells d'organització de la vida: <strong>de l'àtom a l'organisme</strong>. Cada nivell està format pel nivell anterior. <strong>⚠️ Atenció:</strong> aquesta imatge arriba fins a l'organisme; la franja de dalt és la llista completa de <strong>10 nivells</strong> (fins a la biosfera) — és aquesta la que has de fer servir per als deures. <em>(Imatge amb text en anglès: pendent de refer.)</em></figcaption>
       </figure>
 
       <div class="connexio-box deletable" style="background:var(--teal-tint);border-color:#8cc8be">
@@ -545,15 +563,17 @@ span[contenteditable] { display:inline-block; }
         <div class="connexio-text" contenteditable="true"><strong>La respiració cel·lular:</strong> dins el mitocondri, el menjar (<strong>glucosa</strong>) es combina amb l'<strong>oxigen</strong> de l'aire i s'allibera <strong>energia</strong>. Per això <em>mengem</em> (per la glucosa) i <em>respirem</em> (per l'oxigen). Sense una de les dues coses, la cèl·lula es queda sense energia i mor.</div>
       </div>
 
-      <p style="font-size:11.5px;margin-top:8px" contenteditable="true">✏️ <strong>Flux d'energia:</strong> explica per què un <em>heteròtrof</em> (com tu) ha de menjar altres éssers vius, mentre que un <em>autòtrof</em> (una planta) no. D'on treu l'energia cadascú i com la transforma?</p>
-      <div class="wline" contenteditable="true"></div>
-      <div class="wline" contenteditable="true"></div>
-
       <div class="connexio-box deletable" style="background:var(--green-tint);border-color:#90c898">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="connexio-icon">🌿</div>
-        <div class="connexio-text" contenteditable="true"><strong>I les plantes?</strong> Les plantes no mengen: fabriquen el seu propi aliment amb la llum del sol. Aquest procés es diu <strong>fotosíntesi</strong>. Per això les plantes són <em>autòtrofes</em> ("es fan el menjar elles mateixes") i els animals som <em>heteròtrofs</em> ("hem de menjar altres éssers vius").</div>
+        <div class="connexio-text" contenteditable="true"><strong>I les plantes?</strong> Les plantes no mengen: fabriquen el seu propi aliment amb la llum del sol. Aquest procés es diu <strong>fotosíntesi</strong>. Per això les plantes són <em>autòtrofes</em> ("es fan el menjar elles mateixes") i els animals som <em>heteròtrofs</em> ("hem de menjar altres éssers vius").<br><br><strong>Compte amb un error molt habitual:</strong> fabricar-se el menjar no vol dir no necessitar-ne l'energia. Les plantes <strong>també tenen mitocondris i també respiren</strong>, de dia i de nit: la fotosíntesi els fa el menjar, i la respiració cel·lular n'extreu l'energia. Són dos processos diferents, no un que substitueix l'altre.</div>
       </div>
+
+      <p style="font-size:11.5px;margin-top:10px" contenteditable="true">✏️ <strong>Flux d'energia:</strong> ara que ja tens els dos termes, explica per què un <em>heteròtrof</em> (com tu) ha de menjar altres éssers vius, mentre que un <em>autòtrof</em> (una planta) no. D'on treu l'energia cadascú, i com la transforma en energia utilitzable per les seves cèl·lules?</p>
+      <div class="wline" contenteditable="true"></div>
+      <div class="wline" contenteditable="true"></div>
+      <div class="wline" contenteditable="true"></div>
+      <div class="wline" contenteditable="true"></div>
     </div>
 
     <!-- ── Secció 3: Les 3 parts clau ── -->
@@ -574,17 +594,18 @@ span[contenteditable] { display:inline-block; }
              alt="Cèl·lula amb les seves parts"
              style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
              onerror="this.style.display='none'">
-        <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">Cèl·lula — localitza la membrana, el nucli i el mitocondri</figcaption>
+        <figcaption style="font-size:9.5px;color:var(--muted);margin-top:4px;font-style:italic">Cèl·lula per dins. El dibuix té més caixes d'etiqueta de les que necessites: omple <strong>només 3</strong> — <strong>membrana</strong>, <strong>nucli</strong> i <strong>mitocondri</strong> — i deixa la resta en blanc.</figcaption>
       </figure>
 
-      <p style="font-size:11px;color:var(--muted);margin-bottom:8px;font-style:italic" contenteditable="true">✏️ A la columna de la dreta, escriu la funció de cada part i <strong>què deixaria de funcionar a la cèl·lula si li faltés</strong>.</p>
+      <p style="font-size:11px;color:var(--muted);margin-bottom:8px;font-style:italic" contenteditable="true">✏️ Omple les <strong>dues</strong> columnes: primer la funció de cada part, i després què deixaria de funcionar a la cèl·lula si aquella part li faltés.</p>
 
       <table class="data-table">
         <thead>
           <tr>
-            <th style="width:28px"></th>
-            <th>Part</th>
-            <th>Què fa? <small>(explica-ho amb les teves paraules)</small></th>
+            <th style="width:26px"></th>
+            <th style="width:76px">Part</th>
+            <th>Què fa? <small>(amb les teves paraules)</small></th>
+            <th>Què deixaria de funcionar si li faltés?</th>
           </tr>
         </thead>
         <tbody>
@@ -592,15 +613,18 @@ span[contenteditable] { display:inline-block; }
             <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="icon-cell">🛡️</span></td>
             <td class="label-cell">Membrana</td>
             <td><div class="fill-cell" contenteditable="true"></div></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
           </tr>
           <tr class="deletable">
             <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="icon-cell">🔵</span></td>
             <td class="label-cell">Nucli</td>
             <td><div class="fill-cell" contenteditable="true"></div></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
           </tr>
           <tr class="deletable">
             <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="icon-cell">⚡</span></td>
             <td class="label-cell">Mitocondri</td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
             <td><div class="fill-cell" contenteditable="true"></div></td>
           </tr>
         </tbody>
@@ -609,7 +633,7 @@ span[contenteditable] { display:inline-block; }
       <!-- Pregunta causal central (substitueix "descriu el mitocondri") -->
       <div class="hipotesi-box deletable">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <p>🧠 <span contenteditable="true">Pregunta per pensar: imagina una persona amb un <strong>defecte als mitocondris</strong>. Quins teixits ho notarien primer i més fort (múscul, cervell, pell...)? Per què? <em>Pista — pensa quins òrgans estudiarem a la SA2 i quant treballen.</em></span></p>
+        <p>🧠 <span contenteditable="true">Pregunta per pensar: imagina una persona amb un <strong>defecte als mitocondris</strong>. Quins <strong>teixits</strong> (grups de cèl·lules que fan la mateixa feina: múscul, cervell, pell...) ho notarien primer i més fort? Per què? <em>Pista — pensa quins òrgans del teu cos no paren mai de treballar, ni quan dorms.</em></span></p>
         <div class="wline" contenteditable="true"></div>
         <div class="wline" contenteditable="true"></div>
       </div>
@@ -751,4 +775,56 @@ const pbObserver = new MutationObserver(schedulePageBreaks);
 pbObserver.observe(document.getElementById('doc'), PB_OPTS);
 
 let _lastClickedBlock = null;
-document.addEventListen
+document.addEventListener('click', e => {
+  const content=document.querySelector('.content'); if (!content) return;
+  let node=e.target;
+  while (node && node.parentElement!==content) node=node.parentElement;
+  if (node && node!==content && !node.classList.contains('spacer-block')) _lastClickedBlock=node;
+});
+function insertSpacer() {
+  const content=document.querySelector('.content'); const footer=document.querySelector('.footer');
+  const sp=document.createElement('div'); sp.className='spacer-block deletable';
+  sp.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai en blanc</span>';
+  let ref=footer||null;
+  if (_lastClickedBlock && _lastClickedBlock.parentElement===content) ref=_lastClickedBlock.nextSibling;
+  content.insertBefore(sp,ref);
+  delStack.push({el:sp,parent:content,sibling:sp.nextSibling});
+  document.getElementById('btn-undo').classList.add('active');
+  schedulePageBreaks();
+}
+</script>
+
+<script>
+/* === DESAR EDICIONS AL FITXER === */
+function _fitxaToast(msg){
+  let t=document.getElementById('fitxa-toast');
+  if(!t){t=document.createElement('div');t.id='fitxa-toast';
+    t.style.cssText='position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3a2d6e;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s';
+    document.body.appendChild(t);}
+  t.textContent=msg;t.style.opacity='1';
+  clearTimeout(t._h);t._h=setTimeout(()=>t.style.opacity='0',2200);
+}
+async function desaFitxa(){
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelectorAll('.page-break-line,.page-footer-bar,#fitxa-toast').forEach(n=>n.remove());
+  const html='<!DOCTYPE html>\n'+clone.outerHTML;
+  const fname=(location.pathname.split('/').pop()||'fitxa.html');
+  if(window.showSaveFilePicker){
+    try{
+      const h=await window.showSaveFilePicker({suggestedName:fname,types:[{description:'Pàgina HTML',accept:{'text/html':['.html']}}]});
+      const w=await h.createWritable();await w.write(html);await w.close();
+      _fitxaToast('✓ Canvis desats al fitxer');return;
+    }catch(e){if(e.name==='AbortError')return;}
+  }
+  const blob=new Blob([html],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+  _fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='s'&&(e.ctrlKey||e.metaKey)){e.preventDefault();desaFitxa();}
+});
+</script>
+
+</body>
+</html>

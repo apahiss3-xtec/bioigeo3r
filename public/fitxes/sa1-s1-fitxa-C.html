@@ -333,10 +333,10 @@ span[contenteditable] { display:inline-block; }
              alt="Cèl·lula amb les seves parts"
              style="max-width:100%;max-height:240px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
              onerror="this.style.display='none'">
-        <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">Una cèl·lula i les seves parts</figcaption>
+        <figcaption style="font-size:9.5px;color:var(--muted);margin-top:4px;font-style:italic">Una cèl·lula per dins. Les caixes buides amb fletxa són per escriure-hi el nom. <strong>Tu només n'has d'omplir 3</strong>: la <strong>membrana</strong> (la línia de fora que ho envolta tot), el <strong>nucli</strong> (la bola gran del mig) i un <strong>mitocondri</strong> (les peces taronges petites, n'hi ha uns quants). Les altres caixes deixa-les en blanc.</figcaption>
       </figure>
 
-      <p style="font-size:11.5px;color:var(--ink-2);margin-bottom:4px" contenteditable="true">✏️ Obre la web de Biologia. Busca aquestes 3 parts. Marca la casella ✔ quan trobis cada una:</p>
+      <p style="font-size:11.5px;color:var(--ink-2);margin-bottom:4px" contenteditable="true">✏️ Obre l'aplicació <strong>«La cèl·lula per dins»</strong> (a la pàgina de la sessió al Classroom). Busca aquestes 3 parts i marca la casella ✔ quan trobis cada una:</p>
       <ul class="find-list">
         <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="find-chk"></span><span class="find-pic">🛡️</span><span contenteditable="true"><strong>La membrana</strong> — la "pell" que envolta la cèl·lula</span></li>
         <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="find-chk"></span><span class="find-pic">🔵</span><span contenteditable="true"><strong>El nucli</strong> — la bola del mig que mana</span></li>
@@ -371,13 +371,25 @@ span[contenteditable] { display:inline-block; }
         </div>
       </div>
 
-      <figure class="deletable" style="margin:4px 0 8px;text-align:center;position:relative">
+      <!-- Esquema propi HTML (substitueix 96_respiracio_cellular_mitocondri.jpg, que tenia les caixes
+           buides i insinuava 2 entrades i 3 sortides — contradeia la cadena 🍎+💨→⚡ de dalt) -->
+      <figure class="deletable" style="margin:6px 0 10px;position:relative">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <img src="../imatges/science_bits/96_respiracio_cellular_mitocondri.jpg"
-             alt="Dins el mitocondri, el menjar i l'oxigen fan energia"
-             style="max-width:100%;max-height:190px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
-             onerror="this.style.display='none'">
-        <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">Dins el mitocondri: el menjar + l'aire fan energia</figcaption>
+        <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;background:var(--purple-tint);border:1.5px solid var(--purple-light);border-radius:10px;padding:12px 10px">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <span class="chip">🍎 Menjar</span>
+            <span class="chip b">💨 Aire</span>
+          </div>
+          <span style="font-size:22px;color:var(--purple-ink)">➜</span>
+          <div style="background:white;border:2px solid var(--purple);border-radius:14px;padding:10px 16px;text-align:center;min-width:126px">
+            <div style="font-size:26px;line-height:1">🫘</div>
+            <div style="font-size:11.5px;font-weight:900;color:var(--purple-ink);margin-top:2px">MITOCONDRI</div>
+            <div style="font-size:9.5px;color:var(--muted)">aquí es fa l'energia</div>
+          </div>
+          <span style="font-size:22px;color:var(--purple-ink)">➜</span>
+          <span class="chip c" style="font-size:12.5px;padding:6px 14px">⚡ Energia</span>
+        </div>
+        <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic;text-align:center">Entren <strong>2 coses</strong> (menjar + aire) i en surt <strong>1</strong>: energia.</figcaption>
       </figure>
 
       <!-- BANNER IDEA CLAU -->
@@ -396,7 +408,7 @@ span[contenteditable] { display:inline-block; }
             <div class="pas-q">Què necessita el cos per funcionar?</div>
             <div class="pas-opts">
               <span class="pas-opt marcat"><span class="pas-box"></span> <b>⚡ ENERGIA</b></span>
-              <span class="pas-opt"><span class="pas-box"></span> colors</span>
+              <span class="pas-opt"><span class="pas-box"></span> aigua freda</span>
             </div>
           </div>
         </div>
@@ -416,7 +428,7 @@ span[contenteditable] { display:inline-block; }
             <div class="pas-q">Si no respires, què li falta al mitocondri?</div>
             <div class="pas-opts">
               <span class="pas-opt marcat"><span class="pas-box"></span> <b>l'AIRE (oxigen)</b></span>
-              <span class="pas-opt"><span class="pas-box"></span> l'aigua</span>
+              <span class="pas-opt"><span class="pas-box"></span> la llum</span>
             </div>
           </div>
         </div>
@@ -452,7 +464,7 @@ span[contenteditable] { display:inline-block; }
             <div class="pas-q">Què necessita el cos per funcionar?</div>
             <div class="pas-opts">
               <span class="pas-opt"><span class="pas-box"></span> ⚡ energia</span>
-              <span class="pas-opt"><span class="pas-box"></span> colors</span>
+              <span class="pas-opt"><span class="pas-box"></span> aigua freda</span>
             </div>
           </div>
         </div>
@@ -472,7 +484,7 @@ span[contenteditable] { display:inline-block; }
             <div class="pas-q">Si no menges, què li falta al mitocondri?</div>
             <div class="pas-opts">
               <span class="pas-opt"><span class="pas-box"></span> el menjar (glucosa)</span>
-              <span class="pas-opt"><span class="pas-box"></span> el so</span>
+              <span class="pas-opt"><span class="pas-box"></span> la calor</span>
             </div>
           </div>
         </div>
@@ -484,7 +496,7 @@ span[contenteditable] { display:inline-block; }
 
       <!-- ENCERCLA LA FUNCIÓ DE CADA PART -->
       <p style="font-size:11.5px;color:var(--ink-2);margin:10px 0 2px" contenteditable="true">✏️ <strong>Encercla</strong> què fa cada part de la cèl·lula:</p>
-      <div class="circ-help" contenteditable="true">Pensa: la membrana és la "pell", el nucli "mana", el mitocondri fa "energia".</div>
+      <div class="circ-help" contenteditable="true">Torna a mirar el dibuix de dalt: quina part toca el que hi ha fora de la cèl·lula? Quina és la gran del mig? Quina és la petita on entren el menjar i l'aire?</div>
       <div class="passos-box deletable" style="margin-top:2px">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div style="padding:6px 12px">
@@ -500,7 +512,7 @@ span[contenteditable] { display:inline-block; }
             <span class="circ-pic">🔵</span>
             <span class="circ-lab">Nucli</span>
             <span class="circ-opts">
-              <span class="circ-opt" contenteditable="true">mana i guarda l'ADN</span>
+              <span class="circ-opt" contenteditable="true">mana: hi guarda les instruccions (l'ADN)</span>
               <span class="circ-opt" contenteditable="true">deixa passar l'aigua</span>
             </span>
           </div>
@@ -520,12 +532,13 @@ span[contenteditable] { display:inline-block; }
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="info-head">📖 Per llegir — i les plantes?</div>
         <p contenteditable="true">Els <strong>animals</strong> han de <strong>menjar</strong> altres éssers vius. Les <strong>plantes</strong> NO mengen: fabriquen el seu menjar amb la llum del sol. Això es diu <strong>fotosíntesi</strong>.</p>
+        <p contenteditable="true">Però atenció: la planta es fa el menjar... i després l'ha de fer servir. Les plantes <strong>també tenen mitocondris</strong> i <strong>també respiren</strong>, igual que tu. Fer-se el menjar i treure'n l'energia són dues coses diferents.</p>
       </div>
       <div class="frase-completar deletable" contenteditable="true">
         <span class="del-btn" onclick="deleteEl(this)">✕</span>
         ✏️ Encercla: una <strong>planta</strong> fa el seu menjar amb la llum del&nbsp;
         <span class="circ-opt" contenteditable="true">sol</span>&nbsp;
-        <span class="circ-opt" contenteditable="true">televisor</span>.
+        <span class="circ-opt" contenteditable="true">la terra del test</span>.
       </div>
     </div>
 

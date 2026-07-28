@@ -60,7 +60,9 @@ export const sa2s7 = {
   ],
 
   graphicResources: [
-    { id: "G3", apartat: "3", title: "Gràfica cas individual nou", src: "/images/sa2-g3-cas-nou.svg", note: "Sense anotacions. Avaluació sumativa individual. Alumne ha d'inferir el diagnòstic." }
+    { id: "G1", apartat: "3", title: "Gràfica FC de la Mercè (referència)", src: "/images/sa2-g1-merce.svg", note: "Enigma 1, ja resolt. Es manté a la vista com a REFERÈNCIA per comparar amb G3 (no cal analitzar-la de memòria)." },
+    { id: "G2", apartat: "3", title: "Gràfica G2 — esportista d'elit vs. sedentari", src: "/images/sa2-g2-elit-sedentari.svg", note: "Treball en parelles (Explore) i base de comparació per a la Discussió de l'informe." },
+    { id: "G3", apartat: "3", title: "Gràfica cas individual nou", src: "/images/sa2-g3-cas-nou.svg", note: "Sense anotacions. Avaluació sumativa individual. Alumne ha d'inferir el diagnòstic COMPARANT amb G1 (a la vista)." }
   ],
 
   fitxaUrl: null, teoriaPdfUrl: null,
@@ -93,10 +95,32 @@ export const sa2s7 = {
   reportStructure: {
     title: "Informe FC — estructura",
     roles: {
-      A: "Investigador/a de camp: Secció 2 (Mètode: protocol, materials, condicions) + Secció 3 (Resultats: taula + gràfica FC personal)",
+      A: "Investigador/a de camp: Secció 2 (Mètode: protocol, materials, condicions) + Secció 3 (Resultats: taula + gràfica FC personal). Si no tens les teves dades, usa el JOC DE DADES DE RESERVA (la Berta).",
       B: "Analista: Secció 4 (Discussió: per quina raó la FC va canviar, zones aeròbica/anaeròbica, comparació amb G1 i G2) + Secció 5 (Conclusions: resposta a la pregunta d'investigació)"
     },
     sections: ["1. Pregunta d'investigació (conjunt)", "2. Mètode [Rol A]", "3. Resultats [Rol A]", "4. Discussió [Rol B]", "5. Conclusions [Rol B]"]
+  },
+
+  reserveDataset: {
+    title: "Joc de dades de reserva — la Berta (14 anys)",
+    when: "Fes-lo servir NOMÉS si vas faltar o no tens les teves dades d'S5/S6. Així tothom pot completar Mètode i Resultats.",
+    subject: "Berta, 14 anys. Sense problemes de salut (patró NORMAL, per contrast amb el Marc).",
+    method: "FC en repòs mesurada 3 matins en despertar-se (30 s × 2). Després, prova d'esforç: 3 min de repòs, 2 min de cursa suau, 7 min de recuperació asseguda.",
+    restingMornings: [
+      { day: "Matí 1", fc: 70 },
+      { day: "Matí 2", fc: 74 },
+      { day: "Matí 3", fc: 72 }
+    ],
+    restingMean: 72,
+    fcMaxTeorica: 206,          // 220 − 14
+    llindarAnaerobic: 175,      // ~0,85 × FCmàx
+    exerciseSeries: [
+      { t: 0, fc: 73 }, { t: 1, fc: 72 }, { t: 2, fc: 74 }, { t: 3, fc: 72 },
+      { t: 4, fc: 132 }, { t: 5, fc: 178 }, { t: 6, fc: 141 }, { t: 7, fc: 118 },
+      { t: 8, fc: 104 }, { t: 9, fc: 96 }, { t: 10, fc: 90 }, { t: 11, fc: 87 }, { t: 12, fc: 85 }
+    ],
+    graphic: { id: "GR", title: "Gràfica FC de la Berta (dades de reserva)", src: "/images/sa2-s7-dades-reserva.svg" },
+    note: "Pic ~178 bpm (just per sobre del llindar anaeròbic 175: toca la zona anaeròbica un moment) i recuperació RÀPIDA: en 5 min ja torna a prop del repòs. És el patró sa que serveix de base per a la Discussió."
   },
 
   homework: { description: "Acabar l'informe FC i entregar a Classroom.", deadline: "2026-XX-XX (1 setmana)" },
@@ -104,7 +128,8 @@ export const sa2s7 = {
   recoveryInstructions: [
     "Fes la gràfica G3 individualment (descàrrega a ELABORA): respon les 4 preguntes sense ajuda",
     "Fes el formulari G3 i analítica online (apartat EXIT TIQUET)",
-    "Per a l'informe: contacta amb el/la teu/teva company/a de parella i repartiu-vos les seccions. Entrega les teves seccions a Classroom."
+    "Per a l'informe: contacta amb el/la teu/teva company/a de parella i repartiu-vos les seccions. Entrega les teves seccions a Classroom.",
+    "Si no tens les teves dades de FC (vas faltar a S5/S6): usa el JOC DE DADES DE RESERVA (la Berta) per completar Mètode i Resultats."
   ],
   oaLinks: ["OA1", "OA2", "OA3", "OA4"], competencies: ["CE1", "CE2", "CE4"]
 }

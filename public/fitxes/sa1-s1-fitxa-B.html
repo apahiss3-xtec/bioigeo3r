@@ -225,7 +225,7 @@ span[contenteditable] { display:inline-block; }
 .data-table td { padding:5px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
 .data-table tr:nth-child(even) td { background:var(--purple-tint); }
 .icon-cell { font-size:16px; text-align:center; width:32px; }
-.fill-cell { display:block; width:100%; min-height:22px; outline:none; padding:2px 3px; word-break:break-word; cursor:text; }
+.fill-cell { display:block; width:100%; min-height:34px; outline:none; padding:2px 3px; word-break:break-word; cursor:text; }
 .fill-cell:focus { background:rgba(123,104,200,.08); outline:1px solid var(--purple-light); border-radius:2px; }
 .label-cell { font-size:11px; font-weight:700; color:var(--ink-2); }
 
@@ -400,7 +400,7 @@ span[contenteditable] { display:inline-block; }
         <div class="snum" style="background:var(--orange)">1</div>
         <div>
           <div class="stitle" contenteditable="true">Explore: mira dins la cèl·lula <span class="temps deletable" contenteditable="true">⏱️ 25 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
-          <div class="sdesc" contenteditable="true">Obre la web de Biologia i Geologia i busca on passa cada cosa</div>
+          <div class="sdesc" contenteditable="true">Obre l'aplicació <strong>«La cèl·lula per dins»</strong> (app_celula.html, a la pàgina de la sessió al Classroom) i clica cada part per veure què hi passa</div>
         </div>
       </div>
       <div class="divider"></div>
@@ -479,8 +479,13 @@ span[contenteditable] { display:inline-block; }
         </figure>
         <div class="img-arrow">→</div>
         <figure>
-          <span style="font-size:32px;display:flex;align-items:center;justify-content:center;height:50px">🧬</span>
+          <span style="font-size:32px;display:flex;align-items:center;justify-content:center;height:50px">💧</span>
           <figcaption>Molècula</figcaption>
+        </figure>
+        <div class="img-arrow">→</div>
+        <figure>
+          <span style="font-size:32px;display:flex;align-items:center;justify-content:center;height:50px">🫘</span>
+          <figcaption>Orgànul</figcaption>
         </figure>
         <div class="img-arrow-star">→ ⭐</div>
         <figure>
@@ -502,6 +507,11 @@ span[contenteditable] { display:inline-block; }
                alt="Òrgan" style="height:42px;width:auto;display:block;margin:0 auto"
                onerror="this.style.display='none'">
           <figcaption>Òrgan</figcaption>
+        </figure>
+        <div class="img-arrow">→</div>
+        <figure>
+          <span style="font-size:32px;display:flex;align-items:center;justify-content:center;height:50px">🫁</span>
+          <figcaption>Aparell / sistema</figcaption>
         </figure>
         <div class="img-arrow">→</div>
         <figure>
@@ -530,7 +540,7 @@ span[contenteditable] { display:inline-block; }
              alt="Els nivells d'organització de la vida: de l'àtom a l'organisme"
              style="max-width:100%;height:auto;border:1px solid var(--rule);border-radius:6px"
              onerror="this.style.display='none'">
-        <figcaption style="font-size:10px;color:var(--ink-2);margin-top:4px" contenteditable="true">Els nivells d'organització de la vida: <strong>de l'àtom a l'organisme</strong>. Cada nivell està format pel nivell anterior.</figcaption>
+        <figcaption style="font-size:10px;color:var(--ink-2);margin-top:4px" contenteditable="true">Els nivells d'organització de la vida: <strong>de l'àtom a l'organisme</strong>. Cada nivell està format pel nivell anterior. <strong>⚠️ Atenció:</strong> aquesta imatge arriba fins a l'organisme; la franja de dalt és la llista completa de <strong>10 nivells</strong> (fins a la biosfera) — és aquesta la que has de fer servir per als deures. <em>(Imatge amb text en anglès: pendent de refer.)</em></figcaption>
       </figure>
 
       <div class="connexio-box deletable" style="background:var(--teal-tint);border-color:#8cc8be">
@@ -545,7 +555,16 @@ span[contenteditable] { display:inline-block; }
       <div class="connexio-box deletable" style="background:var(--green-tint);border-color:#90c898">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="connexio-icon">🌿</div>
-        <div class="connexio-text" contenteditable="true"><strong>I les plantes?</strong> Les plantes no mengen: fabriquen el seu propi aliment amb la llum del sol. Aquest procés es diu <strong>fotosíntesi</strong>. Per això les plantes són <em>autòtrofes</em> ("es fan el menjar elles mateixes") i els animals som <em>heteròtrofs</em> ("hem de menjar altres éssers vius").</div>
+        <div class="connexio-text" contenteditable="true"><strong>I les plantes?</strong> Les plantes no mengen: fabriquen el seu propi aliment amb la llum del sol. Aquest procés es diu <strong>fotosíntesi</strong>. Per això les plantes són <em>autòtrofes</em> ("es fan el menjar elles mateixes") i els animals som <em>heteròtrofs</em> ("hem de menjar altres éssers vius").<br><br><strong>Compte amb un error molt habitual:</strong> fabricar-se el menjar no vol dir no necessitar-ne l'energia. Les plantes <strong>també tenen mitocondris i també respiren</strong>, de dia i de nit: la fotosíntesi els fa el menjar, i la respiració cel·lular n'extreu l'energia. Són dos processos diferents, no un que substitueix l'altre.</div>
+      </div>
+
+      <div class="deletable" style="position:relative;border-left:3px solid var(--green);background:var(--green-tint);border-radius:4px;padding:8px 11px;margin-top:9px;font-size:11.5px;line-height:1.5">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <span contenteditable="true">✏️ <strong>Encercla</strong> qui es fabrica el seu propi menjar: &nbsp;<strong>l'enciam</strong> &nbsp;·&nbsp; <strong>la vaca</strong> &nbsp;·&nbsp; <strong>tu</strong>. I ara escriu com se'n diu, d'aquest tipus d'ésser viu:</span>
+        <div class="wline" contenteditable="true"></div>
+        <span contenteditable="true">✏️ <strong>No només energia:</strong> quan et cures una ferida, el teu cos fabrica pell nova. La pell nova està feta de <strong>matèria</strong>. D'on surt aquesta matèria?</span>
+        <div class="wline" contenteditable="true"></div>
+        <div class="wline" contenteditable="true"></div>
       </div>
     </div>
 
@@ -567,10 +586,15 @@ span[contenteditable] { display:inline-block; }
              alt="Cèl·lula amb les seves parts"
              style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
              onerror="this.style.display='none'">
-        <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">Cèl·lula — localitza la membrana, el nucli i el mitocondri</figcaption>
+        <figcaption style="font-size:9.5px;color:var(--muted);margin-top:4px;font-style:italic">Cèl·lula per dins. El dibuix té més caixes d'etiqueta de les que necessites: omple <strong>només 3</strong> — <strong>membrana</strong>, <strong>nucli</strong> i <strong>mitocondri</strong> — i deixa la resta en blanc.</figcaption>
       </figure>
 
-      <p style="font-size:11px;color:var(--muted);margin-bottom:8px;font-style:italic" contenteditable="true">✏️ Completa la columna de la dreta amb les teves paraules. La primera fila és un model.</p>
+      <p style="font-size:11px;color:var(--muted);margin-bottom:6px;font-style:italic" contenteditable="true">✏️ Completa la columna de la dreta amb les teves paraules. Aquí sota tens un exemple del tipus de resposta que s'espera.</p>
+
+      <div class="deletable" style="position:relative;border-left:3px solid var(--purple-light);background:rgba(123,104,200,.06);border-radius:4px;padding:6px 10px;margin-bottom:9px;font-size:10.5px;line-height:1.4">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <span contenteditable="true"><strong>Exemple fet</strong> — si la part fos la <em>membrana</em>: «És la frontera: decideix què entra i què surt de la cèl·lula.» Ara fes-ho tu amb les tres parts de la taula.</span>
+      </div>
 
       <table class="data-table">
         <thead>
@@ -584,7 +608,7 @@ span[contenteditable] { display:inline-block; }
           <tr class="deletable">
             <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="icon-cell">🛡️</span></td>
             <td class="label-cell">Membrana</td>
-            <td><div class="fill-cell" contenteditable="true">És la frontera: decideix què entra i què surt de la cèl·lula.</div></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
           </tr>
           <tr class="deletable">
             <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="icon-cell">🔵</span></td>
@@ -744,4 +768,56 @@ const pbObserver = new MutationObserver(schedulePageBreaks);
 pbObserver.observe(document.getElementById('doc'), PB_OPTS);
 
 let _lastClickedBlock = null;
-document.addEventListen
+document.addEventListener('click', e => {
+  const content=document.querySelector('.content'); if (!content) return;
+  let node=e.target;
+  while (node && node.parentElement!==content) node=node.parentElement;
+  if (node && node!==content && !node.classList.contains('spacer-block')) _lastClickedBlock=node;
+});
+function insertSpacer() {
+  const content=document.querySelector('.content'); const footer=document.querySelector('.footer');
+  const sp=document.createElement('div'); sp.className='spacer-block deletable';
+  sp.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai en blanc</span>';
+  let ref=footer||null;
+  if (_lastClickedBlock && _lastClickedBlock.parentElement===content) ref=_lastClickedBlock.nextSibling;
+  content.insertBefore(sp,ref);
+  delStack.push({el:sp,parent:content,sibling:sp.nextSibling});
+  document.getElementById('btn-undo').classList.add('active');
+  schedulePageBreaks();
+}
+</script>
+
+<script>
+/* === DESAR EDICIONS AL FITXER === */
+function _fitxaToast(msg){
+  let t=document.getElementById('fitxa-toast');
+  if(!t){t=document.createElement('div');t.id='fitxa-toast';
+    t.style.cssText='position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3a2d6e;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s';
+    document.body.appendChild(t);}
+  t.textContent=msg;t.style.opacity='1';
+  clearTimeout(t._h);t._h=setTimeout(()=>t.style.opacity='0',2200);
+}
+async function desaFitxa(){
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelectorAll('.page-break-line,.page-footer-bar,#fitxa-toast').forEach(n=>n.remove());
+  const html='<!DOCTYPE html>\n'+clone.outerHTML;
+  const fname=(location.pathname.split('/').pop()||'fitxa.html');
+  if(window.showSaveFilePicker){
+    try{
+      const h=await window.showSaveFilePicker({suggestedName:fname,types:[{description:'Pàgina HTML',accept:{'text/html':['.html']}}]});
+      const w=await h.createWritable();await w.write(html);await w.close();
+      _fitxaToast('✓ Canvis desats al fitxer');return;
+    }catch(e){if(e.name==='AbortError')return;}
+  }
+  const blob=new Blob([html],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+  _fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='s'&&(e.ctrlKey||e.metaKey)){e.preventDefault();desaFitxa();}
+});
+</script>
+
+</body>
+</html>
