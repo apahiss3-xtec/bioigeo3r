@@ -669,4 +669,12 @@ async function desaFitxa(){
       _fitxaToast('✓ Canvis desats al fitxer');return;
     }catch(e){if(e.name==='AbortError')return;}
   }
-  const blob=new Blob([html],{type:'text/html'
+  const blob=new Blob([html],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+  _fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');
+}
+document.addEventListener('keydown',e=>{ if(e.key==='s'&&(e.ctrlKey||e.metaKey)){e.preventDefault();desaFitxa();} });
+</script>
+</body>
+</html>

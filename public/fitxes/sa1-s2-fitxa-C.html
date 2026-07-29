@@ -294,10 +294,12 @@ span[contenteditable] { display:inline-block; }
         <p contenteditable="true">Un ou dins de vinagre 48 h perd la closca dura. Queda tou, cobert <strong>només per la membrana</strong>. Ara el posarem en aigües diferents.</p>
 
         <p style="margin-top:10px">✏️ <span contenteditable="true"><strong>1.</strong> Ou en <strong>AIGUA PURA</strong> (sense sal): creus que s'inflarà o s'arrugarà?</span></p>
-        <div class="wline" contenteditable="true">Crec que l'ou en aigua pura </div>
+        <div class="pas-frase-lab" style="font-size:11px;color:var(--muted);margin:2px 0 3px">✏️ Comença així: «Crec que l'ou en aigua pura…»</div>
+        <div class="wline" contenteditable="true"></div>
 
         <p style="margin-top:8px">✏️ <span contenteditable="true"><strong>2.</strong> Ou en <strong>AIGUA AMB MOLTA SAL</strong>: creus que s'inflarà o s'arrugarà?</span></p>
-        <div class="wline" contenteditable="true">Crec que l'ou en aigua amb sal </div>
+        <div class="pas-frase-lab" style="font-size:11px;color:var(--muted);margin:2px 0 3px">✏️ Comença així: «Crec que l'ou en aigua amb sal…»</div>
+        <div class="wline" contenteditable="true"></div>
       </div>
 
       <div class="connexio-box mt8 deletable">
@@ -342,11 +344,11 @@ span[contenteditable] { display:inline-block; }
         <tbody>
           <tr class="deletable">
             <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="label-cell">💧 Aigua pura</span></td>
-            <td><div class="fill-cell model-cell" contenteditable="true">52</div></td>
-            <td><div class="fill-cell model-cell" contenteditable="true">58</div></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
+            <td><div class="fill-cell" contenteditable="true"></div></td>
             <td>
               <div class="pic-choice">
-                <span class="pic-opt encerclat">🎈<small>s'infla</small></span>
+                <span class="pic-opt">🎈<small>s'infla</small></span>
                 <span class="pic-opt">🍇<small>s'arruga</small></span>
                 <span class="pic-opt">=<small>igual</small></span>
               </div>
@@ -365,7 +367,7 @@ span[contenteditable] { display:inline-block; }
             </td>
           </tr>
           <tr class="deletable">
-            <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="label-cell">🍶 Vinagre <small style="font-weight:400;color:var(--muted)">(control)</small></span></td>
+            <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="label-cell">🍶 Vinagre <small style="font-weight:400;color:var(--muted)">(el got que no canviem, per comparar)</small></span></td>
             <td><div class="fill-cell" contenteditable="true"></div></td>
             <td><div class="fill-cell" contenteditable="true"></div></td>
             <td>
@@ -379,10 +381,23 @@ span[contenteditable] { display:inline-block; }
         </tbody>
       </table>
 
-      <p style="font-size:11px;margin-bottom:4px" contenteditable="true">✏️ Dibuixa l'ou de cada got (que es noti si és gran o petit):</p>
-      <div class="draw-box deletable">
+      <div class="previ-box deletable" style="margin-top:8px">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <span class="draw-label">✏️ dibuixa aquí · aigua pura / aigua amb sal / vinagre</span>
+        <p style="font-size:11.5px" contenteditable="true">🧪 <strong>Exemple de com s'omple</strong> (és un got de prova, NO és cap dels teus): massa a l'inici <strong>52 g</strong> · massa al final <strong>58 g</strong> · s'encercla 🎈 <em>s'infla</em>.</p>
+        <p style="font-size:11.5px;margin-top:6px" contenteditable="true">🍶 El got del <strong>vinagre</strong> ens serveix per <strong>comparar</strong>: hi deixem l'ou tal com estava. Així sabem que el canvi dels altres dos ous és per l'aigua i la sal.</p>
+      </div>
+
+      <div class="previ-box deletable" style="margin-top:8px">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <p style="font-size:11.5px" contenteditable="true">🔬 <strong>Per què repetim?</strong> Si només provéssim <strong>1</strong> ou, potser era un ou rar i el resultat no valdria. A classe n'hem provat uns <strong>20</strong>. Com més ous provem, més segurs estem del resultat.</p>
+      </div>
+
+      <p style="font-size:11px;margin:8px 0 4px" contenteditable="true">✏️ Dibuixa l'ou de cada got (que es noti si és gran o petit):</p>
+      <div class="deletable" style="position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:6px">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div><div class="draw-box" style="min-height:110px"></div><div style="text-align:center;font-size:10.5px;color:var(--muted)">💧 aigua pura</div></div>
+        <div><div class="draw-box" style="min-height:110px"></div><div style="text-align:center;font-size:10.5px;color:var(--muted)">🧂 aigua amb sal</div></div>
+        <div><div class="draw-box" style="min-height:110px"></div><div style="text-align:center;font-size:10.5px;color:var(--muted)">🍶 vinagre</div></div>
       </div>
     </div>
 
@@ -497,11 +512,11 @@ span[contenteditable] { display:inline-block; }
           <span contenteditable="true"><strong>La planta amb massa adob.</strong> Si posem <strong>massa sal</strong> al terra, la planta es <strong>marceix</strong> encara que el terra estigui mullat. Fes servir el mètode dels 3 passos.</span>
           <figure class="deletable" style="margin:6px 0;text-align:center;position:relative">
             <div class="del-btn" onclick="deleteEl(this)">✕</div>
-            <img src="../imatges_material_grafic/planta_marcida_sal.png"
-                 alt="Planta marcida: la sal del sòl fa sortir l'aigua de les arrels"
+            <img src="../imatges_material_grafic/planta_marcida_sal_NETA.png"
+                 alt="Planta marcida en un test amb molta sal al terra"
                  style="max-width:100%;max-height:160px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
                  onerror="this.style.display='none'">
-            <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">Massa sal al terra: l'aigua surt de les arrels</figcaption>
+            <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">Al terra hi ha molta sal (els cristalls blancs). La planta està marcida.</figcaption>
           </figure>
         </div>
       </div>
@@ -535,7 +550,7 @@ span[contenteditable] { display:inline-block; }
           <div class="pas-cos">
             <div class="pas-q">Què li passa a la planta?</div>
             <div class="pas-opts">
-              <span class="pas-opt"><span class="pas-box"></span> 🎈 S'infla (turgent)</span>
+              <span class="pas-opt"><span class="pas-box"></span> 🎈 S'infla (s'omple d'aigua i queda dura)</span>
               <span class="pas-opt"><span class="pas-box"></span> 🍇 Es marceix (perd aigua)</span>
             </div>
           </div>
@@ -610,7 +625,12 @@ span[contenteditable] { display:inline-block; }
       <div class="tasca-item deletable">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="tasca-num">2</div>
-        <div contenteditable="true"><strong>🏗️ Porta la maqueta</strong> dels nivells d'organització (àtom → ecosistema) que vas començar després de la S1.</div>
+        <div contenteditable="true"><strong>🏗️ Porta la maqueta</strong> dels nivells d'organització (àtom → ecosistema) que vas començar després de la Sessió 1.</div>
+      </div>
+      <div class="tasca-item deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="tasca-num">3</div>
+        <div contenteditable="true"><strong>📖 Llegeix el text curt</strong> (versió fàcil) de la web: <em>per què el cos fabrica cèl·lules noves</em>. Subratlla <strong>dues</strong> paraules que no entenguis i porta-les a classe.</div>
       </div>
     </div>
 

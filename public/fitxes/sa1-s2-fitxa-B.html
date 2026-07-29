@@ -251,10 +251,12 @@ span[contenteditable] { display:inline-block; }
         <p contenteditable="true">Un ou posat en vinagre 48 h perd la closca dura i queda cobert <strong>només per la membrana</strong>. Ara el posarem en aigües diferents per veure si la membrana deixa passar l'aigua.</p>
 
         <p style="margin-top:10px">✏️ <span contenteditable="true"><strong>1.</strong> Ou en <strong>AIGUA PURA (destil·lada)</strong>: creus que guanyarà pes, en perdrà o quedarà igual? Per què?</span></p>
-        <div class="wline" contenteditable="true">Crec que </div>
+        <div class="pas-frase-lab" style="font-size:11px;color:var(--muted);margin:2px 0 3px">✏️ Comença així: «Crec que…»</div>
+        <div class="wline" contenteditable="true"></div>
 
-        <p style="margin-top:8px">✏️ <span contenteditable="true"><strong>2.</strong> Ou en <strong>AIGUA AMB MOLTA SAL (sèrum salí)</strong>: guanyarà pes, en perdrà o quedarà igual? Per què?</span></p>
-        <div class="wline" contenteditable="true">Crec que </div>
+        <p style="margin-top:8px">✏️ <span contenteditable="true"><strong>2.</strong> Ou en <strong>AIGUA AMB MOLTA SAL</strong> (una cullerada de sal per got): guanyarà pes, en perdrà o quedarà igual? Per què?</span></p>
+        <div class="pas-frase-lab" style="font-size:11px;color:var(--muted);margin:2px 0 3px">✏️ Comença així: «Crec que…»</div>
+        <div class="wline" contenteditable="true"></div>
 
         <p style="margin-top:8px">✏️ <span contenteditable="true"><strong>3.</strong> Com creus que es veurà cada ou (mida, forma, fermesa)?</span></p>
         <div class="wline" contenteditable="true"></div>
@@ -288,7 +290,7 @@ span[contenteditable] { display:inline-block; }
         <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">Ou sense closca — la membrana queda al descobert</figcaption>
       </figure>
 
-      <p style="font-size:11px;color:var(--muted);margin-bottom:8px;font-style:italic" contenteditable="true">✏️ Pesa cada ou ABANS i DESPRÉS (24 h) i anota-ho. La primera columna ja porta una pista del que has de mirar.</p>
+      <p style="font-size:11px;color:var(--muted);margin-bottom:8px;font-style:italic" contenteditable="true">✏️ Pesa cada ou ABANS i DESPRÉS (24 h) i anota-ho a la taula. A l'última columna escriu com es veu l'ou: si és més gran o més petit, i si és tou o dur.</p>
 
       <table class="data-table">
         <thead>
@@ -316,7 +318,7 @@ span[contenteditable] { display:inline-block; }
             <td><div class="fill-cell" contenteditable="true"></div></td>
           </tr>
           <tr class="deletable">
-            <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="label-cell">🍶 Vinagre (referència)</span></td>
+            <td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="label-cell">🍶 Vinagre (<strong>control</strong>)</span></td>
             <td><div class="fill-cell" contenteditable="true"></div></td>
             <td><div class="fill-cell" contenteditable="true"></div></td>
             <td><div class="fill-cell" contenteditable="true"></div></td>
@@ -335,7 +337,7 @@ span[contenteditable] { display:inline-block; }
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div style="font-size:22px;flex-shrink:0">🔬</div>
         <div>
-          <div class="epist-title" contenteditable="true">Moment epistèmic — com es fa ciència de veritat</div>
+          <div class="epist-title" contenteditable="true">Com es fa ciència de veritat — com es fa ciència de veritat</div>
           <div class="epist-text" contenteditable="true">Amb <strong>20 ous</strong> de tota la classe, en sabríem prou per publicar-ho? Quants ous caldrien per estar segurs? El got de <strong>vinagre</strong> hi és perquè és el <strong>control</strong>: ens diu què passa quan NO canviem la concentració de sal.</div>
           <p style="font-size:10.5px;color:var(--yellow-ink);font-weight:700;margin:5px 0 5px" contenteditable="true">💡 Per quina raó un sol ou no seria una prova fiable?</p>
           <div class="wline" contenteditable="true"></div>
@@ -406,6 +408,10 @@ span[contenteditable] { display:inline-block; }
         <div class="explore-qnum">a</div>
         <div class="explore-qtext">
           <span contenteditable="true"><strong>🩺 Ronyons i diàlisi.</strong> A la diàlisi, la sang passa per una màquina amb una membrana i un líquid especial. Per què aquest líquid ha de tenir la <strong>mateixa</strong> quantitat de sal que la sang?</span>
+          <div class="previ-box deletable" style="margin:6px 0;font-size:11.5px">
+            <div class="del-btn" onclick="deleteEl(this)">✕</div>
+            <p contenteditable="true">💧 A la diàlisi, la sang i el líquid estan separats per una membrana com la de l'ou. Si el líquid tingués <strong>menys sal</strong> que la sang, l'aigua entraria dins dels glòbuls vermells i podrien rebentar. Si en tingués <strong>més</strong>, l'aigua en sortiria i s'arrugarien.</p>
+          </div>
           <figure class="deletable" style="margin:6px 0;text-align:center;position:relative">
             <div class="del-btn" onclick="deleteEl(this)">✕</div>
             <img src="../imatges_material_grafic/dialisi_renal.png"
@@ -439,7 +445,7 @@ span[contenteditable] { display:inline-block; }
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="explore-qnum">c</div>
         <div class="explore-qtext">
-          <span contenteditable="true"><strong>💉 Sèrum fisiològic.</strong> Als hospitals fan servir sèrum (0,9% de sal) i no aigua pura per a les goteres. Si haguessis de dissenyar el líquid d'una gotera, quina quantitat de sal hauria de tenir respecte a les cèl·lules de la sang? Justifica-ho.</span>
+          <span contenteditable="true"><strong>💉 Sèrum fisiològic.</strong> Als hospitals fan servir <strong>sèrum fisiològic</strong> —aigua amb la mateixa quantitat de sal que la sang, un 0,9%— i no aigua pura per a les goteres. Si haguessis de dissenyar el líquid d'una gotera, quina quantitat de sal hauria de tenir respecte a les cèl·lules de la sang? Justifica-ho.</span>
           <div class="wline" contenteditable="true"></div>
           <div class="wline" contenteditable="true"></div>
         </div>
@@ -550,4 +556,81 @@ document.addEventListener('keydown', e => {
 const PAGE_H = 1047;
 let _pbTimer = null;
 const PB_OPTS = { childList:true, subtree:true, characterData:true, attributes:false };
-function up
+function updatePageBreaks() {
+  pbObserver.disconnect();
+  const doc = document.getElementById('doc');
+  doc.querySelectorAll('.page-break-line').forEach(n=>n.remove());
+  doc.querySelectorAll('.page-footer-bar').forEach(n=>n.remove());
+  const total = doc.scrollHeight;
+  const numPages = Math.ceil(total/PAGE_H);
+  for (let p=1; p*PAGE_H<total; p++) {
+    const line=document.createElement('div'); line.className='page-break-line'; line.style.top=(p*PAGE_H)+'px';
+    const label=document.createElement('div'); label.className='page-break-label'; label.textContent='Pàgina '+(p+1);
+    line.appendChild(label); doc.appendChild(line);
+  }
+  for (let p=1; p<=numPages; p++) {
+    const bar=document.createElement('div'); bar.className='page-footer-bar'; bar.style.top=(p*PAGE_H-22)+'px';
+    bar.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span>'+p+' / '+numPages+'</span>';
+    doc.appendChild(bar);
+  }
+  pbObserver.observe(document.getElementById('doc'), PB_OPTS);
+}
+function schedulePageBreaks() { clearTimeout(_pbTimer); _pbTimer=setTimeout(updatePageBreaks,350); }
+window.addEventListener('load', updatePageBreaks);
+const pbObserver = new MutationObserver(schedulePageBreaks);
+pbObserver.observe(document.getElementById('doc'), PB_OPTS);
+
+let _lastClickedBlock = null;
+document.addEventListener('click', e => {
+  const content=document.querySelector('.content'); if (!content) return;
+  let node=e.target;
+  while (node && node.parentElement!==content) node=node.parentElement;
+  if (node && node!==content && !node.classList.contains('spacer-block')) _lastClickedBlock=node;
+});
+function insertSpacer() {
+  const content=document.querySelector('.content'); const footer=document.querySelector('.footer');
+  const sp=document.createElement('div'); sp.className='spacer-block deletable';
+  sp.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai en blanc</span>';
+  let ref=footer||null;
+  if (_lastClickedBlock && _lastClickedBlock.parentElement===content) ref=_lastClickedBlock.nextSibling;
+  content.insertBefore(sp,ref);
+  delStack.push({el:sp,parent:content,sibling:sp.nextSibling});
+  document.getElementById('btn-undo').classList.add('active');
+  schedulePageBreaks();
+}
+</script>
+
+<script>
+/* === DESAR EDICIONS AL FITXER (afegit 2026-05-31) === */
+function _fitxaToast(msg){
+  let t=document.getElementById('fitxa-toast');
+  if(!t){t=document.createElement('div');t.id='fitxa-toast';
+    t.style.cssText='position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3a2d6e;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s';
+    document.body.appendChild(t);}
+  t.textContent=msg;t.style.opacity='1';
+  clearTimeout(t._h);t._h=setTimeout(()=>t.style.opacity='0',2200);
+}
+async function desaFitxa(){
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelectorAll('.page-break-line,.page-footer-bar,#fitxa-toast').forEach(n=>n.remove());
+  const html='<!DOCTYPE html>\n'+clone.outerHTML;
+  const fname=(location.pathname.split('/').pop()||'fitxa.html');
+  if(window.showSaveFilePicker){
+    try{
+      const h=await window.showSaveFilePicker({suggestedName:fname,types:[{description:'Pàgina HTML',accept:{'text/html':['.html']}}]});
+      const w=await h.createWritable();await w.write(html);await w.close();
+      _fitxaToast('✓ Canvis desats al fitxer');return;
+    }catch(e){if(e.name==='AbortError')return;}
+  }
+  const blob=new Blob([html],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+  _fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='s'&&(e.ctrlKey||e.metaKey)){e.preventDefault();desaFitxa();}
+});
+</script>
+
+</body>
+</html>

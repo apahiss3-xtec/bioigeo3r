@@ -231,7 +231,7 @@ span[contenteditable] { display:inline-block; }
     <ul class="oa-list">
       <li contenteditable="true">Predic i <strong>justifico</strong> amb una hipòtesi pròpia què li passarà a la cèl·lula segons l'aigua del voltant.</li>
       <li contenteditable="true">Explico l'<strong>osmosi</strong> i la <strong>membrana semipermeable</strong> raonant en quina direcció es mou l'aigua i per què.</li>
-      <li contenteditable="true">Transfereixo la idea d'osmosi a <strong>casos nous</strong> (diàlisi, agricultura, medicina) i predic què passaria si canviés una variable.</li>
+      <li contenteditable="true">Transfereixo la idea d'osmosi a <strong>casos nous</strong> (diàlisi, agricultura) i formulo hipòtesis sobre nous òrgans (pulmons, ronyons).</li>
     </ul>
   </div>
 
@@ -253,6 +253,8 @@ span[contenteditable] { display:inline-block; }
         <p contenteditable="true">Un ou en vinagre 48 h perd la closca i queda cobert <strong>només per la membrana</strong>. El posarem en aigües amb diferent concentració de sal.</p>
 
         <p style="margin-top:10px">✏️ <span contenteditable="true"><strong>Formula una hipòtesi completa</strong> ("Si... aleshores... perquè...") per als dos casos: ou en aigua pura i ou en aigua amb molta sal. Indica també què esperes mesurar (massa, mida, fermesa).</span></p>
+        <div class="wline" contenteditable="true"></div>
+        <div class="wline" contenteditable="true"></div>
         <div class="wline" contenteditable="true"></div>
         <div class="wline" contenteditable="true"></div>
         <div class="wline" contenteditable="true"></div>
@@ -279,13 +281,22 @@ span[contenteditable] { display:inline-block; }
 
       <p style="font-size:11px;color:var(--muted);margin-bottom:8px;font-style:italic" contenteditable="true">✏️ Pesa cada ou ABANS i DESPRÉS (24 h). Calcula la variació absoluta i el <strong>percentatge</strong> de canvi respecte a la massa inicial.</p>
 
-      <table class="data-table">
+            <figure class="deletable" style="margin:4px 0 8px;text-align:center;position:relative">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <img src="../imatges_material_grafic/ou_sense_closca.png"
+             alt="Ou sense closca: només queda la membrana"
+             style="max-width:100%;max-height:150px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
+             onerror="this.style.display='none'">
+        <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">Ou sense closca — la membrana queda al descobert</figcaption>
+      </figure>
+
+<table class="data-table">
         <thead>
           <tr>
             <th>Condició</th>
             <th>Massa inicial <small>(g)</small></th>
             <th>Massa final <small>(g)</small></th>
-            <th>Δ massa <small>(g)</small></th>
+            <th>Canvi de massa <small>(final − inicial; amb signe + o −)</small></th>
             <th>% canvi <small>(Δ/inicial)</small></th>
             <th>Observacions</th>
           </tr>
@@ -322,9 +333,12 @@ span[contenteditable] { display:inline-block; }
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div style="font-size:22px;flex-shrink:0">🔬</div>
         <div>
-          <div class="epist-title" contenteditable="true">Moment epistèmic — fiabilitat de les dades</div>
+          <div class="epist-title" contenteditable="true">Com es fa ciència de veritat — fiabilitat de les dades</div>
           <div class="epist-text" contenteditable="true">Amb les dades de tota la classe (≈20 ous), com tractaries la <strong>variabilitat</strong> entre ous? Què aporta calcular una <strong>mitjana</strong> i no fiar-se d'un sol valor? Quin paper té el <strong>control</strong> (vinagre)?</div>
-          <p style="font-size:10.5px;color:var(--yellow-ink);font-weight:700;margin:5px 0 5px" contenteditable="true">💡 Proposa una millora del disseny experimental que faria les conclusions més sòlides.</p>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
+          <p style="font-size:10.5px;color:var(--yellow-ink);font-weight:700;margin:8px 0 3px" contenteditable="true">💡 Proposa una millora del disseny experimental que faria les conclusions més sòlides.</p>
+          <div class="wline" contenteditable="true"></div>
           <div class="wline" contenteditable="true"></div>
         </div>
       </div>
@@ -358,7 +372,10 @@ span[contenteditable] { display:inline-block; }
         <div style="font-size:22px;flex-shrink:0">🚀</div>
         <div>
           <div class="repte-title" contenteditable="true">Ampliació — el vocabulari dels científics</div>
-          <p style="font-size:11px;margin:2px 0 6px" contenteditable="true">Els biòlegs anomenen el medi <strong>hipotònic</strong> (menys sal que la cèl·lula → s'infla), <strong>isotònic</strong> (igual → sense canvi) i <strong>hipertònic</strong> (més sal → s'arruga). Observa l'esquema d'una cèl·lula vegetal i associa cada got al terme correcte.</p>
+          <p style="font-size:11px;margin:2px 0 6px" contenteditable="true">Els biòlegs anomenen el medi <strong>hipotònic</strong> (menys sal que la cèl·lula → s'infla), <strong>isotònic</strong> (igual → sense canvi) i <strong>hipertònic</strong> (més sal → s'arruga). <strong>Compte:</strong> <em>hipotònic / isotònic / hipertònic</em> descriuen <strong>el líquid de fora</strong>; la <strong>cèl·lula</strong> queda <strong>turgent</strong> (inflada) o <strong>plasmolitzada</strong> (encongida). Mira l'esquema de sota. Per a cada cas, escriu si <strong>l'ou del teu experiment</strong> s'hi comportaria igual i per què.</p>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
         </div>
       </div>
 
@@ -371,7 +388,7 @@ span[contenteditable] { display:inline-block; }
         <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic">Cèl·lula vegetal en medi hipotònic, isotònic i hipertònic</figcaption>
       </figure>
 
-      <p class="frase-completar" contenteditable="true">Una cèl·lula vegetal en aigua destil·lada s'infla i queda <span class="blank blank-l"></span> (terme científic); en aigua molt salada perd aigua i queda <span class="blank blank-l"></span>.</p>
+      <p class="frase-completar" contenteditable="true">Una cèl·lula vegetal en aigua destil·lada està en un medi <span class="blank blank-l"></span> i la cèl·lula queda <span class="blank blank-l"></span>; en aigua molt salada el medi és <span class="blank blank-l"></span> i la cèl·lula queda <span class="blank blank-l"></span>.</p>
     </div>
 
     <!-- ── Secció 3: vida real ── -->

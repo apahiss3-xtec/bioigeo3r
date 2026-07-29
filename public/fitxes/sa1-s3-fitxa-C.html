@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SA1 · S3 · Mateix ADN, cèl·lules diferents</title>
+<title>La cèl·lula viva · Sessió 3 · Mateix ADN, cèl·lules diferents</title>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -106,7 +106,7 @@ span[contenteditable] { display:inline-block; }
 .cardsort-col { border:1.5px solid var(--purple-light); border-radius:8px; padding:7px 6px 9px; background:#fff; }
 .cardsort-head { font-size:11px; font-weight:900; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.04em; margin-bottom:6px; text-align:center; }
 .cardsort-cell { border:1.5px dashed var(--rule-dark); border-radius:6px; background:repeating-linear-gradient(45deg, transparent, transparent 7px, rgba(123,104,200,.04) 7px, rgba(123,104,200,.04) 14px); display:flex; flex-direction:column; align-items:center; gap:8px; padding:8px 6px; }
-.card-slot { width:100%; aspect-ratio:93/95; border:1.5px dashed var(--purple-light); border-radius:8px; background:#fff; display:flex; align-items:center; justify-content:center; }
+.card-slot { width:100%; height:215px; border:1.5px dashed var(--purple-light); border-radius:8px; background:#fff; display:flex; align-items:center; justify-content:center; }
 .card-slot span { font-size:9px; color:var(--purple-light); letter-spacing:.1em; text-transform:uppercase; }
 .data-table { width:100%; border-collapse:collapse; font-size:11px; margin-bottom:10px; }
 .data-table th { background:var(--purple-ink); color:white; padding:6px 9px; text-align:left; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; }
@@ -169,6 +169,10 @@ span[contenteditable] { display:inline-block; }
 .pas-num { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:var(--purple); color:#fff; font-size:12px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
 .passos-box.exemple .pas-num { background:var(--green); }
 .pas-cos { flex:1; }
+.hint-out { font-size:10.5px; font-weight:700; color:var(--purple-ink); margin:2px 0 3px; }
+.pas-metode { display:inline-block; font-size:9.5px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--purple); border-radius:9999px; padding:2px 9px; margin-bottom:4px; }
+.passos-box.exemple .pas-metode { background:var(--green); }
+.metode-strip { font-size:10px; font-weight:800; color:var(--purple-ink); background:var(--purple-tint); padding:5px 12px; letter-spacing:.02em; }
 .pas-q { font-size:11.5px; font-weight:700; color:var(--ink-2); margin-bottom:5px; }
 .pas-opts { display:flex; gap:18px; flex-wrap:wrap; }
 .pas-opt { display:inline-flex; align-items:center; gap:6px; font-size:12px; }
@@ -220,7 +224,7 @@ span[contenteditable] { display:inline-block; }
       <div class="header-emoji-box" contenteditable="true">🧬</div>
     </div>
     <div class="header-main">
-      <div class="header-sa" contenteditable="true">SA1 · La cèl·lula viva · Sessió 3 de 4</div>
+      <div class="header-sa" contenteditable="true">La cèl·lula viva · Sessió 3 de 4</div>
       <div class="header-title" contenteditable="true">Mateix ADN, cèl·lules diferents</div>
       <div class="header-subtitle" contenteditable="true">Per què el cos fabrica cèl·lules noves — i de dues maneres diferents</div>
     </div>
@@ -271,16 +275,18 @@ span[contenteditable] { display:inline-block; }
 
       <div class="previ-box">
         <p>✏️ <span contenteditable="true"><strong>1.</strong> Una <strong>neurona</strong> i una cèl·lula de la <strong>pell</strong> tenen el mateix ADN, però són molt diferents. Continua la frase:</span></p>
-        <div class="wline" contenteditable="true">Crec que són diferents perquè </div>
+        <div class="hint-out">Comença la frase així: «Crec que són diferents perquè…»</div>
+        <div class="wline" contenteditable="true"></div>
 
         <p style="margin-top:10px">✏️ <span contenteditable="true"><strong>2.</strong> Quan et fas un tall a la pell, al cap d'uns dies es cura. Continua la frase:</span></p>
-        <div class="wline" contenteditable="true">Les cèl·lules noves surten de </div>
+        <div class="hint-out">Comença la frase així: «Les cèl·lules noves surten de…»</div>
+        <div class="wline" contenteditable="true"></div>
       </div>
 
       <div class="connexio-box mt8 deletable">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="connexio-icon">🔗</div>
-        <div class="connexio-text" contenteditable="true"><strong>Recorda S1 i S2!</strong> Ja saps que la cèl·lula és la unitat viva (S1) i que la membrana controla què entra i surt (S2). Avui responem una pregunta nova: <em>com fabrica el cos cèl·lules noves, i per què en fa de dos tipus.</em></div>
+        <div class="connexio-text" contenteditable="true"><strong>Recorda les sessions 1 i 2!</strong> Ja saps que la cèl·lula és la unitat viva i que la membrana controla què entra i surt. Avui responem una pregunta nova: <em>com fabrica el cos cèl·lules noves, i per què en fa de dos tipus.</em></div>
       </div>
     </div>
 
@@ -290,7 +296,7 @@ span[contenteditable] { display:inline-block; }
       <div class="section-header">
         <div class="snum" style="background:var(--orange)">1</div>
         <div>
-          <div class="stitle" contenteditable="true">Explore: classifica les divisions <span class="temps deletable" contenteditable="true">⏱️ 30 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="stitle" contenteditable="true">Classifica les divisions <span class="temps deletable" contenteditable="true">⏱️ 30 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
           <div class="sdesc" contenteditable="true">Targetes "cèl·lula mare → 2 cèl·lules filles" — observa i classifica</div>
         </div>
       </div>
@@ -324,8 +330,10 @@ span[contenteditable] { display:inline-block; }
       <div class="hipotesi-box deletable">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <p>🤔 <span contenteditable="true">Després de classificar, completa les frases:</span></p>
-        <div class="wline" contenteditable="true">Les filles idèntiques serveixen per </div>
-        <div class="wline" contenteditable="true">Les filles amb la meitat serveixen per </div>
+        <div class="hint-out">Comença la frase així: «Les filles idèntiques serveixen per…»</div>
+        <div class="wline" contenteditable="true"></div>
+        <div class="hint-out">Comença la frase així: «Les filles amb la meitat serveixen per…»</div>
+        <div class="wline" contenteditable="true"></div>
       </div>
     </div>
 
@@ -362,6 +370,12 @@ span[contenteditable] { display:inline-block; }
         🧬 MATEIX ADN — cada cèl·lula activa <span class="drop">gens diferents</span> 🧬
       </div>
 
+      <div class="connexio-box deletable" style="background:#fffaf0;border-color:#e5c27a">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="connexio-icon">📖</div>
+        <div class="connexio-text" contenteditable="true"><strong>Per llegir abans de continuar — tres paraules noves.</strong> L'<strong>ADN</strong> és el manual d'instruccions de la cèl·lula: hi diu com s'ha de fabricar tot. Un <strong>gen</strong> és una instrucció concreta d'aquest manual (per exemple, «fabrica aquesta proteïna»). Quan la cèl·lula es divideix, l'ADN s'empaqueta en uns bastonets que es poden veure al microscopi: són els <strong>cromosomes</strong>. Quan diem «la meitat del material», volem dir la meitat d'aquests bastonets.</div>
+      </div>
+
       <div class="connexio-box deletable" style="background:var(--teal-tint);border-color:#8cc8be">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="connexio-icon">👯</div>
@@ -371,7 +385,7 @@ span[contenteditable] { display:inline-block; }
       <div class="connexio-box deletable" style="background:#f5f0ff;border-color:var(--purple-light)">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="connexio-icon">½</div>
-        <div class="connexio-text" contenteditable="true"><strong>Divisió per fer cèl·lules sexuals (meiosi):</strong> fa cèl·lules (òvuls i espermatozoides) amb <strong>la meitat</strong> del material. Així, quan s'ajunten un òvul i un espermatozoide, el nou ésser torna a tenir la quantitat sencera, sense duplicar-se cada generació. <strong>(Ho veuràs a fons a la SA4.)</strong></div>
+        <div class="connexio-text" contenteditable="true"><strong>Divisió per fer cèl·lules sexuals (meiosi):</strong> fa cèl·lules (òvuls i espermatozoides) amb <strong>la meitat</strong> del material. Així, quan s'ajunten un òvul i un espermatozoide, el nou ésser torna a tenir la quantitat sencera, sense duplicar-se cada generació. <strong>(Ho veuràs a fons quan estudiem la reproducció.)</strong></div>
       </div>
 
       <div class="epist-box deletable">
@@ -400,9 +414,11 @@ span[contenteditable] { display:inline-block; }
       <div class="passos-box exemple deletable">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="passos-cap">✅ Quina divisió és? — EXEMPLE FET <span class="cas-tag">Curar una ferida de la pell</span></div>
+        <div class="metode-strip">El mètode: 👁️ Observo → ❓ Em pregunto → 🔗 Connecto → 💡 Dedueixo</div>
         <div class="pas">
           <div class="pas-num">1</div>
           <div class="pas-cos">
+            <div class="pas-metode">👁️ Observo</div>
             <div class="pas-q">Com han de ser les cèl·lules noves de la pell?</div>
             <div class="pas-opts">
               <span class="pas-opt marcat"><span class="pas-box"></span> <b>IGUALS</b> a les altres de pell</span>
@@ -413,6 +429,7 @@ span[contenteditable] { display:inline-block; }
         <div class="pas">
           <div class="pas-num">2</div>
           <div class="pas-cos">
+            <div class="pas-metode">❓ Em pregunto</div>
             <div class="pas-q">Llavors, per a què serveix aquesta divisió?</div>
             <div class="pas-opts">
               <span class="pas-opt marcat"><span class="pas-box"></span> 🩹 <b>Créixer i reparar</b></span>
@@ -454,9 +471,11 @@ span[contenteditable] { display:inline-block; }
       <div class="passos-box deletable">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="passos-cap">✏️ Quina divisió és? — MARCA TU <span class="cas-tag">Fabricar un òvul</span></div>
+        <div class="metode-strip">El mètode: 👁️ Observo → ❓ Em pregunto → 🔗 Connecto → 💡 Dedueixo</div>
         <div class="pas">
           <div class="pas-num">1</div>
           <div class="pas-cos">
+            <div class="pas-metode">👁️ Observo</div>
             <div class="pas-q">Com ha de ser l'òvul respecte a la mare?</div>
             <div class="pas-opts">
               <span class="pas-opt"><span class="pas-box"></span> Igual a la mare</span>
@@ -467,6 +486,7 @@ span[contenteditable] { display:inline-block; }
         <div class="pas">
           <div class="pas-num">2</div>
           <div class="pas-cos">
+            <div class="pas-metode">❓ Em pregunto</div>
             <div class="pas-q">Llavors, per a què serveix aquesta divisió?</div>
             <div class="pas-opts">
               <span class="pas-opt"><span class="pas-box"></span> Créixer i reparar</span>
@@ -474,9 +494,22 @@ span[contenteditable] { display:inline-block; }
             </div>
           </div>
         </div>
+        <div class="pas">
+          <div class="pas-num">3</div>
+          <div class="pas-cos">
+            <div class="pas-metode">🔗 Connecto</div>
+            <div class="pas-q">Quina de les dues divisions has après que fa això?</div>
+            <div class="pas-opts">
+              <span class="pas-opt"><span class="pas-box"></span> La que fa filles <b>IGUALS</b> (mitosi)</span>
+              <span class="pas-opt"><span class="pas-box"></span> La que fa filles amb <b>LA MEITAT</b> (meiosi)</span>
+            </div>
+          </div>
+        </div>
         <div class="pas-frase">
-          <div class="pas-frase-lab">✏️ Ara escriu UNA frase. Comença així:</div>
-          <div class="wline" contenteditable="true">Per fabricar un òvul cal la divisió que fa cèl·lules amb </div>
+          <div class="pas-metode">💡 Dedueixo</div>
+          <div class="pas-frase-lab">✏️ Ara escriu UNA frase sencera. Comença-la així: «Per fabricar un òvul cal la divisió que fa cèl·lules amb…»</div>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
         </div>
       </div>
 
@@ -485,16 +518,24 @@ span[contenteditable] { display:inline-block; }
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="explore-qnum">⚠️</div>
         <div class="explore-qtext">
-          <span contenteditable="true"><strong>El càncer.</strong> Normalment la cèl·lula es divideix només quan toca i després <strong>s'atura</strong>. Marca què passa amb el càncer:</span>
+          <span contenteditable="true"><strong>El càncer.</strong> Normalment la cèl·lula es divideix només quan toca (per créixer o per curar una ferida) i, quan ja n'hi ha prou, <strong>s'atura</strong>. En el càncer aquest fre s'espatlla: la cèl·lula es divideix una vegada i una altra sense parar. Mira primer el dibuix i després marca:</span>
         </div>
       </div>
+
+      <figure class="figura deletable" style="margin:8px 0">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <img src="../imatges_material_grafic/cellula_normal_vs_cancer_nivell_c.png" alt="Comparació entre divisió normal i divisió descontrolada" style="width:100%;max-height:210px;object-fit:contain;display:block" onerror="this.style.display='none';this.nextElementSibling.textContent='(Imatge pendent) A l\'esquerra, divisió normal que s\'atura. A la dreta, divisió que no s\'atura mai.'">
+        <figcaption contenteditable="true">A l'esquerra, una cèl·lula normal: es divideix i s'atura. A la dreta, una cèl·lula amb càncer: no s'atura mai i se n'amunteguen moltes.</figcaption>
+      </figure>
 
       <div class="passos-box deletable">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="passos-cap" style="background:var(--rose)">✏️ El càncer — MARCA TU <span class="cas-tag">Divisió descontrolada</span></div>
+        <div class="metode-strip">El mètode: 👁️ Observo → ❓ Em pregunto → 🔗 Connecto → 💡 Dedueixo</div>
         <div class="pas">
           <div class="pas-num" style="background:var(--rose)">1</div>
           <div class="pas-cos">
+            <div class="pas-metode" style="background:var(--rose)">👁️ Observo</div>
             <div class="pas-q">Com es divideixen les cèl·lules del càncer?</div>
             <div class="pas-opts">
               <span class="pas-opt"><span class="pas-box"></span> Es paren quan toca</span>
@@ -502,9 +543,33 @@ span[contenteditable] { display:inline-block; }
             </div>
           </div>
         </div>
+        <div class="pas">
+          <div class="pas-num" style="background:var(--rose)">2</div>
+          <div class="pas-cos">
+            <div class="pas-metode" style="background:var(--rose)">❓ Em pregunto</div>
+            <div class="pas-q">Si no es paren mai, què passa amb el nombre de cèl·lules?</div>
+            <div class="pas-opts">
+              <span class="pas-opt"><span class="pas-box"></span> Se'n fan sempre les justes</span>
+              <span class="pas-opt"><span class="pas-box"></span> Se'n fan moltes més de les que calen</span>
+            </div>
+          </div>
+        </div>
+        <div class="pas">
+          <div class="pas-num" style="background:var(--rose)">3</div>
+          <div class="pas-cos">
+            <div class="pas-metode" style="background:var(--rose)">🔗 Connecto</div>
+            <div class="pas-q">Aquestes cèl·lules de més, on van a parar?</div>
+            <div class="pas-opts">
+              <span class="pas-opt"><span class="pas-box"></span> Desapareixen soles</span>
+              <span class="pas-opt"><span class="pas-box"></span> S'amunteguen i fan nosa a la part del cos on són</span>
+            </div>
+          </div>
+        </div>
         <div class="pas-frase">
-          <div class="pas-frase-lab">✏️ Ara escriu UNA frase. Comença així:</div>
-          <div class="wline" contenteditable="true">El càncer és perillós perquè les cèl·lules es divideixen </div>
+          <div class="pas-metode" style="background:var(--rose)">💡 Dedueixo</div>
+          <div class="pas-frase-lab">✏️ Ara escriu UNA frase sencera. Comença-la així: «El càncer és perillós perquè les cèl·lules es divideixen…»</div>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
         </div>
       </div>
     </div>
@@ -571,12 +636,12 @@ span[contenteditable] { display:inline-block; }
       <div class="tasca-item deletable">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="tasca-num">2</div>
-        <div contenteditable="true"><strong>🖼️ Decideix l'angle del pòster (preparació S4):</strong> A la propera sessió faràs un pòster sobre la cèl·lula. Pensa quin <em>angle</em> t'agradaria: les 3 parts, com entra i surt el menjar, com es divideix... Escriu la teva idea en una frase.</div>
+        <div contenteditable="true"><strong>🖼️ Decideix l'angle del pòster (preparació de la Sessió 4):</strong> A la propera sessió faràs un pòster sobre la cèl·lula. Pensa quin <em>angle</em> t'agradaria: les 3 parts, com entra i surt el menjar, com es divideix... Escriu la teva idea en una frase.</div>
       </div>
     </div>
 
     <div class="footer">
-      <div class="footer-l">SA1 · La cèl·lula viva · Sessió 3 · IE Temple · Biologia i Geologia 3r ESO</div>
+      <div class="footer-l">La cèl·lula viva · Sessió 3 · IE Temple · Biologia i Geologia 3r ESO</div>
       <div class="footer-r">©2025–2026</div>
     </div>
 

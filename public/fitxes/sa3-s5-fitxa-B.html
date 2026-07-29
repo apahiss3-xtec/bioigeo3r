@@ -530,4 +530,8 @@ document.addEventListener('keydown', e => {
 const obs = new MutationObserver(()=>{ clearTimeout(_pbTimer); _pbTimer=setTimeout(updatePageBreaks, 250); });
 window.addEventListener('load', ()=>{
   restoreDoc();
-  obs.observe(do
+  obs.observe(document.getElementById('doc'), { childList:true, subtree:true, characterData:true });
+  updatePageBreaks();
+});
+</script>
+</body></html>
