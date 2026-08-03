@@ -1,7 +1,7 @@
 export const sa1s4 = {
   id: "s4",
   saId: "sa1",
-  title: "Repte final: pòster híbrid",
+  title: "Repte final: el pòster de la cèl·lula",
   sessionNumber: 4,
   biome: "sa1",
   duration: "2h",
@@ -12,16 +12,16 @@ export const sa1s4 = {
   engageContext: "Presentació del repte i de la rúbrica. Els alumnes ja coneixen la rúbrica des de S1.",
 
   exploreActivity: {
-    what: "En grup: trieu l'angle del pòster, decidiu el format (digital + paper obligatori) i repartiu-vos les seccions. Després, elaboreu-lo.",
-    who: { mode: "grup3", label: "Grups de 2–3 persones" },
+    what: "Individual: planifica el teu pòster sobre el cas de l'Elna (el tall al dit), decideix quines seccions hi posaràs i comença a elaborar-lo en digital.",
+    who: { mode: "individual", label: "Individual" },
     time: 40,
-    note: "Temporitzador per a l'elaboració (40 min). Abans, 25 min de planificació sense cronometrar: tria d'angle, format i repartiment de seccions."
+    note: "Temporitzador per a l'elaboració (40 min). Abans, 25 min de planificació sense cronometrar: seccions, diagrama propi i connexió personal."
   },
   exploreInstructions: [
-    "En grup (2–3 persones): trieu l'angle del vostre pòster (quin aspecte de la cèl·lula voleu comunicar)",
-    "Decidiu el format: digital (Canva, Slides, etc.) + paper obligatori",
-    "Repartiu les seccions del pòster entre els membres del grup",
-    "Teniu 40 minuts per elaborar-lo"
+    "Llegeix el cas de l'Elna i decideix quines seccions tindrà el teu pòster (el full de l'enunciat en llista sis)",
+    "Fes-lo en digital, mida DIN A3 (Canva, Slides, etc.). L'imprimeix el docent, no tu",
+    "Dissenya tu mateix/a el diagrama del procés clau: no pot ser una imatge copiada",
+    "Tens 40 minuts per elaborar-lo"
   ],
   exploreDuration: "25 min (planificació) + 40 min (elaboració)",
 
@@ -34,8 +34,8 @@ export const sa1s4 = {
     }
   ],
 
-  rubricUrl: "/fitxes/sa1-rubrica-poster.pdf",
-  fitxaUrl: null,
+  rubricUrl: "/fitxes/sa1-rubrica-poster.html",
+  fitxaUrl: "/fitxes/sa1-s4-enunciat-poster.html",
   teoriaPdfUrl: null,
 
   exitTicketType: "web",
@@ -59,16 +59,17 @@ export const sa1s4 = {
   exitTicketNote: "Exit tiquet metacognitiu: no avalua contingut sinó reflexió sobre el propi aprenentatge.",
 
   deliverables: [
-    { name: "Pòster híbrid (digital + paper)", note: "Si no s'acaba a classe, entrega via Classroom (termini 1 setmana)" }
+    { name: "Pòster (digital, DIN A3)", note: "Si no s'acaba a classe, entrega via Classroom (termini 1 setmana)" },
+    { name: "Vídeo de presentació (2-3 min)", note: "La setmana següent, via Classroom" }
   ],
 
   homework: {
     description: "Acabar i entregar el pòster via Google Classroom si no s'ha acabat a classe.",
-    deadline: "2026-09-XX"
+    deadline: "A concretar a Google Classroom"
   },
 
   recoveryInstructions: [
-    "Pots fer el pòster en format digital (Canva, Google Slides, PowerPoint)",
+    "Fes el pòster en format digital, mida DIN A3 (Canva, Google Slides, PowerPoint)",
     "Consulta la rúbrica (descarrega-la a ELABORA)",
     "Repassa tota la teoria al hub d'aquesta pàgina",
     "Entrega el pòster via Google Classroom",
@@ -76,5 +77,5 @@ export const sa1s4 = {
   ],
 
   oaLinks: ["OA1", "OA2", "OA3", "OA4"],
-  competencies: ["CE2", "CE1", "CE3", "CE6"]
+  competencies: ["CE1", "CE3", "CE4"]
 }

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=794px">
+<title>Rúbrica pòster SA1 — La cèl·lula en acció</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,400;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple:       #7B68C8;
+  --purple-ink:   #4a3b8c;
+  --purple-light: #c5b8f0;
+  --purple-tint:  #f0edfb;
+  --ink:          #1A1428;
+  --ink-2:        #3a3050;
+  --muted:        #7a7090;
+  --surface:      #fdfcff;
+  --rule:         #e8e2f6;
+  --rule-dark:    #c8bfe8;
+  --na:    #d44a6c; --na-tint:    #fce8ed;
+  --as:    #c8960a; --as-tint:    #fdf7e2;
+  --an:    #3a9e8c; --an-tint:    #e6f4f1;
+  --ae:    #4a3b8c; --ae-tint:    #f0edfb;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #b0a8c8;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 12px; color: var(--ink);
+  padding: 60px 20px 40px; min-height: 100vh;
+}
+
+#toolbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(30,22,60,.95); backdrop-filter: blur(6px);
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 14px; height: 44px;
+  font-family: 'Inter', sans-serif; font-size: 11px; color: rgba(255,255,255,.6);
+}
+.tb-hint { font-size: 10px; letter-spacing: .03em; margin-right: 4px; }
+.tb-btn {
+  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18);
+  color: white; border-radius: 5px; padding: 3px 9px;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600;
+  cursor: pointer; transition: background .15s;
+}
+.tb-btn:hover { background: rgba(255,255,255,.22); }
+.tb-btn:disabled { opacity: .3; cursor: default; }
+.tb-sep { width: 1px; height: 22px; background: rgba(255,255,255,.15); margin: 0 2px; }
+
+#doc { max-width: 794px; margin: 0 auto; position: relative; }
+.page-wrap {
+  background: var(--surface);
+  border-radius: 4px;
+  box-shadow: 0 4px 32px rgba(0,0,0,.25);
+  overflow: hidden; position: relative;
+}
+.content { padding: 0 0 24px; }
+
+/* HEADER */
+.header-band {
+  background: linear-gradient(135deg, #3a2d6e 0%, #5a4aa0 100%);
+  color: white; padding: 14px 18px 12px;
+  border-radius: 6px 6px 0 0;
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 0 14px; align-items: center;
+  position: relative;
+}
+.header-emoji-box {
+  width: 50px; height: 50px;
+  background: rgba(255,255,255,.18); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; flex-shrink: 0;
+}
+.header-center { min-width: 0; }
+.header-sa { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; opacity: .75; margin-bottom: 2px; }
+.header-title { font-family: 'Fira Sans Extra Condensed', sans-serif; font-size: 28px; font-weight: 900; line-height: 1.05; color: white; margin: 0; }
+.header-subtitle { font-family: 'Crimson Pro', serif; font-size: 13px; font-style: italic; opacity: .85; margin-top: 2px; }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+.logo-box img { height: 46px; display: block; }
+.header-meta { font-family: 'Inter', sans-serif; font-size: 8px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; opacity: .8; text-align: right; line-height: 1.4; }
+
+/* INFO STRIP */
+.info-strip {
+  background: var(--purple-tint); border-bottom: 2px solid var(--rule);
+  padding: 7px 18px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  position: relative;
+}
+.info-tag { font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--purple-ink); background: rgba(123,104,200,.15); border-radius: 4px; padding: 2px 8px; }
+.nom-field { font-size: 10.5px; color: var(--ink-2); display: flex; align-items: center; gap: 4px; position: relative; }
+.input-span { display: inline-block; min-width: 90px; border-bottom: 1.5px solid var(--rule-dark); font-size: 11px; padding: 1px 3px; outline: none; vertical-align: bottom; min-height: 16px; }
+.input-span:empty::before { content: attr(data-hint); color: #c0b8d8; font-style: italic; pointer-events: none; font-size: 10px; }
+
+/* INNER */
+.inner { padding: 14px 20px 0; }
+
+/* EXPLICACIÓ SUPERIOR */
+.intro-box {
+  background: var(--purple-tint); border: 1.5px solid var(--purple-light);
+  border-radius: 8px; padding: 10px 14px; margin-bottom: 14px;
+  position: relative;
+}
+.intro-box p { font-size: 11px; line-height: 1.6; color: var(--ink-2); }
+
+/* NOM ROLS */
+.rols-strip {
+  display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap;
+}
+.rol-tag {
+  padding: 4px 12px; border-radius: 5px;
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+}
+.rol-auto { background: var(--ae-tint); color: var(--ae); border: 1.5px solid var(--ae); }
+.rol-co   { background: var(--an-tint); color: var(--an); border: 1.5px solid var(--an); }
+.rol-doc  { background: rgba(123,104,200,.12); color: var(--purple-ink); border: 1.5px solid var(--purple-light); }
+
+/* TAULA RÚBRICA */
+.rubrica-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 10.5px; margin-bottom: 14px;
+}
+.rubrica-table th {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 11px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase;
+  padding: 6px 8px; text-align: center;
+}
+.th-crit { text-align: left; width: 22%; background: var(--purple-ink); color: white; border-radius: 5px 0 0 0; }
+.th-na   { background: var(--na); color: white; }
+.th-as   { background: var(--as); color: white; }
+.th-an   { background: var(--an); color: white; }
+.th-ae   { background: var(--ae); color: white; border-radius: 0 5px 0 0; }
+
+.rubrica-table td {
+  padding: 7px 8px; vertical-align: top; border: 1px solid var(--rule);
+  line-height: 1.4; color: var(--ink-2);
+}
+.rubrica-table tr:last-child td { border-bottom: 2px solid var(--rule-dark); }
+
+.td-crit {
+  background: #f5f3fe;
+  font-weight: 700; color: var(--purple-ink);
+  border-left: 3px solid var(--purple);
+}
+.crit-name {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 12px; font-weight: 900; color: var(--purple-ink);
+  display: block; margin-bottom: 2px;
+}
+.crit-ce {
+  font-family: 'Inter', sans-serif;
+  font-size: 8px; font-weight: 600; color: var(--muted);
+  letter-spacing: .05em; text-transform: uppercase;
+  display: block; line-height: 1.3;
+}
+.td-na { background: #fff8fa; }
+.td-as { background: #fffdf5; }
+.td-an { background: #f5fbfa; }
+.td-ae { background: #f5f3fe; }
+
+/* CHECKBOXES AUTOAVALUACIÓ */
+.check-row {
+  display: flex; align-items: center; gap: 6px; margin-top: 5px;
+}
+.check-box {
+  width: 13px; height: 13px; border: 1.5px solid var(--purple);
+  border-radius: 2px; flex-shrink: 0;
+  print-color-adjust: exact;
+}
+.check-label { font-size: 9.5px; color: var(--muted); font-style: italic; }
+
+/* PUNTUACIÓ NIVELL */
+.nivell-pill {
+  display: inline-block; font-family: 'Inter', sans-serif;
+  font-size: 8px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; padding: 1px 6px; border-radius: 9999px;
+  margin-bottom: 4px;
+}
+.pill-na { background: var(--na); color: white; }
+.pill-as { background: var(--as); color: white; }
+.pill-an { background: var(--an); color: white; }
+.pill-ae { background: var(--ae); color: white; }
+
+/* ESCALA */
+.escala-box {
+  background: var(--purple-tint); border: 1.5px solid var(--purple-light);
+  border-radius: 8px; padding: 8px 14px; margin-bottom: 14px;
+  display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+}
+.escala-item { display: flex; align-items: center; gap: 6px; font-size: 10px; }
+.escala-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+/* DELETABLE */
+.deletable { position: relative; }
+.del-btn {
+  display: none; position: absolute; top: -6px; right: -6px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--na); color: white;
+  font-size: 9px; font-weight: 700; cursor: pointer;
+  align-items: center; justify-content: center;
+  z-index: 10; border: 2px solid white;
+  box-shadow: 0 1px 4px rgba(0,0,0,.25);
+}
+.deletable:hover > .del-btn { display: flex; }
+.deletable:has(.deletable:hover) > .del-btn { display: none; }
+
+[contenteditable]:hover { background: rgba(123,104,200,.06); border-radius: 3px; }
+[contenteditable]:focus { background: rgba(123,104,200,.10); outline: 2px solid var(--purple); border-radius: 3px; }
+
+.page-break-line { position: absolute; left: 0; right: 0; border-top: 2px dashed #9080bc; pointer-events: none; z-index: 10; }
+.page-break-label { position: absolute; right: 10px; top: -11px; background: #9080bc; color: white; font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 1px 8px; border-radius: 9999px; }
+.page-footer-bar { position: absolute; left: 0; right: 0; height: 20px; display: none; justify-content: space-between; align-items: center; padding: 0 24px; font-family: 'Inter', sans-serif; font-size: 7.5px; font-weight: 500; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; border-top: 0.5px solid var(--rule); background: var(--surface); pointer-events: none; z-index: 8; }
+.spacer-block { position: relative; height: 48px; margin: 4px 0; border-radius: 6px; border: 1.5px dashed var(--purple-light); background: repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(123,104,200,.05) 6px, rgba(123,104,200,.05) 12px); display: flex; align-items: center; justify-content: center; cursor: default; }
+.spacer-label { font-size: 9px; color: var(--purple-light); letter-spacing: .12em; text-transform: uppercase; user-select: none; pointer-events: none; }
+
+.footer { margin: 18px 20px 0; padding-top: 8px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; font-size: 8px; color: var(--muted); font-family: 'Inter', sans-serif; }
+
+@media print {
+  @page { size: A4; margin: 8mm 10mm; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: white; padding: 0; }
+  #toolbar, .page-break-line, .del-btn { display: none !important; }
+  .page-footer-bar { display: flex !important; }
+  .footer { display: none !important; }
+  .page-wrap { box-shadow: none; width: 100%; }
+  [contenteditable]:hover, [contenteditable]:focus { background: transparent !important; box-shadow: none !important; }
+  .spacer-block { background: transparent !important; border: none !important; }
+  .spacer-label { display: none !important; }
+  .input-span:empty::before { display: none; }
+  .header-emoji-box { background: #ede8f8; }
+  .rubrica-table { font-size: 9.5px; }
+  .rubrica-table td { padding: 5px 6px; }
+}
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span class="tb-hint">Ctrl+B negreta · ✕ elimina · Ctrl+Z desfés · Ctrl+S desa</span>
+  <div class="tb-sep"></div>
+  <button class="tb-btn" id="btn-undo" onclick="undoDelete()" disabled>↩ Desfer</button>
+  <button class="tb-btn" onclick="document.execCommand('bold')">N</button>
+  <button class="tb-btn" onclick="insertSpacer()">＋ Espai</button>
+  <button class="tb-btn" onclick="window.print()">🖨️ Imprimir</button>
+  <button class="tb-btn" onclick="desaFitxa()" title="Ctrl+S">💾 Desa</button>
+</div>
+
+<div id="doc">
+  <div class="page-wrap">
+    <div class="content">
+
+      <!-- HEADER -->
+      <div class="header-band deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="header-emoji-box">🎯</div>
+        <div class="header-center">
+          <div class="header-sa" contenteditable="true">SA1 · La cèl·lula viva · Rúbrica del pòster</div>
+          <div class="header-title" contenteditable="true">Com s'avalua el teu pòster i el vídeo</div>
+          <div class="header-subtitle" contenteditable="true">Autoavaluació i coavaluació — usa-la per revisar la teva feina i la d'un company o companya</div>
+        </div>
+        <div class="header-right">
+          <div class="logo-box">
+            <img src="/logo_bio_geo_temple.png" alt="IE Temple" style="height:46px;display:block" onerror="this.style.display='none'">
+          </div>
+          <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
+        </div>
+      </div>
+
+      <!-- INFO STRIP -->
+      <div class="info-strip deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <span class="info-tag">Autoavaluació + Coavaluació</span>
+        <div class="nom-field deletable">
+          Nom de qui ha fet el pòster: <span class="input-span" style="min-width:140px" contenteditable="true" data-hint="escriu el nom"></span>
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        </div>
+        <div class="nom-field deletable">
+          Qui avalua: <span class="input-span" style="min-width:120px" contenteditable="true" data-hint="nom del/la revisor/a"></span>
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        </div>
+      </div>
+
+      <div class="inner">
+
+        <!-- INTRO -->
+        <div class="intro-box deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <p contenteditable="true">Llegeix cada criteri i marca el nivell que millor descriu el pòster (o el teu propi, si fas l'autoavaluació). Llegeix les quatre descripcions abans de marcar — el nivell correcte és el que descriu millor la feina, no el que vols que sigui. A la columna de la dreta hi ha un espai per marcar. La rúbrica s'usa dues vegades: primer tu mateix/a (autoavaluació), i després un company o companya (coavaluació).</p>
+        </div>
+
+        <!-- ESCALA -->
+        <div class="escala-box deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <strong style="font-size:10.5px;color:var(--purple-ink)">Escala:</strong>
+          <div class="escala-item"><div class="escala-dot" style="background:var(--na)"></div><span><strong>NA</strong> — No assoliment</span></div>
+          <div class="escala-item"><div class="escala-dot" style="background:var(--as)"></div><span><strong>AS</strong> — Assoliment satisfactori</span></div>
+          <div class="escala-item"><div class="escala-dot" style="background:var(--an)"></div><span><strong>AN</strong> — Assoliment notable</span></div>
+          <div class="escala-item"><div class="escala-dot" style="background:var(--ae)"></div><span><strong>AE</strong> — Assoliment excel·lent</span></div>
+        </div>
+
+        <!-- TAULA -->
+        <table class="rubrica-table deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <thead>
+            <tr>
+              <th class="th-crit">Criteri</th>
+              <th class="th-na">NA</th>
+              <th class="th-as">AS</th>
+              <th class="th-an">AN</th>
+              <th class="th-ae">AE</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- CRITERI 1 -->
+            <tr class="deletable">
+              <div class="del-btn" onclick="deleteEl(this)">✕</div>
+              <td class="td-crit">
+                <span class="crit-name">① Expliques el PER QUÈ</span>
+                <span class="crit-ce">Bio i Geologia — CE1<br>Criteri 1.2 (3r-4t ESO)</span>
+              </td>
+              <td class="td-na">
+                <span class="nivell-pill pill-na">NA</span><br>
+                <span contenteditable="true">Describes el que passa però no expliques per quina raó passa. ("La mitosi repara la ferida" sense explicar el mecanisme.)</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-as">
+                <span class="nivell-pill pill-as">AS</span><br>
+                <span contenteditable="true">Expliques el per quina raó d'un dels tres processos (respiració cel·lular, membrana o divisió), però els altres queden sense explicar.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-an">
+                <span class="nivell-pill pill-an">AN</span><br>
+                <span contenteditable="true">Expliques causalment els processos clau: per quina raó la cèl·lula necessita energia, per quina raó es divideix, per quina raó la membrana és important en la curació.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-ae">
+                <span class="nivell-pill pill-ae">AE</span><br>
+                <span contenteditable="true">Connectes els tres processos en una cadena causal lògica sense forats: com la falta d'energia afectaria la divisió, per exemple, o com la membrana trencada desencadena tot el procés.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+            </tr>
+
+            <!-- CRITERI 2 -->
+            <tr class="deletable">
+              <div class="del-btn" onclick="deleteEl(this)">✕</div>
+              <td class="td-crit">
+                <span class="crit-name">② La ciència és correcta</span>
+                <span class="crit-ce">Bio i Geologia — CE1<br>Criteri 1.1 (3r-4t ESO)</span>
+              </td>
+              <td class="td-na">
+                <span class="nivell-pill pill-na">NA</span><br>
+                <span contenteditable="true">Hi ha errors científics que canvien el significat (per exemple: "el nucli produeix energia" o "les cèl·lules es divideixen per meiosi per curar-se").</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-as">
+                <span class="nivell-pill pill-as">AS</span><br>
+                <span contenteditable="true">Els conceptes principals són correctes però hi ha alguna imprecisió o confusió de vocabulari que no canvia el significat global.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-an">
+                <span class="nivell-pill pill-an">AN</span><br>
+                <span contenteditable="true">Tot és científicament correcte i uses el vocabulari adequat (mitosi, membrana cel·lular, respiració cel·lular, ATP, etc.) de manera precisa.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-ae">
+                <span class="nivell-pill pill-ae">AE</span><br>
+                <span contenteditable="true">Cap error. El vocabulari és precís i ric. Mostres que has entès els matissos (per exemple: distingint mitosi de meiosi i explicant per quina raó en aquest cas és mitosi).</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+            </tr>
+
+            <!-- CRITERI 3 -->
+            <tr class="deletable">
+              <div class="del-btn" onclick="deleteEl(this)">✕</div>
+              <td class="td-crit">
+                <span class="crit-name">③ El diagrama és teu</span>
+                <span class="crit-ce">Bio i Geologia — CE3<br>Criteri 3.5 (3r-4t ESO)</span>
+              </td>
+              <td class="td-na">
+                <span class="nivell-pill pill-na">NA</span><br>
+                <span contenteditable="true">No hi ha diagrama, o és copiat d'internet o del manual sense cap elaboració pròpia.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-as">
+                <span class="nivell-pill pill-as">AS</span><br>
+                <span contenteditable="true">Hi ha un diagrama original però és poc clar, incomplet, o no s'integra amb la resta del pòster (sembla un afegit sense connexió).</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-an">
+                <span class="nivell-pill pill-an">AN</span><br>
+                <span contenteditable="true">El diagrama és original, il·lustra clarament el procés clau i s'integra amb el text del pòster. Es nota que l'has creat tu.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-ae">
+                <span class="nivell-pill pill-ae">AE</span><br>
+                <span contenteditable="true">El diagrama és la peça central del pòster: explica coses que el text no pot, té una seqüència lògica clara i es podria entendre gairebé sense llegir el text.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+            </tr>
+
+            <!-- CRITERI 4 -->
+            <tr class="deletable">
+              <div class="del-btn" onclick="deleteEl(this)">✕</div>
+              <td class="td-crit">
+                <span class="crit-name">④ Connectes amb la teva vida</span>
+                <span class="crit-ce">Bio i Geologia — CE4<br>Criteri 4.1 (3r-4t ESO)</span>
+              </td>
+              <td class="td-na">
+                <span class="nivell-pill pill-na">NA</span><br>
+                <span contenteditable="true">No hi ha connexió personal, o és purament anecdòtica i sense cap explicació científica ("a mi també m'han fet un tall una vegada").</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-as">
+                <span class="nivell-pill pill-as">AS</span><br>
+                <span contenteditable="true">Expliques una experiència personal però no l'expliques amb conceptes científics: dius el que va passar, però no per quina raó va passar a nivell cel·lular.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-an">
+                <span class="nivell-pill pill-an">AN</span><br>
+                <span contenteditable="true">Connectes l'experiència personal (teva o d'algú proper) amb el que passa a les cèl·lules. S'entén que has aplicat el que has après a una situació real.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-ae">
+                <span class="nivell-pill pill-ae">AE</span><br>
+                <span contenteditable="true">La connexió personal és rica, precisa i demostra una transferència real: uses el vocabulari correcte, expliques el per quina raó a nivell cel·lular, i et fas preguntes sobre allò que no saps.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+            </tr>
+
+            <!-- CRITERI 5 — ORAL (LLENGUA CATALANA) -->
+            <tr class="deletable">
+              <div class="del-btn" onclick="deleteEl(this)">✕</div>
+              <td class="td-crit">
+                <span class="crit-name">⑤ T'expliques al vídeo</span>
+                <span class="crit-ce">Llengua Catalana i Literatura<br>CE3 · Criteri 3.1 (3r-4t ESO)</span>
+              </td>
+              <td class="td-na">
+                <span class="nivell-pill pill-na">NA</span><br>
+                <span contenteditable="true">El vídeo és difícil d'entendre: llegeixes el pòster sencer, el so no s'entén, o l'explicació no té cap estructura lògica.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-as">
+                <span class="nivell-pill pill-as">AS</span><br>
+                <span contenteditable="true">T'expliques de manera acceptable però depens molt del text escrit (llegint frases senceres) o l'estructura de l'explicació no és clara.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-an">
+                <span class="nivell-pill pill-an">AN</span><br>
+                <span contenteditable="true">T'expliques amb fluïdesa i claredat, sense llegir. La teva explicació té una estructura lògica (primer... després... per tant...) i s'entén sense necessitat de llegir el pòster.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-ae">
+                <span class="nivell-pill pill-ae">AE</span><br>
+                <span contenteditable="true">T'expliques amb fluïdesa, registre adequat i recursos no verbals (gestos assenyalant el pòster, to de veu, variació del ritme). L'explicació oral afegeix informació que no surt al pòster escrit.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+            </tr>
+
+            <!-- CRITERI 6 — DIGITAL -->
+            <tr class="deletable">
+              <div class="del-btn" onclick="deleteEl(this)">✕</div>
+              <td class="td-crit">
+                <span class="crit-name">⑥ El pòster és llegible i organitzat</span>
+                <span class="crit-ce">Competència digital transversal<br>Creació de continguts digitals</span>
+              </td>
+              <td class="td-na">
+                <span class="nivell-pill pill-na">NA</span><br>
+                <span contenteditable="true">El pòster és molt difícil de llegir: text massa petit, elements amuntegats, sense estructura visual, o el contingut no s'entén sense explicació oral.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-as">
+                <span class="nivell-pill pill-as">AS</span><br>
+                <span contenteditable="true">El pòster es pot llegir però el disseny no ajuda: els elements estan mal distribuïts o l'ull no sap per on començar.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-an">
+                <span class="nivell-pill pill-an">AN</span><br>
+                <span contenteditable="true">El pòster és llegible, ben organitzat i el disseny ajuda a seguir el raonament. Qui llegeix sap per on començar i com avançar pel pòster.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+              <td class="td-ae">
+                <span class="nivell-pill pill-ae">AE</span><br>
+                <span contenteditable="true">El disseny és una eina d'explicació: la jerarquia visual guia la comprensió, els espais estan ben usats i el pòster s'entén de manera autònoma sense cap explicació addicional.</span>
+                <div class="check-row"><div class="check-box"></div><span class="check-label">Auto</span><div class="check-box"></div><span class="check-label">Co</span></div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <!-- COMENTARI OBERT -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px" class="deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div style="background:#f5fbfa;border:1.5px solid var(--an);border-radius:8px;padding:10px 12px">
+            <div style="font-family:'Fira Sans Extra Condensed',sans-serif;font-size:12px;font-weight:900;color:var(--an);margin-bottom:4px">💬 Una cosa que funciona molt bé</div>
+            <div style="min-height:40px;border-bottom:1.5px solid #c0d8d4;font-size:10.5px;color:var(--ink-2);padding-bottom:4px" contenteditable="true"></div>
+          </div>
+          <div style="background:var(--as-tint);border:1.5px solid var(--as);border-radius:8px;padding:10px 12px">
+            <div style="font-family:'Fira Sans Extra Condensed',sans-serif;font-size:12px;font-weight:900;color:var(--as);margin-bottom:4px">🔧 Una cosa que milloraries</div>
+            <div style="min-height:40px;border-bottom:1.5px solid #d8c098;font-size:10.5px;color:var(--ink-2);padding-bottom:4px" contenteditable="true"></div>
+          </div>
+        </div>
+
+        <!-- NOTA CURRICULAR -->
+        <div style="background:#f9f8fe;border:1px solid var(--rule);border-radius:6px;padding:8px 12px;margin-bottom:10px;position:relative" class="deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <p style="font-size:9px;color:var(--muted);line-height:1.5" contenteditable="true">
+            <strong style="color:var(--purple-ink)">Criteris d'avaluació citats literalment:</strong><br>
+            ① ② CE1·1.1: "Analitzar conceptes, fenòmens i processos relacionats amb els sabers de la biologia i la geologia, interpretant informació en diferents formats, mantenint una actitud crítica i obtenint conclusions fonamentades en raons científiques." — CE1·1.2: "Interpretar i predir el comportament de fenòmens quotidians rellevants, relacionant-los amb models, lleis i teories adequades de la biologia i la geologia." (1r-3r ESO)<br>
+            ③ CE3·3.5: "Presentar els resultats i les conclusions obtingudes mitjançant l'experimentació i observació de camp utilitzant el format adequat (taules, gràfics, informes, etc.) i, quan sigui necessari, eines digitals." (1r-3r ESO)<br>
+            ④ CE4·4.1: "Resoldre problemes o donar explicació a processos biològics o geològics utilitzant coneixements, dades i informació aportades, el raonament lògic, el pensament computacional o recursos digitals." (1r-3r ESO)<br>
+            ⑤ Llengua Catalana i Literatura CE3·3.1: "Realitzar exposicions i argumentacions orals d'una certa extensió i complexitat [...] ajustant-se a les convencions pròpies dels diversos gèneres discursius, amb fluïdesa, coherència i el registre adequat en diferents suports, utilitzant de manera eficaç recursos verbals i no verbals." (3r-4t ESO)<br>
+            ⑥ Competència digital transversal — creació de continguts digitals (comunicació i presentació d'informació en format digital). Font: Departament d'Educació i Formació Professional, Competències transversals de l'educació bàsica.
+          </p>
+        </div>
+
+      </div><!-- /inner -->
+
+      <div class="footer deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <span contenteditable="true">IE Temple · Biologia i Geologia · 3r ESO · Curs 2025–2026</span>
+        <span contenteditable="true">SA1 · La cèl·lula viva · Rúbrica del pòster</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const delStack = [];
+function deleteEl(btn) {
+  const el = btn.closest('.deletable');
+  if (!el) return;
+  delStack.push({ el, parent: el.parentElement, sibling: el.nextSibling });
+  el.remove();
+  document.getElementById('btn-undo').disabled = false;
+  schedulePageBreaks();
+}
+function undoDelete() {
+  if (!delStack.length) return;
+  const { el, parent, sibling } = delStack.pop();
+  parent.insertBefore(el, sibling || null);
+  if (!delStack.length) document.getElementById('btn-undo').disabled = true;
+  schedulePageBreaks();
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'z' && (e.ctrlKey || e.metaKey) && document.activeElement.contentEditable !== 'true') {
+    e.preventDefault(); undoDelete();
+  }
+});
+const PAGE_H = 1047;
+let _pbTimer = null;
+const PB_OPTS = { childList: true, subtree: true, characterData: true, attributes: false };
+function updatePageBreaks() {
+  pbObserver.disconnect();
+  const doc = document.getElementById('doc');
+  doc.querySelectorAll('.page-break-line').forEach(n => n.remove());
+  doc.querySelectorAll('.page-footer-bar').forEach(n => n.remove());
+  const total = doc.scrollHeight;
+  const numPages = Math.ceil(total / PAGE_H);
+  for (let p = 1; p * PAGE_H < total; p++) {
+    const line = document.createElement('div');
+    line.className = 'page-break-line';
+    line.style.top = (p * PAGE_H) + 'px';
+    const label = document.createElement('div');
+    label.className = 'page-break-label';
+    label.textContent = 'Pàgina ' + (p + 1);
+    line.appendChild(label);
+    doc.appendChild(line);
+  }
+  for (let p = 1; p <= numPages; p++) {
+    const bar = document.createElement('div');
+    bar.className = 'page-footer-bar';
+    bar.style.top = (p * PAGE_H - 22) + 'px';
+    bar.innerHTML = '<span>IE Temple · Biologia i Geologia · 3r ESO</span><span>' + p + ' / ' + numPages + '</span>';
+    doc.appendChild(bar);
+  }
+  pbObserver.observe(doc, PB_OPTS);
+}
+function schedulePageBreaks() {
+  clearTimeout(_pbTimer);
+  _pbTimer = setTimeout(updatePageBreaks, 350);
+}
+window.addEventListener('load', updatePageBreaks);
+const pbObserver = new MutationObserver(schedulePageBreaks);
+pbObserver.observe(document.getElementById('doc'), PB_OPTS);
+let _lastClickedBlock = null;
+document.addEventListener('click', e => {
+  const content = document.querySelector('.content');
+  let node = e.target;
+  while (node && node.parentElement !== content) node = node.parentElement;
+  if (node && node !== content && !node.classList.contains('spacer-block')) _lastClickedBlock = node;
+});
+function insertSpacer() {
+  const sp = document.createElement('div');
+  sp.className = 'spacer-block deletable';
+  sp.innerHTML = '<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai en blanc</span>';
+  const content = document.querySelector('.content');
+  const footer = document.querySelector('.footer');
+  let ref = footer || null;
+  if (_lastClickedBlock && _lastClickedBlock.parentElement === content) ref = _lastClickedBlock.nextSibling;
+  content.insertBefore(sp, ref);
+  delStack.push({ el: sp, parent: content, sibling: sp.nextSibling });
+  document.getElementById('btn-undo').disabled = false;
+  schedulePageBreaks();
+}
+function _fitxaToast(msg) {
+  let t = document.getElementById('fitxa-toast');
+  if (!t) { t = document.createElement('div'); t.id = 'fitxa-toast'; t.style.cssText = 'position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3a2d6e;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s'; document.body.appendChild(t); }
+  t.textContent = msg; t.style.opacity = '1';
+  clearTimeout(t._h); t._h = setTimeout(() => t.style.opacity = '0', 2200);
+}
+async function desaFitxa() {
+  const clone = document.documentElement.cloneNode(true);
+  clone.querySelectorAll('.page-break-line,.page-footer-bar,#fitxa-toast').forEach(n => n.remove());
+  const html = '<!DOCTYPE html>\n' + clone.outerHTML;
+  const fname = (location.pathname.split('/').pop() || 'rubrica_poster_sa1.html');
+  if (window.showSaveFilePicker) {
+    try { const h = await window.showSaveFilePicker({ suggestedName: fname, types: [{ description: 'Pàgina HTML', accept: { 'text/html': ['.html'] } }] }); const w = await h.createWritable(); await w.write(html); await w.close(); _fitxaToast('✓ Canvis desats'); return; } catch (e) { if (e.name === 'AbortError') return; }
+  }
+  const blob = new Blob([html], { type: 'text/html' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = fname;
+  document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(a.href);
+  _fitxaToast('✓ Fitxa descarregada');
+}
+document.addEventListener('keydown', e => { if (e.key === 's' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); desaFitxa(); } });
+</script>
+</body>
+</html>

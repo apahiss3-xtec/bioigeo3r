@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=794px">
+<title>Repte pòster — SA1 La cèl·lula viva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,400;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple:       #7B68C8;
+  --purple-ink:   #4a3b8c;
+  --purple-light: #c5b8f0;
+  --purple-tint:  #f0edfb;
+  --ink:          #1A1428;
+  --ink-2:        #3a3050;
+  --muted:        #7a7090;
+  --surface:      #fdfcff;
+  --rule:         #e8e2f6;
+  --rule-dark:    #c8bfe8;
+  --orange:  #e8834a; --orange-tint:  #fdf0e8;
+  --teal:    #3a9e8c; --teal-tint:    #e6f4f1;
+  --rose:    #d44a6c; --rose-tint:    #fce8ed;
+  --yellow:  #c8960a; --yellow-tint:  #fdf7e2;
+  --green:   #4a9e5c; --green-tint:   #eaf4ec;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #b0a8c8;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 12px; color: var(--ink);
+  padding: 60px 20px 40px;
+  min-height: 100vh;
+}
+
+/* TOOLBAR */
+#toolbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(30,22,60,.95); backdrop-filter: blur(6px);
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 14px; height: 44px;
+  font-family: 'Inter', sans-serif; font-size: 11px; color: rgba(255,255,255,.6);
+}
+.tb-hint { font-size: 10px; letter-spacing: .03em; margin-right: 4px; }
+.tb-btn {
+  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18);
+  color: white; border-radius: 5px; padding: 3px 9px;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600;
+  cursor: pointer; transition: background .15s;
+}
+.tb-btn:hover { background: rgba(255,255,255,.22); }
+.tb-btn:disabled { opacity: .3; cursor: default; }
+.tb-btn.active { background: rgba(123,104,200,.5); }
+.tb-sep { width: 1px; height: 22px; background: rgba(255,255,255,.15); margin: 0 2px; }
+
+/* DOC */
+#doc { max-width: 794px; margin: 0 auto; position: relative; }
+.page-wrap {
+  background: var(--surface);
+  border-radius: 4px;
+  box-shadow: 0 4px 32px rgba(0,0,0,.25);
+  overflow: hidden;
+  position: relative;
+}
+.content { padding: 0 0 24px; }
+
+/* HEADER */
+.header-band {
+  background: linear-gradient(135deg, #3a2d6e 0%, #5a4aa0 100%);
+  color: white; padding: 14px 18px 12px;
+  border-radius: 6px 6px 0 0;
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 0 14px; align-items: center;
+  position: relative;
+}
+.header-emoji-box {
+  width: 50px; height: 50px;
+  background: rgba(255,255,255,.18); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; flex-shrink: 0;
+}
+.header-center { min-width: 0; }
+.header-sa {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; opacity: .75; margin-bottom: 2px;
+}
+.header-title {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 28px; font-weight: 900; line-height: 1.05;
+  color: white; margin: 0;
+}
+.header-subtitle {
+  font-family: 'Crimson Pro', serif;
+  font-size: 13px; font-style: italic; opacity: .85; margin-top: 2px;
+}
+.header-right {
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: 6px; flex-shrink: 0;
+}
+.logo-box img { height: 46px; display: block; }
+.header-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 8px; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; opacity: .8; text-align: right; line-height: 1.4;
+}
+
+/* INFO STRIP */
+.info-strip {
+  background: var(--purple-tint);
+  border-bottom: 2px solid var(--rule);
+  padding: 7px 18px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  position: relative;
+}
+.info-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: .05em;
+  text-transform: uppercase; color: var(--purple-ink);
+  background: rgba(123,104,200,.15); border-radius: 4px;
+  padding: 2px 8px;
+}
+.nom-field {
+  font-size: 10.5px; color: var(--ink-2);
+  display: flex; align-items: center; gap: 4px;
+  position: relative;
+}
+.input-span {
+  display: inline-block; min-width: 90px;
+  border-bottom: 1.5px solid var(--rule-dark);
+  font-size: 11px; padding: 1px 3px;
+  outline: none; vertical-align: bottom; min-height: 16px;
+}
+.input-span.data-span { min-width: 70px; }
+.input-span:empty::before {
+  content: attr(data-hint); color: #c0b8d8;
+  font-style: italic; pointer-events: none; font-size: 10px;
+}
+
+/* CONTENT AREA */
+.inner { padding: 14px 20px 0; }
+
+/* BLOCKS */
+.block { margin-bottom: 14px; position: relative; }
+
+.block-title {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 14px; font-weight: 900;
+  letter-spacing: .04em; text-transform: uppercase;
+  color: white; padding: 5px 12px 4px;
+  border-radius: 5px 5px 0 0;
+  display: flex; align-items: center; gap: 6px;
+}
+.block-body {
+  border: 1.5px solid; border-top: none;
+  border-radius: 0 0 5px 5px;
+  padding: 12px 14px;
+}
+.block.cas .block-title   { background: var(--teal); }
+.block.cas .block-body    { border-color: var(--teal); background: var(--teal-tint); }
+.block.inclou .block-title { background: var(--purple-ink); }
+.block.inclou .block-body  { border-color: var(--purple-light); background: #faf9ff; }
+.block.personal .block-title { background: var(--orange); }
+.block.personal .block-body  { border-color: var(--orange); background: var(--orange-tint); }
+.block.format .block-title { background: var(--muted); }
+.block.format .block-body  { border-color: #c0b8d8; background: var(--surface); }
+
+/* ELEMENTS NUMBERED */
+.elem-list { list-style: none; padding: 0; margin: 0; }
+.elem-list li {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,.06);
+  font-size: 11.5px; line-height: 1.5; color: var(--ink-2);
+}
+.elem-list li:last-child { border-bottom: none; }
+.elem-num {
+  flex-shrink: 0; width: 20px; height: 20px;
+  background: var(--purple); color: white;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+  margin-top: 1px;
+}
+.elem-text strong { color: var(--purple-ink); }
+.elem-note {
+  font-family: 'Crimson Pro', serif; font-style: italic;
+  font-size: 11px; color: var(--muted); margin-top: 2px; display: block;
+}
+
+/* PERSONAL BOXES */
+.pers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pers-box {
+  border-radius: 6px; padding: 10px 12px;
+  position: relative;
+}
+.pers-box.b { background: #fff8f2; border: 1.5px solid var(--orange); }
+.pers-box.c { background: #f4f2ff; border: 1.5px solid var(--purple-light); }
+.pers-box-label {
+  font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; margin-bottom: 5px;
+}
+.pers-box.b .pers-box-label { color: var(--orange); }
+.pers-box.c .pers-box-label { color: var(--purple-ink); }
+.pers-box p { font-size: 11px; line-height: 1.5; color: var(--ink-2); }
+
+/* FORMAT GRID */
+.format-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.format-item {
+  display: flex; gap: 8px; align-items: flex-start;
+  font-size: 11px; color: var(--ink-2); line-height: 1.4;
+}
+.format-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+/* TIMELINE BOX */
+.timeline-box {
+  background: linear-gradient(135deg, #f0edfb 0%, #e8e2f6 100%);
+  border: 1.5px solid var(--purple-light);
+  border-radius: 8px; padding: 10px 14px;
+  margin-top: 10px;
+  display: flex; gap: 20px; flex-wrap: wrap; align-items: center;
+}
+.timeline-item { display: flex; gap: 8px; align-items: center; }
+.timeline-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--purple); flex-shrink: 0;
+}
+.timeline-text { font-size: 11px; color: var(--ink-2); }
+.timeline-text strong { color: var(--purple-ink); font-weight: 700; }
+
+/* VIDEO BOX */
+.video-box {
+  background: var(--yellow-tint);
+  border: 1.5px solid var(--yellow);
+  border-radius: 8px; padding: 10px 14px;
+  margin-top: 10px;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.video-box p { font-size: 11px; color: var(--ink-2); line-height: 1.5; }
+
+/* CASE QUOTE */
+.case-quote {
+  background: white; border-left: 3px solid var(--teal);
+  border-radius: 0 6px 6px 0; padding: 10px 14px;
+  margin: 8px 0; font-size: 12.5px; line-height: 1.6;
+  color: var(--ink); font-family: 'Crimson Pro', serif; font-style: italic;
+}
+.case-meta {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-style: normal; font-size: 10px; color: var(--muted);
+  margin-top: 6px; display: block;
+}
+
+/* DELETABLE */
+.deletable { position: relative; }
+.del-btn {
+  display: none; position: absolute; top: -6px; right: -6px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--rose); color: white;
+  font-size: 9px; font-weight: 700; cursor: pointer;
+  align-items: center; justify-content: center;
+  z-index: 10; border: 2px solid white;
+  box-shadow: 0 1px 4px rgba(0,0,0,.25);
+}
+.deletable:hover > .del-btn { display: flex; }
+.deletable:has(.deletable:hover) > .del-btn { display: none; }
+
+[contenteditable]:hover { background: rgba(123,104,200,.06); border-radius: 3px; }
+[contenteditable]:focus { background: rgba(123,104,200,.10); outline: 2px solid var(--purple); border-radius: 3px; }
+
+/* PAGE BREAKS */
+.page-break-line {
+  position: absolute; left: 0; right: 0;
+  border-top: 2px dashed #9080bc;
+  pointer-events: none; z-index: 10;
+}
+.page-break-label {
+  position: absolute; right: 10px; top: -11px;
+  background: #9080bc; color: white;
+  font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  padding: 1px 8px; border-radius: 9999px;
+}
+.page-footer-bar {
+  position: absolute; left: 0; right: 0; height: 20px;
+  display: none;
+  justify-content: space-between; align-items: center;
+  padding: 0 24px;
+  font-family: 'Inter', sans-serif; font-size: 7.5px; font-weight: 500;
+  color: var(--muted); letter-spacing: .05em; text-transform: uppercase;
+  border-top: 0.5px solid var(--rule); background: var(--surface);
+  pointer-events: none; z-index: 8;
+}
+
+/* SPACER */
+.spacer-block {
+  position: relative; height: 48px; margin: 4px 0; border-radius: 6px;
+  border: 1.5px dashed var(--purple-light);
+  background: repeating-linear-gradient(45deg, transparent, transparent 6px,
+    rgba(123,104,200,.05) 6px, rgba(123,104,200,.05) 12px);
+  display: flex; align-items: center; justify-content: center; cursor: default;
+}
+.spacer-label {
+  font-size: 9px; color: var(--purple-light); letter-spacing: .12em;
+  text-transform: uppercase; user-select: none; pointer-events: none;
+}
+
+/* FOOTER */
+.footer {
+  margin: 18px 20px 0;
+  padding-top: 8px; border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 8px; color: var(--muted); font-family: 'Inter', sans-serif;
+}
+
+@media print {
+  @page { size: A4; margin: 10mm 12mm; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: white; padding: 0; }
+  #toolbar, .page-break-line, .del-btn { display: none !important; }
+  .page-footer-bar { display: flex !important; }
+  .footer { display: none !important; }
+  .page-wrap { box-shadow: none; width: 100%; }
+  [contenteditable]:hover, [contenteditable]:focus { background: transparent !important; box-shadow: none !important; }
+  .spacer-block { background: transparent !important; border: none !important; }
+  .spacer-label { display: none !important; }
+  .input-span:empty::before { display: none; }
+  .header-emoji-box { background: #ede8f8; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOOLBAR -->
+<div id="toolbar">
+  <span class="tb-hint">Ctrl+B negreta · ✕ elimina · Ctrl+Z desfés · Ctrl+S desa</span>
+  <div class="tb-sep"></div>
+  <button class="tb-btn" id="btn-undo" onclick="undoDelete()" disabled>↩ Desfer</button>
+  <button class="tb-btn" onclick="document.execCommand('bold')" title="Negreta (Ctrl+B)">N</button>
+  <button class="tb-btn" onclick="insertSpacer()">＋ Espai</button>
+  <button class="tb-btn" onclick="window.print()">🖨️ Imprimir</button>
+  <button class="tb-btn tb-desa" onclick="desaFitxa()" title="Desa els canvis (Ctrl+S)">💾 Desa</button>
+</div>
+
+<!-- DOCUMENT -->
+<div id="doc">
+  <div class="page-wrap">
+    <div class="content">
+
+      <!-- HEADER -->
+      <div class="header-band deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <div class="header-emoji-box">🔬</div>
+        <div class="header-center">
+          <div class="header-sa" contenteditable="true">La cèl·lula viva · Repte final</div>
+          <div class="header-title" contenteditable="true">La cèl·lula en acció</div>
+          <div class="header-subtitle" contenteditable="true">Crea un pòster que expliqui com treballen les cèl·lules en una situació real</div>
+        </div>
+        <div class="header-right">
+          <div class="logo-box">
+            <img src="/logo_bio_geo_temple.png" alt="IE Temple" style="height:46px;display:block" onerror="this.style.display='none'">
+          </div>
+          <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
+        </div>
+      </div>
+
+      <!-- INFO STRIP -->
+      <div class="info-strip deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <span class="info-tag deletable">Individual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+        <span class="info-tag deletable">Es lliura en digital · s'imprimeix en A3<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+        <span class="info-tag deletable">Classroom<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+        <div class="nom-field deletable">
+          Nom: <span class="input-span" contenteditable="true"></span>
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        </div>
+        <div class="nom-field deletable">
+          Data de lliurament (dia/mes/any): <span class="input-span" contenteditable="true"></span>
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        </div>
+      </div>
+
+      <div class="inner">
+
+        <!-- EL CAS -->
+        <div class="block cas deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="block-title">🩹 El cas: L'Elna es fa un tall al dit</div>
+          <div class="block-body">
+            <div class="case-quote" contenteditable="true">
+              L'Elna prepara el sopar i, sense voler, la ganiveta li fa un tall al dit índex. La ferida és petita però sagna. En dos minuts el sagnat para sol. Al cap d'uns dies, la pell s'ha tancat del tot. L'Elna no ha de fer res: el cos s'ha reparat sol.
+            </div>
+            <p style="font-size:11px;color:var(--ink-2);line-height:1.5;margin-top:8px" contenteditable="true">
+              Darrere d'aquesta curació aparentment senzilla hi ha tres processos cel·lulars que hem estudiat aquestes setmanes: la <strong>divisió cel·lular</strong> (les cèl·lules de la pell es divideixen per mitosi i substitueixen les que s'han perdut), la <strong>respiració cel·lular</strong> (dividir-se i fabricar material nou costa molta energia, i aquesta energia s'obté als mitocondris) i la <strong>membrana</strong> (és la frontera que deixa entrar el que la cèl·lula necessita —oxigen, nutrients— i treure'n els residus). El teu pòster ha d'explicar com funcionen aquests tres processos en el context d'aquesta ferida.
+            </p>
+            <div style="background:#fff;border:1px dashed var(--purple-light);border-radius:6px;padding:7px 10px;margin-top:7px;font-size:10.5px;color:var(--ink-2);line-height:1.5" contenteditable="true">
+              <strong>Per llegir abans de començar.</strong> La pell està formada per cèl·lules. Quan et fas un tall, en moren unes quantes. Les cèl·lules que queden al voltant de la ferida es <strong>divideixen per mitosi</strong> i fan cèl·lules noves i idèntiques que van tapant el forat, fins que la pell torna a ser sencera. No cal que expliquis com para el sagnat: això ho estudiarem més endavant. Centra el pòster en <strong>com es tanca la pell</strong>.
+            </div>
+          </div>
+        </div>
+
+        <!-- QUÈ HA D'INCLOURE -->
+        <div class="block inclou deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="block-title">📋 Què ha d'incloure el teu pòster</div>
+          <div class="block-body">
+            <ul class="elem-list">
+              <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>
+                <div class="elem-num">1</div>
+                <div class="elem-text">
+                  <strong>El context:</strong> presenta el cas de l'Elna en 2-3 frases. Qui és, què li ha passat, quin és el problema a nivell cel·lular.
+                </div>
+              </li>
+              <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>
+                <div class="elem-num">2</div>
+                <div class="elem-text">
+                  <strong>La cèl·lula protagonista:</strong> les protagonistes són les <strong>cèl·lules de la pell</strong> del voltant de la ferida. Quines parts d'aquestes cèl·lules fan la feina de tancar-la, i per quina raó? No llistis orgànuls — explica per quina raó aquella estructura fa possible aquell procés (pensa en el nucli, els mitocondris i la membrana).
+                </div>
+              </li>
+              <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>
+                <div class="elem-num">3</div>
+                <div class="elem-text">
+                  <strong>El procés clau amb un diagrama original ⭐:</strong> explica amb les teves paraules i amb un <em>diagrama que has creat tu</em> (no copiat d'internet) el procés cel·lular central del teu pòster. El diagrama ha de ser una eina d'explicació, no decoració.
+                </div>
+              </li>
+              <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>
+                <div class="elem-num">4</div>
+                <div class="elem-text">
+                  <strong>La connexió amb el cas:</strong> per quina raó allò que passa a nivell cel·lular explica el que li passa a l'Elna? Connecta les dues escales: cèl·lula → cos.
+                </div>
+              </li>
+              <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>
+                <div class="elem-num">5</div>
+                <div class="elem-text">
+                  <strong>La connexió amb la teva vida ⭐:</strong> escriu una secció on expliquis alguna cosa similar que t'hagi passat a tu, a un familiar o a algú proper. No n'hi ha prou amb "a mi també m'han fet un tall" — has d'usar el que has après per explicar científicament el que va passar en aquell cas. <em>Si no se t'acut cap cas propi, pots partir d'un cas que hagis vist o llegit (una ferida esportiva, una cremada lleu, una operació) i explicar-lo igualment amb el que has après.</em>
+                </div>
+              </li>
+              <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>
+                <div class="elem-num">6</div>
+                <div class="elem-text">
+                  <strong>Una pregunta que et queda:</strong> alguna cosa que no has entès del tot o que et genera curiositat. Aquesta pregunta forma part de l'avaluació.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- LES DUES PERSONALITZACIONS -->
+        <div class="block personal deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="block-title">⭐ Les dues coses que fan el teu pòster únic</div>
+          <div class="block-body">
+            <div class="pers-grid">
+              <div class="pers-box b deletable">
+                <div class="del-btn" onclick="deleteEl(this)">✕</div>
+                <div class="pers-box-label">Connexió personal (punt 5)</div>
+                <p>Has d'incloure una experiència real — teva o d'algú proper — i explicar-la amb el vocabulari i els conceptes que has après. Cada pòster serà diferent perquè cada persona té una experiència diferent.</p>
+              </div>
+              <div class="pers-box c deletable">
+                <div class="del-btn" onclick="deleteEl(this)">✕</div>
+                <div class="pers-box-label">Diagrama original (punt 3)</div>
+                <p>El diagrama del procés clau l'has de crear tu: a mà i fotografiat, amb una app de disseny, amb formes simples... L'important és que sigui teu. No es pot usar cap imatge del manual, de Google ni de cap web.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORMAT I LLIURAMENT -->
+        <div class="block format deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div class="block-title">📐 Format, lliurament i presentació</div>
+          <div class="block-body">
+            <div class="format-grid">
+              <div class="format-item">
+                <div class="format-icon">📏</div>
+                <div><strong>Format:</strong> el fas en digital, mida DIN A3 (apaïsat o vertical). No l'has d'imprimir tu: l'imprimeix el docent.</div>
+              </div>
+              <div class="format-item">
+                <div class="format-icon">🖥️</div>
+                <div><strong>Eines:</strong> Canva, Google Slides, PowerPoint, o qualsevol altra eina digital.</div>
+              </div>
+              <div class="format-item">
+                <div class="format-icon">📤</div>
+                <div><strong>Lliurament:</strong> puja el fitxer (PDF o imatge) a Google Classroom abans del <span class="input-span" contenteditable="true" style="min-width:80px"></span> (apunta-hi la data).</div>
+              </div>
+              <div class="format-item">
+                <div class="format-icon">👁️</div>
+                <div><strong>Llegibilitat:</strong> s'imprimirà en blanc i negre, així que el color no ha de ser imprescindible per entendre'l. Pots fer-lo en color, però comprova que també s'entén sense.</div>
+              </div>
+            </div>
+
+            <div class="timeline-box deletable" style="margin-top:10px">
+              <div class="del-btn" onclick="deleteEl(this)">✕</div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-text"><strong>Dia de la prova escrita (<span class="input-span" contenteditable="true" style="min-width:70px"></span>):</strong> lliurament del pòster a Classroom</div>
+              </div>
+              <div style="color:var(--purple-light);font-size:18px;font-weight:900">→</div>
+              <div class="timeline-item">
+                <div class="timeline-dot" style="background:var(--orange)"></div>
+                <div class="timeline-text"><strong>La setmana següent (<span class="input-span" contenteditable="true" style="min-width:70px"></span>):</strong> vídeo de presentació del pòster (2-3 min)</div>
+              </div>
+            </div>
+
+            <div class="video-box deletable" style="margin-top:10px">
+              <div class="del-btn" onclick="deleteEl(this)">✕</div>
+              <div style="font-size:22px;flex-shrink:0">🎥</div>
+              <p contenteditable="true">
+                <strong>La presentació en vídeo (la setmana següent):</strong> et graves explicant el pòster en 2-3 minuts. Pots tenir el pòster davant teu, però <strong>no pots llegir-lo</strong> — has d'explicar-ho amb les teves paraules. El vídeo es puja a Classroom. S'avalua la claredat de l'explicació oral, no la qualitat de la gravació.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CRITERIS D'AVALUACIÓ (previsualització) -->
+        <div style="background:var(--purple-tint);border:1.5px solid var(--purple-light);border-radius:8px;padding:10px 14px;margin-bottom:10px;position:relative" class="deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <div style="font-family:'Fira Sans Extra Condensed',sans-serif;font-size:13px;font-weight:900;color:var(--purple-ink);margin-bottom:6px">🎯 Amb quins criteris s'avaluarà el teu pòster i el vídeo</div>
+          <div style="font-size:10px;color:var(--muted);margin-bottom:5px">A sota tens, per a cada criteri, <strong>què has de fer per arribar al nivell més alt (Excel·lent)</strong>. La rúbrica sencera, amb els quatre nivells, la tens al document de la rúbrica.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px 16px">
+            <div style="font-size:10.5px;color:var(--ink-2);padding:3px 0;border-bottom:1px solid var(--rule)"><strong>① Expliques el <em>per quina raó</em>, no només el <em>què</em></strong><br><span style="color:var(--muted)">Excel·lent: cada afirmació va acompanyada de la seva causa («…perquè el mitocondri…»), sense quedar-te en la descripció.</span></div>
+            <div style="font-size:10.5px;color:var(--ink-2);padding:3px 0;border-bottom:1px solid var(--rule)"><strong>② La ciència que uses és correcta</strong><br><span style="color:var(--muted)">Excel·lent: cap error de concepte i fas servir el vocabulari precís (mitosi, mitocondri, membrana) al lloc que toca.</span></div>
+            <div style="font-size:10.5px;color:var(--ink-2);padding:3px 0;border-bottom:1px solid var(--rule)"><strong>③ El diagrama és original i ajuda a entendre</strong><br><span style="color:var(--muted)">Excel·lent: l'has fet tu, s'entén sense llegir el text i mostra el procés (no és decoració).</span></div>
+            <div style="font-size:10.5px;color:var(--ink-2);padding:3px 0;border-bottom:1px solid var(--rule)"><strong>④ Connectes el cas amb la teva vida científicament</strong><br><span style="color:var(--muted)">Excel·lent: expliques el teu cas amb els mateixos conceptes del pòster, no només l'expliques.</span></div>
+            <div style="font-size:10.5px;color:var(--ink-2);padding:3px 0;border-bottom:1px solid var(--rule)"><strong>⑤ T'expliques amb claredat al vídeo</strong><br><span style="color:var(--muted)">Excel·lent: expliques amb les teves paraules, sense llegir, i se't segueix del principi al final.</span></div>
+            <div style="font-size:10.5px;color:var(--ink-2);padding:3px 0;border-bottom:1px solid var(--rule)"><strong>⑥ El pòster és llegible i ben organitzat</strong><br><span style="color:var(--muted)">Excel·lent: se sap per on començar a llegir, les seccions es distingeixen i s'entén imprès en blanc i negre.</span></div>
+            <div style="font-size:10.5px;color:var(--ink-2);padding:3px 0;border-bottom:1px solid var(--rule)"><strong>⑦ La pregunta que et queda (punt 6)</strong><br><span style="color:var(--muted)">Excel·lent: és una pregunta que neix del que has entès i que no es respon amb un sí o un no.</span></div>
+          </div>
+        </div>
+
+      </div><!-- /inner -->
+
+      <!-- FOOTER -->
+      <div class="footer deletable">
+        <div class="del-btn" onclick="deleteEl(this)">✕</div>
+        <span contenteditable="true">IE Temple · Biologia i Geologia · 3r ESO · Curs 2025–2026</span>
+        <span contenteditable="true">La cèl·lula viva · Repte final</span>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /page-wrap -->
+</div><!-- /doc -->
+
+<script>
+// ELIMINACIÓ + HISTORIAL
+const delStack = [];
+function deleteEl(btn) {
+  const el = btn.closest('.deletable');
+  if (!el) return;
+  delStack.push({ el, parent: el.parentElement, sibling: el.nextSibling });
+  el.remove();
+  document.getElementById('btn-undo').disabled = false;
+  schedulePageBreaks();
+}
+function undoDelete() {
+  if (!delStack.length) return;
+  const { el, parent, sibling } = delStack.pop();
+  parent.insertBefore(el, sibling || null);
+  if (!delStack.length) document.getElementById('btn-undo').disabled = true;
+  schedulePageBreaks();
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'z' && (e.ctrlKey || e.metaKey) && document.activeElement.contentEditable !== 'true') {
+    e.preventDefault(); undoDelete();
+  }
+});
+
+// PAGE BREAKS
+const PAGE_H = 1047;
+let _pbTimer = null;
+const PB_OPTS = { childList: true, subtree: true, characterData: true, attributes: false };
+function updatePageBreaks() {
+  pbObserver.disconnect();
+  const doc = document.getElementById('doc');
+  doc.querySelectorAll('.page-break-line').forEach(n => n.remove());
+  doc.querySelectorAll('.page-footer-bar').forEach(n => n.remove());
+  const total = doc.scrollHeight;
+  const numPages = Math.ceil(total / PAGE_H);
+  for (let p = 1; p * PAGE_H < total; p++) {
+    const line = document.createElement('div');
+    line.className = 'page-break-line';
+    line.style.top = (p * PAGE_H) + 'px';
+    const label = document.createElement('div');
+    label.className = 'page-break-label';
+    label.textContent = 'Pàgina ' + (p + 1);
+    line.appendChild(label);
+    doc.appendChild(line);
+  }
+  for (let p = 1; p <= numPages; p++) {
+    const bar = document.createElement('div');
+    bar.className = 'page-footer-bar';
+    bar.style.top = (p * PAGE_H - 22) + 'px';
+    bar.innerHTML = '<span>IE Temple · Biologia i Geologia · 3r ESO</span><span>' + p + ' / ' + numPages + '</span>';
+    doc.appendChild(bar);
+  }
+  pbObserver.observe(doc, PB_OPTS);
+}
+function schedulePageBreaks() {
+  clearTimeout(_pbTimer);
+  _pbTimer = setTimeout(updatePageBreaks, 350);
+}
+window.addEventListener('load', updatePageBreaks);
+const pbObserver = new MutationObserver(schedulePageBreaks);
+pbObserver.observe(document.getElementById('doc'), PB_OPTS);
+
+// SPACER
+let _lastClickedBlock = null;
+document.addEventListener('click', e => {
+  const content = document.querySelector('.content');
+  let node = e.target;
+  while (node && node.parentElement !== content) node = node.parentElement;
+  if (node && node !== content && !node.classList.contains('spacer-block')) _lastClickedBlock = node;
+});
+function insertSpacer() {
+  const sp = document.createElement('div');
+  sp.className = 'spacer-block deletable';
+  sp.innerHTML = '<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai en blanc</span>';
+  const content = document.querySelector('.content');
+  const footer = document.querySelector('.footer');
+  let ref = footer || null;
+  if (_lastClickedBlock && _lastClickedBlock.parentElement === content) ref = _lastClickedBlock.nextSibling;
+  content.insertBefore(sp, ref);
+  delStack.push({ el: sp, parent: content, sibling: sp.nextSibling });
+  document.getElementById('btn-undo').disabled = false;
+  schedulePageBreaks();
+}
+
+// DESAR
+function _fitxaToast(msg) {
+  let t = document.getElementById('fitxa-toast');
+  if (!t) {
+    t = document.createElement('div'); t.id = 'fitxa-toast';
+    t.style.cssText = 'position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3a2d6e;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg; t.style.opacity = '1';
+  clearTimeout(t._h); t._h = setTimeout(() => t.style.opacity = '0', 2200);
+}
+async function desaFitxa() {
+  const clone = document.documentElement.cloneNode(true);
+  clone.querySelectorAll('.page-break-line,.page-footer-bar,#fitxa-toast').forEach(n => n.remove());
+  const html = '<!DOCTYPE html>\n' + clone.outerHTML;
+  const fname = (location.pathname.split('/').pop() || 'enunciat_poster_sa1.html');
+  if (window.showSaveFilePicker) {
+    try {
+      const h = await window.showSaveFilePicker({ suggestedName: fname, types: [{ description: 'Pàgina HTML', accept: { 'text/html': ['.html'] } }] });
+      const w = await h.createWritable(); await w.write(html); await w.close();
+      _fitxaToast('✓ Canvis desats al fitxer'); return;
+    } catch (e) { if (e.name === 'AbortError') return; }
+  }
+  const blob = new Blob([html], { type: 'text/html' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = fname;
+  document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(a.href);
+  _fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 's' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); desaFitxa(); }
+});
+</script>
+</body>
+</html>
