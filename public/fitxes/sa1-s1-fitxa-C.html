@@ -246,7 +246,7 @@ span[contenteditable] { display:inline-block; }
     </div>
     <div class="header-right">
       <div class="logo-box">
-        <img src="../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
+        <img src="/logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
       </div>
       <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
     </div>
@@ -255,7 +255,7 @@ span[contenteditable] { display:inline-block; }
   <div class="nivell-strip deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <span class="nivell-label deletable" contenteditable="true">Amb suport visual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
-    <span class="temps-badge deletable" contenteditable="true">⏱️ 2h total<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <span class="temps-badge deletable" contenteditable="true">⏱️ 2h total (10+30+30+25 · tiquet 12 · metacognició 5)<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
     <div class="nom-field deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
@@ -297,7 +297,8 @@ span[contenteditable] { display:inline-block; }
         </div>
 
         <p style="margin-top:10px">✏️ <span contenteditable="true"><strong>2.</strong> Pots estar molts dies sense menjar. Però només uns minuts sense respirar. Què creus que passa si NO respires? Acaba la frase:</span></p>
-        <div class="wline" contenteditable="true">Si no respiro, el meu cos </div>
+        <div style="font-size:9px;color:var(--muted);font-style:italic;margin-bottom:1px">Pots comen&ccedil;ar aix&iacute;: &laquo;Si no respiro, el meu cos&hellip;&raquo;</div>
+        <div class="wline" contenteditable="true"></div>
       </div>
 
       <div class="connexio-box mt8 deletable">
@@ -313,7 +314,7 @@ span[contenteditable] { display:inline-block; }
       <div class="section-header">
         <div class="snum" style="background:var(--orange)">1</div>
         <div>
-          <div class="stitle" contenteditable="true">Mira dins la cèl·lula <span class="temps deletable" contenteditable="true">⏱️ 25 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="stitle" contenteditable="true">Mira dins la cèl·lula <span class="temps deletable" contenteditable="true">⏱️ 30 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
           <div class="sdesc" contenteditable="true">Obre la web i busca les 3 parts</div>
         </div>
       </div>
@@ -325,23 +326,61 @@ span[contenteditable] { display:inline-block; }
         <div class="info-head">📖 Per llegir</div>
         <p contenteditable="true">La <strong>cèl·lula</strong> és la cosa viva més petita. Tot el teu cos està fet de cèl·lules: la pell, els músculs, la sang...</p>
         <p contenteditable="true">Una cèl·lula té parts. Avui en mirem <strong>3</strong>: la <strong>membrana</strong>, el <strong>nucli</strong> i el <strong>mitocondri</strong>.</p>
+        <p contenteditable="true">Dins el <strong>nucli</strong> hi ha l&rsquo;<strong>ADN</strong>: el manual d&rsquo;instruccions de la c&egrave;l&middot;lula, que diu com s&rsquo;ha de fer cada cosa.</p>
       </div>
 
       <figure class="deletable" style="margin:8px 0 10px;text-align:center;position:relative">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <img src="../imatges_material_grafic/celula_animal_etiquetable.png"
+        <img src="/fitxes/img/celula_animal_3_marcadors.png"
              alt="Cèl·lula amb les seves parts"
              style="max-width:100%;max-height:240px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
-             onerror="this.style.display='none'">
-        <figcaption style="font-size:9.5px;color:var(--muted);margin-top:4px;font-style:italic">Una cèl·lula per dins. Les caixes buides amb fletxa són per escriure-hi el nom. <strong>Tu només n'has d'omplir 3</strong>: la <strong>membrana</strong> (la línia de fora que ho envolta tot), el <strong>nucli</strong> (la bola gran del mig) i un <strong>mitocondri</strong> (les peces taronges petites, n'hi ha uns quants). Les altres caixes deixa-les en blanc.</figcaption>
+             onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='/fitxes/img/celula_animal_etiquetable.png';}else{this.style.display='none';}">
+        <figcaption style="font-size:9.5px;color:var(--ink-2);margin-top:4px">Una c&egrave;l&middot;lula per dins. A la llegenda de sota tens les <strong>3 parts</strong> que mirem avui, cada una amb el seu <strong>color</strong>: busca-les al dibuix. Els requadres buits del dibuix <strong>no s&rsquo;han d&rsquo;omplir</strong>.</figcaption>
       </figure>
+
+      <div class="deletable" style="position:relative;border:1.5px solid var(--rule-dark);border-radius:8px;padding:6px 10px;margin:0 0 10px">
+        <div class="del-btn" onclick="deleteEl(this)">&#10005;</div>
+        <div style="font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:5px">Llegenda del dibuix</div>
+        <div style="display:grid;grid-template-columns:26px 1fr;gap:6px 8px;align-items:center;font-size:11.5px">
+          <div style="width:22px;height:22px;border-radius:50%;background:#6f8fb0;border:2px solid #3f6285;display:flex;align-items:center;justify-content:center"></div><div contenteditable="true"><strong>Membrana</strong> &mdash; la l&iacute;nia <strong>blava</strong> de fora, que ho envolta tot.</div>
+          <div style="width:22px;height:22px;border-radius:50%;background:#c9a2dd;border:2px solid #8e5faa;display:flex;align-items:center;justify-content:center"></div><div contenteditable="true"><strong>Nucli</strong> &mdash; la bola gran <strong>lila</strong> del mig.</div>
+          <div style="width:22px;height:22px;border-radius:50%;background:#f0a86a;border:2px solid #c47a3c;display:flex;align-items:center;justify-content:center"></div><div contenteditable="true"><strong>Mitocondri</strong> &mdash; les pe&ccedil;es <strong>taronges</strong> petites (n&rsquo;hi ha uns quants).</div>
+        </div>
+      </div>
 
       <p style="font-size:11.5px;color:var(--ink-2);margin-bottom:4px" contenteditable="true">✏️ Obre l'aplicació <strong>«La cèl·lula per dins»</strong> (a la pàgina de la sessió al Classroom). Busca aquestes 3 parts i marca la casella ✔ quan trobis cada una:</p>
       <ul class="find-list">
-        <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="find-chk"></span><span class="find-pic">🛡️</span><span contenteditable="true"><strong>La membrana</strong> — la "pell" que envolta la cèl·lula</span></li>
-        <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="find-chk"></span><span class="find-pic">🔵</span><span contenteditable="true"><strong>El nucli</strong> — la bola del mig que mana</span></li>
-        <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="find-chk"></span><span class="find-pic">⚡</span><span contenteditable="true"><strong>El mitocondri</strong> — on es fa l'energia</span></li>
+        <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="find-chk"></span><span class="find-pic">🔵</span><span contenteditable="true"><strong>La membrana</strong> — la "pell" que envolta la cèl·lula</span></li>
+        <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="find-chk"></span><span class="find-pic">🟣</span><span contenteditable="true"><strong>El nucli</strong> — la bola del mig que mana</span></li>
+        <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="find-chk"></span><span class="find-pic">🟠</span><span contenteditable="true"><strong>El mitocondri</strong> — on es fa l'energia</span></li>
       </ul>
+
+      <!-- Nivells d'organitzacio: C tambe els necessita, l'entrega de la Sessio 2 es comuna -->
+      <div class="info-box deletable" style="margin-top:10px">
+        <div class="del-btn" onclick="deleteEl(this)">&#10005;</div>
+        <div class="info-head">&#128214; Per llegir &mdash; de la c&egrave;l&middot;lula fins a tu</div>
+        <p contenteditable="true">Una c&egrave;l&middot;lula sola &eacute;s molt petita. Moltes c&egrave;l&middot;lules iguals juntes fan un <strong>teixit</strong>. Diversos teixits junts fan un <strong>&ograve;rgan</strong> (com el cor). Diversos &ograve;rgans que treballen junts fan un <strong>aparell</strong>. I tots els aparells junts fan un <strong>organisme</strong>: tu.</p>
+        <p contenteditable="true">La c&egrave;l&middot;lula &eacute;s el <strong>primer</strong> nivell que ja est&agrave; <strong>viu</strong>. El que hi ha per sota (&agrave;tom, mol&egrave;cula, org&agrave;nul) no viu tot sol.</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:5px;flex-wrap:wrap;margin-top:6px;font-size:10px;text-align:center">
+          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#9883;&#65039;<br>&Agrave;tom</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#128167;<br>Mol&egrave;cula</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#129496;<br>Org&agrave;nul</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:2px solid var(--orange);border-radius:8px;padding:3px 7px;background:var(--orange-tint);font-weight:900;color:var(--orange)">&#11088;<br>C&egrave;l&middot;lula</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#129525;<br>Teixit</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#10084;&#65039;<br>&Ograve;rgan</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#129729;<br>Aparell</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#129485;<br>Organisme</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#127966;&#65039;<br>Ecosistema</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#127757;<br>Biosfera</span>
+        </div>
+        <p style="font-size:9.5px;color:var(--muted);margin-top:5px;font-style:italic">S&oacute;n <strong>10 nivells</strong>. Aquesta &eacute;s la llista que has de fer servir per a la tasca de casa.</p>
+      </div>
+      <div class="frase-completar deletable">
+        <span class="del-btn" onclick="deleteEl(this)">&#10005;</span>
+        &#9999;&#65039; Encercla el que <strong>NO</strong> pot viure tot sol, separat de la resta:&nbsp;
+        <span class="circ-opt" contenteditable="true">un mitocondri</span>&nbsp;
+        <span class="circ-opt" contenteditable="true">una c&egrave;l&middot;lula de la pell</span>.
+      </div>
     </div>
 
     <!-- ── Secció 2: La cèl·lula necessita menjar i aire ── -->
@@ -350,7 +389,7 @@ span[contenteditable] { display:inline-block; }
       <div class="section-header">
         <div class="snum" style="background:var(--teal)">2</div>
         <div>
-          <div class="stitle" contenteditable="true">Menjar + aire = energia <span class="temps deletable" contenteditable="true">⏱️ 25 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="stitle" contenteditable="true">Menjar + aire = energia <span class="temps deletable" contenteditable="true">⏱️ 30 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
           <div class="sdesc" contenteditable="true">Per què mengem i per què respirem</div>
         </div>
       </div>
@@ -362,6 +401,7 @@ span[contenteditable] { display:inline-block; }
         <div class="info-head">📖 Per llegir</div>
         <p contenteditable="true">Per estar <strong>viva</strong>, la cèl·lula necessita <strong>energia</strong>. L'energia es fa dins el <strong>mitocondri</strong>.</p>
         <p contenteditable="true">El mitocondri necessita <strong>2 coses</strong>: el <strong>menjar</strong> (un sucre que es diu glucosa) i l'<strong>aire</strong> (l'oxigen).</p>
+        <p contenteditable="true">Aquest procés &mdash; cremar el menjar amb l&rsquo;aire per treure&rsquo;n energia &mdash; t&eacute; un nom: <strong>respiraci&oacute; cel&middot;lular</strong>. &Eacute;s el nom que faran servir la professora i els companys, i el sentir&agrave;s tot el curs.</p>
         <div class="cadena">
           <span class="chip">🍎 Menjar</span>
           <span class="cadena-arrow">+</span>
@@ -390,6 +430,7 @@ span[contenteditable] { display:inline-block; }
           <span class="chip c" style="font-size:12.5px;padding:6px 14px">⚡ Energia</span>
         </div>
         <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic;text-align:center">Entren <strong>2 coses</strong> (menjar + aire) i en surt <strong>1</strong>: energia.</figcaption>
+        <p style="font-size:11px;color:var(--ink-2);margin-top:6px" contenteditable="true">&#127939; I si et mous molt (corres, puges escales), els m&uacute;sculs gasten <strong>m&eacute;s energia</strong>. Per aix&ograve; necessiten <strong>m&eacute;s menjar i m&eacute;s aire</strong>: per aix&ograve; respires m&eacute;s de pressa.</p>
       </figure>
 
       <!-- BANNER IDEA CLAU -->
@@ -442,7 +483,7 @@ span[contenteditable] { display:inline-block; }
       <div class="section-header">
         <div class="snum" style="background:var(--rose)">3</div>
         <div>
-          <div class="stitle" contenteditable="true">Ara ho fas tu <span class="temps deletable" contenteditable="true">⏱️ 20 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
+          <div class="stitle" contenteditable="true">Ara ho fas tu <span class="temps deletable" contenteditable="true">⏱️ 25 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
           <div class="sdesc" contenteditable="true">El mateix mètode, però amb el menjar</div>
         </div>
       </div>
@@ -490,7 +531,8 @@ span[contenteditable] { display:inline-block; }
         </div>
         <div class="pas-frase">
           <div class="pas-frase-lab">✏️ Ara escriu UNA frase. Comença així:</div>
-          <div class="wline" contenteditable="true">Si no menjo, el mitocondri no pot </div>
+          <div style="font-size:9px;color:var(--muted);font-style:italic;margin-bottom:1px">Pots comen&ccedil;ar aix&iacute;: &laquo;Si no menjo, el mitocondri no pot&hellip;&raquo;</div>
+          <div class="wline" contenteditable="true"></div>
         </div>
       </div>
 
@@ -501,7 +543,7 @@ span[contenteditable] { display:inline-block; }
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div style="padding:6px 12px">
           <div class="circ-row">
-            <span class="circ-pic">🛡️</span>
+            <span class="circ-pic">🔵</span>
             <span class="circ-lab">Membrana</span>
             <span class="circ-opts">
               <span class="circ-opt" contenteditable="true">deixa entrar i sortir coses</span>
@@ -509,7 +551,7 @@ span[contenteditable] { display:inline-block; }
             </span>
           </div>
           <div class="circ-row">
-            <span class="circ-pic">🔵</span>
+            <span class="circ-pic">🟣</span>
             <span class="circ-lab">Nucli</span>
             <span class="circ-opts">
               <span class="circ-opt" contenteditable="true">mana: hi guarda les instruccions (l'ADN)</span>
@@ -517,7 +559,7 @@ span[contenteditable] { display:inline-block; }
             </span>
           </div>
           <div class="circ-row">
-            <span class="circ-pic">⚡</span>
+            <span class="circ-pic">🟠</span>
             <span class="circ-lab">Mitocondri</span>
             <span class="circ-opts">
               <span class="circ-opt" contenteditable="true">fa l'energia</span>
@@ -534,11 +576,11 @@ span[contenteditable] { display:inline-block; }
         <p contenteditable="true">Els <strong>animals</strong> han de <strong>menjar</strong> altres éssers vius. Les <strong>plantes</strong> NO mengen: fabriquen el seu menjar amb la llum del sol. Això es diu <strong>fotosíntesi</strong>.</p>
         <p contenteditable="true">Però atenció: la planta es fa el menjar... i després l'ha de fer servir. Les plantes <strong>també tenen mitocondris</strong> i <strong>també respiren</strong>, igual que tu. Fer-se el menjar i treure'n l'energia són dues coses diferents.</p>
       </div>
-      <div class="frase-completar deletable" contenteditable="true">
+      <div class="frase-completar deletable">
         <span class="del-btn" onclick="deleteEl(this)">✕</span>
         ✏️ Encercla: una <strong>planta</strong> fa el seu menjar amb la llum del&nbsp;
         <span class="circ-opt" contenteditable="true">sol</span>&nbsp;
-        <span class="circ-opt" contenteditable="true">la terra del test</span>.
+        <span class="circ-opt" contenteditable="true">l&rsquo;aigua que reguem</span>.
       </div>
     </div>
 
@@ -547,7 +589,7 @@ span[contenteditable] { display:inline-block; }
     <!-- ── METACOGNICIÓ ── -->
     <div class="section deletable" style="margin-top:14px">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <p style="font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:6px">🧠 Metacognició — 3 min</p>
+      <p style="font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:6px">🧠 Metacognició — 5 min</p>
 
       <div class="meta-oa-box deletable" style="margin-bottom:8px">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -606,6 +648,11 @@ span[contenteditable] { display:inline-block; }
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="tasca-num">2</div>
         <div contenteditable="true"><strong>🥚 Posa un ou en vinagre (per a la S2):</strong> posa un ou sencer dins un got amb <strong>vinagre blanc</strong>. Tapa'l i deixa'l <strong>48 hores</strong>. Mira què li passa a la closca.</div>
+      </div>
+      <div class="tasca-item deletable">
+        <div class="del-btn" onclick="deleteEl(this)">&#10005;</div>
+        <div class="tasca-num">3</div>
+        <div contenteditable="true"><strong>&#127959;&#65039; Ensenya els 10 nivells (entrega a la Sessi&oacute; 2):</strong> tria com ho vols ensenyar &mdash; una maqueta, cartolines, un p&ograve;ster o un c&ograve;mic. Ha de tenir els <strong>10 nivells en ordre</strong>, de l&rsquo;&agrave;tom a la biosfera, amb el nom de cada un i la c&egrave;l&middot;lula ben marcada. Copia&rsquo;ls de la franja de la Secci&oacute; 1 d&rsquo;aquesta fitxa. Tens una fitxa-bastida per anar-te guiant.</div>
       </div>
     </div>
 
