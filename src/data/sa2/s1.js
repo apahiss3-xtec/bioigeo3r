@@ -107,12 +107,12 @@ export const sa2s1 = {
   fitxaGuide: {
     fitxaName: "Fitxa S1 — Nutrients",
     steps: [
-      { apartat: "0", title: "Idees prèvies", time: "5 min", phase: "engage", instruction: "Omple l'apartat 0 — Idees prèvies del full: quins nutrients coneixes? Quina diferència hi ha entre nutrient i aliment? No es corregeix.", hints: [] },
-      { apartat: "1", title: "Pràctica de laboratori", time: "25 min", phase: "explore", instruction: "Durant els tests, omple la taula de l'apartat 1 del full: resultat del test de iode (midó) i del paper (greixos) per a cada aliment.", hints: [
+      { apartat: "0", title: "Idees prèvies", time: "10 min", phase: "engage", instruction: "Omple l'apartat 0 — Idees prèvies del full: quins nutrients coneixes? Quina diferència hi ha entre nutrient i aliment? No es corregeix.", hints: [] },
+      { apartat: "1", title: "Pràctica de laboratori", time: "35 min", phase: "explore", instruction: "Durant els tests, omple la taula de l'apartat 1 del full: resultat del test de iode (midó) i del paper (greixos) per a cada aliment.", hints: [
         "Anota la teva hipòtesi ABANS de fer cada test: després compara-la amb el resultat.",
         "Si un aliment dona un resultat que no esperaves, no l'esborris: aquest és el cas interessant per pensar-hi."
       ] },
-      { apartat: "2", title: "Els 6 nutrients essencials", time: "20 min", phase: "explica", instruction: "Omple els espais en blanc de l'apartat 2 del full: cada nutrient amb la seva funció.", hints: [
+      { apartat: "2", title: "Els cinc nutrients i per a què serveixen", time: "25 min", phase: "explica", instruction: "Omple els espais en blanc de l'apartat 2 del full: cada nutrient amb la seva funció.", hints: [
         "Per a cada nutrient pensa la FUNCIÓ al cos, no només exemples d'aliments.",
         "Quin nutrient és el combustible ràpid? Quin construeix i repara? Quin forma part de la membrana cel·lular?"
       ] }
@@ -121,8 +121,8 @@ export const sa2s1 = {
 
   exitTicketType: "paper",
   exitTicketQuestions: [
-    { id: "q1", type: "open", text: "Explica per quina raó el corredor necessita sobretot hidrats durant la cursa. Usa la connexió glucosa → mitocondri → ATP.", hint: "Segueix la cadena: hidrats → glucosa → on va la glucosa? → què hi produeix? El múscul en cursa necessita molt d'això." },
-    { id: "q2", type: "open", text: "El test de iode dona negatiu amb la poma. Significa que no té hidrats? Explica per quina raó sí o per quina raó no.", hint: "El iode només detecta un tipus d'hidrat (el midó). La poma té sucre, però del mateix tipus que detecta el test?" },
+    { id: "q1", type: "open", text: "La Mercè corre 10 km. Explica per quina raó necessita sobretot hidrats durant la cursa. Usa la connexió glucosa → mitocondri → ATP.", hint: "Estructura: comença per «Quan la Mercè corre, els seus músculs…» i acaba dient què obté la cèl·lula al final." },
+    { id: "q2", type: "open", text: "El test de iode dona negatiu amb la poma. Significa que no té hidrats? Explica per quina raó sí o per quina raó no.", hint: "Estructura: digues primer què detecta el test i després què té la poma. La resposta és «sí» o «no» + una raó." },
     { id: "q3", type: "multiple", text: "Quin és el nutrient que fabrica la membrana cel·lular?", options: ["Greixos (fosfolípids)", "Hidrats de carboni", "Proteïnes", "Vitamines"], correct: 0 }
   ],
 
@@ -138,5 +138,5 @@ export const sa2s1 = {
     "Prepara igualment els 3 productes fotografiats — es defensarà oralment a S2",
     "Exit tiquet en paper a S2 o online aquí"
   ],
-  oaLinks: ["OA1"], competencies: ["CE2", "CE1"]
+  oaLinks: ["OA1"], competencies: ["CE1", "CE2", "CE3"]
 }

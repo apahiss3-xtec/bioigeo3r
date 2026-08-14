@@ -178,6 +178,22 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .fig-grid.g2 { grid-template-columns:1fr 1fr; }
 .dfig { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:6px; text-align:center; }
 .dfig img { max-width:100%; max-height:165px; object-fit:contain; display:block; margin:0 auto; }
+.tube-row { display:flex; gap:26px; justify-content:center; align-items:flex-end; margin:6px 0 2px; }
+.tube { width:74px; text-align:center; }
+.tube .glass { width:44px; height:120px; margin:0 auto; border:2.5px solid #8a8fa6; border-top:none;
+  border-radius:0 0 22px 22px; background:#fff; display:flex; align-items:flex-end; overflow:hidden; }
+.tube .liq { width:100%; height:66%; }
+.tube .liq.pos { background:#1d2340; }
+.tube .liq.neg { background:#d79a3c; }
+.tube .tcap { font-size:10px; font-weight:700; margin-top:5px; line-height:1.3; }
+.nutri-label { width:250px; margin:6px auto 2px; border:2px solid #333; border-radius:4px; background:#fff;
+  font-size:10.5px; font-family:inherit; }
+.nutri-label .nl-h { background:#333; color:#fff; font-weight:700; text-align:center; padding:3px; letter-spacing:.04em; }
+.nutri-label table { width:100%; border-collapse:collapse; }
+.nutri-label td { padding:2px 7px; border-bottom:1px solid #bbb; }
+.nutri-label td.v { text-align:right; font-variant-numeric:tabular-nums; }
+.nutri-label tr.sub td { padding-left:18px; font-style:italic; color:#555; }
+.nutri-label tr.big td { font-weight:700; }
 .fig-cap { font-size:9px; color:var(--muted); margin-top:4px; line-height:1.3; }
 
 
@@ -225,7 +241,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="header-subtitle" contenteditable="true">Què s'amaga dins el que mengem — i per què el cos ho necessita</div>
   </div>
   <div class="header-right">
-    <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
+    <div class="logo-box"><img src="/logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
     <div class="header-meta" contenteditable="true">3r ESO</div>
   </div>
 </div>
@@ -245,6 +261,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <li contenteditable="true">Sé dir el nom de 5 nutrients: hidrats, greixos, proteïnes, vitamines i minerals, i aigua.</li>
     <li contenteditable="true">Sé que els hidrats donen glucosa i que la glucosa dóna energia a la cèl·lula.</li>
     <li contenteditable="true">Sé fer el test del iode: si l'aliment es torna molt fosc, hi ha midó.</li>
+    <li contenteditable="true">Sé fer el test del greix: si el paper queda translúcid, hi ha greix.</li>
     <li contenteditable="true">Sé llegir una etiqueta i dir quin nutrient hi predomina.</li>
     <li contenteditable="true">Sé que un aliment ultraprocessat té molts ingredients i sovint molt sucre.</li>
   </ul>
@@ -263,6 +280,10 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <span class="chip" contenteditable="true">proteïnes = material de construcció (aminoàcids)</span>
     <span class="chip" contenteditable="true">greixos (lípids) = energia de reserva i part de la membrana cel·lular</span>
     <span class="chip" contenteditable="true">midó = hidrat de reserva dels vegetals; el detecta el iode (lugol)</span>
+    <span class="chip" contenteditable="true">sucres simples (glucosa, fructosa) i midó són <strong>tots dos</strong> hidrats de carboni</span>
+    <span class="chip" contenteditable="true">aminoàcids = les peces petites amb què el cos fabrica les proteïnes</span>
+    <span class="chip" contenteditable="true">fosfolípid = el tipus de greix que forma la membrana de la cèl·lula</span>
+    <span class="chip" contenteditable="true">translúcid = deixa passar la llum (com el paper tacat d'oli)</span>
     <span class="chip" contenteditable="true">ultraprocessat = aliment amb molts ingredients i additius</span>
   </div>
 </div>
@@ -270,15 +291,18 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Idees prèvies — i dos misteris a la paret</div><div class="sdesc" contenteditable="true">Individual · ⏱️ 5 min · No es corregeix ara: ho compararàs al final de la unitat</div></div></div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Idees prèvies — i dos misteris a la paret</div><div class="sdesc" contenteditable="true">Individual · ⏱️ 10 min · No es corregeix ara: ho compararàs al final de la unitat</div></div></div>
   <div class="divider"></div>
   <div class="previ-grid">
     <div class="previ-box">
       <p contenteditable="true"><strong>Quins nutrients coneixes? Quina diferència hi ha entre un nutrient i un aliment?</strong></p>
-      <div class="wline" contenteditable="true">Per a mi, un nutrient és </div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+      <p class="pista" contenteditable="true">Pots començar així: «Per a mi, un nutrient és…»</p>
+      <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     </div>
     <div class="draw-box">
-      <div class="card-label" contenteditable="true">🔮 La teva predicció (abans del laboratori)</div>
+      <div class="card-label" contenteditable="true">✏️ Dibuixa: què creus que li passa a un tros de pa dins el teu cos?</div>
+      <div class="draw-area"></div>
+      <div class="card-label" style="margin-top:6px" contenteditable="true">🔮 La teva predicció (abans del laboratori)</div>
       <p class="frase-completar" contenteditable="false" style="margin-top:6px">Crec que el <strong>pa</strong> té sobretot <span class="blank blank-m"></span>.</p>
       <p class="frase-completar" contenteditable="false">Crec que l'<strong>ametlla</strong> té sobretot <span class="blank blank-m"></span>.</p>
       <p class="frase-completar" contenteditable="false">Crec que la <strong>clara d'ou</strong> té sobretot <span class="blank blank-m"></span>.</p>
@@ -288,23 +312,39 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="connexio-box mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="connexio-icon">🔗</div>
-    <div class="connexio-text" contenteditable="true"><strong>Recorda la cèl·lula (unitat anterior):</strong> dins el <strong>mitocondri</strong> es fa la respiració cel·lular <strong>glucosa + O₂ → CO₂ + H₂O + ATP</strong>. Tota aquesta unitat tracta de com el cos aconsegueix aquesta glucosa (dels aliments) i aquest oxigen (de l'aire). A la paret hi ha <strong>dos enigmes</strong> (la gràfica del cor d'una corredora i una analítica de sang) que resoldràs al final.</div>
+    <div class="connexio-text" contenteditable="true"><strong>Recorda la cèl·lula (unitat anterior):</strong> dins el <strong>mitocondri</strong> es fa la respiració cel·lular <strong>glucosa + O₂ → CO₂ + H₂O + ATP</strong>. Tota aquesta unitat tracta de com el cos aconsegueix aquesta glucosa (dels aliments) i aquest oxigen (de l'aire). <br><strong>Qui és la Mercè?</strong> És una noia de 16 anys que corre 10 km amb el club del barri. Fa dues setmanes es va haver d'aturar a mig entrenament, esgotada, i no sap per què. Vol saber què li ha de donar el menjar per aguantar tota la cursa: aquesta és la pregunta que anirem resolent durant tota la unitat.<br>A la paret hi ha <strong>dos enigmes</strong> (la gràfica del cor de la Mercè i una analítica de sang) que resoldràs al final.</div>
   </div>
 </div>
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Laboratori — què s'amaga dins els aliments</div><div class="sdesc" contenteditable="true">En grups de 4 · ⏱️ 35 min · Detectives de nutrients amb lugol i paper</div></div></div>
   <div class="divider"></div>
+  <div class="card teal deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🧭 Com pensarem avui — els 4 passos</div>
+    <p style="font-size:11px;line-height:1.7" contenteditable="true"><strong>1. OBSERVO</strong> — miro bé l'aliment i el color que agafa amb el lugol.<br><strong>2. EM PREGUNTO</strong> — què vol dir aquest color? Què hi deu haver a dins?<br><strong>3. CONNECTO</strong> — ho lligo amb el que ja sé: el iode es torna fosc quan hi ha midó.<br><strong>4. DEDUEIXO</strong> — escric quin nutrient hi ha en aquell aliment.</p>
+  </div>
+
   <div class="card orange deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">🔬 Hipòtesi inicial (abans de tocar res)</div>
+    <div class="card-label" contenteditable="true">🔬 EM PREGUNTO — Hipòtesi inicial (abans de tocar res)</div>
     <p style="font-size:11px" contenteditable="true">Creus que en el pa hi ha midó? I greix en l'ametlla? Com ho comprovaries?</p>
-<div class="wline" contenteditable="true">Crec que sí/no perquè </div><div class="wline" contenteditable="true"></div>
+<p class="pista" contenteditable="true">Pots començar així: «Crec que sí (o que no) perquè…»</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+  </div>
+
+  <div class="dfig deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="tube-row">
+      <div class="tube"><div class="glass"><div class="liq pos"></div></div><div class="tcap" contenteditable="true">✔ POSITIU<br>blau-negre<br><span style="font-weight:400">hi ha midó</span></div></div>
+      <div class="tube"><div class="glass"><div class="liq neg"></div></div><div class="tcap" contenteditable="true">✘ NEGATIU<br>es queda color iode<br><span style="font-weight:400">no hi ha midó</span></div></div>
+    </div>
+    <div class="fig-cap" contenteditable="true">Així es veu el test del iode. Compara sempre el teu tub amb aquests dos.</div>
   </div>
 
   <div class="card teal deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">🧭 Com fer cada test (pas a pas)</div>
+    <div class="card-label" contenteditable="true">👁️ OBSERVO — Com fer cada test (pas a pas)</div>
     <ol style="font-size:11px;padding-left:16px;line-height:1.8">
       <li contenteditable="true"><strong>Test del iode (midó):</strong> posa una gota de lugol a l'aliment. Si es torna molt fosc (gairebé negre) ✔ hi ha midó; si es queda igual ✘ no n'hi ha.</li>
       <li contenteditable="true"><strong>Test del greix:</strong> frega l'aliment sobre el paper. Mira'l al llum: si queda una taca translúcida ✔ hi ha greix.</li>
@@ -315,44 +355,61 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div style="font-size:22px;flex-shrink:0">🔬</div>
     <div style="flex:1">
-      <div class="epist-title" contenteditable="true">Pensa-hi — Per què falla amb la poma?</div>
+      <div class="epist-title" contenteditable="true">💡 DEDUEIXO — Per què el test falla amb la poma?</div>
       <div class="epist-text" contenteditable="true">El test del iode falla amb la poma. <strong>Encercla</strong> la resposta correcta:</div><div class="circ-row" contenteditable="true">1. La poma té sucre de tipus <span class="circ-opt">midó</span> / <span class="circ-opt">fructosa (sucre simple)</span>.</div><div class="circ-row" contenteditable="true">2. El iode només detecta el <span class="circ-opt">midó</span> / <span class="circ-opt">qualsevol sucre</span>.</div><div class="circ-row" contenteditable="true">3. Per això el test diu "no hi ha sucre" quan en realitat sí que n'hi ha: és un <span class="circ-opt">encert</span> / <span class="circ-opt">fals negatiu</span>.</div>
     </div>
   </div>
 </div>
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n2">2</div><div><div class="stitle" contenteditable="true">Els cinc nutrients i per a què serveixen</div><div class="sdesc" contenteditable="true">Amb el professor/a · ⏱️ 20 min · Cada nutrient té una feina al cos i a la cèl·lula</div></div></div>
+  <div class="section-header"><div class="snum n2">2</div><div><div class="stitle" contenteditable="true">Els cinc nutrients i per a què serveixen</div><div class="sdesc" contenteditable="true">Amb el professor/a · ⏱️ 25 min · Cada nutrient té una feina al cos i a la cèl·lula</div></div></div>
   <div class="divider"></div>
 
   <div class="info-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="info-label" contenteditable="true">📖 Per llegir — Per què mengem?</div>
+    <div class="info-label" contenteditable="true">🔗 CONNECTO · 📖 Per llegir — Per què mengem?</div>
     <div class="chain"><span class="chain-chip">🍞 Menges hidrats</span><span class="chain-arrow">→</span><span class="chain-chip">🍬 Es transformen en glucosa</span><span class="chain-arrow">→</span><span class="chain-chip">🩸 La sang la reparteix</span><span class="chain-arrow">→</span><span class="chain-chip">⚡ Al mitocondri es fa ATP</span></div>
     <p contenteditable="true">El cos no fa servir directament el pa o l'ametlla: els <strong>desfà</strong> en nutrients petits. Els hidrats donen <strong>glucosa</strong>, el combustible que la cèl·lula crema dins el <strong>mitocondri</strong> per obtenir energia (ATP). Per això, sense menjar, les cèl·lules no tenen combustible.</p>
-  </div><table class="data-table"><thead><tr><th contenteditable="true" style="text-align:left">Nutrient</th><th contenteditable="true">Funció principal</th><th contenteditable="true">Exemple d'aliment</th><th contenteditable="true">Funció a la cèl·lula</th></tr></thead><tbody><tr class="deletable"><td style="font-weight:700">Hidrats de carboni</td><td style="font-size:10px;color:var(--muted)">Energia ràpida</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Greixos (lípids)</td><td style="font-size:10px;color:var(--muted)">Energia de reserva i membranes</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Proteïnes</td><td style="font-size:10px;color:var(--muted)">Construcció i reparació</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Vitamines i minerals</td><td style="font-size:10px;color:var(--muted)">Regulació</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Aigua</td><td style="font-size:10px;color:var(--muted)">Medi de la vida</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
+  </div><div class="dfig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><img src="/fitxes/img/s1_5nutrients_nivell_c.png" alt="Cinc grups de nutrients" onerror="this.style.display='none'"><div class="fig-cap" contenteditable="true">D'esquerra a dreta: <strong>1</strong> proteïnes (carn, ou) · <strong>2</strong> greixos (oli) · <strong>3</strong> hidrats de carboni (pa, pasta) · <strong>4</strong> vitamines i minerals (fruita, verdura) · <strong>5</strong> aigua i sals minerals.</div></div>
+<p class="pista" contenteditable="true">🧰 Banc de funcions (n'has de col·locar una a cada fila, però estan desordenades): <em>regulació · energia ràpida · el medi on passa tot · construcció i reparació · energia de reserva i membranes</em></p>
+<table class="data-table"><thead><tr><th contenteditable="true" style="text-align:left">Nutrient</th><th contenteditable="true">Funció principal</th><th contenteditable="true">Exemple d'aliment</th><th contenteditable="true">Funció a la cèl·lula</th></tr></thead><tbody><tr class="deletable"><td style="font-weight:700">Hidrats de carboni</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Greixos (lípids)</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Proteïnes</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Vitamines i minerals</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Aigua</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
 </div>
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle" contenteditable="true">Detectius d'etiquetes</div><div class="sdesc" contenteditable="true">En grup · ⏱️ 20 min · El que diu l\'envàs sobre el que menges</div></div></div>
+  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle" contenteditable="true">Detectius d'etiquetes</div><div class="sdesc" contenteditable="true">En grup · ⏱️ 25 min · El que diu l'envàs sobre el que menges</div></div></div>
   <div class="divider"></div>
 
   <div class="card teal deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">✅ Exemple ja resolt (galetes de xocolata)</div>
+    <div class="card-label" contenteditable="true">👁️ OBSERVO — Exemple ja resolt (galetes de xocolata)</div>
     <p style="font-size:11px" contenteditable="true">Nutrient que hi predomina: <strong>hidrats (sucre)</strong>. Ingredients: 14 → molts. El sucre és el 2n ingredient. Conclusió: <strong>és ultraprocessat</strong>, bo com a energia ràpida però no com a aliment principal.</p>
+  </div>
+  <div class="dfig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="nutri-label">
+      <div class="nl-h">INFORMACIÓ NUTRICIONAL — per 100 g</div>
+      <table>
+        <tr class="big"><td>Valor energètic</td><td class="v">2.180 kJ / 520 kcal</td></tr>
+        <tr><td>Greixos</td><td class="v">29 g</td></tr>
+        <tr class="sub"><td>dels quals saturats</td><td class="v">12 g</td></tr>
+        <tr><td>Hidrats de carboni</td><td class="v">57 g</td></tr>
+        <tr class="sub"><td>dels quals sucres</td><td class="v">49 g</td></tr>
+        <tr><td>Proteïnes</td><td class="v">6,3 g</td></tr>
+        <tr><td>Sal</td><td class="v">0,3 g</td></tr>
+      </table>
+    </div>
+    <div class="fig-cap" contenteditable="true">Totes les etiquetes segueixen aquest ordre. Les línies en cursiva («dels quals…») són una <strong>part</strong> de la línia de sobre, no un nutrient nou.</div>
   </div>
   <p class="pista" contenteditable="true">Ara fes el mateix amb l'etiqueta que t'ha tocat:</p><table class="data-table" style="margin-top:6px"><thead><tr><th contenteditable="true" style="text-align:left">Què miro de l'etiqueta</th><th contenteditable="true">La meva resposta</th></tr></thead><tbody><tr class="deletable"><td style="font-weight:700">Nutrient que hi predomina</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">% d'energia que ve dels hidrats</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">% d'energia que ve dels greixos</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Nombre d'ingredients</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">És ultraprocessat? (sí/no i per què)</td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
   <div class="card rose mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">🏃 Pensa en el corredor</div>
-    <p class="frase-completar" contenteditable="false">Per a un corredor, un bon combustible seria un aliment ric en <span class="blank blank-m"></span>, perquè donen <span class="blank blank-m"></span> de pressa.</p>
+    <div class="card-label" contenteditable="true">💡 DEDUEIXO — Pensa en la Mercè</div>
+    <p class="frase-completar" contenteditable="false">Per a la Mercè, un bon combustible seria un aliment ric en <span class="blank blank-m"></span>, perquè donen <span class="blank blank-m"></span> de pressa.</p>
   </div>
 </div>
 <div class="meta-oa-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="meta-oa-title" contenteditable="true">🎯 Torna als objectius del principi — Marca el que has après avui:</div>
-<div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé dir el nom de 5 nutrients: hidrats, greixos, proteïnes, vitamines i minerals, i aigua.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que els hidrats donen glucosa i que la glucosa dóna energia a la cèl·lula.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé fer el test del iode: si l'aliment es torna molt fosc, hi ha midó.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé llegir una etiqueta i dir quin nutrient hi predomina.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que un aliment ultraprocessat té molts ingredients i sovint molt sucre.</div></div>
+  <div class="meta-oa-title" contenteditable="true">⏱️ 15 min (+ 10 min de tiquet de sortida) · 🎯 Torna als objectius del principi — Marca el que has après avui:</div>
+<div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé dir el nom de 5 nutrients: hidrats, greixos, proteïnes, vitamines i minerals, i aigua.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que els hidrats donen glucosa i que la glucosa dóna energia a la cèl·lula.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé fer el test del iode: si l'aliment es torna molt fosc, hi ha midó.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé fer el test del greix: si el paper queda translúcid, hi ha greix.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé llegir una etiqueta i dir quin nutrient hi predomina.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que un aliment ultraprocessat té molts ingredients i sovint molt sucre.</div></div>
   <div class="meta-open">
     <div class="meta-open-label" contenteditable="true">🪞 Al principi, què en pensava de la diferència entre nutrient i aliment? En què he canviat?</div>
 <div class="wline" contenteditable="true"></div>
