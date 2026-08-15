@@ -104,6 +104,9 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 /* ── DIAGRAMA ── */
 .diagram-layout { display:grid; grid-template-columns:230px 1fr; gap:18px; align-items:start; margin:10px 0 12px; }
 .diagram-img-wrap img { width:100%; border-radius:6px; border:1px solid var(--rule); display:block; }
+.diagram-svg svg { width:100%; height:auto; display:block; border:1px solid var(--rule); border-radius:6px; }
+.diagram-svg { display:block; }
+.start-hint { font-size:10.5px; color:var(--muted); font-style:italic; margin:4px 0 1px; }
 .diagram-caption { font-size:9px; color:var(--muted); font-style:italic; text-align:center; margin-top:3px; line-height:1.3; }
 
 /* ── TAULES ── */
@@ -237,7 +240,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <div class="nivell-strip deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <span class="badge deletable" contenteditable="true">Autònom<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
-  <span class="temps-badge deletable">⏱️ 2h total<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+  <span class="temps-badge deletable">⏱️ 2h (120 min) · repartides secció a secció<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true" data-hint="escriu el teu nom"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
   <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true" data-hint="dia/mes/any"></span><span class="nivell-badge-small" title="Versió A — Ampliació">A</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
 </div>
@@ -249,7 +252,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <ul class="oa-list">
     <li contenteditable="true">Argumento com l'estructura de cada tram digestiu (longitud, vellositats, pH) s'adapta a la seva funció.</li>
     <li contenteditable="true">Construeixo el recorregut complet d'un nutrient des del plat fins al mitocondri i en justifico cada pas.</li>
-    <li contenteditable="true">Avaluo críticament el model de simulació: què representa bé i quines limitacions té respecte la digestió real.</li>
+    <li contenteditable="true">Avaluo críticament el model de simulació: què representa bé i quines limitacions té respecte de la digestió real.</li>
     <li contenteditable="true">Connecto la digestió amb la respiració cel·lular (SA1) i amb el rendiment del corredor de la situació inicial.</li>
   </ul>
 </div>
@@ -259,7 +262,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <!-- ══ 0 · IDEES PRÈVIES ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle">Idees prèvies</div><div class="sdesc">Activa el que ja saps — no hi ha respostes dolentes</div></div></div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle">Idees prèvies <span class="sec-min" style="font-family:Inter,sans-serif;font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.05em">· 10 min</span></div><div class="sdesc">Activa el que ja saps — no hi ha respostes dolentes</div></div></div>
   <div class="divider"></div>
   <div class="previ-box">
     <p>Escriu les parts del sistema digestiu que recordes i, si pots, per a què serveix cadascuna:</p>
@@ -272,33 +275,36 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <!-- ══ 1 · POSA NOM AL DIGESTIU ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle">Posa nom al sistema digestiu</div><div class="sdesc">El diagrama té els òrgans numerats. Escriu el nom i la funció de cadascun.</div></div></div>
+  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle">Posa nom al sistema digestiu <span class="sec-min" style="font-family:Inter,sans-serif;font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.05em">· 20 min</span></div><div class="sdesc">El diagrama té els òrgans numerats. Escriu el nom i la funció de cadascun.</div></div></div>
   <div class="divider"></div>
 
   <div class="diagram-layout deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="diagram-img-wrap">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Digestive_system_diagram_numbered.svg/500px-Digestive_system_diagram_numbered.svg.png" alt="Sistema digestiu humà numerat" onerror="this.style.display='none'">
-      <div class="diagram-caption">Sistema digestiu humà numerat · Domini públic · Mariana Ruiz / Wikimedia Commons</div>
+      <img src="img/s2_aparell_digestiu_numerat.png" alt="Esquema del tub digestiu amb els trams numerats" onerror="this.style.display='none';this.parentNode.querySelector('.diagram-svg').style.display='block';">
+      <div class="diagram-svg" style="display:none"><svg viewBox="0 0 230 352" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Esquema del tub digestiu amb deu estructures numerades"><rect width="230" height="352" fill="#fdfcff"/><path d="M92,20 C92,9 138,9 138,20 C138,31 92,31 92,20 Z" fill="#f0edfb" stroke="#4a3b8c" stroke-width="1.7"/><path d="M100,20 C110,26 120,26 130,20" fill="none" stroke="#4a3b8c" stroke-width="1.3"/><path d="M108,30 L108,88 L122,88 L122,30 Z" fill="#f0edfb" stroke="#4a3b8c" stroke-width="1.7"/><path d="M115,88 C88,92 68,108 68,130 C68,154 88,168 112,164 C128,161 137,152 139,142 L128,139 C126,147 120,152 111,154 C93,156 78,145 78,130 C78,113 94,101 115,98 Z" fill="#fdf0e8" stroke="#e8834a" stroke-width="1.7"/><path d="M150,96 C176,92 200,98 206,110 C210,120 200,130 182,132 C166,134 152,126 150,114 Z" fill="#fdf7e2" stroke="#c8960a" stroke-width="1.7"/><path d="M172,134 C180,133 185,139 183,146 C181,152 174,153 170,148 C167,144 168,136 172,134 Z" fill="#fdf7e2" stroke="#c8960a" stroke-width="1.7"/><path d="M139,142 C156,146 164,160 157,172 C151,182 140,186 130,184" fill="none" stroke="#e8834a" stroke-width="7" stroke-linecap="round"/><path d="M139,142 C156,146 164,160 157,172 C151,182 140,186 130,184" fill="none" stroke="#fdf0e8" stroke-width="3.6" stroke-linecap="round"/><path d="M96,170 C112,162 134,163 146,170 C134,178 112,179 96,170 Z" fill="#fce8ed" stroke="#d44a6c" stroke-width="1.6"/><path d="M58,292 L58,206 C58,199 63,194 70,194 L160,194 C167,194 172,199 172,206 L172,292" fill="none" stroke="#3a9e8c" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M58,292 L58,206 C58,199 63,194 70,194 L160,194 C167,194 172,199 172,206 L172,292" fill="none" stroke="#e6f4f1" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M130,184 C130,196 78,198 78,212 C78,226 152,222 152,236 C152,250 78,246 78,260 C78,274 152,270 152,282 C152,290 128,290 120,290" fill="none" stroke="#4a9e5c" stroke-width="7" stroke-linecap="round"/><path d="M130,184 C130,196 78,198 78,212 C78,226 152,222 152,236 C152,250 78,246 78,260 C78,274 152,270 152,282 C152,290 128,290 120,290" fill="none" stroke="#eaf4ec" stroke-width="3.4" stroke-linecap="round"/><path d="M108,300 L108,330 L122,330 L122,300 Z" fill="#e6f4f1" stroke="#3a9e8c" stroke-width="1.7"/><ellipse cx="115" cy="337" rx="9" ry="5" fill="#e6f4f1" stroke="#3a9e8c" stroke-width="1.7"/><path d="M172,292 C172,300 150,302 133,302 L122,302" fill="none" stroke="#3a9e8c" stroke-width="6" stroke-linecap="round"/><line x1="165" y1="18" x2="141" y2="19" stroke="#4a3b8c" stroke-width="1" stroke-dasharray="2,2"/><circle cx="165" cy="18" r="9.5" fill="#fff" stroke="#4a3b8c" stroke-width="1.6"/><text x="165" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="700" fill="#4a3b8c">1</text><line x1="90" y1="58" x2="106" y2="58" stroke="#4a3b8c" stroke-width="1" stroke-dasharray="2,2"/><circle cx="90" cy="58" r="9.5" fill="#fff" stroke="#4a3b8c" stroke-width="1.6"/><text x="90" y="62" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="700" fill="#4a3b8c">2</text><line x1="40" y1="128" x2="68" y2="130" stroke="#e8834a" stroke-width="1" stroke-dasharray="2,2"/><circle cx="40" cy="128" r="9.5" fill="#fff" stroke="#e8834a" stroke-width="1.6"/><text x="40" y="132" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="700" fill="#e8834a">3</text><line x1="190" y1="168" x2="161" y2="168" stroke="#e8834a" stroke-width="1" stroke-dasharray="2,2"/><circle cx="190" cy="168" r="9.5" fill="#fff" stroke="#e8834a" stroke-width="1.6"/><text x="190" y="172" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="700" fill="#e8834a">4</text><circle cx="115" cy="248" r="9.5" fill="#fff" stroke="#4a9e5c" stroke-width="1.6"/><text x="115" y="252" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="700" fill="#4a9e5c">5</text><line x1="34" y1="226" x2="54" y2="222" stroke="#3a9e8c" stroke-width="1" stroke-dasharray="2,2"/><circle cx="34" cy="226" r="9.5" fill="#fff" stroke="#3a9e8c" stroke-width="1.6"/><text x="34" y="230" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="700" fill="#3a9e8c">6</text><line x1="143" y1="330" x2="124" y2="332" stroke="#3a9e8c" stroke-width="1" stroke-dasharray="2,2"/><circle cx="143" cy="330" r="9.5" fill="#fff" stroke="#3a9e8c" stroke-width="1.6"/><text x="143" y="334" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="700" fill="#3a9e8c">7</text><line x1="214" y1="88" x2="200" y2="100" stroke="#c8960a" stroke-width="1" stroke-dasharray="2,2"/><circle cx="214" cy="88" r="9.5" fill="#fff" stroke="#c8960a" stroke-width="1.6"/><text x="214" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="700" fill="#c8960a">8</text><line x1="205" y1="152" x2="186" y2="146" stroke="#c8960a" stroke-width="1" stroke-dasharray="2,2"/><circle cx="205" cy="152" r="9.5" fill="#fff" stroke="#c8960a" stroke-width="1.6"/><text x="205" y="156" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="700" fill="#c8960a">9</text><line x1="74" y1="170" x2="96" y2="170" stroke="#d44a6c" stroke-width="1" stroke-dasharray="2,2"/><circle cx="74" cy="170" r="9.5" fill="#fff" stroke="#d44a6c" stroke-width="1.6"/><text x="74" y="174" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="700" fill="#d44a6c">10</text></svg></div>
+      <div class="diagram-caption">Esquema del tub digestiu · l'ordre és el real, però les mides del dibuix NO són a escala · 1-7 recorregut del menjar · 8-10 glàndules annexes · esquema propi IE Temple</div>
     </div>
     <div>
       <table class="label-table">
         <thead><tr><th>#</th><th>Nom de l'òrgan</th><th>Funció principal</th></tr></thead>
         <tbody>
           <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">1</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">11</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">12</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">15</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">16</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">19</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">18</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">23</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">2</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">3</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">4</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">5</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">6</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">7</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">8</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">9</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">10</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
         </tbody>
       </table>
       <div class="card orange mt8 deletable">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="card-label">Pregunta clau</div>
-        <p style="font-size:12px;font-weight:700">Per quina raó l'intestí prim fa uns 6 metres si l'esòfag funciona amb només 25 cm?</p>
+        <p style="font-size:12px;font-weight:700">A l'estómac el menjar ja està desfet i convertit en quimo. Per quina raó, doncs, els nutrients NO passen a la sang allà i sí que ho fan a l'intestí prim? Dona dos motius diferents.</p>
         <div class="wline" contenteditable="true"></div>
         <div class="wline" contenteditable="true"></div>
       </div>
@@ -309,15 +315,15 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <!-- ══ 2 · OVILLO DE LLANA ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n2">2</div><div><div class="stitle">L'ovillo de llana — longitud real</div><div class="sdesc">Activitat d'escala 1:100 · cada metre real = 1 cm a l'ovillo</div></div></div>
+  <div class="section-header"><div class="snum n2">2</div><div><div class="stitle">El cabdell de llana — longitud real <span class="sec-min" style="font-family:Inter,sans-serif;font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.05em">· 15 min</span></div><div class="sdesc">Activitat d'escala 1:100 · cada metre real = 1 cm de llana</div></div></div>
   <div class="divider"></div>
   <table class="data-table">
-    <thead><tr><th>Tram</th><th>Longitud real</th><th>Longitud ovillo (1:100)</th><th>Funció principal</th></tr></thead>
+    <thead><tr><th>Tram</th><th>Longitud real</th><th>Longitud al cabdell (mm)</th><th>Funció principal</th></tr></thead>
     <tbody>
       <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold" style="color:var(--purple)">Esòfag</td><td>~25 cm</td><td>2,5 mm</td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
       <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold" style="color:var(--green)">Intestí prim</td><td>~6 m</td><td><span class="fill-cell" contenteditable="true"></span></td><td>Absorció de nutrients</td></tr>
       <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold" style="color:var(--teal)">Intestí gros</td><td>~1,5 m</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td colspan="2" class="bold">TOTAL</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td colspan="2" class="bold">TOTAL</td><td><span class="fill-cell" contenteditable="true"></span></td><td class="hint-cell" style="color:var(--muted)">—</td></tr>
     </tbody>
   </table>
 </div>
@@ -325,7 +331,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <!-- ══ 3 · SIMULACIÓ ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle">Simulació de la digestió pas a pas</div><div class="sdesc">Observa l'experiment de taula i completa les columnes buides</div></div></div>
+  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle">Simulació de la digestió pas a pas <span class="sec-min" style="font-family:Inter,sans-serif;font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.05em">· 30 min</span></div><div class="sdesc">Observa l'experiment de taula i completa les columnes buides</div></div></div>
   <div class="divider"></div>
   <table class="data-table">
     <thead><tr><th>Fase</th><th>Substàncies</th><th>Funció</th><th>La teva observació</th></tr></thead>
@@ -352,10 +358,37 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   </div>
 </div>
 
+
+<!-- ══ 3bis · DEL BUDELL AL MITOCONDRI ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n4">🔗</div><div><div class="stitle">Del budell al mitocondri <span class="sec-min" style="font-family:Inter,sans-serif;font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.05em">· 15 min</span></div><div class="sdesc">Construeix tu la cadena sencera i justifica cada pas</div></div></div>
+  <div class="divider"></div>
+  <p style="font-size:11.5px;margin-bottom:6px">Escriu el recorregut complet d'una molècula de glucosa des del plat fins a l'ATP. A cada pas, escriu <strong>on és</strong> i <strong>per quina raó pot passar al pas següent</strong> (no només què hi passa).</p>
+  <table class="data-table">
+    <thead><tr><th>Pas</th><th>On és la glucosa</th><th>Per quina raó pot avançar</th></tr></thead>
+    <tbody>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">1</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">2</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">3</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">4</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">5</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+    </tbody>
+  </table>
+  <div class="card teal mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">Pregunta competencial</div>
+    <p style="font-size:12px;font-weight:700">La Mercè surt a córrer sense haver dinat i a mitja cursa nota les cames pesades. Un amic li diu que el problema és que «no té prou oxigen». Fes servir la teva cadena per dir si l'amic té raó del tot, en part o gens, i justifica-ho.</p>
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+  </div>
+</div>
+
 <!-- ══ 4 · MICROBIOTA ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n4">4</div><div><div class="stitle">La microbiota intestinal</div></div></div>
+  <div class="section-header"><div class="snum n4">4</div><div><div class="stitle">La microbiota intestinal <span class="sec-min" style="font-family:Inter,sans-serif;font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.05em">· 10 min</span></div></div></div>
   <div class="divider"></div>
   <div class="micro-fact deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -365,7 +398,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card teal mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label">Pregunta competencial</div>
-    <p style="font-size:12px;font-weight:700">Per quina raó prendre antibiòtics pot provocar diarrea? Proposa, a més, una manera de recuperar la microbiota després d'un tractament i justifica-la.</p>
+    <p style="font-size:12px;font-weight:700">Per quina raó prendre antibiòtics pot provocar diarrea?</p>
     <div class="wline" contenteditable="true"></div>
     <div class="wline" contenteditable="true"></div>
     <div class="wline" contenteditable="true"></div>
@@ -375,19 +408,44 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <!-- ══ 5 · BRISTOL ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n5">5</div><div><div class="stitle">L'escala de Bristol — indicador de salut intestinal</div><div class="sdesc">Escriu com es relaciona cada tipus amb la dieta o la salut</div></div></div>
+  <div class="section-header"><div class="snum n5">5</div><div><div class="stitle">L'escala de Bristol — indicador de salut intestinal <span class="sec-min" style="font-family:Inter,sans-serif;font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.05em">· 10 min</span></div><div class="sdesc">Escriu com es relaciona cada tipus amb la dieta o la salut</div></div></div>
   <div class="divider"></div>
+  <div class="perllegir-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="perllegir-label">📖 Com es llegeix l'escala</div><p style="font-size:11.5px">La forma de la femta depèn del <strong>temps</strong> que ha estat a l'intestí gros i de l'<strong>aigua</strong> que aquest n'ha absorbit. Tipus 3-4: temps normal. Tipus 1-2: hi ha estat molt de temps i s'ha absorbit molta aigua. Tipus 6-7: hi ha passat molt de pressa i gairebé no se n'ha absorbit.</p></div>
   <div class="bristol-grid deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="bristol-item"><div class="bristol-num">1</div><div class="bristol-emoji">⚫</div><div class="bristol-label">Boletes dures separades</div><span class="bristol-write" contenteditable="true"></span></div>
-    <div class="bristol-item"><div class="bristol-num">2</div><div class="bristol-emoji">🟤</div><div class="bristol-label">Salsitxa grumollosa</div><span class="bristol-write" contenteditable="true"></span></div>
-    <div class="bristol-item ok"><div class="bristol-num">3</div><div class="bristol-emoji">🌭</div><div class="bristol-label">Salsitxa amb esquerdes</div><span class="bristol-write" contenteditable="true"></span></div>
-    <div class="bristol-item ok"><div class="bristol-num">4</div><div class="bristol-emoji">🍌</div><div class="bristol-label">Salsitxa suau · ideal ⭐</div><span class="bristol-write" contenteditable="true"></span></div>
-    <div class="bristol-item"><div class="bristol-num">5</div><div class="bristol-emoji">🫐</div><div class="bristol-label">Trossos tous</div><span class="bristol-write" contenteditable="true"></span></div>
-    <div class="bristol-item" style="border-color:var(--rose);background:var(--rose-tint)"><div class="bristol-num" style="color:var(--rose)">6</div><div class="bristol-emoji">🌊</div><div class="bristol-label">Massa esponjosa</div><span class="bristol-write" contenteditable="true"></span></div>
-    <div class="bristol-item" style="border-color:var(--rose);background:var(--rose-tint)"><div class="bristol-num" style="color:var(--rose)">7</div><div class="bristol-emoji">💧</div><div class="bristol-label">Totalment líquida</div><span class="bristol-write" contenteditable="true"></span></div>
+    <div class="bristol-item"><div class="bristol-num">1</div><div class="bristol-emoji">⚫</div><div class="bristol-label">Boletes dures separades</div></div>
+    <div class="bristol-item"><div class="bristol-num">2</div><div class="bristol-emoji">🟤</div><div class="bristol-label">Salsitxa grumollosa</div></div>
+    <div class="bristol-item ok"><div class="bristol-num">3</div><div class="bristol-emoji">🌭</div><div class="bristol-label">Salsitxa amb esquerdes</div></div>
+    <div class="bristol-item ok"><div class="bristol-num">4</div><div class="bristol-emoji">🍌</div><div class="bristol-label">Salsitxa suau · ideal ⭐</div></div>
+    <div class="bristol-item"><div class="bristol-num">5</div><div class="bristol-emoji">🫐</div><div class="bristol-label">Trossos tous</div></div>
+    <div class="bristol-item" style="border-color:var(--rose);background:var(--rose-tint)"><div class="bristol-num" style="color:var(--rose)">6</div><div class="bristol-emoji">🌊</div><div class="bristol-label">Massa esponjosa</div></div>
+    <div class="bristol-item" style="border-color:var(--rose);background:var(--rose-tint)"><div class="bristol-num" style="color:var(--rose)">7</div><div class="bristol-emoji">💧</div><div class="bristol-label">Totalment líquida</div></div>
   </div>
-  <p class="small mt8">Normal: tipus 3–4 · tipus 1–2: estrenyiment (poca fibra/aigua) · tipus 6–7: diarrea.</p>
+  
+
+
+  <div class="card teal mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">Aplica-ho a tres casos</div>
+    <p style="font-size:11.5px">Per a cada persona, escriu quin tipus de Bristol esperaries i per quina raó:</p>
+    <table class="data-table mt8">
+      <thead><tr><th>Cas</th><th>Tipus esperat</th><th>Per quina raó</th></tr></thead>
+      <tbody>
+        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td>La Mercè fa una setmana que quasi no beu aigua i menja poca verdura</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td>En Youssef ha passat tot el cap de setmana amb un virus intestinal</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td>L'Aya menja fruita, verdura i llegums cada dia i beu 1,5 L d'aigua</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card rose mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">Els límits de l'indicador</div>
+    <p style="font-size:11.5px">L'escala de Bristol és barata, ràpida i no fa mal, i per això s'usa als centres de salut. Però com a indicador té límits. Escriu <strong>dues coses sobre la salut intestinal que aquesta escala NO pot dir</strong>, i explica per a cadascuna quina altra prova caldria.</p>
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+  </div>
 
   <div class="epist-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -399,13 +457,82 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   </div>
 </div>
 
+
+<!-- ══ ★ AMPLIACIÓ NIVELL A ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n5">★</div><div><div class="stitle">Ampliació — posa el model a prova <span class="sec-min" style="font-family:Inter,sans-serif;font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.05em">· 10 min</span></div><div class="sdesc">Aquí no es tracta de recordar, sinó de criticar i calcular</div></div></div>
+  <div class="divider"></div>
+
+  <div class="card purple deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">A1 · Els límits del model</div>
+    <p style="font-size:11.5px">La simulació de classe reprodueix la digestió amb materials de cuina. Identifica <strong>3 coses que el model NO reprodueix</strong> i, per a cadascuna, proposa una millora que es pugui fer amb seguretat en una aula.</p>
+    <table class="data-table mt8">
+      <thead><tr><th>Simplificació del model</th><th>Per quina raó importa</th><th>Millora possible i segura</th></tr></thead>
+      <tbody>
+        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card green mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">A2 · Per quina raó calen vellositats — fes els números</div>
+    <p style="font-size:11.5px">L'intestí prim té una superfície d'absorció d'uns <strong>200 m²</strong> (comptant-hi les microvellositats; si només es compten les vellositats, la xifra baixa a ~30 m²) repartits al llarg de <strong>6 m</strong> de tub.</p>
+    <p style="font-size:11.5px;margin-top:4px">a) Si fos un tub cilíndric <em>llis</em> de 6 m de llarg, quin radi hauria de tenir per arribar als 200 m²? (Superfície lateral d'un cilindre: S = 2·π·r·h)</p>
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+    <p style="font-size:11.5px;margin-top:4px">b) Compara aquest radi amb el radi real de l'intestí prim (uns 1,5 cm). Què li passaria al cos si l'intestí fos així de gruixut?</p>
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+    <p style="font-size:11.5px;margin-top:4px">c) Escriu la conclusió: quin problema resolen les vellositats que no es podria resoldre fent el tub més gran?</p>
+    <div class="wline" contenteditable="true"></div>
+  </div>
+
+  <div class="card orange mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">A3 · Contrafactual — i si no hi hagués bicarbonat?</div>
+    <p style="font-size:11.5px">Imagina una persona a qui el pàncrees no secreta bicarbonat, però sí tots els enzims digestius normals. Els enzims hi són, doncs, en la quantitat correcta. Explica <strong>per quina raó, tot i això, no digeriria bé els greixos</strong>, fent servir els conceptes d'enzim i de pH òptim.</p>
+    <div class="word-bank mt8 deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="word-bank-title">Dades que necessites</div>
+      <p style="font-size:11px;margin-bottom:4px">Un <strong>enzim</strong> és una proteïna que accelera una reacció química. Cada enzim només treballa bé dins d'un interval estret de pH: és el seu <strong>pH òptim</strong>. Fora d'aquest interval canvia de forma i deixa de funcionar.</p>
+      <table class="data-table">
+        <thead><tr><th>Enzim</th><th>On actua</th><th>Què digereix</th><th>pH òptim</th></tr></thead>
+        <tbody>
+          <tr><td>Pepsina</td><td>Estómac</td><td>Proteïnes</td><td class="bold">~2 (molt àcid)</td></tr>
+          <tr><td>Lipasa pancreàtica</td><td>Duodè</td><td>Greixos</td><td class="bold">~8 (bàsic)</td></tr>
+          <tr><td>Amilasa pancreàtica</td><td>Duodè</td><td>Midó</td><td class="bold">~7 (neutre)</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:10.5px;color:var(--muted);margin-top:3px">El quimo surt de l'estómac amb un pH d'entre 1,5 i 3.</p>
+    </div>
+
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+  </div>
+
+  <div class="card rose mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">A4 · Microbiota i defenses</div>
+    <p style="font-size:11.5px">Més enllà de la digestió, la microbiota intervé en la <strong>immunitat</strong>. Explica com un tractament llarg d'antibiòtics pot alterar el medi intern de l'intestí, i per quina raó això pot fer que una persona agafi més infeccions i no menys.</p>
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+  </div>
+</div>
+
 <!-- ══ METACOGNICIÓ OA-BASED ══ -->
 <div class="meta-oa-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="meta-oa-title">🎯 Torna als objectius del principi — Marca el que has après avui:</div>
   <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Argumento com l'estructura de cada tram digestiu (longitud, vellositats, pH) s'adapta a la seva funció.</div></div>
   <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Construeixo el recorregut complet d'un nutrient des del plat fins al mitocondri i en justifico cada pas.</div></div>
-  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Avaluo críticament el model de simulació: què representa bé i quines limitacions té respecte la digestió real.</div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Avaluo críticament el model de simulació: què representa bé i quines limitacions té respecte de la digestió real.</div></div>
   <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Connecto la digestió amb la respiració cel·lular (SA1) i amb el rendiment del corredor de la situació inicial.</div></div>
   <div class="meta-open"><div class="meta-open-label">❓ Encara em pregunto…</div><div class="wline" contenteditable="true" data-hint="Escriu aquí el que et genera dubte…"></div></div>
 </div>
@@ -413,14 +540,14 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <!-- ══ TASCA CASA ══ -->
 <div class="tasca-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="card-label">📚 Tasca per a casa (opcional) — Prepara la S3</div>
+  <div class="card-label">📚 Tasca per a casa (opcional) — Prepara la Sessió 3</div>
   <p style="font-size:12px;font-weight:700;color:var(--purple-ink)">Observa la teva femta i memoritza a quin tipus de l'escala de Bristol s'assembla (no cal escriure-ho). A classe ho respondràs de manera anònima.</p>
   <p class="small mt8">És una observació personal: no es pot fer amb cap IA.</p>
 </div>
 
 <div class="footer deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="footer-l">IE Temple · Biologia i Geologia 3r ESO · SA2 S2 · Versió A</div>
+  <div class="footer-l">IE Temple · Biologia i Geologia 3r ESO · El nostre cos en marxa · Sessió 2 · Versió A</div>
   <div class="footer-r">Curs 2025–2026</div>
 </div>
 

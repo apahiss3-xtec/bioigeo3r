@@ -137,5 +137,5 @@ export const sa2s2 = {
     "Omple la fitxa S2 seccions 1–3",
     "Exit tiquet online aquí"
   ],
-  oaLinks: ["OA1"], competencies: ["CE2", "CE1"]
+  oaLinks: ["OA1"], competencies: ["CE1", "CE2", "CE4"]
 }
