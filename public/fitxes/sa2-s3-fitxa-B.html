@@ -224,6 +224,10 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   .input-span:empty::before { display:none; }
   .header-emoji-box { background:#ede8f8; }
 }
+
+.temps-sec { margin-left:auto; align-self:center; font-size:9.5px; font-weight:700; color:var(--purple-ink); background:var(--purple-tint); border:1px solid var(--purple-light); padding:1px 7px; border-radius:9999px; flex-shrink:0; }
+.section-header { display:flex; align-items:flex-start; gap:9px; }
+@media print { .temps-sec { border-color:#bbb; } }
 </style>
 </head>
 <body>
@@ -259,7 +263,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <div class="nivell-strip deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <span class="badge deletable" contenteditable="true">Semiguiat<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
-  <span class="temps-badge deletable">⏱️ 2h total<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+  <span class="temps-badge deletable">⏱️ 2h (120′)<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
   <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió B — Estàndard">B</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
 </div>
@@ -298,7 +302,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <!-- ══ 0 · IDEES PRÈVIES ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle">Idees prèvies</div><div class="sdesc">Activa el que ja saps — no hi ha respostes dolentes</div></div></div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle">Idees prèvies</div><div class="sdesc">Activa el que ja saps — no hi ha respostes dolentes</div></div><span class="temps-sec">10′</span></div>
   <div class="divider"></div>
   <div class="previ-box">
     <p>Escriu tot el que creus que la <strong>sang</strong> transporta pel cos (oxigen, nutrients, cèl·lules de defensa, deixalles…):</p>
@@ -317,7 +321,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <!-- ══ 1 · COMPOSICIÓ DE LA SANG ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle">Les targetes de la sang — composició real</div><div class="sdesc">El sobre té 100 targetes que simulen la proporció real de la sang</div></div></div>
+  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle">Les targetes de la sang — composició real</div><div class="sdesc">El sobre té 100 targetes que simulen la proporció real de la sang</div></div><span class="temps-sec">25′</span></div>
   <div class="divider"></div>
 
   <div class="card mt8 deletable">
@@ -380,89 +384,22 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 </div>
 
 <!-- ══ 2 · ETIQUETA EL COR ══ -->
-<div class="section deletable">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n2">2</div><div><div class="stitle">Etiqueta el cor</div><div class="sdesc">Usa el banc de paraules. Diagrama en secció (vista anterior)</div></div></div>
-  <div class="divider"></div>
-
-  <div class="word-bank deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="word-bank-title">Banc de paraules</div>
-    <div class="chips">
-      <span class="chip art">Aurícula dreta</span><span class="chip art">Ventricle dret</span>
-      <span class="chip ven">Aurícula esquerra</span><span class="chip ven">Ventricle esquerre</span>
-      <span class="chip art">Artèria pulmonar</span><span class="chip ven">Venes pulmonars</span>
-      <span class="chip art">Aorta</span><span class="chip">Venes caves</span>
-      <span class="chip">Vàlvula tricúspide</span><span class="chip">Vàlvula mitral</span><span class="chip">Tabic interventricular</span>
-    </div>
-  </div>
-
-  <div class="cor-img-big">
-    <img src="../imatges-cientifiques/parts_cor_mut.png" alt="Cor humà en secció amb línies sense etiquetar, per completar amb el banc de paraules" onerror="this.style.display='none'">
-    <div class="cor-img-caption">Cor humà en secció · <strong>mut</strong> — posa-hi les etiquetes amb el banc de paraules<br>Imatge pròpia IE Temple<br><span style="color:var(--art)">●</span> Sang desoxigenada &nbsp; <span style="color:var(--ven)">●</span> Sang oxigenada</div>
-  </div>
-
-  <div class="cor-layout">
-    <div>
-      <div class="card rose mt8 deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="card-label">💡 Observació</div>
-        <p style="font-size:11px">El ventricle <strong>esquerre</strong> té la paret molt més gruixuda que el dret. Per quina raó?</p>
-        <div class="wline" contenteditable="true"></div>
-        <div class="wline" contenteditable="true"></div>
-      </div>
-    </div>
-    <div>
-      <table class="label-table">
-        <thead><tr><th>Cavitat / Estructura</th><th>Rep sang de…</th><th>Envia sang a…</th></tr></thead>
-        <tbody>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td style="color:var(--art);font-weight:700">Aurícula dreta</td><td class="hint-cell">Venes caves (tot el cos)</td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td style="color:var(--art);font-weight:700">Ventricle dret</td><td><span class="fill-cell" contenteditable="true"></span></td><td class="hint-cell">Art. pulmonar → pulmons</td></tr>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td style="color:var(--ven);font-weight:700">Aurícula esquerra</td><td class="hint-cell">Venes pulmonars (pulmons)</td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td style="color:var(--ven);font-weight:700">Ventricle esquerre</td><td><span class="fill-cell" contenteditable="true"></span></td><td class="hint-cell">Artèria aorta → tot el cos</td></tr>
-        </tbody>
-      </table>
-      <div class="card mt8 deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="card-label">🚪 Les vàlvules cardíaques</div>
-        <table style="width:100%;border-collapse:collapse;font-size:10.5px">
-          <tr style="background:var(--purple-tint)"><td style="padding:3px 6px;font-weight:700">Tricúspide</td><td style="padding:3px 6px">Entre aurícula i ventricle <span class="fill-cell" contenteditable="true" style="display:inline-block;width:40px;vertical-align:bottom"></span></td><td style="padding:3px 6px;color:var(--muted)">3 làmines</td></tr>
-          <tr><td style="padding:3px 6px;font-weight:700">Mitral (bicúspide)</td><td style="padding:3px 6px">Entre aurícula i ventricle <span class="fill-cell" contenteditable="true" style="display:inline-block;width:40px;vertical-align:bottom"></span></td><td style="padding:3px 6px;color:var(--muted)">2 làmines</td></tr>
-          <tr style="background:var(--purple-tint)"><td style="padding:3px 6px;font-weight:700">Semilunars (×2)</td><td style="padding:3px 6px">A la sortida dels ventricles — eviten el reflux</td><td style="padding:3px 6px;color:var(--muted)">3 làmines</td></tr>
-        </table>
-        <p style="font-size:10px;margin-top:5px">🔊 El so "lub-dub" correspon a: <span class="fill-cell" contenteditable="true" style="display:inline-block;width:170px;vertical-align:bottom"></span></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card teal mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label">⚠️ Cas clínic — Comunicació Interventricular (CIV)</div>
-    <p style="font-size:11px">El <strong>tabic interventricular</strong> separa els dos ventricles. Si hi ha un forat (CIV), la sang oxigenada i la desoxigenada es barregen. Quins símptomes esperes? (marca'ls)</p>
-    <div style="display:flex;gap:14px;margin-top:5px;font-size:11px;flex-wrap:wrap">
-      <label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Cianosi (color blavós)</label>
-      <label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Fatiga constant</label>
-      <label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Febre alta</label>
-      <label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Cap símptoma</label>
-    </div>
-  </div>
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum n2">2</div><div><div class="stitle">Etiqueta el cor</div><div class="sdesc">Posa cada nom del banc al seu marcador. Diagrama en secció (vista anterior)</div></div><span class="temps-sec">30′</span></div>
+<div class="divider"></div>
+<div class="word-bank deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="word-bank-title">Banc de paraules — 9 etiquetes per a 9 marcadors</div><p style="font-size:10px;margin:0 0 4px">Cada nom s’usa <strong>una sola vegada</strong>.</p><div class="chips"><span class="chip ven">Vena cava superior</span><span class="chip ven">Vena cava inferior</span><span class="chip ven">Artèria pulmonar</span><span class="chip ven">Aurícula dreta</span><span class="chip ven">Ventricle dret</span><span class="chip art">Aorta</span><span class="chip art">Venes pulmonars</span><span class="chip art">Aurícula esquerra</span><span class="chip art">Ventricle esquerre</span></div></div>
+<div class="cor-img-big"><img src="../imatges-cientifiques/cor_mut_numerat.png" alt="Cor humà en secció amb nou marcadors numerats dins de cercles, sense noms" onerror="this.style.display='none'"><div class="cor-img-caption">Cor humà en secció (vista anterior) · <strong>mut, amb 9 marcadors</strong> — Imatge pròpia IE Temple<br><span style="color:var(--art)">●</span> vermell/rosat = sang <strong>oxigenada</strong> (rica en O₂) &nbsp;·&nbsp; <span style="color:var(--ven)">●</span> blau = sang <strong>desoxigenada</strong> (pobra en O₂)</div></div>
+<div class="card teal mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">⚠️ Compte amb una trampa</div><p style="font-size:11px">Al dibuix veràs que l’<strong>artèria pulmonar és blava</strong> i les <strong>venes pulmonars són vermelles</strong>. No és cap error. <strong>Artèria</strong> vol dir «vas que SURT del cor» i <strong>vena</strong> vol dir «vas que ARRIBA al cor»: el nom depèn del sentit del corrent, no de si la sang porta oxigen o no. Només en aquests dos vasos (els dels pulmons) el color va al revés del que esperaries.</p></div>
+<div class="cor-layout"><div><div class="card rose mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">💡 Observació</div><p style="font-size:11px">El ventricle <strong>esquerre</strong> (8) té la paret molt més gruixuda que el dret (7). Per quina raó?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div><table class="label-table"><thead><tr><th>#</th><th>Nom (banc de paraules)</th><th style="text-align:center">Quina sang hi passa?</th></tr></thead><tbody><tr class="deletable"><td class="bold" style="width:34px;text-align:center">1</td><td><span class="fill-cell" contenteditable="true"></span></td><td style="text-align:center;font-size:10px"><span class="chk-sq"></span>&nbsp;oxigenada&nbsp;&nbsp;<span class="chk-sq"></span>&nbsp;desoxigenada</td></tr><tr class="deletable"><td class="bold" style="width:34px;text-align:center">2</td><td><span class="fill-cell" contenteditable="true"></span></td><td style="text-align:center;font-size:10px"><span class="chk-sq"></span>&nbsp;oxigenada&nbsp;&nbsp;<span class="chk-sq"></span>&nbsp;desoxigenada</td></tr><tr class="deletable"><td class="bold" style="width:34px;text-align:center">3</td><td><span class="fill-cell" contenteditable="true"></span></td><td style="text-align:center;font-size:10px"><span class="chk-sq"></span>&nbsp;oxigenada&nbsp;&nbsp;<span class="chk-sq"></span>&nbsp;desoxigenada</td></tr><tr class="deletable"><td class="bold" style="width:34px;text-align:center">4</td><td><span class="fill-cell" contenteditable="true"></span></td><td style="text-align:center;font-size:10px"><span class="chk-sq"></span>&nbsp;oxigenada&nbsp;&nbsp;<span class="chk-sq"></span>&nbsp;desoxigenada</td></tr><tr class="deletable"><td class="bold" style="width:34px;text-align:center">5</td><td><span class="fill-cell" contenteditable="true"></span></td><td style="text-align:center;font-size:10px"><span class="chk-sq"></span>&nbsp;oxigenada&nbsp;&nbsp;<span class="chk-sq"></span>&nbsp;desoxigenada</td></tr><tr class="deletable"><td class="bold" style="width:34px;text-align:center">6</td><td><span class="fill-cell" contenteditable="true"></span></td><td style="text-align:center;font-size:10px"><span class="chk-sq"></span>&nbsp;oxigenada&nbsp;&nbsp;<span class="chk-sq"></span>&nbsp;desoxigenada</td></tr><tr class="deletable"><td class="bold" style="width:34px;text-align:center">7</td><td><span class="fill-cell" contenteditable="true"></span></td><td style="text-align:center;font-size:10px"><span class="chk-sq"></span>&nbsp;oxigenada&nbsp;&nbsp;<span class="chk-sq"></span>&nbsp;desoxigenada</td></tr><tr class="deletable"><td class="bold" style="width:34px;text-align:center">8</td><td><span class="fill-cell" contenteditable="true"></span></td><td style="text-align:center;font-size:10px"><span class="chk-sq"></span>&nbsp;oxigenada&nbsp;&nbsp;<span class="chk-sq"></span>&nbsp;desoxigenada</td></tr><tr class="deletable"><td class="bold" style="width:34px;text-align:center">9</td><td><span class="fill-cell" contenteditable="true"></span></td><td style="text-align:center;font-size:10px"><span class="chk-sq"></span>&nbsp;oxigenada&nbsp;&nbsp;<span class="chk-sq"></span>&nbsp;desoxigenada</td></tr></tbody></table><div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">🚪 Les vàlvules cardíaques</div><p style="font-size:10.5px;margin:0 0 5px"><strong>📖 Per llegir:</strong> les vàlvules són portes que només deixen passar la sang en un sentit. Quan es <strong>tanquen</strong> de cop, les seves làmines xoquen i fan soroll: això és el «lub-dub» que se sent amb el fonendoscopi. El <strong>«lub»</strong> és el tancament de les vàlvules d’entrada als ventricles (tricúspide i mitral) i el <strong>«dub»</strong>, el de les semilunars, a la sortida.</p><table style="width:100%;border-collapse:collapse;font-size:10.5px"><tr style="background:var(--purple-tint)"><td style="padding:3px 6px;font-weight:700">Tricúspide</td><td style="padding:3px 6px">Entre aurícula i ventricle <span class="fill-cell" contenteditable="true" style="display:inline-block;width:90px;vertical-align:bottom"></span></td><td style="padding:3px 6px;color:var(--muted)">3 làmines</td></tr><tr><td style="padding:3px 6px;font-weight:700">Mitral (bicúspide)</td><td style="padding:3px 6px">Entre aurícula i ventricle <span class="fill-cell" contenteditable="true" style="display:inline-block;width:90px;vertical-align:bottom"></span></td><td style="padding:3px 6px;color:var(--muted)">2 làmines</td></tr><tr style="background:var(--purple-tint)"><td style="padding:3px 6px;font-weight:700">Semilunars (×2)</td><td style="padding:3px 6px">A la sortida dels ventricles — eviten el reflux</td><td style="padding:3px 6px;color:var(--muted)">3 làmines</td></tr></table><p style="font-size:10.5px;margin-top:6px">Un cor sa fa «lub-dub». Si una vàlvula no tanca del tot i deixa passar una mica de sang cap enrere, el metge hi sent un <em>bufec</em>. Per quina raó el bufec se sent <strong>entre</strong> el «lub» i el «dub», i no en el moment del «lub»?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div></div>
+<div class="card teal mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">⚠️ Cas clínic — Comunicació Interventricular (CIV)</div><p style="font-size:11px"><strong>📖 Per llegir:</strong> el <strong>septe (envà) interventricular</strong> és la paret que separa els dos ventricles. El ventricle esquerre empeny amb <strong>molta més força</strong> que el dret. Per això, si aquesta paret té un forat (CIV), part de la sang <strong>ja oxigenada</strong> passa de l’esquerre al dret i torna als pulmons una segona vegada, sense haver arribat al cos. El cor dret i els pulmons han de moure molta més sang de la que els tocaria.</p><p style="font-size:11px">Quins símptomes esperes? Marca’ls i, a sota, justifica’n un.</p><div style="display:flex;gap:14px;margin-top:5px;font-size:11px;flex-wrap:wrap"><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Es cansa de seguida quan fa esforç</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> El costat dret del cor s’engrandeix</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Febre alta</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Cap símptoma, si el forat és molt petit</label></div><div class="wline" contenteditable="true"></div></div>
 </div>
 
-<!-- ══ CLAU AUTOCORRECCIÓ COR ══ -->
-<div class="card mt8 deletable" style="border:1.5px dashed var(--rule)">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="card-label">🔑 Clau d'autocorrecció — obre-la NOMÉS quan hagis acabat d'etiquetar</div>
-  <p style="font-size:10.5px;margin-bottom:5px">Tapa aquesta imatge mentre treballes. Quan hagis posat totes les etiquetes pel teu compte, compara-les amb el cor etiquetat i corregeix els errors amb un altre color.</p>
-  <div style="text-align:center">
-    <img src="../imatges-cientifiques/cor_etiquetes_propi.jpg.png" alt="Cor humà en secció amb totes les etiquetes: aurícules, ventricles, vàlvules, venes caves, aorta i artèria pulmonar" style="max-width:300px;width:100%;height:auto" onerror="this.style.display='none'">
-    <div style="font-size:9px;color:var(--muted);font-style:italic;margin-top:2px">Solució · Imatge pròpia IE Temple</div>
-  </div>
-</div>
+<!-- ══ AVÍS: clau d'autocorrecció en document a part ══ -->
+<div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-text">Quan hagis acabat d’etiquetar el cor pel teu compte, demana al professor la <strong>clau d’autocorrecció</strong> (full a part) i corregeix els teus errors amb un altre color.</div></div>
 
 <!-- ══ 3 · DOBLE CIRCULACIÓ ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle">La doble circulació — per quina raó en calen dues?</div></div></div>
+  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle">La doble circulació — per quina raó en calen dues?</div></div><span class="temps-sec">25′</span></div>
   <div class="divider"></div>
 
   <div class="deletable" style="text-align:center;margin:6px 0">
@@ -506,18 +443,19 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
       <div class="epist-text">Harvey va calcular matemàticament que el cor bombeja tant de volum per hora que és impossible que el fetge el produís contínuament (com creia Galè). Va demostrar la circulació tancada amb càlcul <em>abans</em> que existís el microscopi. <strong>Lliçó:</strong> la raó pot precedir l'observació directa.</div>
     </div>
   </div>
+<div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">🛤️ Els tres tipus de vasos</div><div style="text-align:center;margin:4px 0"><img src="../imatges-cientifiques/comparacio_vasos_sanguinis.png" alt="Comparació entre artèria, vena i capil·lar: gruix de la paret, llum del vas i vàlvules" style="max-width:330px;width:100%;height:auto" onerror="this.style.display='none'"><div style="font-size:9px;color:var(--muted);font-style:italic">Artèria · vena · capil·lar</div></div><p style="font-size:10.5px;margin:4px 0 3px"><strong>📖 Per llegir:</strong> les <strong>artèries</strong> surten del cor i han d’aguantar la sang que hi arriba de cop: tenen la paret gruixuda i elàstica. Les <strong>venes</strong> tornen al cor amb poca pressió i porten <strong>vàlvules</strong> perquè la sang no caigui cap avall. Els <strong>capil·lars</strong> tenen la paret d’una sola capa de cèl·lules: és allà on l’O₂ i els nutrients passen a les cèl·lules.</p><p style="font-size:10.5px;margin-top:5px">Fixa’t en la imatge: quin dels tres vasos té la paret més gruixuda, i quina relació té això amb la pressió que hi ha a dins?</p><div class="wline" contenteditable="true"></div></div>
 </div>
 
 <!-- ══ 4 · ANALÍTICA DEL MARC ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n4">4</div><div><div class="stitle">Desxifra l'analítica del Marc</div><div class="sdesc">Marc Fontana, 28 anys, corredor. Analítica de sang (fictícia però realista)</div></div></div>
+  <div class="section-header"><div class="snum n4">4</div><div><div class="stitle">Desxifra l'analítica del Marc</div><div class="sdesc">Marc Fontana, 28 anys, corredor. Analítica de sang (fictícia però realista)</div></div><span class="temps-sec">25′</span></div>
   <div class="divider"></div>
 
   <table class="data-table">
     <thead><tr><th>Paràmetre</th><th>Valor del Marc</th><th>Rang de referència</th><th>Nivell? (compara amb el rang i marca)</th><th>Què vol dir? (només si està fora del rang)</th></tr></thead>
     <tbody>
-      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Hemoglobina (Hb)</td><td>9,2 g/dL</td><td>13,5–17,5 g/dL</td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div><div class="yn-opt"><span class="chk-sq"></span>Alt</div></div></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Hemoglobina (Hb)</td><td>9,2 g/dL</td><td>13,5–17,5 g/dL <span style="font-size:9px;color:var(--muted)">(home adult)</span></td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div><div class="yn-opt"><span class="chk-sq"></span>Alt</div></div></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
       <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Eritròcits</td><td>3,8×10⁶/µL</td><td>4,5–5,5×10⁶/µL</td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div><div class="yn-opt"><span class="chk-sq"></span>Alt</div></div></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
       <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">VCM (mida eritròcit)</td><td>68 fL</td><td>80–100 fL</td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div><div class="yn-opt"><span class="chk-sq"></span>Alt</div></div></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
       <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Ferro sèric</td><td>38 µg/dL</td><td>60–180 µg/dL</td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div><div class="yn-opt"><span class="chk-sq"></span>Alt</div></div></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>

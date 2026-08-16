@@ -102,18 +102,19 @@ export const sa2s3 = {
   fitxaGuide: {
     fitxaName: "Fitxa S3 — La sang i la circulació",
     steps: [
-      { apartat: "0", title: "Idees prèvies", time: "5 min", phase: "engage", instruction: "Omple l'apartat 0 — Idees prèvies del full: escriu tot el que creus que la sang transporta pel cos.", hints: [] },
-      { apartat: "1", title: "Les targetes de la sang", time: "—", phase: "explore", instruction: "Amb les 100 targetes del sobre, omple l'apartat 1 del full: compta i calcula els percentatges de cada component.", hints: [
+      { apartat: "0", title: "Idees prèvies", time: "10 min", phase: "engage", instruction: "Omple l'apartat 0 — Idees prèvies del full: escriu tot el que creus que la sang transporta pel cos.", hints: [] },
+      { apartat: "1", title: "Les targetes de la sang", time: "25 min", phase: "explore", instruction: "Amb les 100 targetes del sobre, omple l'apartat 1 del full: compta i calcula els percentatges de cada component.", hints: [
         "100 targetes fan fàcil el percentatge: el nombre de targetes d'un color JA és el seu %.",
         "Si la sang és majoritàriament plasma groc, per què la veiem vermella? Pensa quin component li dona el color."
       ] },
-      { apartat: "2", title: "Etiqueta el cor", time: "—", phase: "explica", instruction: "Amb el banc de paraules, omple l'apartat 2 del full: etiqueta el diagrama del cor en secció.", hints: [
-        "Les cavitats de dalt reben (aurícules); les de baix bomben (ventricles). Dreta i esquerra no es barregen."
+      { apartat: "2", title: "Etiqueta el cor", time: "30 min", phase: "explica", instruction: "Amb el banc de paraules, omple l'apartat 2 del full: el diagrama del cor porta 9 marcadors numerats i el banc té exactament 9 noms — cada nom s'usa una sola vegada.", hints: [
+        "Les cavitats de dalt reben (aurícules); les de baix bomben (ventricles). Dreta i esquerra no es barregen.",
+        "Al dibuix, l'artèria pulmonar és blava i les venes pulmonars vermelles: artèria vol dir «surt del cor» i vena «arriba al cor», no té res a veure amb l'oxigen."
       ] },
-      { apartat: "3", title: "La doble circulació", time: "—", phase: "explica", instruction: "Omple l'apartat 3 del full: per quina raó en calen dues?", hints: [
+      { apartat: "3", title: "La doble circulació", time: "25 min", phase: "explica", instruction: "Omple l'apartat 3 del full: per quina raó en calen dues?", hints: [
         "Un circuit va als pulmons (a buscar O₂); l'altre, a tot el cos (a repartir-lo). Què passaria amb un de sol?"
       ] },
-      { apartat: "4", title: "Desxifra l'analítica del Marc", time: "—", phase: "elabora", instruction: "A l'apartat 4 del full, analitza els valors de l'analítica de Marc Fontana i marca quins estan fora de rang.", hints: [
+      { apartat: "4", title: "Desxifra l'analítica del Marc", time: "25 min", phase: "elabora", instruction: "A l'apartat 4 del full, analitza els valors de l'analítica de Marc Fontana i marca quins estan fora de rang.", hints: [
         "Compara cada valor amb el seu rang normal. Tres pistes apunten al mateix problema: hemoglobina, ferro i mida dels eritròcits.",
         "No diguis encara el diagnòstic complet: només identifica QUÈ està alterat. La causa la lligaràs a S5."
       ] }
@@ -133,5 +134,5 @@ export const sa2s3 = {
     "Llegeix la teoria (apartat EXPLICA)",
     "Omple la fitxa S3 i fes el formulari online aquí"
   ],
-  oaLinks: ["OA2"], competencies: ["CE2", "CE4"]
+  oaLinks: ["OA2"], competencies: ["CE1", "CE2", "CE4"]
 }
