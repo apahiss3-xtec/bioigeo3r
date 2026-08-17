@@ -12,7 +12,7 @@ export const sa2s4 = {
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {
     A: [
-      "Raono com un forat al tabi interventricular (CIV) afectaria l'oxigenació sanguínia i per quina raó el nen/a es posaria cianòtic en esforç.",
+      "Dedueixo, a partir de les pressions dels dos ventricles, cap a quin costat passa la sang per un forat al septe (CIV) i per quina raó el pacient es cansa en esforç PERÒ no es posa cianòtic.",
       "Explico per quina raó les cèl·les del miocardi necessiten molts mitocondris i com l'anèmia les afecta específicament.",
       "Argumento per quina raó Harvey va poder deduir la circulació sense microscopi, 30 anys ABANS que es veiessin els capil·lars.",
       "Analitzo un cas clínic cardiovascular relacionant el símptoma amb l'estructura anatòmica afectada (ventricle, vàlvula o coronària)."
@@ -39,7 +39,7 @@ export const sa2s4 = {
     },
     "2": {
       scaffold: "Completa: el ventricle DRET bomba sang cap als _______ (distància: petita, pressió baixa). El ventricle ESQUERRE bomba cap a _______ (distància: gran, pressió alta). Per tant, la paret del ventricle _______ ha de ser 3× més gruixuda.",
-      challenge: "Imagina un forat al tabi interventricular (CIV). Traça el recorregut de la sang: on es barregen les dues sangs? Quina pressió té cada ventricle? Cap a on fluirà el barrejat per diferència de pressió? Per quina raó el pacient es posa cianòtic durant l'esforç i no en repòs?"
+      challenge: "Imagina un forat al septe interventricular (CIV). El ventricle esquerre genera ~120 mmHg i el dret ~25 mmHg: cap a quin costat passarà la sang pel forat? Quin circuit rep, doncs, més sang del que li toca? Explica per quina raó el pacient es cansa en esforç i, en canvi, la sang que surt cap al cos NO porta menys oxigen (i per tant no es posa blau)."
     },
     "3": {
       scaffold: "Connecta miocardi i SA1: el cor és un múscul que mai para. Les cèl·les musculars necessiten moltíssim _______ (via hemoglobina) per fabricar _______ als mitocondris. Per quina raó el Marc (Hb 9.2) nota el cor treballar tant fins i tot en repòs?",
@@ -71,7 +71,7 @@ export const sa2s4 = {
   },
   exploreInstructions: [
     "Fase 1 — Exterior: vasos superficials (aorta, artèria pulmonar, coronàries). Per quina raó hi ha vasos AL VOLTANT del cor?",
-    "Fase 2 — Tall sagital: obrir, comptar les 4 cavitats, localitzar el tabi. Per quina raó el tabi és complet?",
+    "Fase 2 — Protocol de tall (2 talls, un per ventricle): obrir, comptar les cavitats, localitzar el septe. Per quina raó el septe és complet?",
     "Fase 3 — Vàlvules: localitzar les vàlvules mitral, tricúspide, semilunars. Per quina raó existeixen?",
     "Fase 4 — Ventricles: mesurar amb el dit el gruix de la paret. Comparar dret i esquerre. Per quina raó és diferent?",
     "Fase 5 — Vasos: identificar l'aorta (gruixuda, rígida) vs artèria pulmonar",
@@ -83,7 +83,7 @@ export const sa2s4 = {
 
   theoryPoints: [
     { id: "t5", apartat: "1", heading: "Harvey (1628): la demostració matemàtica", text: "Harvey va deduir la ==circulació== sense microscopi, únicament amb ==càlculs de volum==. La matemàtica com a eina científica, 30 anys abans de veure els ==capil·lars==.", type: "epistemic", badge: "🔬 Com funciona la ciència", video: "/animacions/sa2-s4-t5.mp4" },
-    { id: "t1", apartat: "2", heading: "Per quina raó calen ==4 cavitats==", text: "==Petita circulació|b== (pulmons): ==pressió baixa== → no trenca els ==alvèols==. ==Gran circulació|o== (cos): ==pressió alta== → arriba al peu. Calen dues bombes separades. El ==tabi== impedeix que es barregin.", type: "concept", video: "/animacions/sa2-s4-t1.mp4" },
+    { id: "t1", apartat: "2", heading: "Per quina raó calen ==4 cavitats==", text: "==Petita circulació|b== (pulmons): ==pressió baixa== → no trenca els ==alvèols==. ==Gran circulació|o== (cos): ==pressió alta== → arriba al peu. Calen dues bombes separades. El ==septe== impedeix que es barregin.", type: "concept", video: "/animacions/sa2-s4-t1.mp4" },
     { id: "t2", apartat: "2", heading: "Arquitectura del ==cor==", text: "4 cavitats = ==2 aurícules== (reben) + ==2 ventricles== (bomben). ==Ventricle esquerre==: paret ==3× més gruixuda|o== perquè ha de bombar a tot el cos (pressió alta). ==Ventricle dret==: paret prima, pressió baixa cap als pulmons.", type: "concept", video: "/animacions/sa2-s4-t2.mp4" },
     { id: "t3", apartat: "3", heading: "El cor necessita la seva pròpia sang", text: "Les ==artèries coronàries|o== porten sang oxigenada al ==múscul cardíac (miocardi)==. Un ==infart|r== és l'==obstrucció d'una coronària|r== → el miocardi no rep O₂ → ==mort cel·lular|r==. Per quina raó és tan greu: el cor no pot aturar-se.", type: "concept", video: "/animacions/sa2-s4-t3.mp4" },
     { id: "t4", apartat: "3", heading: "Connexió SA1: ==miocardi== i ==mitocondris==", text: "Les cèl·les del ==miocardi== són musculars i contenen molt de ==mitocondris== → necessiten molt ==ATP|g== → molt ==O₂|b== → per quina raó el cor es ressent tant amb l'==anèmia|r==.", type: "transfer", badge: "🔗 Connexió SA1", video: "/animacions/sa2-s4-t4.mp4" }
@@ -99,18 +99,18 @@ export const sa2s4 = {
   fitxaGuide: {
     fitxaName: "Fitxa S4 — Dissecció de cor",
     steps: [
-      { apartat: "0", title: "Predicció — abans de veure el cor real", time: "5 min", phase: "engage", instruction: "Omple l'apartat 0 del full: dibuixa el cor per dins tal com te l'imagines. La compararàs amb el cor real al final.", hints: [] },
-      { apartat: "1", title: "Observació exterior del cor", time: "8–10 min", phase: "explore", instruction: "Durant la fase 1, omple l'apartat 1 del full: vasos superficials i artèries coronàries.", hints: [
+      { apartat: "0", title: "Predicció — abans de veure el cor real", time: "8 min", phase: "engage", instruction: "Omple l'apartat 0 del full: dibuixa el cor per dins tal com te l'imagines. La compararàs amb el cor real al final.", hints: [] },
+      { apartat: "1", title: "Observació exterior del cor", time: "15 min", phase: "explore", instruction: "Durant la fase 1, omple l'apartat 1 del full: vasos superficials i artèries coronàries.", hints: [
         "Per què hi ha vasos AL VOLTANT del cor? El múscul cardíac també necessita la seva pròpia sang."
       ] },
-      { apartat: "2", title: "Tall sagital — les 4 cavitats", time: "10 min", phase: "explore", instruction: "Durant la fase 2, omple l'apartat 2 del full: compta les 4 cavitats i localitza el tabi.", hints: [
-        "Per què el tabi ha de ser complet (sense forats)? Què passaria si la sang oxigenada i la desoxigenada es barregessin?"
+      { apartat: "2", title: "Obrim el cor — protocol de tall i cavitats", time: "35 min", phase: "explore", instruction: "Durant la fase 2, omple l'apartat 2 del full: compta les cavitats i localitza el septe.", hints: [
+        "Per quina raó el septe ha de ser complet? Pensa en dues coses alhora: evita que es barregin dues sangs diferents I permet mantenir dues pressions diferents al mateix òrgan."
       ] },
-      { apartat: "3", title: "Comparació dels ventricles", time: "8 min", phase: "explore", instruction: "Durant la fase 4, omple l'apartat 3 del full: mesura i compara el gruix de la paret dels dos ventricles.", hints: [
+      { apartat: "3", title: "Dues bombes en un sol cor", time: "20 min", phase: "explore", instruction: "Durant la fase 4, omple l'apartat 3 del full: mesura i compara el gruix de la paret dels dos ventricles.", hints: [
         "Un ventricle bomba només als pulmons (a prop); l'altre, a tot el cos (lluny). Quin necessita més força de paret?"
       ] },
-      { apartat: "4", title: "Cas clínic — Elaborate", time: "15 min", phase: "elabora", instruction: "En parelles, trieu un cas (A o B) i resoleu-lo a l'apartat 4 del full.", hints: [
-        "Connecta el problema del cas amb el que has vist disseccionant: gruix de paret, vàlvules, tabi o coronàries."
+      { apartat: "4", title: "Cas clínic — Elaborate", time: "25 min", phase: "elabora", instruction: "En parelles, trieu un cas (A o B) i resoleu-lo a l'apartat 4 del full.", hints: [
+        "Connecta el problema del cas amb el que has vist disseccionant: gruix de paret, vàlvules, septe o coronàries."
       ] }
     ]
   },
@@ -118,14 +118,14 @@ export const sa2s4 = {
   exitTicketType: "paper",
   exitTicketQuestions: [
     { id: "q1", type: "open", text: "Per quina raó el ventricle esquerre té la paret molt més gruixuda que el dret? Explica la connexió amb la doble circulació.", hint: "L'esquerre bomba a tot el cos (gran circulació, pressió alta); el dret només als pulmons. Més distància i pressió → més múscul." },
-    { id: "q2", type: "open", text: "Si el tabi interventricular tingués un forat (comunicació interventricular), quin efecte tindria sobre l'hemoglobina oxigenada que arriba al cos?", hint: "Un forat deixaria barrejar sang oxigenada i desoxigenada. La que surt cap al cos, portaria més o menys O₂ del normal?" },
+    { id: "q2", type: "open", text: "Si el septe interventricular tingués un forat (comunicació interventricular), cap a quin costat passaria la sang pel forat i quina part del cor hauria de moure més sang del que li toca? Digues també què NO canviaria.", hint: "Un dels dos ventricles empeny molt més fort que l'altre, i la sang sempre va del lloc amb més pressió al lloc amb menys. Pensa què implica això per a la sang que surt cap al cos." },
     { id: "q3", type: "open", text: "Marc Fontana té anèmia. Usa el que has vist avui per explicar per quina raó el seu cor ha de treballar més dur.", hint: "Si cada litre de sang porta menys O₂ (poca hemoglobina), com pot el cor fer arribar el mateix O₂ als músculs? Què ha d'augmentar?" }
   ],
-  homework: { description: "Cap. (Opcional: si tens smartwatch, porta dades de FC en repòs per a S5.)", deadline: null },
+  homework: { description: "Mesura't el pols en repòs (15 s × 4) i porta la xifra apuntada a la fitxa per a la Sessió 5. Nivell A: pren-te'l també just després de pujar tres pisos i porta les dues xifres.", deadline: null },
   recoveryInstructions: [
     "Mira el vídeo de dissecció de cor de porc (link a la secció EXPLICA, ~15 min)",
     "Omple la fitxa S4 seccions 1–4 basant-te en el vídeo",
     "Exit tiquet en paper a S5 o online aquí"
   ],
-  oaLinks: ["OA2"], competencies: ["CE2", "CE1"]
+  oaLinks: ["OA2"], competencies: ["CE1", "CE2", "CE4"]
 }

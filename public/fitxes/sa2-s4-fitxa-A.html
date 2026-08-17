@@ -181,6 +181,34 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .fig-cap { font-size:9px; color:var(--muted); margin-top:4px; line-height:1.3; }
 
 
+.figw { position:relative; display:inline-block; line-height:0; }
+.figw img { display:block; max-width:100%; max-height:340px; object-fit:contain; }
+.fig-mark { position:absolute; transform:translate(-50%,-50%); width:19px; height:19px; border-radius:50%;
+            background:#fff; border:2.2px solid var(--purple-ink); color:var(--purple-ink);
+            font-family:'Inter',sans-serif; font-weight:800; font-size:11px; line-height:15px; text-align:center;
+            box-shadow:0 1px 2px rgba(0,0,0,.35); }
+.dfig.tall img { max-height:340px; }
+.fig-legend { font-size:11px; line-height:1.9; padding-left:2px; }
+.fig-legend .lg-n { display:inline-block; width:17px; height:17px; border-radius:50%; background:var(--purple-ink);
+            color:#fff; font-family:'Inter',sans-serif; font-weight:800; font-size:10px; line-height:17px;
+            text-align:center; margin-right:6px; }
+.fig-legend li { list-style:none; margin-bottom:3px; }
+.figbox { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start; margin:8px 0; }
+.protocol { counter-reset:pas; }
+.protocol li { list-style:none; font-size:11px; margin-bottom:5px; padding-left:22px; position:relative; }
+.protocol li::before { counter-increment:pas; content:counter(pas); position:absolute; left:0; top:1px;
+            width:16px; height:16px; border-radius:50%; background:var(--teal); color:#fff;
+            font-family:'Inter',sans-serif; font-weight:700; font-size:10px; line-height:16px; text-align:center; }
+.segur { background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:7px 9px; margin-top:6px; }
+.volta-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; margin:7px 0; }
+.volta-cell { border:1.5px solid var(--rule-dark); border-radius:8px; background:#fff; padding:6px 5px; text-align:center; font-size:10.5px; }
+.volta-num { display:block; width:100%; height:26px; border-bottom:1.5px solid #C8C2DD; margin-bottom:4px; background:#fdfcff; }
+.amp-box { border:2px solid var(--orange); border-left-width:6px; background:var(--orange-tint); border-radius:8px; padding:9px 11px; margin-top:9px; }
+.amp-title { font-family:'Inter',sans-serif; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:#a35a1f; margin-bottom:5px; }
+.dades-taula { width:100%; border-collapse:collapse; font-size:10.5px; margin:6px 0; }
+.dades-taula th, .dades-taula td { border:1px solid var(--rule-dark); padding:3px 5px; text-align:left; }
+.dades-taula th { background:var(--purple-tint); font-family:'Inter',sans-serif; font-size:10px; }
+
 
 @media print {
   @page { size:A4; margin:0; }
@@ -222,7 +250,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="header-center">
     <div class="header-sa" contenteditable="true">El nostre cos en marxa · Sessió 4 de 7</div>
     <div class="header-title" contenteditable="true">El cor per dins</div>
-    <div class="header-subtitle" contenteditable="true">Una bomba doble a les teves mans — per què 4 cavitats i no 2</div>
+    <div class="header-subtitle" contenteditable="true">Una bomba doble a les teves mans — per quina raó 4 cavitats i no 2</div>
   </div>
   <div class="header-right">
     <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
@@ -235,143 +263,222 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <span class="badge deletable" contenteditable="true">Autònom<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <span class="temps-badge deletable">⏱️ 2h total<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
-  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió A — Ampliació">A</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió A — Autònom / Ampliació">A</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
 </div>
 
 <div class="oa-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="oa-title" contenteditable="true">🎯 Objectius d'aprenentatge d'avui</div>
   <ul class="oa-list">
-    <li contenteditable="true">Relaciono cada estructura del cor amb la seva funció i ho argumento.</li>
-    <li contenteditable="true">Construeixo el recorregut complet de la sang (circulació pulmonar i general) i el justifico amb les pressions.</li>
-    <li contenteditable="true">Analitzo un cas clínic (forat al tabic o coronàries obstruïdes) i en dedueixo els símptomes des de la fisiologia.</li>
-    <li contenteditable="true">Connecto l'anèmia del corredor amb el sobreesforç del cor (FC compensatòria).</li>
+    <li contenteditable="true">Relaciono cada estructura del cor amb la seva funció i ho argumento amb dades de pressió i de distància.</li>
+    <li contenteditable="true">Deduexo el recorregut complet de la sang i el justifico amb les dues pressions del sistema.</li>
+    <li contenteditable="true">Analitzo un cas clínic i en dedueixo el mecanisme, distingint què canvia i què NO canvia.</li>
+    <li contenteditable="true">Reconstrueixo el raonament quantitatiu de Harvey (1628) i explico per quina raó demostrava un circuit tancat.</li>
+    <li contenteditable="true">Proposo una manera de mesurar objectivament una diferència anatòmica (variables, control, rèpliques).</li>
   </ul>
 </div>
 
 <div class="content">
 
-<div class="word-bank deletable" style="margin-top:10px">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="word-bank-title" contenteditable="true">📖 Vocabulari clau d'avui</div>
-  <div class="chips">
-    <span class="chip" contenteditable="true">aurícula = cavitat de dalt; rep la sang que torna al cor</span>
-    <span class="chip" contenteditable="true">ventricle = cavitat de baix; expulsa la sang amb força</span>
-    <span class="chip" contenteditable="true">tabic = paret que separa el costat dret de l'esquerre</span>
-    <span class="chip" contenteditable="true">vàlvula = porta d'un sol sentit; evita que la sang torni enrere</span>
-    <span class="chip" contenteditable="true">miocardi = el múscul del cor</span>
-    <span class="chip" contenteditable="true">artèries coronàries = vasos que porten sang al propi cor</span>
-    <span class="chip" contenteditable="true">doble circulació = la sang fa dues voltes (pulmons i cos)</span>
-    <span class="chip" contenteditable="true">aorta = l'artèria gran que surt del ventricle esquerre</span>
-  </div>
-</div>
-
 
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">La teva predicció — el cor per dins</div><div class="sdesc" contenteditable="true">Individual · ⏱️ 5 min · No es corregeix: el compararàs amb el cor real al final</div></div></div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">La teva predicció — el cor per dins</div><div class="sdesc" contenteditable="true">Individual · ⏱️ 8 min · No es corregeix: el compararàs amb el cor real al final</div></div></div>
   <div class="divider"></div>
   <div class="previ-grid" style="grid-template-columns:1fr;gap:10px">
     <div class="draw-box">
-      <div class="card-label" contenteditable="true">✏️ Dibuixa el cor tal com te l'imagines per dins</div>
-      <div class="draw-area"><span class="draw-hint">el teu cor</span></div>
+      <div class="card-label" contenteditable="true">✏️ Dibuixa el cor tal com te l'imagines per dins (no passa res si t'equivoques: per això és una predicció)</div>
+      <div class="draw-area"></div>
     </div>
     <div class="previ-box">
       <p class="frase-completar" contenteditable="false">Crec que el cor té <span class="blank blank-s"></span> cavitats (cambres) per dins.</p>
       <p contenteditable="true" style="font-size:11.5px;margin-top:6px">Hi ha algun punt on la sang neta i la sang bruta es barregen?&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> Sí</span>&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> No</span></p>
       <p contenteditable="true" style="font-size:11.5px;margin-top:4px">Per què ho creus?</p>
-      <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     </div>
   </div>
-  <div class="connexio-box mt8 deletable">
+</div>
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Observació exterior</div><div class="sdesc" contenteditable="true">En grups de 4 · ⏱️ 15 min · El cor per fora, abans d'obrir-lo</div></div></div>
+  <div class="divider"></div>
+
+  <div class="connexio-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="connexio-icon">🔗</div>
-    <div class="connexio-text" contenteditable="true"><strong>Recorda la Sessió 3 (la sang):</strong> ja saps que el cor té 4 cavitats i que la sang fa una <strong>circulació doble</strong>. Però, <strong>per què 4 i no 2?</strong> Per què no es poden barrejar la sang rica en oxigen i la pobra? Avui ho veuràs amb les teves mans, en un cor de veritat.</div>
-  </div>
-</div>
-<div class="section deletable">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Observació exterior</div><div class="sdesc" contenteditable="true">En grups de 4 · ⏱️ 10 min · El cor per fora, abans d'obrir-lo</div></div></div>
-  <div class="divider"></div>
-<div class="fig-grid g2"><div class="dfig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><img src="disseccio_img_cara_anterior_posterior.png" alt="Cara anterior i posterior del cor: localitza els grans vasos." onerror="this.style.display='none'"><div class="fig-cap" contenteditable="true">Cara anterior i posterior del cor: localitza els grans vasos.</div></div><div class="dfig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><img src="disseccio_img_coronaries.png" alt="Les artèries coronàries envolten el cor." onerror="this.style.display='none'"><div class="fig-cap" contenteditable="true">Les artèries coronàries envolten el cor.</div></div></div>
+    <div class="connexio-text" contenteditable="true"><strong>Recorda la Sessió 3 (la sang):</strong> ja saps que la sang fa una <strong>circulació doble</strong> — una volta pels pulmons i una per la resta del cos. Avui obriràs la bomba que fa possible aquestes dues voltes, i veuràs amb les teves mans <strong>quantes cambres té i per quina raó</strong>.</div>
+  </div><div class="figbox"><div class="dfig tall deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="figw"><img src="cor_exterior_MUT.png" alt="Cor de porc real, vist per la cara del davant. Els 4 números marquen els vasos grans que entren i surten del cor." onerror="this.style.display='none'"><span class="fig-mark" style="left:19.5%;top:8.0%">1</span><span class="fig-mark" style="left:60.0%;top:9.0%">2</span><span class="fig-mark" style="left:56.5%;top:20.8%">3</span><span class="fig-mark" style="left:83.2%;top:29.1%">4</span></div><div class="fig-cap" contenteditable="true">Cor de porc real, vist per la cara del davant. Els 4 números marquen els vasos grans que entren i surten del cor.</div></div><div><p class="pista" contenteditable="true">Paraules per triar (n'hi ha una per número): aorta · artèria pulmonar · vena cava inferior · vena cava superior</p><ul class="fig-legend"><li><span class="lg-n">1</span><span class="input-span" contenteditable="true" style="min-width:120px"></span></li><li><span class="lg-n">2</span><span class="input-span" contenteditable="true" style="min-width:120px"></span></li><li><span class="lg-n">3</span><span class="input-span" contenteditable="true" style="min-width:120px"></span></li><li><span class="lg-n">4</span><span class="input-span" contenteditable="true" style="min-width:120px"></span></li></ul></div></div><div class="dfig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><img src="coronaries_MUT.png" alt="Esquema del cor per fora: els vasos vermells que hi corren per damunt són les artèries coronàries, que reguen el múscul del propi cor." onerror="this.style.display='none'"><div class="fig-cap" contenteditable="true">Esquema del cor per fora: els vasos vermells que hi corren per damunt són les artèries coronàries, que reguen el múscul del propi cor.</div></div>
   <div class="card deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">Observa, identifica i justifica</div>
-    <p style="font-size:11px" contenteditable="true">① Identifica l'aorta i l'artèria pulmonar. Com les distingeixes (gruix, rigidesa de la paret)?</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <p style="font-size:11px" contenteditable="true">② El cor és un múscul que batega tota la vida. Argumenta per què necessita el seu propi reg de sang (coronàries) i què passaria si una s'obstruís.</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-  </div>
-</div>
-<div class="section deletable">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n2">2</div><div><div class="stitle" contenteditable="true">Obrim el cor — les 4 cavitats</div><div class="sdesc" contenteditable="true">En grups de 4 · ⏱️ 20 min · Tall, cavitats, tabic i vàlvules</div></div></div>
-  <div class="divider"></div>
-<div class="fig-grid g2"><div class="dfig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><img src="disseccio_img_tall_ventricles.png" alt="Tall del cor: la paret del ventricle esquerre és molt més gruixuda." onerror="this.style.display='none'"><div class="fig-cap" contenteditable="true">Tall del cor: la paret del ventricle esquerre és molt més gruixuda.</div></div><div class="dfig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><img src="disseccio_img_valvules.png" alt="Les vàlvules separen aurícules i ventricles." onerror="this.style.display='none'"><div class="fig-cap" contenteditable="true">Les vàlvules separen aurícules i ventricles.</div></div></div>
-  <div class="card deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">Reconstrueix el recorregut de la sang</div>
-    <p style="font-size:11px" contenteditable="true">Anomena les 4 cavitats i, fent servir fletxes, escriu el camí complet de la sang: des que torna pobra en O₂ → pulmons → torna rica en O₂ → tot el cos.</p>
+    <div class="card-label" contenteditable="true">Observa, identifica i argumenta</div>
+    <p style="font-size:11px" contenteditable="true">① Completa la llegenda de la foto. Després argumenta amb quin criteri <strong>físic</strong> pots distingir una artèria d'una vena tocant-les, i digues quin dels 4 vasos t'ha costat més de decidir i per què.</p>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <p style="font-size:11px" contenteditable="true">Justifica per què el tabic ha de ser complet: què passaria amb l'oxigen dels teixits si tingués un forat?</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">② El cor rep sang per dins contínuament i, malgrat això, té un sistema de reg propi (les coronàries). Argumenta per quina raó no li serveix la sang que li passa per dins de les cavitats. (Pensa en el gruix de la paret i en com arriba l'oxigen a una cèl·lula.)</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">③ Recorda la Sessió 1: el miocardi és un dels teixits amb més mitocondris del cos. Dedueix què implica això sobre el consum d'oxigen del cor, i quina conseqüència té si la sang porta poca hemoglobina (la proteïna del glòbul vermell que transporta l'oxigen).</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
 </div>
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle" contenteditable="true">El múscul més fort del cor</div><div class="sdesc" contenteditable="true">Individual · ⏱️ 10 min · Per què una paret és més gruixuda que l\'altra</div></div></div>
+  <div class="section-header"><div class="snum n2">2</div><div><div class="stitle" contenteditable="true">Obrim el cor — les cavitats per dins</div><div class="sdesc" contenteditable="true">En grups de 4 · ⏱️ 35 min · Tall guiat, cavitats, septe i vàlvules</div></div></div>
   <div class="divider"></div>
+
+  <div class="card teal deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🧪 Material i com fer el tall — llegiu-ho TOT abans de començar</div>
+    <p style="font-size:11px" contenteditable="true"><strong>Material per grup:</strong> 1 cor de porc o de xai · safata de dissecció · guants · tisores de punta rodona (o bisturí) · pinces · 4 etiquetes de colors · paper de cuina.</p>
+    <ol class="protocol">
+      <li contenteditable="true">Poseu-vos els <strong>guants</strong>. El cor es queda SEMPRE dins de la safata.</li>
+      <li contenteditable="true">Abans de tallar, feu la secció 1: mireu-lo per fora i toqueu-lo.</li>
+      <li contenteditable="true">Localitzeu el <strong>solc</strong> (la ratlla de greix que baixa en diagonal per davant): separa els dos ventricles. NO talleu just a sobre del solc.</li>
+      <li contenteditable="true">Feu el <strong>primer tall</strong> a un costat del solc, seguint una de les dues línies de punts de la foto. Talleu de dalt a baix, poc a poc, sense arribar a la punta.</li>
+      <li contenteditable="true">Obriu-lo com un llibre i mireu-hi dins. Buideu els coàguls amb les pinces si cal.</li>
+      <li contenteditable="true">Feu el <strong>segon tall</strong> a l'altre costat del solc i obriu l'altre ventricle.</li>
+      <li contenteditable="true">Poseu una etiqueta de color a cada cavitat que trobeu.</li>
+      <li contenteditable="true">En acabar: el cor a la bossa de residus, safata i eines a la pica, guants fora i <strong>mans amb sabó</strong>.</li>
+    </ol>
+    <div class="segur">
+      <p style="font-size:11px" contenteditable="true"><strong>⚠️ Seguretat:</strong> talleu sempre <strong>allunyant</strong> el fil de les vostres mans i de les dels companys. Mai amb el cor a la mà: sempre a la safata. Res de menjar ni beure a la taula. Si us talleu, aviseu de seguida.</p>
+    </div>
+  </div><div class="fig-grid g2"><div class="dfig tall deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><img src="disseccio_img_tall_ventricles.png" alt="Les dues línies de punts marquen els DOS talls que fareu: un per obrir cada ventricle. En obrir-los tots dos podreu comparar el gruix de les dues parets — i descobrir quin dels dos és el ventricle esquerre." onerror="this.style.display='none'"><div class="fig-cap" contenteditable="true">Les dues línies de punts marquen els DOS talls que fareu: un per obrir cada ventricle. En obrir-los tots dos podreu comparar el gruix de les dues parets — i descobrir quin dels dos és el ventricle esquerre.</div></div><div class="dfig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><img src="valvules_MUT.png" alt="Com funciona una vàlvula: quan està oberta (esquerra) deixa passar la sang; quan està tancada (dreta) no la deixa tornar enrere. És una porta d'un sol sentit." onerror="this.style.display='none'"><div class="fig-cap" contenteditable="true">Com funciona una vàlvula: quan està oberta (esquerra) deixa passar la sang; quan està tancada (dreta) no la deixa tornar enrere. És una porta d'un sol sentit.</div></div></div>
   <div class="info-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="info-label" contenteditable="true">📖 Per llegir — Dues bombes, dues forces</div>
-    <p contenteditable="true">El cor són, de fet, <strong>dues bombes</strong>. La dreta envia la sang als <strong>pulmons</strong>, que són a prop i necessiten poca pressió. L'esquerra l'envia a <strong>tot el cos</strong>, fins al dit del peu: per això la seva paret és molt més gruixuda i forta.</p>
+    <div class="info-label" contenteditable="true">📖 Per llegir — d'on surt el so «lub-dub»</div>
+    <p contenteditable="true">Quan escoltes un batec no sents un cop, sinó dos: <strong>lub — dub</strong>. El so no el fa la sang movent-se: el fan <strong>les vàlvules en tancar-se de cop</strong>, com una porta que peta.</p>
+    <p contenteditable="true" style="margin-top:4px">El <strong>lub</strong> són les vàlvules d'<strong>entrada</strong> (les que hi ha entre cada aurícula i el seu ventricle) quan es tanquen, just quan el ventricle comença a estrènyer. El <strong>dub</strong> són les vàlvules de <strong>sortida</strong> (a la boca de l'aorta i de l'artèria pulmonar) quan es tanquen, just quan el ventricle acaba d'estrènyer.</p>
   </div>
-
-  <p style="font-size:11px" contenteditable="true">① Explica per què la paret del ventricle esquerre és unes 3 vegades més gruixuda que la del dret (relaciona-ho amb la distància i la pressió).</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-  <div class="card mt8 deletable" style="border-color:var(--art);background:var(--rose-tint)">
+  <div class="card deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">🩸 Connexió amb l'enigma — Marc Fontana</div>
-    <p style="font-size:11px" contenteditable="true">② El corredor Marc Fontana té poca hemoglobina, així que la seva sang porta menys oxigen. Argumenta per què, en aquesta situació, el seu cor s'ha d'esforçar més (què ha de compensar bombant més de pressa?).</p>
+    <div class="card-label" contenteditable="true">Reconstrueix i argumenta</div>
+    <p style="font-size:11px" contenteditable="true">① Anomena les 4 cavitats i escriu, amb fletxes, el recorregut complet de la sang: des que torna pobra en O₂ fins que surt cap al cos. Indica en cada pas per quina vàlvula passa.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">② El septe complet té dues conseqüències diferents: (a) evita que es barregin dues sangs de composició diferent i (b) permet mantenir <strong>dues pressions diferents</strong> al mateix òrgan. Argumenta quina de les dues et sembla més decisiva i per què.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">③ Un metge sent un <strong>bufec</strong> (soroll de sang passant per on no toca) entre el «lub» i el «dub». Dedueix quina mena de vàlvula falla en aquest moment del batec i justifica-ho amb el que acabes de llegir.</p>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+  </div>
+  <div class="draw-box deletable" style="margin-top:8px">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">✏️ Dibuixa el cor OBERT tal com el veus ara i posa-hi els noms de totes les cavitats que hi trobis</div>
+    <p class="pista" contenteditable="true">Escriu el nom al costat de cada cambra, amb una fletxa. Si no recordes un nom, mira el vocabulari de la primera pàgina.</p>
+    <div class="draw-area"></div>
   </div>
 </div>
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n4">4</div><div><div class="stitle" contenteditable="true">Cas clínic — quan el cor falla</div><div class="sdesc" contenteditable="true">En parelles · ⏱️ 15 min · Aplica el que has vist a un cas real</div></div></div>
+  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle" contenteditable="true">Dues bombes en un sol cor</div><div class="sdesc" contenteditable="true">Individual · ⏱️ 20 min · Per quina raó una paret és més gruixuda que l'altra</div></div></div>
+  <div class="divider"></div>
+
+  <table class="dades-taula">
+    <tr><th>Dada mesurada en una persona sana</th><th>Ventricle dret</th><th>Ventricle esquerre</th></tr>
+    <tr><td>Pressió màxima que genera</td><td>~25 mmHg</td><td>~120 mmHg</td></tr>
+    <tr><td>Gruix de la paret</td><td>~4 mm</td><td>~12 mm</td></tr>
+    <tr><td>Volum que expulsa a cada batec</td><td>~70 mL</td><td>~70 mL</td></tr>
+  </table>
+  <p class="pista" contenteditable="true">Totes tres dades són reals i les tres et fan falta.</p>
+  <p style="font-size:11px" contenteditable="true">① Les dues bombes mouen <strong>el mateix volum</strong> de sang, però amb pressions molt diferents. Argumenta què determina el gruix de la paret d'un ventricle: el volum que mou o la pressió que ha de generar? Justifica-ho amb les tres files de la taula.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+  <p style="font-size:11px" contenteditable="true">② La pressió de l'esquerre és gairebé <strong>5 vegades</strong> més gran, però la paret només és <strong>3 vegades</strong> més gruixuda. Què vol dir això: que la relació entre pressió i gruix NO és proporcional. Proposa una explicació d'aquesta diferència.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+  <div class="card mt8 deletable" style="border-color:var(--art);background:var(--rose-tint)">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🔄 Contrafactual — i si el dret fos igual de fort?</div>
+    <p style="font-size:11px" contenteditable="true">③ Imagina un cor amb el ventricle <strong>dret</strong> tan gruixut i potent com l'esquerre, generant també 120 mmHg. Els capil·lars dels alvèols tenen una paret d'una sola cèl·lula de gruix. Dedueix què passaria als pulmons i per què, doncs, tenir el ventricle dret «feble» no és cap defecte de disseny.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+  </div>
+</div>
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n4">4</div><div><div class="stitle" contenteditable="true">Cas clínic — quan el cor falla</div><div class="sdesc" contenteditable="true">En parelles · ⏱️ 25 min · Aplica el que has vist a un cas real</div></div></div>
   <div class="divider"></div>
 
   <div class="fig-grid g2">
-    <div class="card deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">🅰 Cas Arnau — forat al tabic</div><p style="font-size:11px" contenteditable="true">L'Arnau té un petit forat al tabic interventricular (la sang dels dos costats es barreja una mica).</p></div>
-    <div class="card deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">🅱 Cas Nadia — coronàries obstruïdes</div><p style="font-size:11px" contenteditable="true">La Nadia té les artèries coronàries parcialment tapades (arriba menys sang al múscul del cor).</p></div>
+    <div class="card deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="card-label" contenteditable="true">🅰 Cas Arnau — un forat al septe</div>
+      <p style="font-size:11px" contenteditable="true">L'Arnau té 14 anys i va néixer amb un <strong>forat al septe</strong> que separa els dos ventricles. <em>Símptomes:</em> corrent es queda enrere molt abans que els companys i respira molt de pressa; en repòs està perfectament bé. El metge li sent un <strong>bufec</strong> (un soroll de sang que passa per on no hauria de passar). Els llavis i les ungles li tenen el color normal: <strong>no es posa blau</strong>.</p>
+    </div>
+    <div class="card deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <div class="card-label" contenteditable="true">🅱 Cas Nadia — coronàries tapades</div>
+      <p style="font-size:11px" contenteditable="true">La Nadia té 58 anys i té les <strong>artèries coronàries</strong> parcialment tapades per plaques de greix. <em>Símptomes:</em> quan puja escales li fa un dolor opressiu al pit i s'ha d'aturar; en aturar-se, al cap d'un parell de minuts el dolor desapareix del tot.</p>
+    </div>
   </div>
-  <p class="pista" contenteditable="true">Tria UN dels dos casos i respon:</p>
+  <p class="pista" contenteditable="true">Tria UN dels dos casos i respon només aquell.</p>
   <div class="card deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">Diagnostica i proposa</div>
-    <p style="font-size:11px" contenteditable="true">① Explica la cadena causal completa des del problema fins al símptoma (per què apareix en fer esforç i no en repòs).</p>
+    <div class="card-label" contenteditable="true">Diagnostica, i comprova què NO encaixa</div>
+    <p style="font-size:11px" contenteditable="true">① Construeix la cadena causal completa del cas que has triat, des de la causa anatòmica fins al símptoma, indicant en quin punt exacte de la cadena l'esforç físic ho fa evident.</p>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <p style="font-size:11px" contenteditable="true">② Proposa una hipòtesi d'intervenció: què es podria fer per millorar la situació d'aquesta persona, i per què funcionaria?</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">② <strong>Refuta una explicació falsa.</strong> Molta gent, i molts llibres, diuen que un forat al septe fa que «la sang bruta es barregi amb la neta i el pacient es posi blau». Els símptomes de l'Arnau ho desmenteixen. Fes servir les dades de pressió de la secció 3 per demostrar per quina raó aquesta explicació no pot ser correcta, i digues què passaria d'especial per arribar realment a posar-se blau.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">③ Proposa una intervenció per a la persona que has triat i explica per quin mecanisme milloraria. Digues també quin efecte NO tindrà.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
+</div>
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n5">★</div><div><div class="stitle" contenteditable="true">Ampliació — pensar com un científic del 1628</div><div class="sdesc" contenteditable="true">Individual o en parelles · ⏱️ dins dels 20 min de la secció 3 i a casa</div></div></div>
+  <div class="divider"></div>
+  <div class="amp-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="amp-title">① El càlcul de William Harvey</div>
+    <p style="font-size:11px" contenteditable="true">El 1628, William Harvey no tenia microscopi i <strong>no havia vist mai un capil·lar</strong>. Només tenia el que tu tens avui: un cor obert i saber comptar. Sabia que el ventricle esquerre expulsa uns <strong>70 mL</strong> de sang a cada batec i que un cor batega unes <strong>70 vegades per minut</strong>. També sabia que una persona té dins del cos, en total, uns <strong>5 litres</strong> de sang.</p>
+    <p style="font-size:11px;margin-top:5px" contenteditable="true">Calcula quants litres bomba el cor en una hora, i quantes vegades caben els 5 litres del cos en aquesta quantitat.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px;margin-top:4px" contenteditable="true">Ara raona com ell: si el cos <strong>no pot fabricar</strong> tanta sang nova, i la sang <strong>no s'acumula</strong> enlloc, quina és l'única conclusió possible sobre el camí que fa? Explica per quina raó aquest càlcul demostra el circuit tancat <strong>sense necessitat de veure els capil·lars</strong>.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+  </div>
+  <div class="amp-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="amp-title">② Per quina raó 4 i no 3? — comparació entre animals</div>
+    <table class="dades-taula">
+      <tr><th>Animal</th><th>Cavitats del cor</th><th>Es barreja la sang?</th><th>Temperatura del cos</th></tr>
+      <tr><td>Peix</td><td>2</td><td>No (un sol circuit)</td><td>La de l'aigua</td></tr>
+      <tr><td>Granota</td><td>3 (1 ventricle)</td><td>Sí, una part</td><td>La de l'ambient</td></tr>
+      <tr><td>Gos, humà</td><td>4</td><td>No</td><td>Constant, ~37 °C</td></tr>
+    </table>
+    <p style="font-size:11px" contenteditable="true">Una granota viu perfectament amb la sang parcialment barrejada; un gos no ho sobreviuria. Argumenta quina relació hi ha entre <strong>mantenir la temperatura constant</strong> i necessitar <strong>4 cavitats</strong>. (Pensa què costa, en oxigen, escalfar-se un mateix.)</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+  </div>
+  <div class="amp-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="amp-title">③ Com ho mesuraries de debò?</div>
+    <p style="font-size:11px" contenteditable="true">Avui has dit «aquesta paret és més gruixuda» tocant-la amb el dit. Això és una impressió, no una mesura. Dissenya com comprovaries objectivament, al laboratori i amb els cors dels altres grups, que la paret del ventricle esquerre és més gruixuda que la del dret.</p>
+    <p style="font-size:11px;margin-top:4px" contenteditable="true">Variable que fas variar (VI):</p>
+<div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">Variable que mesures (VD) i amb quin instrument:</p>
+<div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">Què has de mantenir igual per poder comparar, i quantes rèpliques necessites:</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">Quin resultat refutaria la teva hipòtesi:</p>
+<div class="wline" contenteditable="true"></div>
+  </div>
+</div>
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n5">6</div><div><div class="stitle" contenteditable="true">Posem-ho en comú — es resol el repte del principi</div><div class="sdesc" contenteditable="true">Tota la classe · ⏱️ 10 min + 7 min de full de sortida (te'l dono a part) · Recollida i tancament</div></div></div>
+  <div class="divider"></div>
+  <p style="font-size:11px" contenteditable="true">Un portaveu de cada grup diu <strong>una</strong> cosa que ha vist al cor i que no s'esperava. Després tornem a la pregunta del principi: <strong>per quina raó el cor té 4 cavitats i no 2?</strong> Escriu aquí la resposta de la classe, amb les teves paraules:</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
 </div>
 <div class="meta-oa-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="meta-oa-title" contenteditable="true">🎯 Torna als objectius del principi — Marca el que has après avui:</div>
-<div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Relaciono cada estructura del cor amb la seva funció i ho argumento.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Construeixo el recorregut complet de la sang (circulació pulmonar i general) i el justifico amb les pressions.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Analitzo un cas clínic (forat al tabic o coronàries obstruïdes) i en dedueixo els símptomes des de la fisiologia.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Connecto l'anèmia del corredor amb el sobreesforç del cor (FC compensatòria).</div></div>
+<div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Relaciono cada estructura del cor amb la seva funció i ho argumento amb dades de pressió i de distància.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Deduexo el recorregut complet de la sang i el justifico amb les dues pressions del sistema.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Analitzo un cas clínic i en dedueixo el mecanisme, distingint què canvia i què NO canvia.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Reconstrueixo el raonament quantitatiu de Harvey (1628) i explico per quina raó demostrava un circuit tancat.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Proposo una manera de mesurar objectivament una diferència anatòmica (variables, control, rèpliques).</div></div>
   <div class="meta-open">
-    <div class="meta-open-label" contenteditable="true">🪞 Compara el teu dibuix de l'apartat 0 amb el cor real: en què tenies raó? En què t'equivocaves?</div>
-<div class="wline" contenteditable="true"></div>
+    <div class="meta-open-label" contenteditable="true">🪞 Compara el dibuix de la secció 0 (el cor imaginat) amb el de la secció 2 (el cor real): en què tenies raó? En què t'equivocaves?</div>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     <div class="meta-open-label" style="margin-top:6px" contenteditable="true">❓ Encara em pregunto…</div>
 <div class="wline" contenteditable="true"></div>
   </div>
 </div>
 <div class="tasca-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="card-label" contenteditable="true">📚 Per a la propera sessió (opcional)</div>
-  <p style="font-size:12px;font-weight:700;color:var(--purple-ink)" contenteditable="true">La setmana que ve resoldrem l'enigma de la gràfica del cor de la corredora. Si tens un rellotge o polsera que mesuri el pols, anota quina és la teva freqüència cardíaca en repòs i porta-la.</p>
-  <p class="frase-completar" contenteditable="false" style="margin-top:4px">La meva FC en repòs (si la puc mesurar): <span class="blank blank-s"></span> batecs/min.</p>
-  <p class="small mt8" contenteditable="true">⏱️ 2 min · No cal aparell: també pots comptar el pols al canell durant 15 segons i multiplicar per 4.</p>
+  <div class="card-label" contenteditable="true">📚 Per a la propera sessió</div>
+  <p style="font-size:12px;font-weight:700;color:var(--purple-ink)" contenteditable="true">La setmana que ve resoldrem l'enigma de la gràfica del cor del Marc Fontana, el corredor. Mesura't el pols en repòs i porta la xifra apuntada aquí.</p>
+  <p class="frase-completar" contenteditable="false" style="margin-top:4px">La meva FC en repòs: <span class="blank blank-s"></span> batecs/min. L'he mesurat a: <span class="blank blank-m"></span> (canell / coll) </p>
+  <p class="small mt8" contenteditable="true">⏱️ 3 min · No cal cap aparell: compta el pols al canell durant 15 segons i multiplica per 4. Fes-ho asseguda i tranquil·la.</p>
+<p class="small" contenteditable="true">★ A més: pren-te el pols <strong>abans</strong> i <strong>just després</strong> de pujar tres pisos d'escales i anota totes dues xifres. Escriu en una frase quina n'esperaves i quina has obtingut.</p>
 </div>
 
 <div class="footer deletable">
@@ -423,9 +530,9 @@ function restoreCaret(d){
 function repaginate(){
   const host=document.getElementById('sheets'); if(!host) return;
   const caret=saveCaret();
-  FLOW = FLOW.filter(b=>b);
   // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
   host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } } });
+  FLOW = FLOW.filter(b=>b);
   FLOW.forEach(b=>{ if(b.parentNode) b.parentNode.removeChild(b); });
   host.innerHTML='';
   let body=null;
@@ -560,8 +667,6 @@ function _fitxaToast(msg){
 }
 function rebuildDocFromFlow(){
   const doc=document.getElementById('doc');
-  // reassembla seccions partides abans de reconstruir (evita perdre contingut)
-  document.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } } });
   FLOW.forEach(b=>{ if(b.classList.contains('spacer-block')) b.style.height=''; });
   FLOW.forEach(b=>{ if(b.parentNode!==doc){ if(b.parentNode) b.parentNode.removeChild(b); doc.appendChild(b); } });
   document.getElementById('sheets').innerHTML='';
