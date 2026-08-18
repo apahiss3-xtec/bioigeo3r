@@ -81,29 +81,31 @@ export const sa2s5 = {
 
   theoryPoints: [
     { id: "t1", apartat: "2", heading: "Per quina raó augmenta la ==FC==", text: "Exercici → músculs necessiten més ==ATP|g== → necessiten més ==O₂|b== → ==hemoglobina== ha de circular més ràpid → ==cor== batega més de pressa i més fort. La cadena sencera des del ==mitocondri== fins al cor.", type: "keyequation", video: "/animacions/sa2-s5-t1.mp4" },
-    { id: "t2", apartat: "2", heading: "Zones de ==FC==", text: "==FCmàx== estimada: 220 − edat. ==Zona aeròbica|g== (≤85% FCmàx): usa greixos + glucosa, pot mantenir-se molt de temps. ==Zona anaeròbica|r== (>85%): usa glucosa → ==àcid làctic|r==, dolorosa i insostenible.", type: "concept", video: "/animacions/sa2-s5-t2.mp4" },
-    { id: "t3", apartat: "3", heading: "Connexió enigma 1: La gràfica de la Mercè", text: "Puja ràpid (==sistema simpàtic== + ==adrenalina== actius). ==Pic== als ~5 min. ==Recuperació lenta|o== (el cos ha de netejar ==àcid làctic==, normalitzar hormones). Per quina raó és ==asimètrica==: baixar és sempre més lent que pujar.", type: "keyequation", badge: "🔗 Enigma 1 — resolució parcial", video: "/animacions/sa2-s5-t3.mp4" },
-    { id: "t4", apartat: "3", heading: "Connexió enigma 2: Marc Fontana amb anèmia", text: "Amb ==Hb = 9.2 g/dL|r==, cada litre de sang porta molt menys ==O₂|b==. El ==cor== ha de compensar batent molt més de pressa. Per quina raó s'esgota: entra en ==zona anaeròbica|r== molt abans que una persona sana.", type: "keyequation", badge: "🔗 Enigma 2 — resolució parcial", video: "/animacions/sa2-s5-t4.mp4" }
+    { id: "t2", apartat: "2", heading: "Zones de ==FC==", text: "==FCmàx== estimada: 220 − edat. ==Zona aeròbica|g== (≤85% FCmàx): usa greixos + glucosa, pot mantenir-se molt de temps. ==Zona anaeròbica|r== (>85%): crema glucosa sense O₂ i acumula ==lactat i acidesa|r==, que fan abaixar el ritme; insostenible.", type: "concept", video: "/animacions/sa2-s5-t2.mp4" },
+    { id: "t3", apartat: "3", heading: "Connexió enigma 1: La gràfica de la Mercè", text: "Puja ràpid (==sistema simpàtic== + ==adrenalina== actius). ==Pic== de 185 bat/min just a la ==meta== (minut 55). ==Recuperació lenta|o== (el cos ha de netejar ==àcid làctic==, normalitzar hormones). Per quina raó és ==asimètrica==: baixar és sempre més lent que pujar.", type: "keyequation", badge: "🔗 Enigma 1 — resolució parcial", video: "/animacions/sa2-s5-t3.mp4" },
+    { id: "t4", apartat: "3", heading: "Connexió enigma 2: Marc Fontana amb anèmia", text: "Amb ==Hb = 9.2 g/dL|r==, cada litre de sang porta molt menys ==O₂|b==. El ==cor== ha de compensar batent molt més de pressa. Per quina raó s'esgota: entra en ==zona anaeròbica|r== molt abans que una persona sana.", type: "keyequation", badge: "🔗 Enigma 2 — resolució parcial", video: "/animacions/sa2-s5-t4.mp4" },
+    { id: "t5", apartat: "1", heading: "D'on surt l'==O₂== que la sang reparteix", text: "L'aire baixa per ==tràquea== → ==bronquis== → ==bronquíols== → ==alvèols|b==. A l'==alvèol== la paret té el gruix d'==una sola cèl·lula==: l'==O₂|b== hi passa a la sang i el ==CO₂|r== fa el camí contrari. Per això l'esforç accelera ==dos sistemes alhora==: el cor i la respiració.", type: "concept", image: "/imatges-cientifiques/s5_respiratori_alveols.png" }
   ],
+
 
   fitxaUrl: { A: "/fitxes/sa2-s5-fitxa-A.html", B: "/fitxes/sa2-s5-fitxa-B.html", C: "/fitxes/sa2-s5-fitxa-C.html" }, teoriaPdfUrl: null,
 
   fitxaGuide: {
     fitxaName: "Fitxa S5 — Freqüència cardíaca",
     steps: [
-      { apartat: "0", title: "Idees prèvies — els dos enigmes", time: "5 min", phase: "engage", instruction: "Omple l'apartat 0 del full: per què creus que la FC puja amb l'exercici? No es corregeix ara; ho compararàs al final.", hints: [] },
+      { apartat: "0", title: "Idees prèvies — els dos enigmes", time: "10 min", phase: "engage", instruction: "Omple l'apartat 0 del full: per què creus que la FC puja amb l'exercici? No es corregeix ara; ho compararàs al final.", hints: [] },
       { apartat: "1", title: "Mesura la teva FC — l'experiment", time: "35 min", phase: "explore", instruction: "Durant l'experiment, omple la taula de l'apartat 1 del full: FC en repòs, després de l'esforç i durant la recuperació.", hints: [
         "Mesura el pols 30 segons i multiplica per 2 per tenir batecs/minut.",
         "Pren la mesura de l'esforç IMMEDIATAMENT en parar: la FC baixa molt de pressa."
       ] },
-      { apartat: "2", title: "La gràfica de la teva FC", time: "10 min", phase: "explica", instruction: "A l'apartat 2 del full, representa les teves dades: tria tu l'escala de l'eix vertical i marca cada punt.", hints: [
+      { apartat: "2", title: "La gràfica de la teva FC", time: "15 min", phase: "explica", instruction: "A l'apartat 2 del full, representa les teves dades: tria tu l'escala de l'eix vertical i marca cada punt.", hints: [
         "Tria una escala que aprofiti tot l'espai: mira el teu valor més alt i el més baix abans de numerar l'eix.",
         "La forma puja ràpida i baixa lenta? Aquesta asimetria és la clau de l'enigma 1."
       ] },
-      { apartat: "3", title: "G1 — La Mercè, resolució de l'enigma 1", time: "10 min", phase: "explica", instruction: "Amb la gràfica G1, omple l'apartat 3 del full: desxifra la corba de la Mercè.", hints: [
+      { apartat: "3", title: "G1 — La Mercè, resolució de l'enigma 1", time: "20 min", phase: "explica", instruction: "Amb la gràfica G1, omple l'apartat 3 del full: desxifra la corba de la Mercè.", hints: [
         "Relaciona cada tram amb una causa: pujada (sistema simpàtic + adrenalina), pic (màxima demanda), baixada lenta (recuperació)."
       ] },
-      { apartat: "4", title: "G2 — Elit vs. sedentari", time: "10 min", phase: "elabora", instruction: "En parelles, compareu les dues gràfiques a l'apartat 4 del full.", hints: [
+      { apartat: "4", title: "G2 — Elit vs. sedentari", time: "20 min", phase: "elabora", instruction: "En parelles, compareu les dues gràfiques a l'apartat 4 del full.", hints: [
         "El mateix esforç, dos cors diferents: qui té la FC de repòs més baixa i recupera abans? Què ens diu de l'entrenament?"
       ] }
     ]
@@ -116,7 +118,7 @@ export const sa2s5 = {
 
   exitTicketType: "paper",
   exitTicketQuestions: [
-    { id: "q1", type: "open", text: "Amb les teves dades: en quin moment de l'exercici vas entrar a zona anaeròbica? Com ho saps?", hint: "Calcula la teva FCmàx (220 − edat) i el 85%. Mira a la teva taula quan vas superar aquest valor." },
+    { id: "q1", type: "open", text: "Amb les teves dades: la FC que vas mesurar just en parar, superava el teu llindar anaeròbic? Escriu els dos números i digues a quina zona vas estar.", hint: "Els dos números els tens a l'apartat 1 de la fitxa: la FC «just en parar» és a la taula i el llindar, a la caixa de càlcul (a la versió C, a la columna verda de la taula d'edats)." },
     { id: "q2", type: "open", text: "Per quina raó una persona amb anèmia tindria la FC en repòs més alta que una persona sana?", hint: "Si cada batec reparteix menys O₂ (poca hemoglobina), el cor ho ha de compensar d'alguna manera fins i tot en repòs. Com?" }
   ],
 
