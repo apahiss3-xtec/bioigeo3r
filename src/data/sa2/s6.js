@@ -3,7 +3,7 @@ export const sa2s6 = {
   title: "El sistema de control i l'equilibri intern",
   sessionNumber: 6, biome: "sa2", duration: "2h",
   engageImage: "/images/sa2-s6-neuronal.jpg",
-  flippedReading: "Lectura prèvia a casa: text breu sobre sistema nerviós, hormones i ronyó (disponible a Classroom)",
+  flippedReading: "Lectura prèvia a casa (2 versions, Classroom): les dues vies de control del cos — els nervis (elèctrics, mil·lisegons) i les hormones (per la sang, minuts). Idea clau que cal portar a classe: una via és ràpida i breu; l'altra, lenta i duradora.",
 
   // Repte oral curt: "l'enigma del control" — pregunta oberta deixada penjada fins a l'Explica.
   engageChallenge: "Quan l'àrbitre va xiular i la Mercè va sortir a córrer, la seva FC JA pujava ABANS d'agafar ritme. Per quina raó? Ningú li ha dit conscientment al cor que bategui més ràpid. (Pregunta oberta — la resoldreu a l'Explica.)",
@@ -12,30 +12,33 @@ export const sa2s6 = {
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {
     A: [
-      "Raono per quina raó el SN simpàtic i el sistema endocrí no són redundants sinó complementaris: velocitat (ms) vs. durada (minuts-hores).",
-      "Explico per quina raó l'EPO és útil com a dopatge, seguint la cadena: EPO → eritròcits → Hb → O₂/L sang → rendiment.",
-      "Dissenyo un experiment per mesurar el temps de reacció i controlo les variables (dominant/no dominant, cansament, distracció).",
-      "Argumento per quina raó la FC de la Mercè ja pujava ABANS d'arrencar, usant els conceptes de SN simpàtic i anticipació."
+      "Argumento per quina raó la via nerviosa i la via hormonal no són redundants sinó complementàries (velocitat contra durada).",
+      "Critico la mesura del temps de reacció identificant variable independent, dependent, control i rèpliques, i dic quin resultat refutaria la meva hipòtesi.",
+      "Explico el ronyó com a filtre selectiu (filtració + reabsorció) i argumento què li passaria al medi intern si deixés de filtrar.",
+      "Integro pulmons i ronyó com un sistema coordinat d'eliminació i ho lligo a la respiració cel·lular (unitat de la cèl·lula, SA1).",
+      "Comparo DUES analítiques diferents i argumento amb dades per quina raó el problema del Marc Fontana és el ferro i no el ronyó."
     ],
     B: [
-      "Distingeixo el SN simpàtic (elèctric, ms) del sistema endocrí (hormonal, seg-min) amb exemples concrets de cada situació.",
-      "Explico la funció del ronyó en l'homeòstasi: eliminació d'urea i regulació de l'aigua (ADH).",
-      "Relaciono EPO → eritròcits → O₂ disponible i per quina raó el Marc amb ronyó sa no té problema d'EPO.",
-      "Interpreto per quina raó la orina és més fosca quan beus poca aigua (ADH + ronyó)."
+      "Distingeixo la via nerviosa (elèctrica, mil·lisegons) de la via hormonal (per la sang, minuts) amb un exemple de cadascuna.",
+      "Explico per quina raó la freqüència cardíaca de la Mercè ja pujava ABANS d'arrencar (nervi simpàtic i adrenalina).",
+      "Descric com el ronyó filtra la sang i forma l'orina (ronyó → urèter → bufeta) i per quina raó és un filtre selectiu.",
+      "Relaciono les dues portes de sortida dels residus: els pulmons (CO₂) i el ronyó (urea, sals i aigua).",
+      "Interpreto la urea i la creatinina d'una analítica i connecto l'EPO que fabrica el ronyó amb l'anèmia."
     ],
     C: [
-      "Nomeno 2 hormones i la glàndula que les fabrica (adrenalina → _______, insulina → _______).",
-      "Completo: «el sistema nerviós actua en _______ (ms) i el sistema endocrí en _______ (minuts)».",
-      "Sé dir que l'ADH és una hormona que diu al ronyó que _______ més aigua, per això l'orina és _______.",
-      "Reconec que el ronyó fa 2 coses: filtra _______ (urea/sals) i controla la quantitat d'_______."
+      "Sé que els nervis porten l'ordre molt de pressa (mil·lisegons) i que les hormones van per la sang i triguen més (minuts).",
+      "Sé nomenar dues hormones i dir què fan: l'adrenalina i l'ADH.",
+      "Sé que el ronyó filtra la sang i fabrica l'orina, i sé el camí: ronyó → urèter → bufeta.",
+      "Sé que els pulmons treuen el CO₂ i que el ronyó treu la urea, les sals i l'aigua que sobren.",
+      "Sé explicar per quina raó, si bec poca aigua, la meva orina és més fosca (l'ADH)."
     ]
   },
 
   // ── BASTIMENT/REPTE PER APARTAT ──────────────────────────
   apartatExtras: {
     "1": {
-      scaffold: "Test temps de reacció: la distància caiguda indica quant de temps ha trigat el teu sistema nerviós. Omple: distàncies caiguda: ___, ___, ___, ___, ___ cm. Temps de reacció (cm → ms: d=½gt²): ___ ms de mitjana. La 5a repetició és _______ ràpida perquè _______.",
-      challenge: "El temps de reacció mesurat aquí inclou: (1) receptor, (2) via nerviosa aferent, (3) processament, (4) via eferent, (5) contracció muscular. Quin d'aquests passos creus que consumeix MÉS temps? Proposa un experiment que ho pogués aïllar."
+      scaffold: "Estació A (regle de 30 cm): anota les 5 distàncies de la mà dominant i les 5 de l'altra a la taula de la fitxa i passa-les a mil·lisegons amb la taula de conversió (5 cm → 101 ms · 10 → 143 · 15 → 175 · 20 → 202 · 25 → 226 · 30 → 247).",
+      challenge: "El temps que has mesurat inclou 5 passos: (1) receptor, (2) via nerviosa que puja, (3) processament, (4) via que baixa, (5) contracció del múscul. Quin creus que en consumeix més? Proposa una mesura que ho pogués aïllar."
     }
   },
 
@@ -51,7 +54,7 @@ export const sa2s6 = {
       {
         kind: "write",
         text: "La teva orina té sempre el mateix color? Per quina raó creus que alguns dies és molt clara i d'altres molt fosca?",
-        starter: "Crec que el color de la orina canvia perquè..."
+        starter: "Crec que el color de l'orina canvia perquè..."
       }
     ]
   },
@@ -83,29 +86,33 @@ export const sa2s6 = {
   graphicResources: [
     { id: "Fig.1", apartat: "2", title: "La neurona", src: "/images/sa2-neurona.png", note: "Dendrites (reben el senyal), soma, axó amb mielina (el condueix ràpid) i sinapsi (el passa a la neurona següent). La via elèctrica de mil·lisegons." },
     { id: "Fig.2", apartat: "2", title: "La sinapsi: com es comuniquen les neurones", src: "/images/sa2-sinapsi.png", note: "La neurona presinàptica allibera neurotransmissors que travessen l'espai sinàptic fins a la postsinàptica. El pas químic del missatge." },
-    { id: "Fig.3", apartat: "1", title: "L'arc reflex", src: "/images/sa2-arc-reflex.png", note: "Receptor (dit) → nervi aferent → medul·la espinal → nervi eferent → múscul, sense passar pel cervell. Per això retires la mà abans d'adonar-te'n. És la simulació de la Part B." }
+    { id: "Fig.3", apartat: "1", title: "L'arc reflex", src: "/images/sa2-arc-reflex.png", note: "Receptor (dit) → nervi aferent → medul·la espinal → nervi eferent → múscul, sense passar pel cervell. Per això retires la mà abans d'adonar-te'n. És la simulació de l'estació B." },
+    { id: "Fig.4", apartat: "3", title: "El ronyó com a filtre de la sang", src: "/imatges-cientifiques/s6_ronyo_marcadors.png", note: "① sang que arriba amb residus (els puntets són la urea) · ② ronyó · ③ sang ja filtrada · ④ urèter · ⑤ bufeta. Compte: aquí «neta» vol dir sense urea, no amb oxigen." },
+    { id: "Fig.5", apartat: "3", title: "Les dues hormones del ronyó", src: "/imatges-cientifiques/s6_hormones_etiquetada.png", note: "Esquerra (ADH): el cervell mana al ronyó retenir aigua i l'aigua torna a la sang. Dreta (EPO): el ronyó mana a la medul·la òssia fabricar eritròcits nous." }
   ],
 
   fitxaUrl: { A: "/fitxes/sa2-s6-fitxa-A.html", B: "/fitxes/sa2-s6-fitxa-B.html", C: "/fitxes/sa2-s6-fitxa-C.html" }, teoriaPdfUrl: null,
 
   fitxaGuide: {
-    fitxaName: "Fitxa S6 — Sistema de control i equilibri intern",
+    fitxaName: "Fitxa Sessió 6 — El sistema de control i l'equilibri intern",
     steps: [
-      { apartat: "0", title: "Idees prèvies", time: "5 min", phase: "engage", instruction: "Omple l'apartat 0 del full: per quina raó creus que el cor s'accelera ABANS d'arrencar? Per quina raó l'orina pot ser clara o fosca?", hints: [] },
-      { apartat: "1", title: "Experiments de control nerviós", time: "35 min", phase: "explore", instruction: "Part A: test temps de reacció (5 repeticions, anota distàncies en cm → converteix a ms). Part B: arc reflex en grup. Part C: targetes hormones. Part D: residus invisibles de l'analítica.", hints: [
-        "Part A: anota TOTES les distàncies sense arrodonir — la variabilitat és la dada interessant.",
-        "Part C: llegeix la targeta EFECTE abans d'encaixar hormona + glàndula + situació."
+      { apartat: "0", title: "Idees prèvies", time: "8 min", phase: "engage", instruction: "Dibuixa la teva hipòtesi (per on surten els residus líquids) i respon les tres preguntes de l'apartat 0. No es corregeix: ho compararàs al final.", hints: [] },
+      { apartat: "1", title: "Quatre estacions — com dona ordres el cos", time: "35 min", phase: "explore", instruction: "Rota per les 4 estacions i omple-les a la fitxa. A: temps de reacció amb regle (5 proves per mà, cm → ms). B: arc reflex en grup. C: taula d'hormones. D: analítica del Marc Fontana.", hints: [
+        "Estació A: anota TOTES les distàncies sense arrodonir — la variabilitat és la dada interessant.",
+        "Estació C: llegeix primer la columna EFECTE; després decideix la glàndula i la situació.",
+        "Estació D: abans de mirar la urea del Marc, pregunta't què esperaries trobar-hi si el ronyó no filtrés."
       ] },
-      { apartat: "2", title: "El sistema nerviós i el sistema endocrí", time: "20 min", phase: "explica", instruction: "Omple l'apartat 2: per quina raó el SN actua en mil·lisegons i les hormones en minuts? Completa la taula SN vs. SE amb via, velocitat i exemple.", hints: [
-        "Via elèctrica (neurones) vs. via química (hormones per la sang): quin recorregut és més ràpid?",
-        "EPO la fabrica el ronyó — per quina raó el Marc, amb ronyó sa, no té problema d'EPO?"
+      { apartat: "2", title: "Dues vies de control: el nervi i l'hormona", time: "20 min", phase: "explica", instruction: "Omple la taula comparativa (per on viatja, quant triga, quant dura, exemple) i respon la pregunta de la Mercè.", hints: [
+        "Via elèctrica pel nervi contra via química per la sang: quin recorregut és més curt?",
+        "La FC de la Mercè pujava ABANS d'arrencar: mira els temps de la teva taula i digues quina de les dues vies ho pot haver començat."
       ] },
-      { apartat: "3", title: "Sistema excretor i enigma EPO", time: "15 min", phase: "explica", instruction: "Apartat 3: quins residus produeix el cos? Per on surt cada un? Connecta: EPO → eritròcits → O₂ disponible.", hints: [
-        "CO₂ → pulmons; urea i sals → ronyó. Anota-ho al diagrama del full.",
-        "ADH: quan el cos en fabrica més, quan beus molt o quan beus poc? Per quina raó?"
+      { apartat: "3", title: "El sistema excretor: el ronyó", time: "30 min", phase: "explica", instruction: "Apartat 3: llegeix el dibuix amb la llegenda numerada, completa el recorregut ronyó → urèter → bufeta, classifica els residus per porta de sortida i treballa l'ADH i l'EPO.", hints: [
+        "CO₂ → pulmons; urea, sals i excés d'aigua → ronyó.",
+        "Compte: aquí «sang neta» vol dir sense urea, no amb oxigen.",
+        "ADH: en fabriques més quan beus molt o quan beus poc? Per quina raó?"
       ] },
-      { apartat: "4", title: "Integració i homeòstasi", time: "10 min", phase: "explica", instruction: "Apartat 4: completa la taula comparativa (velocitat/durada/exemple) i respon la pregunta de síntesi sobre homeòstasi.", hints: [
-        "Homeòstasi = mantenir constant el medi intern (temperatura, glucosa, O₂, pH). El cos usa els dos sistemes."
+      { apartat: "4", title: "Integració i homeòstasi", time: "20 min", phase: "elabora", instruction: "Apartat 4: completa el bucle de l'ADH, tanca el cas del Marc Fontana amb dades de l'analítica i respon el moment epistèmic sobre l'EPO.", hints: [
+        "Homeòstasi = mantenir estable el medi intern. Fixa't que l'efecte del bucle apaga la causa que l'havia engegat."
       ] }
     ]
   },
@@ -113,14 +120,14 @@ export const sa2s6 = {
   exitTicketQuestions: [
     { id: "q1", type: "multiple", text: "Posa en ordre de velocitat: hormona / nervi / reflex", options: ["Reflex (ms) < Nervi voluntari (ms-seg) < Hormona (seg-min)", "Hormona < Nervi < Reflex", "Tots tres actuen a la mateixa velocitat", "Nervi < Reflex < Hormona"], correct: 0 },
     { id: "q2", type: "open", text: "Per quina raó l'adrenalina inhibeix la digestió durant l'exercici físic intens? Usa el concepte de 'prioritat de recursos'.", hint: "El cos no pot donar molta sang als músculs i a l'intestí alhora. Si està fugint o competint, quin dels dos prioritza?" },
-    { id: "q3", type: "open", text: "Per quina raó la orina és més fosca quan beus poca aigua? Connecta-ho amb l'ADH i el ronyó.", hint: "Quan en falta, l'ADH ordena al ronyó retenir aigua. Si retens aigua, l'orina queda més diluïda o més concentrada?" }
+    { id: "q3", type: "open", text: "Per quina raó l'orina és més fosca quan beus poca aigua? Connecta-ho amb l'ADH i el ronyó.", hint: "Quan en falta, l'ADH ordena al ronyó retenir aigua. Si retens aigua, l'orina queda més diluïda o més concentrada?" }
   ],
-  homework: { description: "Cap nova. Porta les dades FC en repòs dels 3 matins (de la feina de S5) — NECESSÀRIES per a S7.", deadline: null },
+  homework: { description: "Durant un dia, anota a la fitxa quants gots d'aigua beus i de quin color és la teva orina (4 moments). A més, NO t'oblidis les dades de FC en repòs dels 3 matins de la sessió passada: són NECESSÀRIES per a la Sessió 7.", deadline: null },
   recoveryInstructions: [
-    "Fes el test temps de reacció a casa: moneda des de 30 cm d'altura, mesura distància caiguda, 5 repeticions",
-    "Llegeix la teoria d'aquesta pàgina (SN + SE + excretor)",
-    "Omple la fitxa S6 seccions 1–4",
-    "Recorda: necessites les dades FC en repòs 3 matins per a S7"
+    "Fes el test de temps de reacció a casa: que algú et deixi caure un regle de 30 cm sense avisar; anota on l'agafes, 5 vegades amb cada mà",
+    "Llegeix la teoria d'aquesta pàgina (les dues vies de control + el sistema excretor)",
+    "Omple la fitxa de la Sessió 6, apartats 0 a 4",
+    "Recorda: necessites les dades de FC en repòs dels 3 matins per a la Sessió 7"
   ],
-  oaLinks: ["OA4"], competencies: ["CE2", "CE1", "CE3"]
+  oaLinks: ["OA4"], competencies: ["CE1", "CE2", "CE3", "CE4"]
 }
