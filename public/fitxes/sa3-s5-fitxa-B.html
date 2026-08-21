@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SA3 · S5 · Drogues, addicció i síntesi — Nivell B</title>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Defensors del cos · Sessió 5 · Drogues, addicció i síntesi — Semiguiat — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
+
 :root {
   --purple:#2F6B5E; --purple-ink:#173328; --purple-light:#84BBA8; --purple-tint:#EAF4F0;
   --ink:#1A2820; --ink-2:#2e4a3f; --muted:#6a8a7e; --surface:#fdfffe;
@@ -16,6 +17,7 @@
   --yellow:#c8960a; --yellow-tint:#fdf7e2; --yellow-ink:#7a5800;
   --green:#4a9e5c;  --green-tint:#eaf4ec;
   --red:#c0392b;    --red-tint:#fdf2f0;
+  --blue:#2563a8;   --blue-tint:#e8f0fb;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Fira Sans Extra Condensed', sans-serif; background:#6e9d95; color:var(--ink); font-size:13px; line-height:1.5; padding:52px 20px 60px; }
@@ -49,23 +51,20 @@ span[contenteditable] { display:inline-block; }
 .wline:focus { border-bottom-color:var(--purple); background:rgba(47,107,94,.04); }
 .frase-completar { font-size:11.5px; line-height:2.4; margin:4px 0 6px; }
 .blank { display:inline-block; border-bottom:1.5px solid #C8DDD8; vertical-align:bottom; margin:0 3px; height:1.1em; }
-.blank-s  { width: 60px; }
-.blank-m  { width:100px; }
-.blank-l  { width:140px; }
-.blank-xl { width:200px; }
+.blank-s { width:60px; } .blank-m { width:100px; } .blank-l { width:140px; } .blank-xl { width:200px; }
 .nom-field { margin-left:auto; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
 .input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; font-family:'Fira Sans Extra Condensed',sans-serif; color:var(--ink); }
 .input-span.data-span { min-width:65px; }
 .input-span:focus { border-bottom-color:var(--purple); }
 .nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(47,107,94,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); flex-shrink:0; }
 .deletable { position:relative; }
-.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; border-radius:50%; background:#d44a6c; color:white; border:none; cursor:pointer; align-items:center; justify-content:center; font-size:12px; font-weight:900; line-height:1; z-index:100; box-shadow:0 1px 4px rgba(0,0,0,.3); transition:background .1s, transform .1s; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; border-radius:50%; background:#d44a6c; color:white; border:none; cursor:pointer; align-items:center; justify-content:center; font-size:12px; font-weight:900; line-height:1; z-index:100; box-shadow:0 1px 4px rgba(0,0,0,.3); transition:background .1s,transform .1s; }
 .del-btn:hover { background:#b83054; transform:scale(1.15); }
 .deletable:hover > .del-btn { display:flex; }
 .deletable:has(.deletable:hover) > .del-btn { display:none; }
 .nivell-strip .deletable { display:inline-flex; align-items:center; }
 .header-band { background:linear-gradient(135deg,#173328 0%,#2F6B5E 100%); color:#fff; padding:14px 18px; display:grid; grid-template-columns:72px 1fr 178px; gap:14px; align-items:center; position:relative; overflow:hidden; }
-.header-band::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 100% at 110% 50%, rgba(255,255,255,.07) 0%, transparent 70%); pointer-events:none; }
+.header-band::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 100% at 110% 50%,rgba(255,255,255,.07) 0%,transparent 70%); pointer-events:none; }
 .header-emoji-col { display:flex; align-items:center; justify-content:center; }
 .header-emoji-box { width:62px; height:62px; border-radius:14px; background:rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center; font-size:36px; user-select:none; flex-shrink:0; }
 .header-main { min-width:0; }
@@ -140,13 +139,41 @@ span[contenteditable] { display:inline-block; }
 .tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:6px; font-size:11px; }
 .tasca-item:last-child { margin-bottom:0; }
 .tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
-.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(47,107,94,.05) 6px, rgba(47,107,94,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(47,107,94,.05) 6px,rgba(47,107,94,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
 .spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
 .page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:0.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
 .footer { margin-top:12px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
 .footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
 .footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+.info-box { background:white; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.info-label { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.info-box p { font-size:11px; line-height:1.5; margin-bottom:3px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0 3px; }
+.chain-chip { font-size:10.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:13px; }
+.circ-row { font-size:11.5px; line-height:2.4; margin-bottom:3px; }
+.circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:white; }
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
+.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.chips { display:flex; flex-wrap:wrap; gap:4px; }
+.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:white; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.fig { margin:10px 0; text-align:center; }
+.fig-frame { position:relative; display:inline-block; max-width:100%; border:1.5px solid var(--purple-light); border-radius:9px; background:var(--purple-tint); overflow:hidden; box-shadow:0 1px 6px rgba(47,107,94,.12); }
+.fig-frame img { display:block; max-width:100%; object-fit:contain; }
+.fig-ph { display:none; align-items:center; justify-content:center; min-height:118px; padding:16px 20px; font-size:10.5px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
+.fig-ph .ph-ico { font-size:26px; display:block; margin-bottom:5px; }
+.figcap { font-size:9.5px; color:var(--muted); margin-top:5px; font-style:italic; line-height:1.4; }
 .pista { font-size:11px; color:var(--ink-2); font-style:italic; line-height:1.45; margin:3px 0 4px; padding-left:3px; }
+
+/* BUG corregit 2026-08-21: .callout i .fig-row s'usaven a les fitxes de tota la
+   SA3 pero no estaven definides enlloc. La caixa "Idea clau" -el missatge central
+   de cada sessio- s'imprimia com un paragraf gris qualsevol, i les figures
+   pensades per anar de dues en dues s'apilaven verticalment. */
+.callout{background:#FFF6E2;border-left:5px solid #D98B34;border-radius:0 9px 9px 0;
+  padding:9px 12px;margin:10px 0;font-size:11.5px;line-height:1.45;break-inside:avoid;}
+.callout b,.callout strong{color:#8A5514;}
+.fig-row{display:flex;gap:10px;align-items:flex-start;margin:8px 0;break-inside:avoid;}
+.fig-row .fig{flex:1;min-width:0;margin:0;}
 .pista b, .pista strong { color:var(--purple-ink); font-style:normal; }
 @media print {
   @page { size:A4; margin:10mm 12mm; }
@@ -166,18 +193,6 @@ span[contenteditable] { display:inline-block; }
   .nivell-badge-small { background:transparent !important; border-color:#C8DDD8 !important; }
 }
 
-.fig { margin:10px 0; text-align:center; }
-.fig-frame { position:relative; display:inline-block; max-width:100%; border:1.5px solid var(--purple-light); border-radius:9px; background:var(--purple-tint); overflow:hidden; box-shadow:0 1px 6px rgba(47,107,94,.12); }
-.fig-frame img { display:block; max-width:100%; object-fit:contain; }
-.fig-ph { align-items:center; justify-content:center; min-height:118px; padding:16px 20px; font-size:10.5px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
-.fig-ph .ph-ico { font-size:26px; display:block; margin-bottom:5px; }
-.figcap { font-size:9.5px; color:var(--muted); margin-top:5px; font-style:italic; line-height:1.4; }
-.fig-row { display:flex; gap:12px; align-items:stretch; flex-wrap:wrap; justify-content:center; }
-.fig-row .fig { flex:1 1 240px; margin:0; }
-.legend { display:flex; flex-wrap:wrap; gap:5px 12px; justify-content:center; margin-top:6px; font-size:9.5px; color:var(--ink-2); }
-.legend b { color:var(--purple-ink); }
-.callout { background:var(--surface); border:1px dashed var(--rule-dark); border-radius:7px; padding:7px 10px; font-size:10.5px; color:var(--ink-2); margin:6px 0; }
-.callout b { color:var(--purple-ink); }
 </style>
 </head>
 <body>
@@ -202,7 +217,7 @@ span[contenteditable] { display:inline-block; }
     <div class="header-main">
       <div class="header-sa" contenteditable="true">Defensors del cos · Sessió 5 de 5</div>
       <div class="header-title" contenteditable="true">Drogues, addicció i síntesi</div>
-      <div class="header-subtitle" contenteditable="true">La sinapsi, la recompensa i per què l'addicció no és «voluntat»</div>
+      <div class="header-subtitle" contenteditable="true">La sinapsi, la recompensa i la síntesi de la SA</div>
     </div>
     <div class="header-right">
       <div class="logo-box">
@@ -226,214 +241,18 @@ span[contenteditable] { display:inline-block; }
 
   <div class="oa-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="oa-title">🎯 Objectius d'aprenentatge d'avui</div>
+    <div class="oa-title">🎯 Objectius d'aprenentatge d'avui (Nivell B)</div>
     <ul class="oa-list">
-      <li contenteditable="true">Explico la <strong>sinapsi</strong> i com la dopamina marca la <strong>recompensa</strong>.</li>
-      <li contenteditable="true">Explico que moltes <strong>drogues</strong> són anàlegs de neurotransmissors que <strong>inunden</strong> els receptors.</li>
-      <li contenteditable="true">Explico l'<strong>addicció</strong> com un canvi físic del cervell (tolerància, abstinència), no com debilitat moral.</li>
-      <li contenteditable="true">Connecto els conceptes de la SA en un <strong>mapa</strong>: patogen → defenses → vacuna → fàrmac → droga.</li>
+      <li contenteditable="true">Explico la sinapsi i com la dopamina marca la recompensa.</li>
+      <li contenteditable="true">Explico que les drogues fan arribar molta més dopamina als receptors, per camins diferents segons quina sigui.</li>
+      <li contenteditable="true">Explico l'addicció com un canvi físic del cervell (tolerància, abstinència), no com debilitat moral.</li>
+      <li contenteditable="true">Connecto els conceptes de la unitat en un mapa: patogen → defenses → vacuna → fàrmac → droga.</li>
+      <li contenteditable="true">Dissenyo una campanya de comunicació científica aplicant els 4 criteris de qualitat d'una font.</li>
     </ul>
   </div>
 
   <div class="content">
-
-    <div class="section deletable">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <div class="section-header">
-        <div class="snum" style="background:var(--muted)">0</div>
-        <div>
-          <div class="stitle" contenteditable="true">Idees prèvies <span class="temps deletable" contenteditable="true">⏱️ 5 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
-          <div class="sdesc" contenteditable="true">Ho compararàs al final de la SA</div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <div class="previ-box deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <p style="margin-top:8px" contenteditable="true">✏️ <strong>1.</strong> Què és per a tu una «droga»? L'alcohol n'és una? I el cafè?</p>
-      <div class="wline" contenteditable="true"></div>
-        <p style="margin-top:8px" contenteditable="true">✏️ <strong>2.</strong> Per quina raó costa tant deixar una addicció? És només qüestió de «voluntat»?</p>
-      <div class="wline" contenteditable="true"></div>
-      </div>
-    </div>
-    <div class="section deletable">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <div class="section-header">
-        <div class="snum" style="background:var(--orange)">1</div>
-        <div>
-          <div class="stitle" contenteditable="true">Classificació de substàncies <span class="temps deletable" contenteditable="true">⏱️ 30 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
-          <div class="sdesc" contenteditable="true">Endogen/exogen, medicament/droga, i dependència</div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <p style="font-size:11.5px;margin:6px 0 4px" contenteditable="true">✏️ <strong>Classificació de substàncies (3 fases).</strong> Amb les targetes, completa el quadre amb 2 exemples a cada casella.</p>      <table class="data-table">
-        <thead><tr><th style="width:30%">Fase</th><th style="width:23%">Exemple 1</th><th style="width:23%">Exemple 2</th><th style="width:24%">Criteri que has fet servir</th></tr></thead>
-        <tbody>
-          <tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Endogen (el cos en produeix)</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
-          <tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Exogen (entra des de fora)</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
-          <tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Medicament</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
-          <tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Droga recreativa</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
-          <tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Zona grisa (cafè, alcohol, tabac)</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
-        </tbody>
-      </table>      <figure class="fig deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="fig-frame">
-          <img src="img/s5_droga_vs_neurotransmissor.png" alt="Droga vs neurotransmissor" style="max-height:160px"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="fig-ph"><span><span class="ph-ico">🖼️</span>Dopamina natural (degoteig) vs droga (inundació de receptors)<br><small>(imatge a generar — vegeu PROMPTS_IMATGES_SA3.md)</small></span></div>
-        </div>
-        <figcaption class="figcap" contenteditable="true">Moltes drogues imiten els neurotransmissors però en concentracions molt més altes: inunden els receptors.</figcaption>
-      </figure>
-      <div class="epist-box deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div style="font-size:22px;flex-shrink:0">🔬</div>
-        <div>
-          <div class="epist-title" contenteditable="true">Moment epistèmic — la llei i el risc</div>
-          <div class="epist-text" contenteditable="true">L'alcohol és legal i la cocaïna no. Creus que la classificació <strong>legal</strong> reflecteix sempre el <strong>risc real</strong> per a la salut? Quins altres factors hi influeixen?</div>
-          <p style="font-size:10.5px;color:var(--yellow-ink);font-weight:700;margin:5px 0 3px" contenteditable="true">💡 Crec que la llei i el risc real no sempre coincideixen perquè...</p>
-          <div class="wline" contenteditable="true"></div>
-        </div>
-      </div>
-    </div>
-    <div class="section deletable">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <div class="section-header">
-        <div class="snum" style="background:var(--teal)">2</div>
-        <div>
-          <div class="stitle" contenteditable="true">La sinapsi i la droga <span class="temps deletable" contenteditable="true">⏱️ 25 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
-          <div class="sdesc" contenteditable="true">Com una substància pot segrestar el sistema de recompensa</div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <p style="font-size:11.5px;margin:6px 0 4px" contenteditable="true">✏️ <strong>La sinapsi normal.</strong> Les neurones es comuniquen amb neurotransmissors. La dopamina al nucli accumbens diu: «això ha estat bo, repeteix-ho».</p><div class="fig-row">      <figure class="fig deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="fig-frame">
-          <img src="img/s5_sinapsi.png" alt="La sinapsi i la recompensa" style="max-height:150px"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="fig-ph"><span><span class="ph-ico">🖼️</span>Dopamina alliberada → receptors → senyal de recompensa<br><small>(imatge a generar — vegeu PROMPTS_IMATGES_SA3.md)</small></span></div>
-        </div>
-        <figcaption class="figcap" contenteditable="true">La sinapsi: la dopamina s'uneix als receptors i marca la recompensa (menjar, vincle, aprendre).</figcaption>
-      </figure>
-      <figure class="fig deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="fig-frame">
-          <img src="img/s5_tolerancia_abstinencia.png" alt="Tolerància i abstinència" style="max-height:150px"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="fig-ph"><span><span class="ph-ico">🖼️</span>Amb l'ús repetit, els receptors disminueixen (downregulation)<br><small>(imatge a generar — vegeu PROMPTS_IMATGES_SA3.md)</small></span></div>
-        </div>
-        <figcaption class="figcap" contenteditable="true">Davant la inundació repetida, el cervell redueix receptors: tolerància i abstinència.</figcaption>
-      </figure>
-</div>      <div class="frase-completar" contenteditable="true">Una droga sovint és una molècula <span class="blank blank-m"></span> a un neurotransmissor, però en concentració molt més <span class="blank blank-m"></span>.</div>      <div class="frase-completar" contenteditable="true">Amb l'ús repetit el cervell redueix els <span class="blank blank-m"></span> → cal més dosi (<span class="blank blank-m"></span>) i apareix malestar quan falta (<span class="blank blank-m"></span>).</div><div class="callout"><b>Idea clau:</b> l'addicció és una <b>malaltia del cervell amb base física</b>, no debilitat moral. Això és important per al tractament i per com tractem les persones.</div>
-    </div>
-    <div class="section deletable">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <div class="section-header">
-        <div class="snum" style="background:var(--rose)">3</div>
-        <div>
-          <div class="stitle" contenteditable="true">Síntesi de la SA <span class="temps deletable" contenteditable="true">⏱️ 15 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span></div>
-          <div class="sdesc" contenteditable="true">De com el cos es defensa a com decidim</div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <p style="font-size:11.5px;margin:6px 0 4px" contenteditable="true">✏️ <strong>Mapa síntesi de la SA.</strong> Connecta amb fletxes (i una paraula sobre cada fletxa) com a mínim 6 conceptes: patogen · barrera · antigen/anticòs · memòria · vacuna · immunitat de grup · fàrmac · automedicació · droga · addicció.</p>      <div class="hipotesi-box deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <p>🗺️ <span contenteditable="true">Dibuixa aquí el teu mapa conceptual:</span></p>
-        <div class="draw-area" style="min-height:170px;border:1.5px dashed var(--rule-dark);border-radius:8px;background:repeating-linear-gradient(0deg,transparent,transparent 23px,var(--rule) 23px,var(--rule) 24px);margin-top:6px"></div>
-      </div>      <div class="connexio-box deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="connexio-icon">🔗</div>
-        <div class="connexio-text" contenteditable="true"><strong>Tancament — Enigmes A i B (els dos cartells de la paret):</strong> <em>Enigma A</em> — a la grip, per quina raó uns es van encomanar i d'altres no? <em>Enigma B</em> — «les vacunes causen autisme»: és cert? Ara ja els pots respondre: escriu una frase per a cadascun.</div>
-      </div>      <div class="wline" contenteditable="true"></div>
-      <div class="wline" contenteditable="true"></div>
-      <div class="wline" contenteditable="true"></div>
-    </div>
-    <div class="section deletable" style="margin-top:16px">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <div class="exit-box">
-        <div class="exit-title">✅ Repàs ràpid abans de la prova &nbsp;·&nbsp; 5 min</div>
-        <div class="deletable" style="margin-top:8px">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <div class="exit-q" contenteditable="true"><strong>1.</strong> Per quina raó l'addicció NO és «només qüestió de voluntat»? Usa les paraules <em>dopamina</em> i <em>receptors</em>.</div>
-          <div class="wline" contenteditable="true"></div>
-          <div class="wline" contenteditable="true"></div>
-        </div>
-        <div class="deletable" style="margin-top:8px">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <div class="exit-q" contenteditable="true"><strong>2.</strong> Posa un exemple d'una substància <strong>endògena</strong> (que fabrica el cos) i una d'<strong>exògena</strong>.</div>
-          <div class="wline" contenteditable="true"></div>
-          <div class="wline" contenteditable="true"></div>
-        </div>
-        <div class="deletable" style="margin-top:8px">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <div class="exit-q" contenteditable="true"><strong>3.</strong> <em>(Competencial)</em> Connecta en una frase la immunitat de grup amb la idea que la salut és <strong>col·lectiva</strong>, no només individual.</div>
-          <div class="wline" contenteditable="true"></div>
-          <div class="wline" contenteditable="true"></div>
-        </div>
-      </div>
-    </div>
-    <div class="section deletable" style="margin-top:14px">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <p style="font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:6px">🧠 Metacognició — 3 min</p>
-      <div class="meta-oa-box deletable" style="margin-bottom:8px">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="meta-oa-title">🎯 Torna als objectius del principi — Marca el que has après avui:</div>
-        <div class="meta-oa-item deletable">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <div class="meta-oa-check"></div>
-          <div class="meta-oa-text" contenteditable="true">Explico la <strong>sinapsi</strong> i com la dopamina marca la <strong>recompensa</strong>.</div>
-        </div>
-        <div class="meta-oa-item deletable">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <div class="meta-oa-check"></div>
-          <div class="meta-oa-text" contenteditable="true">Explico que moltes <strong>drogues</strong> són anàlegs de neurotransmissors que <strong>inunden</strong> els receptors.</div>
-        </div>
-        <div class="meta-oa-item deletable">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <div class="meta-oa-check"></div>
-          <div class="meta-oa-text" contenteditable="true">Explico l'<strong>addicció</strong> com un canvi físic del cervell (tolerància, abstinència), no com debilitat moral.</div>
-        </div>
-        <div class="meta-oa-item deletable">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <div class="meta-oa-check"></div>
-          <div class="meta-oa-text" contenteditable="true">Connecto els conceptes de la SA en un <strong>mapa</strong>: patogen → defenses → vacuna → fàrmac → droga.</div>
-        </div>
-      </div>
-      <div class="meta-grid">
-        <div class="meta-item deletable">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <span class="meta-icon">❓</span>
-          <div class="meta-label">Encara em pregunto...</div>
-          <div class="wline" contenteditable="true"></div>
-          <div class="wline" contenteditable="true"></div>
-        </div>
-        <div class="meta-item deletable">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <span class="meta-icon">⭐</span>
-          <div class="meta-label">Puntuació de la sessió</div>
-          <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-          <div style="font-size:9.5px;color:var(--muted);margin-top:4px">Encercla les estrelles que consideres</div>
-        </div>
-      </div>
-    </div>
-    <div class="tasca-box deletable">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <div class="tasca-title">📚 Després de la sessió</div>
-      <div class="tasca-item deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="tasca-num">1</div>
-        <div contenteditable="true"><strong>📝 Prova escrita de la SA</strong> (Defensors del cos) en la data acordada. Repassa el mapa síntesi, els enigmes i els mecanismes (vacuna, fàrmac, droga).</div>
-      </div>
-      <div class="tasca-item deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="tasca-num">2</div>
-        <div contenteditable="true"><strong>📣 Campanya de vacunació</strong> (producte final, fora de classe): seguiràs la pauta de feedback entre iguals que comentarem.</div>
-      </div>
-    </div>
-
-    <div class="footer">
-      <div class="footer-l">SA3 · S5 · Drogues i addicció · IE Temple · Biologia i Geologia 3r ESO</div>
-      <div class="footer-r">CC BY-NC · Albert Pahissa</div>
-    </div>
-
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--muted)">0</div><div><div class="stitle" contenteditable="true">Idees prèvies i la demostració ⏱️ 10 min</div><div class="sdesc" contenteditable="true">Ho compararàs amb el que vas escriure a la Sessió 1</div></div></div><div class="divider"></div><div class="previ-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><p>✏️ <strong>1.</strong> Què és per a tu una «droga»? L'alcohol n'és una? I el cafè?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="margin-top:8px">✏️ <strong>2.</strong> Per quina raó costa tant deixar una addicció? És només qüestió de «voluntat»?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><p style="font-size:11px;margin:8px 0 4px">🏓 <strong>La demostració de les pilotes.</strong> Dos companys fan de <strong>neurones</strong> i es passen pilotes de ping-pong (els <strong>neurotransmissors</strong>). Primer se'n passen poques i a poc a poc. Després un tercer company n'aboca moltes de cop.</p><p style="font-size:11px;margin:4px 0 2px">✏️ Què li passa a la neurona que rep quan n'hi arriben moltes de cop? I si això es repeteix cada dia durant mesos?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--orange)">1</div><div><div class="stitle" contenteditable="true">Classificació de substàncies ⏱️ 25 min</div><div class="sdesc" contenteditable="true">Endògena/exògena, medicament/droga i la zona grisa</div></div></div><div class="divider"></div><div class="callout"><b>Com en parlem.</b> En aquesta activitat parlem de <b>substàncies</b> i de <b>cervells</b>, mai de persones. Ningú no ha d'explicar res de casa seva ni de ningú conegut, i no hi ha persones «febles»: hi ha cervells que s'adapten. Si vols parlar d'alguna cosa que et preocupa, digues-ho al professor fora de classe.</div><p style="font-size:11.5px;margin:6px 0 4px" contenteditable="true">✏️ <strong>Classificació de substàncies.</strong> Amb les <strong>targetes</strong>, omple la taula amb 2 exemples a cada categoria. A la darrera columna escriu <strong>en què t'has fixat</strong> per decidir-ho (d'on ve? per a què es pren? crea dependència?).</p><table class="data-table"><thead><tr><th>Categoria</th><th>Exemple 1</th><th>Exemple 2</th><th>En què m'he fixat</th></tr></thead><tbody><tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Endògena (el cos la produeix)</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Exògena (entra des de fora)</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Medicament</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Droga recreativa</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Zona grisa (cafè, alcohol, tabac)</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p style="font-size:11px;margin:8px 0 2px">✏️ La <strong>zona grisa</strong> existeix perquè aquestes substàncies compleixen la definició de droga però estan socialment acceptades. Escriu <strong>dos motius</strong> (que no siguin biològics) pels quals el cafè i l'alcohol no es tracten com la resta de drogues:</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s5_droga_vs_neurotransmissor.png" alt="Droga vs neurotransmissor" style="max-height:175px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Droga vs neurotransmissor</span></div></div><figcaption class="figcap" contenteditable="true">① unes poques molècules: el senyal normal, com un degoteig. ② moltíssimes de cop: la inundació. Les «Y» grogues són <strong>receptors</strong> — no anticossos, tot i que s'hi assemblin. ⚠️ Els colors i el nombre exacte de «Y» del dibuix no volen dir res: fixa't només en la quantitat de molècules.</figcaption></figure><div class="epist-box"><div style="font-size:22px;flex-shrink:0">🔬</div><div><div class="epist-title">Moment epistèmic — la llei i el risc</div><div class="epist-text">L'alcohol és legal i la cocaïna no. Creus que la classificació legal reflecteix sempre el risc real per a la salut? Quins altres factors hi influeixen (història, cultura, diners, costum)?</div></div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--teal)">2</div><div><div class="stitle" contenteditable="true">La sinapsi i la droga ⏱️ 25 min</div><div class="sdesc" contenteditable="true">Com una substància pot segrestar el sistema de recompensa</div></div></div><div class="divider"></div><p style="font-size:11.5px;margin:6px 0 4px" contenteditable="true">✏️ <strong>La sinapsi normal.</strong> Les neurones es comuniquen amb <strong>neurotransmissors</strong>. La <strong>dopamina</strong> al <strong>nucli accumbens</strong> (el centre de recompensa del cervell) marca: «això ha estat bo, repeteix-ho». És el mecanisme que ens fa repetir el que ens manté vius: menjar, aprendre, estar amb gent.</p><div class="fig-row"><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s5_sinapsi.png" alt="La sinapsi i la recompensa" style="max-height:150px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>La sinapsi i la recompensa</span></div></div><figcaption class="figcap" contenteditable="true">A l'esquerra, la <strong>sinapsi</strong>: la neurona de dalt allibera els neurotransmissors (punts liles) i la de baix els recull amb els receptors. A la dreta, el <strong>cervell</strong>, amb la zona profunda de la recompensa ressaltada. ⚠️ Els números del dibuix no segueixen cap ordre: no en facis cas.</figcaption></figure><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s5_receptors_tolerancia.svg" alt="Menys receptors: tolerància i abstinència" style="max-height:150px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Menys receptors: tolerància i abstinència</span></div></div><figcaption class="figcap" contenteditable="true">La barra de sota de cada quadre és el <strong>senyal de recompensa</strong> i la línia discontínua és el nivell normal. ① sinapsi normal · ② la droga inunda els receptors i el senyal es dispara · ③ amb l'ús repetit el cervell retira receptors: amb droga, el senyal només torna al normal (<strong>tolerància</strong>) · ④ sense la droga, el senyal cau per sota del normal (<strong>abstinència</strong>).</figcaption></figure></div><div class="frase-completar">Una droga sovint és una molècula <span class="blank blank-m"></span> a un neurotransmissor, però en concentració molt més <span class="blank blank-m"></span>.</div><div class="frase-completar">Amb l'ús repetit el cervell redueix els <span class="blank blank-m"></span> → cal més dosi (<span class="blank blank-m"></span>) i apareix malestar quan falta (<span class="blank blank-m"></span>).</div><p style="font-size:11px;margin:10px 0 4px">✏️ <strong>El cas de la Idoia.</strong> La Idoia fa dos anys que pren tres cafès cada matí; al principi amb un en tenia prou. Els diumenges, que no en pren, li fa mal el cap i està de mal humor. Explica el que li passa fent servir <strong>receptors</strong>, <strong>tolerància</strong> i <strong>abstinència</strong>:</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="font-size:11px;margin:8px 0 4px">✏️ La Idoia diu: «però el cafè no és cap droga, el pren tothom». Què li respondries a partir de la definició de droga de l'apartat 1?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="callout"><b>Idea clau:</b> l'addicció és una <b>malaltia del cervell amb base física</b>, no debilitat moral. Això importa per al tractament (mèdic i psicosocial) i per com tractem les persones.</div><div class="info-box"><div class="info-label">🔤 Vocabulari d'avui</div><div style="font-size:10.5px;line-height:1.45;column-count:2;column-gap:16px"><div style="break-inside:avoid;margin-bottom:3px"><strong>neurona</strong> — cèl·lula del sistema nerviós que envia i rep senyals.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>sinapsi</strong> — el punt on dues neurones es passen el missatge.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>neurotransmissor</strong> — molècula que una neurona envia a l'altra (p. ex. la dopamina).</div><div style="break-inside:avoid;margin-bottom:3px"><strong>receptor</strong> — «pany» de la neurona que rep, on encaixa el neurotransmissor.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>dopamina</strong> — neurotransmissor que marca «això ha estat bo, repeteix-ho».</div><div style="break-inside:avoid;margin-bottom:3px"><strong>nucli accumbens</strong> — zona del cervell on la dopamina marca la recompensa.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>endògena</strong> — substància que fabrica el propi cos.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>exògena</strong> — substància que entra des de fora del cos.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>droga</strong> — substància exògena que altera el sistema nerviós i pot crear dependència.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>tolerància</strong> — cal cada cop més dosi per notar el mateix efecte.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>abstinència</strong> — malestar físic real quan falta la substància.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>dependència</strong> — necessitat de consumir per trobar-se bé (física i/o psicològica).</div><div style="break-inside:avoid;margin-bottom:3px"><strong>addicció</strong> — buscar la substància de manera compulsiva malgrat el mal que fa.</div></div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--rose)">3</div><div><div class="stitle" contenteditable="true">Mapa de síntesi i els dos enigmes ⏱️ 15 min</div><div class="sdesc" contenteditable="true">De com el cos es defensa a com decidim</div></div></div><div class="divider"></div><p style="font-size:11.5px;margin:6px 0 4px" contenteditable="true">✏️ <strong>Mapa de síntesi de la unitat.</strong> Connecta amb fletxes (i una paraula damunt de cada fletxa que digui <em>quina</em> relació hi ha) com a mínim <strong>6 conceptes</strong>: patogen · barrera · antigen/anticòs · memòria · vacuna · immunitat de grup · fàrmac · automedicació · droga · addicció.</p><div class="hipotesi-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><p>🗺️ <span>Dibuixa aquí el teu mapa conceptual:</span></p><div style="min-height:190px;border:1.5px dashed var(--rule-dark);border-radius:8px;background:#fff;margin-top:6px"></div></div><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">🔗</div><div class="connexio-text" contenteditable="true">Els dos enigmes de la paret, per últim cop. <strong>Enigma A</strong> — La Martina no estava vacunada de la grip i no la va agafar; la seva àvia sí que estava vacunada i tampoc. Per quina raó? <strong>Enigma B</strong> — «les vacunes causen autisme»: és cert? I com ho sabem? Escriu una frase per a cadascun.</div></div><p style="font-size:11px;margin:6px 0 2px"><strong>Enigma A:</strong></p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="info-box"><div class="info-label">📖 Per llegir</div><p><strong>Dades per a l'Enigma B.</strong> L'article que deia que les vacunes causen autisme (<strong>Wakefield, 1998</strong>) es va <strong>retirar per frau</strong>: només tenia <strong>12 nens</strong>, les dades estaven manipulades i l'autor hi tenia un <strong>interès econòmic</strong>. Estudis posteriors amb <strong>més d'un milió d'infants</strong> no hi han trobat cap relació.</p></div><p style="font-size:11px;margin:6px 0 2px"><strong>Enigma B:</strong></p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--purple)">4</div><div><div class="stitle" contenteditable="true">La campanya de comunicació científica ⏱️ 25 min</div><div class="sdesc" contenteditable="true">En grup — producte final de la unitat</div></div></div><div class="divider"></div><p style="font-size:11.5px;margin:6px 0 4px" contenteditable="true">📣 <strong>El producte final de la unitat</strong> és una <strong>campanya de comunicació científica</strong>: un cartell o un vídeo de 60 segons que <strong>desmunta un mite</strong> sobre la salut. Trieu el tema d'entre tot el que hem treballat: contagi i R₀ (Sessió 1) · les defenses i la memòria (Sessió 2) · vacunes i immunitat de grup (Sessió 3) · automedicació i antibiòtics (Sessió 4) · drogues i addicció (Sessió 5).</p><p style="font-size:11px;margin:8px 0 4px">📐 Recordeu els <strong>4 criteris de qualitat</strong> de la Sessió 3, que us serviran per desmuntar el mite:<br>· <strong>Revisió per parells</strong> — altres científics ho han revisat abans de publicar-ho?<br>· <strong>Mida de la mostra</strong> — a quanta gent s'ha estudiat? Poca gent, poc valor.<br>· <strong>Conflicte d'interès</strong> — qui ho diu, hi guanya diners o fama?<br>· <strong>Replicació</strong> — algú altre, pel seu compte, hi ha arribat igual? El mite que trieu ha de fallar <strong>almenys un</strong> d'aquests criteris, i ho heu de poder dir.</p><table class="data-table"><thead><tr><th>Apartat</th><th>Què hi posareu</th></tr></thead><tbody><tr><td class="label-cell">1. El mite que desmunteu (i on l'heu vist)</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">2. Per quina raó és un mite (quin dels 4 criteris falla)</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">3. L'evidència real (una dada o un estudi)</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">4. El missatge final (una frase, per als companys de 3r)</td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p style="font-size:11px;margin:8px 0 2px">✏️ <strong>Audiència.</strong> A qui va dirigida? On la penjaríeu perquè hi arribi? Justifiqueu per quina raó aquest canal i no un altre:</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="font-size:11px;margin:8px 0 2px">✏️ <strong>Repartiment de feina</strong> (qui fa què abans del termini):</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p class="pista">💡 La rúbrica de la campanya és al Classroom. Llegiu-la <em>abans</em> de començar: us diu exactament què es valora.</p><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">🎟️</div><div class="connexio-text" contenteditable="true"><strong>Full de sortida (10 min).</strong> El professor et donarà un <strong>full a part</strong> amb 3 preguntes. Es fa <strong>individualment i sense ajuda</strong>, i <strong>es recull</strong>: és la part avaluada de la unitat. Aquesta fitxa te la quedes tu per estudiar.</div></div></div><div class="section deletable" style="margin-top:14px"><div class="del-btn" onclick="deleteEl(this)">✕</div><p style="font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:6px">🧠 Metacognició — 3 min</p><div class="meta-oa-box deletable" style="margin-bottom:8px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-title">🎯 Torna als objectius — Marca el que has après avui:</div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Explico la sinapsi i com la dopamina marca la recompensa.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Explico que les drogues fan arribar molta més dopamina als receptors, per camins diferents segons quina sigui.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Explico l'addicció com un canvi físic del cervell (tolerància, abstinència), no com debilitat moral.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Connecto els conceptes de la unitat en un mapa: patogen → defenses → vacuna → fàrmac → droga.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Dissenyo una campanya de comunicació científica aplicant els 4 criteris de qualitat d'una font.</div></div></div><div class="meta-grid"><div class="meta-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="meta-icon">❓</span><div class="meta-label">Encara em pregunto...</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="meta-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="meta-icon">⭐</span><div class="meta-label">Puntuació de la sessió</div><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><div style="font-size:9.5px;color:var(--muted);margin-top:4px">Encercla les estrelles que consideris</div></div></div></div><div class="tasca-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-title">📚 Després de la sessió</div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">1</div><div contenteditable="true">📝 <strong>Prova escrita</strong> de la unitat, en la data acordada. Repassa el mapa de síntesi, els dos enigmes i els mecanismes (vacuna, fàrmac, sinapsi).</div></div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">2</div><div contenteditable="true">📣 <strong>Acabeu la campanya de comunicació científica</strong> i pengeu-la al Classroom (termini: 1 setmana). Consulteu la <em>rúbrica de la campanya</em> abans d'entregar-la.</div></div></div><div class="footer"><div class="footer-l">Defensors del cos · Sessió 5 · Drogues, addicció i síntesi · IE Temple</div><div class="footer-r">CC BY-NC · Albert Pahissa</div></div>
   </div><!-- .content -->
 </div><!-- .page-wrap -->
 
@@ -479,7 +298,7 @@ function updatePageBreaks() {
     const bar = document.createElement('div');
     bar.className='page-footer-bar';
     bar.style.top=(y-20)+'px';
-    bar.innerHTML='<span>SA3 · S5 · Drogues i addicció · IE Temple</span><span>CC BY-NC · Albert Pahissa · Pàg. '+i+'</span>';
+    bar.innerHTML='<span>Defensors del cos · Sessió 5 · Drogues, addicció i síntesi</span><span>CC BY-NC · Albert Pahissa · Pàg. '+i+'</span>';
     doc.appendChild(line);
     doc.appendChild(bar);
   }

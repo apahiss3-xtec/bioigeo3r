@@ -60,6 +60,21 @@ export default function TheoryCard({ point, index }) {
               </figcaption>
             </figure>
           )}
+          {point.image && (
+            <figure className="mt-4 overflow-hidden rounded-xl border border-[var(--rule)] bg-white">
+              <img
+                src={asset(point.image)}
+                alt=""
+                className="w-full block"
+                loading="lazy"
+              />
+              {point.imageCaption && (
+                <figcaption className="px-4 py-2 text-xs text-[var(--muted)]">
+                  <T>{point.imageCaption}</T>
+                </figcaption>
+              )}
+            </figure>
+          )}
         </div>
       </div>
     </motion.article>
