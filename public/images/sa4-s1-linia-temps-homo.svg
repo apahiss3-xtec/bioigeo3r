@@ -12,7 +12,7 @@ text{font-family:"Fira Sans Extra Condensed","DejaVu Sans Condensed",sans-serif;
 <text class="t" x="14" y="27">El gènere Homo: quatre espècies, una de viva</text>
 <text class="st" x="14" y="48">Cada barra és el temps que va existir aquella espècie</text>
 <rect x="504.1" y="182.0" width="129.9" height="86.0" rx="5" fill="#F6E7C9" opacity="0.75"/>
-<text class="xs" x="569.1" y="262.0" text-anchor="middle" fill="#8A5514">van conviure</text>
+<text class="xs" x="569.1" y="262.0" text-anchor="middle" fill="#8A5514">es toquen en el temps</text>
 <text x="175.2" y="109" text-anchor="end" font-style="italic" font-size="12" font-weight="700" fill="#331F5C">Homo habilis</text>
 <text x="175.2" y="123" text-anchor="end" font-size="9" fill="#7A719A">2,4 – 1,5 milions d'anys</text>
 <rect x="194.9" y="96" width="87.8" height="19" rx="5" fill="#B9A6DE"/>
@@ -25,7 +25,7 @@ text{font-family:"Fira Sans Extra Condensed","DejaVu Sans Condensed",sans-serif;
 <text x="175.2" y="247" text-anchor="end" font-style="italic" font-size="12" font-weight="700" fill="#331F5C">Homo sapiens</text>
 <text x="175.2" y="261" text-anchor="end" font-size="9" fill="#7A719A">300.000 anys – avui</text>
 <rect x="504.1" y="234" width="149.9" height="19" rx="5" fill="#6B4BA8"/>
-<text class="xs" x="648.0" y="247" text-anchor="end" fill="#ffffff" font-weight="700">avui</text>
+<text x="647.0" y="247" text-anchor="end" fill="#ffffff" font-size="10" font-weight="900" letter-spacing="0.06em">AVUI</text>
 <line x1="185" y1="290" x2="380.2" y2="290" stroke="#1A1A2E" stroke-width="2"/>
 <line x1="404.2" y1="290" x2="654.0" y2="290" stroke="#1A1A2E" stroke-width="2"/>
 <line x1="387.2" y1="297" x2="394.2" y2="283" stroke="#1A1A2E" stroke-width="2"/>

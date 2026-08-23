@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 296" width="700" height="296">
+<style>
+text{font-family:"Fira Sans Extra Condensed","DejaVu Sans Condensed",sans-serif;fill:#1A1A2E}
+.t{font-size:19px;font-weight:900;fill:#331F5C}
+.st{font-size:12.5px;font-style:italic;fill:#7A719A}
+.h{font-size:13px;font-weight:700;fill:#331F5C}
+.b{font-size:12px}
+.s{font-size:11px;fill:#7A719A}
+.xs{font-size:9.5px;fill:#7A719A}
+</style>
+<rect x="0" y="0" width="700" height="250" fill="#ffffff"/>
+<text class="t" x="14" y="27">Així es dibuixa un arbre</text>
+<text class="st" x="14" y="46">Exemple amb tres éssers vius que NO són a la vostra activitat</text>
+<line x1="60" y1="62" x2="60" y2="145" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="60" y1="62" x2="470" y2="62" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="60" y1="145" x2="190" y2="145" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="82.0" cy="145.0" r="9" fill="#ffffff" stroke="#6B4BA8" stroke-width="2"/><text x="82.0" y="149.0" font-size="11" font-weight="900" fill="#331F5C" text-anchor="middle">1</text>
+<line x1="190" y1="112" x2="190" y2="162" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="190" y1="112" x2="470" y2="112" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="190" y1="162" x2="470" y2="162" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="212.0" cy="137.0" r="9" fill="#ffffff" stroke="#6B4BA8" stroke-width="2"/><text x="212.0" y="141.0" font-size="11" font-weight="900" fill="#331F5C" text-anchor="middle">2</text>
+<rect x="470" y="48.5" width="150" height="27" rx="7" fill="#F0EBF9" stroke="#6B4BA8" stroke-width="1.5"/>
+<text class="h" x="483" y="67.5">Pi (un arbre)</text>
+<rect x="470" y="98.5" width="150" height="27" rx="7" fill="#F0EBF9" stroke="#6B4BA8" stroke-width="1.5"/>
+<text class="h" x="483" y="117.5">Formiga (un insecte)</text>
+<rect x="470" y="148.5" width="150" height="27" rx="7" fill="#F0EBF9" stroke="#6B4BA8" stroke-width="1.5"/>
+<text class="h" x="483" y="167.5">Gat (un mamífer)</text>
+<rect x="14.0" y="208.0" width="672.0" height="34" rx="7" fill="#F0EBF9" stroke="#B9A6DE"/>
+<text x="24.0" y="222.0" font-size="9" font-weight="700" fill="#331F5C" letter-spacing="0.09em">ELS CARÀCTERS DE CADA BRANCA</text>
+<text x="24.0" y="238.0" font-size="10" fill="#1A1A2E">1. ha de menjar altres éssers vius</text>
+<text x="350.0" y="238.0" font-size="10" fill="#1A1A2E">2. té pèl i les cries mamen</text>
+<rect x="14" y="250" width="672" height="32" rx="6" fill="#FFF6E2" stroke="#D98B34"/>
+<text class="xs" x="26" y="263" fill="#8A5514">Cada punt on la línia es reparteix és una branca. A sobre de cada branca s'hi escriu el caràcter NOU que hi apareix.</text>
+<text class="xs" x="26" y="275" fill="#8A5514">El pi es queda fora del primer grup perquè es fabrica el menjar ell mateix; la formiga es queda fora del segon perquè no té pèl.</text></svg>
