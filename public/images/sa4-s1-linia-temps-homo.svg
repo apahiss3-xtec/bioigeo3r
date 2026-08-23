@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 364" width="700" height="364">
+<style>
+text{font-family:"Fira Sans Extra Condensed","DejaVu Sans Condensed",sans-serif;fill:#1A1A2E}
+.t{font-size:19px;font-weight:900;fill:#331F5C}
+.st{font-size:12.5px;font-style:italic;fill:#7A719A}
+.h{font-size:13px;font-weight:700;fill:#331F5C}
+.b{font-size:12px}
+.s{font-size:11px;fill:#7A719A}
+.xs{font-size:9.5px;fill:#7A719A}
+</style>
+<rect x="0" y="0" width="700" height="364" fill="#ffffff"/>
+<text class="t" x="14" y="27">El gènere Homo: quatre espècies, una de viva</text>
+<text class="st" x="14" y="48">Cada barra és el temps que va existir aquella espècie</text>
+<rect x="504.1" y="182.0" width="129.9" height="86.0" rx="5" fill="#F6E7C9" opacity="0.75"/>
+<text class="xs" x="569.1" y="262.0" text-anchor="middle" fill="#8A5514">van conviure</text>
+<text x="175.2" y="109" text-anchor="end" font-style="italic" font-size="12" font-weight="700" fill="#331F5C">Homo habilis</text>
+<text x="175.2" y="123" text-anchor="end" font-size="9" fill="#7A719A">2,4 – 1,5 milions d'anys</text>
+<rect x="194.9" y="96" width="87.8" height="19" rx="5" fill="#B9A6DE"/>
+<text x="175.2" y="155" text-anchor="end" font-style="italic" font-size="12" font-weight="700" fill="#331F5C">Homo erectus</text>
+<text x="175.2" y="169" text-anchor="end" font-size="9" fill="#7A719A">1,9 milions – 110.000 anys</text>
+<rect x="243.7" y="142" width="355.3" height="19" rx="5" fill="#B9A6DE"/>
+<text x="175.2" y="201" text-anchor="end" font-style="italic" font-size="12" font-weight="700" fill="#331F5C">Homo neanderthalensis</text>
+<text x="175.2" y="215" text-anchor="end" font-size="9" fill="#7A719A">430.000 – 40.000 anys</text>
+<rect x="439.2" y="188" width="194.8" height="19" rx="5" fill="#B9A6DE"/>
+<text x="175.2" y="247" text-anchor="end" font-style="italic" font-size="12" font-weight="700" fill="#331F5C">Homo sapiens</text>
+<text x="175.2" y="261" text-anchor="end" font-size="9" fill="#7A719A">300.000 anys – avui</text>
+<rect x="504.1" y="234" width="149.9" height="19" rx="5" fill="#6B4BA8"/>
+<text class="xs" x="648.0" y="247" text-anchor="end" fill="#ffffff" font-weight="700">avui</text>
+<line x1="185" y1="290" x2="380.2" y2="290" stroke="#1A1A2E" stroke-width="2"/>
+<line x1="404.2" y1="290" x2="654.0" y2="290" stroke="#1A1A2E" stroke-width="2"/>
+<line x1="387.2" y1="297" x2="394.2" y2="283" stroke="#1A1A2E" stroke-width="2"/>
+<line x1="395.2" y1="297" x2="402.2" y2="283" stroke="#1A1A2E" stroke-width="2"/>
+<line x1="185.2" y1="290" x2="185.2" y2="296" stroke="#1A1A2E" stroke-width="1.5"/>
+<text class="xs" x="185.2" y="309" text-anchor="middle">2,5 M</text>
+<line x1="233.9" y1="290" x2="233.9" y2="296" stroke="#1A1A2E" stroke-width="1.5"/>
+<text class="xs" x="233.9" y="309" text-anchor="middle">2 M</text>
+<line x1="282.7" y1="290" x2="282.7" y2="296" stroke="#1A1A2E" stroke-width="1.5"/>
+<text class="xs" x="282.7" y="309" text-anchor="middle">1,5 M</text>
+<line x1="331.4" y1="290" x2="331.4" y2="296" stroke="#1A1A2E" stroke-width="1.5"/>
+<text class="xs" x="331.4" y="309" text-anchor="middle">1 M</text>
+<line x1="380.2" y1="290" x2="380.2" y2="296" stroke="#1A1A2E" stroke-width="1.5"/>
+<text class="xs" x="380.2" y="309" text-anchor="middle">500 mil</text>
+<line x1="504.1" y1="290" x2="504.1" y2="296" stroke="#1A1A2E" stroke-width="1.5"/>
+<text class="xs" x="504.1" y="309" text-anchor="middle">300 mil</text>
+<line x1="604.0" y1="290" x2="604.0" y2="296" stroke="#1A1A2E" stroke-width="1.5"/>
+<text class="xs" x="604.0" y="309" text-anchor="middle">100 mil</text>
+<line x1="654.0" y1="290" x2="654.0" y2="296" stroke="#1A1A2E" stroke-width="1.5"/>
+<text class="xs" x="654.0" y="309" text-anchor="middle">avui</text>
+<text class="xs" x="14" y="309">anys enrere</text>
+<rect x="14" y="320" width="672" height="34" rx="7" fill="#FFF6E2" stroke="#D98B34"/>
+<text class="xs" x="26" y="335" fill="#8A5514">Compte: on hi ha la marca // l'escala canvia. A l'esquerra, cada tros d'eix val molt més temps que a la dreta.</text>
+<text class="xs" x="26" y="348" fill="#8A5514">Per això la barra d'Homo erectus, tot i semblar curta al principi, és la més llarga de totes: va durar gairebé 1,8 milions d'anys.</text></svg>

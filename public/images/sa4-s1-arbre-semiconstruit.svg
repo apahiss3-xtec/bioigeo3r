@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 507" width="700" height="507">
+<style>
+text{font-family:"Fira Sans Extra Condensed","DejaVu Sans Condensed",sans-serif;fill:#1A1A2E}
+.t{font-size:19px;font-weight:900;fill:#331F5C}
+.st{font-size:12.5px;font-style:italic;fill:#7A719A}
+.h{font-size:13px;font-weight:700;fill:#331F5C}
+.b{font-size:12px}
+.s{font-size:11px;fill:#7A719A}
+.xs{font-size:9.5px;fill:#7A719A}
+</style>
+<rect x="0" y="0" width="700" height="507" fill="#ffffff"/>
+<text class="t" x="14" y="27">L'arbre a mig fer</text>
+<text class="st" x="14" y="46">Escriu el nom de cada espècie dins de la seva caixa buida</text>
+<line x1="34.0" y1="74.0" x2="486.0" y2="74.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="96.0" y1="114.0" x2="486.0" y2="114.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="158.0" y1="154.0" x2="486.0" y2="154.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="220.0" y1="194.0" x2="486.0" y2="194.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="344.0" y1="234.0" x2="486.0" y2="234.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="344.0" y1="274.0" x2="486.0" y2="274.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="344.0" y1="234.0" x2="344.0" y2="274.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="282.0" y1="254.0" x2="344.0" y2="254.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="344.0" y1="314.0" x2="486.0" y2="314.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="406.0" y1="354.0" x2="486.0" y2="354.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="406.0" y1="394.0" x2="486.0" y2="394.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="406.0" y1="434.0" x2="486.0" y2="434.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="406.0" y1="354.0" x2="406.0" y2="434.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="344.0" y1="394.0" x2="406.0" y2="394.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<text x="358.0" y="387.0" font-size="9" fill="#331F5C" paint-order="stroke" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">no té cua</text>
+<line x1="344.0" y1="314.0" x2="344.0" y2="394.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="282.0" y1="354.0" x2="344.0" y2="354.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<text x="296.0" y="347.0" font-size="9" fill="#331F5C" paint-order="stroke" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">té pèl i les cries mamen</text>
+<line x1="282.0" y1="254.0" x2="282.0" y2="354.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="220.0" y1="304.0" x2="282.0" y2="304.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<text x="234.0" y="297.0" font-size="9" fill="#331F5C" paint-order="stroke" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">es reprodueix fora de l'aigua</text>
+<line x1="220.0" y1="194.0" x2="220.0" y2="304.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="158.0" y1="249.0" x2="220.0" y2="249.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<text x="172.0" y="242.0" font-size="9" fill="#331F5C" paint-order="stroke" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">té quatre extremitats</text>
+<line x1="158.0" y1="154.0" x2="158.0" y2="249.0" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="96.0" y1="201.5" x2="158.0" y2="201.5" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<text x="110.0" y="194.5" font-size="9" fill="#331F5C" paint-order="stroke" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">té columna vertebral</text>
+<line x1="96.0" y1="114.0" x2="96.0" y2="201.5" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="34.0" y1="157.8" x2="96.0" y2="157.8" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<text x="48.0" y="150.8" font-size="9" fill="#331F5C" paint-order="stroke" stroke="#ffffff" stroke-width="3.5" stroke-linejoin="round">ha de menjar altres éssers vius</text>
+<line x1="34.0" y1="74.0" x2="34.0" y2="157.8" stroke="#6B4BA8" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="486" y="60.5" width="176" height="27" rx="7" fill="#F0EBF9" stroke="#6B4BA8" stroke-width="1.5"/>
+<text class="h" x="499" y="79.5">♣  Pi</text>
+<rect x="486" y="100.5" width="176" height="27" rx="7" fill="#F0EBF9" stroke="#6B4BA8" stroke-width="1.5"/>
+<text class="h" x="499" y="119.5">✦  Formiga</text>
+<rect x="486" y="140.5" width="176" height="27" rx="7" fill="#ffffff" stroke="#B9A6DE" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="486" y="180.5" width="176" height="27" rx="7" fill="#ffffff" stroke="#B9A6DE" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="486" y="220.5" width="176" height="27" rx="7" fill="#ffffff" stroke="#B9A6DE" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="486" y="260.5" width="176" height="27" rx="7" fill="#ffffff" stroke="#B9A6DE" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="486" y="300.5" width="176" height="27" rx="7" fill="#ffffff" stroke="#B9A6DE" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="486" y="340.5" width="176" height="27" rx="7" fill="#ffffff" stroke="#B9A6DE" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="486" y="380.5" width="176" height="27" rx="7" fill="#ffffff" stroke="#B9A6DE" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="486" y="420.5" width="176" height="27" rx="7" fill="#F0EBF9" stroke="#6B4BA8" stroke-width="1.5"/>
+<text class="h" x="499" y="439.5">☺  Humà</text>
+<rect x="14" y="473" width="672" height="26" rx="6" fill="#FFF6E2" stroke="#D98B34"/>
+<text class="xs" x="26" y="490" fill="#8A5514">Les tres branques de baix de tot surten del mateix punt: amb les targetes de classe no es poden separar. Fixa-t'hi.</text></svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 410" width="700" height="410">
+<style>
+text{font-family:"Fira Sans Extra Condensed","DejaVu Sans Condensed",sans-serif;fill:#1A1A2E}
+.t{font-size:19px;font-weight:900;fill:#331F5C}
+.st{font-size:12.5px;font-style:italic;fill:#7A719A}
+.h{font-size:13px;font-weight:700;fill:#331F5C}
+.b{font-size:12px}
+.s{font-size:11px;fill:#7A719A}
+.xs{font-size:9.5px;fill:#7A719A}
+</style>
+<rect x="0" y="0" width="700" height="410" fill="#ffffff"/>
+<text class="t" x="14" y="27">Les tres funcions vitals: les fa tot ésser viu</text>
+<text class="st" x="14" y="48">El que canvia és la manera de fer-les, no la funció</text>
+<rect x="183" y="64" width="162" height="26" rx="6" fill="#6B4BA8"/>
+<text class="h" x="264" y="82" text-anchor="middle" fill="#ffffff">● Bacteri</text>
+<rect x="351" y="64" width="162" height="26" rx="6" fill="#6B4BA8"/>
+<text class="h" x="432" y="82" text-anchor="middle" fill="#ffffff">♣ Pi</text>
+<rect x="519" y="64" width="162" height="26" rx="6" fill="#6B4BA8"/>
+<text class="h" x="600" y="82" text-anchor="middle" fill="#ffffff">☺ Humà</text>
+<rect x="14" y="99" width="158" height="80" rx="6" fill="#F0EBF9" stroke="#B9A6DE"/>
+<text class="h" x="26" y="126">NUTRICIÓ</text>
+<text class="xs" x="26" y="143">agafar matèria i energia</text>
+<rect x="183" y="99" width="162" height="80" rx="6" fill="#ffffff" stroke="#DCD2EE"/>
+<text class="s" x="264" y="122.0" text-anchor="middle">Absorbeix del medi</text>
+<text class="s" x="264" y="138.0" text-anchor="middle">les substàncies</text>
+<text class="s" x="264" y="154.0" text-anchor="middle">que necessita</text>
+<rect x="351" y="99" width="162" height="80" rx="6" fill="#ffffff" stroke="#DCD2EE"/>
+<text class="s" x="432" y="122.0" text-anchor="middle">Es fabrica el menjar</text>
+<text class="s" x="432" y="138.0" text-anchor="middle">ell mateix, amb</text>
+<text class="s" x="432" y="154.0" text-anchor="middle">la llum del sol</text>
+<rect x="519" y="99" width="162" height="80" rx="6" fill="#ffffff" stroke="#DCD2EE"/>
+<text class="s" x="600" y="122.0" text-anchor="middle">Menja i respira:</text>
+<text class="s" x="600" y="138.0" text-anchor="middle">matèria i energia</text>
+<text class="s" x="600" y="154.0" text-anchor="middle">per a les cèl·lules</text>
+<rect x="14" y="185" width="158" height="80" rx="6" fill="#F0EBF9" stroke="#B9A6DE"/>
+<text class="h" x="26" y="212">RELACIÓ</text>
+<text class="xs" x="26" y="229">notar què passa i respondre</text>
+<rect x="183" y="185" width="162" height="80" rx="6" fill="#ffffff" stroke="#DCD2EE"/>
+<text class="s" x="264" y="215.5" text-anchor="middle">Nota si hi ha</text>
+<text class="s" x="264" y="231.5" text-anchor="middle">aliment i s'hi acosta</text>
+<rect x="351" y="185" width="162" height="80" rx="6" fill="#ffffff" stroke="#DCD2EE"/>
+<text class="s" x="432" y="215.5" text-anchor="middle">Gira les fulles</text>
+<text class="s" x="432" y="231.5" text-anchor="middle">cap a la llum</text>
+<rect x="519" y="185" width="162" height="80" rx="6" fill="#ffffff" stroke="#DCD2EE"/>
+<text class="s" x="600" y="208.0" text-anchor="middle">Els sentits capten;</text>
+<text class="s" x="600" y="224.0" text-anchor="middle">el sistema nerviós</text>
+<text class="s" x="600" y="240.0" text-anchor="middle">respon</text>
+<rect x="14" y="271" width="158" height="80" rx="6" fill="#F0EBF9" stroke="#B9A6DE"/>
+<text class="h" x="26" y="298">REPRODUCCIÓ</text>
+<text class="xs" x="26" y="315">fer individus nous</text>
+<rect x="183" y="271" width="162" height="80" rx="6" fill="#ffffff" stroke="#DCD2EE"/>
+<text class="s" x="264" y="301.5" text-anchor="middle">Es parteix en dos:</text>
+<text class="s" x="264" y="317.5" text-anchor="middle">una còpia de si mateix</text>
+<rect x="351" y="271" width="162" height="80" rx="6" fill="#ffffff" stroke="#DCD2EE"/>
+<text class="s" x="432" y="301.5" text-anchor="middle">Fa pinyes</text>
+<text class="s" x="432" y="317.5" text-anchor="middle">amb llavors</text>
+<rect x="519" y="271" width="162" height="80" rx="6" fill="#ffffff" stroke="#DCD2EE"/>
+<text class="s" x="600" y="301.5" text-anchor="middle">Fa gàmetes;</text>
+<text class="s" x="600" y="317.5" text-anchor="middle">en neix un individu</text>
+<rect x="14" y="362" width="672" height="36" rx="7" fill="#FFF6E2" stroke="#D98B34"/>
+<text class="b" x="28" y="385" fill="#8A5514">Tots tres intercanvien matèria i energia amb el medi. Això és el que vol dir «ser un ésser viu».</text></svg>

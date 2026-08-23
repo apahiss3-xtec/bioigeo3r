@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Créixer i reproduir-se · Sessió 1 · Qui som? — Semiguiat — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --purple:#6B4BA8; --purple-ink:#331F5C; --purple-light:#B9A6DE; --purple-tint:#F0EBF9;
+  --ink:#1A1A2E; --ink-2:#3A3457; --muted:#7A719A; --surface:#fffdff;
+  --rule:#DCD2EE; --rule-dark:#B9A6DE;
+  --orange:#e8834a; --orange-tint:#fdf0e8;
+  --teal:#3a9e8c;   --teal-tint:#e6f4f1;
+  --rose:#d44a6c;   --rose-tint:#fce8ed;
+  --yellow:#c8960a; --yellow-tint:#fdf7e2; --yellow-ink:#7a5800;
+  --green:#4a9e5c;  --green-tint:#eaf4ec;
+  --red:#c0392b;    --red-tint:#fdf2f0;
+  --blue:#2563a8;   --blue-tint:#e8f0fb;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Fira Sans Extra Condensed', sans-serif; background:#9b86c4; color:var(--ink); font-size:13px; line-height:1.5; padding:52px 20px 60px; }
+#toolbar { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(22,14,38,.93); backdrop-filter:blur(10px); border-bottom:1px solid rgba(107,75,168,.35); height:44px; display:flex; align-items:center; gap:10px; padding:0 18px; }
+.tb-tip { font-family:'Inter',sans-serif; font-size:11px; color:rgba(205,190,235,.65); flex:1; }
+.tb-tip strong { color:#cfc0ea; }
+.tb-sep { width:1px; height:20px; background:rgba(107,75,168,.3); }
+.tb-btn { font-family:'Inter',sans-serif; font-size:12px; font-weight:600; border:none; border-radius:6px; padding:6px 13px; cursor:pointer; transition:opacity .15s; white-space:nowrap; }
+.tb-print { background:var(--purple); color:white; }
+.tb-print:hover { opacity:.85; }
+.tb-bold { background:rgba(107,75,168,.2); border:1px solid rgba(107,75,168,.4); color:#cfc0ea; font-size:14px; font-weight:900; padding:4px 11px; }
+.tb-bold:hover { background:rgba(107,75,168,.38); }
+.tb-undo { background:rgba(212,74,108,.2); border:1px solid rgba(212,74,108,.4); color:#f0a0b8; font-size:12px; opacity:.5; transition:opacity .2s; pointer-events:none; }
+.tb-undo.active { opacity:1; pointer-events:auto; }
+.tb-undo.active:hover { background:rgba(212,74,108,.35); }
+.tb-spacer { background:rgba(107,75,168,.2); border:1px solid rgba(107,75,168,.4); color:#cfc0ea; font-size:12px; }
+.tb-spacer:hover { background:rgba(107,75,168,.35); }
+.tb-save { background:#6B4BA8; color:#ece4f9; border:1px solid rgba(185,166,222,.55); }
+.tb-save:hover { background:#7d5cbd; }
+.tb-save.saved { background:#4a9e5c; color:#fff; }
+.page-wrap { width:794px; margin:0 auto; background:var(--surface); box-shadow:0 2px 30px rgba(0,0,0,.22); position:relative; }
+.page-break-line { position:absolute; left:0; right:0; border-top:2px dashed #8A5FCC; pointer-events:none; z-index:10; }
+.page-break-label { position:absolute; right:10px; top:-11px; background:#8A5FCC; color:white; font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
+[contenteditable] { outline:none; cursor:text; border-radius:3px; transition:background .12s, box-shadow .12s; }
+[contenteditable]:hover { background:rgba(107,75,168,.08); box-shadow:0 0 0 2px rgba(107,75,168,.3); }
+[contenteditable]:focus { background:rgba(107,75,168,.12); box-shadow:0 0 0 2.5px var(--purple); }
+.header-band [contenteditable]:hover { background:rgba(255,255,255,.15); box-shadow:0 0 0 2px rgba(255,255,255,.3); }
+.header-band [contenteditable]:focus { background:rgba(255,255,255,.2); box-shadow:0 0 0 2.5px #fff; }
+span[contenteditable] { display:inline-block; }
+.wline { display:block; width:100%; min-height:32px; background:white; outline:none; padding:4px 4px; border-bottom:1.5px solid #DCD2EE; word-break:break-word; cursor:text; line-height:1.7; }
+.wline:focus { border-bottom-color:var(--purple); background:rgba(107,75,168,.04); }
+.frase-completar { font-size:11.5px; line-height:2.4; margin:4px 0 6px; }
+.blank { display:inline-block; border-bottom:1.5px solid #DCD2EE; vertical-align:bottom; margin:0 3px; height:1.1em; }
+.blank-s { width:60px; } .blank-m { width:100px; } .blank-l { width:140px; } .blank-xl { width:200px; }
+.nom-field { margin-left:auto; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; font-family:'Fira Sans Extra Condensed',sans-serif; color:var(--ink); }
+.input-span.data-span { min-width:65px; }
+.input-span:focus { border-bottom-color:var(--purple); }
+.nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(107,75,168,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); flex-shrink:0; }
+.deletable { position:relative; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; border-radius:50%; background:#d44a6c; color:white; border:none; cursor:pointer; align-items:center; justify-content:center; font-size:12px; font-weight:900; line-height:1; z-index:100; box-shadow:0 1px 4px rgba(0,0,0,.3); transition:background .1s,transform .1s; }
+.del-btn:hover { background:#b83054; transform:scale(1.15); }
+.deletable:hover > .del-btn { display:flex; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+.nivell-strip .deletable { display:inline-flex; align-items:center; }
+.header-band { background:linear-gradient(135deg,#331F5C 0%,#6B4BA8 100%); color:#fff; padding:14px 18px; display:grid; grid-template-columns:72px 1fr 178px; gap:14px; align-items:center; position:relative; overflow:hidden; }
+.header-band::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 100% at 110% 50%,rgba(255,255,255,.07) 0%,transparent 70%); pointer-events:none; }
+.header-emoji-col { display:flex; align-items:center; justify-content:center; }
+.header-emoji-box { width:62px; height:62px; border-radius:14px; background:rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center; font-size:36px; user-select:none; flex-shrink:0; }
+.header-main { min-width:0; }
+.header-sa { font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; opacity:.55; margin-bottom:4px; }
+.header-title { font-size:24px; font-weight:900; letter-spacing:-.01em; line-height:1.05; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-style:italic; font-size:13px; opacity:.72; margin-top:4px; }
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:5px; }
+.logo-box { background:rgba(255,255,255,.92); border-radius:7px; padding:5px 6px; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 1px 6px rgba(0,0,0,.18); }
+.header-meta { font-size:9.5px; opacity:.52; text-align:right; line-height:1.7; }
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.nivell-label { font-size:11px; color:var(--muted); font-style:italic; }
+.temps-badge { font-size:10px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
+.oa-box { background:linear-gradient(to right,var(--purple-tint),var(--surface)); border-left:4px solid var(--purple); padding:10px 16px; }
+.oa-title { font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:6px; }
+.oa-list { list-style:none; padding:0; margin:0; }
+.oa-list li { font-size:11.5px; padding:3px 0 3px 22px; position:relative; line-height:1.4; border-bottom:1px dashed var(--rule); }
+.oa-list li:last-child { border-bottom:none; }
+.oa-list li::before { content:'○'; position:absolute; left:4px; top:3px; font-size:11px; color:var(--purple-light); }
+.meta-oa-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-oa-title { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; font-size:11px; margin-bottom:4px; padding:2px 0; }
+.meta-oa-item:last-child { margin-bottom:0; }
+.meta-oa-check { width:16px; height:16px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; margin-top:1px; }
+.meta-oa-text { flex:1; line-height:1.35; }
+.content { padding:14px 24px 24px; }
+.section { margin-top:14px; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:10.5px; color:var(--ink-2); font-style:italic; font-family:'Crimson Pro',serif; }
+.temps { font-size:10px; color:var(--purple-ink); font-weight:700; margin-left:4px; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
+.previ-box p { font-size:12px; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-icon { font-size:24px; flex-shrink:0; }
+.connexio-text { font-size:11px; line-height:1.4; }
+.connexio-text strong { color:var(--purple-ink); }
+.hipotesi-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin-bottom:10px; }
+.hipotesi-box p { font-size:12px; font-weight:700; color:var(--purple-ink); margin-bottom:4px; }
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow-ink); margin-bottom:2px; }
+.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+.data-table { width:100%; border-collapse:collapse; font-size:11px; margin-bottom:10px; }
+.data-table th { background:var(--purple-ink); color:white; padding:6px 9px; text-align:left; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table th:first-child { border-radius:5px 0 0 0; }
+.data-table th:last-child { border-radius:0 5px 0 0; }
+.data-table th small { font-size:8.5px; font-weight:400; letter-spacing:0; text-transform:none; opacity:.75; display:block; margin-top:1px; }
+.data-table td { padding:5px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table tr:nth-child(even) td { background:var(--purple-tint); }
+.icon-cell { font-size:16px; text-align:center; width:32px; }
+.fill-cell { display:block; width:100%; min-height:22px; outline:none; padding:2px 3px; word-break:break-word; cursor:text; }
+.fill-cell:focus { background:rgba(107,75,168,.08); outline:1px solid var(--purple-light); border-radius:2px; }
+.label-cell { font-size:11px; font-weight:700; color:var(--ink-2); }
+.explore-q { display:flex; gap:8px; margin-bottom:10px; align-items:flex-start; }
+.explore-qnum { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--orange); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.explore-qtext { font-size:11.5px; flex:1; }
+.exit-box { background:#F2ECFA; border:2px solid var(--purple); border-radius:10px; padding:12px 14px; }
+.exit-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.exit-q { font-size:11px; margin-bottom:4px; line-height:1.4; }
+.exit-opts { display:grid; grid-template-columns:repeat(2,1fr); gap:3px; margin:3px 0 6px; }
+.exit-opt { display:flex; align-items:center; gap:5px; font-size:10.5px; }
+.chk { width:12px; height:12px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; }
+.meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+.meta-item { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-icon { font-size:18px; display:block; margin-bottom:3px; }
+.meta-label { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px; }
+.stars { display:flex; gap:4px; margin-top:4px; }
+.star { font-size:18px; color:#8A5FCC; cursor:default; }
+.tasca-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:10px 14px; margin-top:12px; }
+.tasca-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:6px; font-size:11px; }
+.tasca-item:last-child { margin-bottom:0; }
+.tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(107,75,168,.05) 6px,rgba(107,75,168,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
+.spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+.page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:0.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
+.footer { margin-top:12px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
+.footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+.info-box { background:white; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.info-label { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.info-box p { font-size:11px; line-height:1.5; margin-bottom:3px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0 3px; }
+.chain-chip { font-size:10.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:13px; }
+.circ-row { font-size:11.5px; line-height:2.4; margin-bottom:3px; }
+.circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:white; }
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
+.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.chips { display:flex; flex-wrap:wrap; gap:4px; }
+.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:white; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.fig { margin:10px 0; text-align:center; }
+.fig-frame { position:relative; display:inline-block; max-width:100%; border:1.5px solid var(--purple-light); border-radius:9px; background:var(--purple-tint); overflow:hidden; box-shadow:0 1px 6px rgba(107,75,168,.12); }
+.fig-frame img { display:block; max-width:100%; object-fit:contain; }
+.fig-ph { display:none; align-items:center; justify-content:center; min-height:118px; padding:16px 20px; font-size:10.5px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
+.fig-ph .ph-ico { font-size:26px; display:block; margin-bottom:5px; }
+.figcap { font-size:9.5px; color:var(--muted); margin-top:5px; font-style:italic; line-height:1.4; }
+.pista { font-size:11px; color:var(--ink-2); font-style:italic; line-height:1.45; margin:3px 0 4px; padding-left:3px; }
+
+/* .callout (caixa "Idea clau") i .fig-row (dues figures de costat) definides des
+   de l'inici en aquest xassis: a la unitat anterior s'usaven sense estar
+   definides i s'imprimien com un paragraf gris qualsevol. */
+.callout{background:#FFF6E2;border-left:5px solid #D98B34;border-radius:0 9px 9px 0;
+  padding:9px 12px;margin:10px 0;font-size:11.5px;line-height:1.45;break-inside:avoid;}
+.callout b,.callout strong{color:#8A5514;}
+.fig-row{display:flex;gap:10px;align-items:flex-start;margin:8px 0;break-inside:avoid;}
+.fig-row .fig{flex:1;min-width:0;margin:0;}
+.pista b, .pista strong { color:var(--purple-ink); font-style:normal; }
+@media print {
+  @page { size:A4; margin:10mm 12mm; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { background:white; padding:0; }
+  #toolbar, .page-break-line, .del-btn { display:none !important; }
+  .page-footer-bar { display:flex !important; }
+  .footer { display:none !important; }
+  .page-wrap { box-shadow:none; width:100%; }
+  .header-emoji-box { background:#e6dcf7 !important; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline { background:transparent; padding:0; }
+  .fill-cell { background:transparent; outline:none; }
+  .input-span { border-bottom-color:#DCD2EE; }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .nivell-badge-small { background:transparent !important; border-color:#DCD2EE !important; }
+}
+
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span class="tb-tip">✎ Clica per editar · <strong>Ctrl+B</strong> negreta · <strong>×</strong> rosa elimina · <strong>Ctrl+Z</strong> desfés · <strong>Ctrl+S</strong> desa</span>
+  <div class="tb-sep"></div>
+  <button class="tb-btn tb-undo" id="btn-undo" onclick="undoDelete()">↩ Desfés</button>
+  <button class="tb-btn tb-bold" onclick="document.execCommand('bold')"><b>N</b></button>
+  <button class="tb-btn tb-spacer" onclick="insertSpacer()">＋ Espai</button>
+  <button class="tb-btn tb-save" id="btn-save" onclick="saveDoc()">💾 Desa</button>
+  <button class="tb-btn tb-print" onclick="window.print()">🖨️ Imprimir / PDF</button>
+</div>
+
+<div class="page-wrap" id="doc">
+
+  <div class="header-band deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="header-emoji-col">
+      <div class="header-emoji-box" contenteditable="true">🌳</div>
+    </div>
+    <div class="header-main">
+      <div class="header-sa" contenteditable="true">Créixer i reproduir-se · Sessió 1 de 4</div>
+      <div class="header-title" contenteditable="true">Qui som? El lloc de l'ésser humà</div>
+      <div class="header-subtitle" contenteditable="true">Som animals? I si ho som, què ens fa diferents dels altres?</div>
+    </div>
+    <div class="header-right">
+      <div class="logo-box">
+        <img src="../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
+      </div>
+      <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
+    </div>
+  </div>
+
+  <div class="nivell-strip deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <span class="nivell-label deletable" contenteditable="true">Semiguiat<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <span class="temps-badge deletable" contenteditable="true">⏱️ Sessió de 2 h · 83 min en aquesta fitxa<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <div class="nom-field deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
+      &nbsp;&nbsp;Data:&nbsp;<span class="input-span data-span" contenteditable="true"></span>
+      &nbsp;<span class="nivell-badge-small" title="Versió B — Estàndard">B</span>
+    </div>
+  </div>
+
+  <div class="oa-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="oa-title">🎯 Objectius d'aprenentatge d'avui (Nivell B)</div>
+    <ul class="oa-list">
+      <li contenteditable="true">Situo l'ésser humà com un ésser viu més i com l'única espècie viva del gènere <i>Homo</i>, i ho justifico amb <strong>caràcters</strong>, no amb impressions.</li>
+      <li contenteditable="true">Construeixo un <strong>cladograma</strong> ordenant espècies segons els caràcters que comparteixen.</li>
+      <li contenteditable="true">Explico que les classificacions científiques són <strong>provisionals</strong> i canvien amb proves noves, com l'ADN.</li>
+      <li contenteditable="true">Distingeixo una pregunta «de biologia» d'una pregunta «de decisió i valors».</li>
+    </ul>
+  </div>
+
+  <div class="content">
+<div class="callout"><b>⏱️ Com es reparteix la sessió (2 h).</b> Obertura de la bústia de preguntes <b>5 min</b> (en paperets, no en aquesta fitxa) · apartats 0 a 4 d'aquesta fitxa <b>83 min</b> · full de sortida, en un full a part <b>7 min</b> · recollida i tancament <b>5 min</b>. Són 100 min; la resta és el temps de repartir les targetes i moure els grups.</div><div class="info-box"><div class="info-label">🔤 Vocabulari d'avui</div><div style="font-size:10.5px;line-height:1.45;column-count:2;column-gap:16px"><div style="break-inside:avoid;margin-bottom:3px"><strong>caràcter</strong> — una cosa que un ésser viu té (pèl, columna vertebral, quatre potes...).</div><div style="break-inside:avoid;margin-bottom:3px"><strong>caràcter compartit</strong> — caràcter que tenen dues espècies o més.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>cladograma</strong> — arbre que ordena els éssers vius segons els caràcters que comparteixen.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>taxonomia</strong> — manera de classificar els éssers vius en grups encaixats.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>gènere</strong> — grup de classificació just per damunt de l'espècie (el nostre és <i>Homo</i>).</div><div style="break-inside:avoid;margin-bottom:3px"><strong>espècie</strong> — grup d'individus que es poden reproduir entre ells (la nostra, <i>sapiens</i>).</div><div style="break-inside:avoid;margin-bottom:3px"><strong>extingit</strong> — que ja no en queda cap individu viu.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>bipedisme</strong> — caminar sempre dret sobre dues cames.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>funcions vitals</strong> — les tres coses que fa tot ésser viu: nutrició, relació i reproducció.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>morfologia</strong> — la forma del cos d'un ésser viu.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>vertebrat</strong> — animal amb columna vertebral.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>mamífer</strong> — animal amb pèl i les cries del qual mamen llet.</div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--muted)">0</div><div><div class="stitle" contenteditable="true">Idees prèvies ⏱️ 7 min</div><div class="sdesc" contenteditable="true">Primer dibuixes, després escrius. No es corregeix</div></div></div><div class="divider"></div><div class="previ-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><p>Comencem una unitat nova. Escriu i dibuixa el que penses <strong>ara</strong>: no es corregeix, i el tornaràs a mirar al final de la unitat per veure com ha canviat.</p></div><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">📮</div><div class="connexio-text" contenteditable="true"><strong>La bústia de preguntes.</strong> Avui s'obre una caixa on pots deixar, <strong>sense posar-hi el nom</strong>, qualsevol pregunta sobre el cos, la reproducció o la sexualitat. Queda oberta totes les setmanes d'aquesta unitat. <strong>Acord d'aula:</strong> es respecta, no es jutja, es fan servir paraules científiques i el que es diu a l'aula es queda a l'aula.</div></div><p style="font-size:11.5px;margin-top:8px"><strong>Dibuixa</strong> un arbre amb aquests quatre: humà, ximpanzé, peix i planta. Col·loca-hi l'humà on et sembli.</p><div class="deletable" style="position:relative;min-height:150px;border:1.5px solid var(--rule-dark);border-radius:8px;background:#fff;margin:6px 0" contenteditable="true"><div class="del-btn" onclick="deleteEl(this)">✕</div><div style="position:absolute;top:6px;left:10px;font-size:9.5px;color:var(--muted);font-style:italic">el teu arbre</div></div><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">1</div><div class="explore-qtext" contenteditable="true">Som animals? Què et sembla que ens fa humans: que pensem, que parlem, que tenim cultura… o també alguna cosa biològica?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--orange)">1</div><div><div class="stitle" contenteditable="true">El cladograma de targetes ⏱️ 35 min</div><div class="sdesc" contenteditable="true">En grups de 4, amb les targetes d'espècies i de caràcters</div></div></div><div class="divider"></div><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">2</div><div class="explore-qtext" contenteditable="true"><strong>Abans de tocar cap targeta:</strong> quin criteri faràs servir per ordenar les espècies de «més semblant» a «menys semblant» a l'humà?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p class="pista">💡 Poseu cada targeta de caràcter al costat de <b>totes</b> les espècies que el tenen. Després compteu. El pi només té el primer caràcter: és normal.</p><table class="data-table"><thead><tr><th>Caràcter</th><th>Quantes espècies el tenen</th><th>Quines NO el tenen</th></tr></thead><tbody><tr><td class="label-cell">té cèl·lules</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">ha de menjar altres éssers vius</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">té columna vertebral</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">té quatre extremitats</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">es reprodueix fora de l'aigua</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">té pèl i les cries mamen</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">té el polze oposable</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">no té cua</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">camina sempre dret sobre dues cames</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p style="font-size:11.5px;margin-top:10px"><strong>3.</strong> Dibuixeu l'arbre del vostre grup. Cada branca marca el punt on apareix un caràcter nou: escriviu el caràcter damunt de cada branca.</p><div class="deletable" style="position:relative;min-height:215px;border:1.5px solid var(--rule-dark);border-radius:8px;background:#fff;margin:6px 0" contenteditable="true"><div class="del-btn" onclick="deleteEl(this)">✕</div><div style="position:absolute;top:6px;left:10px;font-size:9.5px;color:var(--muted);font-style:italic">l'arbre del grup</div></div><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">4</div><div class="explore-qtext" contenteditable="true">On heu posat l'humà i <strong>amb quin caràcter</strong> ho justifiqueu?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p class="pista">💡 No val «s'assembla» ni «és més llest»: ha de ser un caràcter de les targetes.</p><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">5</div><div class="explore-qtext" contenteditable="true">Hi ha dues espècies que us han fet dubtar. Quines són i per quina raó?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--teal)">2</div><div><div class="stitle" contenteditable="true">Funcions vitals i el gènere <i>Homo</i> ⏱️ 20 min</div><div class="sdesc" contenteditable="true">El que compartim amb tot ésser viu i el que ens fa la nostra espècie</div></div></div><div class="divider"></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s1_funcions_vitals.svg" alt="Les tres funcions vitals en tres éssers vius" style="max-height:210px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Les tres funcions vitals en tres éssers vius</span></div></div><figcaption class="figcap" contenteditable="true">Fig. 1 — Un bacteri, un pi i tu feu les mateixes tres funcions. El que canvia és com les feu.</figcaption></figure><p style="font-size:11.5px"><strong>6.</strong> Omple la taula amb un exemple per casella. Fixa't en la figura 1 i en el que s'ha explicat.</p><table class="data-table"><thead><tr><th>Ésser viu</th><th>Nutrició</th><th>Relació</th><th>Reproducció</th></tr></thead><tbody><tr><td class="label-cell">Bacteri</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Pi</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Humà</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p class="pista">💡 El pi també fa les tres funcions, però la nutrició la fa d'una manera diferent: recorda la fotosíntesi de la primera unitat.</p><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s1_linia_temps_homo.svg" alt="Línia temporal del gènere Homo" style="max-height:215px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Línia temporal del gènere Homo</span></div></div><figcaption class="figcap" contenteditable="true">Fig. 2 — Quatre espècies del gènere <i>Homo</i>. Compte amb la marca // de l'eix: l'escala canvia.</figcaption></figure><p style="font-size:11.5px;margin-top:6px"><strong>7.</strong> Omple la taula del nostre gènere fent servir la figura 2.</p><table class="data-table"><thead><tr><th>Pregunta</th><th>Resposta</th></tr></thead><tbody><tr><td class="label-cell">Espècie del gènere <i>Homo</i> que encara és viva</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Dues espècies del gènere <i>Homo</i> que estan extingides</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Dos caràcters distintius de la nostra espècie</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Dues espècies del gènere que van conviure a Europa</td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><div class="epist-box"><div style="font-size:22px;flex-shrink:0">🔬</div><div><div class="epist-title">Moment epistèmic — com sabem el que sabem</div><div class="epist-text">A l'activitat de les targetes han sortit dos problemes, i tots dos són importants. <b>(a) La serp.</b> No té quatre extremitats, però els seus avantpassats sí que en tenien: les va <b>perdre</b>. Algunes serps encara conserven a dins un trosset d'os de la pelvis. <b>(b) El goril·la i el ximpanzé.</b> Amb les targetes queden <b>empatats</b>: comparteixen exactament els mateixos caràcters amb nosaltres. Quan els científics van poder llegir l'<b>ADN</b>, van poder desempatar casos com aquest i molts arbres «segurs» van canviar. Això no vol dir que abans s'equivoquessin: vol dir que la ciència <b>millora quan té proves noves</b>.</div></div></div><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">8</div><div class="explore-qtext" contenteditable="true">Per quina raó la serp no encaixava on esperaves? Què hi diuen els fòssils i l'ADN?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">9</div><div class="explore-qtext" contenteditable="true">Amb les targetes, el goril·la i el ximpanzé queden empatats. Quina prova ha permès desempatar-los, i quin dels dos és el nostre parent viu més proper?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--rose)">3</div><div><div class="stitle" contenteditable="true">Tres espècies noves i les preguntes de la bústia ⏱️ 18 min</div><div class="sdesc" contenteditable="true">En parelles</div></div></div><div class="divider"></div><p style="font-size:11.5px"><strong>10.</strong> Col·loqueu aquestes tres espècies a l'arbre que heu construït. Per a cadascuna, digueu quin caràcter ho decideix.</p><table class="data-table"><thead><tr><th>Espècie</th><th>Caràcters de la llista que té</th><th>On va a l'arbre</th><th>Caràcter que ho justifica</th></tr></thead><tbody><tr><td class="label-cell">🐬 Dofí</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">🐊 Cocodril</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">🐌 Cargol</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p style="font-size:11.5px;margin-top:10px"><strong>11.</strong> El professor llegirà dues o tres preguntes de la bústia. Apunta-les (amb quatre paraules n'hi ha prou) i decideix de quin tipus són.</p><p class="pista">💡 <b>De biologia</b> = es pot comprovar amb una dada o un experiment. <b>De decisió i valors</b> = depèn de cada persona i de la societat; la ciència sola no la respon.</p><table class="data-table"><thead><tr><th>Pregunta de la bústia</th><th>De biologia o de decisió?</th><th>Com ho saps?</th></tr></thead><tbody><tr><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">🎟️</div><div class="connexio-text" contenteditable="true"><strong>Full de sortida (7 min).</strong> Al final de la classe el professor et donarà un <strong>full a part</strong> amb 3 preguntes. Es fa <strong>tot sol/a</strong> i <strong>es recull</strong>. Aquesta fitxa te la quedes tu.</div></div></div><div class="section deletable" style="margin-top:14px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--purple)">4</div><div><div class="stitle">Metacognició</div><div class="sdesc">Com ha anat avui ⏱️ 3 min</div></div></div><div class="divider"></div><div class="meta-grid"><div class="meta-item"><span class="meta-icon">🚦</span><div class="meta-label">Com ho veig</div><div class="circ-row"><span class="circ-opt">🟢 ho tinc</span><span class="circ-opt">🟡 a mitges</span><span class="circ-opt">🔴 perdut/uda</span></div></div><div class="meta-item"><span class="meta-icon">💭</span><div class="meta-label">Una cosa que m'ha sorprès de l'arbre de la vida</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="meta-oa-box deletable" style="margin-top:9px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-title">Marca el que ja sabries explicar a algú altre</div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Situo l'ésser humà com un ésser viu més i com l'única espècie viva del gènere <i>Homo</i>, i ho justifico amb <strong>caràcters</strong>, no amb impressions.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Construeixo un <strong>cladograma</strong> ordenant espècies segons els caràcters que comparteixen.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Explico que les classificacions científiques són <strong>provisionals</strong> i canvien amb proves noves, com l'ADN.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Distingeixo una pregunta «de biologia» d'una pregunta «de decisió i valors».</div></div></div></div><div class="tasca-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-title">📚 Després de la sessió</div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">1</div><div contenteditable="true">📮 <strong>Cap deures obligatoris.</strong> Si et ve una pregunta al cap durant la setmana, escriu-la i posa-la a la bústia el proper dia.</div></div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">2</div><div contenteditable="true">👀 Fixa't, quan vagis pel carrer o miris una sèrie, en algun animal i pregunta't quins dels nou caràcters d'avui tindria.</div></div></div><div class="footer"><div class="footer-l">Créixer i reproduir-se · Sessió 1 · Qui som? El lloc de l'ésser humà · IE Temple</div><div class="footer-r">CC BY-NC · Albert Pahissa</div></div>
+  </div><!-- .content -->
+</div><!-- .page-wrap -->
+
+<script>
+const delStack = [];
+function deleteEl(btn) {
+  const target = btn.closest('.deletable');
+  if (!target) return;
+  const parent = target.parentNode;
+  const sibling = target.nextSibling;
+  target.remove();
+  delStack.push({ el:target, parent, sibling });
+  document.getElementById('btn-undo').classList.add('active');
+}
+function undoDelete() {
+  if (!delStack.length) return;
+  const { el, parent, sibling } = delStack.pop();
+  parent.insertBefore(el, sibling);
+  if (!delStack.length) document.getElementById('btn-undo').classList.remove('active');
+  updatePageBreaks();
+}
+document.addEventListener('keydown', e => {
+  if (e.key==='z' && (e.ctrlKey||e.metaKey)) {
+    if (document.activeElement && document.activeElement.contentEditable==='true') return;
+    e.preventDefault(); undoDelete();
+  }
+});
+const PAGE_H = 1047;
+let _pbTimer = null;
+function updatePageBreaks() {
+  const doc = document.getElementById('doc');
+  if (!doc) return;
+  doc.querySelectorAll('.page-break-line,.page-footer-bar').forEach(e=>e.remove());
+  for (let i=1; i<8; i++) {
+    const y = i*PAGE_H;
+    const line = document.createElement('div');
+    line.className='page-break-line';
+    line.style.top=y+'px';
+    const lbl = document.createElement('div');
+    lbl.className='page-break-label';
+    lbl.textContent='Pàgina '+i;
+    line.appendChild(lbl);
+    const bar = document.createElement('div');
+    bar.className='page-footer-bar';
+    bar.style.top=(y-20)+'px';
+    bar.innerHTML='<span>Créixer i reproduir-se · Sessió 1 · Qui som? El lloc de l'ésser humà</span><span>CC BY-NC · Albert Pahissa · Pàg. '+i+'</span>';
+    doc.appendChild(line);
+    doc.appendChild(bar);
+  }
+}
+function insertSpacer() {
+  const sel = window.getSelection();
+  let ref = sel && sel.rangeCount ? sel.getRangeAt(0).startContainer : null;
+  while (ref && ref !== document.getElementById('doc')) {
+    if (ref.classList && ref.classList.contains('section')) break;
+    ref = ref.parentNode;
+  }
+  const spacer = document.createElement('div');
+  spacer.className='spacer-block deletable';
+  spacer.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">espai en blanc</span>';
+  if (ref && ref.classList && ref.classList.contains('section')) {
+    ref.parentNode.insertBefore(spacer, ref.nextSibling);
+  } else {
+    document.querySelector('.content').appendChild(spacer);
+  }
+  setTimeout(updatePageBreaks, 100);
+}
+// ── Desar i recuperar les modificacions (al navegador) ──────────────
+const SAVE_KEY = 'fitxa-sa4:' + (location.pathname.split('/').pop() || document.title);
+function saveDoc(silent){
+  try{
+    const c = document.getElementById('doc').cloneNode(true);
+    c.querySelectorAll('.page-break-line,.page-footer-bar').forEach(e=>e.remove());
+    localStorage.setItem(SAVE_KEY, c.innerHTML);
+    if(!silent) flashSaved();
+  }catch(e){ if(!silent) alert('Aquest navegador no permet desar (prova de no fer servir mode privat).'); }
+}
+function flashSaved(){
+  const b=document.getElementById('btn-save'); if(!b) return;
+  const t=b.innerHTML; b.innerHTML='✓ Desat'; b.classList.add('saved');
+  setTimeout(()=>{ b.innerHTML=t; b.classList.remove('saved'); },1400);
+}
+function restoreDoc(){
+  try{
+    const s=localStorage.getItem(SAVE_KEY);
+    if(s){ document.getElementById('doc').innerHTML=s; }
+  }catch(e){}
+}
+let _saveTimer=null;
+document.addEventListener('input', ()=>{ clearTimeout(_saveTimer); _saveTimer=setTimeout(()=>saveDoc(true),900); });
+document.addEventListener('keydown', e => {
+  if (e.key==='s' && (e.ctrlKey||e.metaKey)) { e.preventDefault(); saveDoc(); }
+});
+const obs = new MutationObserver(()=>{ clearTimeout(_pbTimer); _pbTimer=setTimeout(updatePageBreaks, 250); });
+window.addEventListener('load', ()=>{
+  restoreDoc();
+  obs.observe(document.getElementById('doc'), { childList:true, subtree:true, characterData:true });
+  updatePageBreaks();
+});
+</script>
+</body></html>
