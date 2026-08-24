@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Créixer i reproduir-se · Sessió 2 · Com funcionem? — Amb suport visual — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --purple:#6B4BA8; --purple-ink:#331F5C; --purple-light:#B9A6DE; --purple-tint:#F0EBF9;
+  --ink:#1A1A2E; --ink-2:#3A3457; --muted:#7A719A; --surface:#fffdff;
+  --rule:#DCD2EE; --rule-dark:#B9A6DE;
+  --orange:#e8834a; --orange-tint:#fdf0e8;
+  --teal:#3a9e8c;   --teal-tint:#e6f4f1;
+  --rose:#d44a6c;   --rose-tint:#fce8ed;
+  --yellow:#c8960a; --yellow-tint:#fdf7e2; --yellow-ink:#7a5800;
+  --green:#4a9e5c;  --green-tint:#eaf4ec;
+  --red:#c0392b;    --red-tint:#fdf2f0;
+  --blue:#2563a8;   --blue-tint:#e8f0fb;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Fira Sans Extra Condensed', sans-serif; background:#9b86c4; color:var(--ink); font-size:13px; line-height:1.5; padding:52px 20px 60px; }
+#toolbar { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(22,14,38,.93); backdrop-filter:blur(10px); border-bottom:1px solid rgba(107,75,168,.35); height:44px; display:flex; align-items:center; gap:10px; padding:0 18px; }
+.tb-tip { font-family:'Inter',sans-serif; font-size:11px; color:rgba(205,190,235,.65); flex:1; }
+.tb-tip strong { color:#cfc0ea; }
+.tb-sep { width:1px; height:20px; background:rgba(107,75,168,.3); }
+.tb-btn { font-family:'Inter',sans-serif; font-size:12px; font-weight:600; border:none; border-radius:6px; padding:6px 13px; cursor:pointer; transition:opacity .15s; white-space:nowrap; }
+.tb-print { background:var(--purple); color:white; }
+.tb-print:hover { opacity:.85; }
+.tb-bold { background:rgba(107,75,168,.2); border:1px solid rgba(107,75,168,.4); color:#cfc0ea; font-size:14px; font-weight:900; padding:4px 11px; }
+.tb-bold:hover { background:rgba(107,75,168,.38); }
+.tb-undo { background:rgba(212,74,108,.2); border:1px solid rgba(212,74,108,.4); color:#f0a0b8; font-size:12px; opacity:.5; transition:opacity .2s; pointer-events:none; }
+.tb-undo.active { opacity:1; pointer-events:auto; }
+.tb-undo.active:hover { background:rgba(212,74,108,.35); }
+.tb-spacer { background:rgba(107,75,168,.2); border:1px solid rgba(107,75,168,.4); color:#cfc0ea; font-size:12px; }
+.tb-spacer:hover { background:rgba(107,75,168,.35); }
+.tb-save { background:#6B4BA8; color:#ece4f9; border:1px solid rgba(185,166,222,.55); }
+.tb-save:hover { background:#7d5cbd; }
+.tb-save.saved { background:#4a9e5c; color:#fff; }
+.page-wrap { width:794px; margin:0 auto; background:var(--surface); box-shadow:0 2px 30px rgba(0,0,0,.22); position:relative; }
+.page-break-line { position:absolute; left:0; right:0; border-top:2px dashed #8A5FCC; pointer-events:none; z-index:10; }
+.page-break-label { position:absolute; right:10px; top:-11px; background:#8A5FCC; color:white; font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
+[contenteditable] { outline:none; cursor:text; border-radius:3px; transition:background .12s, box-shadow .12s; }
+[contenteditable]:hover { background:rgba(107,75,168,.08); box-shadow:0 0 0 2px rgba(107,75,168,.3); }
+[contenteditable]:focus { background:rgba(107,75,168,.12); box-shadow:0 0 0 2.5px var(--purple); }
+.header-band [contenteditable]:hover { background:rgba(255,255,255,.15); box-shadow:0 0 0 2px rgba(255,255,255,.3); }
+.header-band [contenteditable]:focus { background:rgba(255,255,255,.2); box-shadow:0 0 0 2.5px #fff; }
+span[contenteditable] { display:inline-block; }
+.wline { display:block; width:100%; min-height:32px; background:white; outline:none; padding:4px 4px; border-bottom:1.5px solid #DCD2EE; word-break:break-word; cursor:text; line-height:1.7; }
+.wline:focus { border-bottom-color:var(--purple); background:rgba(107,75,168,.04); }
+.frase-completar { font-size:11.5px; line-height:2.4; margin:4px 0 6px; }
+.blank { display:inline-block; border-bottom:1.5px solid #DCD2EE; vertical-align:bottom; margin:0 3px; height:1.1em; }
+.blank-s { width:60px; } .blank-m { width:100px; } .blank-l { width:140px; } .blank-xl { width:200px; }
+.nom-field { margin-left:auto; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; font-family:'Fira Sans Extra Condensed',sans-serif; color:var(--ink); }
+.input-span.data-span { min-width:65px; }
+.input-span:focus { border-bottom-color:var(--purple); }
+.nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(107,75,168,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); flex-shrink:0; }
+.deletable { position:relative; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; border-radius:50%; background:#d44a6c; color:white; border:none; cursor:pointer; align-items:center; justify-content:center; font-size:12px; font-weight:900; line-height:1; z-index:100; box-shadow:0 1px 4px rgba(0,0,0,.3); transition:background .1s,transform .1s; }
+.del-btn:hover { background:#b83054; transform:scale(1.15); }
+.deletable:hover > .del-btn { display:flex; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+.nivell-strip .deletable { display:inline-flex; align-items:center; }
+.header-band { background:linear-gradient(135deg,#331F5C 0%,#6B4BA8 100%); color:#fff; padding:14px 18px; display:grid; grid-template-columns:72px 1fr 178px; gap:14px; align-items:center; position:relative; overflow:hidden; }
+.header-band::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 100% at 110% 50%,rgba(255,255,255,.07) 0%,transparent 70%); pointer-events:none; }
+.header-emoji-col { display:flex; align-items:center; justify-content:center; }
+.header-emoji-box { width:62px; height:62px; border-radius:14px; background:rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center; font-size:36px; user-select:none; flex-shrink:0; }
+.header-main { min-width:0; }
+.header-sa { font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; opacity:.55; margin-bottom:4px; }
+.header-title { font-size:24px; font-weight:900; letter-spacing:-.01em; line-height:1.05; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-style:italic; font-size:13px; opacity:.72; margin-top:4px; }
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:5px; }
+.logo-box { background:rgba(255,255,255,.92); border-radius:7px; padding:5px 6px; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 1px 6px rgba(0,0,0,.18); }
+.header-meta { font-size:9.5px; opacity:.52; text-align:right; line-height:1.7; }
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.nivell-label { font-size:11px; color:var(--muted); font-style:italic; }
+.temps-badge { font-size:10px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
+.oa-box { background:linear-gradient(to right,var(--purple-tint),var(--surface)); border-left:4px solid var(--purple); padding:10px 16px; }
+.oa-title { font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:6px; }
+.oa-list { list-style:none; padding:0; margin:0; }
+.oa-list li { font-size:11.5px; padding:3px 0 3px 22px; position:relative; line-height:1.4; border-bottom:1px dashed var(--rule); }
+.oa-list li:last-child { border-bottom:none; }
+.oa-list li::before { content:'○'; position:absolute; left:4px; top:3px; font-size:11px; color:var(--purple-light); }
+.meta-oa-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-oa-title { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; font-size:11px; margin-bottom:4px; padding:2px 0; }
+.meta-oa-item:last-child { margin-bottom:0; }
+.meta-oa-check { width:16px; height:16px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; margin-top:1px; }
+.meta-oa-text { flex:1; line-height:1.35; }
+.content { padding:14px 24px 24px; }
+.section { margin-top:14px; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:10.5px; color:var(--ink-2); font-style:italic; font-family:'Crimson Pro',serif; }
+.temps { font-size:10px; color:var(--purple-ink); font-weight:700; margin-left:4px; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
+.previ-box p { font-size:12px; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-icon { font-size:24px; flex-shrink:0; }
+.connexio-text { font-size:11px; line-height:1.4; }
+.connexio-text strong { color:var(--purple-ink); }
+.hipotesi-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin-bottom:10px; }
+.hipotesi-box p { font-size:12px; font-weight:700; color:var(--purple-ink); margin-bottom:4px; }
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow-ink); margin-bottom:2px; }
+.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+.data-table { width:100%; border-collapse:collapse; font-size:11px; margin-bottom:10px; }
+.data-table th { background:var(--purple-ink); color:white; padding:6px 9px; text-align:left; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table th:first-child { border-radius:5px 0 0 0; }
+.data-table th:last-child { border-radius:0 5px 0 0; }
+.data-table th small { font-size:8.5px; font-weight:400; letter-spacing:0; text-transform:none; opacity:.75; display:block; margin-top:1px; }
+.data-table td { padding:5px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table tr:nth-child(even) td { background:var(--purple-tint); }
+.icon-cell { font-size:16px; text-align:center; width:32px; }
+.fill-cell { display:block; width:100%; min-height:22px; outline:none; padding:2px 3px; word-break:break-word; cursor:text; }
+.fill-cell:focus { background:rgba(107,75,168,.08); outline:1px solid var(--purple-light); border-radius:2px; }
+.label-cell { font-size:11px; font-weight:700; color:var(--ink-2); }
+.explore-q { display:flex; gap:8px; margin-bottom:10px; align-items:flex-start; }
+.explore-qnum { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--orange); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.explore-qtext { font-size:11.5px; flex:1; }
+.exit-box { background:#F2ECFA; border:2px solid var(--purple); border-radius:10px; padding:12px 14px; }
+.exit-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.exit-q { font-size:11px; margin-bottom:4px; line-height:1.4; }
+.exit-opts { display:grid; grid-template-columns:repeat(2,1fr); gap:3px; margin:3px 0 6px; }
+.exit-opt { display:flex; align-items:center; gap:5px; font-size:10.5px; }
+.chk { width:12px; height:12px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; }
+.meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+.meta-item { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-icon { font-size:18px; display:block; margin-bottom:3px; }
+.meta-label { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px; }
+.stars { display:flex; gap:4px; margin-top:4px; }
+.star { font-size:18px; color:#8A5FCC; cursor:default; }
+.tasca-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:10px 14px; margin-top:12px; }
+.tasca-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:6px; font-size:11px; }
+.tasca-item:last-child { margin-bottom:0; }
+.tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(107,75,168,.05) 6px,rgba(107,75,168,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
+.spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+.page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:0.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
+.footer { margin-top:12px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
+.footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+.info-box { background:white; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.info-label { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.info-box p { font-size:11px; line-height:1.5; margin-bottom:3px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0 3px; }
+.chain-chip { font-size:10.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:13px; }
+.circ-row { font-size:11.5px; line-height:2.4; margin-bottom:3px; }
+.circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:white; }
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
+.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.chips { display:flex; flex-wrap:wrap; gap:4px; }
+.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:white; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.fig { margin:10px 0; text-align:center; }
+.fig-frame { position:relative; display:inline-block; max-width:100%; border:1.5px solid var(--purple-light); border-radius:9px; background:var(--purple-tint); overflow:hidden; box-shadow:0 1px 6px rgba(107,75,168,.12); }
+.fig-frame img { display:block; max-width:100%; object-fit:contain; }
+.fig-ph { display:none; align-items:center; justify-content:center; min-height:118px; padding:16px 20px; font-size:10.5px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
+.fig-ph .ph-ico { font-size:26px; display:block; margin-bottom:5px; }
+.figcap { font-size:9.5px; color:var(--muted); margin-top:5px; font-style:italic; line-height:1.4; }
+.pista { font-size:11px; color:var(--ink-2); font-style:italic; line-height:1.45; margin:3px 0 4px; padding-left:3px; }
+
+/* .callout (caixa "Idea clau") i .fig-row (dues figures de costat) definides des
+   de l'inici en aquest xassis: a la unitat anterior s'usaven sense estar
+   definides i s'imprimien com un paragraf gris qualsevol. */
+.callout{background:#FFF6E2;border-left:5px solid #D98B34;border-radius:0 9px 9px 0;
+  padding:9px 12px;margin:10px 0;font-size:11.5px;line-height:1.45;break-inside:avoid;}
+.callout b,.callout strong{color:#8A5514;}
+.fig-row{display:flex;gap:10px;align-items:flex-start;margin:8px 0;break-inside:avoid;}
+.fig-row .fig{flex:1;min-width:0;margin:0;}
+.pista b, .pista strong { color:var(--purple-ink); font-style:normal; }
+@media print {
+  @page { size:A4; margin:10mm 12mm; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { background:white; padding:0; }
+  #toolbar, .page-break-line, .del-btn { display:none !important; }
+  .page-footer-bar { display:flex !important; }
+  .footer { display:none !important; }
+  .page-wrap { box-shadow:none; width:100%; }
+  .header-emoji-box { background:#e6dcf7 !important; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline { background:transparent; padding:0; }
+  .fill-cell { background:transparent; outline:none; }
+  .input-span { border-bottom-color:#DCD2EE; }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .nivell-badge-small { background:transparent !important; border-color:#DCD2EE !important; }
+}
+
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span class="tb-tip">✎ Clica per editar · <strong>Ctrl+B</strong> negreta · <strong>×</strong> rosa elimina · <strong>Ctrl+Z</strong> desfés · <strong>Ctrl+S</strong> desa</span>
+  <div class="tb-sep"></div>
+  <button class="tb-btn tb-undo" id="btn-undo" onclick="undoDelete()">↩ Desfés</button>
+  <button class="tb-btn tb-bold" onclick="document.execCommand('bold')"><b>N</b></button>
+  <button class="tb-btn tb-spacer" onclick="insertSpacer()">＋ Espai</button>
+  <button class="tb-btn tb-save" id="btn-save" onclick="saveDoc()">💾 Desa</button>
+  <button class="tb-btn tb-print" onclick="window.print()">🖨️ Imprimir / PDF</button>
+</div>
+
+<div class="page-wrap" id="doc">
+
+  <div class="header-band deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="header-emoji-col">
+      <div class="header-emoji-box" contenteditable="true">🧬</div>
+    </div>
+    <div class="header-main">
+      <div class="header-sa" contenteditable="true">Créixer i reproduir-se · Sessió 2 de 4</div>
+      <div class="header-title" contenteditable="true">Com funcionem? La biologia de la reproducció</div>
+      <div class="header-subtitle" contenteditable="true">Per quina raó no acumulem cromosomes generació rere generació?</div>
+    </div>
+    <div class="header-right">
+      <div class="logo-box">
+        <img src="../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
+      </div>
+      <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
+    </div>
+  </div>
+
+  <div class="nivell-strip deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <span class="nivell-label deletable" contenteditable="true">Amb suport visual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <span class="temps-badge deletable" contenteditable="true">⏱️ Sessió de 2 h<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <div class="nom-field deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
+      &nbsp;&nbsp;Data:&nbsp;<span class="input-span data-span" contenteditable="true"></span>
+      &nbsp;<span class="nivell-badge-small" title="Versió C — Adaptació">C</span>
+    </div>
+  </div>
+
+  <div class="oa-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="oa-title">🎯 Objectius d'aprenentatge d'avui (Nivell C)</div>
+    <ul class="oa-list">
+      <li contenteditable="true">Sé que un gàmeta porta <strong>una sola còpia</strong> de cada cromosoma.</li>
+      <li contenteditable="true">Sé què passa a la <strong>fecundació</strong>: dos gàmetes s'uneixen i es forma el zigot.</li>
+      <li contenteditable="true">Sé llegir el dibuix del <strong>cicle</strong>: quin dia comença i quin dia surt l'òvul.</li>
+      <li contenteditable="true">Sé que un cicle pot durar entre <strong>21 i 35 dies</strong> i que això és normal.</li>
+    </ul>
+  </div>
+
+  <div class="content">
+<div class="info-box"><div class="info-label">🔤 Vocabulari d'avui</div><div style="font-size:10.5px;line-height:1.45;column-count:2;column-gap:16px"><div style="break-inside:avoid;margin-bottom:3px"><strong>cromosoma</strong> — cada un dels paquets on la cèl·lula guarda les instruccions.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>ovari</strong> — on es fabriquen els òvuls i part de les hormones.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>testicle</strong> — on es fabriquen els espermatozoides i part de les hormones.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>trompa</strong> — conducte on l'òvul es pot trobar amb l'espermatozoide.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>úter</strong> — òrgan de paret gruixuda on es pot implantar l'embrió.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>embrió</strong> — el conjunt de cèl·lules que es forma quan el zigot comença a dividir-se.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>implantació</strong> — quan l'embrió s'enganxa a la paret de l'úter.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>hormona</strong> — missatge químic que una glàndula envia per la sang.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>regla (o menstruació)</strong> — els dies en què la paret de l'úter es desprèn i surt per la vagina.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>dia fèrtil</strong> — el dia de l'ovulació i els dies del voltant, quan un òvul es pot trobar amb un espermatozoide.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>parella de cromosomes</strong> — els cromosomes van de dos en dos: un ve del pare i l'altre de la mare.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>gàmeta</strong> — cèl·lula sexual: l'òvul i l'espermatozoide.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>meiosi</strong> — divisió que fa gàmetes amb <b>una sola còpia</b> de cada cromosoma.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>fecundació</strong> — quan un òvul i un espermatozoide s'uneixen.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>zigot</strong> — la primera cèl·lula d'un individu nou, just després de la fecundació.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>ovulació</strong> — el moment en què l'ovari deixa anar un òvul.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>cicle menstrual</strong> — el que es repeteix cada mes a l'aparell reproductor femení; el dia 1 és el primer dia de la regla.</div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--muted)">0</div><div><div class="stitle" contenteditable="true">Idees prèvies ⏱️ 7 min</div><div class="sdesc" contenteditable="true">Primer encercles, després escrius. No es corregeix</div></div></div><div class="divider"></div><div class="previ-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><p>Escriu i dibuixa el que penses <strong>ara</strong>: no es corregeix. El tornaràs a mirar al final de la unitat.</p></div><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">📮</div><div class="connexio-text" contenteditable="true"><strong>La bústia.</strong> Avui el professor respon la primera pregunta de la caixa. Les preguntes es llegeixen <strong>copiades a màquina</strong>, mai el paper original, i mai es pregunta qui l'ha escrita. La caixa continua oberta: hi pots deixar preguntes noves qualsevol dia, <strong>sense posar-hi el nom</strong>.</div></div><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">🔗</div><div class="connexio-text" contenteditable="true"><strong>Ve de la primera unitat.</strong> Allà vas veure dues divisions: la <strong>mitosi</strong>, que fa dues cèl·lules idèntiques, i la <strong>meiosi</strong>, que fa cèl·lules sexuals amb una sola còpia de cada cromosoma. Avui la meiosi deixa de ser un nom i passa a explicar una cosa concreta: <strong>d'on surten els gàmetes.</strong></div></div><div class="info-box"><div class="info-label">📖 Per llegir</div><p>Les teves cèl·lules tenen els cromosomes <b>de dos en dos</b>: de cada un en tens dues còpies. Un <b>gàmeta</b> és una cèl·lula especial: l'òvul i l'espermatozoide.</p></div><p style="font-size:11.5px"><strong>1.</strong> Encercla el que et sembla ara.</p><div class="circ-row">Un gàmeta porta… &nbsp; <span class="circ-opt">una còpia de cada cromosoma</span><span class="circ-opt">les dues còpies de cada cromosoma</span></div><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">2</div><div class="explore-qtext" contenteditable="true">Escriu per quina raó ho has triat.</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="font-size:11.5px;margin-top:6px"><strong>3. Dibuixa</strong> què passaria si cada gàmeta portés les dues còpies: tu, els teus fills, els teus néts.</p><div class="deletable" style="position:relative;min-height:150px;border:1.5px solid var(--rule-dark);border-radius:8px;background:#fff;margin:6px 0" contenteditable="true"><div class="del-btn" onclick="deleteEl(this)">✕</div><div style="position:absolute;top:6px;left:10px;font-size:9.5px;color:var(--muted);font-style:italic">tres generacions</div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--orange)">1</div><div><div class="stitle" contenteditable="true">Les targetes de cromosomes ⏱️ 26 min</div><div class="sdesc" contenteditable="true">Per parelles de treball. El primer intent ja està fet d'exemple</div></div></div><div class="divider"></div><div class="info-box"><div class="info-label">📖 Per llegir</div><p>Teniu <b>vuit targetes</b>: quatre <b>blaves</b> (números 1, 2, 3 i 4) i quatre <b>roses</b> (números 1, 2, 3 i 4). Cada número és un <b>parell</b>: la blava 1 i la rosa 1 van juntes.<br>Fer la <b>meiosi</b> és repartir <b>una targeta de cada parell</b> al gàmeta. Al gàmeta hi han d'anar quatre targetes: una del parell 1, una del 2, una del 3 i una del 4.</p></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s2_meiosi_2parells.svg" alt="De la cèl·lula als quatre tipus de gàmeta" style="max-height:230px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>De la cèl·lula als quatre tipus de gàmeta</span></div></div><figcaption class="figcap" contenteditable="true"><b>Fig. F3</b> — Aquí n'hi ha només dos parells per veure-ho més clar. El color diu d'on ve cada cromosoma.</figcaption></figure><div class="info-box"><div class="info-label">🔢 Què és cada número</div><div style="font-size:10.5px;line-height:1.45;column-count:2;column-gap:16px" contenteditable="true"><div style="break-inside:avoid;margin-bottom:2px">① <b>Cèl·lula de partida</b> — dos parells de cromosomes (un blau i un rosa a cada parell).</div><div style="break-inside:avoid;margin-bottom:2px">② <b>El moment de l'atzar</b> — les parelles es poden col·locar de dues maneres.</div><div style="break-inside:avoid;margin-bottom:2px">③ <b>Els quatre tipus de gàmeta</b> possibles: cada un porta una sola còpia de cada cromosoma.</div></div></div><p style="font-size:11.5px"><strong>4.</strong> Feu la meiosi quatre vegades i anoteu què ha anat al gàmeta. El primer intent ja hi és, d'exemple.</p><table class="data-table"><thead><tr><th>Intent</th><th>Targetes que han anat al gàmeta</th><th>Quantes n'hi ha</th></tr></thead><tbody><tr><td class="label-cell">1r</td><td>1 blava · 2 rosa · 3 rosa · 4 blava</td><td>4</td></tr><tr><td class="label-cell">2n</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">3r</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">4t</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p style="font-size:11.5px;margin-top:8px"><strong>5.</strong> Encercla.</p><div class="circ-row">Els quatre gàmetes que heu fet són… &nbsp; <span class="circ-opt">tots iguals</span><span class="circ-opt">diferents entre ells</span></div><div class="circ-row">Això passa perquè el repartiment de cada parell es fa… &nbsp; <span class="circ-opt">a l'atzar</span><span class="circ-opt">sempre en el mateix ordre</span></div><div class="info-box"><div class="info-label">📖 Per quina raó la meitat</div><p>Les teves cèl·lules tenen els cromosomes <strong>per parelles</strong>: de cada un en tens dues còpies, una que va venir del pare i una de la mare. La <strong>meiosi</strong> reparteix <strong>un de cada parella</strong> a cada gàmeta: el gàmeta no té parelles, té <strong>una sola còpia</strong> de cada cromosoma.</p><p>Quan dos gàmetes s'uneixen a la <strong>fecundació</strong>, el zigot torna a tenir les parelles senceres. Les nostres cèl·lules tenen <strong>46 cromosomes</strong>, és a dir <strong>23 parells</strong>. Si el gàmeta portés les parelles senceres, cada generació doblaria el nombre de cromosomes: <strong>46 → 92 → 184</strong>. En tres generacions seria insostenible.</p><p>I com que el repartiment de cada parella es fa <strong>a l'atzar</strong>, dos germans reben combinacions diferents: <strong>per això s'assemblen sense ser idèntics</strong>.</p></div><div class="word-bank"><div class="word-bank-title">📦 Banc de paraules (no cal fer-los servir tots)</div><div class="chips"><span class="chip">vuit</span><span class="chip">quatre</span><span class="chip">l'òvul</span><span class="chip">l'espermatozoide</span><span class="chip">el zigot</span><span class="chip">la meitat</span></div></div><p style="font-size:11.5px"><strong>6.</strong> Completa amb el banc de paraules.</p><div class="frase-completar">A la fecundació s'uneixen <span class="blank blank-l" contenteditable="true"></span> i <span class="blank blank-l" contenteditable="true"></span>. La cèl·lula que en surt es diu <span class="blank blank-l" contenteditable="true"></span>. Si cada gàmeta portava quatre targetes, el zigot en té <span class="blank blank-m" contenteditable="true"></span>.</div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--teal)">2</div><div><div class="stitle" contenteditable="true">Els aparells i el cicle ⏱️ 31 min</div><div class="sdesc" contenteditable="true">Primer mires la figura, després respons</div></div></div><div class="divider"></div><div class="info-box"><div class="info-label">📖 Per llegir</div><p>Els <b>gàmetes</b> no es fabriquen en qualsevol lloc. Els òvuls es fan als <b>ovaris</b> i els espermatozoides als <b>testicles</b>. Després viatgen per uns conductes fins al lloc on es poden trobar.</p></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s2_aparell_femeni.svg" alt="Aparell reproductor femení, esquema" style="max-height:235px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Aparell reproductor femení, esquema</span></div></div><figcaption class="figcap" contenteditable="true"><b>Fig. F1</b> — Cada número del dibuix és una peça. Sota hi tens la llista.</figcaption></figure><div class="info-box"><div class="info-label">🔢 Què és cada número</div><div style="font-size:10.5px;line-height:1.45;column-count:2;column-gap:16px" contenteditable="true"><div style="break-inside:avoid;margin-bottom:2px">① <b>Ovari</b> — hi maduren els òvuls.</div><div style="break-inside:avoid;margin-bottom:2px">② <b>Trompa</b> — hi viatja l'òvul; és on es pot trobar amb l'espermatozoide.</div><div style="break-inside:avoid;margin-bottom:2px">③ <b>Paret de l'úter</b> — la part gruixuda que creix i es desprèn cada mes. <b>És aquí on s'implanta l'embrió.</b></div><div style="break-inside:avoid;margin-bottom:2px">④ <b>Interior de l'úter</b> — l'espai buit del mig.</div><div style="break-inside:avoid;margin-bottom:2px">⑤ <b>Coll de l'úter i vagina</b> — el pas cap a fora.</div></div></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s2_aparell_masculi.svg" alt="Aparell reproductor masculí, esquema" style="max-height:195px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Aparell reproductor masculí, esquema</span></div></div><figcaption class="figcap" contenteditable="true"><b>Fig. F2</b> — Cada número del dibuix és una peça. Sota hi tens la llista.</figcaption></figure><div class="info-box"><div class="info-label">🔢 Què és cada número</div><div style="font-size:10.5px;line-height:1.45;column-count:2;column-gap:16px" contenteditable="true"><div style="break-inside:avoid;margin-bottom:2px">① <b>Testicle</b> — l'oval de dins de la bossa: s'hi fabriquen els espermatozoides.</div><div style="break-inside:avoid;margin-bottom:2px">② <b>Conducte</b> — el camí que fan <b>just en sortir</b> del testicle.</div><div style="break-inside:avoid;margin-bottom:2px">③ <b>Glàndules</b> (les dues) — hi afegeixen el líquid que els transporta.</div><div style="break-inside:avoid;margin-bottom:2px">④ <b>Conducte de sortida</b> — el <b>tram final</b>, compartit amb l'orina.</div></div></div><p style="font-size:11.5px"><strong>7.</strong> Escriu el <strong>número</strong> que li toca a cada frase. Mira les llegendes de les figures.</p><table class="data-table"><thead><tr><th>Frase</th><th>Número (F1)</th><th>Número (F2)</th></tr></thead><tbody><tr><td class="label-cell">Aquí es fabriquen els gàmetes</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Per aquí <b>comencen</b> el viatge en sortir-ne</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Aquí es pot implantar l'embrió</td><td><div class="fill-cell" contenteditable="true"></div></td><td>—</td></tr><tr><td class="label-cell">Aquí s'hi afegeix el líquid que els transporta</td><td>—</td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><div class="info-box"><div class="info-label">📖 Per llegir</div><p>Els <b>ovaris</b> i els <b>testicles</b> fan <b>dues feines alhora</b>: fabriquen gàmetes <b>i</b> fabriquen <b>hormones</b>. Una hormona és un missatge que viatja per la sang.</p></div><p style="font-size:11.5px"><strong>8.</strong> Encercla.</p><div class="circ-row">Els ovaris fabriquen… &nbsp; <span class="circ-opt">només òvuls</span><span class="circ-opt">òvuls i hormones</span></div><div class="info-box"><div class="info-label">📖 El cicle, mes a mes</div><p>Unes <strong>hormones</strong> fan dues coses alhora: fan <strong>madurar un òvul</strong> i fan <strong>engruixir la paret de l'úter</strong>, per si hi arriba un embrió. A la meitat del cicle l'òvul <strong>s'allibera</strong>: és l'<strong>ovulació</strong>.</p><p>Si no hi ha fecundació, la paret engruixida <strong>es desprèn</strong>: això és la <strong>regla</strong>, i el primer dia de la regla és el <strong>dia 1</strong> del cicle següent.</p><p>I una cosa que sovint no es diu: hi ha <strong>persones que no tenen cicles</strong> o que els tenen molt irregulars, per moltes raons diferents, i <strong>també és normal</strong>.</p><p><strong>Un cicle no dura 28 dies per a tothom: en dura entre 21 i 35, i tots són normals.</strong> El que sol ser bastant estable és el tram que va <strong>de l'ovulació a la regla següent: uns 14 dies</strong>. El tram del principi és el que varia. Per tant l'ovulació <strong>no cau el dia 14 fix</strong>: cau uns 14 dies <strong>abans</strong> de la regla següent.</p></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s2_cicle_menstrual.svg" alt="El cicle menstrual, dia a dia" style="max-height:225px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>El cicle menstrual, dia a dia</span></div></div><figcaption class="figcap" contenteditable="true"><b>Fig. F4</b> — Els números de sota són els dies. La línia lila és el gruix de la paret de l'úter: com més amunt, més gruixuda.</figcaption></figure><div class="info-box"><div class="info-label">🔢 Què és cada número</div><div style="font-size:10.5px;line-height:1.45;column-count:2;column-gap:16px" contenteditable="true"><div style="break-inside:avoid;margin-bottom:2px">① <b>Dies de la regla</b> — la paret de l'úter es desprèn.</div><div style="break-inside:avoid;margin-bottom:2px">② <b>Ovulació</b> — l'ovari deixa anar l'òvul.</div><div style="break-inside:avoid;margin-bottom:2px">③ <b>Tram estable</b> — de l'ovulació fins a la regla següent: uns 14 dies.</div><div style="break-inside:avoid;margin-bottom:2px">④ <b>Gruix de la paret de l'úter</b> — com més amunt arriba la línia, més gruixuda és.</div></div></div><p style="font-size:11.5px"><strong>9.</strong> Mira la figura F4 i completa. La primera ja hi és, d'exemple.</p><table class="data-table"><thead><tr><th>Pregunta</th><th>Resposta</th></tr></thead><tbody><tr><td class="label-cell">Quin dia comença el cicle?</td><td>el dia 1</td></tr><tr><td class="label-cell">Quin dia surt l'òvul? (mira on és la marca ②)</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">A la gràfica, quantes vegades baixa la línia lila fins a baix?</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Quants dies hi ha del dia 14 al dia 28?</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">El dia 20, la paret és gruixuda o prima?</td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p style="font-size:11.5px;margin-top:8px"><strong>10.</strong> Encercla.</p><div class="circ-row">La regla és… &nbsp; <span class="circ-opt">la paret de l'úter que es desprèn</span><span class="circ-opt">l'òvul que surt de l'ovari</span></div><div class="circ-row">Un cicle que dura 35 dies és… &nbsp; <span class="circ-opt">normal</span><span class="circ-opt">massa llarg</span></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s2_fecundacio.svg" alt="De la fecundació a la implantació" style="max-height:160px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>De la fecundació a la implantació</span></div></div><figcaption class="figcap" contenteditable="true"><b>Fig. F5</b> — Quatre moments, un darrere l'altre.</figcaption></figure><div class="info-box"><div class="info-label">🔢 Què és cada número</div><div style="font-size:10.5px;line-height:1.45;column-count:2;column-gap:16px" contenteditable="true"><div style="break-inside:avoid;margin-bottom:2px">① <b>Fecundació</b> — un espermatozoide entra dins de l'òvul.</div><div style="break-inside:avoid;margin-bottom:2px">② <b>Zigot</b> — una sola cèl·lula, ja amb les parelles senceres.</div><div style="break-inside:avoid;margin-bottom:2px">③ <b>Divisions</b> — el zigot es divideix per mitosi.</div><div style="break-inside:avoid;margin-bottom:2px">④ <b>Implantació</b> — l'embrió s'enganxa a la paret de l'úter.</div></div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--rose)">3</div><div><div class="stitle" contenteditable="true">L'enigma de la Laia ⏱️ 18 min</div><div class="sdesc" contenteditable="true">Amb el company o la companya del costat. Segueix els quatre passos</div></div></div><div class="divider"></div><div class="info-box"><div class="info-label">📖 Per llegir</div><p>Recorda la frase important: <b>l'ovulació cau uns 14 dies ABANS de la regla següent</b>. Si el cicle dura 28 dies, això cau al dia 14. Però si el cicle dura més, cau més tard.</p></div><div class="callout"><b>L'enigma.</b> La Laia té un cicle de <b>35 dies</b>. Una amiga li diu que el seu dia fèrtil és el <b>dia 14</b>. Una altra li diu que 35 dies és <b>«anormal»</b>.</div><p style="font-size:11.5px"><strong>11.</strong> Fes el càlcul: <strong>35 − 14 =</strong> <span class="blank blank-s" contenteditable="true"></span></p><p style="font-size:11.5px;margin-top:6px"><strong>12.</strong> Encercla.</p><div class="circ-row">El dia que la Laia ovularia és aproximadament el… &nbsp; <span class="circ-opt">dia 14</span><span class="circ-opt">dia 21</span></div><div class="circ-row">Un cicle de 35 dies… &nbsp; <span class="circ-opt">és dins del que és normal</span><span class="circ-opt">vol dir que hi ha un problema</span></div><p style="font-size:11.5px;margin-top:10px"><strong>13.</strong> Ara escriu tu. Una línia per pas.</p><div class="hipotesi-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><p style="margin:5px 0 2px;font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-ink)">👀 OBSERVO</p><p style="font-size:11px;margin:0 0 3px">El cicle de la Laia dura… i el del dibuix de la figura F4 dura…</p><div class="wline" contenteditable="true"></div><p style="margin:5px 0 2px;font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-ink)">❓ EM PREGUNTO</p><p style="font-size:11px;margin:0 0 3px">Per quina raó el dia 14 no li serveix a la Laia?</p><div class="wline" contenteditable="true"></div><p style="margin:5px 0 2px;font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-ink)">🔗 CONNECTO</p><p style="font-size:11px;margin:0 0 3px">Ho connecto amb la frase «l'ovulació cau 14 dies abans de…»</p><div class="wline" contenteditable="true"></div><p style="margin:5px 0 2px;font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-ink)">💡 DEDUEIXO</p><p style="font-size:11px;margin:0 0 3px">Per tant, la Laia ovula cap al dia… La primera amiga s'equivoca perquè… i la segona s'equivoca perquè…</p><div class="wline" contenteditable="true"></div></div><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">🎟️</div><div class="connexio-text" contenteditable="true"><strong>Full de sortida (7 min).</strong> Al final de la classe el professor et donarà un <strong>full a part</strong> amb tres preguntes. Es fa <strong>tot sol/a</strong> i <strong>es recull</strong>. Aquesta fitxa te la quedes tu.</div></div></div><div class="section deletable" style="margin-top:14px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--purple)">4</div><div><div class="stitle">Metacognició</div><div class="sdesc">Com ha anat avui ⏱️ 3 min</div></div></div><div class="divider"></div><div class="meta-grid"><div class="meta-item"><span class="meta-icon">🚦</span><div class="meta-label">Com ho veig</div><div class="circ-row"><span class="circ-opt">🟢 ho tinc</span><span class="circ-opt">🟡 a mitges</span><span class="circ-opt">🔴 perdut/uda</span></div></div><div class="meta-item"><span class="meta-icon">💭</span><div class="meta-label">Ara la meiosi de la primera unitat té sentit perquè…</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="meta-oa-box deletable" style="margin-top:9px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-title">Marca el que ja sabries explicar a algú altre</div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que un gàmeta porta <strong>una sola còpia</strong> de cada cromosoma.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé què passa a la <strong>fecundació</strong>: dos gàmetes s'uneixen i es forma el zigot.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé llegir el dibuix del <strong>cicle</strong>: quin dia comença i quin dia surt l'òvul.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que un cicle pot durar entre <strong>21 i 35 dies</strong> i que això és normal.</div></div></div></div><div class="tasca-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-title">📚 Després de la sessió</div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">1</div><div contenteditable="true">🗣️ <strong>Tria UNA de les tres i escriu dues línies.</strong> (a) Pregunta a algú de casa o a un adult de confiança a quina edat va sentir a parlar per primera vegada del cicle menstrual i qui li ho va explicar. (b) Escriu on ho vas sentir tu per primera vegada. (c) Mira com ho explica una font fiable (per exemple Canal Salut) i resumeix-ho. <em>Les tres valen igual.</em></div></div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">2</div><div contenteditable="true">📮 Si et ve una pregunta al cap durant la setmana, deixa-la a la bústia.</div></div></div><div class="footer"><div class="footer-l">Créixer i reproduir-se · Sessió 2 · Com funcionem? La biologia de la reproducció · IE Temple</div><div class="footer-r">CC BY-NC · Albert Pahissa</div></div>
+  </div><!-- .content -->
+</div><!-- .page-wrap -->
+
+<script>
+const delStack = [];
+function deleteEl(btn) {
+  const target = btn.closest('.deletable');
+  if (!target) return;
+  const parent = target.parentNode;
+  const sibling = target.nextSibling;
+  target.remove();
+  delStack.push({ el:target, parent, sibling });
+  document.getElementById('btn-undo').classList.add('active');
+}
+function undoDelete() {
+  if (!delStack.length) return;
+  const { el, parent, sibling } = delStack.pop();
+  parent.insertBefore(el, sibling);
+  if (!delStack.length) document.getElementById('btn-undo').classList.remove('active');
+  updatePageBreaks();
+}
+document.addEventListener('keydown', e => {
+  if (e.key==='z' && (e.ctrlKey||e.metaKey)) {
+    if (document.activeElement && document.activeElement.contentEditable==='true') return;
+    e.preventDefault(); undoDelete();
+  }
+});
+const PAGE_H = 1047;
+let _pbTimer = null;
+function updatePageBreaks() {
+  const doc = document.getElementById('doc');
+  if (!doc) return;
+  doc.querySelectorAll('.page-break-line,.page-footer-bar').forEach(e=>e.remove());
+  for (let i=1; i<8; i++) {
+    const y = i*PAGE_H;
+    const line = document.createElement('div');
+    line.className='page-break-line';
+    line.style.top=y+'px';
+    const lbl = document.createElement('div');
+    lbl.className='page-break-label';
+    lbl.textContent='Pàgina '+i;
+    line.appendChild(lbl);
+    const bar = document.createElement('div');
+    bar.className='page-footer-bar';
+    bar.style.top=(y-20)+'px';
+    bar.innerHTML='<span>Créixer i reproduir-se · Sessió 2 · Com funcionem? La biologia de la reproducció</span><span>CC BY-NC · Albert Pahissa · Pàg. '+i+'</span>';
+    doc.appendChild(line);
+    doc.appendChild(bar);
+  }
+}
+function insertSpacer() {
+  const sel = window.getSelection();
+  let ref = sel && sel.rangeCount ? sel.getRangeAt(0).startContainer : null;
+  while (ref && ref !== document.getElementById('doc')) {
+    if (ref.classList && ref.classList.contains('section')) break;
+    ref = ref.parentNode;
+  }
+  const spacer = document.createElement('div');
+  spacer.className='spacer-block deletable';
+  spacer.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">espai en blanc</span>';
+  if (ref && ref.classList && ref.classList.contains('section')) {
+    ref.parentNode.insertBefore(spacer, ref.nextSibling);
+  } else {
+    document.querySelector('.content').appendChild(spacer);
+  }
+  setTimeout(updatePageBreaks, 100);
+}
+// ── Desar i recuperar les modificacions (al navegador) ──────────────
+const SAVE_KEY = 'fitxa-sa4:' + (location.pathname.split('/').pop() || document.title);
+function saveDoc(silent){
+  try{
+    const c = document.getElementById('doc').cloneNode(true);
+    c.querySelectorAll('.page-break-line,.page-footer-bar').forEach(e=>e.remove());
+    localStorage.setItem(SAVE_KEY, c.innerHTML);
+    if(!silent) flashSaved();
+  }catch(e){ if(!silent) alert('Aquest navegador no permet desar (prova de no fer servir mode privat).'); }
+}
+function flashSaved(){
+  const b=document.getElementById('btn-save'); if(!b) return;
+  const t=b.innerHTML; b.innerHTML='✓ Desat'; b.classList.add('saved');
+  setTimeout(()=>{ b.innerHTML=t; b.classList.remove('saved'); },1400);
+}
+function restoreDoc(){
+  try{
+    const s=localStorage.getItem(SAVE_KEY);
+    if(s){ document.getElementById('doc').innerHTML=s; }
+  }catch(e){}
+}
+let _saveTimer=null;
+document.addEventListener('input', ()=>{ clearTimeout(_saveTimer); _saveTimer=setTimeout(()=>saveDoc(true),900); });
+document.addEventListener('keydown', e => {
+  if (e.key==='s' && (e.ctrlKey||e.metaKey)) { e.preventDefault(); saveDoc(); }
+});
+const obs = new MutationObserver(()=>{ clearTimeout(_pbTimer); _pbTimer=setTimeout(updatePageBreaks, 250); });
+window.addEventListener('load', ()=>{
+  restoreDoc();
+  obs.observe(document.getElementById('doc'), { childList:true, subtree:true, characterData:true });
+  updatePageBreaks();
+});
+</script>
+</body></html>

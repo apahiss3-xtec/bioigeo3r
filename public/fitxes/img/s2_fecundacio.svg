@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 250" width="700" height="250">
+<style>
+text{font-family:"Fira Sans Extra Condensed","DejaVu Sans Condensed",sans-serif;fill:#1A1A2E}
+.mk{font-size:13px;font-weight:900;fill:#ffffff}
+.ax{font-size:12px;font-weight:700;fill:#7A719A}
+</style>
+<rect x="0" y="0" width="700" height="250" fill="#ffffff"/>
+<defs><marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7A719A"/></marker></defs>
+<circle cx="92" cy="108" r="40" fill="#FFF6E2" stroke="#D98B34" stroke-width="3"/>
+<circle cx="92" cy="108" r="15" fill="#ffffff" stroke="#D98B34" stroke-width="2.4"/>
+<circle cx="70" cy="102" r="6.5" fill="#331F5C"/><path d="M 64 102 Q 50 86 42 96" fill="none" stroke="#331F5C" stroke-width="2.4"/>
+<circle cx="38.3064" cy="139" r="6" fill="#3f6fb5"/><path d="M 43.5026 136 Q 62.6269 122 64.2872 124" fill="none" stroke="#3f6fb5" stroke-width="2"/>
+<circle cx="30.7633" cy="117.699" r="6" fill="#3f6fb5"/><path d="M 36.6895 116.76 Q 57.5171 107.57 60.394 113.006" fill="none" stroke="#3f6fb5" stroke-width="2"/>
+<circle cx="31.3548" cy="95.1095" r="6" fill="#3f6fb5"/><path d="M 37.2237 96.3569 Q 57.9178 92.2677 60.6993 101.347" fill="none" stroke="#3f6fb5" stroke-width="2"/>
+<circle cx="40.0024" cy="74.2324" r="6" fill="#3f6fb5"/><path d="M 45.0344 77.5002 Q 63.7758 78.1252 65.1625 90.5716" fill="none" stroke="#3f6fb5" stroke-width="2"/>
+<circle cx="55.5573" cy="57.8409" r="6" fill="#3f6fb5"/><path d="M 59.084 62.695 Q 74.313 67.0213 73.1909 82.1115" fill="none" stroke="#3f6fb5" stroke-width="2"/>
+<circle cx="92" cy="170" r="11" fill="#D98B34" stroke="#ffffff" stroke-width="2"/><text class="mk" x="92" y="174.6" text-anchor="middle">1</text>
+<path d="M 168 108 L 214 108" stroke="#7A719A" stroke-width="4" marker-end="url(#ar2)"/>
+<path d="M 348 108 L 394 108" stroke="#7A719A" stroke-width="4" marker-end="url(#ar2)"/>
+<path d="M 528 108 L 574 108" stroke="#7A719A" stroke-width="4" marker-end="url(#ar2)"/>
+<circle cx="272" cy="108" r="40" fill="#F0EBF9" stroke="#6B4BA8" stroke-width="3"/>
+<rect x="253" y="87" width="10" height="30" rx="5" fill="#3f6fb5" stroke="#ffffff" stroke-width="1.4"/><rect x="253" y="100" width="10" height="4" fill="#ffffff" fill-opacity="0.85"/>
+<rect x="267" y="87" width="10" height="30" rx="5" fill="#d44a6c" stroke="#ffffff" stroke-width="1.4"/><rect x="267" y="100" width="10" height="4" fill="#ffffff" fill-opacity="0.85"/>
+<rect x="280" y="114" width="8" height="20" rx="4" fill="#3f6fb5" stroke="#ffffff" stroke-width="1.4"/><rect x="280" y="122" width="8" height="4" fill="#ffffff" fill-opacity="0.85"/>
+<rect x="294" y="114" width="8" height="20" rx="4" fill="#d44a6c" stroke="#ffffff" stroke-width="1.4"/><rect x="294" y="122" width="8" height="4" fill="#ffffff" fill-opacity="0.85"/>
+<circle cx="272" cy="170" r="11" fill="#6B4BA8" stroke="#ffffff" stroke-width="2"/><text class="mk" x="272" y="174.6" text-anchor="middle">2</text>
+<circle cx="428" cy="108" r="42" fill="#ffffff" stroke="#3a9e8c" stroke-width="2.6" stroke-dasharray="5 4"/>
+<circle cx="412" cy="94" r="13" fill="#e6f4f1" stroke="#3a9e8c" stroke-width="2"/>
+<circle cx="442" cy="94" r="13" fill="#e6f4f1" stroke="#3a9e8c" stroke-width="2"/>
+<circle cx="412" cy="122" r="13" fill="#e6f4f1" stroke="#3a9e8c" stroke-width="2"/>
+<circle cx="442" cy="122" r="13" fill="#e6f4f1" stroke="#3a9e8c" stroke-width="2"/>
+<circle cx="428" cy="108" r="10" fill="#e6f4f1" stroke="#3a9e8c" stroke-width="2"/>
+<circle cx="428" cy="170" r="11" fill="#3a9e8c" stroke="#ffffff" stroke-width="2"/><text class="mk" x="428" y="174.6" text-anchor="middle">3</text>
+<path d="M 574 30 C 566 74 570 118 590 148 L 664 148 C 646 116 642 72 650 30 Z" fill="#fce8ed" stroke="#d44a6c" stroke-width="3"/>
+<path d="M 574 30 C 566 74 570 118 590 148" fill="none" stroke="#d44a6c" stroke-width="10" stroke-opacity="0.4"/>
+<circle cx="598" cy="92" r="16" fill="#e6f4f1" stroke="#3a9e8c" stroke-width="2.6"/>
+<circle cx="593" cy="87" r="4.6" fill="#3a9e8c"/>
+<circle cx="603" cy="87" r="4.6" fill="#3a9e8c"/>
+<circle cx="593" cy="97" r="4.6" fill="#3a9e8c"/>
+<circle cx="603" cy="97" r="4.6" fill="#3a9e8c"/>
+<circle cx="618" cy="170" r="11" fill="#d44a6c" stroke="#ffffff" stroke-width="2"/><text class="mk" x="618" y="174.6" text-anchor="middle">4</text>
+</svg>

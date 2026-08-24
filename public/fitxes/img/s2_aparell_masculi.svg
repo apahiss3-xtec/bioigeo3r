@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 330" width="620" height="330">
+<style>
+text{font-family:"Fira Sans Extra Condensed","DejaVu Sans Condensed",sans-serif;fill:#1A1A2E}
+.mk{font-size:13px;font-weight:900;fill:#ffffff}
+.ax{font-size:12px;font-weight:700;fill:#7A719A}
+</style>
+<rect x="0" y="0" width="620" height="330" fill="#ffffff"/>
+<path d="M 96 176 C 62 176 44 210 44 242 C 44 276 70 300 104 300 C 138 300 160 278 160 246 C 160 212 138 176 104 176 Z" fill="#e4ecf8" stroke="#3f6fb5" stroke-width="3"/>
+<ellipse cx="98" cy="244" rx="34" ry="27" fill="#ffffff" stroke="#3f6fb5" stroke-width="2.6"/>
+<path d="M 78 230 C 85 244 74 250 83 258" fill="none" stroke="#3f6fb5" stroke-width="2.2" stroke-opacity="0.5"/>
+<path d="M 91 230 C 98 244 87 250 96 258" fill="none" stroke="#3f6fb5" stroke-width="2.2" stroke-opacity="0.5"/>
+<path d="M 104 230 C 111 244 100 250 109 258" fill="none" stroke="#3f6fb5" stroke-width="2.2" stroke-opacity="0.5"/>
+<path d="M 68 222 C 82 202 116 200 132 214 C 142 224 142 244 134 258" fill="none" stroke="#3a9e8c" stroke-width="8" stroke-linecap="round"/>
+<path d="M 134 216 C 150 150 194 108 250 100 C 316 90 356 116 372 158" fill="none" stroke="#3a9e8c" stroke-width="9" stroke-linecap="round"/>
+<ellipse cx="404" cy="164" rx="34" ry="23" fill="#f2f5e4" stroke="#7d8f3f" stroke-width="3"/>
+<ellipse cx="396" cy="212" rx="27" ry="20" fill="#f2f5e4" stroke="#7d8f3f" stroke-width="3"/>
+<path d="M 392 230 C 396 254 404 266 420 272 L 552 272" fill="none" stroke="#6B4BA8" stroke-width="9" stroke-linecap="round"/>
+<path d="M 412 252 L 546 252 C 566 252 578 260 578 272 C 578 284 566 292 546 292 L 412 292 C 404 292 400 284 400 272 C 400 260 404 252 412 252 Z" fill="#F0EBF9" fill-opacity="0.45" stroke="#6B4BA8" stroke-width="2.6"/>
+<line x1="98" y1="290" x2="98" y2="258" stroke="#3f6fb5" stroke-width="1.8" stroke-dasharray="3 3"/>
+<circle cx="98" cy="302" r="11" fill="#3f6fb5" stroke="#ffffff" stroke-width="2"/><text class="mk" x="98" y="306.6" text-anchor="middle">1</text>
+<line x1="252" y1="76" x2="252" y2="94" stroke="#3a9e8c" stroke-width="1.8" stroke-dasharray="3 3"/>
+<circle cx="252" cy="64" r="11" fill="#3a9e8c" stroke="#ffffff" stroke-width="2"/><text class="mk" x="252" y="68.6" text-anchor="middle">2</text>
+<path d="M 452 152 C 442 152 442 188 432 188 C 442 188 442 224 452 224" fill="none" stroke="#7d8f3f" stroke-width="2"/>
+<circle cx="470" cy="188" r="11" fill="#7d8f3f" stroke="#ffffff" stroke-width="2"/><text class="mk" x="470" y="192.6" text-anchor="middle">3</text>
+<line x1="500" y1="308" x2="500" y2="296" stroke="#6B4BA8" stroke-width="1.8" stroke-dasharray="3 3"/>
+<circle cx="500" cy="312" r="11" fill="#6B4BA8" stroke="#ffffff" stroke-width="2"/><text class="mk" x="500" y="316.6" text-anchor="middle">4</text>
+</svg>
