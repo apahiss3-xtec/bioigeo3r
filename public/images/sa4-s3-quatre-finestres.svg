@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 340" width="1040" height="340">
+<rect width="1040" height="340" fill="#ffffff"/>
+<rect x="22" y="46" width="236" height="258" rx="16" fill="#e6f4f1" stroke="#3a9e8c" stroke-width="2.5"/>
+<circle cx="140" cy="46" r="15" fill="#3a9e8c" stroke="#fff" stroke-width="2.5"/><text x="140" y="52" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#ffffff">1</text>
+<rect x="97.000000" y="119.000000" width="26" height="86" rx="13" fill="none" stroke="#3a9e8c" stroke-width="4"/>
+<line x1="97.000000" y1="155.000000" x2="123.000000" y2="155.000000" stroke="#3a9e8c" stroke-width="4"/>
+<rect x="157.000000" y="119.000000" width="26" height="86" rx="13" fill="none" stroke="#3a9e8c" stroke-width="4"/>
+<line x1="157.000000" y1="155.000000" x2="183.000000" y2="155.000000" stroke="#3a9e8c" stroke-width="4"/>
+<rect x="65.000000" y="225.000000" width="150" height="30" rx="6" fill="none" stroke="#3a9e8c" stroke-width="4"/>
+<line x1="90.000000" y1="225.000000" x2="90.000000" y2="241.000000" stroke="#3a9e8c" stroke-width="3"/>
+<line x1="115.000000" y1="225.000000" x2="115.000000" y2="235.000000" stroke="#3a9e8c" stroke-width="3"/>
+<line x1="140.000000" y1="225.000000" x2="140.000000" y2="241.000000" stroke="#3a9e8c" stroke-width="3"/>
+<line x1="165.000000" y1="225.000000" x2="165.000000" y2="235.000000" stroke="#3a9e8c" stroke-width="3"/>
+<line x1="190.000000" y1="225.000000" x2="190.000000" y2="241.000000" stroke="#3a9e8c" stroke-width="3"/>
+<rect x="278" y="46" width="236" height="258" rx="16" fill="#fdf0e8" stroke="#e8834a" stroke-width="2.5"/>
+<circle cx="396" cy="46" r="15" fill="#e8834a" stroke="#fff" stroke-width="2.5"/><text x="396" y="52" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#ffffff">2</text>
+<circle cx="370.000000" cy="185.000000" r="42" fill="none" stroke="#e8834a" stroke-width="3.5"/>
+<circle cx="422.000000" cy="185.000000" r="42" fill="none" stroke="#e8834a" stroke-width="3.5"/>
+<path d="M 396.0 202.0 C 367.0 181.0 377.6 164.0 396.0 178.6 C 414.4 164.0 425.0 181.0 396.0 202.0 Z" fill="#e8834a"/>
+<rect x="438.000000" y="237.400000" width="27.200000" height="24.000000" rx="4.000000" fill="none" stroke="#e8834a" stroke-width="3"/><path d="M 466.800000 241.400000 a 7.200000 7.200000 0 0 1 0 14.400000" fill="none" stroke="#e8834a" stroke-width="3"/>
+<rect x="534" y="46" width="236" height="258" rx="16" fill="#eaf4ec" stroke="#4a9e5c" stroke-width="2.5"/>
+<circle cx="652" cy="46" r="15" fill="#4a9e5c" stroke="#fff" stroke-width="2.5"/><text x="652" y="52" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#ffffff">3</text>
+<circle cx="652.000000" cy="140.440000" r="21.840000" fill="none" stroke="#4a9e5c" stroke-width="4"/><path d="M 602.600000 228.840000 a 49.400000 59.800000 0 0 1 98.800000 0" fill="none" stroke="#4a9e5c" stroke-width="4" stroke-linecap="round"/>
+<path d="M 652.0 229.4 C 627.4 211.6 636.4 197.2 652.0 209.6 C 667.6 197.2 676.6 211.6 652.0 229.4 Z" fill="#4a9e5c"/>
+<path d="M 612.000000 215.000000 l 22 0 m -9 -7 l 9 7 l -9 7" stroke="#4a9e5c" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="790" y="46" width="236" height="258" rx="16" fill="#F0EBF9" stroke="#6B4BA8" stroke-width="2.5"/>
+<circle cx="908" cy="46" r="15" fill="#6B4BA8" stroke="#fff" stroke-width="2.5"/><text x="908" y="52" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#ffffff">4</text>
+<circle cx="856.000000" cy="173.000000" r="11.000000" fill="#6B4BA8"/><path d="M 841.000000 210.000000 a 15.000000 22.000000 0 0 1 30.000000 0 z" fill="#6B4BA8"/>
+<circle cx="908.000000" cy="173.000000" r="11.000000" fill="#6B4BA8"/><path d="M 893.000000 210.000000 a 15.000000 22.000000 0 0 1 30.000000 0 z" fill="#6B4BA8"/>
+<circle cx="960.000000" cy="173.000000" r="11.000000" fill="#6B4BA8"/><path d="M 945.000000 210.000000 a 15.000000 22.000000 0 0 1 30.000000 0 z" fill="#6B4BA8"/>
+<rect x="848.000000" y="115.000000" width="120" height="30" rx="7" fill="#ffffff" stroke="#6B4BA8" stroke-width="3"/>
+<rect x="856.000000" y="123.000000" width="46" height="14" rx="4" fill="#4f7fd0" opacity=".55"/>
+<rect x="914.000000" y="123.000000" width="46" height="14" rx="4" fill="#d06a9b" opacity=".55"/>
+<line x1="856.000000" y1="173.000000" x2="889.800000" y2="147.000000" stroke="#6B4BA8" stroke-width="2" stroke-dasharray="4 4" opacity=".6"/>
+<line x1="908.000000" y1="173.000000" x2="908.000000" y2="147.000000" stroke="#6B4BA8" stroke-width="2" stroke-dasharray="4 4" opacity=".6"/>
+<line x1="960.000000" y1="173.000000" x2="926.200000" y2="147.000000" stroke="#6B4BA8" stroke-width="2" stroke-dasharray="4 4" opacity=".6"/>
+</svg>

@@ -516,9 +516,19 @@ export default function SessionPage() {
           {session.exitTicketType === 'paper' ? (
             <div className="space-y-4">
               <p className="card px-5 py-4">✏️ {t('session.exitPaperNote')}</p>
-              <Accordion title={`🏠 ${t('session.exitAbsentAccordion')}`}>
-                <ExitTicketForm session={session} />
-              </Accordion>
+              {/* exitTicketConfidential (27/08): quan el full de sortida es SUMATIU i es fa
+                  sense ajuda, publicar-ne les preguntes en aquest acordio les deixa
+                  consultables abans de la sessio. En aquest cas no es renderitza el
+                  formulari: qui hagi faltat el fa presencialment. */}
+              {session.exitTicketConfidential ? (
+                <p className="card px-5 py-4 italic text-[var(--muted)]">
+                  🔒 <T>{session.exitTicketConfidentialNote}</T>
+                </p>
+              ) : (
+                <Accordion title={`🏠 ${t('session.exitAbsentAccordion')}`}>
+                  <ExitTicketForm session={session} />
+                </Accordion>
+              )}
             </div>
           ) : (
             <div className="card p-6">

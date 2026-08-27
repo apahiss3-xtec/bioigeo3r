@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 384" width="940" height="384">
+<rect width="940" height="384" fill="#ffffff"/>
+<rect x="20" y="70" width="420" height="252" rx="16" fill="#e6f4f1" stroke="#3a9e8c" stroke-width="2.5"/>
+<rect x="500" y="70" width="420" height="252" rx="16" fill="#F0EBF9" stroke="#6B4BA8" stroke-width="2.5"/>
+<line x1="470" y1="34" x2="470" y2="340" stroke="#7A719A" stroke-width="4" stroke-dasharray="12 9" stroke-linecap="round"/>
+<circle cx="130" cy="180" r="44" fill="none" stroke="#3a9e8c" stroke-width="6"/>
+<line x1="162" y1="212" x2="196" y2="246" stroke="#3a9e8c" stroke-width="9" stroke-linecap="round"/>
+<rect x="228" y="150" width="176" height="42" rx="7" fill="#ffffff" stroke="#3a9e8c" stroke-width="4"/>
+<line x1="257" y1="150" x2="257" y2="170" stroke="#3a9e8c" stroke-width="3"/>
+<line x1="286" y1="150" x2="286" y2="162" stroke="#3a9e8c" stroke-width="3"/>
+<line x1="315" y1="150" x2="315" y2="170" stroke="#3a9e8c" stroke-width="3"/>
+<line x1="344" y1="150" x2="344" y2="162" stroke="#3a9e8c" stroke-width="3"/>
+<line x1="373" y1="150" x2="373" y2="170" stroke="#3a9e8c" stroke-width="3"/>
+<rect x="78" y="254" width="24" height="34" rx="4" fill="#3a9e8c" opacity=".75"/>
+<rect x="112" y="228" width="24" height="60" rx="4" fill="#3a9e8c" opacity=".75"/>
+<rect x="146" y="242" width="24" height="46" rx="4" fill="#3a9e8c" opacity=".75"/>
+<rect x="180" y="210" width="24" height="78" rx="4" fill="#3a9e8c" opacity=".75"/>
+<circle cx="60" cy="100" r="17" fill="#3a9e8c" stroke="#fff" stroke-width="2.5"/><text x="60" y="107" text-anchor="middle" font-family="sans-serif" font-size="21" font-weight="700" fill="#ffffff">A</text>
+<circle cx="636" cy="196" r="15" fill="#6B4BA8"/>
+<path d="M 610 250 a 26 34 0 0 1 52 0 z" fill="#6B4BA8"/>
+<path d="M 660 232 l 0 -46" stroke="#6B4BA8" stroke-width="8" stroke-linecap="round"/>
+<circle cx="700" cy="196" r="15" fill="#6B4BA8"/>
+<path d="M 674 250 a 26 34 0 0 1 52 0 z" fill="#6B4BA8"/>
+<path d="M 724 232 l 0 -46" stroke="#6B4BA8" stroke-width="8" stroke-linecap="round"/>
+<circle cx="764" cy="196" r="15" fill="#6B4BA8"/>
+<path d="M 738 250 a 26 34 0 0 1 52 0 z" fill="#6B4BA8"/>
+<path d="M 788 232 l 0 -46" stroke="#6B4BA8" stroke-width="8" stroke-linecap="round"/>
+<path d="M 820 214 h 74 a 10 10 0 0 1 10 10 v 34 a 10 10 0 0 1 -10 10 h -46 l -18 18 v -18 h -10 a 10 10 0 0 1 -10 -10 v -34 a 10 10 0 0 1 10 -10 z" fill="#ffffff" stroke="#6B4BA8" stroke-width="3.5"/>
+<path d="M 540 96 h 74 a 10 10 0 0 1 10 10 v 34 a 10 10 0 0 1 -10 10 h -46 l -18 18 v -18 h -10 a 10 10 0 0 1 -10 -10 v -34 a 10 10 0 0 1 10 -10 z" fill="#ffffff" stroke="#6B4BA8" stroke-width="3.5"/>
+<line x1="700" y1="150" x2="700" y2="104" stroke="#6B4BA8" stroke-width="5" stroke-linecap="round"/>
+<line x1="654" y1="106" x2="746" y2="106" stroke="#6B4BA8" stroke-width="5" stroke-linecap="round"/>
+<line x1="654" y1="106" x2="654" y2="122" stroke="#6B4BA8" stroke-width="2.5"/>
+<path d="M 636 122 a 18 12 0 0 0 36 0 z" fill="none" stroke="#6B4BA8" stroke-width="3.5"/>
+<line x1="746" y1="106" x2="746" y2="122" stroke="#6B4BA8" stroke-width="2.5"/>
+<path d="M 728 122 a 18 12 0 0 0 36 0 z" fill="none" stroke="#6B4BA8" stroke-width="3.5"/>
+<line x1="676" y1="150" x2="724" y2="150" stroke="#6B4BA8" stroke-width="5" stroke-linecap="round"/>
+<circle cx="880" cy="100" r="17" fill="#6B4BA8" stroke="#fff" stroke-width="2.5"/><text x="880" y="107" text-anchor="middle" font-family="sans-serif" font-size="21" font-weight="700" fill="#ffffff">B</text>
+<circle cx="470" cy="34" r="17" fill="#7A719A" stroke="#fff" stroke-width="2.5"/><text x="470" y="41" text-anchor="middle" font-family="sans-serif" font-size="21" font-weight="700" fill="#ffffff">C</text>
+<defs><marker id="ar" markerWidth="11" markerHeight="11" refX="8" refY="4" orient="auto"><path d="M 0 0 L 9 4 L 0 8 z" fill="#e8834a"/></marker></defs>
+<path d="M 300 332 C 380 356 560 356 640 332" stroke="#e8834a" stroke-width="5" fill="none" marker-end="url(#ar)" stroke-linecap="round"/>
+<circle cx="468" cy="348" r="15" fill="#e8834a" stroke="#fff" stroke-width="2.5"/><text x="468" y="354" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#ffffff">D</text>
+</svg>

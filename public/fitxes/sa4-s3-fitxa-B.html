@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Créixer i reproduir-se · Sessió 3 · Ciència i societat — Semiguiat — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --purple:#6B4BA8; --purple-ink:#331F5C; --purple-light:#B9A6DE; --purple-tint:#F0EBF9;
+  --ink:#1A1A2E; --ink-2:#3A3457; --muted:#7A719A; --surface:#fffdff;
+  --rule:#DCD2EE; --rule-dark:#B9A6DE;
+  --orange:#e8834a; --orange-tint:#fdf0e8;
+  --teal:#3a9e8c;   --teal-tint:#e6f4f1;
+  --rose:#d44a6c;   --rose-tint:#fce8ed;
+  --yellow:#c8960a; --yellow-tint:#fdf7e2; --yellow-ink:#7a5800;
+  --green:#4a9e5c;  --green-tint:#eaf4ec;
+  --red:#c0392b;    --red-tint:#fdf2f0;
+  --blue:#2563a8;   --blue-tint:#e8f0fb;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Fira Sans Extra Condensed', sans-serif; background:#9b86c4; color:var(--ink); font-size:13px; line-height:1.5; padding:52px 20px 60px; }
+#toolbar { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(22,14,38,.93); backdrop-filter:blur(10px); border-bottom:1px solid rgba(107,75,168,.35); height:44px; display:flex; align-items:center; gap:10px; padding:0 18px; }
+.tb-tip { font-family:'Inter',sans-serif; font-size:11px; color:rgba(205,190,235,.65); flex:1; }
+.tb-tip strong { color:#cfc0ea; }
+.tb-sep { width:1px; height:20px; background:rgba(107,75,168,.3); }
+.tb-btn { font-family:'Inter',sans-serif; font-size:12px; font-weight:600; border:none; border-radius:6px; padding:6px 13px; cursor:pointer; transition:opacity .15s; white-space:nowrap; }
+.tb-print { background:var(--purple); color:white; }
+.tb-print:hover { opacity:.85; }
+.tb-bold { background:rgba(107,75,168,.2); border:1px solid rgba(107,75,168,.4); color:#cfc0ea; font-size:14px; font-weight:900; padding:4px 11px; }
+.tb-bold:hover { background:rgba(107,75,168,.38); }
+.tb-undo { background:rgba(212,74,108,.2); border:1px solid rgba(212,74,108,.4); color:#f0a0b8; font-size:12px; opacity:.5; transition:opacity .2s; pointer-events:none; }
+.tb-undo.active { opacity:1; pointer-events:auto; }
+.tb-undo.active:hover { background:rgba(212,74,108,.35); }
+.tb-spacer { background:rgba(107,75,168,.2); border:1px solid rgba(107,75,168,.4); color:#cfc0ea; font-size:12px; }
+.tb-spacer:hover { background:rgba(107,75,168,.35); }
+.tb-save { background:#6B4BA8; color:#ece4f9; border:1px solid rgba(185,166,222,.55); }
+.tb-save:hover { background:#7d5cbd; }
+.tb-save.saved { background:#4a9e5c; color:#fff; }
+.page-wrap { width:794px; margin:0 auto; background:var(--surface); box-shadow:0 2px 30px rgba(0,0,0,.22); position:relative; }
+.page-break-line { position:absolute; left:0; right:0; border-top:2px dashed #8A5FCC; pointer-events:none; z-index:10; }
+.page-break-label { position:absolute; right:10px; top:-11px; background:#8A5FCC; color:white; font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
+[contenteditable] { outline:none; cursor:text; border-radius:3px; transition:background .12s, box-shadow .12s; }
+[contenteditable]:hover { background:rgba(107,75,168,.08); box-shadow:0 0 0 2px rgba(107,75,168,.3); }
+[contenteditable]:focus { background:rgba(107,75,168,.12); box-shadow:0 0 0 2.5px var(--purple); }
+.header-band [contenteditable]:hover { background:rgba(255,255,255,.15); box-shadow:0 0 0 2px rgba(255,255,255,.3); }
+.header-band [contenteditable]:focus { background:rgba(255,255,255,.2); box-shadow:0 0 0 2.5px #fff; }
+span[contenteditable] { display:inline-block; }
+.wline { display:block; width:100%; min-height:32px; background:white; outline:none; padding:4px 4px; border-bottom:1.5px solid #DCD2EE; word-break:break-word; cursor:text; line-height:1.7; }
+.wline:focus { border-bottom-color:var(--purple); background:rgba(107,75,168,.04); }
+.frase-completar { font-size:11.5px; line-height:2.4; margin:4px 0 6px; }
+.blank { display:inline-block; border-bottom:1.5px solid #DCD2EE; vertical-align:bottom; margin:0 3px; height:1.1em; }
+.blank-s { width:60px; } .blank-m { width:100px; } .blank-l { width:140px; } .blank-xl { width:200px; }
+.nom-field { margin-left:auto; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; font-family:'Fira Sans Extra Condensed',sans-serif; color:var(--ink); }
+.input-span.data-span { min-width:65px; }
+.input-span:focus { border-bottom-color:var(--purple); }
+.nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(107,75,168,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); flex-shrink:0; }
+.deletable { position:relative; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; border-radius:50%; background:#d44a6c; color:white; border:none; cursor:pointer; align-items:center; justify-content:center; font-size:12px; font-weight:900; line-height:1; z-index:100; box-shadow:0 1px 4px rgba(0,0,0,.3); transition:background .1s,transform .1s; }
+.del-btn:hover { background:#b83054; transform:scale(1.15); }
+.deletable:hover > .del-btn { display:flex; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+.nivell-strip .deletable { display:inline-flex; align-items:center; }
+.header-band { background:linear-gradient(135deg,#331F5C 0%,#6B4BA8 100%); color:#fff; padding:14px 18px; display:grid; grid-template-columns:72px 1fr 178px; gap:14px; align-items:center; position:relative; overflow:hidden; }
+.header-band::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 100% at 110% 50%,rgba(255,255,255,.07) 0%,transparent 70%); pointer-events:none; }
+.header-emoji-col { display:flex; align-items:center; justify-content:center; }
+.header-emoji-box { width:62px; height:62px; border-radius:14px; background:rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center; font-size:36px; user-select:none; flex-shrink:0; }
+.header-main { min-width:0; }
+.header-sa { font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; opacity:.55; margin-bottom:4px; }
+.header-title { font-size:24px; font-weight:900; letter-spacing:-.01em; line-height:1.05; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-style:italic; font-size:13px; opacity:.72; margin-top:4px; }
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:5px; }
+.logo-box { background:rgba(255,255,255,.92); border-radius:7px; padding:5px 6px; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 1px 6px rgba(0,0,0,.18); }
+.header-meta { font-size:9.5px; opacity:.52; text-align:right; line-height:1.7; }
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.nivell-label { font-size:11px; color:var(--muted); font-style:italic; }
+.temps-badge { font-size:10px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
+.oa-box { background:linear-gradient(to right,var(--purple-tint),var(--surface)); border-left:4px solid var(--purple); padding:10px 16px; }
+.oa-title { font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:6px; }
+.oa-list { list-style:none; padding:0; margin:0; }
+.oa-list li { font-size:11.5px; padding:3px 0 3px 22px; position:relative; line-height:1.4; border-bottom:1px dashed var(--rule); }
+.oa-list li:last-child { border-bottom:none; }
+.oa-list li::before { content:'○'; position:absolute; left:4px; top:3px; font-size:11px; color:var(--purple-light); }
+.meta-oa-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-oa-title { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; font-size:11px; margin-bottom:4px; padding:2px 0; }
+.meta-oa-item:last-child { margin-bottom:0; }
+.meta-oa-check { width:16px; height:16px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; margin-top:1px; }
+.meta-oa-text { flex:1; line-height:1.35; }
+.content { padding:14px 24px 24px; }
+.section { margin-top:14px; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:10.5px; color:var(--ink-2); font-style:italic; font-family:'Crimson Pro',serif; }
+.temps { font-size:10px; color:var(--purple-ink); font-weight:700; margin-left:4px; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
+.previ-box p { font-size:12px; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-icon { font-size:24px; flex-shrink:0; }
+.connexio-text { font-size:11px; line-height:1.4; }
+.connexio-text strong { color:var(--purple-ink); }
+.hipotesi-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin-bottom:10px; }
+.hipotesi-box p { font-size:12px; font-weight:700; color:var(--purple-ink); margin-bottom:4px; }
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow-ink); margin-bottom:2px; }
+.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+.data-table { width:100%; border-collapse:collapse; font-size:11px; margin-bottom:10px; }
+.data-table th { background:var(--purple-ink); color:white; padding:6px 9px; text-align:left; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table th:first-child { border-radius:5px 0 0 0; }
+.data-table th:last-child { border-radius:0 5px 0 0; }
+.data-table th small { font-size:8.5px; font-weight:400; letter-spacing:0; text-transform:none; opacity:.75; display:block; margin-top:1px; }
+.data-table td { padding:5px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table tr:nth-child(even) td { background:var(--purple-tint); }
+.icon-cell { font-size:16px; text-align:center; width:32px; }
+.fill-cell { display:block; width:100%; min-height:22px; outline:none; padding:2px 3px; word-break:break-word; cursor:text; }
+.fill-cell:focus { background:rgba(107,75,168,.08); outline:1px solid var(--purple-light); border-radius:2px; }
+.label-cell { font-size:11px; font-weight:700; color:var(--ink-2); }
+.explore-q { display:flex; gap:8px; margin-bottom:10px; align-items:flex-start; }
+.explore-qnum { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--orange); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.explore-qtext { font-size:11.5px; flex:1; }
+.exit-box { background:#F2ECFA; border:2px solid var(--purple); border-radius:10px; padding:12px 14px; }
+.exit-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.exit-q { font-size:11px; margin-bottom:4px; line-height:1.4; }
+.exit-opts { display:grid; grid-template-columns:repeat(2,1fr); gap:3px; margin:3px 0 6px; }
+.exit-opt { display:flex; align-items:center; gap:5px; font-size:10.5px; }
+.chk { width:12px; height:12px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; }
+.meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+.meta-item { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-icon { font-size:18px; display:block; margin-bottom:3px; }
+.meta-label { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px; }
+.stars { display:flex; gap:4px; margin-top:4px; }
+.star { font-size:18px; color:#8A5FCC; cursor:default; }
+.tasca-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:10px 14px; margin-top:12px; }
+.tasca-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:6px; font-size:11px; }
+.tasca-item:last-child { margin-bottom:0; }
+.tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(107,75,168,.05) 6px,rgba(107,75,168,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
+.spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+.page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:0.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
+.footer { margin-top:12px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
+.footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+.info-box { background:white; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.info-label { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.info-box p { font-size:11px; line-height:1.5; margin-bottom:3px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0 3px; }
+.chain-chip { font-size:10.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:13px; }
+.circ-row { font-size:11.5px; line-height:2.4; margin-bottom:3px; }
+.circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:white; }
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
+.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.chips { display:flex; flex-wrap:wrap; gap:4px; }
+.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:white; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.fig { margin:10px 0; text-align:center; }
+.fig-frame { position:relative; display:inline-block; max-width:100%; border:1.5px solid var(--purple-light); border-radius:9px; background:var(--purple-tint); overflow:hidden; box-shadow:0 1px 6px rgba(107,75,168,.12); }
+.fig-frame img { display:block; max-width:100%; object-fit:contain; }
+.fig-ph { display:none; align-items:center; justify-content:center; min-height:118px; padding:16px 20px; font-size:10.5px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
+.fig-ph .ph-ico { font-size:26px; display:block; margin-bottom:5px; }
+.figcap { font-size:9.5px; color:var(--muted); margin-top:5px; font-style:italic; line-height:1.4; }
+.pista { font-size:11px; color:var(--ink-2); font-style:italic; line-height:1.45; margin:3px 0 4px; padding-left:3px; }
+
+/* .callout (caixa "Idea clau") i .fig-row (dues figures de costat) definides des
+   de l'inici en aquest xassis: a la unitat anterior s'usaven sense estar
+   definides i s'imprimien com un paragraf gris qualsevol. */
+.callout{background:#FFF6E2;border-left:5px solid #D98B34;border-radius:0 9px 9px 0;
+  padding:9px 12px;margin:10px 0;font-size:11.5px;line-height:1.45;break-inside:avoid;}
+.callout b,.callout strong{color:#8A5514;}
+.fig-row{display:flex;gap:10px;align-items:flex-start;margin:8px 0;break-inside:avoid;}
+.fig-row .fig{flex:1;min-width:0;margin:0;}
+.pista b, .pista strong { color:var(--purple-ink); font-style:normal; }
+@media print {
+  @page { size:A4; margin:10mm 12mm; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { background:white; padding:0; }
+  #toolbar, .page-break-line, .del-btn { display:none !important; }
+  .page-footer-bar { display:flex !important; }
+  .footer { display:none !important; }
+  .page-wrap { box-shadow:none; width:100%; }
+  .header-emoji-box { background:#e6dcf7 !important; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline { background:transparent; padding:0; }
+  .fill-cell { background:transparent; outline:none; }
+  .input-span { border-bottom-color:#DCD2EE; }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .nivell-badge-small { background:transparent !important; border-color:#DCD2EE !important; }
+}
+
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span class="tb-tip">✎ Clica per editar · <strong>Ctrl+B</strong> negreta · <strong>×</strong> rosa elimina · <strong>Ctrl+Z</strong> desfés · <strong>Ctrl+S</strong> desa</span>
+  <div class="tb-sep"></div>
+  <button class="tb-btn tb-undo" id="btn-undo" onclick="undoDelete()">↩ Desfés</button>
+  <button class="tb-btn tb-bold" onclick="document.execCommand('bold')"><b>N</b></button>
+  <button class="tb-btn tb-spacer" onclick="insertSpacer()">＋ Espai</button>
+  <button class="tb-btn tb-save" id="btn-save" onclick="saveDoc()">💾 Desa</button>
+  <button class="tb-btn tb-print" onclick="window.print()">🖨️ Imprimir / PDF</button>
+</div>
+
+<div class="page-wrap" id="doc">
+
+  <div class="header-band deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="header-emoji-col">
+      <div class="header-emoji-box" contenteditable="true">🗣️</div>
+    </div>
+    <div class="header-main">
+      <div class="header-sa" contenteditable="true">Créixer i reproduir-se · Sessió 3 de 4</div>
+      <div class="header-title" contenteditable="true">Sexualitat, identitat i una pregunta delicada</div>
+      <div class="header-subtitle" contenteditable="true">Què pot dir la ciència sobre nosaltres… i què no li toca decidir a ella?</div>
+    </div>
+    <div class="header-right">
+      <div class="logo-box">
+        <img src="../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
+      </div>
+      <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
+    </div>
+  </div>
+
+  <div class="nivell-strip deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <span class="nivell-label deletable" contenteditable="true">Semiguiat<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <span class="temps-badge deletable" contenteditable="true">⏱️ Sessió de 2 h<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <div class="nom-field deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
+      &nbsp;&nbsp;Data:&nbsp;<span class="input-span data-span" contenteditable="true"></span>
+      &nbsp;<span class="nivell-badge-small" title="Versió B — Estàndard">B</span>
+    </div>
+  </div>
+
+  <div class="oa-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="oa-title">🎯 Objectius d'aprenentatge d'avui (Nivell B)</div>
+    <ul class="oa-list">
+      <li contenteditable="true">Distingeixo <strong>sexe biològic</strong>, <strong>sexualitat</strong>, <strong>identitat sexual</strong> i <strong>gènere</strong>, i els aplico a casos reals.</li>
+      <li contenteditable="true">Justifico amb una prova per quina raó el gènere és una <strong>construcció social</strong> i no una cosa del cos.</li>
+      <li contenteditable="true">Separo el que la ciència pot <strong>descriure</strong> d'un embrió del que <strong>decideix</strong> cada persona i la societat.</li>
+      <li contenteditable="true">Classifico una afirmació en <strong>comprovable i certa</strong>, <strong>comprovable i falsa</strong> o <strong>valoració</strong>, i dic com ho comprovaria.</li>
+    </ul>
+  </div>
+
+  <div class="content">
+<div class="info-box"><div class="info-label">🔤 Vocabulari d'avui</div><div style="font-size:10.5px;line-height:1.45;column-count:2;column-gap:16px"><div style="break-inside:avoid;margin-bottom:3px"><strong>sexe biològic</strong> — el cos amb què es neix: òrgans, hormones i cromosomes. Es pot descriure i mesurar.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>sexualitat</strong> — tot el conjunt de pràctiques i experiències vitals d'una persona: afecte, desig, companyia, plaer, cura. <b>Va molt més enllà de la reproducció.</b></div><div style="break-inside:avoid;margin-bottom:3px"><strong>identitat sexual</strong> — com se sent una persona <b>per dins</b>. <b>No es tria</b>: cadascú la va entenent i posant en paraules al llarg de la vida.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>gènere</strong> — el que una societat espera de cada persona (feines, colors, robes, maneres). És una <b>construcció social</b>.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>construcció social</strong> — una cosa que no ve del cos sinó dels costums d'una societat, i que per això canvia d'una època a l'altra i d'un lloc a l'altre.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>embrió</strong> — el que es forma a partir del zigot; se'n diu així <b>fins al final de la vuitena setmana</b>.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>fetus</strong> — el nom que rep <b>a partir de la novena setmana</b> i fins al naixement.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>orientació</strong> — de qui t'enamores o qui t'atrau. És una <b>cinquena</b> cosa, diferent de les quatre d'avui; aquí només la nomenem.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>malaltia</strong> — alteració que fa dany o fa que una part del cos <b>deixi de funcionar bé</b> <i>(ve de la unitat de la salut)</i>.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>afirmació comprovable</strong> — una frase que es pot comprovar mirant, mesurant o consultant dades. Pot sortir <b>certa</b> o <b>falsa</b>.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>valoració</strong> — una frase que diu si una cosa està bé o malament, o si val la pena. No es pot mesurar: es debat.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>ciència</strong> — la manera de saber coses fent proves i mesures que qualsevol pugui repetir.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>hormona</strong> — missatge químic que una glàndula envia per la sang <i>(ve de la sessió passada)</i>.</div><div style="break-inside:avoid;margin-bottom:3px"><strong>cromosoma</strong> — cada un dels paquets on la cèl·lula guarda les instruccions <i>(ve de la sessió passada)</i>.</div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--muted)">0</div><div><div class="stitle" contenteditable="true">Idees prèvies ⏱️ 7 min</div><div class="sdesc" contenteditable="true">Primer escrius, després dibuixes. No es corregeix</div></div></div><div class="divider"></div><div class="previ-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><p>Escriu i dibuixa el que penses <strong>ara</strong>: no es corregeix. El tornaràs a mirar al final de la unitat.</p></div><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">🤝</div><div class="connexio-text" contenteditable="true"><strong>L'acord d'aula d'avui.</strong> Es respecta i no es jutja ningú · es fan servir les paraules científiques · <strong>ningú no ha de parlar de si mateix</strong>: tots els casos són de persones inventades · el que es diu a l'aula es queda a l'aula.</div></div><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">📮</div><div class="connexio-text" contenteditable="true"><strong>La bústia.</strong> Avui es responen <strong>dues</strong> preguntes de la caixa. Es llegeixen <strong>copiades a màquina</strong>, mai el paper original, i mai es pregunta qui les ha escrites. La caixa continua oberta: hi pots deixar preguntes noves qualsevol dia, <strong>sense posar-hi el nom</strong>.</div></div><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">1</div><div class="explore-qtext" contenteditable="true">Les paraules <strong>«sexe»</strong> i <strong>«gènere»</strong>, volen dir el mateix? Escriu el que penses ara.</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">2</div><div class="explore-qtext" contenteditable="true">La <strong>sexualitat</strong>, és només reproducció? Si et sembla que no, què més hi entra?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="font-size:11.5px;margin-top:6px"><strong>3. Dibuixa</strong> (ràpid, no cal que quedi bonic): el passadís d'una botiga de joguines tal com el recordes. Què hi ha a cada banda i de quin color és cada banda?</p><div class="deletable" style="position:relative;min-height:170px;border:1.5px solid var(--rule-dark);border-radius:8px;background:#fff;margin:6px 0" contenteditable="true"><div class="del-btn" onclick="deleteEl(this)">✕</div><div style="position:absolute;top:6px;left:10px;font-size:9.5px;color:var(--muted);font-style:italic">la botiga de joguines</div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--orange)">1</div><div><div class="stitle" contenteditable="true">Vuit casos, quatre finestres ⏱️ 30 min</div><div class="sdesc" contenteditable="true">En grups de 3 o 4. Es parla d'un en un, seguint la pauta</div></div></div><div class="divider"></div><div class="info-box"><div class="info-label">📖 Per llegir — quatre coses diferents</div><p>Se solen barrejar quatre coses que <b>no</b> són la mateixa. Mira-les com quatre <b>finestres</b> per on es pot mirar una persona:</p><p><b>① Sexe biològic</b> — el cos: òrgans, hormones, cromosomes. Es pot <b>descriure i mesurar</b>. En la majoria de persones aquests tres senyals van junts; <b>en algunes no</b>, i això també és biologia.<br><b>② Sexualitat</b> — el conjunt de <b>pràctiques i experiències vitals</b>: afecte, desig, companyia, plaer, cura. <b>Va molt més enllà de la reproducció</b>: hi ha sexualitat sense reproducció, i n'hi ha a totes les edats.<br><b>③ Identitat sexual</b> — com se sent una persona <b>per dins</b>. És un sentiment <b>subjectiu</b> i <b>es va construint al llarg de la vida</b>: no la pot mesurar ningú des de fora.<br><b>④ Gènere</b> — el que una societat <b>espera</b> de cada persona: feines, colors, robes, maneres de fer. És una <b>construcció social i cultural</b>: els papers de gènere <b>no venen determinats pel cos</b>. La prova és senzilla: han canviat i canvien d'una època a l'altra i d'un lloc a l'altre, mentre que els cossos són els mateixos.</p><p style="font-size:10.5px;color:#7A719A">Les quatre finestres són una <b>eina per pensar</b>, no quatre calaixos on hagi d'entrar tothom.</p><p><b>Un pont important, per no confondre ③ i ④.</b> El <b>gènere</b> (④) és una <b>expectativa</b>: la posa la societat des de fora i canvia amb els anys. La <b>identitat</b> (③) <b>no és cap expectativa</b>: és una cosa que la persona <b>sap de si mateixa</b>, que no tria i que no pot canviar per encàrrec. Per això són <b>dues finestres i no una</b>.</p><p style="font-size:10.5px;color:#7A719A">I encara n'hi ha una <b>cinquena</b> que avui no treballem a fons, però convé saber que existeix: l'<b>orientació</b> — de qui t'enamores o qui t'atrau. Tampoc no és cap de les quatre.</p><p style="font-size:10.5px;color:#7A719A">Una dada per situar-ho: fins al <b>1990</b> l'Organització Mundial de la Salut tenia l'homosexualitat a la seva llista de malalties. Aquell any la'n va treure. El que va canviar no van ser les persones: va ser <b>el que la medicina considerava una malaltia</b>.</p></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s3_quatre_finestres.svg" alt="Les quatre finestres" style="max-height:210px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Les quatre finestres</span></div></div><figcaption class="figcap" contenteditable="true"><b>Fig. F1</b> — Cada panell és una de les quatre coses que se solen barrejar.</figcaption></figure><div class="info-box"><div class="info-label">🔢 Què és cada número</div><div style="font-size:10.5px;line-height:1.45;column-count:2;column-gap:16px" contenteditable="true"><div style="break-inside:avoid;margin-bottom:2px">① <b>Sexe biològic</b> — els cromosomes i el cos: el que es pot descriure i mesurar.</div><div style="break-inside:avoid;margin-bottom:2px">② <b>Sexualitat</b> — el que es comparteix i es viu: afecte, companyia, desig, cura. Molt més que la reproducció.</div><div style="break-inside:avoid;margin-bottom:2px">③ <b>Identitat sexual</b> — la fletxa és <b>dins</b> de la persona i apunta al cor: el que la persona sent, i que ningú no pot mesurar des de fora.</div><div style="break-inside:avoid;margin-bottom:2px">④ <b>Gènere</b> — el rètol amb les etiquetes de color, i les tres figures que <b>hi miren</b> (les ratlletes de punts): el que la <b>societat espera</b> de cadascú. Fixa-t'hi: aquí la cosa ve de <b>fora</b>; a ③ venia de <b>dins</b>.</div></div></div><div class="info-box"><div class="info-label">🗂️ Els vuit casos</div><div style="font-size:10.5px;line-height:1.45" contenteditable="true"><div style="break-inside:avoid;margin-bottom:3px"><b>Cas 1.</b> A l'hospital, quan neix una criatura, al full mèdic s'hi anota quin aparell reproductor té.</div><div style="break-inside:avoid;margin-bottom:3px"><b>Cas 2.</b> Una àvia explica que, quan ella era petita, a les nenes no les deixaven jugar a futbol; ara les seves nétes hi juguen cada dissabte.</div><div style="break-inside:avoid;margin-bottom:3px"><b>Cas 3.</b> La Júlia diu que, des de ben petita, per dins s'ha anat sentint noia, i que això ho ha anat entenent al llarg dels anys.</div><div style="break-inside:avoid;margin-bottom:3px"><b>Cas 4.</b> Dues persones grans que fa quaranta anys que <b>són parella</b> expliquen que el més important de la seva relació és fer-se companyia i tocar-se les mans.</div><div style="break-inside:avoid;margin-bottom:3px"><b>Cas 5.</b> En un catàleg de joguines, els cotxes surten sobre fons blau i les cuines sobre fons rosa.</div><div style="break-inside:avoid;margin-bottom:3px"><b>Cas 6.</b> A classe s'explica que els ovaris fabriquen òvuls i també hormones que van per la sang.</div><div style="break-inside:avoid;margin-bottom:3px"><b>Cas 7.</b> Una parella jove explica que per a ells la sexualitat és sobretot una manera de sentir-se a prop, i que els molesta que tothom els pregunti contínuament quan tindran fills.</div><div style="break-inside:avoid;margin-bottom:3px"><b>Cas 8.</b> Una dona de 52 anys explica al metge que, amb la menopausa, el seu cos ja no té cicles, i que la seva vida sexual continua sent igual d'important per a ella.</div></div></div><div class="info-box"><div class="info-label">🗣️ Pauta per parlar al grup</div><p style="font-size:11px"><b>La meva idea és…</b> &nbsp;→&nbsp; <b>la raó és…</b> &nbsp;→&nbsp; <b>una idea contrària podria ser…</b></p><p style="font-size:10.5px">Es parla d'un per un. Es pot dir «no ho sé» i es pot canviar d'idea a mitja conversa: canviar d'idea quan apareix una raó millor és exactament el que fa la ciència.</p></div><p style="font-size:11.5px"><strong>4.</strong> Per a cada cas, escriu <strong>el número de la finestra</strong> que l'explica millor i <strong>per quina raó</strong>. <strong>Algun cas pot tocar-ne dues</strong>: si us passa, escriviu-hi els dos números i digueu per què.</p><table class="data-table"><thead><tr><th>Cas</th><th>Finestra</th><th>Per quina raó</th></tr></thead><tbody><tr><td class="label-cell">Cas 1</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Cas 2</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Cas 3</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Cas 4</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Cas 5</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Cas 6</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Cas 7</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Cas 8</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">5</div><div class="explore-qtext" contenteditable="true">Quin cas us ha fet dubtar més? Entre quines dues finestres, i què us ha fet decidir?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="epist-box"><div style="font-size:22px;flex-shrink:0">🔬</div><div><div class="epist-title">Moment epistèmic — com sabem el que sabem</div><div class="epist-text">Imagina que algú diu: <i>«això sempre ha estat així»</i>. Quina <b>prova</b> podries buscar per comprovar si és veritat? Digues també <b>on</b> la buscaries.</div></div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--teal)">2</div><div><div class="stitle" contenteditable="true">Què descriu la ciència i què decideix la societat ⏱️ 22 min</div><div class="sdesc" contenteditable="true">La part més important del dia. Llegeix les dues caixes abans de respondre</div></div></div><div class="divider"></div><div class="info-box"><div class="info-label">📖 Per llegir — la pregunta delicada</div><p>La ciència dona una <b>definició biològica</b> d'embrió: l'estadi del desenvolupament que va del <b>zigot</b> fins a la <b>vuitena setmana</b>; a partir d'aquí se'n diu <b>fetus</b>.</p><p><b>Què SÍ que pot dir la ciència:</b> quantes cèl·lules hi ha el cinquè dia, quan es comença a formar el cervell, quan comença a bategar el cor, què fa falta perquè el desenvolupament continuï. Tot això es pot <b>mirar i comprovar</b>.</p><p><b>Un detall que sorprèn:</b> la ratlla de la vuitena setmana <b>la posen d'acord els científics</b> perquè tothom faci servir la mateixa paraula, no perquè aquell dia hi passi res de cop. Per això «a partir de quina setmana se'n diu fetus» <b>sí</b> que és una pregunta de ciència: la resposta és la <b>seva definició</b>.</p><p><b>Què NO pot dir la ciència:</b> <b>quan comença a haver-hi una «persona»</b>, ni si l'avortament és acceptable o no ho és. Això <b>no és cap mesura biològica</b>: és una <b>valoració</b>, i és de cada persona i de la societat, que ho debat i ho decideix amb lleis.</p><p style="font-size:10.5px;color:#7A719A">Aquí ningú no et dirà què has de pensar. El que s'aprèn avui és a reconèixer <b>quin tipus de pregunta</b> tens al davant.</p></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s3_frontera_ciencia_valors.svg" alt="On passa la ratlla" style="max-height:215px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>On passa la ratlla</span></div></div><figcaption class="figcap" contenteditable="true"><b>Fig. F2</b> — A l'esquerra, el que es mesura. A la dreta, el que es debat i es decideix.</figcaption></figure><div class="info-box"><div class="info-label">🔢 Què és cada número</div><div style="font-size:10.5px;line-height:1.45;column-count:2;column-gap:16px" contenteditable="true"><div style="break-inside:avoid;margin-bottom:2px"><b>Compte:</b> aquesta figura fa servir <b>lletres</b> (A B C D) i no números, perquè els números ①-④ ja volen dir una altra cosa a la figura de les quatre finestres.</div><div style="break-inside:avoid;margin-bottom:2px">Ⓐ <b>La ciència</b> — lupa, regle i gràfic: mesura, descriu i comprova.</div><div style="break-inside:avoid;margin-bottom:2px">Ⓑ <b>La societat i cada persona</b> — la balança, les mans alçades i les converses: es debat, es vota, es decideix i es fan lleis.</div><div style="break-inside:avoid;margin-bottom:2px">Ⓒ <b>La ratlla</b> — separa <b>«què és»</b> de <b>«què s'hi val»</b>.</div><div style="break-inside:avoid;margin-bottom:2px">Ⓓ <b>La fletxa va en un sol sentit</b> — les dades <b>entren</b> al debat i el fan millor, però <b>no el decideixen</b>. No hi ha cap fletxa de tornada.</div></div></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s3_primers_dies.svg" alt="Els primers dies, molt esquemàtics" style="max-height:165px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Els primers dies, molt esquemàtics</span></div></div><figcaption class="figcap" contenteditable="true"><b>Fig. F3</b> — ⚠️ Els quatre moments NO estan dibuixats a escala de temps: només n'indiquen l'ORDRE (del dia 5 a la setmana 8 hi ha molt més temps que del dia 1 al 3). Els quatre cercles són de la mateixa mida expressament.</figcaption></figure><div class="info-box"><div class="info-label">🔢 Què és cada número</div><div style="font-size:10.5px;line-height:1.45;column-count:2;column-gap:16px" contenteditable="true"><div style="break-inside:avoid;margin-bottom:2px">① <b>Zigot</b> — una sola cèl·lula, el primer dia.</div><div style="break-inside:avoid;margin-bottom:2px">② <b>Unes quantes cèl·lules</b> — cap al tercer dia; encara totes iguals.</div><div style="break-inside:avoid;margin-bottom:2px">③ <b>Cap al cinquè dia</b> — una <b>esfera buida</b> (mira el forat del mig) amb un grup de cèl·lules enganxades a la paret; és el que es pot implantar a la paret de l'úter.</div><div style="break-inside:avoid;margin-bottom:2px">④ <b>Cap a la vuitena setmana</b> — el dibuix és així de senzill <b>expressament</b>: a partir d'aquí se'n diu <b>fetus</b>. La ratlla es posa aquí per acord, no perquè aquell dia passi res de cop.</div></div></div><div class="callout">🔑 <b>Idea clau del dia:</b> la ciència diu <b>què és</b> i <b>com funciona</b>. <b>Què s'hi val</b> i <b>què s'hi ha de fer</b> ho decidim les persones i la societat. Saber de quin dels dos tipus és una pregunta ja és la meitat de la resposta.</div><p style="font-size:11.5px"><strong>7.</strong> Per a cada pregunta, marca amb una ✗ <strong>qui la pot respondre</strong>.</p><table class="data-table"><thead><tr><th>Pregunta</th><th>La ciència<small>ho descriu i es pot comprovar</small></th><th>Cada persona i la societat<small>s'hi decideix i es debat</small></th></tr></thead><tbody><tr><td class="label-cell">Quantes cèl·lules té un embrió al cinquè dia?</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">A partir de quina setmana se'n diu fetus i no embrió?</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Fins a quina setmana hauria de permetre l'avortament una llei?</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Quan comença a haver-hi una «persona»?</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Un noi pot dur el cabell llarg?</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">8</div><div class="explore-qtext" contenteditable="true">Mirant la figura F2: si la ciència <strong>no decideix</strong> el debat, què hi aporta igualment?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">9</div><div class="explore-qtext" contenteditable="true">Diem que el <strong>gènere</strong> és una construcció social. Escriu <strong>una prova</strong> d'això: una cosa que hagi canviat amb el temps, o que sigui diferent en un altre lloc del món.</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--green)">3</div><div><div class="stitle" contenteditable="true">Comprovable o valoració? ⏱️ 14 min</div><div class="sdesc" contenteditable="true">Tres possibilitats, no dues. Fixa't bé en la diferència</div></div></div><div class="divider"></div><div class="info-box"><div class="info-label">📖 Per llegir — tres tipus de frase</div><p><b>Comprovable i certa</b> — es pot comprovar, i quan ho fas, surt que sí. <i>«L'aigua bull a 100 °C al nivell del mar.»</i><br><b>Comprovable i falsa</b> — <b>també</b> es pot comprovar, i quan ho fas, surt que no. <i>«El Sol gira al voltant de la Terra.»</i><br><b>Valoració</b> — no es pot comprovar de cap manera, perquè diu si una cosa està bé, malament o si val la pena. <i>«Aquesta cançó és millor que l'altra.»</i></p><p><b>Compte amb el parany:</b> que una frase sigui <b>falsa</b> no vol dir que sigui una <b>opinió</b>. «El Sol gira al voltant de la Terra» és falsa, no és una opinió.</p></div><p style="font-size:11.5px"><strong>10.</strong> Per a cada frase, <strong>encercla</strong> de quin tipus és i escriu la línia de sota.</p><div class="deletable" style="margin-top:8px"><div class="del-btn" onclick="deleteEl(this)">✕</div><p style="font-size:11.5px;margin-bottom:2px"><strong>(a)</strong> «Un cicle menstrual pot durar entre 21 i 35 dies <i>(en els primers anys després de la primera regla els cicles solen ser més llargs i més irregulars)</i>.»</p><div class="circ-row">És una afirmació… &nbsp; <span class="circ-opt">comprovable i certa</span><span class="circ-opt">comprovable i falsa</span><span class="circ-opt">valoració</span></div><p style="font-size:10.5px;color:#7A719A;margin:2px 0 1px">Com ho comprovaries, o per quina raó no es pot comprovar:</p><div class="wline" contenteditable="true"></div></div><div class="deletable" style="margin-top:8px"><div class="del-btn" onclick="deleteEl(this)">✕</div><p style="font-size:11.5px;margin-bottom:2px"><strong>(b)</strong> «El rosa és un color de nena.»</p><div class="circ-row">És una afirmació… &nbsp; <span class="circ-opt">comprovable i certa</span><span class="circ-opt">comprovable i falsa</span><span class="circ-opt">valoració</span></div><p style="font-size:10.5px;color:#7A719A;margin:2px 0 1px">Com ho comprovaries, o per quina raó no es pot comprovar:</p><div class="wline" contenteditable="true"></div></div><div class="deletable" style="margin-top:8px"><div class="del-btn" onclick="deleteEl(this)">✕</div><p style="font-size:11.5px;margin-bottom:2px"><strong>(c)</strong> «Durant la regla no es pot fer esport.»</p><div class="circ-row">És una afirmació… &nbsp; <span class="circ-opt">comprovable i certa</span><span class="circ-opt">comprovable i falsa</span><span class="circ-opt">valoració</span></div><p style="font-size:10.5px;color:#7A719A;margin:2px 0 1px">Com ho comprovaries, o per quina raó no es pot comprovar:</p><div class="wline" contenteditable="true"></div></div><div class="deletable" style="margin-top:8px"><div class="del-btn" onclick="deleteEl(this)">✕</div><p style="font-size:11.5px;margin-bottom:2px"><strong>(d)</strong> «Un embrió de dues setmanes ja és una persona.»</p><div class="circ-row">És una afirmació… &nbsp; <span class="circ-opt">comprovable i certa</span><span class="circ-opt">comprovable i falsa</span><span class="circ-opt">valoració</span></div><p style="font-size:10.5px;color:#7A719A;margin:2px 0 1px">Com ho comprovaries, o per quina raó no es pot comprovar:</p><div class="wline" contenteditable="true"></div></div><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">11</div><div class="explore-qtext" contenteditable="true">Hi ha una diferència important entre dir <strong>«això és fals»</strong> i dir <strong>«això és una opinió»</strong>. Explica-la fent servir <strong>un dels ítems de dalt</strong> com a exemple.</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="callout">🔑 <b>Recorda-ho:</b> «no es pot comprovar» <b>no</b> vol dir «no importa». Les preguntes de valors són les que més ens importen — però no es resolen amb un microscopi.</div><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">🎟️</div><div class="connexio-text" contenteditable="true"><strong>Full de sortida (7 min).</strong> Al final de la classe rebràs un <strong>full a part</strong>. Es fa <strong>tot sol/a</strong> i <strong>es recull</strong>. Aquesta fitxa te la quedes tu: el que hi escrius a l'últim apartat és teu i no es puntua.</div></div></div><div class="section deletable" style="margin-top:14px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--purple)">4</div><div><div class="stitle">Metacognició</div><div class="sdesc">Com ha anat avui ⏱️ 3 min</div></div></div><div class="divider"></div><div class="meta-grid"><div class="meta-item"><span class="meta-icon">🚦</span><div class="meta-label">Com ho veig</div><div class="circ-row"><span class="circ-opt">🟢 ho tinc</span><span class="circ-opt">🟡 a mitges</span><span class="circ-opt">🔴 perdut/uda</span></div></div><div class="meta-item"><span class="meta-icon">💭</span><div class="meta-label">Avui he entès que la ciència <b>no</b> pot…</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="meta-oa-box deletable" style="margin-top:9px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-title">Marca el que ja sabries explicar a algú altre</div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Distingeixo <strong>sexe biològic</strong>, <strong>sexualitat</strong>, <strong>identitat sexual</strong> i <strong>gènere</strong>, i els aplico a casos reals.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Justifico amb una prova per quina raó el gènere és una <strong>construcció social</strong> i no una cosa del cos.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Separo el que la ciència pot <strong>descriure</strong> d'un embrió del que <strong>decideix</strong> cada persona i la societat.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Classifico una afirmació en <strong>comprovable i certa</strong>, <strong>comprovable i falsa</strong> o <strong>valoració</strong>, i dic com ho comprovaria.</div></div></div></div><div class="tasca-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-title">📚 Després de la sessió</div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">1</div><div contenteditable="true">🎧 <strong>Tria UNA de les tres i porta-la escrita (dues línies).</strong> (a) <b>Copia una frase pública</b> que hagis sentit o llegit sobre sexualitat, cossos o com evitar un embaràs: a la ràdio, a la tele, en un anunci, en un titular o en una xarxa. Digues <b>de quin mitjà</b> l'has treta i si és comprovable o una valoració. (b) Mira un anunci qualsevol i escriu <b>una cosa que doni per fet</b> sobre què és «de noi» o «de noia». (c) Busca a una font fiable (per exemple <b>Canal Salut</b>) una afirmació sobre salut sexual i copia-la amb la font. <em>Les tres valen igual.</em><br><b>Important:</b> ha de ser una frase <b>pública</b>. Les converses de casa, de la família o d'amics <b>no valen</b>: aquí no es porta a classe el que ha dit ningú de l'entorn de ningú.</div></div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">2</div><div contenteditable="true">📮 Si et queda una pregunta al cap durant la setmana, deixa-la a la bústia. <b>La classe que ve treballarem amb les frases que porteu.</b></div></div></div><div class="footer"><div class="footer-l">Créixer i reproduir-se · Sessió 3 · Sexualitat, identitat i una pregunta delicada · IE Temple</div><div class="footer-r">CC BY-NC · Albert Pahissa</div></div>
+  </div><!-- .content -->
+</div><!-- .page-wrap -->
+
+<script>
+const delStack = [];
+function deleteEl(btn) {
+  const target = btn.closest('.deletable');
+  if (!target) return;
+  const parent = target.parentNode;
+  const sibling = target.nextSibling;
+  target.remove();
+  delStack.push({ el:target, parent, sibling });
+  document.getElementById('btn-undo').classList.add('active');
+}
+function undoDelete() {
+  if (!delStack.length) return;
+  const { el, parent, sibling } = delStack.pop();
+  parent.insertBefore(el, sibling);
+  if (!delStack.length) document.getElementById('btn-undo').classList.remove('active');
+  updatePageBreaks();
+}
+document.addEventListener('keydown', e => {
+  if (e.key==='z' && (e.ctrlKey||e.metaKey)) {
+    if (document.activeElement && document.activeElement.contentEditable==='true') return;
+    e.preventDefault(); undoDelete();
+  }
+});
+const PAGE_H = 1047;
+let _pbTimer = null;
+function updatePageBreaks() {
+  const doc = document.getElementById('doc');
+  if (!doc) return;
+  doc.querySelectorAll('.page-break-line,.page-footer-bar').forEach(e=>e.remove());
+  for (let i=1; i<8; i++) {
+    const y = i*PAGE_H;
+    const line = document.createElement('div');
+    line.className='page-break-line';
+    line.style.top=y+'px';
+    const lbl = document.createElement('div');
+    lbl.className='page-break-label';
+    lbl.textContent='Pàgina '+i;
+    line.appendChild(lbl);
+    const bar = document.createElement('div');
+    bar.className='page-footer-bar';
+    bar.style.top=(y-20)+'px';
+    bar.innerHTML='<span>Créixer i reproduir-se · Sessió 3 · Sexualitat, identitat i una pregunta delicada</span><span>CC BY-NC · Albert Pahissa · Pàg. '+i+'</span>';
+    doc.appendChild(line);
+    doc.appendChild(bar);
+  }
+}
+function insertSpacer() {
+  const sel = window.getSelection();
+  let ref = sel && sel.rangeCount ? sel.getRangeAt(0).startContainer : null;
+  while (ref && ref !== document.getElementById('doc')) {
+    if (ref.classList && ref.classList.contains('section')) break;
+    ref = ref.parentNode;
+  }
+  const spacer = document.createElement('div');
+  spacer.className='spacer-block deletable';
+  spacer.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">espai en blanc</span>';
+  if (ref && ref.classList && ref.classList.contains('section')) {
+    ref.parentNode.insertBefore(spacer, ref.nextSibling);
+  } else {
+    document.querySelector('.content').appendChild(spacer);
+  }
+  setTimeout(updatePageBreaks, 100);
+}
+// ── Desar i recuperar les modificacions (al navegador) ──────────────
+const SAVE_KEY = 'fitxa-sa4:' + (location.pathname.split('/').pop() || document.title);
+function saveDoc(silent){
+  try{
+    const c = document.getElementById('doc').cloneNode(true);
+    c.querySelectorAll('.page-break-line,.page-footer-bar').forEach(e=>e.remove());
+    localStorage.setItem(SAVE_KEY, c.innerHTML);
+    if(!silent) flashSaved();
+  }catch(e){ if(!silent) alert('Aquest navegador no permet desar (prova de no fer servir mode privat).'); }
+}
+function flashSaved(){
+  const b=document.getElementById('btn-save'); if(!b) return;
+  const t=b.innerHTML; b.innerHTML='✓ Desat'; b.classList.add('saved');
+  setTimeout(()=>{ b.innerHTML=t; b.classList.remove('saved'); },1400);
+}
+function restoreDoc(){
+  try{
+    const s=localStorage.getItem(SAVE_KEY);
+    if(s){ document.getElementById('doc').innerHTML=s; }
+  }catch(e){}
+}
+let _saveTimer=null;
+document.addEventListener('input', ()=>{ clearTimeout(_saveTimer); _saveTimer=setTimeout(()=>saveDoc(true),900); });
+document.addEventListener('keydown', e => {
+  if (e.key==='s' && (e.ctrlKey||e.metaKey)) { e.preventDefault(); saveDoc(); }
+});
+const obs = new MutationObserver(()=>{ clearTimeout(_pbTimer); _pbTimer=setTimeout(updatePageBreaks, 250); });
+window.addEventListener('load', ()=>{
+  restoreDoc();
+  obs.observe(document.getElementById('doc'), { childList:true, subtree:true, characterData:true });
+  updatePageBreaks();
+});
+</script>
+</body></html>
