@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ca"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fitxa informativa — plantilla — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@400;700;900&amp;display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Fira Sans Extra Condensed',sans-serif;background:#EDE8F6;color:#1A1A2E;padding:18px}
+#tb{position:sticky;top:0;background:#331F5C;color:#fff;padding:8px 16px;border-radius:9px;
+    display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-bottom:14px;z-index:9}
+#tb button{font-family:inherit;font-size:12px;font-weight:700;border:0;border-radius:7px;
+    padding:5px 12px;background:#fff;color:#331F5C;cursor:pointer}
+.page{width:210mm;min-height:297mm;margin:0 auto 14px;background:#fffdff;padding:14mm 12mm;
+    box-shadow:0 2px 14px rgba(51,31,92,.18);border-radius:3px}
+h1{font-size:26px;font-weight:900;color:#331F5C;letter-spacing:-.01em}
+h2{font-size:15px;font-weight:900;color:#331F5C;margin:14px 0 6px}
+.sa{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#6B4BA8}
+.intro{font-size:12px;line-height:1.5;background:#F0EBF9;border-left:4px solid #6B4BA8;
+    border-radius:0 8px 8px 0;padding:9px 12px;margin:10px 0 14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.card{border:2px dashed #B9A6DE;border-radius:10px;padding:10px 12px;background:#fff;
+    break-inside:avoid;min-height:104px;display:flex;gap:9px;align-items:flex-start}
+.n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#6B4BA8;color:#fff;
+    font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center}
+.nm{font-size:13.5px;font-weight:900;color:#331F5C;margin-bottom:2px}
+.t{font-size:12px;line-height:1.45}
+.sol{margin-top:6px;font-size:11px;line-height:1.4;background:#eaf4ec;border-left:4px solid #4a9e5c;
+    border-radius:0 6px 6px 0;padding:6px 9px}
+.sol b{color:#2f6b3c}
+.warn{background:#FFF6E2;border:2px solid #D98B34;border-radius:9px;padding:9px 12px;
+    font-size:12.5px;margin:10px 0 14px;color:#8A5514;font-weight:700}
+.strip{background:#F0EBF9;border-radius:8px;padding:7px 11px;font-size:12px;margin:10px 0 12px;
+    display:flex;gap:14px;flex-wrap:wrap}
+.inp{display:inline-block;min-width:150px;border-bottom:1.5px solid #B9A6DE;min-height:15px}
+.qb{border:2px solid #B9A6DE;border-radius:11px;padding:11px 13px;margin-bottom:11px;
+    background:#fff;break-inside:avoid}
+.qh{display:flex;gap:9px;align-items:flex-start;margin-bottom:5px}
+.qn{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:#6B4BA8;color:#fff;
+    font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
+.qt{font-size:13px;font-weight:700;line-height:1.35;color:#331F5C}
+.lb{font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;
+    color:#6B4BA8;margin:7px 0 1px}
+.wl{display:block;border-bottom:1.4px solid #DCD2EE;height:19px;margin-bottom:2px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.chip{border:1.5px solid #B9A6DE;border-radius:20px;padding:2px 10px;font-size:11.5px}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:11px}
+th{background:#331F5C;color:#fff;padding:6px 7px;text-align:left;font-size:10.5px;
+   text-transform:uppercase;letter-spacing:.05em}
+td{border:1px solid #DCD2EE;padding:6px 7px;vertical-align:top;line-height:1.4}
+td.lv{background:#F0EBF9;font-weight:900;color:#331F5C;white-space:nowrap;width:96px}
+td.cr{background:#F7F4FC;font-weight:900;color:#331F5C;width:110px}
+.foot{margin-top:14px;border-top:1px solid #DCD2EE;padding-top:6px;display:flex;
+    justify-content:space-between;font-size:9px;color:#7A719A;text-transform:uppercase;
+    letter-spacing:.07em}
+@media print{body{background:#fff;padding:0}#tb{display:none}
+  .page{width:auto;min-height:auto;box-shadow:none;margin:0;padding:10mm}
+  @page{size:A4;margin:8mm}}
+</style></head><body>
+<div id="tb"><span>Producte final de la unitat · es lliura a Classroom</span><button onclick="window.print()">🖨️ Imprimir / PDF</button></div>
+<div class="page">
+<div class="sa">Créixer i reproduir-se · Sessió 4</div>
+<h1>La nostra fitxa informativa</h1>
+<div class="strip"><span>Noms de la parella: <span class="inp" style="min-width:230px" contenteditable="true"></span></span><span>Grup: <span class="inp" style="min-width:60px" contenteditable="true"></span></span><span>Data: <span class="inp" style="min-width:80px" contenteditable="true"></span></span></div><div class="intro"><b>Què compta com a bona resposta — les quatre coses.</b><br><b>1.</b> Respon la pregunta <b>directament a la primera frase</b>.<br><b>2.</b> Diu <b>què passa al cos</b> (el mecanisme), no només què s'ha de fer.<br><b>3.</b> Diu <b>d'on ho heu tret</b>: Canal Salut · el CAP · el programa Salut i Escola · la teoria d'aquestes quatre sessions.<br><b>4.</b> <b>No jutja ningú.</b> No s'hi escriu «s'hauria de» ni «està malament»: s'hi escriu «passa això» i «per aquesta raó».<br>Ho llegiran els vostres companys: ha d'entendre's sense haver-hi sigut.</div><div class="qb"><div class="qh"><div class="qn">1</div><div class="qt">«Si es fa servir el preservatiu, cal fer servir res més?»</div></div><div class="lb">La nostra resposta</div><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><div class="lb">D'on ho hem tret</div><span class="wl" contenteditable="true"></span></div><div class="qb"><div class="qh"><div class="qn">2</div><div class="qt">«La píndola de l'endemà, és un avortament?»</div></div><div class="lb">La nostra resposta</div><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><div class="lb">D'on ho hem tret</div><span class="wl" contenteditable="true"></span></div><div class="qb"><div class="qh"><div class="qn">3</div><div class="qt">«És veritat que prendre anticonceptius molt de temps fa que després costi més tenir fills?»</div></div><div class="lb">La nostra resposta</div><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><div class="lb">D'on ho hem tret</div><span class="wl" contenteditable="true"></span></div><div class="qb" style="border-style:dashed"><div class="qh"><div class="qn">+</div><div class="qt">Només si feu la fitxa d'ampliació: un mite que hem desmuntat</div></div><div class="intro" style="margin:4px 0 6px">Trieu un mite, passeu-hi el checklist en tres línies (<b>qui ho diu</b> · <b>quines dades hi posa</b> · <b>es pot comprovar</b>) i acabeu dient <b>què s'hauria de mesurar</b> per comprovar-lo.</div><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span><span class="wl" contenteditable="true"></span></div><div class="warn">Es comença a classe i es pot acabar a casa. Termini: una setmana, a Classroom. S'avalua amb la rúbrica que teniu al davant.</div><div class="foot"><span>Sessió 4 · Plantilla del producte final</span><span>CC BY-NC · Albert Pahissa · IE Temple</span></div></div></body></html>

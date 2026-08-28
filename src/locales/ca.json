@@ -29,9 +29,18 @@
     "objectivesHint": "Tria el teu nivell: canvien els objectius i el suport de la sessió.",
     "challenge": "Repte d'ampliació",
     "scaffold": "Amb suport",
-    "A": { "short": "Ampliació", "help": "Nivell A — Ampliació: autonomia, preguntes obertes, hipòtesis pròpies i connexions entre situacions d'aprenentatge." },
-    "B": { "short": "Estàndard", "help": "Nivell B — Estàndard: la versió per a la majoria, amb guiatge moderat." },
-    "C": { "short": "Adaptació", "help": "Nivell C — Adaptació: més suport, amb inicis de frase, frases a completar i moltes imatges." }
+    "A": {
+      "short": "Ampliació",
+      "help": "Nivell A — Ampliació: autonomia, preguntes obertes, hipòtesis pròpies i connexions entre situacions d'aprenentatge."
+    },
+    "B": {
+      "short": "Estàndard",
+      "help": "Nivell B — Estàndard: la versió per a la majoria, amb guiatge moderat."
+    },
+    "C": {
+      "short": "Adaptació",
+      "help": "Nivell C — Adaptació: més suport, amb inicis de frase, frases a completar i moltes imatges."
+    }
   },
   "activity": {
     "what": "Què farem",
@@ -70,6 +79,7 @@
     "teoriaSoon": "Teoria en PDF disponible properament",
     "appComingSoonTitle": "Animació interactiva disponible properament",
     "exitPaperNote": "Aquest exit tiquet es fa en paper a classe.",
+    "exitFormNote": "Aquesta avaluació es fa amb un formulari de Google, a classe i sense ajuda.",
     "exitAbsentAccordion": "Has faltat? Fes-lo online aquí",
     "deliverables": "Entregues d'aquesta sessió",
     "flippedReading": "Llegir primer",

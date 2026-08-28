@@ -513,9 +513,17 @@ export default function SessionPage() {
           {session.exitTicketNote && (
             <p className="mb-4 italic text-[var(--muted)]">{session.exitTicketNote}</p>
           )}
-          {session.exitTicketType === 'paper' ? (
+          {/* exitTicketType 'form' (28/08): l'avaluacio de la sessio es un formulari
+              Google que es respon A CLASSE. Es comporta com 'paper' (no es publiquen
+              les preguntes aqui), pero la nota que es mostra no diu «en paper», que
+              seria fals. */}
+          {session.exitTicketType === 'paper' || session.exitTicketType === 'form' ? (
             <div className="space-y-4">
-              <p className="card px-5 py-4">✏️ {t('session.exitPaperNote')}</p>
+              <p className="card px-5 py-4">
+                ✏️ {t(session.exitTicketType === 'form'
+                  ? 'session.exitFormNote'
+                  : 'session.exitPaperNote')}
+              </p>
               {/* exitTicketConfidential (27/08): quan el full de sortida es SUMATIU i es fa
                   sense ajuda, publicar-ne les preguntes en aquest acordio les deixa
                   consultables abans de la sessio. En aquest cas no es renderitza el
