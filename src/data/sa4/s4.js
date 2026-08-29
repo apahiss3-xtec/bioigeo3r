@@ -36,10 +36,14 @@ export const sa4s4 = {
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {
+    // ⚠️ Aquestes tres llistes han de ser LITERALMENT les de OA_A / OA_B / OA_C
+    // de SA4-creixer-reproduir/_s4_content.py, que són les que s'imprimeixen a la
+    // fitxa. El 28/08 divergien en tres entrades i l'alumnat no sabia quina valia.
     A: [
-      "Explico on talla la cadena cada família de mètodes i per quina raó això evita l'embaràs.",
-      "Justifico per quina raó només la família de barrera protegeix també d'ITS: és l'única que atura els fluids.",
-      "Dissenyo la comprovació d'una afirmació sobre el cos dient la variable independent, la dependent i el grup de comparació.",
+      "Explico on talla la cadena cada família de mètodes (hormonal, de barrera, DIU de coure) i per quina raó això evita l'embaràs.",
+      "Justifico per quina raó només la família de barrera protegeix també d'ITS.",
+      "Llegeixo una gràfica d'ús perfecte contra ús real i explico d'on ve la diferència.",
+      "Dissenyo la comprovació d'una afirmació sobre el cos: variable independent, variable dependent i grup de comparació.",
       "Distingeixo correlació de causalitat i proposo la tercera variable que explicaria les dues coses alhora.",
       "Desmunto un mite amb el checklist i dic què s'hauria de mesurar per comprovar-lo."
     ],
@@ -51,11 +55,11 @@ export const sa4s4 = {
       "Escric una resposta de salut basada en fisiologia i en una font fiable, sense judicis sobre ningú."
     ],
     C: [
-      "Sé que només el preservatiu protegeix també de les ITS, i sé dir per quina raó: és l'únic que atura els fluids.",
+      "Sé que només el preservatiu protegeix també de les ITS.",
       "Sé dir què fa la píndola: fer que no surti l'òvul.",
-      "Sé que el mètode del calendari no fa res al cos, i per això falla molt més a la vida real.",
+      "Sé que el mètode del calendari no fa res al cos i per això falla molt.",
       "Sé distingir una anècdota d'una prova.",
-      "Sé escriure una resposta en tres frases amb una font fiable i sense jutjar ningú."
+      "Sé escriure una resposta amb una font fiable i sense jutjar ningú."
     ]
   },
 
@@ -66,7 +70,7 @@ export const sa4s4 = {
       challenge: "Dissenya la comprovació sencera de l'afirmació: quina és la pregunta investigable, quina és la variable independent, quina la dependent, amb quin grup es compara i durant quant de temps. I el cas de la IA que dona una font que existeix però que no diu el que ella deia."
     },
     "2": {
-      scaffold: "La graella ja porta escrites tres respostes, una de cada columna, com a exemple; la del mètode del calendari no s'hi dona, perquè és el descobriment de l'activitat. La pregunta d'escriptura porta els quatre passos OBSERVO → EM PREGUNTO → CONNECTO → DEDUEIXO.",
+      scaffold: "La graella ja porta escrites tres respostes, una de cada columna, com a exemple; la del mètode del calendari no s'hi dona, perquè és el descobriment de l'activitat. La columna d'ITS és una taula a part que només s'omple DESPRÉS d'haver llegit per quina raó la barrera protegeix i la resta no. La pregunta d'escriptura porta els quatre passos OBSERVO → EM PREGUNTO → CONNECTO → DEDUEIXO.",
       challenge: "Calcula quantes vegades és més gran el nombre d'embarassos amb ús real que amb ús perfecte per a cada mètode i ordena'ls. Després comprova que el mètode amb la diferència més gran en nombre d'embarassos NO és el mateix que el de la raó més gran, i explica per quina raó passa això."
     },
     "3": {
@@ -91,7 +95,11 @@ export const sa4s4 = {
       },
       {
         kind: "write",
-        text: "I aquesta és diferent: d'on ho has tret, això que has escrit? (Família, amistats, internet, una classe, un professional sanitari, no ho recordo.) No es demana res sobre tu: només d'on ve la informació.",
+        // 28/08: abans preguntava d'on ho havia tret CADASCÚ i s'encerclava en un
+        // full que porta el nom i que el company del costat veu — marcar «la
+        // família» o «un professional sanitari» diu com és casa teva. Passa a ser
+        // una enquesta sobre la gent de la seva edat.
+        text: "I aquesta va de tothom, no de tu: d'on treu la gent de la vostra edat el que sap sobre aquests temes? Marca les DUES que et sembla que són més freqüents (la família, les amistats, internet i xarxes, una classe, un professional sanitari, no se'n parla).",
         starter: null
       }
     ]
@@ -101,7 +109,7 @@ export const sa4s4 = {
     "PART A (15 min) · Primer sol/a 5 minuts, després amb la parella. Passa el checklist CRITIC a l'afirmació del vídeo: «els anticonceptius et fan infèrtil per sempre»",
     "Les sis caselles: Consigna (quina és exactament l'afirmació?) · Rol (qui ho diu i què hi guanya?) · Idees (quin mecanisme proposa? en proposa cap?) · Test (es podria comprovar? COM?) · Informació (quines dades hi posa? una anècdota no és una dada) · Conclusions (què en puc dir ara i què em falta saber?)",
     "Dins de la casella d'Informació hi va també la pregunta de la IA: si li preguntes a una intel·ligència artificial, d'on treu ella la resposta? Es pot equivocar? Com ho comprovaries?",
-    "PART B (15 min) · En grups de 3: vuit targetes de mètodes, i a cap no hi diu de quina família és. Col·loqueu cadascuna sota la columna del seu mecanisme: canvia les hormones · evita el contacte · actua dins de l'úter",
+    "PART B (15 min) · En grups de 3: vuit targetes de mètodes, i a cap no hi diu de quina família és. Col·loqueu cadascuna sota la columna del seu mecanisme. Les tres columnes es diuen igual a la fitxa, a les targetes i aquí: hormonal · de barrera · actua dins de l'úter",
     "ATENCIÓ: una de les vuit no encaixa a cap columna. Quan la trobeu, deixeu-la a part i escriviu per quina raó no hi encaixa. No és cap error: és el punt de l'activitat",
     "Moment epistèmic: «a una amiga meva li va passar» — quantes amigues fan una prova? Què hauria de tenir una comprovació perquè te la creguessis?"
   ],
@@ -144,7 +152,7 @@ export const sa4s4 = {
       id: "t3",
       apartat: "2",
       heading: "Per quina raó ==només una família== atura també els patògens",
-      text: "El preservatiu és l'únic que atura ==els fluids|b==. I és als fluids que hi van els ==patògens|r== — recorda «Defensors del cos»: una ==ITS|r== (infecció de transmissió sexual) és una infecció, i el preservatiu hi fa de ==barrera==, exactament igual que la pell. Els mètodes ==hormonals== i el ==DIU== actuen sobre el cicle o dins de l'úter: eviten l'embaràs, però ==no impedeixen que els fluids es trobin|r==. Fixa-t'hi bé, perquè és l'error més freqüent: la pregunta no és ==com de bo és== un mètode contra l'embaràs, és ==què atura==. Per això el consell sanitari és la ==doble protecció|g==: preservatiu ==més== un altre mètode.",
+      text: "El preservatiu és l'únic que atura ==els fluids|b==. I és als fluids que hi van els ==patògens|r== — recorda «Defensors del cos»: una ==ITS|r== (infecció de transmissió sexual) és una infecció, i el preservatiu hi fa de ==barrera==, exactament igual que la pell. Els mètodes ==hormonals== i el ==DIU== actuen sobre el cicle o dins de l'úter: eviten l'embaràs, però ==no impedeixen que els fluids es trobin|r==. Fixa-t'hi bé, perquè és l'error més freqüent: la pregunta no és ==com de bo és== un mètode contra l'embaràs, és ==què atura==. Per això el consell sanitari és la ==doble protecció|g==: preservatiu ==més== un altre mètode. I un matís que cal dir bé: el preservatiu ==redueix molt== el risc d'ITS, però ==no el deixa a zero|o== — hi ha infeccions que passen per ==contacte de pell== que la funda no cobreix. Dir «protegeix» és correcte; dir «protegeix del tot», no.",
       type: "concept"
     },
     {
@@ -159,7 +167,7 @@ export const sa4s4 = {
       id: "t5",
       apartat: "2",
       heading: "==Ús perfecte== i ==ús real==: la distància entre les dues barres",
-      text: "Els mètodes es comparen amb una xifra: quantes persones de cada ==100== tenen un embaràs no buscat ==en un any==. I sempre se'n donen ==dues|o==: la de l'==ús perfecte== (fent-ho sempre bé, sense cap badada) i la de l'==ús real== (com ho fa la gent de veritat). ==La segona és sempre pitjor|r==, però no en la mateixa mesura per a tots: com ==més depèn el mètode de fer alguna cosa bé cada vegada== (o cada dia), ==més s'allunyen les dues barres|o==. Un implant, un cop col·locat, no depèn de res; una píndola depèn de cada dia; un preservatiu, de cada vegada. I el ==mètode del calendari|r== depèn de cada cicle ==i a més cal encertar-lo== — i a la sessió 2 ja vas veure, amb el cicle de la Laia, que el dia d'ovulació ==no és fix==.",
+      text: "Els mètodes es comparen amb una xifra: quantes persones de cada ==100== tenen un embaràs no buscat ==en un any==. I sempre se'n donen ==dues|o==: la de l'==ús perfecte== (fent-ho sempre bé, sense cap badada) i la de l'==ús real== (com ho fa la gent de veritat). ==La segona mai no és millor|r== —i sovint és molt pitjor—, però no en la mateixa mesura per a tots: n'hi ha que tenen les dues barres iguals. com ==més depèn el mètode de fer alguna cosa bé cada vegada== (o cada dia), ==més s'allunyen les dues barres|o==. Un implant, un cop col·locat, no depèn de res; una píndola depèn de cada dia; un preservatiu, de cada vegada. I el ==mètode del calendari|r== depèn de cada cicle ==i a més cal encertar-lo== — i a la sessió 2 ja vas veure, amb el cicle de la Laia, que el dia d'ovulació ==no és fix==.",
       type: "concept",
       image: "/images/sa4-s4-eficacia-us-real.svg"
     },
@@ -167,7 +175,7 @@ export const sa4s4 = {
       id: "t6",
       apartat: "3",
       heading: "El mite, ==desmuntat==",
-      text: "«Els anticonceptius et fan infèrtil per sempre.» Mirem-ho amb el que sabem. ==Què diu l'evidència|g==: quan es deixa un anticonceptiu hormonal, ==el cicle es restableix==, i els estudis que han seguit ==molta gent durant anys== no troben que la fertilitat quedi tocada a llarg termini. ==I per quina raó l'afirmació no s'aguanta?== Per tres coses alhora: ==(a)== no proposa ==cap mecanisme|r== — no diu ==què== faria l'hormona per espatllar res; ==(b)== no aporta ==cap dada|r==, només casos que algú explica; i ==(c)== confon ==una cosa que passa després== amb ==una cosa que passa per culpa de|r==. Si algú deixa la píndola als 34 anys i triga a tenir un embaràs, la píndola no és l'única cosa que ha canviat: ==també ha canviat l'edat|o==. Això és la ==tercera variable==. I sobre el «la píndola engreixa»: aquí no es discuteix el cos de ningú, es discuteix ==fins on arriba l'afirmació==. Els efectes secundaris ==existeixen== i són ==diferents en cada persona== — per això això es parla amb un professional. El que no té base és el salt de «a algunes persones els passa» a ==«això li passa a tothom, sempre»|r==.",
+      text: "«Els anticonceptius et fan infèrtil per sempre.» Mirem-ho amb el que sabem. ==Què diu l'evidència|g==: quan es deixa un anticonceptiu hormonal, ==el cicle es restableix==, i els estudis que han seguit ==molta gent durant anys== no troben que la fertilitat quedi tocada a llarg termini. ==I per quina raó l'afirmació no s'aguanta?== Per tres coses alhora: ==(a)== no proposa ==cap mecanisme|r== — no diu ==què== faria l'hormona per espatllar res; ==(b)== no aporta ==cap dada|r==, només casos que algú explica; i ==(c)== confon ==una cosa que passa després== amb ==una cosa que passa per culpa de|r==. Si algú deixa la píndola als 34 anys i triga a tenir un embaràs, la píndola no és l'única cosa que ha canviat: ==també ha canviat l'edat|o==. Això té nom: la ==tercera variable|o== — una cosa que ha canviat alhora i que ningú no havia mirat, i que pot estar causant les altres dues. *(A la fitxa de nivell A hi ha una figura que ho dibuixa; a la resta n'hi ha prou amb aquest exemple.)* I sobre el «la píndola engreixa»: aquí no es discuteix el cos de ningú, es discuteix ==fins on arriba l'afirmació==. Els efectes secundaris ==existeixen== i són ==diferents en cada persona== — per això això es parla amb un professional. El que no té base és el salt de «a algunes persones els passa» a ==«això li passa a tothom, sempre»|r==.",
       type: "concept",
       badge: "🔬 El nucli epistèmic del dia",
       image: "/images/sa4-s4-tercera-variable.svg"
