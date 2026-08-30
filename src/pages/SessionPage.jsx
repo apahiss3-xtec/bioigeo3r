@@ -129,6 +129,13 @@ export default function SessionPage() {
     ? session.graphicResources?.filter((g) => !g.apartat) || []
     : session.graphicResources || []
 
+  // `note` es va escriure com a nota de PRODUCCIÓ i per al docent (què ha de
+  // mostrar la figura, quin marcador s'ha fet servir i per què, i de vegades
+  // què és el descobriment de l'activitat) i, tanmateix, es pintava sencera a
+  // la pàgina de l'alumnat. A SA4·S4 això destripava l'apartat 2 sencer.
+  // Des del 30/08, si la figura porta `caption`, és `caption` el que es
+  // publica; `note` queda per al docent i per a les specs. Les figures que
+  // encara no tenen `caption` es comporten com abans.
   const GraphicFigure = ({ g }) => (
     <figure className="card overflow-hidden">
       <img src={asset(g.src)} alt={g.title} className="w-full bg-white" loading="lazy" />
@@ -136,7 +143,7 @@ export default function SessionPage() {
         <strong className="text-[var(--text)]">
           {g.id} · {g.title}
         </strong>{' '}
-        — {g.note}
+        — {g.caption || g.note}
       </figcaption>
     </figure>
   )
