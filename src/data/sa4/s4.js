@@ -32,7 +32,7 @@ export const sa4s4 = {
   isFinalSession: true,
 
   engageQuestion: "Com es decideix una cosa sobre el propi cos sense fer-ho per por ni per un vídeo?",
-  engageContext: "En entrar es recullen, en paper i sense nom, les frases que cadascú va portar de casa. El docent en llegeix tres, barrejades, sense dir de qui són ni preguntar-ho, i n'hi afegeix una quarta: «els anticonceptius et fan infèrtil per sempre», que circula molt. Es projecta el vídeo una sola vegada. Avui l'afirmació no s'accepta ni es rebutja: es comprova. I al final es responen, amb ciència i per escrit, tres preguntes que la classe mateixa va deixar a la bústia el primer dia.",
+  engageContext: "En entrar es recullen, en paper i sense nom, les frases que cadascú va portar de casa. El docent en llegeix tres, barrejades, sense dir de qui són ni preguntar-ho, i n'hi afegeix una quarta: «els anticonceptius et fan infèrtil per sempre», que circula molt. Es projecta el vídeo una sola vegada. Avui l'afirmació no s'accepta ni es rebutja: es comprova. I al final es responen, amb ciència i per escrit, tres preguntes de la bústia del primer dia — les mateixes per a tota la classe, transcrites a màquina i reformulades en tercera persona. Si el que va sortir de la bústia no cobreix els tres objectius, el docent completa amb les tres preguntes freqüents que porta impreses la plantilla.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {
@@ -45,19 +45,19 @@ export const sa4s4 = {
       "Llegeixo una gràfica d'ús perfecte contra ús real i explico d'on ve la diferència.",
       "Dissenyo la comprovació d'una afirmació sobre el cos: variable independent, variable dependent i grup de comparació.",
       "Distingeixo correlació de causalitat i proposo la tercera variable que explicaria les dues coses alhora.",
-      "Desmunto un mite amb el checklist i dic què s'hauria de mesurar per comprovar-lo."
+      "Desmunto un mite amb la graella de comprovació i dic què s'hauria de mesurar per comprovar-lo."
     ],
     B: [
       "Explico on talla la cadena cada família de mètodes (hormonal, de barrera, DIU de coure) i per quina raó això evita l'embaràs.",
       "Justifico per quina raó només la família de barrera protegeix també d'ITS.",
       "Llegeixo una gràfica d'ús perfecte contra ús real i explico d'on ve la diferència.",
       "Passo el checklist CRITIC a una afirmació viral i dic com es comprovaria.",
-      "Escric una resposta de salut basada en fisiologia i en una font fiable, sense judicis sobre ningú."
+      "Escric una resposta de salut basada en com funciona el cos i en una font fiable, sense judicis sobre ningú."
     ],
     C: [
-      "Sé que només el preservatiu protegeix també de les ITS.",
-      "Sé dir què fa la píndola: fer que no surti l'òvul.",
-      "Sé que el mètode del calendari no fa res al cos i per això falla molt.",
+      "Sé dir quin mètode protegeix també de les ITS, i per quina raó aquell i no un altre.",
+      "Sé dir en quin punt de la cadena actua la píndola.",
+      "Sé explicar per quina raó el mètode del calendari falla molt més que els altres.",
       "Sé distingir una anècdota d'una prova.",
       "Sé escriure una resposta amb una font fiable i sense jutjar ningú."
     ]
@@ -113,7 +113,7 @@ export const sa4s4 = {
     "ATENCIÓ: una de les vuit no encaixa a cap columna. Quan la trobeu, deixeu-la a part i escriviu per quina raó no hi encaixa. No és cap error: és el punt de l'activitat",
     "Moment epistèmic: «a una amiga meva li va passar» — quantes amigues fan una prova? Què hauria de tenir una comprovació perquè te la creguessis?"
   ],
-  exploreDuration: "30 min (15 min de CRITIC + 15 min de targetes; apartats 1 i 2 de la fitxa)",
+  exploreDuration: "50 min en total: 15 min de CRITIC (apartat 1) + 35 min d'apartat 2, dels quals els primers 15 són les targetes en grup",
   exploreMaterials: [
     "El vídeo viral projectat una sola vegada, o la seva transcripció impresa",
     "Targetes de mètodes — 1 joc per grup de 3 (vuit targetes retallables, sense la família escrita)",
@@ -144,9 +144,10 @@ export const sa4s4 = {
       id: "t2",
       apartat: "2",
       heading: "La ==cadena de quatre baules== i on talla cada família",
-      text: "Perquè hi hagi un embaràs han de passar ==quatre coses seguides|o==: ==① el cervell dona l'ordre d'ovular== (les hormones de la hipòfisi) → ==② surt l'òvul== de l'ovari → ==③ els gàmetes es troben== a la trompa → ==④ l'embrió s'implanta== a la paret de l'úter. ==Si en falla una, no hi ha embaràs|g==. Per això cada família de mètodes ==talla la cadena en un punt diferent==. ==Hormonals|o== (píndola, pegat, anell, implant, DIU hormonal): aporten hormones que fan que ==no arribi l'ordre d'ovular== → tallen a ==①-②==; a més espesseixen el moc del coll de l'úter. ==De barrera|b== (preservatiu extern i intern): impedeixen físicament que el semen entri en contacte amb la vagina → tallen a ==③==. ==DIU de coure|g==: els ions de coure fan l'ambient ==tòxic per als espermatozoides== i, si tot i així hi ha fecundació, dificulten la implantació → talla a ==③-④==. I el ==mètode del calendari|r== ==no talla res==: no fa res al cos, només intenta endevinar quins dies són fèrtils.",
+      text: "Perquè hi hagi un embaràs han de passar ==quatre coses seguides|o==: ==① el cervell dona l'ordre d'ovular== (les hormones de la hipòfisi) → ==② surt l'òvul== de l'ovari → ==③ els gàmetes es troben== a la trompa → ==④ l'embrió s'implanta== a la paret de l'úter. ==Si en falla una, no hi ha embaràs|g==. Per això cada família de mètodes ==talla la cadena en un punt diferent==. ==Hormonals|o== (píndola combinada, pegat transdèrmic, implant subcutani): aporten hormones que fan que ==no arribi l'ordre d'ovular== → tallen a ==①-②==. Gairebé tots els mètodes fan ==més d'una cosa alhora|g== —els hormonals també espesseixen el moc del coll de l'úter, que és una segona tanca a ③—, però la figura marca ==on talla principalment== cada família, que és el que se't demanarà. ==De barrera|b== (preservatiu extern i intern): impedeixen físicament que el semen entri en contacte amb la vagina → tallen a ==③==. ==DIU de coure|g==: els ions de coure fan l'ambient ==tòxic per als espermatozoides== —això és el principal— i, si tot i així hi ha fecundació, dificulten la implantació → talla a ==③ i ④==. I el ==mètode del calendari|r== ==no talla res==: no fa res al cos, només intenta endevinar quins dies són fèrtils.",
       type: "concept",
-      image: "/images/sa4-s4-cadena-metodes.svg"
+      image: "/images/sa4-s4-cadena-metodes.svg",
+      imageCaption: "A dalt, les quatre baules: ① l'ordre d'ovular · ② surt l'òvul · ③ els gàmetes es troben a la trompa · ④ l'embrió s'implanta. A baix, cada família amb la seva lletra en un quadrat de color: [A] hormonals · [B] de barrera · [C] DIU de coure · [D] mètode del calendari. Cada ✗ cau just sota la baula que aquella família talla principalment, i les línies verticals de punts serveixen per comprovar-ho. La fila [D] no té cap ✗: aquest buit és la resposta, no un oblit."
     },
     {
       id: "t3",
@@ -169,7 +170,8 @@ export const sa4s4 = {
       heading: "==Ús perfecte== i ==ús real==: la distància entre les dues barres",
       text: "Els mètodes es comparen amb una xifra: quantes persones de cada ==100== tenen un embaràs no buscat ==en un any==. I sempre se'n donen ==dues|o==: la de l'==ús perfecte== (fent-ho sempre bé, sense cap badada) i la de l'==ús real== (com ho fa la gent de veritat). ==La segona mai no és millor|r== —i sovint és molt pitjor—, però no en la mateixa mesura per a tots: n'hi ha que tenen les dues barres iguals. com ==més depèn el mètode de fer alguna cosa bé cada vegada== (o cada dia), ==més s'allunyen les dues barres|o==. Un implant, un cop col·locat, no depèn de res; una píndola depèn de cada dia; un preservatiu, de cada vegada. I el ==mètode del calendari|r== depèn de cada cicle ==i a més cal encertar-lo== — i a la sessió 2 ja vas veure, amb el cicle de la Laia, que el dia d'ovulació ==no és fix==.",
       type: "concept",
-      image: "/images/sa4-s4-eficacia-us-real.svg"
+      image: "/images/sa4-s4-eficacia-us-real.svg",
+      imageCaption: "Embarassos no buscats per cada 100 persones en un any: (i) implant subcutani · (ii) píndola combinada · (iii) preservatiu extern · (iv) mètode del calendari. Les dues barres d'un mateix mètode són del mateix color: la buida amb ratlles és l'ús perfecte i la plena és l'ús real. Com més amunt arriba la barra, pitjor. Punt de partida per comparar: sense cap mètode, unes 85 de cada 100 — no surt a la gràfica perquè aixafaria les barres petites. Les dues barres més baixes estan dibuixades una mica més altes del que tocaria perquè es puguin veure: fes servir les xifres impreses, no el regle."
     },
     {
       id: "t6",
@@ -178,7 +180,8 @@ export const sa4s4 = {
       text: "«Els anticonceptius et fan infèrtil per sempre.» Mirem-ho amb el que sabem. ==Què diu l'evidència|g==: quan es deixa un anticonceptiu hormonal, ==el cicle es restableix==, i els estudis que han seguit ==molta gent durant anys== no troben que la fertilitat quedi tocada a llarg termini. ==I per quina raó l'afirmació no s'aguanta?== Per tres coses alhora: ==(a)== no proposa ==cap mecanisme|r== — no diu ==què== faria l'hormona per espatllar res; ==(b)== no aporta ==cap dada|r==, només casos que algú explica; i ==(c)== confon ==una cosa que passa després== amb ==una cosa que passa per culpa de|r==. Si algú deixa la píndola als 34 anys i triga a tenir un embaràs, la píndola no és l'única cosa que ha canviat: ==també ha canviat l'edat|o==. Això té nom: la ==tercera variable|o== — una cosa que ha canviat alhora i que ningú no havia mirat, i que pot estar causant les altres dues. *(A la fitxa de nivell A hi ha una figura que ho dibuixa; a la resta n'hi ha prou amb aquest exemple.)* I sobre el «la píndola engreixa»: aquí no es discuteix el cos de ningú, es discuteix ==fins on arriba l'afirmació==. Els efectes secundaris ==existeixen== i són ==diferents en cada persona== — per això això es parla amb un professional. El que no té base és el salt de «a algunes persones els passa» a ==«això li passa a tothom, sempre»|r==.",
       type: "concept",
       badge: "🔬 El nucli epistèmic del dia",
-      image: "/images/sa4-s4-tercera-variable.svg"
+      image: "/images/sa4-s4-tercera-variable.svg",
+      imageCaption: "Rètols en lletra dins d'un quadrat buit: X deixar l'anticonceptiu · Y trigar a tenir un embaràs · Z l'edat, que ha canviat alhora. La fletxa de guions amb el ? vermell és la conclusió que la gent dona per bona i que no està demostrada; les dues fletxes taronges són l'explicació alternativa, que Z causa X i Y a la vegada."
     },
     {
       id: "t7",
@@ -191,9 +194,9 @@ export const sa4s4 = {
   ],
 
   graphicResources: [
-    { id: "F1", apartat: "2", title: "La cadena i on talla cada família", src: "/images/sa4-s4-cadena-metodes.svg", note: "A dalt, les quatre baules amb marcadors ①-④. A baix, quatre files amb marcadors Ⓐ-Ⓓ EN QUADRAT (sistema diferent del rodó, perquè no es confonguin amb les baules) i una ✗ sota cada baula que talla aquella família. La fila Ⓓ no en té cap: aquest buit és el missatge, no un oblit. Cap paraula dins la imatge; les etiquetes són la llegenda de la fitxa." },
-    { id: "F2", apartat: "2", title: "Ús perfecte contra ús real", src: "/images/sa4-s4-eficacia-us-real.svg", note: "Barres aparellades: embarassos no buscats per cada 100 persones en un any. Barra clara = ús perfecte, barra plena = ús real. Ⓐ implant · Ⓑ píndola · Ⓒ preservatiu · Ⓓ calendari · Ⓔ cap mètode. Marcadors amb LLETRA i no amb número, perquè a la mateixa pàgina hi ha F1 amb els ①-④. Xifres aproximades d'organismes de salut: serveixen per comparar mètodes, no per predir res d'una persona concreta." },
-    { id: "F3", apartat: "3", title: "La tercera variable", src: "/images/sa4-s4-tercera-variable.svg", note: "① deixar l'anticonceptiu · ② trigar a tenir un embaràs · ③ l'edat, que ha canviat alhora. La fletxa ratllada entre ① i ② és la conclusió que la gent dona per bona; les dues taronges són l'explicació alternativa. Només és a la fitxa de nivell A: als altres dos nivells la idea es treballa amb text, sense la figura." }
+    { id: "F1", apartat: "2", title: "La cadena i on talla cada família", src: "/images/sa4-s4-cadena-metodes.svg", note: "A dalt, les quatre baules amb marcadors ①-④. A baix, quatre files amb marcadors [A]-[D] en QUADRAT DE COLOR PLE (sistema diferent del rodó de les baules, perquè no es confonguin) i una ✗ sota cada baula que talla aquella família. La fila [D] no en té cap: aquest buit és el missatge, no un oblit. Cap paraula dins la imatge; les etiquetes són la llegenda de la fitxa." },
+    { id: "F2", apartat: "2", title: "Ús perfecte contra ús real", src: "/images/sa4-s4-eficacia-us-real.svg", note: "Barres aparellades: embarassos no buscats per cada 100 persones en un any. Les dues barres del mateix mètode són del MATEIX color: el que es mira no és el color sinó l'emplenat — barra buida per dins = ús perfecte, barra plena = ús real. (i) implant · (ii) píndola · (iii) preservatiu · (iv) calendari · (v) cap mètode. Marcadors en NÚMERO ROMÀ dins d'un rètol arrodonit i buit, perquè a la mateixa pàgina F1 ja fa servir els ①-④ (baules) i els [A]-[D] (famílies): tres sistemes, tres significats. Xifres aproximades d'organismes de salut: serveixen per comparar mètodes, no per predir res d'una persona concreta." },
+    { id: "F3", apartat: "3", title: "La tercera variable", src: "/images/sa4-s4-tercera-variable.svg", note: "Rètols en LLETRA dins d'un quadrat buit, que és el sistema que es fa servir per parlar de causes: X deixar l'anticonceptiu · Y trigar a tenir un embaràs · Z l'edat, que ha canviat alhora. La fletxa de punts entre X i Y, amb un ? vermell al mig, és la conclusió que la gent dona per bona i que no està demostrada; les dues fletxes taronges són l'explicació alternativa (Z causa X i Y alhora). Només és a la fitxa de nivell A: als altres dos nivells la idea es treballa amb text, sense la figura." }
   ],
 
   fitxaUrls: {
@@ -212,13 +215,13 @@ export const sa4s4 = {
         "A la casella d'Idees, pregunta't si el vídeo diu QUÈ passaria al cos. Si no proposa cap mecanisme, ja saps una cosa important.",
         "«Es pot comprovar?» i «és veritat?» no són la mateixa pregunta. Contesta primer la primera."
       ] },
-      { apartat: "2", title: "Els mètodes: on talla cadascun", time: "37 min", phase: "explica", instruction: "Apartat 2: primer les targetes en grup (15 min) i després la teoria, les figures i les preguntes. Col·loqueu cada targeta a la columna del seu mecanisme; una no hi encaixa. Després mira la figura F1 i digues on talla la cadena cada família.", hints: [
+      { apartat: "2", title: "Els mètodes: on talla cadascun", time: "35 min (tots els nivells)", phase: "explica", instruction: "Apartat 2: primer les targetes en grup (15 min) i després la teoria, les figures i les preguntes. Col·loqueu cada targeta a la columna del seu mecanisme; una no hi encaixa. Després mira la figura F1 i digues on talla la cadena cada família.", hints: [
         "A cap targeta no hi diu de quina família és: has de deduir-ho del que FA. Pregunta't sempre «i això, què li fa al cos?».",
         "Per a la que no encaixa: fixa't que la seva targeta no diu que es prengui res ni que es col·loqui res. Aquesta és la pista.",
         "Per saber quina família protegeix d'ITS, no et preguntis quina és més eficaç contra l'embaràs: pregunta't quina atura els FLUIDS.",
         "A la figura F2, la distància entre les dues barres d'un mètode et diu com de sensible és a les badades. Compara-la amb la columna que has omplert a la graella."
       ] },
-      { apartat: "3", title: "El producte final: la fitxa informativa", time: "23 min", phase: "elabora", instruction: "Apartat 3: llegeix les càpsules del mite i de com es decideix, i comença la fitxa informativa amb la teva parella sobre la plantilla impresa. Les tres preguntes són les mateixes per a tota la classe. Tingues la rúbrica al davant mentre escrius: no és una sorpresa del final.", hints: [
+      { apartat: "3", title: "El producte final: la fitxa informativa", time: "22 min · 25 min al nivell d'ampliació", phase: "elabora", instruction: "Apartat 3: llegeix les càpsules del mite i de com es decideix, i comença la fitxa informativa amb la teva parella sobre la plantilla impresa. Les tres preguntes són les mateixes per a tota la classe. Tingues la rúbrica al davant mentre escrius: no és una sorpresa del final.", hints: [
         "Escriu la resposta a la primera frase i explica-la després. Si has de llegir tot el paràgraf per saber si la resposta és sí o no, encara no hi és.",
         "«Què passa al cos» vol dir el mecanisme, no el consell. «Cal fer servir preservatiu» no és un mecanisme; «el preservatiu atura els fluids, i és pels fluids que passen els patògens» sí que ho és.",
         "Rellegiu-ho buscant els «s'hauria de» i els «està malament»: cada un d'aquests es pot reescriure com un «passa això, i per aquesta raó»."
@@ -241,7 +244,7 @@ export const sa4s4 = {
   ],
 
   homework: {
-    description: "Acabar la fitxa informativa amb la parella i lliurar-la a Classroom. Recorda les quatre coses de la rúbrica: la resposta directa a la primera frase · què passa al cos · d'on ho heu tret · sense jutjar ningú. Per què no es pot delegar a una IA: es comença a classe sobre la plantilla, durant 23 minuts i amb el professor voltant, de manera que el que arribi ha de ser continuació del que ell ha vist començar; i el formulari d'avui, fet a classe i sense ajuda, avalua els mateixos objectius — una fitxa impecable amb un formulari que no distingeix una barrera d'una hormona és una discrepància que es veu.",
+    description: "Acabar la fitxa informativa amb la parella i lliurar-la a Classroom. Recorda les quatre coses de la rúbrica: la resposta directa a la primera frase · què passa al cos · d'on ho heu tret · sense jutjar ningú. Per què no es pot delegar a una IA: es comença a classe sobre la plantilla, durant una vintena llarga de minuts i amb el professor voltant, de manera que el que arribi ha de ser continuació del que ell ha vist començar; i el formulari d'avui, fet a classe i sense ajuda, avalua els mateixos objectius — una fitxa impecable amb un formulari que no distingeix una barrera d'una hormona és una discrepància que es veu.",
     deadline: "una setmana"
   },
   recoveryInstructions: [
