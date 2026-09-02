@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="ca"><head><meta charset="UTF-8">
+<title>Targetes d'espècie — Sessió 1 — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@300;400;600;700;900&amp;family=Crimson+Pro:ital@0;1&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+:root{--p:#2E7BA6;--pi:#12405C;--pl:#9CCBE2;--pt:#E8F3F9;--ink:#1A1A2E;
+      --rule:#CFE4EE;--muted:#5F7D8A;--g:#4A9E5C;--gt:#EAF4EC}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Fira Sans Extra Condensed',sans-serif;background:#7FB3CC;color:var(--ink);
+     padding:46px 18px 50px}
+#tb{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,32,46,.93);height:40px;
+    display:flex;align-items:center;gap:10px;padding:0 18px}
+#tb span{font-family:Inter,sans-serif;font-size:11px;color:rgba(190,220,235,.7);flex:1}
+#tb button{font-family:Inter,sans-serif;font-size:12px;font-weight:600;border:none;
+           border-radius:6px;padding:6px 13px;cursor:pointer;background:var(--p);color:#fff}
+.page{width:794px;margin:0 auto 22px;background:#fff;box-shadow:0 2px 26px rgba(0,0,0,.2);
+      padding:18px}
+.ph{display:flex;align-items:baseline;gap:10px;border-bottom:2px solid var(--rule);
+    padding-bottom:8px;margin-bottom:14px}
+.ph h1{font-size:19px;font-weight:900;color:var(--pi)}
+.ph .s{font-size:11.5px;color:var(--muted);font-style:italic}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{border:2.5px solid var(--p);border-radius:14px;padding:11px 13px;min-height:214px;
+      display:flex;flex-direction:column;break-inside:avoid}
+.card.prod{border-color:var(--g);background:var(--gt)}
+.card.desc{border-color:var(--g);background:var(--gt);border-style:dashed}
+.card.inv{border-color:#C0392B;background:#FDF2F0}
+.card.inv .nom{color:#8f2418}
+.card .ico{font-size:40px;text-align:center;line-height:1.1}
+.card .nom{font-size:23px;font-weight:900;text-align:center;color:var(--pi);margin-top:2px}
+.card.prod .nom,.card.desc .nom{color:#2f6b3c}
+.card .rol{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+           text-align:center;color:var(--muted);margin-bottom:8px}
+.card .ln{font-size:12.5px;line-height:1.4;border-top:1px solid var(--rule);padding-top:6px;
+          margin-top:auto}
+.card .ln b{color:var(--pi)}
+.card .lb{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+          color:var(--muted)}
+.tall{margin-top:10px;border-top:1.5px dashed var(--pl);padding-top:6px;font-size:10px;
+      color:var(--muted);font-style:italic;text-align:center}
+/* cartell */
+.poster{width:1123px;height:794px;margin:0 auto;background:#fff;position:relative;
+        box-shadow:0 2px 26px rgba(0,0,0,.2);overflow:hidden;display:flex;flex-direction:column}
+.poster .img{flex:1;background:var(--pt);position:relative;overflow:hidden}
+.poster .img img{width:100%;height:100%;object-fit:cover;display:block}
+.poster .ph2{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+             font-size:15px;color:var(--muted);font-style:italic;text-align:center;padding:30px}
+.poster .txt{background:linear-gradient(135deg,#12405C,#2E7BA6);color:#fff;padding:26px 44px}
+.poster .kick{font-size:13px;letter-spacing:.24em;text-transform:uppercase;opacity:.65}
+.poster h1{font-size:52px;font-weight:900;line-height:1.05;margin:6px 0 10px}
+.poster p{font-size:22px;opacity:.9;font-family:'Crimson Pro',serif;font-style:italic}
+@media print{
+  @page{size:A4;margin:9mm}
+  body{background:#fff;padding:0}
+  #tb{display:none}
+  .page{width:100%;box-shadow:none;margin:0;page-break-after:always;padding:0}
+  .poster{width:100%;height:auto;box-shadow:none}
+}
+</style></head><body>
+<div id="tb"><span>13 targetes · 3 pàgines A4 · retalla-les i reparteix-les. La del cranc NO es reparteix al principi: entra a la tercera prova</span>
+<button onclick="window.print()">🖨️ Imprimir / PDF</button></div>
+<div class="page"><div class="ph"><h1>La xarxa de la vida · Sessió 1</h1><div class="s">Targetes d'espècie per a la xarxa de fils — full 1 de 3</div></div><div class="grid"><div class="card prod"><div class="ico">🟢</div><div class="nom">Algues</div><div class="rol">Productor</div><div class="ln"><div class="lb">Menjo</div>Em fabrico el menjar amb la <b>llum del sol</b></div><div class="ln"><div class="lb">Em menja</div>L'insecte aquàtic</div><div class="tall">Retalla i penja-te-la al coll</div></div><div class="card prod"><div class="ico">🌿</div><div class="nom">Plantes de ribera</div><div class="rol">Productor</div><div class="ln"><div class="lb">Menjo</div>Em fabrico el menjar amb la <b>llum del sol</b></div><div class="ln"><div class="lb">Em menja</div>El cargol i l'ànec</div><div class="tall">Retalla i penja-te-la al coll</div></div><div class="card "><div class="ico">🦟</div><div class="nom">Insecte aquàtic</div><div class="rol">Consumidor</div><div class="ln"><div class="lb">Menjo</div>Les algues</div><div class="ln"><div class="lb">Em menja</div>El peix petit i la granota</div><div class="tall">Retalla i penja-te-la al coll</div></div><div class="card "><div class="ico">🐌</div><div class="nom">Cargol</div><div class="rol">Consumidor</div><div class="ln"><div class="lb">Menjo</div>Les plantes de ribera</div><div class="ln"><div class="lb">Em menja</div>La granota</div><div class="tall">Retalla i penja-te-la al coll</div></div><div class="card "><div class="ico">🦆</div><div class="nom">Ànec</div><div class="rol">Consumidor</div><div class="ln"><div class="lb">Menjo</div>Les plantes de ribera</div><div class="ln"><div class="lb">Em menja</div>Ningú d'aquest riu</div><div class="tall">Retalla i penja-te-la al coll</div></div><div class="card "><div class="ico">🐟</div><div class="nom">Peix petit</div><div class="rol">Consumidor</div><div class="ln"><div class="lb">Menjo</div>L'insecte aquàtic</div><div class="ln"><div class="lb">Em menja</div>La truita</div><div class="tall">Retalla i penja-te-la al coll</div></div></div></div><div class="page"><div class="ph"><h1>La xarxa de la vida · Sessió 1</h1><div class="s">Targetes d'espècie per a la xarxa de fils — full 2 de 3</div></div><div class="grid"><div class="card "><div class="ico">🐸</div><div class="nom">Granota</div><div class="rol">Consumidor</div><div class="ln"><div class="lb">Menjo</div>L'insecte aquàtic i el cargol</div><div class="ln"><div class="lb">Em menja</div>La garsa</div><div class="tall">Retalla i penja-te-la al coll</div></div><div class="card "><div class="ico">🐠</div><div class="nom">Truita</div><div class="rol">Consumidor</div><div class="ln"><div class="lb">Menjo</div>El peix petit</div><div class="ln"><div class="lb">Em menja</div>La llúdriga</div><div class="tall">Retalla i penja-te-la al coll</div></div><div class="card "><div class="ico">🐦</div><div class="nom">Garsa</div><div class="rol">Consumidor</div><div class="ln"><div class="lb">Menjo</div>La granota</div><div class="ln"><div class="lb">Em menja</div>Ningú d'aquest riu</div><div class="tall">Retalla i penja-te-la al coll</div></div><div class="card "><div class="ico">🦦</div><div class="nom">Llúdriga</div><div class="rol">Depredador de dalt</div><div class="ln"><div class="lb">Menjo</div>La truita</div><div class="ln"><div class="lb">Em menja</div>Ningú: sóc a dalt de tot</div><div class="tall">Retalla i penja-te-la al coll</div></div><div class="card desc"><div class="ico">🦠</div><div class="nom">Bacteris</div><div class="rol">Descomponedor</div><div class="ln"><div class="lb">Menjo</div>Tot el que mor, sigui qui sigui</div><div class="ln"><div class="lb">Em menja</div>Ningú</div><div class="tall">Al joc dels fils no n'estires cap: aixeca la mà cada cop que algú caigui</div></div><div class="card desc"><div class="ico">🍄</div><div class="nom">Fongs</div><div class="rol">Descomponedor</div><div class="ln"><div class="lb">Menjo</div>Tot el que mor, sigui qui sigui</div><div class="ln"><div class="lb">Em menja</div>Ningú</div><div class="tall">Al joc dels fils no n'estires cap: aixeca la mà cada cop que algú caigui</div></div></div></div><div class="page"><div class="ph"><h1>La xarxa de la vida · Sessió 1</h1><div class="s">Targetes d'espècie per a la xarxa de fils — full 3 de 3</div></div><div class="grid"><div class="card inv"><div class="ico">🦞</div><div class="nom">Cranc de riu americà</div><div class="rol">Espècie invasora</div><div class="ln"><div class="lb">Menjo</div><b>Gairebé de tot</b>: algues, plantes, insectes, cargols i ous de peix</div><div class="ln"><div class="lb">Em menja</div>Ningú d'aquest riu: no hi té depredadors</div><div class="tall">El professor la reparteix a la TERCERA prova, no al principi</div></div></div></div></body></html>

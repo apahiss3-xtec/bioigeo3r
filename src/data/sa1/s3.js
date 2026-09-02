@@ -235,7 +235,7 @@ export const sa1s3 = {
   ],
 
   homework: {
-    description: "Decideix l'angle del teu pòster per a S4: quin aspecte de la cèl·lula vols comunicar i a quin públic?",
+    description: "Llegeix l'enunciat del repte final (el cas de l'Elna) i porta pensades dues coses: quin diagrama original faràs i quina experiència personal hi explicaràs.",
     deadline: "2026-09-XX"
   },
 

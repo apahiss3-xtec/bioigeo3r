@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" width="900" height="330" font-family="Fira Sans Extra Condensed, Fira Sans Condensed, Arial Narrow, sans-serif">
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E7BA6"/>
+  </marker>
+  <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#4A9E5C"/>
+  </marker>
+</defs>
+<rect width="900" height="330" fill="#FFFFFF"/>
+<text x="450.0" y="36" font-size="24" fill="#12405C" font-weight="700" text-anchor="middle">Tres maneres de relacionar-se</text>
+<rect x="30" y="62" width="272" height="238" rx="14" fill="#FFF6E2" stroke="#D98B34" stroke-width="3"/>
+<text x="166" y="96" font-size="20" fill="#D98B34" font-weight="700" text-anchor="middle">COMPETÈNCIA</text>
+<line x1="70" y1="110" x2="262" y2="110" stroke="#D98B34" stroke-width="2"/>
+<text x="166" y="140" font-size="17" fill="#1A1A2E" font-weight="600" text-anchor="middle">Els dos volen el mateix</text>
+<text x="166" y="164" font-size="17" fill="#1A1A2E" font-weight="600" text-anchor="middle">i no n'hi ha per a tots dos</text>
+<text x="166" y="212" font-size="14" fill="#5F7D8A" font-weight="400" text-anchor="middle" font-style="italic">Per exemple:</text>
+<text x="166" y="238" font-size="15.5" fill="#1A1A2E" font-weight="400" text-anchor="middle">Dos ocells volen el mateix forat</text>
+<rect x="320" y="62" width="272" height="238" rx="14" fill="#FDF2F0" stroke="#C0392B" stroke-width="3"/>
+<text x="456" y="96" font-size="20" fill="#C0392B" font-weight="700" text-anchor="middle">DEPREDACIÓ</text>
+<line x1="360" y1="110" x2="552" y2="110" stroke="#C0392B" stroke-width="2"/>
+<text x="456" y="140" font-size="17" fill="#1A1A2E" font-weight="600" text-anchor="middle">Un es menja l'altre</text>
+<text x="456" y="212" font-size="14" fill="#5F7D8A" font-weight="400" text-anchor="middle" font-style="italic">Per exemple:</text>
+<text x="456" y="238" font-size="15.5" fill="#1A1A2E" font-weight="400" text-anchor="middle">La llúdriga es menja la truita</text>
+<rect x="610" y="62" width="272" height="238" rx="14" fill="#EAF4EC" stroke="#4A9E5C" stroke-width="3"/>
+<text x="746" y="96" font-size="20" fill="#4A9E5C" font-weight="700" text-anchor="middle">MUTUALISME</text>
+<line x1="650" y1="110" x2="842" y2="110" stroke="#4A9E5C" stroke-width="2"/>
+<text x="746" y="140" font-size="17" fill="#1A1A2E" font-weight="600" text-anchor="middle">Els dos hi guanyen</text>
+<text x="746" y="212" font-size="14" fill="#5F7D8A" font-weight="400" text-anchor="middle" font-style="italic">Per exemple:</text>
+<text x="746" y="238" font-size="15.5" fill="#1A1A2E" font-weight="400" text-anchor="middle">L'abella menja de la flor</text>
+<text x="746" y="260" font-size="15.5" fill="#1A1A2E" font-weight="400" text-anchor="middle">i li escampa el pol·len</text>
+</svg>

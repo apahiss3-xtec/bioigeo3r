@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" font-family="Fira Sans Extra Condensed, Fira Sans Condensed, Arial Narrow, sans-serif">
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E7BA6"/>
+  </marker>
+  <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#4A9E5C"/>
+  </marker>
+</defs>
+<rect width="900" height="300" fill="#FFFFFF"/>
+<text x="450.0" y="34" font-size="23" fill="#12405C" font-weight="700" text-anchor="middle">Qui es menja qui al riu</text>
+<text x="450.0" y="58" font-size="15" fill="#5F7D8A" font-weight="400" text-anchor="middle" font-style="italic">La fletxa vol dir «se'l menja el següent»</text>
+<rect x="22" y="96" width="148" height="60" rx="8" fill="#E8F3F9" stroke="#2E7BA6" stroke-width="2"/>
+<text x="96.0" y="131.0" font-size="17" fill="#1A1A2E" font-weight="600" text-anchor="middle">Alga</text>
+<line x1="174" y1="126.0" x2="196" y2="126.0" stroke="#2E7BA6" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="200" y="96" width="148" height="60" rx="8" fill="#E8F3F9" stroke="#2E7BA6" stroke-width="2"/>
+<text x="274.0" y="131.0" font-size="17" fill="#1A1A2E" font-weight="600" text-anchor="middle">Insecte</text>
+<line x1="352" y1="126.0" x2="374" y2="126.0" stroke="#2E7BA6" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="378" y="96" width="148" height="60" rx="8" fill="#E8F3F9" stroke="#2E7BA6" stroke-width="2"/>
+<text x="452.0" y="131.0" font-size="17" fill="#1A1A2E" font-weight="600" text-anchor="middle">Peix petit</text>
+<line x1="530" y1="126.0" x2="552" y2="126.0" stroke="#2E7BA6" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="556" y="96" width="148" height="60" rx="8" fill="#E8F3F9" stroke="#2E7BA6" stroke-width="2"/>
+<text x="630.0" y="131.0" font-size="17" fill="#1A1A2E" font-weight="600" text-anchor="middle">Truita</text>
+<line x1="708" y1="126.0" x2="730" y2="126.0" stroke="#2E7BA6" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="734" y="96" width="148" height="60" rx="8" fill="#E8F3F9" stroke="#2E7BA6" stroke-width="2"/>
+<text x="808.0" y="131.0" font-size="17" fill="#1A1A2E" font-weight="600" text-anchor="middle">Llúdriga</text>
+<rect x="360" y="200" width="210" height="54" rx="8" fill="#EAF4EC" stroke="#4A9E5C" stroke-width="2"/>
+<text x="465.0" y="232.0" font-size="16" fill="#1A1A2E" font-weight="600" text-anchor="middle">Fongs i bacteris</text>
+<text x="465" y="274" font-size="14.5" fill="#1A1A2E" font-weight="600" text-anchor="middle">desfan el que mor i ho tornen a l'alga</text>
+<line x1="360" y1="227" x2="96" y2="162" stroke="#4A9E5C" stroke-width="2.4" marker-end="url(#arg)" stroke-dasharray="5 4"/>
+</svg>

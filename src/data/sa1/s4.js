@@ -15,15 +15,15 @@ export const sa1s4 = {
     what: "Individual: planifica el teu pòster sobre el cas de l'Elna (el tall al dit), decideix quines seccions hi posaràs i comença a elaborar-lo en digital.",
     who: { mode: "individual", label: "Individual" },
     time: 40,
-    note: "Temporitzador per a l'elaboració (40 min). Abans, 25 min de planificació sense cronometrar: seccions, diagrama propi i connexió personal."
+    note: "40 min per planificar i començar el pòster (seccions, diagrama propi i connexió personal). Després es fa la prova escrita individual (50 min); el pòster s'acaba a casa."
   },
   exploreInstructions: [
     "Llegeix el cas de l'Elna i decideix quines seccions tindrà el teu pòster (el full de l'enunciat en llista sis)",
     "Fes-lo en digital, mida DIN A3 (Canva, Slides, etc.). L'imprimeix el docent, no tu",
     "Dissenya tu mateix/a el diagrama del procés clau: no pot ser una imatge copiada",
-    "Tens 40 minuts per elaborar-lo"
+    "Tens 40 minuts per planificar-lo i començar-lo: l'acabaràs a casa"
   ],
-  exploreDuration: "25 min (planificació) + 40 min (elaboració)",
+  exploreDuration: "40 min (planificació i inici) + 50 min (prova escrita)",
 
   theoryPoints: [
     {
@@ -64,7 +64,7 @@ export const sa1s4 = {
   ],
 
   homework: {
-    description: "Acabar i entregar el pòster via Google Classroom si no s'ha acabat a classe.",
+    description: "Acaba el pòster i puja'l a Google Classroom (PDF o imatge). La setmana següent, grava i entrega el vídeo de 2-3 minuts explicant-lo sense llegir.",
     deadline: "A concretar a Google Classroom"
   },
 

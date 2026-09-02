@@ -66,8 +66,8 @@ export const sa1Avaluacio = {
         ],
         correct: 0,
         feedback: {
-          correct: "Correcte. El medi salat està molt concentrat, així que per osmosi l'aigua surt de les cèl·lules de l'arrel: el mateix que vas veure amb l'ou en aigua sucrada.",
-          wrong: "Recorda l'ou en aigua sucrada. L'aigua de mar és un medi molt concentrat: cap a quina banda es mou l'aigua per osmosi?"
+          correct: "Correcte. El medi salat està molt concentrat, així que per osmosi l'aigua surt de les cèl·lules de l'arrel: el mateix que vas veure amb l'ou en aigua molt salada.",
+          wrong: "Recorda l'ou en aigua molt salada. L'aigua de mar és un medi molt concentrat: cap a quina banda es mou l'aigua per osmosi?"
         }
       },
       {

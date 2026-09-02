@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 712" width="900" height="712" font-family="Fira Sans Extra Condensed, Fira Sans Condensed, Arial Narrow, sans-serif">
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E7BA6"/>
+  </marker>
+  <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#4A9E5C"/>
+  </marker>
+</defs>
+<rect width="900" height="712" fill="#FFFFFF"/>
+<text x="450.0" y="30" font-size="22" fill="#12405C" font-weight="700" text-anchor="middle">La xarxa tròfica del riu</text>
+<text x="450.0" y="52" font-size="14" fill="#5F7D8A" font-weight="400" text-anchor="middle" font-style="italic">Cada fletxa vol dir «serveix d'aliment a» i va del que és menjat cap al que menja</text>
+<rect x="20" y="66" width="860" height="92" rx="10" fill="#E8F3F9" opacity="0.45"/>
+<text x="30" y="82" font-size="11.5" fill="#12405C" font-weight="700" text-anchor="start">EL DEPREDADOR DE DALT</text>
+<rect x="20" y="166" width="860" height="92" rx="10" fill="#E8F3F9" opacity="0.45"/>
+<text x="30" y="182" font-size="11.5" fill="#12405C" font-weight="700" text-anchor="start">MENGEN ANIMALS</text>
+<rect x="20" y="266" width="860" height="92" rx="10" fill="#E8F3F9" opacity="0.45"/>
+<text x="30" y="282" font-size="11.5" fill="#12405C" font-weight="700" text-anchor="start">MENGEN ANIMALS PETITS</text>
+<rect x="20" y="366" width="860" height="92" rx="10" fill="#E8F3F9" opacity="0.45"/>
+<text x="30" y="382" font-size="11.5" fill="#12405C" font-weight="700" text-anchor="start">MENGEN PRODUCTORS (plantes i algues)</text>
+<rect x="20" y="466" width="860" height="92" rx="10" fill="#E8F3F9" opacity="0.45"/>
+<text x="30" y="482" font-size="11.5" fill="#12405C" font-weight="700" text-anchor="start">PRODUCTORS</text>
+<rect x="357" y="102" width="186" height="46" rx="8" fill="#FFFFFF" stroke="#2E7BA6" stroke-width="2"/>
+<circle cx="372" cy="117" r="11" fill="#2E7BA6"/>
+<text x="372" y="122" font-size="13" fill="#FFFFFF" font-weight="700" text-anchor="middle">1</text>
+<text x="465.0" y="130.0" font-size="14.5" fill="#1A1A2E" font-weight="600" text-anchor="middle">Llúdriga</text>
+<rect x="180" y="202" width="186" height="46" rx="8" fill="#FFFFFF" stroke="#2E7BA6" stroke-width="2"/>
+<circle cx="195" cy="217" r="11" fill="#2E7BA6"/>
+<text x="195" y="222" font-size="13" fill="#FFFFFF" font-weight="700" text-anchor="middle">2</text>
+<text x="288.0" y="230.0" font-size="14.5" fill="#1A1A2E" font-weight="600" text-anchor="middle">Truita</text>
+<rect x="534" y="202" width="186" height="46" rx="8" fill="#FFFFFF" stroke="#2E7BA6" stroke-width="2"/>
+<circle cx="549" cy="217" r="11" fill="#2E7BA6"/>
+<text x="549" y="222" font-size="13" fill="#FFFFFF" font-weight="700" text-anchor="middle">3</text>
+<text x="642.0" y="230.0" font-size="14.5" fill="#1A1A2E" font-weight="600" text-anchor="middle">Garsa</text>
+<rect x="180" y="302" width="186" height="46" rx="8" fill="#FFFFFF" stroke="#2E7BA6" stroke-width="2"/>
+<circle cx="195" cy="317" r="11" fill="#2E7BA6"/>
+<text x="195" y="322" font-size="13" fill="#FFFFFF" font-weight="700" text-anchor="middle">4</text>
+<text x="288.0" y="330.0" font-size="14.5" fill="#1A1A2E" font-weight="600" text-anchor="middle">Peix petit</text>
+<rect x="534" y="302" width="186" height="46" rx="8" fill="#FFFFFF" stroke="#2E7BA6" stroke-width="2"/>
+<circle cx="549" cy="317" r="11" fill="#2E7BA6"/>
+<text x="549" y="322" font-size="13" fill="#FFFFFF" font-weight="700" text-anchor="middle">5</text>
+<text x="642.0" y="330.0" font-size="14.5" fill="#1A1A2E" font-weight="600" text-anchor="middle">Granota</text>
+<rect x="60" y="402" width="186" height="46" rx="8" fill="#FFFFFF" stroke="#2E7BA6" stroke-width="2"/>
+<circle cx="75" cy="417" r="11" fill="#2E7BA6"/>
+<text x="75" y="422" font-size="13" fill="#FFFFFF" font-weight="700" text-anchor="middle">6</text>
+<text x="168.0" y="430.0" font-size="14.5" fill="#1A1A2E" font-weight="600" text-anchor="middle">Insecte aquàtic</text>
+<rect x="357" y="402" width="186" height="46" rx="8" fill="#FFFFFF" stroke="#2E7BA6" stroke-width="2"/>
+<circle cx="372" cy="417" r="11" fill="#2E7BA6"/>
+<text x="372" y="422" font-size="13" fill="#FFFFFF" font-weight="700" text-anchor="middle">7</text>
+<text x="465.0" y="430.0" font-size="14.5" fill="#1A1A2E" font-weight="600" text-anchor="middle">Cargol</text>
+<rect x="654" y="402" width="186" height="46" rx="8" fill="#FFFFFF" stroke="#2E7BA6" stroke-width="2"/>
+<circle cx="669" cy="417" r="11" fill="#2E7BA6"/>
+<text x="669" y="422" font-size="13" fill="#FFFFFF" font-weight="700" text-anchor="middle">8</text>
+<text x="762.0" y="430.0" font-size="14.5" fill="#1A1A2E" font-weight="600" text-anchor="middle">Ànec</text>
+<rect x="180" y="502" width="186" height="46" rx="8" fill="#FFFFFF" stroke="#2E7BA6" stroke-width="2"/>
+<circle cx="195" cy="517" r="11" fill="#2E7BA6"/>
+<text x="195" y="522" font-size="13" fill="#FFFFFF" font-weight="700" text-anchor="middle">9</text>
+<text x="288.0" y="530.0" font-size="14.5" fill="#1A1A2E" font-weight="600" text-anchor="middle">Algues</text>
+<rect x="534" y="502" width="186" height="46" rx="8" fill="#FFFFFF" stroke="#2E7BA6" stroke-width="2"/>
+<circle cx="549" cy="517" r="11" fill="#2E7BA6"/>
+<text x="549" y="522" font-size="13" fill="#FFFFFF" font-weight="700" text-anchor="middle">10</text>
+<text x="642.0" y="530.0" font-size="14.5" fill="#1A1A2E" font-weight="600" text-anchor="middle">Plantes de ribera</text>
+<line x1="273.0" y1="502" x2="153.0" y2="448" stroke="#2E7BA6" stroke-width="2.2" marker-end="url(#ar)"/>
+<line x1="627.0" y1="502" x2="450.0" y2="448" stroke="#2E7BA6" stroke-width="2.2" marker-end="url(#ar)"/>
+<line x1="627.0" y1="502" x2="747.0" y2="448" stroke="#2E7BA6" stroke-width="2.2" marker-end="url(#ar)"/>
+<line x1="153.0" y1="402" x2="273.0" y2="348" stroke="#2E7BA6" stroke-width="2.2" marker-end="url(#ar)"/>
+<line x1="153.0" y1="402" x2="627.0" y2="348" stroke="#2E7BA6" stroke-width="2.2" marker-end="url(#ar)"/>
+<line x1="450.0" y1="402" x2="627.0" y2="348" stroke="#2E7BA6" stroke-width="2.2" marker-end="url(#ar)"/>
+<line x1="273.0" y1="302" x2="273.0" y2="248" stroke="#2E7BA6" stroke-width="2.2" marker-end="url(#ar)"/>
+<line x1="627.0" y1="302" x2="627.0" y2="248" stroke="#2E7BA6" stroke-width="2.2" marker-end="url(#ar)"/>
+<line x1="273.0" y1="202" x2="450.0" y2="148" stroke="#2E7BA6" stroke-width="2.2" marker-end="url(#ar)"/>
+<rect x="20" y="578" width="860" height="100" rx="10" fill="#EAF4EC" stroke="#4A9E5C" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="84" y="598" font-size="11.5" fill="#4A9E5C" font-weight="700" text-anchor="start">DESCOMPONEDORS</text>
+<text x="84" y="616" font-size="12" fill="#4A9E5C" font-weight="600" text-anchor="start">de tots els éssers</text>
+<text x="84" y="632" font-size="12" fill="#4A9E5C" font-weight="600" text-anchor="start">vius, quan moren</text>
+<line x1="196" y1="626" x2="236" y2="626" stroke="#4A9E5C" stroke-width="2.2" marker-end="url(#arg)" stroke-dasharray="5 4"/>
+<rect x="240" y="610" width="186" height="46" rx="8" fill="#EAF4EC" stroke="#4A9E5C" stroke-width="2"/>
+<circle cx="255" cy="625" r="11" fill="#2E7BA6"/>
+<text x="255" y="630" font-size="13" fill="#FFFFFF" font-weight="700" text-anchor="middle">11</text>
+<text x="348.0" y="638.0" font-size="14.5" fill="#1A1A2E" font-weight="600" text-anchor="middle">Bacteris</text>
+<rect x="470" y="610" width="186" height="46" rx="8" fill="#EAF4EC" stroke="#4A9E5C" stroke-width="2"/>
+<circle cx="485" cy="625" r="11" fill="#2E7BA6"/>
+<text x="485" y="630" font-size="13" fill="#FFFFFF" font-weight="700" text-anchor="middle">12</text>
+<text x="578.0" y="638.0" font-size="14.5" fill="#1A1A2E" font-weight="600" text-anchor="middle">Fongs</text>
+<text x="700" y="598" font-size="14" fill="#1A1A2E" font-weight="600" text-anchor="start">Tot el que mor</text>
+<text x="700" y="616" font-size="14" fill="#1A1A2E" font-weight="600" text-anchor="start">torna als productors</text>
+<path d="M 660 645 L 858 645 L 858 528 L 728 528" fill="none" stroke="#4A9E5C" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#arg)"/>
+<path d="M 240 633 L 40 633 L 40 525 L 174 525" fill="none" stroke="#4A9E5C" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#arg)"/>
+<text x="20" y="694" font-size="12.5" fill="#5F7D8A" font-weight="400" text-anchor="start" font-style="italic">Els números són els mateixos de les 12 targetes d'espècie.</text>
+</svg>

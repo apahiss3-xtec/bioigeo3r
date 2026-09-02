@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" width="900" height="540" font-family="Fira Sans Extra Condensed, Fira Sans Condensed, Arial Narrow, sans-serif">
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E7BA6"/>
+  </marker>
+  <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#4A9E5C"/>
+  </marker>
+</defs>
+<rect width="900" height="540" fill="#FFFFFF"/>
+<text x="450.0" y="34" font-size="23" fill="#12405C" font-weight="700" text-anchor="middle">La xarxa del nostre pati</text>
+<text x="450.0" y="57" font-size="15" fill="#5F7D8A" font-weight="400" text-anchor="middle" font-style="italic">Tres ja hi són i la primera cadena està feta.</text>
+<rect x="60" y="92" width="200" height="58" rx="8" fill="#E8F3F9" stroke="#2E7BA6" stroke-width="2"/>
+<text x="160.0" y="126.0" font-size="18" fill="#1A1A2E" font-weight="600" text-anchor="middle">Merla</text>
+<text x="272" y="128" font-size="13.5" fill="#2E7BA6" font-weight="600" text-anchor="start">(C) consumidor</text>
+<rect x="60" y="236" width="200" height="58" rx="8" fill="#E8F3F9" stroke="#2E7BA6" stroke-width="2"/>
+<text x="160.0" y="270.0" font-size="18" fill="#1A1A2E" font-weight="600" text-anchor="middle">Cargol</text>
+<text x="272" y="272" font-size="13.5" fill="#2E7BA6" font-weight="600" text-anchor="start">(C) consumidor</text>
+<rect x="60" y="380" width="200" height="58" rx="8" fill="#EAF4EC" stroke="#4A9E5C" stroke-width="2"/>
+<text x="160.0" y="414.0" font-size="18" fill="#1A1A2E" font-weight="600" text-anchor="middle">Herba</text>
+<text x="272" y="416" font-size="13.5" fill="#4A9E5C" font-weight="600" text-anchor="start">(P) productor</text>
+<line x1="160.0" y1="380" x2="160.0" y2="298" stroke="#2E7BA6" stroke-width="2.2" marker-end="url(#ar)"/>
+<line x1="160.0" y1="236" x2="160.0" y2="154" stroke="#2E7BA6" stroke-width="2.2" marker-end="url(#ar)"/>
+<rect x="500" y="92" width="200" height="58" rx="8" fill="#FFFFFF" stroke="#9CCBE2" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="600" y="130" font-size="26" fill="#9CCBE2" font-weight="700" text-anchor="middle">…</text>
+<text x="712" y="128" font-size="13.5" fill="#5F7D8A" font-weight="400" text-anchor="start">( … )</text>
+<rect x="500" y="236" width="200" height="58" rx="8" fill="#FFFFFF" stroke="#9CCBE2" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="600" y="274" font-size="26" fill="#9CCBE2" font-weight="700" text-anchor="middle">…</text>
+<text x="712" y="272" font-size="13.5" fill="#5F7D8A" font-weight="400" text-anchor="start">( … )</text>
+<rect x="500" y="380" width="200" height="58" rx="8" fill="#FFFFFF" stroke="#9CCBE2" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="600" y="418" font-size="26" fill="#9CCBE2" font-weight="700" text-anchor="middle">…</text>
+<text x="712" y="416" font-size="13.5" fill="#5F7D8A" font-weight="400" text-anchor="start">( … )</text>
+<rect x="60" y="466" width="780" height="54" rx="10" fill="#E8F3F9" stroke="#9CCBE2" stroke-width="1.5"/>
+<text x="450.0" y="490" font-size="15.5" fill="#1A1A2E" font-weight="600" text-anchor="middle">Escriu tres éssers vius del vostre cens a les caixes de punts i uneix-los amb fletxes.</text>
+<text x="450.0" y="510" font-size="14" fill="#5F7D8A" font-weight="400" text-anchor="middle" font-style="italic">La fletxa va del que és menjat cap al que menja. Posa (P) o (C) a cada parèntesi.</text>
+</svg>

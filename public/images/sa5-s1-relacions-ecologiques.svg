@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 486" width="900" height="486" font-family="Fira Sans Extra Condensed, Fira Sans Condensed, Arial Narrow, sans-serif">
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E7BA6"/>
+  </marker>
+  <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#4A9E5C"/>
+  </marker>
+</defs>
+<rect width="900" height="486" fill="#FFFFFF"/>
+<text x="450.0" y="34" font-size="22" fill="#12405C" font-weight="700" text-anchor="middle">Cinc maneres de relacionar-se</text>
+<text x="450.0" y="56" font-size="14" fill="#5F7D8A" font-weight="400" text-anchor="middle" font-style="italic">Els signes diuen com li va a cadascun: + hi guanya · − hi perd · 0 li és igual</text>
+<rect x="24" y="76" width="852" height="74" rx="9" fill="#E8F3F9" stroke="#CFE4EE" stroke-width="1.5"/>
+<text x="40" y="108" font-size="17" fill="#12405C" font-weight="700" text-anchor="start">Competència</text>
+<circle cx="268" cy="113" r="17" fill="#FFFFFF" stroke="#C0392B" stroke-width="2.5"/>
+<text x="268" y="120" font-size="21" fill="#C0392B" font-weight="700" text-anchor="middle">−</text>
+<circle cx="330" cy="113" r="17" fill="#FFFFFF" stroke="#C0392B" stroke-width="2.5"/>
+<text x="330" y="120" font-size="21" fill="#C0392B" font-weight="700" text-anchor="middle">−</text>
+<line x1="287" y1="113" x2="311" y2="113" stroke="#5F7D8A" stroke-width="2"/>
+<text x="370" y="106" font-size="15" fill="#1A1A2E" font-weight="600" text-anchor="start">Dos ocells volen el mateix forat per fer el niu</text>
+<text x="370" y="128" font-size="13.5" fill="#5F7D8A" font-weight="400" text-anchor="start" font-style="italic">cap dels dos no el té sencer</text>
+<rect x="24" y="156" width="852" height="74" rx="9" fill="#FFFFFF" stroke="#CFE4EE" stroke-width="1.5"/>
+<text x="40" y="188" font-size="17" fill="#12405C" font-weight="700" text-anchor="start">Depredació</text>
+<circle cx="268" cy="193" r="17" fill="#FFFFFF" stroke="#4A9E5C" stroke-width="2.5"/>
+<text x="268" y="200" font-size="21" fill="#4A9E5C" font-weight="700" text-anchor="middle">+</text>
+<circle cx="330" cy="193" r="17" fill="#FFFFFF" stroke="#C0392B" stroke-width="2.5"/>
+<text x="330" y="200" font-size="21" fill="#C0392B" font-weight="700" text-anchor="middle">−</text>
+<line x1="287" y1="193" x2="311" y2="193" stroke="#5F7D8A" stroke-width="2"/>
+<text x="370" y="186" font-size="15" fill="#1A1A2E" font-weight="600" text-anchor="start">La llúdriga es menja la truita</text>
+<text x="370" y="208" font-size="13.5" fill="#5F7D8A" font-weight="400" text-anchor="start" font-style="italic">un menja, l'altre mor</text>
+<rect x="24" y="236" width="852" height="74" rx="9" fill="#E8F3F9" stroke="#CFE4EE" stroke-width="1.5"/>
+<text x="40" y="268" font-size="17" fill="#12405C" font-weight="700" text-anchor="start">Parasitisme</text>
+<circle cx="268" cy="273" r="17" fill="#FFFFFF" stroke="#4A9E5C" stroke-width="2.5"/>
+<text x="268" y="280" font-size="21" fill="#4A9E5C" font-weight="700" text-anchor="middle">+</text>
+<circle cx="330" cy="273" r="17" fill="#FFFFFF" stroke="#C0392B" stroke-width="2.5"/>
+<text x="330" y="280" font-size="21" fill="#C0392B" font-weight="700" text-anchor="middle">−</text>
+<line x1="287" y1="273" x2="311" y2="273" stroke="#5F7D8A" stroke-width="2"/>
+<text x="370" y="266" font-size="15" fill="#1A1A2E" font-weight="600" text-anchor="start">Una paparra xucla sang d'un gos</text>
+<text x="370" y="288" font-size="13.5" fill="#5F7D8A" font-weight="400" text-anchor="start" font-style="italic">viu a sobre o a dins i no el mata de seguida</text>
+<rect x="24" y="316" width="852" height="74" rx="9" fill="#FFFFFF" stroke="#CFE4EE" stroke-width="1.5"/>
+<text x="40" y="348" font-size="17" fill="#12405C" font-weight="700" text-anchor="start">Mutualisme</text>
+<circle cx="268" cy="353" r="17" fill="#FFFFFF" stroke="#4A9E5C" stroke-width="2.5"/>
+<text x="268" y="360" font-size="21" fill="#4A9E5C" font-weight="700" text-anchor="middle">+</text>
+<circle cx="330" cy="353" r="17" fill="#FFFFFF" stroke="#4A9E5C" stroke-width="2.5"/>
+<text x="330" y="360" font-size="21" fill="#4A9E5C" font-weight="700" text-anchor="middle">+</text>
+<line x1="287" y1="353" x2="311" y2="353" stroke="#5F7D8A" stroke-width="2"/>
+<text x="370" y="346" font-size="15" fill="#1A1A2E" font-weight="600" text-anchor="start">L'abella menja de la flor i li escampa el pol·len</text>
+<text x="370" y="368" font-size="13.5" fill="#5F7D8A" font-weight="400" text-anchor="start" font-style="italic">tots dos hi surten guanyant</text>
+<rect x="24" y="396" width="852" height="74" rx="9" fill="#E8F3F9" stroke="#CFE4EE" stroke-width="1.5"/>
+<text x="40" y="428" font-size="17" fill="#12405C" font-weight="700" text-anchor="start">Comensalisme</text>
+<circle cx="268" cy="433" r="17" fill="#FFFFFF" stroke="#4A9E5C" stroke-width="2.5"/>
+<text x="268" y="440" font-size="21" fill="#4A9E5C" font-weight="700" text-anchor="middle">+</text>
+<circle cx="330" cy="433" r="17" fill="#FFFFFF" stroke="#5F7D8A" stroke-width="2.5"/>
+<text x="330" y="440" font-size="21" fill="#5F7D8A" font-weight="700" text-anchor="middle">0</text>
+<line x1="287" y1="433" x2="311" y2="433" stroke="#5F7D8A" stroke-width="2"/>
+<text x="370" y="426" font-size="15" fill="#1A1A2E" font-weight="600" text-anchor="start">Una molsa creix sobre l'escorça d'un arbre</text>
+<text x="370" y="448" font-size="13.5" fill="#5F7D8A" font-weight="400" text-anchor="start" font-style="italic">a l'arbre ni li va bé ni li va malament</text>
+</svg>

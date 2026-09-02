@@ -8,8 +8,8 @@ export const sa1s2 = {
   engageImage: "/images/sa1-s2-osmosi.png",
 
   // Repte oral curt abans d'escriure: la mateixa predicció, en veu alta i tots alhora.
-  engageChallenge: "Mà alçada, sense pensar-ho gaire: qui creu que el vostre ou s'inflarà si el poso en aigua pura? I qui creu que s'encongirà en aigua amb molt sucre? Ara escriviu-ho.",
-  engageQuestion: "Tens l'ou en vinagre a la bossa. Quin creus que serà el resultat si ara el poses en aigua amb molt sucre? I en aigua pura? Escriu la teva predicció ABANS de fer res.",
+  engageChallenge: "Mà alçada, sense pensar-ho gaire: qui creu que el vostre ou s'inflarà si el poso en aigua pura? I qui creu que s'encongirà en aigua amb molta sal? Ara escriviu-ho.",
+  engageQuestion: "Tens l'ou en vinagre a la bossa. Quin creus que serà el resultat si ara el poses en aigua amb molta sal? I en aigua pura? Escriu la teva predicció ABANS de fer res.",
   engageContext: "Prediccions escrites individuals. No es corregeixen — es comproven amb l'experiment.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
@@ -21,7 +21,7 @@ export const sa1s2 = {
       "Distingeixo entre el model de l'ou i la membrana cel·lular real, i argumento per quina raó el model simplifica."
     ],
     B: [
-      "Explico, usant el terme osmosi, per quina raó l'ou sense closca s'infla en aigua pura i s'encongeix en aigua sucrada.",
+      "Explico, usant el terme osmosi, per quina raó l'ou sense closca s'infla en aigua pura i s'encongeix en aigua salada.",
       "Defineixo membrana semipermeable i identifico quines molècules pot o no pot creuar.",
       "Aplico la idea d'osmosi a casos reals: planta amb massa adob, sèrum fisiològic, diàlisi renal.",
       "Justifico per quina raó el vinagre era el control de l'experiment."
@@ -66,7 +66,7 @@ export const sa1s2 = {
       },
       {
         kind: "write",
-        text: "I si el poses en aigua amb molt de sucre? Serà diferent del primer cas?",
+        text: "I si el poses en aigua amb molta sal? Serà diferent del primer cas?",
         starter: "Crec que..."
       },
       {
@@ -77,21 +77,21 @@ export const sa1s2 = {
   },
 
   exploreActivity: {
-    what: "Mesura i submergeix el teu ou en 3 medis (aigua pura, aigua sucrada, vinagre) i registra els canvis a la taula de la fitxa.",
+    what: "Mesura i submergeix el teu ou en 2 medis (aigua pura i aigua molt salada) i registra els canvis a la taula de la fitxa.",
     who: { mode: "parelles", label: "Per parelles (cada parella porta el seu ou)" },
     time: 15,
     note: "Mesura ABANS de submergir l'ou en cada medi nou — sense el 'abans' no podreu demostrar cap canvi. L'osmosi de l'ou és lenta: mentre espereu que es vegin canvis, feu l'app d'osmosi d'aquesta pàgina."
   },
   exploreInstructions: [
     "Mesura i pesa l'ou (o observa si ha canviat de mida des que el vas posar en vinagre)",
-    "Prepara 3 gots: (1) aigua pura, (2) aigua molt sucrada, (3) vinagre",
+    "Prepara 2 gots: (1) aigua pura, (2) aigua molt salada. Si al grup us sobra un ou, deixeu-lo sense submergir com a control",
     "Submergeix l'ou en cada medi i observa durant 15 minuts",
     "Mentre esperes que l'ou mostri canvis visibles: fes l'app d'osmosi d'aquesta pàgina (prediccions + laboratori lliure)",
     "Registra les observacions a la taula de la fitxa",
     "Moment epistèmic: amb 20 ous de la classe, podríem publicar-ho com a investigació científica? Quins problemes tindria?"
   ],
   exploreDuration: "35 min",
-  exploreMaterials: ["Ou sense closca (preparat a casa)", "3 gots", "Aigua", "Sucre", "Regla o balança"],
+  exploreMaterials: ["Ou sense closca (preparat a casa)", "2 gots", "Aigua", "Sal", "Regla o balança"],
   appSrc: "/apps/app_osmosi.html",
 
   theoryPoints: [
@@ -107,7 +107,7 @@ export const sa1s2 = {
       id: "t2",
       apartat: "2",
       heading: "L'==osmosi==: l'aigua segueix la concentració",
-      text: "L'==osmosi== és el moviment net d'==aigua|b== a través d'una ==membrana semipermeable== des d'on hi ha menys ==concentració de solut|o== fins on n'hi ha més. L'ou s'infla en ==aigua pura|b== (l'aigua entra) i s'encongeix en ==aigua sucrada|o== (l'aigua surt).",
+      text: "L'==osmosi== és el moviment net d'==aigua|b== a través d'una ==membrana semipermeable== des d'on hi ha menys ==concentració de solut|o== fins on n'hi ha més. L'ou s'infla en ==aigua pura|b== (l'aigua entra) i s'encongeix en ==aigua salada|o== (l'aigua surt).",
       type: "keyequation",
       video: "/animacions/sa1-s2-t2.mp4"
     },
@@ -141,9 +141,9 @@ export const sa1s2 = {
 
   graphicResources: [
     { id: "Fig.1", apartat: "2", title: "Membrana semipermeable: l'aigua busca l'equilibri", src: "/images/sa1-osmosi-semipermeable.png", note: "L'aigua travessa la membrana cap on hi ha més sal, fins a igualar les concentracions. La sal (massa grossa) no pot passar." },
-    { id: "Fig.2", apartat: "2", title: "Resposta de la cèl·lula segons el medi", src: "/images/sa1-osmosi-tres-estats.png", note: "Hipotònic (s'infla), isotònic (equilibri) i hipertònic (s'encongeix). Igual que el teu ou en aigua pura vs. aigua sucrada." },
+    { id: "Fig.2", apartat: "2", title: "Resposta de la cèl·lula segons el medi", src: "/images/sa1-osmosi-tres-estats.png", note: "Hipotònic (s'infla), isotònic (equilibri) i hipertònic (s'encongeix). Igual que el teu ou en aigua pura vs. aigua molt salada." },
     { id: "Fig.3", apartat: "2", title: "L'experiment de l'ou sense closca", src: "/images/sa1-ou-sense-closca.png", note: "El vinagre dissol la closca i deixa la membrana a la vista: el model amb què veuràs l'osmosi a ull nu." },
-    { id: "Fig.4", apartat: "3", title: "Transferència: la planta regada amb massa adob", src: "/images/sa1-planta-marcida-sal.png", note: "Sòl molt salat (hipertònic) → l'aigua surt de les arrels → la planta es marceix. El mateix que l'ou en aigua sucrada." },
+    { id: "Fig.4", apartat: "3", title: "Transferència: la planta regada amb massa adob", src: "/images/sa1-planta-marcida-sal.png", note: "Sòl molt salat (hipertònic) → l'aigua surt de les arrels → la planta es marceix. El mateix que l'ou en aigua molt salada." },
     { id: "Fig.5", apartat: "3", title: "Transferència: el sèrum fisiològic", src: "/images/sa1-serum-fisiologic.png", note: "És 'fisiològic' perquè és isotònic (0,9% NaCl): té la mateixa concentració que les cèl·lules i no les fa explotar ni encongir." },
     { id: "Fig.6", apartat: "3", title: "Transferència: la diàlisi renal", src: "/images/sa1-dialisi-renal.png", note: "Una membrana semipermeable filtra els residus (urea) de la sang. Osmosi i difusió aplicades a la medicina." }
   ],
@@ -211,7 +211,7 @@ export const sa1s2 = {
       id: "q2",
       type: "open",
       text: "Una planta es marceix si li poses massa adob. Explica per quina raó usant el concepte d'osmosi.",
-      hint: "L'adob fa que el terra quedi molt concentrat. Aplica la mateixa regla que vas veure amb l'ou en aigua sucrada."
+      hint: "L'adob fa que el terra quedi molt concentrat. Aplica la mateixa regla que vas veure amb l'ou en aigua molt salada."
     },
     {
       id: "q3",
@@ -238,7 +238,7 @@ export const sa1s2 = {
   },
 
   recoveryInstructions: [
-    "Pots fer l'experiment a casa: ou dur cuit en vinagre 48h (o ou cru si en tens), després posa'l en un got d'aigua pura i en un got d'aigua molt sucrada",
+    "Pots fer l'experiment a casa: ou dur cuit en vinagre 48h (o ou cru si en tens), després posa'l en un got d'aigua pura i en un got d'aigua molt salada",
     "Mira l'animació d'osmosi d'aquesta pàgina per entendre el concepte",
     "Omple la fitxa S2 amb les teves observacions",
     "L'exit tiquet en paper el trobaràs a S3, o fes-lo online aquí"

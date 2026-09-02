@@ -251,7 +251,7 @@ export const sa1s1 = {
   // ── FEINA A CASA ─────────────────────────────────────────
   homework: {
     description: "Posa un ou en vinagre blanc (ou cru o dur, en un got amb vinagre que el cobreixi). Deixa'l 48 hores. Observa i mesura. Ho portaràs a la propera sessió per a l'experiment d'osmosi.",
-    secondTask: "Comença la maqueta dels nivells d'organització (de l'àtom a l'ecosistema). Entrega a S2.",
+    secondTask: "Comença la representació dels 10 nivells d'organització (de l'àtom a la biosfera), en el format que triïs. Entrega a S2. I fes el dibuix de memòria de les 3 parts de la cèl·lula, sense mirar apunts.",
     deadline: "2026-09-XX",
     note: "L'experiment de l'ou és imprescindible per a S2. Si no pots posar-lo avui, posa'l demà al matí."
   },

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" font-family="Fira Sans Extra Condensed, Fira Sans Condensed, Arial Narrow, sans-serif">
+<defs>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#2E7BA6"/>
+  </marker>
+  <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#4A9E5C"/>
+  </marker>
+</defs>
+<rect width="900" height="300" fill="#FFFFFF"/>
+<text x="450.0" y="36" font-size="23" fill="#12405C" font-weight="700" text-anchor="middle">Un rastre vol dir que algú hi és</text>
+<text x="450.0" y="60" font-size="15" fill="#5F7D8A" font-weight="400" text-anchor="middle" font-style="italic">encara que en aquell moment no el vegis</text>
+<rect x="40" y="82" width="256" height="180" rx="14" fill="#E8F3F9" stroke="#2E7BA6" stroke-width="2.5"/>
+<text x="168" y="142" font-size="46" fill="#1A1A2E" font-weight="400" text-anchor="middle">🍃</text>
+<text x="168" y="186" font-size="18" fill="#12405C" font-weight="700" text-anchor="middle">Una fulla mossegada</text>
+<text x="168" y="214" font-size="15.5" fill="#1A1A2E" font-weight="400" text-anchor="middle">algú se l'ha menjat</text>
+<rect x="316" y="82" width="256" height="180" rx="14" fill="#E8F3F9" stroke="#2E7BA6" stroke-width="2.5"/>
+<text x="444" y="142" font-size="46" fill="#1A1A2E" font-weight="400" text-anchor="middle">🕸️</text>
+<text x="444" y="186" font-size="18" fill="#12405C" font-weight="700" text-anchor="middle">Una teranyina</text>
+<text x="444" y="214" font-size="15.5" fill="#1A1A2E" font-weight="400" text-anchor="middle">hi viu una aranya</text>
+<rect x="592" y="82" width="256" height="180" rx="14" fill="#E8F3F9" stroke="#2E7BA6" stroke-width="2.5"/>
+<text x="720" y="142" font-size="46" fill="#1A1A2E" font-weight="400" text-anchor="middle">🕳️</text>
+<text x="720" y="186" font-size="18" fill="#12405C" font-weight="700" text-anchor="middle">Un forat a terra</text>
+<text x="720" y="214" font-size="15.5" fill="#1A1A2E" font-weight="400" text-anchor="middle">algú hi ha fet el cau</text>
+<text x="450.0" y="288" font-size="15" fill="#1A1A2E" font-weight="600" text-anchor="middle">Apunta'l al cens igual que si haguessis vist l'animal.</text>
+</svg>

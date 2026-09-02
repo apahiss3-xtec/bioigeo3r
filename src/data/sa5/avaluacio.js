@@ -1,3 +1,10 @@
+// ⚠️ PENDENT DE REESCRIPTURA (marcat 2026-09-01).
+// Aquest fitxer és de l'esborrany anterior al sistema de specs: parla de la
+// cotorra argentina, de la regla del 10%, de HIPPO i del cicle del carboni amb
+// quatre reservoris — res d'això no és el disseny 5E de SA5 que fixa el vault.
+// Es reescriurà quan es fabriqui la Sessió 3, que és on la SA té el seu
+// instrument sumatiu. Es manté aquí NOMÉS perquè `sas.js` l'importa i el build
+// no peti; la SA té `published: false`, així que no és viu per a ningú.
 // Avaluació SA5: checklist d'estudi + test de transferència (El bosc dels Ports de Tortosa)
 // Cas NOU: diferent de l'enigma de la cotorra — context de bosc mediterrani pertorbat.
 export const sa5Avaluacio = {
