@@ -266,22 +266,27 @@ body.simplified a {
 }
 
 /* ──────────────────────────────────────────────────────────
-   Desplaçament del contingut quan el sonòmetre flotant
+   Espai reservat a la dreta quan el sonòmetre flotant
    (SoundMeter, ancorat a la dreta) és obert, perquè el panell
-   no es solapi amb el text de la pàgina.
+   no es solapi amb el text de la pàgina. Es fa amb PADDING i
+   no amb translateX: així el contingut es reflueix dins del
+   viewport en comptes de desplaçar-se cap enfora (que treia
+   la part esquerra de la pantalla i generava scroll lateral).
    ────────────────────────────────────────────────────────── */
 .content-shift {
-  transform: translateX(0);
-  transition: transform 280ms var(--ease-out-strong);
+  padding-inline-end: 0;
+  transition: padding-inline-end 280ms var(--ease-out-strong);
 }
 
 .content-shift[data-shifted='true'] {
-  transform: translateX(-15rem);
+  padding-inline-end: 15rem;
 }
 
-@media (max-width: 640px) {
+/* El mesurador no existeix per sota de 768px (vegeu SoundMeterContext):
+   allà mai no cal reservar-hi espai. */
+@media (max-width: 767px) {
   .content-shift[data-shifted='true'] {
-    transform: translateX(-9rem);
+    padding-inline-end: 0;
   }
 }
 

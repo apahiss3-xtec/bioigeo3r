@@ -8,7 +8,7 @@ import { useSoundMeter } from '../soundmeter/SoundMeterContext.jsx'
 
 export default function Layout({ children }) {
   const { pathname } = useLocation()
-  const { open } = useSoundMeter()
+  const { open, enabled } = useSoundMeter()
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -16,17 +16,17 @@ export default function Layout({ children }) {
 
   return (
     <>
-      {/* Es desplaça cap a l'esquerra quan el sonòmetre és obert perquè el
-          panell (fixed a la dreta) no es solapi amb el contingut. El sonòmetre
-          i la barra de traducció queden FORA d'aquest contenidor perquè són
-          overlays fixos al viewport i no s'han de moure amb el contingut. */}
+      {/* Quan el sonòmetre és obert, el contingut RESERVA espai a la dreta
+          (padding, no translate): així res no surt del viewport ni apareix
+          scroll horitzontal. El sonòmetre i la barra de traducció queden FORA
+          d'aquest contenidor perquè són overlays fixos al viewport. */}
       <div className="content-shift min-h-screen flex flex-col" data-shifted={open}>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
       </div>
       <TranslationBar />
-      <SoundMeter />
+      {enabled && <SoundMeter />}
     </>
   )
 }

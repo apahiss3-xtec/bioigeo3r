@@ -36,22 +36,28 @@ body {
   font-family: 'Fira Sans Extra Condensed', sans-serif;
   background: var(--surface);
   color: var(--ink-2);
-  min-height: 100vh;
+  /* Columna d'alçada exacta: capçalera, pestanyes i linia de passos
+     ocupen el que necessiten i el cos es queda la resta. Sense aixo el
+     titol del pas i la navegacio queien sota la linia de flotacio. */
+  height: 100vh;
+  display: flex; flex-direction: column;
 }
+header, .mode-bar, .phase-timeline { flex: 0 0 auto; }
 
 /* ── HEADER ─────────────────────────────────────── */
 header {
-  background: var(--purple-ink);
+  background: #fff;
+  border-bottom: 2px solid var(--purple-deep);
   padding: 14px 24px 12px;
   display: flex; align-items: center; justify-content: space-between;
   gap: 16px;
 }
 .header-left { display: flex; flex-direction: column; }
 .header-eyebrow {
-  font-size: 11px; font-weight: 700; color: var(--purple);
+  font-size: 11px; font-weight: 700; color: var(--purple-deep);
   letter-spacing: .1em; text-transform: uppercase;
 }
-.header-title { font-size: 22px; font-weight: 700; color: #fff; line-height: 1.1; }
+.header-title { font-size: 22px; font-weight: 700; color: var(--ink); line-height: 1.1; }
 .header-right { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
 
 .lang-btn, .simplify-btn {
@@ -67,9 +73,9 @@ header {
 .simplify-btn:hover { background: #f9dc5c; }
 .simplify-btn.active { background: #f9dc5c; box-shadow: 0 0 0 2px var(--purple-ink); }
 
-.lang-btn { background: rgba(255,255,255,.12); color: #fff; }
-.lang-btn:hover { background: rgba(255,255,255,.22); }
-.lang-btn.active { background: var(--purple); color: var(--ink); }
+.lang-btn { background: var(--purple-tint); color: var(--purple-ink); }
+.lang-btn:hover { background: var(--rule); }
+.lang-btn.active { background: var(--purple-deep); color: #fff; }
 
 /* ── MODE TOGGLE ────────────────────────────────── */
 .mode-bar {
@@ -104,17 +110,31 @@ header {
 /* ── LAYOUT ─────────────────────────────────────── */
 .app-body {
   display: grid;
-  grid-template-columns: 1fr 340px;
-  grid-template-rows: auto 1fr;
-  min-height: calc(100vh - 100px);
+  grid-template-columns: 1fr 380px;
+  grid-template-rows: 1fr auto auto;
+  flex: 1 1 auto; min-height: 0;
 }
+/* Col·locacio explicita: sense aixo la graella automatica posava el titol
+   del pas tot sol a la columna de la dreta i el text de sota del quadre. */
+.cell-canvas      { grid-column: 1; grid-row: 1; }
+.phase-label-area { grid-column: 1; grid-row: 2; }
+.bottom-nav       { grid-column: 1; grid-row: 3; }
+.side-info        { grid-column: 2; grid-row: 1 / 4; }
+/* A COMPARA no hi ha ni linia de passos ni navegacio: el titol de la vista
+   ha d'encapçalar les taules, no penjar-hi a sota. */
+body.mode-compara .phase-label-area {
+  grid-row: 1; border-top: none; border-bottom: 1px solid var(--rule);
+  padding: 12px 24px 10px;
+}
+body.mode-compara .cell-canvas { grid-row: 2; align-items: flex-start; }
 
 /* ── PHASE TIMELINE ─────────────────────────────── */
 .phase-timeline {
   grid-column: 1 / -1;
-  display: flex; align-items: center; gap: 0;
+  /* Salt de linia: amb els 5 passos de la meiosi i els separadors la fila
+     no hi cabia i l'ultim pas quedava fora de la finestra. */
+  display: flex; align-items: center; gap: 0; flex-wrap: wrap; row-gap: 8px;
   padding: 16px 20px;
-  overflow-x: auto;
   border-bottom: 1px solid var(--rule);
   background: #fff;
 }
@@ -149,7 +169,7 @@ header {
   padding: 32px 24px;
   background: var(--surface);
   position: relative; overflow: hidden;
-  min-height: 440px;
+  min-height: 0;
 }
 .cell-canvas::before {
   content: '';
@@ -160,7 +180,10 @@ header {
 }
 
 .cell-diagram {
-  max-width: 100%; max-height: 360px;
+  /* Omple el quadre; el viewBox 0 0 400 320 l'escala mantenint la
+     proporcio (xMidYMid meet). Els nou passos dibuixen dins del viewBox. */
+  width: 100%; height: 100%;
+  max-width: none; max-height: none;
   transition: opacity .3s ease;
 }
 
@@ -180,7 +203,6 @@ header {
 
 /* ── SIDE INFO ──────────────────────────────────── */
 .side-info {
-  grid-row: 2 / 4;
   border-left: 1px solid var(--rule);
   padding: 20px;
   background: #fff;
@@ -246,9 +268,21 @@ header {
   transform: translateX(-50%); border: 5px solid transparent;
   border-top-color: var(--purple-ink);
 }
+/* Glossa en linia, no globus flotant: aixi la traduccio no pot tapar ni el
+   text catala ni les altres traduccions. */
 .lang-ar .tr-word .tooltip-ar,
 .lang-es .tr-word .tooltip-es,
-.lang-ur .tr-word .tooltip-ur { display: block; }
+.lang-ur .tr-word .tooltip-ur {
+  display: inline; position: static; transform: none;
+  margin-left: 5px; padding: 1px 8px 2px; font-size: 13px;
+}
+.lang-ar .tr-word .tooltip-ar::after,
+.lang-es .tr-word .tooltip-es::after,
+.lang-ur .tr-word .tooltip-ur::after { display: none; }
+/* Espai perque els xips no es toquin entre linies. */
+body.lang-ar .side-info, body.lang-es .side-info, body.lang-ur .side-info {
+  line-height: 2.1;
+}
 
 /* ── COMPARISON VIEW ────────────────────────────── */
 .comparison-grid {
@@ -278,7 +312,6 @@ header {
 
 /* ── NAV BOTTOM ─────────────────────────────────── */
 .bottom-nav {
-  grid-column: 1 / 2;
   display: flex; justify-content: space-between; align-items: center;
   padding: 12px 24px;
   border-top: 1px solid var(--rule);
@@ -684,7 +717,8 @@ function drawTelofase1(scale = 1, cx = 200, cy = 155) {
 }
 
 function drawProfase2(scale = 1) {
-  const cx1 = 130, cx2 = 270, cy = 155;
+  // 104/296 i no 130/270: amb rx=90 les dues cel·lules se solapaven 40 px
+  const cx1 = 104, cx2 = 296, cy = 155;
   return `
     ${cellBase(cx1, cy, 90, 80)}
     ${chromosome(cx1-15, cy-10, colors.chr1a, -10, true, 8, 22)}
@@ -697,7 +731,8 @@ function drawProfase2(scale = 1) {
 }
 
 function drawMetafase2(scale = 1) {
-  const cx1 = 130, cx2 = 270, cy = 155;
+  // 104/296 i no 130/270: amb rx=90 les dues cel·lules se solapaven 40 px
+  const cx1 = 104, cx2 = 296, cy = 155;
   return `
     ${cellBase(cx1, cy, 90, 80)}
     ${chromosome(cx1-14, cy, colors.chr1a, 90, true, 8, 22)}
@@ -712,7 +747,8 @@ function drawMetafase2(scale = 1) {
 }
 
 function drawAnafase2(scale = 1) {
-  const cx1 = 130, cx2 = 270, cy = 155;
+  // 104/296 i no 130/270: amb rx=90 les dues cel·lules se solapaven 40 px
+  const cx1 = 104, cx2 = 296, cy = 155;
   return `
     ${cellBase(cx1, cy, 90, 95)}
     ${chromosomeSingle(cx1-18, cy-45, colors.chr1a, 90, 7, 20)}
@@ -743,7 +779,9 @@ function drawTelofase2(scale = 1) {
 }
 
 function drawGametes(scale = 1) {
-  const positions = [[90, 100], [200, 80], [310, 100], [200, 230]];
+  // Graella 2x2, la mateixa de drawTelofase2: quatre cel·lules equivalents,
+  // i l'etiqueta del quart gameta ja no topa amb el peu de la figura.
+  const positions = [[104, 90], [296, 90], [104, 214], [296, 214]];
   const chrColors = [colors.chr1a, colors.chr1a, colors.chr2a, colors.chr2a];
   const labels = ['Gàmeta 1', 'Gàmeta 2', 'Gàmeta 3', 'Gàmeta 4'];
   let svg = '';
@@ -936,6 +974,7 @@ function renderAll() {
 function setMode(m) {
   mode = m;
   currentPhase = 0;
+  document.body.classList.toggle('mode-compara', m === 'compara');
   document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab' + m.charAt(0).toUpperCase() + m.slice(1)).classList.add('active');
 
@@ -952,7 +991,9 @@ function setMode(m) {
   } else {
     cv.style.display = 'flex';
     cv.style.flexWrap = '';
-    const svg = document.createElement('svg');
+    // createElementNS, no createElement: amb createElement surt un element
+    // del namespace HTML i el dibuix no es pinta (sense cap error de JS).
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.id = 'cellSvg';
     svg.classList.add('cell-diagram');
     svg.setAttribute('viewBox', '0 0 400 320');
@@ -961,6 +1002,17 @@ function setMode(m) {
     svg.setAttribute('height', '320');
     cv.innerHTML = '';
     cv.appendChild(svg);
+
+    // renderCompara() escriu damunt d'aquestes dues zones i s'emporta
+    // #phaseTitle, #stepCounter i els botons de navegacio. Les tornem a muntar
+    // en sortir de compara; si no, renderPhase() peta amb un null.
+    document.getElementById('phaseLabelArea').innerHTML =
+      '<div class="phase-label-eyebrow" id="phaseEyebrow"></div>' +
+      '<div class="phase-label-title" id="phaseTitle"></div>';
+    document.querySelector('.bottom-nav').innerHTML =
+      '<button class="nav-btn" id="btnPrev" onclick="navigate(-1)">← Anterior</button>' +
+      '<span class="step-counter" id="stepCounter"></span>' +
+      '<button class="nav-btn primary" id="btnNext" onclick="navigate(1)">Següent →</button>';
   }
 
   renderAll();

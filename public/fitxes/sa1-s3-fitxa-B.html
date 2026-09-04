@@ -8,7 +8,7 @@
 <style>
 :root {
   --purple:#7B68C8; --purple-ink:#4a3b8c; --purple-light:#c5b8f0; --purple-tint:#f0edfb;
-  --ink:#1A1428; --ink-2:#3a3050; --muted:#7a7090; --surface:#fdfcff;
+  --ink:#1A1428; --ink-2:#3a3050; --muted:#7a7090; --surface:#fdfcff; --paper:#ffffff;
   --rule:#e8e2f6; --rule-dark:#c8bfe8;
   --orange:#e8834a; --orange-tint:#fdf0e8;
   --teal:#3a9e8c;   --teal-tint:#e6f4f1;
@@ -32,9 +32,27 @@ body { font-family:'Fira Sans Extra Condensed', sans-serif; background:#b0a8c8; 
 .tb-undo.active:hover { background:rgba(212,74,108,.35); }
 .tb-spacer { background:rgba(123,104,200,.2); border:1px solid rgba(123,104,200,.4); color:#c5b8f0; font-size:12px; }
 .tb-spacer:hover { background:rgba(123,104,200,.35); }
-.page-wrap { width:794px; margin:0 auto; background:var(--surface); box-shadow:0 2px 30px rgba(0,0,0,.22); position:relative; }
-.page-break-line { position:absolute; left:0; right:0; border-top:2px dashed #9080bc; pointer-events:none; z-index:10; }
-.page-break-label { position:absolute; right:10px; top:-11px; background:#9080bc; color:white; font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
+.page-wrap { width:794px; margin:0 auto; position:relative; }
+#doc { display:none; }
+
+/* ── PAGINADOR A4 REAL ─────────────────────────────── */
+#sheets { display:flex; flex-direction:column; align-items:center; gap:26px; }
+.sheet { width:794px; min-height:1123px; background:var(--paper); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.18); overflow:visible; }
+.sheet-body { padding:36px 46px 18px; position:relative; overflow:visible; }
+.sheet.has-head .sheet-body { padding-top:54px; }
+.sheet-head { position:absolute; left:0; right:0; top:0; height:36px; display:none; justify-content:space-between; align-items:center; padding:0 46px; border-bottom:1.5px solid var(--purple-light); background:var(--paper); }
+.sheet.has-head .sheet-head { display:flex; }
+.sheet-head-l { font-family:'Inter',sans-serif; font-size:8.5px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--purple-ink); }
+.sheet-head-r { font-family:'Inter',sans-serif; font-size:8.5px; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); }
+.sheet-foot { position:absolute; left:0; right:0; bottom:0; height:30px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:0 46px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:600; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; border-top:.5px solid var(--rule); background:var(--paper); }
+.sheet-foot .fc { text-align:center; letter-spacing:.14em; color:var(--purple-ink); }
+.sheet-foot .fr { text-align:right; }
+.sheet-body > .header-band { margin:-36px -46px 0; }
+.sheet-body > .nivell-strip { margin:0 -46px; }
+.sheet-body > .oa-box { margin:12px 0 0; }
+
+
+
 [contenteditable] { outline:none; cursor:text; border-radius:3px; transition:background .12s, box-shadow .12s; }
 [contenteditable]:hover { background:rgba(123,104,200,.08); box-shadow:0 0 0 2px rgba(123,104,200,.3); }
 [contenteditable]:focus { background:rgba(123,104,200,.12); box-shadow:0 0 0 2.5px var(--purple); }
@@ -71,7 +89,7 @@ span[contenteditable] { display:inline-block; }
 .nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
 .nivell-label { font-size:11px; color:var(--muted); font-style:italic; }
 .temps-badge { font-size:10px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
-.oa-box { background:linear-gradient(to right,#f5f2ff,var(--surface)); border-left:4px solid var(--purple); padding:10px 16px; }
+.oa-box { background:linear-gradient(to right,#f5f2ff,var(--paper)); border-left:4px solid var(--purple); padding:10px 16px; }
 .oa-title { font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:6px; }
 .oa-list { list-style:none; padding:0; margin:0; }
 .oa-list li { font-size:11.5px; padding:3px 0 3px 22px; position:relative; line-height:1.4; border-bottom:1px dashed var(--rule); }
@@ -141,29 +159,32 @@ span[contenteditable] { display:inline-block; }
 .tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
 .spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(123,104,200,.05) 6px, rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
 .spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
-.page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:0.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
+
 .small { font-size:10px; color:var(--muted); }
 .mt8 { margin-top:8px; }
 .footer { margin-top:12px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
 .footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
 .footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+/* ── IMPRESSIÓ ────────────────────────────────────── */
 @media print {
-  @page { size:A4; margin:10mm 12mm; }
+  @page { size:A4; margin:0; }
   * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  body { background:white; padding:0; }
-  #toolbar, .page-break-line, .del-btn { display:none !important; }
-  .page-footer-bar { display:flex !important; }
-  .footer { display:none !important; }
-  .page-wrap { box-shadow:none; width:100%; }
+  html,body { background:#fff; padding:0; margin:0; }
+  #toolbar, .del-btn { display:none !important; }
+  #sheets { gap:0; display:block; }
+  .sheet { width:210mm; height:297mm; min-height:0; box-shadow:none; margin:0; page-break-after:always; break-after:page; overflow:hidden; }
+  .sheet:last-child { page-break-after:auto; break-after:auto; }
   .header-emoji-box { background:#ede8f8 !important; }
   [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
-  .wline { background:transparent; padding:0; }
+  .wline, .mini-line { background:transparent; padding:0; }
   .fill-cell { background:transparent; outline:none; }
   .input-span { border-bottom-color:#C8C2DD; }
+  .img-placeholder { -webkit-print-color-adjust:exact; }
   .spacer-block { background:transparent !important; border:none !important; }
   .spacer-label { display:none !important; }
   .nivell-badge-small { background:transparent !important; border-color:#C8C2DD !important; }
 }
+
 </style>
 </head>
 <body>
@@ -192,7 +213,7 @@ span[contenteditable] { display:inline-block; }
     </div>
     <div class="header-right">
       <div class="logo-box">
-        <img src="../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
+        <img src="../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
       </div>
       <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
     </div>
@@ -238,8 +259,14 @@ span[contenteditable] { display:inline-block; }
         <p>✏️ <span contenteditable="true"><strong>1.</strong> Totes les cèl·lules del teu cos tenen exactament el mateix ADN. Llavors, per què una <strong>neurona</strong> i una cèl·lula de la <strong>pell</strong> són tan diferents?</span></p>
         <div class="wline" contenteditable="true"></div>
         <div class="wline" contenteditable="true"></div>
+        <div class="wline" contenteditable="true"></div>
+        <div class="wline" contenteditable="true"></div>
+        <div class="wline" contenteditable="true"></div>
 
         <p style="margin-top:10px">✏️ <span contenteditable="true"><strong>2.</strong> Quan et fas un tall a la pell, al cap d'uns dies es cura. D'on surten les cèl·lules noves que tapen la ferida?</span></p>
+        <div class="wline" contenteditable="true"></div>
+        <div class="wline" contenteditable="true"></div>
+        <div class="wline" contenteditable="true"></div>
         <div class="wline" contenteditable="true"></div>
       </div>
 
@@ -292,6 +319,7 @@ span[contenteditable] { display:inline-block; }
         <p>🤔 <span contenteditable="true">Després de classificar: per a què creus que serveix cada tipus de divisió? Escriu una idea per a cada columna.</span></p>
         <div class="wline" contenteditable="true"></div>
         <div class="wline" contenteditable="true"></div>
+        <div class="wline" contenteditable="true"></div>
       </div>
     </div>
 
@@ -323,6 +351,13 @@ span[contenteditable] { display:inline-block; }
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="connexio-icon">½</div>
         <div class="connexio-text" contenteditable="true"><strong>Divisió per fer cèl·lules sexuals (meiosi):</strong> fa cèl·lules (òvuls i espermatozoides) amb <strong>la meitat</strong> del material. Així, quan s'ajunten un òvul i un espermatozoide, el nou ésser torna a tenir la quantitat sencera, sense duplicar-se cada generació. <strong>(Ho veuràs a fons quan estudiem la reproducció.)</strong></div>
+        <div style="flex:0 0 auto;text-align:center">
+          <img src="../imatges_material_grafic/meiosi_2n_a_n.svg"
+               alt="Una cèl·lula amb els cromosomes per parelles es divideix i en surten quatre cèl·lules amb un cromosoma de cada parella"
+               style="height:140px;display:block"
+               onerror="this.style.display='none'">
+          <div style="font-size:7.5px;color:var(--muted);font-style:italic;margin-top:2px">Il·lustració: QuiverAI (Arrow)</div>
+        </div>
       </div>
 
       <div class="epist-box deletable">
@@ -365,6 +400,9 @@ span[contenteditable] { display:inline-block; }
           <span contenteditable="true">Una <strong>ferida a la pell</strong> es cura en pocs dies, però una <strong>neurona</strong> morta costa molt de reposar. Per quina raó creus que passa això?</span>
           <div class="wline" contenteditable="true"></div>
           <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
         </div>
       </div>
 
@@ -373,6 +411,9 @@ span[contenteditable] { display:inline-block; }
         <div class="explore-qnum">2</div>
         <div class="explore-qtext">
           <span contenteditable="true">El <strong>càncer</strong> apareix quan unes cèl·lules es divideixen <strong>sense parar</strong> i sense control. Per què creus que això és perillós per al cos?</span>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
           <div class="wline" contenteditable="true"></div>
           <div class="wline" contenteditable="true"></div>
         </div>
@@ -411,6 +452,8 @@ span[contenteditable] { display:inline-block; }
           <div class="meta-label">Encara em pregunto...</div>
           <div class="wline" contenteditable="true"></div>
           <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
         </div>
         <div class="meta-item deletable">
           <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -436,7 +479,7 @@ span[contenteditable] { display:inline-block; }
       <div class="tasca-item deletable">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="tasca-num">2</div>
-        <div contenteditable="true"><strong>🖼️ Decideix l'angle del pòster (preparació de la Sessió 4):</strong> A la propera sessió faràs un pòster sobre la cèl·lula. Pensa quin <em>angle</em> t'agradaria: les 3 parts, com entra i surt el menjar, com es divideix... Escriu la teva idea en una frase.</div>
+        <div contenteditable="true"><strong>🖼️ Prepara el repte final (Sessió 4):</strong> Llegeix a Classroom l'enunciat del pòster: <em>el cas de l'Elna</em>, que es fa un tall al dit. Porta pensades dues coses: quin <strong>diagrama original</strong> dibuixaràs i quina <strong>experiència personal</strong> hi explicaràs. A classe no hi haurà temps de començar de zero.</div>
       </div>
     </div>
 
@@ -448,76 +491,202 @@ span[contenteditable] { display:inline-block; }
   </div><!-- .content -->
 </div><!-- .page-wrap -->
 
+<div id="sheets"></div>
+
 <script>
+
+/* ════════════════════════════════════════════════════════════
+   PAGINADOR A4 REAL — cada full es veu a pantalla tal com s'imprimira.
+   FLOW = llista ordenada dels blocs de primer nivell (la font logica).
+   Capcalera corrent a partir de la pagina 2 + peu comu amb llicencia.
+   ════════════════════════════════════════════════════════════ */
+const SA_NOM = "La cèl·lula viva", SESSIO = "Sessió 3 de 4";
+const SHEET_H = 1123, FOOT_H = 30, BODY_MAX = SHEET_H - FOOT_H - 8;
+let FLOW = [];
+
+function flattenDoc(){
+  const doc=document.getElementById('doc');
+  /* S4-poster: #doc > .page-wrap > .content — puja primer el .page-wrap */
+  const pw=doc.querySelector(':scope > .page-wrap');
+  if(pw){ while(pw.firstChild){ doc.insertBefore(pw.firstChild, pw); } pw.remove(); }
+  const content=doc.querySelector(':scope > .content');
+  if(content){
+    const foot=content.querySelector(':scope > .footer'); if(foot) foot.remove();
+    while(content.firstChild){ doc.insertBefore(content.firstChild, content); }
+    content.remove();
+  }
+  const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
+}
+function extractFlow(){ FLOW = Array.from(document.getElementById('doc').children); }
+function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
+
+function saveCaret(){
+  const a=document.activeElement;
+  if(!a||!a.isContentEditable) return null;
+  const s=getSelection(); if(!s.rangeCount) return {el:a};
+  const r=s.getRangeAt(0);
+  return {el:a, sc:r.startContainer, so:r.startOffset, ec:r.endContainer, eo:r.endOffset};
+}
+function restoreCaret(d){
+  if(!d||!d.el||!document.body.contains(d.el)) return;
+  try{ d.el.focus({preventScroll:true});
+    if(d.sc && document.body.contains(d.sc)){
+      const r=document.createRange(); r.setStart(d.sc,d.so); r.setEnd(d.ec,d.eo);
+      const s=getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+  }catch(e){}
+}
+
+function repaginate(){
+  const host=document.getElementById('sheets'); if(!host) return;
+  const caret=saveCaret();
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){
+    var o=cont._origin; if(o){ while(cont.firstChild){ o.appendChild(cont.firstChild); } }
+  });
+  FLOW = FLOW.filter(function(b){ return b; });
+  FLOW.forEach(function(b){ if(b.parentNode) b.parentNode.removeChild(b); });
+  host.innerHTML='';
+  let body=null;
+  function newSheet(){
+    const n=host.children.length;
+    const sheet=document.createElement('div'); sheet.className='sheet'+(n?' has-head':'');
+    if(n){
+      const head=document.createElement('div'); head.className='sheet-head';
+      head.innerHTML='<span class="sheet-head-l"></span><span class="sheet-head-r">Biologia i Geologia · 3r ESO</span>';
+      head.firstChild.textContent=SA_NOM+' · '+SESSIO;
+      sheet.appendChild(head);
+    }
+    body=document.createElement('div'); body.className='sheet-body';
+    const foot=document.createElement('div'); foot.className='sheet-foot';
+    foot.innerHTML='<span class="fl">IE Temple · Biologia i Geologia 3r ESO</span>'+
+                   '<span class="fc">CC BY-NC-SA 4.0</span>'+
+                   '<span class="fr foot-pg"></span>';
+    sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
+  }
+  function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn'); }); }
+  function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
+  function trySplitSection(sec){
+    if(BODY_MAX - body.scrollHeight < 150) return false;
+    body.appendChild(sec);
+    if(body.scrollHeight <= BODY_MAX) return true;
+    var moved=[];
+    while(body.scrollHeight > BODY_MAX && _contentKids(sec).length > 1){
+      var ck=_contentKids(sec); var last=ck[ck.length-1];
+      moved.unshift(last); sec.removeChild(last);
+    }
+    if(moved.length===0 || body.scrollHeight > BODY_MAX){
+      moved.forEach(function(k){ sec.appendChild(k); });
+      if(sec.parentNode) sec.parentNode.removeChild(sec);
+      return false;
+    }
+    var pending=moved;
+    while(pending.length){
+      newSheet();
+      var cont=document.createElement('div');
+      cont.className='section'; cont.setAttribute('data-cont','1'); cont._origin=sec;
+      body.appendChild(cont);
+      pending.forEach(function(k){ cont.appendChild(k); });
+      var rest=[];
+      while(body.scrollHeight > BODY_MAX && cont.children.length>1){
+        var l=cont.lastElementChild; rest.unshift(l); cont.removeChild(l);
+      }
+      pending=rest;
+    }
+    return true;
+  }
+  newSheet();
+  for(let i=0;i<FLOW.length;i++){
+    const blk=FLOW[i];
+    if(blk.classList.contains('spacer-block')){
+      blk.style.height='auto'; body.appendChild(blk);
+      const used = body.scrollHeight - blk.offsetHeight;
+      const remain = BODY_MAX - used;
+      blk.style.height = (remain>34?remain:34)+'px';
+      if(i < FLOW.length-1) newSheet();
+      continue;
+    }
+    body.appendChild(blk);
+    if(body.scrollHeight > BODY_MAX && body.children.length>1){
+      body.removeChild(blk);
+      var _ok=false;
+      if(blk.classList.contains('section')){ try{ _ok=trySplitSection(blk); }catch(e){ _ok=false; } }
+      if(!_ok){
+        newSheet();
+        var _ok2=false;
+        if(blk.classList.contains('section')){ try{ _ok2=trySplitSection(blk); }catch(e){ _ok2=false; } }
+        if(!_ok2){ body.appendChild(blk); }
+      }
+    }
+  }
+  const sheets=host.querySelectorAll('.sheet');
+  sheets.forEach(function(s,idx){ const pg=s.querySelector('.foot-pg'); if(pg) pg.textContent='Pàgina '+(idx+1)+' / '+sheets.length; });
+  restoreCaret(caret);
+}
+let _pgT=null;
+function schedulePageBreaks(){ clearTimeout(_pgT); _pgT=setTimeout(repaginate,120); }
+function updatePageBreaks(){ repaginate(); }
+document.addEventListener('focusout', function(){ schedulePageBreaks(); });
+
+/* ── eliminar / desfer / espai ─────────────────────── */
 const delStack = [];
-function deleteEl(btn) {
-  const target = btn.closest('.deletable');
-  if (!target) return;
-  const parent = target.parentNode;
-  const sibling = target.nextSibling;
-  target.remove();
-  delStack.push({ el:target, parent, sibling });
-  document.getElementById('btn-undo').classList.add('active');
+function _btnUndo(){ return document.getElementById('btn-undo'); }
+function _undoOn(){ const b=_btnUndo(); if(b){ b.classList.add('active'); b.disabled=false; } }
+function _undoOff(){ const b=_btnUndo(); if(b){ b.classList.remove('active'); b.disabled=true; } }
+function deleteEl(btn){
+  const el=btn.closest('.deletable'); if(!el) return;
+  const blk=topFlowBlock(el);
+  if(blk===el){ const i=FLOW.indexOf(el); delStack.push({el:el, flowIdx:i}); if(i>=0) FLOW.splice(i,1); el.remove(); }
+  else { delStack.push({el:el, parent:el.parentNode, sibling:el.nextSibling}); el.remove(); }
+  _undoOn();
+  repaginate();
+  if(typeof syncCopy==='function') setTimeout(syncCopy,0);
 }
-function undoDelete() {
-  if (!delStack.length) return;
-  const { el, parent, sibling } = delStack.pop();
-  parent.insertBefore(el, sibling);
-  if (!delStack.length) document.getElementById('btn-undo').classList.remove('active');
-  updatePageBreaks();
+function undoDelete(){
+  if(!delStack.length) return;
+  const d=delStack.pop();
+  if(d.parent){ d.parent.insertBefore(d.el, d.sibling); }
+  else { FLOW.splice(Math.max(0,Math.min(d.flowIdx,FLOW.length)),0,d.el); }
+  if(!delStack.length) _undoOff();
+  repaginate();
+  if(typeof syncCopy==='function') setTimeout(syncCopy,0);
 }
-document.addEventListener('keydown', e => {
-  if (e.key==='z' && (e.ctrlKey||e.metaKey)) {
-    if (document.activeElement && document.activeElement.contentEditable==='true') return;
+document.addEventListener('keydown', function(e){
+  if(e.key==='z' && (e.ctrlKey||e.metaKey)){
+    if(document.activeElement && document.activeElement.contentEditable==='true') return;
     e.preventDefault(); undoDelete();
   }
 });
-
-const PAGE_H = 1047;
-let _pbTimer = null;
-const PB_OPTS = { childList:true, subtree:true, characterData:true, attributes:false };
-function updatePageBreaks() {
-  pbObserver.disconnect();
-  const doc = document.getElementById('doc');
-  doc.querySelectorAll('.page-break-line').forEach(n=>n.remove());
-  doc.querySelectorAll('.page-footer-bar').forEach(n=>n.remove());
-  const total = doc.scrollHeight;
-  const numPages = Math.ceil(total/PAGE_H);
-  for (let p=1; p*PAGE_H<total; p++) {
-    const line=document.createElement('div'); line.className='page-break-line'; line.style.top=(p*PAGE_H)+'px';
-    const label=document.createElement('div'); label.className='page-break-label'; label.textContent='Pàgina '+(p+1);
-    line.appendChild(label); doc.appendChild(line);
-  }
-  for (let p=1; p<=numPages; p++) {
-    const bar=document.createElement('div'); bar.className='page-footer-bar'; bar.style.top=(p*PAGE_H-22)+'px';
-    bar.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span>'+p+' / '+numPages+'</span>';
-    doc.appendChild(bar);
-  }
-  pbObserver.observe(document.getElementById('doc'), PB_OPTS);
-}
-function schedulePageBreaks() { clearTimeout(_pbTimer); _pbTimer=setTimeout(updatePageBreaks,350); }
-window.addEventListener('load', updatePageBreaks);
-const pbObserver = new MutationObserver(schedulePageBreaks);
-pbObserver.observe(document.getElementById('doc'), PB_OPTS);
-
-let _lastClickedBlock = null;
-document.addEventListener('click', e => {
-  const content=document.querySelector('.content'); if (!content) return;
-  let node=e.target;
-  while (node && node.parentElement!==content) node=node.parentElement;
-  if (node && node!==content && !node.classList.contains('spacer-block')) _lastClickedBlock=node;
+let _lastClickedBlock=null;
+document.addEventListener('click', function(e){
+  const b=topFlowBlock(e.target);
+  if(b && !b.classList.contains('spacer-block')) _lastClickedBlock=b;
 });
-function insertSpacer() {
-  const content=document.querySelector('.content'); const footer=document.querySelector('.footer');
+function insertSpacer(){
   const sp=document.createElement('div'); sp.className='spacer-block deletable';
   sp.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai en blanc</span>';
-  let ref=footer||null;
-  if (_lastClickedBlock && _lastClickedBlock.parentElement===content) ref=_lastClickedBlock.nextSibling;
-  content.insertBefore(sp,ref);
-  delStack.push({el:sp,parent:content,sibling:sp.nextSibling});
-  document.getElementById('btn-undo').classList.add('active');
-  schedulePageBreaks();
+  let idx=FLOW.length;
+  if(_lastClickedBlock){ const i=FLOW.indexOf(_lastClickedBlock); if(i>=0) idx=i+1; }
+  FLOW.splice(idx,0,sp);
+  delStack.push({el:sp, flowIdx:idx});
+  _undoOn();
+  repaginate();
 }
+function rebuildDocFromFlow(){
+  const doc=document.getElementById('doc');
+  document.querySelectorAll('.section[data-cont]').forEach(function(cont){
+    var o=cont._origin; if(o){ while(cont.firstChild){ o.appendChild(cont.firstChild); } }
+  });
+  FLOW.forEach(function(b){ if(b.classList.contains('spacer-block')) b.style.height=''; });
+  FLOW.forEach(function(b){ if(b.parentNode!==doc){ if(b.parentNode) b.parentNode.removeChild(b); doc.appendChild(b); } });
+  document.getElementById('sheets').innerHTML='';
+}
+window.addEventListener('load', function(){
+  flattenDoc(); extractFlow(); repaginate();
+  if(typeof syncCopy==='function') setTimeout(function(){ syncCopy(); repaginate(); }, 60);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ repaginate(); }); }
+  document.querySelectorAll('img').forEach(function(img){ if(!img.complete) img.addEventListener('load', schedulePageBreaks, {once:true}); });
+  setTimeout(repaginate, 400); setTimeout(repaginate, 1200);
+});
 </script>
 
 <script>
@@ -531,8 +700,11 @@ function _fitxaToast(msg){
   clearTimeout(t._h);t._h=setTimeout(()=>t.style.opacity='0',2200);
 }
 async function desaFitxa(){
+  rebuildDocFromFlow();
   const clone=document.documentElement.cloneNode(true);
-  clone.querySelectorAll('.page-break-line,.page-footer-bar,#fitxa-toast').forEach(n=>n.remove());
+  extractFlow(); repaginate();
+  const _sh=clone.querySelector('#sheets'); if(_sh) _sh.innerHTML='';
+  clone.querySelectorAll('#fitxa-toast').forEach(n=>n.remove());
   const html='<!DOCTYPE html>\n'+clone.outerHTML;
   const fname=(location.pathname.split('/').pop()||'fitxa.html');
   if(window.showSaveFilePicker){

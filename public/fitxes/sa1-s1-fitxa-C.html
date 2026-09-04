@@ -8,7 +8,7 @@
 <style>
 :root {
   --purple:#7B68C8; --purple-ink:#4a3b8c; --purple-light:#c5b8f0; --purple-tint:#f0edfb;
-  --ink:#1A1428; --ink-2:#3a3050; --muted:#7a7090; --surface:#fdfcff;
+  --ink:#1A1428; --ink-2:#3a3050; --muted:#7a7090; --surface:#fdfcff; --paper:#ffffff;
   --rule:#e8e2f6; --rule-dark:#c8bfe8;
   --orange:#e8834a; --orange-tint:#fdf0e8;
   --teal:#3a9e8c;   --teal-tint:#e6f4f1;
@@ -46,9 +46,27 @@ body {
 .tb-undo.active:hover { background:rgba(212,74,108,.35); }
 .tb-spacer { background:rgba(123,104,200,.2); border:1px solid rgba(123,104,200,.4); color:#c5b8f0; font-size:12px; }
 .tb-spacer:hover { background:rgba(123,104,200,.35); }
-.page-wrap { width:794px; margin:0 auto; background:var(--surface); box-shadow:0 2px 30px rgba(0,0,0,.22); position:relative; }
-.page-break-line { position:absolute; left:0; right:0; border-top:2px dashed #9080bc; pointer-events:none; z-index:10; }
-.page-break-label { position:absolute; right:10px; top:-11px; background:#9080bc; color:white; font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
+.page-wrap { width:794px; margin:0 auto; position:relative; }
+#doc { display:none; }
+
+/* ── PAGINADOR A4 REAL ─────────────────────────────── */
+#sheets { display:flex; flex-direction:column; align-items:center; gap:26px; }
+.sheet { width:794px; min-height:1123px; background:var(--paper); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.18); overflow:visible; }
+.sheet-body { padding:36px 46px 18px; position:relative; overflow:visible; }
+.sheet.has-head .sheet-body { padding-top:54px; }
+.sheet-head { position:absolute; left:0; right:0; top:0; height:36px; display:none; justify-content:space-between; align-items:center; padding:0 46px; border-bottom:1.5px solid var(--purple-light); background:var(--paper); }
+.sheet.has-head .sheet-head { display:flex; }
+.sheet-head-l { font-family:'Inter',sans-serif; font-size:8.5px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--purple-ink); }
+.sheet-head-r { font-family:'Inter',sans-serif; font-size:8.5px; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); }
+.sheet-foot { position:absolute; left:0; right:0; bottom:0; height:30px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:0 46px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:600; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; border-top:.5px solid var(--rule); background:var(--paper); }
+.sheet-foot .fc { text-align:center; letter-spacing:.14em; color:var(--purple-ink); }
+.sheet-foot .fr { text-align:right; }
+.sheet-body > .header-band { margin:-36px -46px 0; }
+.sheet-body > .nivell-strip { margin:0 -46px; }
+.sheet-body > .oa-box { margin:12px 0 0; }
+
+
+
 [contenteditable] { outline:none; cursor:text; border-radius:3px; transition:background .12s, box-shadow .12s; }
 [contenteditable]:hover { background:rgba(123,104,200,.08); box-shadow:0 0 0 2px rgba(123,104,200,.3); }
 [contenteditable]:focus { background:rgba(123,104,200,.12); box-shadow:0 0 0 2.5px var(--purple); }
@@ -88,7 +106,7 @@ span[contenteditable] { display:inline-block; }
 .nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
 .nivell-label { font-size:11px; color:var(--muted); font-style:italic; }
 .temps-badge { font-size:10px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
-.oa-box { background:linear-gradient(to right,#f5f2ff,var(--surface)); border-left:4px solid var(--purple); padding:10px 16px; }
+.oa-box { background:linear-gradient(to right,#f5f2ff,var(--paper)); border-left:4px solid var(--purple); padding:10px 16px; }
 .oa-title { font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:6px; }
 .oa-list { list-style:none; padding:0; margin:0; }
 .oa-list li { font-size:11.5px; padding:3px 0 3px 22px; position:relative; line-height:1.4; border-bottom:1px dashed var(--rule); }
@@ -196,28 +214,33 @@ span[contenteditable] { display:inline-block; }
 .tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
 .spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(123,104,200,.05) 6px, rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
 .spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
-.page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:0.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
+
 .small { font-size:10px; color:var(--muted); }
 .mt8 { margin-top:8px; }
 .footer { margin-top:12px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
 .footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
 .footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
 
+/* ── IMPRESSIÓ ────────────────────────────────────── */
 @media print {
-  @page { size:A4; margin:10mm 12mm; }
+  @page { size:A4; margin:0; }
   * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  body { background:white; padding:0; }
-  #toolbar, .page-break-line, .del-btn { display:none !important; }
-  .page-footer-bar { display:flex !important; }
-  .footer { display:none !important; }
-  .page-wrap { box-shadow:none; width:100%; }
+  html,body { background:#fff; padding:0; margin:0; }
+  #toolbar, .del-btn { display:none !important; }
+  #sheets { gap:0; display:block; }
+  .sheet { width:210mm; height:297mm; min-height:0; box-shadow:none; margin:0; page-break-after:always; break-after:page; overflow:hidden; }
+  .sheet:last-child { page-break-after:auto; break-after:auto; }
   .header-emoji-box { background:#ede8f8 !important; }
   [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
-  .wline { background:transparent; padding:0; }
+  .wline, .mini-line { background:transparent; padding:0; }
+  .fill-cell { background:transparent; outline:none; }
+  .input-span { border-bottom-color:#C8C2DD; }
+  .img-placeholder { -webkit-print-color-adjust:exact; }
   .spacer-block { background:transparent !important; border:none !important; }
   .spacer-label { display:none !important; }
   .nivell-badge-small { background:transparent !important; border-color:#C8C2DD !important; }
 }
+
 </style>
 </head>
 <body>
@@ -246,7 +269,7 @@ span[contenteditable] { display:inline-block; }
     </div>
     <div class="header-right">
       <div class="logo-box">
-        <img src="/logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
+        <img src="../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
       </div>
       <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
     </div>
@@ -331,10 +354,10 @@ span[contenteditable] { display:inline-block; }
 
       <figure class="deletable" style="margin:8px 0 10px;text-align:center;position:relative">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <img src="/fitxes/img/celula_animal_3_marcadors.png"
+        <img src="../imatges_material_grafic/celula_animal_3_marcadors.png"
              alt="Cèl·lula amb les seves parts"
              style="max-width:100%;max-height:240px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
-             onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='/fitxes/img/celula_animal_etiquetable.png';}else{this.style.display='none';}">
+             onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='../imatges_material_grafic/celula_animal_etiquetable.png';}else{this.style.display='none';}">
         <figcaption style="font-size:9.5px;color:var(--ink-2);margin-top:4px">Una c&egrave;l&middot;lula per dins. A la llegenda de sota tens les <strong>3 parts</strong> que mirem avui, cada una amb el seu <strong>color</strong>: busca-les al dibuix. Els requadres buits del dibuix <strong>no s&rsquo;han d&rsquo;omplir</strong>.</figcaption>
       </figure>
 
@@ -363,13 +386,13 @@ span[contenteditable] { display:inline-block; }
         <p contenteditable="true">La c&egrave;l&middot;lula &eacute;s el <strong>primer</strong> nivell que ja est&agrave; <strong>viu</strong>. El que hi ha per sota (&agrave;tom, mol&egrave;cula, org&agrave;nul) no viu tot sol.</p>
         <div style="display:flex;align-items:center;justify-content:center;gap:5px;flex-wrap:wrap;margin-top:6px;font-size:10px;text-align:center">
           <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#9883;&#65039;<br>&Agrave;tom</span><span style="color:var(--muted)">&rarr;</span>
-          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#128167;<br>Mol&egrave;cula</span><span style="color:var(--muted)">&rarr;</span>
-          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#129496;<br>Org&agrave;nul</span><span style="color:var(--muted)">&rarr;</span>
-          <span style="border:2px solid var(--orange);border-radius:8px;padding:3px 7px;background:var(--orange-tint);font-weight:900;color:var(--orange)">&#11088;<br>C&egrave;l&middot;lula</span><span style="color:var(--muted)">&rarr;</span>
-          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#129525;<br>Teixit</span><span style="color:var(--muted)">&rarr;</span>
-          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#10084;&#65039;<br>&Ograve;rgan</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff"><svg viewBox="0 0 60 50" style="height:26px;width:auto;vertical-align:middle" role="img" aria-label="Molecula: atoms units"><line x1="30" y1="31" x2="15" y2="16" stroke="#7a5a92" stroke-width="4" stroke-linecap="round"/><line x1="30" y1="31" x2="45" y2="16" stroke="#7a5a92" stroke-width="4" stroke-linecap="round"/><circle cx="15" cy="16" r="7.5" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="2"/><circle cx="45" cy="16" r="7.5" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="2"/><circle cx="30" cy="31" r="12" fill="#c9a2dd" stroke="#7a5a92" stroke-width="2"/></svg><br>Mol&egrave;cula</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff"><img src="../imatges_material_grafic/mitocondri_servier.svg" alt="Mitocondri amb crestes" style="height:26px;width:auto;vertical-align:middle"><br>Org&agrave;nul</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:2px solid var(--orange);border-radius:8px;padding:3px 7px;background:var(--orange-tint);font-weight:900;color:var(--orange)"><svg viewBox="0 0 60 50" style="height:26px;width:auto;vertical-align:middle" role="img" aria-label="Cel-lula"><ellipse cx="30" cy="25" rx="27" ry="22" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="3"/><circle cx="26" cy="24" r="8" fill="#c9a2dd" stroke="#7a5a92" stroke-width="1.5"/><circle cx="26" cy="24" r="3" fill="#8e5faa"/><ellipse cx="44" cy="16" rx="6" ry="3.2" fill="#f0a86a" stroke="#c47a3c" stroke-width="1"/><ellipse cx="43" cy="35" rx="6" ry="3.2" fill="#f0a86a" stroke="#c47a3c" stroke-width="1"/><ellipse cx="13" cy="34" rx="5" ry="2.8" fill="#f0a86a" stroke="#c47a3c" stroke-width="1"/></svg><br>C&egrave;l&middot;lula</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff"><svg viewBox="0 0 60 42" style="height:26px;width:auto;vertical-align:middle" role="img" aria-label="Teixit: conjunt de cel-lules iguals"><defs><clipPath id="clip-teixit-s1c"><rect x="1.2" y="1.2" width="57.6" height="39.6" rx="6"/></clipPath></defs><g clip-path="url(#clip-teixit-s1c)"><rect x="1.2" y="1.2" width="57.6" height="39.6" fill="#fdf7ef"/><rect x="-4.0" y="0.0" width="14" height="13" rx="4" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="1.3"/><circle cx="3.0" cy="6.5" r="2.3" fill="#c9a2dd" stroke="#7a5a92" stroke-width=".7"/><rect x="11.0" y="0.0" width="14" height="13" rx="4" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="1.3"/><circle cx="18.0" cy="6.5" r="2.3" fill="#c9a2dd" stroke="#7a5a92" stroke-width=".7"/><rect x="26.0" y="0.0" width="14" height="13" rx="4" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="1.3"/><circle cx="33.0" cy="6.5" r="2.3" fill="#c9a2dd" stroke="#7a5a92" stroke-width=".7"/><rect x="41.0" y="0.0" width="14" height="13" rx="4" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="1.3"/><circle cx="48.0" cy="6.5" r="2.3" fill="#c9a2dd" stroke="#7a5a92" stroke-width=".7"/><rect x="56.0" y="0.0" width="14" height="13" rx="4" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="1.3"/><circle cx="63.0" cy="6.5" r="2.3" fill="#c9a2dd" stroke="#7a5a92" stroke-width=".7"/><rect x="3.5" y="14.5" width="14" height="13" rx="4" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="1.3"/><circle cx="10.5" cy="21.0" r="2.3" fill="#c9a2dd" stroke="#7a5a92" stroke-width=".7"/><rect x="18.5" y="14.5" width="14" height="13" rx="4" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="1.3"/><circle cx="25.5" cy="21.0" r="2.3" fill="#c9a2dd" stroke="#7a5a92" stroke-width=".7"/><rect x="33.5" y="14.5" width="14" height="13" rx="4" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="1.3"/><circle cx="40.5" cy="21.0" r="2.3" fill="#c9a2dd" stroke="#7a5a92" stroke-width=".7"/><rect x="48.5" y="14.5" width="14" height="13" rx="4" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="1.3"/><circle cx="55.5" cy="21.0" r="2.3" fill="#c9a2dd" stroke="#7a5a92" stroke-width=".7"/><rect x="-4.0" y="29.0" width="14" height="13" rx="4" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="1.3"/><circle cx="3.0" cy="35.5" r="2.3" fill="#c9a2dd" stroke="#7a5a92" stroke-width=".7"/><rect x="11.0" y="29.0" width="14" height="13" rx="4" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="1.3"/><circle cx="18.0" cy="35.5" r="2.3" fill="#c9a2dd" stroke="#7a5a92" stroke-width=".7"/><rect x="26.0" y="29.0" width="14" height="13" rx="4" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="1.3"/><circle cx="33.0" cy="35.5" r="2.3" fill="#c9a2dd" stroke="#7a5a92" stroke-width=".7"/><rect x="41.0" y="29.0" width="14" height="13" rx="4" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="1.3"/><circle cx="48.0" cy="35.5" r="2.3" fill="#c9a2dd" stroke="#7a5a92" stroke-width=".7"/><rect x="56.0" y="29.0" width="14" height="13" rx="4" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="1.3"/><circle cx="63.0" cy="35.5" r="2.3" fill="#c9a2dd" stroke="#7a5a92" stroke-width=".7"/></g><rect x="1.2" y="1.2" width="57.6" height="39.6" rx="6" fill="none" stroke="#6f8fb0" stroke-width="2"/></svg><br>Teixit</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff"><svg viewBox="0 0 60 42" style="height:26px;width:auto;vertical-align:middle" role="img" aria-label="Organ (cor)"><path d="M30 39 C10 26 8 14 16 9 C22 5 28 8 30 13 C32 8 38 5 44 9 C52 14 50 26 30 39 Z" fill="#e08a8a" stroke="#9e4b4b" stroke-width="2"/><path d="M30 13 L30 39" stroke="#9e4b4b" stroke-width="1.2" opacity=".55"/><path d="M20 12 C22 18 20 22 17 25" stroke="#9e4b4b" stroke-width="1.2" fill="none" opacity=".55"/><path d="M41 12 C39 18 41 22 44 25" stroke="#9e4b4b" stroke-width="1.2" fill="none" opacity=".55"/></svg><br>&Ograve;rgan</span><span style="color:var(--muted)">&rarr;</span>
           <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#129729;<br>Aparell</span><span style="color:var(--muted)">&rarr;</span>
-          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#129485;<br>Organisme</span><span style="color:var(--muted)">&rarr;</span>
+          <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff"><svg viewBox="0 0 30 42" style="height:26px;width:auto;vertical-align:middle" role="img" aria-label="Organisme"><circle cx="15" cy="7" r="5" fill="#7B68C8"/><path d="M15 12 C9 12 6 15 6 20 L6 27 L9 27 L9.5 40 L13 40 L13.5 29 L16.5 29 L17 40 L20.5 40 L21 27 L24 27 L24 20 C24 15 21 12 15 12 Z" fill="#7B68C8"/></svg><br>Organisme</span><span style="color:var(--muted)">&rarr;</span>
           <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#127966;&#65039;<br>Ecosistema</span><span style="color:var(--muted)">&rarr;</span>
           <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#127757;<br>Biosfera</span>
         </div>
@@ -422,14 +445,14 @@ span[contenteditable] { display:inline-block; }
           </div>
           <span style="font-size:22px;color:var(--purple-ink)">➜</span>
           <div style="background:white;border:2px solid var(--purple);border-radius:14px;padding:10px 16px;text-align:center;min-width:126px">
-            <div style="font-size:26px;line-height:1">🫘</div>
+            <img src="../imatges_material_grafic/mitocondri_servier.svg" alt="Mitocondri amb crestes" style="height:38px;width:auto;display:block;margin:0 auto 2px">
             <div style="font-size:11.5px;font-weight:900;color:var(--purple-ink);margin-top:2px">MITOCONDRI</div>
             <div style="font-size:9.5px;color:var(--muted)">aquí es fa l'energia</div>
           </div>
           <span style="font-size:22px;color:var(--purple-ink)">➜</span>
           <span class="chip c" style="font-size:12.5px;padding:6px 14px">⚡ Energia</span>
         </div>
-        <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic;text-align:center">Entren <strong>2 coses</strong> (menjar + aire) i en surt <strong>1</strong>: energia.</figcaption>
+        <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic;text-align:center">Entren <strong>2 coses</strong> (menjar + aire) i en surt <strong>1</strong>: energia. <span style="font-style:normal">Mitocondri: Servier Medical Art (CC BY 4.0).</span></figcaption>
         <p style="font-size:11px;color:var(--ink-2);margin-top:6px" contenteditable="true">&#127939; I si et mous molt (corres, puges escales), els m&uacute;sculs gasten <strong>m&eacute;s energia</strong>. Per aix&ograve; necessiten <strong>m&eacute;s menjar i m&eacute;s aire</strong>: per aix&ograve; respires m&eacute;s de pressa.</p>
       </figure>
 
@@ -536,7 +559,9 @@ span[contenteditable] { display:inline-block; }
         </div>
       </div>
 
-      <!-- ENCERCLA LA FUNCIÓ DE CADA PART -->
+      <!-- ENCERCLA LA FUNCIÓ DE CADA PART — enunciat, ajuda i taula
+           van junts: no es poden separar en dos fulls (criteri 1) -->
+      <div class="keep-unit">
       <p style="font-size:11.5px;color:var(--ink-2);margin:10px 0 2px" contenteditable="true">✏️ <strong>Encercla</strong> què fa cada part de la cèl·lula:</p>
       <div class="circ-help" contenteditable="true">Torna a mirar el dibuix de dalt: quina part toca el que hi ha fora de la cèl·lula? Quina és la gran del mig? Quina és la petita on entren el menjar i l'aire?</div>
       <div class="passos-box deletable" style="margin-top:2px">
@@ -568,6 +593,7 @@ span[contenteditable] { display:inline-block; }
           </div>
         </div>
       </div>
+      </div><!-- /keep-unit -->
 
       <!-- Plantes vs animals — molt senzill, encercla -->
       <div class="info-box deletable" style="margin-top:10px">
@@ -622,6 +648,8 @@ span[contenteditable] { display:inline-block; }
           <span class="meta-icon">❓</span>
           <div class="meta-label">Una cosa que encara no entenc</div>
           <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
+          <div class="wline" contenteditable="true"></div>
         </div>
         <div class="meta-item deletable">
           <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -664,76 +692,202 @@ span[contenteditable] { display:inline-block; }
   </div><!-- .content -->
 </div><!-- .page-wrap -->
 
+<div id="sheets"></div>
+
 <script>
+
+/* ════════════════════════════════════════════════════════════
+   PAGINADOR A4 REAL — cada full es veu a pantalla tal com s'imprimira.
+   FLOW = llista ordenada dels blocs de primer nivell (la font logica).
+   Capcalera corrent a partir de la pagina 2 + peu comu amb llicencia.
+   ════════════════════════════════════════════════════════════ */
+const SA_NOM = "La cèl·lula viva", SESSIO = "Sessió 1 de 4";
+const SHEET_H = 1123, FOOT_H = 30, BODY_MAX = SHEET_H - FOOT_H - 8;
+let FLOW = [];
+
+function flattenDoc(){
+  const doc=document.getElementById('doc');
+  /* S4-poster: #doc > .page-wrap > .content — puja primer el .page-wrap */
+  const pw=doc.querySelector(':scope > .page-wrap');
+  if(pw){ while(pw.firstChild){ doc.insertBefore(pw.firstChild, pw); } pw.remove(); }
+  const content=doc.querySelector(':scope > .content');
+  if(content){
+    const foot=content.querySelector(':scope > .footer'); if(foot) foot.remove();
+    while(content.firstChild){ doc.insertBefore(content.firstChild, content); }
+    content.remove();
+  }
+  const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
+}
+function extractFlow(){ FLOW = Array.from(document.getElementById('doc').children); }
+function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
+
+function saveCaret(){
+  const a=document.activeElement;
+  if(!a||!a.isContentEditable) return null;
+  const s=getSelection(); if(!s.rangeCount) return {el:a};
+  const r=s.getRangeAt(0);
+  return {el:a, sc:r.startContainer, so:r.startOffset, ec:r.endContainer, eo:r.endOffset};
+}
+function restoreCaret(d){
+  if(!d||!d.el||!document.body.contains(d.el)) return;
+  try{ d.el.focus({preventScroll:true});
+    if(d.sc && document.body.contains(d.sc)){
+      const r=document.createRange(); r.setStart(d.sc,d.so); r.setEnd(d.ec,d.eo);
+      const s=getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+  }catch(e){}
+}
+
+function repaginate(){
+  const host=document.getElementById('sheets'); if(!host) return;
+  const caret=saveCaret();
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){
+    var o=cont._origin; if(o){ while(cont.firstChild){ o.appendChild(cont.firstChild); } }
+  });
+  FLOW = FLOW.filter(function(b){ return b; });
+  FLOW.forEach(function(b){ if(b.parentNode) b.parentNode.removeChild(b); });
+  host.innerHTML='';
+  let body=null;
+  function newSheet(){
+    const n=host.children.length;
+    const sheet=document.createElement('div'); sheet.className='sheet'+(n?' has-head':'');
+    if(n){
+      const head=document.createElement('div'); head.className='sheet-head';
+      head.innerHTML='<span class="sheet-head-l"></span><span class="sheet-head-r">Biologia i Geologia · 3r ESO</span>';
+      head.firstChild.textContent=SA_NOM+' · '+SESSIO;
+      sheet.appendChild(head);
+    }
+    body=document.createElement('div'); body.className='sheet-body';
+    const foot=document.createElement('div'); foot.className='sheet-foot';
+    foot.innerHTML='<span class="fl">IE Temple · Biologia i Geologia 3r ESO</span>'+
+                   '<span class="fc">CC BY-NC-SA 4.0</span>'+
+                   '<span class="fr foot-pg"></span>';
+    sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
+  }
+  function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn'); }); }
+  function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
+  function trySplitSection(sec){
+    if(BODY_MAX - body.scrollHeight < 150) return false;
+    body.appendChild(sec);
+    if(body.scrollHeight <= BODY_MAX) return true;
+    var moved=[];
+    while(body.scrollHeight > BODY_MAX && _contentKids(sec).length > 1){
+      var ck=_contentKids(sec); var last=ck[ck.length-1];
+      moved.unshift(last); sec.removeChild(last);
+    }
+    if(moved.length===0 || body.scrollHeight > BODY_MAX){
+      moved.forEach(function(k){ sec.appendChild(k); });
+      if(sec.parentNode) sec.parentNode.removeChild(sec);
+      return false;
+    }
+    var pending=moved;
+    while(pending.length){
+      newSheet();
+      var cont=document.createElement('div');
+      cont.className='section'; cont.setAttribute('data-cont','1'); cont._origin=sec;
+      body.appendChild(cont);
+      pending.forEach(function(k){ cont.appendChild(k); });
+      var rest=[];
+      while(body.scrollHeight > BODY_MAX && cont.children.length>1){
+        var l=cont.lastElementChild; rest.unshift(l); cont.removeChild(l);
+      }
+      pending=rest;
+    }
+    return true;
+  }
+  newSheet();
+  for(let i=0;i<FLOW.length;i++){
+    const blk=FLOW[i];
+    if(blk.classList.contains('spacer-block')){
+      blk.style.height='auto'; body.appendChild(blk);
+      const used = body.scrollHeight - blk.offsetHeight;
+      const remain = BODY_MAX - used;
+      blk.style.height = (remain>34?remain:34)+'px';
+      if(i < FLOW.length-1) newSheet();
+      continue;
+    }
+    body.appendChild(blk);
+    if(body.scrollHeight > BODY_MAX && body.children.length>1){
+      body.removeChild(blk);
+      var _ok=false;
+      if(blk.classList.contains('section')){ try{ _ok=trySplitSection(blk); }catch(e){ _ok=false; } }
+      if(!_ok){
+        newSheet();
+        var _ok2=false;
+        if(blk.classList.contains('section')){ try{ _ok2=trySplitSection(blk); }catch(e){ _ok2=false; } }
+        if(!_ok2){ body.appendChild(blk); }
+      }
+    }
+  }
+  const sheets=host.querySelectorAll('.sheet');
+  sheets.forEach(function(s,idx){ const pg=s.querySelector('.foot-pg'); if(pg) pg.textContent='Pàgina '+(idx+1)+' / '+sheets.length; });
+  restoreCaret(caret);
+}
+let _pgT=null;
+function schedulePageBreaks(){ clearTimeout(_pgT); _pgT=setTimeout(repaginate,120); }
+function updatePageBreaks(){ repaginate(); }
+document.addEventListener('focusout', function(){ schedulePageBreaks(); });
+
+/* ── eliminar / desfer / espai ─────────────────────── */
 const delStack = [];
-function deleteEl(btn) {
-  const target = btn.closest('.deletable');
-  if (!target) return;
-  const parent = target.parentNode;
-  const sibling = target.nextSibling;
-  target.remove();
-  delStack.push({ el:target, parent, sibling });
-  document.getElementById('btn-undo').classList.add('active');
+function _btnUndo(){ return document.getElementById('btn-undo'); }
+function _undoOn(){ const b=_btnUndo(); if(b){ b.classList.add('active'); b.disabled=false; } }
+function _undoOff(){ const b=_btnUndo(); if(b){ b.classList.remove('active'); b.disabled=true; } }
+function deleteEl(btn){
+  const el=btn.closest('.deletable'); if(!el) return;
+  const blk=topFlowBlock(el);
+  if(blk===el){ const i=FLOW.indexOf(el); delStack.push({el:el, flowIdx:i}); if(i>=0) FLOW.splice(i,1); el.remove(); }
+  else { delStack.push({el:el, parent:el.parentNode, sibling:el.nextSibling}); el.remove(); }
+  _undoOn();
+  repaginate();
+  if(typeof syncCopy==='function') setTimeout(syncCopy,0);
 }
-function undoDelete() {
-  if (!delStack.length) return;
-  const { el, parent, sibling } = delStack.pop();
-  parent.insertBefore(el, sibling);
-  if (!delStack.length) document.getElementById('btn-undo').classList.remove('active');
-  updatePageBreaks();
+function undoDelete(){
+  if(!delStack.length) return;
+  const d=delStack.pop();
+  if(d.parent){ d.parent.insertBefore(d.el, d.sibling); }
+  else { FLOW.splice(Math.max(0,Math.min(d.flowIdx,FLOW.length)),0,d.el); }
+  if(!delStack.length) _undoOff();
+  repaginate();
+  if(typeof syncCopy==='function') setTimeout(syncCopy,0);
 }
-document.addEventListener('keydown', e => {
-  if (e.key==='z' && (e.ctrlKey||e.metaKey)) {
-    if (document.activeElement && document.activeElement.contentEditable==='true') return;
+document.addEventListener('keydown', function(e){
+  if(e.key==='z' && (e.ctrlKey||e.metaKey)){
+    if(document.activeElement && document.activeElement.contentEditable==='true') return;
     e.preventDefault(); undoDelete();
   }
 });
-
-const PAGE_H = 1047;
-let _pbTimer = null;
-const PB_OPTS = { childList:true, subtree:true, characterData:true, attributes:false };
-function updatePageBreaks() {
-  pbObserver.disconnect();
-  const doc = document.getElementById('doc');
-  doc.querySelectorAll('.page-break-line').forEach(n=>n.remove());
-  doc.querySelectorAll('.page-footer-bar').forEach(n=>n.remove());
-  const total = doc.scrollHeight;
-  const numPages = Math.ceil(total/PAGE_H);
-  for (let p=1; p*PAGE_H<total; p++) {
-    const line=document.createElement('div'); line.className='page-break-line'; line.style.top=(p*PAGE_H)+'px';
-    const label=document.createElement('div'); label.className='page-break-label'; label.textContent='Pàgina '+(p+1);
-    line.appendChild(label); doc.appendChild(line);
-  }
-  for (let p=1; p<=numPages; p++) {
-    const bar=document.createElement('div'); bar.className='page-footer-bar'; bar.style.top=(p*PAGE_H-22)+'px';
-    bar.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span>'+p+' / '+numPages+'</span>';
-    doc.appendChild(bar);
-  }
-  pbObserver.observe(document.getElementById('doc'), PB_OPTS);
-}
-function schedulePageBreaks() { clearTimeout(_pbTimer); _pbTimer=setTimeout(updatePageBreaks,350); }
-window.addEventListener('load', updatePageBreaks);
-const pbObserver = new MutationObserver(schedulePageBreaks);
-pbObserver.observe(document.getElementById('doc'), PB_OPTS);
-
-let _lastClickedBlock = null;
-document.addEventListener('click', e => {
-  const content=document.querySelector('.content'); if (!content) return;
-  let node=e.target;
-  while (node && node.parentElement!==content) node=node.parentElement;
-  if (node && node!==content && !node.classList.contains('spacer-block')) _lastClickedBlock=node;
+let _lastClickedBlock=null;
+document.addEventListener('click', function(e){
+  const b=topFlowBlock(e.target);
+  if(b && !b.classList.contains('spacer-block')) _lastClickedBlock=b;
 });
-function insertSpacer() {
-  const content=document.querySelector('.content'); const footer=document.querySelector('.footer');
+function insertSpacer(){
   const sp=document.createElement('div'); sp.className='spacer-block deletable';
   sp.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai en blanc</span>';
-  let ref=footer||null;
-  if (_lastClickedBlock && _lastClickedBlock.parentElement===content) ref=_lastClickedBlock.nextSibling;
-  content.insertBefore(sp,ref);
-  delStack.push({el:sp,parent:content,sibling:sp.nextSibling});
-  document.getElementById('btn-undo').classList.add('active');
-  schedulePageBreaks();
+  let idx=FLOW.length;
+  if(_lastClickedBlock){ const i=FLOW.indexOf(_lastClickedBlock); if(i>=0) idx=i+1; }
+  FLOW.splice(idx,0,sp);
+  delStack.push({el:sp, flowIdx:idx});
+  _undoOn();
+  repaginate();
 }
+function rebuildDocFromFlow(){
+  const doc=document.getElementById('doc');
+  document.querySelectorAll('.section[data-cont]').forEach(function(cont){
+    var o=cont._origin; if(o){ while(cont.firstChild){ o.appendChild(cont.firstChild); } }
+  });
+  FLOW.forEach(function(b){ if(b.classList.contains('spacer-block')) b.style.height=''; });
+  FLOW.forEach(function(b){ if(b.parentNode!==doc){ if(b.parentNode) b.parentNode.removeChild(b); doc.appendChild(b); } });
+  document.getElementById('sheets').innerHTML='';
+}
+window.addEventListener('load', function(){
+  flattenDoc(); extractFlow(); repaginate();
+  if(typeof syncCopy==='function') setTimeout(function(){ syncCopy(); repaginate(); }, 60);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ repaginate(); }); }
+  document.querySelectorAll('img').forEach(function(img){ if(!img.complete) img.addEventListener('load', schedulePageBreaks, {once:true}); });
+  setTimeout(repaginate, 400); setTimeout(repaginate, 1200);
+});
 </script>
 
 <script>
@@ -747,8 +901,11 @@ function _fitxaToast(msg){
   clearTimeout(t._h);t._h=setTimeout(()=>t.style.opacity='0',2200);
 }
 async function desaFitxa(){
+  rebuildDocFromFlow();
   const clone=document.documentElement.cloneNode(true);
-  clone.querySelectorAll('.page-break-line,.page-footer-bar,#fitxa-toast').forEach(n=>n.remove());
+  extractFlow(); repaginate();
+  const _sh=clone.querySelector('#sheets'); if(_sh) _sh.innerHTML='';
+  clone.querySelectorAll('#fitxa-toast').forEach(n=>n.remove());
   const html='<!DOCTYPE html>\n'+clone.outerHTML;
   const fname=(location.pathname.split('/').pop()||'fitxa.html');
   if(window.showSaveFilePicker){

@@ -506,6 +506,37 @@ export default function SessionPage() {
                 </span>
               )}
             </div>
+            {session.sessionMaterials && session.sessionMaterials.length > 0 && (
+              <div className="mt-6 rule pt-4">
+                <p className="kicker mb-2">{t('session.physicalMaterials')}</p>
+                <ul className="space-y-2">
+                  {session.sessionMaterials.map((m, i) => (
+                    <li key={m.id || i} className="text-sm">
+                      {m.url ? (
+                        <a
+                          href={asset(m.url)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-[var(--purple-ink)] underline hover:text-[var(--purple-deep)]"
+                        >
+                          📎 <T>{m.title || m.name}</T>
+                        </a>
+                      ) : (
+                        <span className="font-semibold">
+                          📎 <T>{m.title || m.name}</T>
+                        </span>
+                      )}
+                      {m.who && (
+                        <span className="text-[var(--muted)]">
+                          {' '}
+                          — <T>{m.who}</T>
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {session.elaborateNote && (
               <p className="mt-5 italic text-[var(--muted)]">
                 <T>{session.elaborateNote}</T>

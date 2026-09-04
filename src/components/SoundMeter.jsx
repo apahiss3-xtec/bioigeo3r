@@ -168,7 +168,7 @@ export default function SoundMeter() {
               borderColor: 'var(--rule-strong)',
               background: 'var(--surface)'
             }}
-            className="w-[210px] rounded-2xl border p-3 shadow-lg"
+            className="max-h-[calc(100dvh-2rem)] w-[210px] overflow-y-auto overscroll-contain rounded-2xl border p-3 shadow-lg"
           >
             <div className="flex items-center justify-between gap-2">
               <span className="font-display text-sm font-semibold" style={{ color: 'var(--text)' }}>
@@ -203,9 +203,9 @@ export default function SoundMeter() {
             </div>
 
             {/* Semàfor en viu: barra vertical + punt de color */}
-            <div className="mt-3 flex items-center justify-center gap-3">
+            <div className="mt-2.5 flex items-center justify-center gap-3">
               <div
-                className="relative h-32 w-7 overflow-hidden rounded-full"
+                className="relative h-24 w-7 overflow-hidden rounded-full"
                 style={{ background: 'var(--bg-soft)', border: '1px solid var(--rule)' }}
                 role="img"
                 aria-label="Nivell de so en viu"

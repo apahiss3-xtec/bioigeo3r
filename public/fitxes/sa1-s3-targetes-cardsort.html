@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La cèl·lula viva · Sessió 3 · Targetes per classificar</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#7B68C8; --purple-ink:#4a3b8c; --purple-light:#c5b8f0; --purple-tint:#f0edfb;
+  --ink:#1A1428; --ink-2:#3a3050; --muted:#7a7090; --surface:#fdfcff;
+  --rule:#e8e2f6; --rule-dark:#c8bfe8;
+  --teal:#3a9e8c; --teal-tint:#e6f4f1;
+  --rose:#d44a6c; --rose-tint:#fce8ed;
+  --green:#4a9e5c; --green-tint:#eaf4ec;
+  --orange:#e8834a;
+  /* material genètic */
+  --gen-blue:#3a6ec8; --gen-red:#d44a6c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Fira Sans Extra Condensed',sans-serif; background:#b0a8c8; color:var(--ink); font-size:13px; line-height:1.45; padding:60px 20px 60px;}
+#toolbar{position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(20,15,40,.93); backdrop-filter:blur(10px); border-bottom:1px solid rgba(123,104,200,.35); height:46px; display:flex; align-items:center; gap:12px; padding:0 18px;}
+.tb-tip{font-family:'Inter',sans-serif; font-size:11px; color:rgba(190,180,230,.7); flex:1;}
+.tb-tip strong{color:#b8aef0;}
+.tb-btn{font-family:'Inter',sans-serif; font-size:12px; font-weight:600; border:none; border-radius:6px; padding:7px 14px; cursor:pointer;}
+.tb-print{background:var(--purple); color:#fff;}
+.tb-print:hover{opacity:.85;}
+.tb-key{background:rgba(123,104,200,.2); border:1px solid rgba(123,104,200,.4); color:#c5b8f0;}
+.tb-key:hover{background:rgba(123,104,200,.38);}
+
+.page-wrap{width:794px; margin:0 auto 26px; background:var(--surface); box-shadow:0 2px 30px rgba(0,0,0,.22);}
+
+/* capçalera IE Temple */
+.header-band{background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%); color:#fff; padding:14px 20px; display:grid; grid-template-columns:64px 1fr 150px; gap:14px; align-items:center; position:relative; overflow:hidden;}
+.header-band::before{content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 100% at 110% 50%, rgba(255,255,255,.07) 0%, transparent 70%);}
+.header-emoji-box{width:60px; height:60px; border-radius:14px; background:rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center; font-size:34px;}
+.header-sa{font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; opacity:.55; margin-bottom:4px;}
+.header-title{font-size:23px; font-weight:900; line-height:1.05;}
+/* Crimson Pro italica dona 0,59 em d'avanc a U+00B7 i la ela geminada
+   surt separada (Fira la fa a 0,045 em). Nomes el punt volat canvia de
+   font; la resta del subtitol es queda en Crimson Pro italica. */
+.header-subtitle .pv{font-family:'Fira Sans Extra Condensed',sans-serif; font-style:normal;}
+.header-subtitle{font-family:'Crimson Pro',serif; font-style:italic; font-size:13px; opacity:.72; margin-top:4px;}
+.header-right{display:flex; flex-direction:column; align-items:flex-end; gap:6px;}
+.logo-box{background:rgba(255,255,255,.92); border-radius:7px; padding:6px 9px; font-family:'Fira Sans Extra Condensed',sans-serif; font-weight:900; color:#3a2d6e; font-size:13px; letter-spacing:.02em; box-shadow:0 1px 6px rgba(0,0,0,.18);}
+.header-meta{font-size:9.5px; opacity:.55; text-align:right; line-height:1.7;}
+
+/* capcalera corrent, nomes als fulls que no porten la banda sencera */
+.run-head{height:36px; display:flex; justify-content:space-between; align-items:center;
+  padding:0 22px; border-bottom:1.5px solid var(--purple-light); background:#fff;
+  font-family:'Inter',sans-serif; font-size:8.5px; letter-spacing:.11em; text-transform:uppercase;}
+.run-head-l{font-weight:700; color:var(--purple-ink);}
+.run-head-r{font-weight:600; color:var(--muted);}
+
+.instr{background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:9px 22px; font-size:11.5px; color:var(--ink-2);}
+.instr strong{color:var(--purple-ink);}
+
+.cards-page{padding:18px 22px 24px;}
+.cards-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+
+.card{border:2px solid var(--purple-light); border-radius:12px; background:#fff; padding:10px 12px 12px; display:flex; flex-direction:column; gap:6px; position:relative; min-height:368px;
+  background-image:linear-gradient(#fff,#fff), repeating-linear-gradient(0deg,transparent,transparent 6px,rgba(123,104,200,.025) 6px,rgba(123,104,200,.025) 7px);}
+.card-top{display:flex; align-items:center; gap:8px; border-bottom:1.5px dashed var(--rule-dark); padding-bottom:6px;}
+.card-id{width:26px; height:26px; border-radius:50%; background:var(--purple-ink); color:#fff; font-weight:900; font-size:14px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+.card-emoji{font-size:22px;}
+.card-scene{font-size:12px; font-weight:700; color:var(--ink-2); line-height:1.2; flex:1;}
+.card-svg{flex:1; display:flex; align-items:center; justify-content:center; padding:2px 0;}
+/* la mida del dibuix es aqui i no dins de l'SVG: es el que fa l'alcada
+   de la targeta i el que decideix si els bastonets es distingeixen */
+.card-svg svg{width:100%; max-width:280px;}
+.card-q{font-size:10.5px; font-family:'Crimson Pro',serif; font-style:italic; color:var(--muted); text-align:center; border-top:1px dashed var(--rule); padding-top:5px;}
+
+/* línies de tall (no s'imprimeixen com a contingut, decoratives) */
+.cut-note{font-family:'Inter',sans-serif; font-size:9px; color:var(--muted); text-align:center; margin-top:14px; letter-spacing:.05em;}
+.cut-note span{border-top:1px dashed var(--rule-dark); display:inline-block; width:30px; vertical-align:middle; margin:0 6px;}
+/* la llicencia va aqui i no en una banda nova: aquesta franja ja hi era
+   i es el retall que es llenca en tallar les targetes */
+.cut-foot{font-family:'Inter',sans-serif; font-size:7.5px; font-weight:600; color:var(--muted);
+  text-align:center; letter-spacing:.06em; text-transform:uppercase; margin-top:5px;}
+
+/* solucionari */
+.key-page{padding:18px 22px 24px;}
+.key-title{font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.04em; color:var(--purple-ink); display:flex; align-items:center; gap:8px; margin-bottom:4px;}
+.key-sub{font-size:11px; font-style:italic; font-family:'Crimson Pro',serif; color:var(--ink-2); margin-bottom:12px;}
+.key-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+.key-col{border:1.5px solid var(--purple-light); border-radius:10px; padding:10px 12px;}
+.key-col.ident{background:var(--teal-tint); border-color:#8cc8be;}
+.key-col.half{background:#f5f0ff;}
+.key-col h3{font-size:12px; font-weight:900; text-transform:uppercase; color:var(--purple-ink); margin-bottom:6px;}
+.key-col ul{list-style:none;}
+.key-col li{font-size:11px; padding:3px 0 3px 0; border-bottom:1px dashed var(--rule); display:flex; gap:7px;}
+.key-col li:last-child{border-bottom:none;}
+.key-col li b{color:var(--purple-ink);}
+.key-note{margin-top:14px; background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 13px; font-size:11px; line-height:1.5;}
+.key-note strong{color:var(--purple-ink);}
+.key-page-wrap.hide-key{display:none;}
+
+@media print{
+  body{background:#fff; padding:0;}
+  #toolbar{display:none;}
+  .page-wrap{box-shadow:none; margin:0; width:100%;}
+  .page-wrap{page-break-after:always;}
+  .key-page-wrap.hide-key{display:none;}
+  @page{size:A4; margin:10mm;}
+}
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <div class="tb-tip"><strong>Targetes per classificar · Sessió 3</strong> · retalla per les vores · 8 targetes (2 pàgines) + solucionari del professor</div>
+  <button class="tb-btn tb-key" onclick="toggleKey()">Solucionari ON/OFF</button>
+  <button class="tb-btn tb-print" onclick="window.print()">🖨️ Imprimir</button>
+</div>
+
+<!-- ===== PÀGINA 1 ===== -->
+<div class="page-wrap">
+  <div class="header-band">
+    <div class="header-emoji-box">🧬</div>
+    <div>
+      <div class="header-sa">Biologia · 3r ESO · La cèl·lula viva · Sessió 3</div>
+      <div class="header-title">Targetes: la cèl·lula es divideix</div>
+      <div class="header-subtitle">Una cèl<span class="pv">·</span>lula mare → dues cèl<span class="pv">·</span>lules filles. Mira el material genètic.</div>
+    </div>
+    <div class="header-right">
+      <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" style="height:46px;display:block" onerror="this.parentNode.textContent='IE TEMPLE'"></div>
+      <div class="header-meta">Retalla i classifica</div>
+    </div>
+  </div>
+  <div class="instr">
+    <strong>Com es fa:</strong> retalleu les targetes. A cada targeta una <strong>cèl·lula mare</strong> es divideix en <strong>dues filles</strong>. Fixeu-vos en els <strong>bastonets de colors</strong> (el material genètic). Classifiqueu cada targeta segons si les filles són <strong>idèntiques a la mare</strong> o tenen <strong>la meitat del material</strong>.
+  </div>
+  <div class="cards-page">
+    <div class="cards-grid" id="grid1"></div>
+    <div class="cut-note"><span></span>RETALLA PER LES VORES DE CADA TARGETA<span></span></div>
+    <div class="cut-foot">IE Temple · Biologia i Geologia 3r ESO &nbsp;·&nbsp; CC BY-NC-SA 4.0 &nbsp;·&nbsp; Full 1 / 2</div>
+  </div>
+</div>
+
+<!-- ===== PÀGINA 2 ===== -->
+<div class="page-wrap">
+  <div class="run-head">
+    <div class="run-head-l">La cèl·lula viva · Sessió 3 de 4</div>
+    <div class="run-head-r">Biologia i Geologia · 3r ESO</div>
+  </div>
+  <div class="cards-page">
+    <div class="cards-grid" id="grid2"></div>
+    <div class="cut-note"><span></span>RETALLA PER LES VORES DE CADA TARGETA<span></span></div>
+    <div class="cut-foot">IE Temple · Biologia i Geologia 3r ESO &nbsp;·&nbsp; CC BY-NC-SA 4.0 &nbsp;·&nbsp; Full 2 / 2</div>
+  </div>
+</div>
+
+<!-- ===== SOLUCIONARI (professor) ===== -->
+<div class="page-wrap key-page-wrap hide-key" id="keyPage">
+  <div class="key-page">
+    <div class="key-title">🔑 Solucionari — per al professor</div>
+    <div class="key-sub">No cal repartir-lo a l'alumnat. Recordatori 3r ESO: parlem de "còpies idèntiques" i "la meitat", <strong>sense</strong> noms de fases ni notació 2n/n.</div>
+    <div class="key-grid">
+      <div class="key-col ident">
+        <h3>👯 Filles IDÈNTIQUES a la mare</h3>
+        <h4 style="font-size:10px;color:var(--teal);font-weight:700;margin:-2px 0 6px">= divisió per fer còpies (mitosi)</h4>
+        <ul id="keyIdent"></ul>
+      </div>
+      <div class="key-col half">
+        <h3>½ Filles amb LA MEITAT</h3>
+        <h4 style="font-size:10px;color:var(--purple-ink);font-weight:700;margin:-2px 0 6px">= divisió per fer cèl·lules sexuals (meiosi)</h4>
+        <ul id="keyHalf"></ul>
+      </div>
+    </div>
+    <div class="key-note">
+      <strong>Idea clau a destacar:</strong> les targetes amb filles idèntiques serveixen per a <strong>créixer, reparar i substituir</strong> cèl·lules (mateixa quantitat de material). Les de "la meitat" només apareixen en la <strong>formació de cèl·lules sexuals</strong> (òvuls, espermatozoides, pol·len), perquè en ajuntar-se dues cèl·lules sexuals es torna a la quantitat sencera. Es reprèn a la unitat de reproducció (gàmetes i herència).
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── Dibuix del material genètic ──
+   "bar" = un bastonet (cromosoma) de color. Mare = 4 bastonets (2 blau + 2 vermell).
+   filles idèntiques = 4 cadascuna; filles meitat = 2 cadascuna (1 blau + 1 vermell). */
+function bars(set){
+  // set: array de {c:'blue'|'red', long:true/false}
+  let g='';
+  const x0=-((set.length-1)*7)/2;
+  set.forEach((b,i)=>{
+    const x=x0+i*7;
+    const col = b.c==='blue' ? 'var(--gen-blue)' : 'var(--gen-red)';
+    const h = b.long ? 18 : 11;
+    g += `<rect x="${x-2}" y="${-h/2}" width="4" height="${h}" rx="2" fill="${col}"/>`;
+  });
+  return g;
+}
+function cellSVG(cx,cy,r,set){
+  return `<g transform="translate(${cx},${cy})">
+      <circle r="${r}" fill="#fbf9ff" stroke="#b9aee4" stroke-width="2"/>
+      <circle r="${r*0.6}" fill="#efeafc" stroke="#cabff0" stroke-width="1.2"/>
+      <g transform="translate(0,0)">${bars(set)}</g>
+    </g>`;
+}
+const MARE = [ {c:'blue',long:true},{c:'blue',long:true},{c:'red',long:false},{c:'red',long:false} ];
+const FILLA_IDENT = MARE;
+const FILLA_MEITAT = [ {c:'blue',long:true},{c:'red',long:false} ];
+
+function diagram(tipus){
+  // mare a dalt, fletxa, dues filles a baix
+  const filla = tipus==='ident' ? FILLA_IDENT : FILLA_MEITAT;
+  return `<svg viewBox="0 0 240 230" width="100%">
+    <!-- mare -->
+    ${cellSVG(120,42,32,MARE)}
+    <text x="120" y="86" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9" fill="#7a7090">cèl·lula mare</text>
+    <!-- fletxes -->
+    <g stroke="#9080bc" stroke-width="2" fill="none">
+      <path d="M120,96 C90,112 78,118 70,140"/>
+      <path d="M120,96 C150,112 162,118 170,140"/>
+    </g>
+    <polygon points="66,138 74,140 70,148" fill="#9080bc"/>
+    <polygon points="174,138 166,140 170,148" fill="#9080bc"/>
+    <!-- filles -->
+    ${cellSVG(64,178,30,filla)}
+    ${cellSVG(176,178,30,filla)}
+    <text x="120" y="222" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9" fill="#7a7090">dues cèl·lules filles</text>
+  </svg>`;
+}
+
+const CARDS = [
+  {id:'A', emoji:'🩹', scene:'La pell que tanca una ferida al genoll', tipus:'ident'},
+  {id:'B', emoji:'🔬', scene:'Formació d\'espermatozoides al testicle', tipus:'half'},
+  {id:'C', emoji:'🌱', scene:'L\'arrel d\'una planta que creix cap avall', tipus:'ident'},
+  {id:'D', emoji:'🥚', scene:'Formació d\'òvuls a l\'ovari', tipus:'half'},
+  {id:'E', emoji:'🩸', scene:'La medul·la fabricant glòbuls vermells nous', tipus:'ident'},
+  {id:'F', emoji:'🌸', scene:'El gra de pol·len que fabrica una flor', tipus:'half'},
+  {id:'G', emoji:'🦎', scene:'La cua d\'una sargantana que es regenera', tipus:'ident'},
+  {id:'H', emoji:'🐟', scene:'Un peix que prepara les cèl·lules per pondre ous', tipus:'half'},
+];
+
+function cardHTML(c){
+  return `<div class="card">
+    <div class="card-top">
+      <div class="card-id">${c.id}</div>
+      <div class="card-emoji">${c.emoji}</div>
+      <div class="card-scene">${c.scene}</div>
+    </div>
+    <div class="card-svg">${diagram(c.tipus)}</div>
+    <div class="card-q">Les filles són idèntiques o tenen la meitat del material?</div>
+  </div>`;
+}
+
+const g1=document.getElementById('grid1'), g2=document.getElementById('grid2');
+CARDS.slice(0,4).forEach(c=>g1.insertAdjacentHTML('beforeend',cardHTML(c)));
+CARDS.slice(4,8).forEach(c=>g2.insertAdjacentHTML('beforeend',cardHTML(c)));
+
+// solucionari
+const ki=document.getElementById('keyIdent'), kh=document.getElementById('keyHalf');
+CARDS.forEach(c=>{
+  const li=`<li><b>${c.id}</b> ${c.emoji} ${c.scene}</li>`;
+  if(c.tipus==='ident') ki.insertAdjacentHTML('beforeend',li);
+  else kh.insertAdjacentHTML('beforeend',li);
+});
+
+function toggleKey(){
+  document.getElementById('keyPage').classList.toggle('hide-key');
+}
+</script>
+</body>
+</html>
