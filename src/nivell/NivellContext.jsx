@@ -1,10 +1,10 @@
 import { createContext, useContext, useState } from 'react'
 
-// Nivell de diferenciació de la fitxa (A/B/C). És el mateix concepte que les
+// Versió de la fitxa (A/B/C). És el mateix concepte que les
 // tres versions impreses de cada full:
-//   A — Ampliació  (autonomia, preguntes obertes, hipòtesis, connexions entre SAs)
-//   B — Estàndard  (per a la majoria; guiatge moderat) ← per defecte
-//   C — Adaptació  (més suport: inicis de frase, frases a completar, patró fix, imatges)
+//   Versió A (autonomia, preguntes obertes, hipòtesis, connexions entre SAs)
+//   Versió B (per a la majoria; guiatge moderat) ← per defecte
+//   Versió C (més suport: inicis de frase, frases a completar, patró fix, imatges)
 // No s'ha de confondre amb el mode SIMPLIFICA (accessibilitat lectora) ni amb
 // els nivells d'assoliment NA/AS/AN/AE de l'autoavaluació.
 export const NIVELLS = ['A', 'B', 'C']
@@ -41,9 +41,9 @@ export function NivellProvider({ children }) {
 
 export const useNivell = () => useContext(NivellContext)
 
-// Tria el contingut adequat al nivell actual. Accepta:
-//   - un valor pla → es mostra a tots els nivells
-//   - un objecte { A, B, C } → tria pel nivell (amb fallback B → A → C)
+// Tria el contingut adequat a la versió actual. Accepta:
+//   - un valor pla → es mostra a totes les versions
+//   - un objecte { A, B, C } → tria per la versió (amb fallback B → A → C)
 export const pickLevel = (value, nivell) => {
   if (value && typeof value === 'object' && !Array.isArray(value) &&
       ('A' in value || 'B' in value || 'C' in value)) {

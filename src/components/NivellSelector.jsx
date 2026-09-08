@@ -1,8 +1,8 @@
 import { t } from '../t.js'
 import { NIVELLS, useNivell } from '../nivell/NivellContext.jsx'
 
-// Selector A/B/C. Adapta els objectius i el bastiment de la sessió al nivell
-// de la fitxa. Etiqueta descriptiva sota cada lletra (com l'strip de nivell del full).
+// Selector A/B/C. Adapta els objectius i el bastiment de la sessió a la versió
+// de la fitxa. Etiqueta descriptiva sota cada lletra (com l'strip de versió del full).
 export default function NivellSelector({ className = '' }) {
   const { nivell, setNivell } = useNivell()
 

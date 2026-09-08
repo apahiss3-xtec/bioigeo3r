@@ -88,7 +88,7 @@ export const sa2s5 = {
   ],
 
 
-  fitxaUrl: { A: "/fitxes/sa2-s5-fitxa-A.html", B: "/fitxes/sa2-s5-fitxa-B.html", C: "/fitxes/sa2-s5-fitxa-C.html" }, teoriaPdfUrl: null,
+  fitxaUrl: { A: "/fitxes/sa2-s5-fitxa-A.html", B: "/fitxes/sa2-s5-fitxa-B.html", C: "/fitxes/sa2-s5-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s5-teoria.pdf",
 
   fitxaGuide: {
     fitxaName: "Fitxa S5 — Freqüència cardíaca",

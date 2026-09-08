@@ -97,7 +97,7 @@ export const sa2s2 = {
     { id: "Fig.3", title: "L'escala de Bristol", src: "/images/sa2-escala-bristol.png", note: "Classifica les femtes en 7 tipus segons el temps de trànsit intestinal. La fas servir a l'apartat 5 del full." }
   ],
 
-  fitxaUrl: { A: "/fitxes/sa2-s2-fitxa-A.html", B: "/fitxes/sa2-s2-fitxa-B.html", C: "/fitxes/sa2-s2-fitxa-C.html" }, teoriaPdfUrl: null,
+  fitxaUrl: { A: "/fitxes/sa2-s2-fitxa-A.html", B: "/fitxes/sa2-s2-fitxa-B.html", C: "/fitxes/sa2-s2-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s2-teoria.pdf",
 
   fitxaGuide: {
     fitxaName: "Fitxa S2 — El sistema digestiu",

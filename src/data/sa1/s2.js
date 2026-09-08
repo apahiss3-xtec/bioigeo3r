@@ -34,7 +34,7 @@ export const sa1s2 = {
     ]
   },
 
-  // ── BASTIMENT/REPTE PER APARTAT segons el nivell ────────
+  // ── BASTIMENT/REPTE PER APARTAT segons la versió ────────
   apartatExtras: {
     "1": {
       challenge:
@@ -149,7 +149,7 @@ export const sa1s2 = {
   ],
 
   fitxaUrl: { A: "/fitxes/sa1-s2-fitxa-A.html", B: "/fitxes/sa1-s2-fitxa-B.html", C: "/fitxes/sa1-s2-fitxa-C.html" },
-  teoriaPdfUrl: null,
+  teoriaPdfUrl: "/teoria/sa1-s2-teoria.pdf",
 
   // ── GUIA DE LA FITXA (apartats reals del full imprès) ────
   fitxaGuide: {
@@ -234,7 +234,7 @@ export const sa1s2 = {
 
   homework: {
     description: "Llegeix el text curt sobre divisió cel·lular (disponible a Classroom) per preparar la S3.",
-    deadline: "2026-09-XX"
+    deadline: null
   },
 
   recoveryInstructions: [

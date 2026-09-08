@@ -102,7 +102,7 @@ export const sa2s1 = {
     { id: "t4", apartat: "2", heading: "==Ferro== → ==hemoglobina== (primer vincle enigma)", text: "El ==ferro== és necessari per fabricar ==hemoglobina== (la proteïna dels ==eritròcits|r== que porta ==O₂|b==). Sense ferro → menys hemoglobina → menys O₂ als músculs. Primer vincle amb l'analítica de sang, però no revelarem res més ara.", type: "concept", badge: "🔗 Enigma 2 — primera pista", video: "/animacions/sa2-s1-t4.mp4" }
   ],
 
-  fitxaUrl: { A: "/fitxes/sa2-s1-fitxa-A.html", B: "/fitxes/sa2-s1-fitxa-B.html", C: "/fitxes/sa2-s1-fitxa-C.html" }, teoriaPdfUrl: null,
+  fitxaUrl: { A: "/fitxes/sa2-s1-fitxa-A.html", B: "/fitxes/sa2-s1-fitxa-B.html", C: "/fitxes/sa2-s1-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s1-teoria.pdf",
 
   fitxaGuide: {
     fitxaName: "Fitxa S1 — Nutrients",
@@ -129,7 +129,7 @@ export const sa2s1 = {
   homework: {
     description: "Fotografiar els 3 productes que realment menges (no els que creus que hauries de menjar). Classifica'ls per nutrient dominant i anota si és ultraprocessat. Es defensarà oralment a S2.",
     note: "No realitzable amb IA si cal explicar-ho en veu alta.",
-    deadline: "2026-09-XX"
+    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina, especialment l'equació central (glucosa + O₂ → ATP)",

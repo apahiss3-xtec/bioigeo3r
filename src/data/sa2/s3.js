@@ -97,7 +97,7 @@ export const sa2s3 = {
     { id: "Fig.4", title: "Els tres tipus de vasos sanguinis", src: "/images/sa2-vasos-sanguinis.png", note: "Artèria (paret gruixuda, alta pressió), vena (vàlvules, baixa pressió) i capil·lar (una sola cèl·lula de gruix, on es fa l'intercanvi de substàncies)." }
   ],
 
-  fitxaUrl: { A: "/fitxes/sa2-s3-fitxa-A.html", B: "/fitxes/sa2-s3-fitxa-B.html", C: "/fitxes/sa2-s3-fitxa-C.html" }, teoriaPdfUrl: null,
+  fitxaUrl: { A: "/fitxes/sa2-s3-fitxa-A.html", B: "/fitxes/sa2-s3-fitxa-B.html", C: "/fitxes/sa2-s3-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s3-teoria.pdf",
 
   fitxaGuide: {
     fitxaName: "Fitxa S3 — La sang i la circulació",

@@ -7,9 +7,9 @@ export const sa2s7 = {
 
   engageQuestion: "Mireu els dos enigmes a la paret. Han estat aquí tota la SA. Qui pot ara explicar TOTA la gràfica FC de la Mercè, d'inici a fi? I l'analítica del Marc Fontana, per quina raó es fatiga tant?",
 
-  // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
-  // Han de coincidir LITERALMENT amb els OA impresos a la fitxa de cada nivell
-  // (build_fitxes_s7.py → OA). Revisió 2026-08-20.
+  // ── OBJECTIUS D'APRENENTATGE PER VERSIÓ (A/B/C) ──────────
+  // Han de coincidir LITERALMENT amb els OA impresos a la fitxa de cada versió
+  // (build_fitxes_s7.py → OA).
   levelObjectives: {
     A: [
       "Quantifico l'enigma 2: calculo quant oxigen porta cada litre de sang del Marc i quanta sang més ha de moure el seu cor per compensar-ho.",
@@ -72,7 +72,7 @@ export const sa2s7 = {
 
   // 2026-08-20: la fitxa impresa A/B/C ja existeix (abans NO n'hi havia cap
   // per a A i B, tot i que la fitxaGuide hi enviava l'alumnat).
-  fitxaUrl: { A: "/fitxes/sa2-s7-fitxa-A.html", B: "/fitxes/sa2-s7-fitxa-B.html", C: "/fitxes/sa2-s7-fitxa-C.html" }, teoriaPdfUrl: null,
+  fitxaUrl: { A: "/fitxes/sa2-s7-fitxa-A.html", B: "/fitxes/sa2-s7-fitxa-B.html", C: "/fitxes/sa2-s7-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s7-teoria.pdf",
 
   fitxaGuide: {
     fitxaName: "Fitxa Sessió 7 — Síntesi de la unitat",
@@ -104,7 +104,7 @@ export const sa2s7 = {
     { id: "q1", type: "open", text: "Mira la gràfica G3 (a sobre). Descriu el que veus i formula una hipòtesi: per quina raó aquesta persona té un patró tan diferent de la Mercè? Quin valor de l'analítica creus que estaria alterat?", hint: "Compara la forma amb la de la Mercè: puja igual? Recupera igual de ràpid? Lliga la diferència amb un valor concret de l'analítica." },
     { id: "q2", type: "open", text: "El metge recomana a Marc Fontana que prengui ferro i deixi de córrer 3 mesos. A partir del que has après, per quina raó creus que és (o no és) una recomanació adequada?", hint: "Pensa en les dues parts per separat: el ferro ataca la causa (l'anèmia)? I deixar de córrer del tot, ajuda o no a recuperar-se?" }
   ],
-  exitTicketNote: "Avaluació sumativa CE1 + CE4. Individual, sense ajuda. Hi ha versió EN PAPER per a qui no tingui dispositiu: exit_ticket_s7_VISUAL.html (A i B) i exit_ticket_s7_C_VISUAL.html (C). El full de paper porta les MATEIXES DUES preguntes obertes d'aquí, i a més dues de tancades autocorrectives sobre les gràfiques. Qui fa el formulari de Google respon les tancades allà: ningú fa una prova més llarga que un altre.",
+  exitTicketNote: "Avaluació sumativa CE1 + CE4. Individual, sense ajuda. Hi ha versió EN PAPER per a qui no tingui dispositiu: exit_ticket_s7_VISUAL.html (A i B) i exit_ticket_s7_C_VISUAL.html (C). Per cabre en mig full A4, el full de paper porta NOMÉS la pregunta q1 d'aquí (gràfica G3 del Nil + hipòtesi): és la que millor recull la idea central de la sessió (el cicle complet i com un valor alterat ho explica tot).",
 
   deliverables: [
     { name: "Informe FC en parelles (Rols A + B)", note: "Entrega a Classroom. Termini 1 setmana si no s'acaba a classe." }
@@ -141,7 +141,7 @@ export const sa2s7 = {
     note: "Pic ~178 bpm (just per sobre del llindar anaeròbic 175: toca la zona anaeròbica un moment, i per això la cursa és curta i a fons) i recuperació RÀPIDA: en 5 min ja torna a prop del repòs. És el patró sa que serveix de base per a la Discussió."
   },
 
-  homework: { description: "Acabar l'informe FC i entregar a Classroom.", deadline: "2026-XX-XX (1 setmana)" },
+  homework: { description: "Acabar l'informe FC i entregar a Classroom en un termini d'una setmana.", deadline: null },
 
   recoveryInstructions: [
     "Fes la gràfica G3 individualment (descàrrega a ELABORA): respon les 4 preguntes sense ajuda",
@@ -149,9 +149,8 @@ export const sa2s7 = {
     "Per a l'informe: contacta amb el/la teu/teva company/a de parella i repartiu-vos les seccions. Entrega les teves seccions a Classroom.",
     "Si no tens les teves dades de FC (vas faltar a S5/S6): usa el JOC DE DADES DE RESERVA (la Berta) per completar Mètode i Resultats."
   ],
-  // CE5 afegida 2026-08-20: la pregunta 4 del full de sortida (als TRES nivells)
+  // CE5: la pregunta 4 del full de sortida (a les TRES versions)
   // demana valorar una recomanació de salut a partir de la fisiologia, que és
-  // literalment el que descriu el criteri 5.3. Fins avui es declarava a
-  // l'Estructura de la SA però no aquí.
+  // literalment el que descriu el criteri 5.3.
   oaLinks: ["OA1", "OA2", "OA3", "OA4", "OA5"], competencies: ["CE1", "CE2", "CE4", "CE5"]
 }

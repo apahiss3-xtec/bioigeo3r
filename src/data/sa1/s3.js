@@ -47,7 +47,7 @@ export const sa1s3 = {
     ]
   },
 
-  // ── BASTIMENT/REPTE PER APARTAT segons el nivell ────────
+  // ── BASTIMENT/REPTE PER APARTAT segons la versió ────────
   apartatExtras: {
     "1": {
       challenge:
@@ -156,7 +156,7 @@ export const sa1s3 = {
   ],
 
   fitxaUrl: { A: "/fitxes/sa1-s3-fitxa-A.html", B: "/fitxes/sa1-s3-fitxa-B.html", C: "/fitxes/sa1-s3-fitxa-C.html" },
-  teoriaPdfUrl: null,
+  teoriaPdfUrl: "/teoria/sa1-s3-teoria.pdf",
 
   // Material físic que la sessió dona per existent (comprovació transversal 'ah').
   sessionMaterials: [
@@ -241,7 +241,7 @@ export const sa1s3 = {
 
   homework: {
     description: "Llegeix l'enunciat del repte final (el cas de l'Elna) i porta pensades dues coses: quin diagrama original faràs i quina experiència personal hi explicaràs.",
-    deadline: "2026-09-XX"
+    deadline: null
   },
 
   recoveryInstructions: [

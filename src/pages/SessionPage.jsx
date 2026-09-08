@@ -55,8 +55,8 @@ const ApartatHeader = ({ num, phase, title, time }) => (
   </div>
 )
 
-// Bastiment (C) o repte (A) d'un apartat, segons el nivell triat.
-// A NIVELL B no es mostra res: és la versió estàndard, neta.
+// Bastiment (versió C) o repte (versió A) d'un apartat, segons la versió triada.
+// A la versió B no es mostra res: és la versió neta, per defecte.
 const ApartatExtra = ({ extras, nivell }) => {
   if (!extras) return null
   if (nivell === 'C' && extras.scaffold) {

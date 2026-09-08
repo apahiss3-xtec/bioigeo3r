@@ -117,15 +117,15 @@ export const sa4s4 = {
   exploreMaterials: [
     "El vídeo viral projectat una sola vegada, o la seva transcripció impresa",
     "Targetes de mètodes — 1 joc per grup de 3 (vuit targetes retallables, sense la família escrita)",
-    "Fitxa del teu nivell, amb la graella CRITIC i la graella de mètodes"
+    "Fitxa de la teva versió, amb la graella CRITIC i la graella de mètodes"
   ],
 
   // Material físic que la sessió dona per existent (comprovació transversal 'ah').
   sessionMaterials: [
     { id: "M1", title: "Targetes de mètodes (8 targetes retallables)", url: "/fitxes/sa4-s4-targetes-metodes.html", who: "docent imprimeix un joc per grup de 3" },
     { id: "M1b", title: "Clau del docent de les vuit targetes", url: null, who: "NOMÉS docent. NO es publica a la web: la URL seria endevinable des de la del material de l'alumnat. És a SA4-creixer-reproduir/_NO-PUBLICAR/targetes_metodes_sessio4_DOCENT.html" },
-    { id: "M2", title: "Plantilla del producte final (nivells B i A)", url: "/fitxes/sa4-s4-plantilla-producte.html", who: "una per parella, es reparteix a l'inici de l'apartat 3" },
-    { id: "M3", title: "Plantilla del producte final (nivell C, guiada frase a frase)", url: "/fitxes/sa4-s4-plantilla-producte-C.html", who: "una per parella" },
+    { id: "M2", title: "Plantilla del producte final (versions B i A)", url: "/fitxes/sa4-s4-plantilla-producte.html", who: "una per parella, es reparteix a l'inici de l'apartat 3" },
+    { id: "M3", title: "Plantilla del producte final (versió C, guiada frase a frase)", url: "/fitxes/sa4-s4-plantilla-producte-C.html", who: "una per parella" },
     { id: "M4", title: "Rúbrica del producte final", url: "/fitxes/sa4-s4-rubrica-producte.html", who: "la té l'alumnat AL DAVANT des del primer minut de l'apartat 3, no en acabar" },
     { id: "M5", title: "Les tres preguntes de la bústia, transcrites a màquina", url: null, who: "docent. Es transcriuen i es reformulen en tercera persona fora de classe; mai el paper original. Són les MATEIXES per a tota la classe" },
     { id: "M6", title: "Vídeo viral (o la seva transcripció impresa)", url: null, who: "docent. Es projecta un sol cop i no es deixa enllaçat enlloc: l'objecte d'estudi és l'afirmació, no el canal" },
@@ -177,7 +177,7 @@ export const sa4s4 = {
       id: "t6",
       apartat: "3",
       heading: "El mite, ==desmuntat==",
-      text: "«Els anticonceptius et fan infèrtil per sempre.» Mirem-ho amb el que sabem. ==Què diu l'evidència|g==: quan es deixa un anticonceptiu hormonal, ==el cicle es restableix==, i els estudis que han seguit ==molta gent durant anys== no troben que la fertilitat quedi tocada a llarg termini. ==I per quina raó l'afirmació no s'aguanta?== Per tres coses alhora: ==(a)== no proposa ==cap mecanisme|r== — no diu ==què== faria l'hormona per espatllar res; ==(b)== no aporta ==cap dada|r==, només casos que algú explica; i ==(c)== confon ==una cosa que passa després== amb ==una cosa que passa per culpa de|r==. Si algú deixa la píndola als 34 anys i triga a tenir un embaràs, la píndola no és l'única cosa que ha canviat: ==també ha canviat l'edat|o==. Això té nom: la ==tercera variable|o== — una cosa que ha canviat alhora i que ningú no havia mirat, i que pot estar causant les altres dues. *(A la fitxa de nivell A hi ha una figura que ho dibuixa; a la resta n'hi ha prou amb aquest exemple.)* I sobre el «la píndola engreixa»: aquí no es discuteix el cos de ningú, es discuteix ==fins on arriba l'afirmació==. Els efectes secundaris ==existeixen== i són ==diferents en cada persona== — per això això es parla amb un professional. El que no té base és el salt de «a algunes persones els passa» a ==«això li passa a tothom, sempre»|r==.",
+      text: "«Els anticonceptius et fan infèrtil per sempre.» Mirem-ho amb el que sabem. ==Què diu l'evidència|g==: quan es deixa un anticonceptiu hormonal, ==el cicle es restableix==, i els estudis que han seguit ==molta gent durant anys== no troben que la fertilitat quedi tocada a llarg termini. ==I per quina raó l'afirmació no s'aguanta?== Per tres coses alhora: ==(a)== no proposa ==cap mecanisme|r== — no diu ==què== faria l'hormona per espatllar res; ==(b)== no aporta ==cap dada|r==, només casos que algú explica; i ==(c)== confon ==una cosa que passa després== amb ==una cosa que passa per culpa de|r==. Si algú deixa la píndola als 34 anys i triga a tenir un embaràs, la píndola no és l'única cosa que ha canviat: ==també ha canviat l'edat|o==. Això té nom: la ==tercera variable|o== — una cosa que ha canviat alhora i que ningú no havia mirat, i que pot estar causant les altres dues. *(A la fitxa de la versió A hi ha una figura que ho dibuixa; a la resta n'hi ha prou amb aquest exemple.)* I sobre el «la píndola engreixa»: aquí no es discuteix el cos de ningú, es discuteix ==fins on arriba l'afirmació==. Els efectes secundaris ==existeixen== i són ==diferents en cada persona== — per això això es parla amb un professional. El que no té base és el salt de «a algunes persones els passa» a ==«això li passa a tothom, sempre»|r==.",
       type: "concept",
       badge: "🔬 El nucli epistèmic del dia",
       image: "/images/sa4-s4-tercera-variable.svg",
@@ -196,7 +196,7 @@ export const sa4s4 = {
   graphicResources: [
     { id: "F1", apartat: "2", title: "La cadena i on talla cada família", src: "/images/sa4-s4-cadena-metodes.svg", note: "A dalt, les quatre baules amb marcadors ①-④. A baix, quatre files amb marcadors [A]-[D] en QUADRAT DE COLOR PLE (sistema diferent del rodó de les baules, perquè no es confonguin) i una ✗ sota cada baula que talla aquella família. La fila [D] no en té cap: aquest buit és el missatge, no un oblit. Cap paraula dins la imatge; les etiquetes són la llegenda de la fitxa." },
     { id: "F2", apartat: "2", title: "Ús perfecte contra ús real", src: "/images/sa4-s4-eficacia-us-real.svg", note: "Barres aparellades: embarassos no buscats per cada 100 persones en un any. Les dues barres del mateix mètode són del MATEIX color: el que es mira no és el color sinó l'emplenat — barra buida per dins = ús perfecte, barra plena = ús real. (i) implant · (ii) píndola · (iii) preservatiu · (iv) calendari · (v) cap mètode. Marcadors en NÚMERO ROMÀ dins d'un rètol arrodonit i buit, perquè a la mateixa pàgina F1 ja fa servir els ①-④ (baules) i els [A]-[D] (famílies): tres sistemes, tres significats. Xifres aproximades d'organismes de salut: serveixen per comparar mètodes, no per predir res d'una persona concreta." },
-    { id: "F3", apartat: "3", title: "La tercera variable", src: "/images/sa4-s4-tercera-variable.svg", note: "Rètols en LLETRA dins d'un quadrat buit, que és el sistema que es fa servir per parlar de causes: X deixar l'anticonceptiu · Y trigar a tenir un embaràs · Z l'edat, que ha canviat alhora. La fletxa de punts entre X i Y, amb un ? vermell al mig, és la conclusió que la gent dona per bona i que no està demostrada; les dues fletxes taronges són l'explicació alternativa (Z causa X i Y alhora). Només és a la fitxa de nivell A: als altres dos nivells la idea es treballa amb text, sense la figura." }
+    { id: "F3", apartat: "3", title: "La tercera variable", src: "/images/sa4-s4-tercera-variable.svg", note: "Rètols en LLETRA dins d'un quadrat buit, que és el sistema que es fa servir per parlar de causes: X deixar l'anticonceptiu · Y trigar a tenir un embaràs · Z l'edat, que ha canviat alhora. La fletxa de punts entre X i Y, amb un ? vermell al mig, és la conclusió que la gent dona per bona i que no està demostrada; les dues fletxes taronges són l'explicació alternativa (Z causa X i Y alhora). Només és a la fitxa de la versió A: a les altres dues versions la idea es treballa amb text, sense la figura." }
   ],
 
   fitxaUrls: {
@@ -210,18 +210,18 @@ export const sa4s4 = {
     fitxaName: "Fitxa Sessió 4 — Decisions informades",
     steps: [
       { apartat: "0", title: "Idees prèvies", time: "6 min", phase: "engage", instruction: "Apartat 0: escriu quins mètodes coneixes i com et sembla que funcionen, si n'hi ha algun que també protegeixi d'infeccions, i d'on ho has tret. No es corregeix ara: al final ho compararàs amb el que vas escriure el primer dia.", hints: [] },
-      { apartat: "1", title: "El checklist CRITIC sobre el vídeo", time: "15 min", phase: "explore", instruction: "Apartat 1: primer sol/a 5 minuts, després amb la parella. Passa el checklist a l'afirmació del vídeo. El format canvia segons el teu nivell: C en fa tres caselles amb un exemple ja resolt sencer al davant, B en fa sis, i A hi afegeix dissenyar la comprovació amb variable independent, dependent i grup de comparació.", hints: [
+      { apartat: "1", title: "El checklist CRITIC sobre el vídeo", time: "15 min", phase: "explore", instruction: "Apartat 1: primer sol/a 5 minuts, després amb la parella. Passa el checklist a l'afirmació del vídeo. El format canvia segons la teva versió: la C en fa tres caselles amb un exemple ja resolt sencer al davant, la B en fa sis, i la A hi afegeix dissenyar la comprovació amb variable independent, dependent i grup de comparació.", hints: [
         "Comença sempre per la primera casella, i escriu l'afirmació amb les teves paraules. Moltes afirmacions es desmunten soles quan les has d'escriure exactament.",
         "A la casella d'Idees, pregunta't si el vídeo diu QUÈ passaria al cos. Si no proposa cap mecanisme, ja saps una cosa important.",
         "«Es pot comprovar?» i «és veritat?» no són la mateixa pregunta. Contesta primer la primera."
       ] },
-      { apartat: "2", title: "Els mètodes: on talla cadascun", time: "35 min (tots els nivells)", phase: "explica", instruction: "Apartat 2: primer les targetes en grup (15 min) i després la teoria, les figures i les preguntes. Col·loqueu cada targeta a la columna del seu mecanisme; una no hi encaixa. Després mira la figura F1 i digues on talla la cadena cada família.", hints: [
+      { apartat: "2", title: "Els mètodes: on talla cadascun", time: "35 min (totes les versions)", phase: "explica", instruction: "Apartat 2: primer les targetes en grup (15 min) i després la teoria, les figures i les preguntes. Col·loqueu cada targeta a la columna del seu mecanisme; una no hi encaixa. Després mira la figura F1 i digues on talla la cadena cada família.", hints: [
         "A cap targeta no hi diu de quina família és: has de deduir-ho del que FA. Pregunta't sempre «i això, què li fa al cos?».",
         "Per a la que no encaixa: fixa't que la seva targeta no diu que es prengui res ni que es col·loqui res. Aquesta és la pista.",
         "Per saber quina família protegeix d'ITS, no et preguntis quina és més eficaç contra l'embaràs: pregunta't quina atura els FLUIDS.",
         "A la figura F2, la distància entre les dues barres d'un mètode et diu com de sensible és a les badades. Compara-la amb la columna que has omplert a la graella."
       ] },
-      { apartat: "3", title: "El producte final: la fitxa informativa", time: "22 min · 25 min al nivell d'ampliació", phase: "elabora", instruction: "Apartat 3: llegeix les càpsules del mite i de com es decideix, i comença la fitxa informativa amb la teva parella sobre la plantilla impresa. Les tres preguntes són les mateixes per a tota la classe. Tingues la rúbrica al davant mentre escrius: no és una sorpresa del final.", hints: [
+      { apartat: "3", title: "El producte final: la fitxa informativa", time: "22 min · 25 min a la versió A", phase: "elabora", instruction: "Apartat 3: llegeix les càpsules del mite i de com es decideix, i comença la fitxa informativa amb la teva parella sobre la plantilla impresa. Les tres preguntes són les mateixes per a tota la classe. Tingues la rúbrica al davant mentre escrius: no és una sorpresa del final.", hints: [
         "Escriu la resposta a la primera frase i explica-la després. Si has de llegir tot el paràgraf per saber si la resposta és sí o no, encara no hi és.",
         "«Què passa al cos» vol dir el mecanisme, no el consell. «Cal fer servir preservatiu» no és un mecanisme; «el preservatiu atura els fluids, i és pels fluids que passen els patògens» sí que ho és.",
         "Rellegiu-ho buscant els «s'hauria de» i els «està malament»: cada un d'aquests es pot reescriure com un «passa això, i per aquesta raó»."
@@ -250,7 +250,7 @@ export const sa4s4 = {
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina: el checklist CRITIC, la cadena de quatre baules i on talla cada família, per quina raó només la barrera protegeix d'ITS, i com es desmunta el mite",
     "Mira les figures F1 (on talla cada família) i F2 (ús perfecte contra ús real)",
-    "Descarrega la fitxa del teu nivell i el full de targetes, i fes els apartats 1 i 2 tu sol/a",
+    "Descarrega la fitxa de la teva versió i el full de targetes, i fes els apartats 1 i 2 tu sol/a",
     "Parla amb la teva parella per acabar la fitxa informativa: és el producte final de la unitat i es lliura a Classroom",
     "Passa pel despatx a fer el formulari: compta per a la nota i no es pot fer des de casa",
     "Si et queda un dubte personal, el pots deixar a la bústia sense nom, o preguntar-ho al CAP o a l'orientació del centre"

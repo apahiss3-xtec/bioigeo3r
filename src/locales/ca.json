@@ -24,22 +24,22 @@
     "flipped": "Aula invertida"
   },
   "nivell": {
-    "label": "Nivell de la fitxa",
+    "label": "Versió de la fitxa",
     "objectives": "Objectius d'aprenentatge d'avui",
-    "objectivesHint": "Tria el teu nivell: canvien els objectius i el suport de la sessió.",
-    "challenge": "Repte d'ampliació",
+    "objectivesHint": "Tria la teva versió: canvien els objectius i el suport de la sessió.",
+    "challenge": "Repte de la versió A",
     "scaffold": "Amb suport",
     "A": {
-      "short": "Ampliació",
-      "help": "Nivell A — Ampliació: autonomia, preguntes obertes, hipòtesis pròpies i connexions entre situacions d'aprenentatge."
+      "short": "Versió A",
+      "help": "Versió A: autonomia, preguntes obertes, hipòtesis pròpies i connexions entre situacions d'aprenentatge."
     },
     "B": {
-      "short": "Estàndard",
-      "help": "Nivell B — Estàndard: la versió per a la majoria, amb guiatge moderat."
+      "short": "Versió B",
+      "help": "Versió B: la versió per a la majoria, amb guiatge moderat."
     },
     "C": {
-      "short": "Adaptació",
-      "help": "Nivell C — Adaptació: més suport, amb inicis de frase, frases a completar i moltes imatges."
+      "short": "Versió C",
+      "help": "Versió C: més suport, amb inicis de frase, frases a completar i moltes imatges."
     }
   },
   "activity": {

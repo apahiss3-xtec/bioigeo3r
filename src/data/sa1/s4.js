@@ -36,7 +36,7 @@ export const sa1s4 = {
 
   rubricUrl: "/fitxes/sa1-rubrica-poster.html",
   fitxaUrl: "/fitxes/sa1-s4-enunciat-poster.html",
-  teoriaPdfUrl: null,
+  teoriaPdfUrl: "/teoria/sa1-s4-teoria.pdf",
 
   exitTicketType: "web",
   exitTicketQuestions: [

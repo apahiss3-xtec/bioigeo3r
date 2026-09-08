@@ -40,8 +40,8 @@ export const sa4s3 = {
   engageQuestion: "Què pot dir la ciència sobre nosaltres… i què no li toca decidir a ella?",
   engageContext: "El docent llegeix DUES preguntes de la bústia, ja transcrites a màquina (mai el paper original, perquè no es reconegui cap lletra), i les respon amb to serè. No es pregunta mai qui les ha escrites. Tot seguit marca el guió del dia: avui se separaran quatre coses que se solen barrejar, i al final es dirà una cosa incòmoda — hi ha preguntes que la ciència no pot respondre, i això no és cap defecte de la ciència. L'acord d'aula queda penjat i visible tota la sessió: ningú no ha de parlar de si mateix, tots els casos són de persones inventades.",
 
-  // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
-  // Coincideixen literalment amb la caixa 🎯 de la fitxa del mateix nivell.
+  // ── OBJECTIUS D'APRENENTATGE PER VERSIÓ (A/B/C) ──────────
+  // Coincideixen literalment amb la caixa 🎯 de la fitxa de la mateixa versió.
   levelObjectives: {
     A: [
       "Critico el model de les quatre finestres: dic què no hi cap i per quina raó serveix igualment.",
@@ -113,7 +113,7 @@ export const sa4s3 = {
   exploreMaterials: [
     "Targetes de casos — 1 joc per grup (full imprimible 'Vuit casos per pensar')",
     "Cartell de l'acord d'aula i de la pauta d'argumentació, penjat i visible",
-    "Fitxa del teu nivell, amb la graella de casos i la figura F1"
+    "Fitxa de la teva versió, amb la graella de casos i la figura F1"
   ],
 
   // Material físic que la sessió dona per existent (comprovació transversal 'ah').
@@ -122,8 +122,8 @@ export const sa4s3 = {
     { id: "M1b", title: "Clau del docent dels vuit casos", url: null, who: "NOMÉS docent. NO es publica a la web (27/08): la URL era endevinable des de la del full de l'alumnat. Es troba a la carpeta de la sessió, a SA4-creixer-reproduir/S3-ciencia-i-societat/targetes_casos_sessio3_DOCENT.html" },
     { id: "M2", title: "Cartell: acord d'aula + pauta d'argumentació", url: "/fitxes/sa4-s3-cartell-acord.html", who: "docent el penja abans de començar i el deixa visible tota la sessió" },
     { id: "M3", title: "Preguntes de la bústia transcrites a màquina (dues)", url: null, who: "docent. Es transcriuen fora de classe: mai es llegeix el paper original" },
-    { id: "M4", title: "Full de sortida (nivells A i B)", url: "/fitxes/sa4-s3-full-sortida.html", who: "es reparteix als últims 7 minuts" },
-    { id: "M5", title: "Full de sortida (nivell C)", url: "/fitxes/sa4-s3-full-sortida-C.html", who: "es reparteix als últims 7 minuts" }
+    { id: "M4", title: "Full de sortida (versions A i B)", url: "/fitxes/sa4-s3-full-sortida.html", who: "es reparteix als últims 7 minuts" },
+    { id: "M5", title: "Full de sortida (versió C)", url: "/fitxes/sa4-s3-full-sortida-C.html", who: "es reparteix als últims 7 minuts" }
   ],
 
   theoryPoints: [
@@ -166,8 +166,8 @@ export const sa4s3 = {
   ],
 
   graphicResources: [
-    { id: "F1", apartat: "1", title: "Les quatre finestres", src: "/images/sa4-s3-quatre-finestres.svg", note: "Quatre panells amb marcadors ①-④ i cap paraula dins la imatge: les etiquetes en català són la llegenda numerada de la fitxa. El nivell C té una versió pròpia (menys detall, marcadors al doble de mida, colors molt més contrastats)." },
-    { id: "F1C", apartat: "1", title: "Les quatre finestres — versió nivell C", src: "/images/sa4-s3-quatre-finestres-C.svg", note: "Un sol pictograma per panell i un color de fons per finestra. És la que porta la fitxa C." },
+    { id: "F1", apartat: "1", title: "Les quatre finestres", src: "/images/sa4-s3-quatre-finestres.svg", note: "Quatre panells amb marcadors ①-④ i cap paraula dins la imatge: les etiquetes en català són la llegenda numerada de la fitxa. La versió C té una edició pròpia (menys detall, marcadors al doble de mida, colors molt més contrastats)." },
+    { id: "F1C", apartat: "1", title: "Les quatre finestres — versió C", src: "/images/sa4-s3-quatre-finestres-C.svg", note: "Un sol pictograma per panell i un color de fons per finestra. És la que porta la fitxa C." },
     { id: "F2", apartat: "2", title: "On passa la ratlla: ciència / societat", src: "/images/sa4-s3-frontera-ciencia-valors.svg", note: "Ⓐ instruments de mesura · Ⓑ balança, mans alçades i converses · Ⓒ la ratlla · Ⓓ la fletxa d'un sol sentit. Marcadors amb LLETRA i no amb número (27/08): compartia els ①-④ i els mateixos colors amb F1, que es compara amb ella a la mateixa pàgina. És la figura que sosté tot l'apartat 3." },
     { id: "F3", apartat: "2", title: "Els primers dies (escala esquemàtica)", src: "/images/sa4-s3-primers-dies.svg", note: "Deliberadament sòbria: cercles del mateix diàmetre sobre un eix de temps. Serveix per concretar el «què SÍ que pot dir la ciència», no per il·lustrar emotivament." }
   ],
@@ -182,8 +182,8 @@ export const sa4s3 = {
   fitxaGuide: {
     fitxaName: "Fitxa Sessió 3 — Sexualitat, identitat i una pregunta delicada",
     steps: [
-      { apartat: "0", title: "Idees prèvies", time: "7 min", phase: "engage", instruction: "Apartat 0: escriu si «sexe» i «gènere» volen dir el mateix i si la sexualitat és només reproducció, i dibuixa el passadís d'una botiga de joguines tal com el recordes. No es corregeix ara. Si la teva fitxa és de nivell C, el dibuix va primer.", hints: [] },
-      { apartat: "1", title: "Els casos i les quatre finestres", time: "30 min", phase: "explore", instruction: "Apartat 1: en grup, llegiu les targetes de casos i decidiu quina finestra explica cada un. El format concret canvia segons el teu nivell: C en treballa quatre amb el primer resolt, B en treballa vuit, i A hi afegeix inventar-ne un i criticar el model.", hints: [
+      { apartat: "0", title: "Idees prèvies", time: "7 min", phase: "engage", instruction: "Apartat 0: escriu si «sexe» i «gènere» volen dir el mateix i si la sexualitat és només reproducció, i dibuixa el passadís d'una botiga de joguines tal com el recordes. No es corregeix ara. Si la teva fitxa és la versió C, el dibuix va primer.", hints: [] },
+      { apartat: "1", title: "Els casos i les quatre finestres", time: "30 min", phase: "explore", instruction: "Apartat 1: en grup, llegiu les targetes de casos i decidiu quina finestra explica cada un. El format concret canvia segons la teva versió: la C en treballa quatre amb el primer resolt, la B en treballa vuit, i la A hi afegeix inventar-ne un i criticar el model.", hints: [
         "Abans de decidir res, pregunta't si el cas parla del COS, del que la persona VIU amb altres, del que SENT per dins, o del que ESPEREN els altres.",
         "Si dubtes entre dues finestres, mira si el cas té dues frases que diuen coses diferents: potser en necessita dues de debò.",
         "Quan un cas compari dues èpoques o dos llocs, pregunta't què hi ha canviat i què no. Aquesta comparació sola ja et diu molt."
@@ -193,7 +193,7 @@ export const sa4s3 = {
         "«Fins a quina setmana hauria de…» i «a partir de quina setmana se'n diu…» semblen la mateixa mena de frase i no ho són: fixa't en el verb.",
         "A la figura F2, compta les fletxes. Que només n'hi hagi una, i en aquell sentit, vol dir alguna cosa."
       ] },
-      { apartat: "3", title: "Comprovable o valoració?", time: "14 min", phase: "elabora", instruction: "Apartat 3: classifica les frases i escriu COM ho comprovaries, no només la casella. Al nivell B i A hi ha tres possibilitats (certa, falsa, valoració); al nivell C n'hi ha dues i un exemple resolt abans.", hints: [
+      { apartat: "3", title: "Comprovable o valoració?", time: "14 min", phase: "elabora", instruction: "Apartat 3: classifica les frases i escriu COM ho comprovaries, no només la casella. A les versions B i A hi ha tres possibilitats (certa, falsa, valoració); a la versió C n'hi ha dues i un exemple resolt abans.", hints: [
         "Fes-te sempre la mateixa pregunta primer: existeix alguna manera de comprovar-ho? Només després pensa si surt que sí o que no.",
         "Alguna frase sona a opinió i en canvi es pot contrastar amb dades. Abans de decidir, mira si la frase parla d'alguna cosa que algú hagi pogut comptar o mesurar.",
         "Alguna frase barreja dues coses: una part es pot descriure i l'altra no. Prova de partir-la per la meitat."
@@ -210,7 +210,7 @@ export const sa4s3 = {
   // NOTA DEL DOCENT — no es renderitza a la vista de l'alumnat (27/08).
   // Abans era dins d'`exitTicketNote` i es pintava sencera a la pàgina, revelant
   // els dos casos del full abans de la classe.
-  teacherNote: "Porta DUES preguntes; el nivell C les té bastides amb els mateixos quatre passos OBSERVO→EM PREGUNTO→CONNECTO→DEDUEIXO de la fitxa, i hi ha una tercera pregunta extra, oberta a tothom. Els casos són NOUS: cap resposta no és a la fitxa que l'alumne es queda. L'ítem de l'avortament és SIMÈTRIC (dos titulars, un en cada direcció): s'hi avalua l'error epistèmic, no la postura de l'alumne, en un full que porta nom.",
+  teacherNote: "Porta DUES preguntes; la versió C les té bastides amb els mateixos quatre passos OBSERVO→EM PREGUNTO→CONNECTO→DEDUEIXO de la fitxa, i hi ha una tercera pregunta extra, oberta a tothom. Els casos són NOUS: cap resposta no és a la fitxa que l'alumne es queda. L'ítem de l'avortament és SIMÈTRIC (dos titulars, un en cada direcció): s'hi avalua l'error epistèmic, no la postura de l'alumne, en un full que porta nom.",
   exitTicketQuestions: [
     { id: "q1", type: "open", text: "Fa 200 anys, en molts llocs d'Europa, dur pantalons era cosa d'homes: una dona amb pantalons cridava l'atenció. Avui en duu tothom. Què ha canviat en aquests 200 anys: el cos de les persones, o el que la societat espera de cadascú? Digues quina de les quatre finestres explica aquest canvi i per quina raó.", hint: null },
     { id: "q2", type: "open", text: "Dos diaris publiquen dos titulars diferents: A) «La ciència demostra que l'avortament està malament.» B) «La ciència demostra que un embrió de dues setmanes no és ningú.» Explica què tenen de mal plantejat tots dos. Després digues una cosa que la ciència SÍ que pot dir sobre un embrió i una cosa que NO pot dir.", hint: null },
@@ -224,7 +224,7 @@ export const sa4s3 = {
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina: les quatre finestres, la frontera ciència/societat i els tres tipus de frase",
     "Mira les figures F1 (les quatre finestres) i F2 (on passa la ratlla)",
-    "Descarrega el full de casos i la fitxa del teu nivell, i fes els apartats 1, 2 i 3 tu sol/a",
+    "Descarrega el full de casos i la fitxa de la teva versió, i fes els apartats 1, 2 i 3 tu sol/a",
     "Passa pel despatx a fer el full de sortida abans de la sessió següent",
     "Si el tema et remou alguna cosa, pots deixar una pregunta a la bústia sense posar-hi el nom, o parlar amb l'orientació del centre"
   ],

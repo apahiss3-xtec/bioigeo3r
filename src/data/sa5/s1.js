@@ -20,8 +20,8 @@ export const sa5s1 = {
   engageQuestion: "Al riu que passa a prop de l'escola han vist llúdrigues per primera vegada en 30 anys. Una espècie que torna: algú hi guanya i algú hi perd. I la pregunta d'avui: si d'un ecosistema en traiem un sol ésser viu, passa res a la resta?",
   engageContext: "S'obre l'enigma de la unitat i es penja el cartell a la paret. IMPORTANT: avui NO es resol — es resol a la sessió 3, quan ja tindreu les eines. Després d'escriure les idees prèvies es planteja el repte del dia: sortir al pati a fer un cens de qui hi viu de debò, i tornar a l'aula a construir la xarxa de la vida amb les mans, amb fils de llana.",
 
-  // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
-  // Coincideixen LITERALMENT amb la caixa 🎯 de la fitxa del mateix nivell
+  // ── OBJECTIUS D'APRENENTATGE PER VERSIÓ (A/B/C) ──────────
+  // Coincideixen LITERALMENT amb la caixa 🎯 de la fitxa de la mateixa versió
   // (_s1_content.py: OA_A / OA_B / OA_C).
   levelObjectives: {
     A: [
@@ -97,7 +97,7 @@ export const sa5s1 = {
   ],
   exploreDuration: "45 min",
   exploreMaterials: [
-    "Fitxa del teu nivell (la graella de camp és l'apartat 1) i un llapis",
+    "Fitxa de la teva versió (la graella de camp és l'apartat 1) i un llapis",
     "Mòbil per fer fotos del que no sapigueu identificar",
     "Targetes d'espècie — 12 al principi (una per persona o parella); la 13a, el cranc invasor, entra a la tercera prova (full imprimible M1)",
     "Fils de llana"
@@ -107,8 +107,8 @@ export const sa5s1 = {
   sessionMaterials: [
     { id: "M1", title: "Targetes d'espècie per a la xarxa de fils (13)", url: "/fitxes/sa5-s1-targetes-especies.html", who: "docent imprimeix, 3 fulls A4, es retallen. La 13a (cranc de riu americà) NO es reparteix al principi: entra a la tercera prova" },
     { id: "M2", title: "Cartell de l'enigma de les llúdrigues", url: "/fitxes/sa5-s1-cartell-enigma.html", who: "docent el penja el primer dia i el despenja a la sessió 3" },
-    { id: "M3", title: "Full de sortida (nivells A i B)", url: "/fitxes/sa5-s1-full-sortida.html", who: "es reparteix als últims 7 minuts" },
-    { id: "M4", title: "Full de sortida (nivell C)", url: "/fitxes/sa5-s1-full-sortida-C.html", who: "es reparteix als últims 7 minuts" }
+    { id: "M3", title: "Full de sortida (versions A i B)", url: "/fitxes/sa5-s1-full-sortida.html", who: "es reparteix als últims 7 minuts" },
+    { id: "M4", title: "Full de sortida (versió C)", url: "/fitxes/sa5-s1-full-sortida-C.html", who: "es reparteix als últims 7 minuts" }
   ],
 
   theoryPoints: [
@@ -141,12 +141,12 @@ export const sa5s1 = {
   ],
 
   graphicResources: [
-    { id: "F0c", apartat: "1", title: "Què és un rastre (nivell C)", src: "/images/sa5-s1-rastres-c.svg", note: "Tres rastres (fulla mossegada, teranyina, forat) amb el que indica cadascun. Obre la secció del cens a la fitxa C, que era l'única sense imatge. Només nivell C." },
+    { id: "F0c", apartat: "1", title: "Què és un rastre (versió C)", src: "/images/sa5-s1-rastres-c.svg", note: "Tres rastres (fulla mossegada, teranyina, forat) amb el que indica cadascun. Obre la secció del cens a la fitxa C, que era l'única sense imatge. Només la versió C." },
     { id: "F1", apartat: "3", title: "Les cinc relacions ecològiques", src: "/images/sa5-s1-relacions-ecologiques.svg", note: "Cinc files amb la notació de signes (+ hi guanya, − hi perd, 0 li és igual) i un exemple real de cadascuna. Fitxes A i B." },
-    { id: "F1c", apartat: "3", title: "Tres relacions ecològiques (nivell C)", src: "/images/sa5-s1-relacions-c.svg", note: "Versió pròpia del nivell C: només competència, depredació i mutualisme, sense notació de signes i amb la definició en llenguatge planer. No es recicla la F1." },
+    { id: "F1c", apartat: "3", title: "Tres relacions ecològiques (versió C)", src: "/images/sa5-s1-relacions-c.svg", note: "Edició pròpia de la versió C: només competència, depredació i mutualisme, sense notació de signes i amb la definició en llenguatge planer. No es recicla la F1." },
     { id: "F2", apartat: "3", title: "La xarxa tròfica del riu", src: "/images/sa5-s1-xarxa-riu.svg", note: "Dotze nodes numerats repartits en cinc bandes de nivell tròfic, més la banda de descomponedors amb la fletxa de retorn. Les 12 targetes d'espècie (M1) reprodueixen exactament aquesta xarxa. Fitxes A i B." },
-    { id: "F2c", apartat: "2", title: "Cadena simple del riu (nivell C)", src: "/images/sa5-s1-xarxa-riu-c.svg", note: "Cinc nodes en línia: alga → insecte → peix petit → truita → llúdriga, més els fongs amb la fletxa de retorn. És la cadena que el full de sortida demana recórrer. Només nivell C." },
-    { id: "F3", apartat: "4", title: "La xarxa del pati a mig fer (nivell C)", src: "/images/sa5-s1-xarxa-pati-semi.svg", note: "Bastida de l'Elaborate: herba, cargol i merla ja col·locats amb la primera cadena de fletxes feta, i tres caixes de punts per omplir amb el cens propi. Només nivell C." }
+    { id: "F2c", apartat: "2", title: "Cadena simple del riu (versió C)", src: "/images/sa5-s1-xarxa-riu-c.svg", note: "Cinc nodes en línia: alga → insecte → peix petit → truita → llúdriga, més els fongs amb la fletxa de retorn. És la cadena que el full de sortida demana recórrer. Només la versió C." },
+    { id: "F3", apartat: "4", title: "La xarxa del pati a mig fer (versió C)", src: "/images/sa5-s1-xarxa-pati-semi.svg", note: "Bastida de l'Elaborate: herba, cargol i merla ja col·locats amb la primera cadena de fletxes feta, i tres caixes de punts per omplir amb el cens propi. Només la versió C." }
   ],
 
   fitxaUrls: {
@@ -170,7 +170,7 @@ export const sa5s1 = {
         "Al trencament 2 hi ha dues coses diferents a mirar: qui es queda sense menjar i qui es queda sense qui se'l menjava. No són els mateixos.",
         "Per a la pregunta del model: pensa en una relació que depengui de la situació, no que passi sempre."
       ] },
-      { apartat: "3", title: "Relacions i papers tròfics", time: "20 min", phase: "explica", instruction: "Apartat 3: treballa les relacions ecològiques amb la figura F1 (o F1c si fas el nivell C) i els papers tròfics amb la figura F2. El format concret canvia segons el teu nivell.", hints: [
+      { apartat: "3", title: "Relacions i papers tròfics", time: "20 min", phase: "explica", instruction: "Apartat 3: treballa les relacions ecològiques amb la figura F1 (o F1c si fas la versió C) i els papers tròfics amb la figura F2. El format concret canvia segons la teva versió.", hints: [
         "Per classificar una relació, pregunta't primer com li va a cadascun dels dos, i el nom surt sol.",
         "A la figura F2, segueix una fletxa amb el dit i llegeix-la en veu baixa: «serveix d'aliment a».",
         "Compte amb els descomponedors: la fletxa de retorn no va a un animal, va a les plantes."
@@ -185,7 +185,7 @@ export const sa5s1 = {
   },
 
   exitTicketType: "paper",
-  exitTicketNote: "El full de sortida va en un FULL A PART (no és dins la fitxa), es fa individualment i sense ajuda els últims 7 minuts, i es recull. Porta les mateixes tres preguntes als tres nivells: el nivell C les té bastides (amb els mateixos quatre passos OBSERVO→EM PREGUNTO→CONNECTO→DEDUEIXO que la fitxa, i aquest cop els dos últims sense inici de frase) i el nivell A hi afegeix una quarta pregunta.",
+  exitTicketNote: "El full de sortida va en un FULL A PART (no és dins la fitxa), es fa individualment i sense ajuda els últims 7 minuts, i es recull. Porta les mateixes tres preguntes a les tres versions: la versió C les té bastides (amb els mateixos quatre passos OBSERVO→EM PREGUNTO→CONNECTO→DEDUEIXO que la fitxa, i aquest cop els dos últims sense inici de frase) i la versió A hi afegeix una quarta pregunta.",
   exitTicketQuestions: [
     { id: "q1", type: "open", text: "Del pati o del riu, posa un exemple de competència, un de mutualisme i un de depredació, i digues en cada cas qui hi guanya i qui hi perd.", hint: "Pensa primer com li va a cadascun dels dos i després busca el nom." },
     { id: "q2", type: "open", text: "Si un abocament acaba amb les algues del riu (només les algues), què li acaba passant a la llúdriga? Escriu la cadena sencera, pas a pas.", hint: "La llúdriga no es menja les algues. Justament per això la pregunta té gràcia: has d'anar pas a pas." },
@@ -199,7 +199,7 @@ export const sa5s1 = {
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina: les cinc relacions ecològiques, els tres papers tròfics i l'efecte cascada",
     "Mira les figures F1 (relacions) i F2 (la xarxa del riu), i segueix amb el dit la cadena algues → insecte → peix petit → truita → llúdriga",
-    "Descarrega la fitxa del teu nivell. L'apartat 1 el pots fer al teu carrer, a un parc o al pati d'un bloc: el cens funciona igual en qualsevol lloc amb éssers vius",
+    "Descarrega la fitxa de la teva versió. L'apartat 1 el pots fer al teu carrer, a un parc o al pati d'un bloc: el cens funciona igual en qualsevol lloc amb éssers vius",
     "Fes l'apartat 4 amb el que hagis censat tu, i porta la feina del sopar feta",
     "Passa pel despatx a fer el full de sortida abans de la sessió següent"
   ],

@@ -91,7 +91,7 @@ export const sa2s6 = {
     { id: "Fig.5", apartat: "3", title: "Les dues hormones del ronyó", src: "/imatges-cientifiques/s6_hormones_etiquetada.png", note: "Esquerra (ADH): el cervell mana al ronyó retenir aigua i l'aigua torna a la sang. Dreta (EPO): el ronyó mana a la medul·la òssia fabricar eritròcits nous." }
   ],
 
-  fitxaUrl: { A: "/fitxes/sa2-s6-fitxa-A.html", B: "/fitxes/sa2-s6-fitxa-B.html", C: "/fitxes/sa2-s6-fitxa-C.html" }, teoriaPdfUrl: null,
+  fitxaUrl: { A: "/fitxes/sa2-s6-fitxa-A.html", B: "/fitxes/sa2-s6-fitxa-B.html", C: "/fitxes/sa2-s6-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s6-teoria.pdf",
 
   fitxaGuide: {
     fitxaName: "Fitxa Sessió 6 — El sistema de control i l'equilibri intern",

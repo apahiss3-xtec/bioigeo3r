@@ -13,9 +13,9 @@ export const sa1s1 = {
   engageQuestion: "Pots aguantar setmanes sense menjar, però només minuts sense respirar. Per quina raó? Què hi ha dins teu que necessita tant l'aire i el menjar?",
   engageContext: "La cèl·lula: la cosa viva més petita, i necessita menjar i aire. Avui descobriràs per què.",
 
-  // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
+  // ── OBJECTIUS D'APRENENTATGE PER VERSIÓ (A/B/C) ──────────
   // Mateixos aprenentatges que les 3 versions de la fitxa impresa.
-  // Font: vault «SA1 — Aprenentatges per nivell».
+  // Font: vault «SA1 — Aprenentatges per versió».
   levelObjectives: {
     A: [
       "Justifico per què la cèl·lula és la primera estructura «viva» i no l'orgànul ni la molècula.",
@@ -37,9 +37,9 @@ export const sa1s1 = {
     ]
   },
 
-  // ── BASTIMENT/REPTE PER APARTAT segons el nivell ────────
-  // scaffold → es mostra a NIVELL C (suport: frases a completar, patró fix)
-  // challenge → es mostra a NIVELL A (ampliació: pregunta oberta, connexió)
+  // ── BASTIMENT/REPTE PER APARTAT segons la versió ────────
+  // scaffold → es mostra a la VERSIÓ C (suport: frases a completar, patró fix)
+  // challenge → es mostra a la VERSIÓ A (repte: pregunta oberta, connexió)
   apartatExtras: {
     "1": {
       challenge:
@@ -162,7 +162,7 @@ export const sa1s1 = {
 
   // ── ELABORA ──────────────────────────────────────────────
   fitxaUrl: { A: "/fitxes/sa1-s1-fitxa-A.html", B: "/fitxes/sa1-s1-fitxa-B.html", C: "/fitxes/sa1-s1-fitxa-C.html" },
-  teoriaPdfUrl: null,
+  teoriaPdfUrl: "/teoria/sa1-s1-teoria.pdf",
   elaborateNote: "Pregunta central de la fitxa: 'Per quina raó una cèl·lula muscular té molts més mitocondris que una de la pell?'",
 
   // ── GUIA DE LA FITXA (apartats reals del full imprès) ────
@@ -252,8 +252,8 @@ export const sa1s1 = {
   homework: {
     description: "Posa un ou en vinagre blanc (ou cru o dur, en un got amb vinagre que el cobreixi). Deixa'l 48 hores. Observa i mesura. Ho portaràs a la propera sessió per a l'experiment d'osmosi.",
     secondTask: "Comença la representació dels 10 nivells d'organització (de l'àtom a la biosfera), en el format que triïs. Entrega a S2. I fes el dibuix de memòria de les 3 parts de la cèl·lula, sense mirar apunts.",
-    deadline: "2026-09-XX",
-    note: "L'experiment de l'ou és imprescindible per a S2. Si no pots posar-lo avui, posa'l demà al matí."
+    deadline: null,
+    note: "L'experiment de l'ou és imprescindible per a S2: necessita 48 hores en marxa, així que posa'l tan aviat com puguis."
   },
 
   // ── HAS FALTAT? ──────────────────────────────────────────

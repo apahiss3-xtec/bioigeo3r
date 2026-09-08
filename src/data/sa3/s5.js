@@ -89,8 +89,8 @@ export const sa3s5 = {
   sessionMaterials: [
     { name: "Targetes de substàncies (20 targetes retallables + solucionari docent)", url: "/fitxes/sa3-s5-targetes-substancies.html" },
     { name: "Rúbrica de la campanya de comunicació científica", url: "/fitxes/sa3-s5-rubrica-campanya.html" },
-    { name: "Full de sortida — nivells A i B", url: "/fitxes/sa3-s5-full-sortida.html" },
-    { name: "Full de sortida — nivell C (amb bastida)", url: "/fitxes/sa3-s5-full-sortida-C.html" }
+    { name: "Full de sortida — versions A i B", url: "/fitxes/sa3-s5-full-sortida.html" },
+    { name: "Full de sortida — versió C (amb bastida)", url: "/fitxes/sa3-s5-full-sortida-C.html" }
   ],
 
   fitxaUrl: { A: "/fitxes/sa3-s5-fitxa-A.html", B: "/fitxes/sa3-s5-fitxa-B.html", C: "/fitxes/sa3-s5-fitxa-C.html" }, teoriaPdfUrl: null,
@@ -125,7 +125,7 @@ export const sa3s5 = {
     { id: "q2", type: "open", text: "L'article de Wakefield afirmava que les vacunes causen autisme. Per quina raó la revista científica el va retirar? Cita almenys 2 raons concretes.", hint: "Repassa els 4 criteris de qualitat de la Sessió 3 i mira quins incompleix l'article. La caixa «Dades per a l'Enigma B» de la teva fitxa té els números." },
     { id: "q3", type: "open", text: "Per quina raó l'addicció NO és «només qüestió de voluntat»? Usa les paraules dopamina i receptors.", hint: "Comença pel que passa als receptors quan la droga hi arriba, i segueix amb el que fa el cervell si això es repeteix cada dia. La figura dels quatre quadres de l'apartat 2 explica tota la cadena." }
   ],
-  exitTicketNote: "Avaluació sumativa CE1 + CE2 + CE5 (resolució dels dos enigmes de la unitat). Individual, sense ajuda, i es recull. Es pot respondre a l'ordinador o en paper: el full imprès porta les mateixes tres preguntes. /fitxes/sa3-s5-full-sortida.html (nivells A i B) i /fitxes/sa3-s5-full-sortida-C.html (nivell C, amb bastida).",
+  exitTicketNote: "Avaluació sumativa CE1 + CE2 + CE5 (resolució dels dos enigmes de la unitat). Individual, sense ajuda, i es recull. Es pot respondre a l'ordinador o en paper: el full imprès porta les mateixes tres preguntes. /fitxes/sa3-s5-full-sortida.html (versions A i B) i /fitxes/sa3-s5-full-sortida-C.html (versió C, amb bastida).",
 
   deliverables: [
     { name: "Campanya de comunicació científica (cartell o vídeo de 60 s)", note: "Es comença a classe a l'apartat 4 i s'acaba a casa. Entrega a Classroom, termini 1 setmana. Desmunta un mite sobre salut aplicant els 4 criteris de qualitat. Rúbrica: /fitxes/sa3-s5-rubrica-campanya.html" }
