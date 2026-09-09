@@ -1,13 +1,17 @@
 export const sa2s2 = {
   id: "s2", saId: "sa2",
-  title: "El sistema digestiu — 'Fem caca a classe'",
+  title: "Nou metres de tub dins teu: què hi passa?",
   sessionNumber: 2, biome: "sa2", duration: "2h",
   engageImage: "/images/sa2-s2-digestiu.jpg",
 
   // Repte oral curt: demo física de l'ovillo + "el titular", abans d'escriure les idees prèvies.
   engageChallenge: "Desenrotllem l'ovillo de llana pels 9 metres de l'aula (esòfag, intestí prim, intestí gros). Després, en veu alta: 'Avui farem caca a classe.'",
   engageQuestion: "Tens 9 metres de tub digestiu dins teu. Avui el convertirem en l'aula. I sí: al final farem 'caca a classe'.",
-  engageContext: "Ovillo de llana de 9 metres: un alumne aguanta l'extrem, es desenrotlla per tota la classe. Esòfag 25 cm, intestí prim ~6 m, intestí gros ~1.5 m. Visual i físic.",
+  engageContext: "Nou metres de tub digestiu caben dins teu, i avui els desplegarem per tota l'aula amb un cabdell de llana: 25 cm d'esòfag, uns 6 m d'intestí prim i 1,5 m d'intestí gros.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "Cabdell de llana de 9 m: un alumne aguanta l'extrem i es desenrotlla per tota la classe. Visual i físic.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {

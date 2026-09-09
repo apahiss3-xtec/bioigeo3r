@@ -5,7 +5,11 @@ export const sa3s1 = {
   engageImage: "/images/sa3-s1-contagi.jpg",
 
   engageQuestion: "Avui sou actors d'una epidèmia. Alguns de vosaltres porteu un virus sense saber-ho. Al final de la sessió, descobrirem quantes persones s'han 'infectat'. Però primer: per quina raó creus que la grip es propaga tan ràpid en un espai tancat com una aula?",
-  engageContext: "Presentació dels dos enigmes de la SA (la grip de gener + l'article anti-vacunes) que quedaran a la paret tota la SA. Idees prèvies: 'Quina diferència hi ha entre un refredat i una grip? Per quina raó de vegades agafem la grip i d'altres no?'",
+  engageContext: "Els dos enigmes queden penjats a la paret tota la situació: la grip de gener i un article contra les vacunes. Per començar: quina diferència hi ha entre un refredat i una grip? I per quina raó de vegades agafes la grip i d'altres no?",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "Presentació dels dos enigmes de la SA, que queden a la paret tota la SA. Idees prèvies.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {

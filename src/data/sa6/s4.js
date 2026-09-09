@@ -5,7 +5,11 @@ export const sa6s4 = {
   engageImage: "/images/sa6-s4-accio.jpg",
 
   engageQuestion: "Heu dissenyat una proposta d'acció per reduir la petjada de la nostra escola. Ara toca avaluar-les com ho faria un ajuntament o una escola real: amb evidència i viabilitat. Quines propostes son realistes i impactants? Com s'argumenta que una mesura és efectiva?",
-  engageContext: "Posada en comú de les propostes individuals de la feina a casa. El docent anuncia el 'comitè d'iguals': cada grup avalua les propostes d'un altre grup amb la rúbrica (evidència i viabilitat). Es presenta la resolució de l'enigma del bocadillo de pernil i es tanca la SA.",
+  engageContext: "Posarem en comú les propostes individuals de la feina a casa i es constitueix el comitè d'iguals: cada grup avalua les propostes d'un altre grup amb la rúbrica d'evidència i viabilitat. Al final es resol l'enigma del bocadillo de pernil i es tanca la situació.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "El docent anuncia el comitè d'iguals i condueix la resolució final de l'enigma.",
 
   levelObjectives: {
     A: [
@@ -59,8 +63,8 @@ export const sa6s4 = {
     "Per grups de 3-4: rebeu les propostes d'acció del grup assignat (cada grup avalua les d'un altre grup diferent)",
     "Tasca 1 (15 min): llegiu les propostes rebudes. Per a cada proposta, ompliu la rúbrica d'avaluació d'iguals (evidència d'emissions / viabilitat / impacte estimat / recursos necessaris). Puntua de 1 a 4 cada dimensió",
     "Tasca 2 (5 min): seleccioneu la proposta que puntueu més alta del vostre sobre. Prepareu 2 arguments per defensar-la davant del grup gran",
-    "Tasca 3 (5 min): posada en comú. Cada grup presenta la proposta guanyadora. El docent moddera el debat i sistematitza les accions per categories (menú / energia / mobilitat / residus)",
-    "Tancament: el docent presenta la resolució completa de l'enigma del bocadillo de pernil"
+    "Tasca 3: posada en comú. Cada grup presenta la proposta guanyadora i ordenem les accions per categories (menú / energia / mobilitat / residus)",
+    "Tancament: es resol del tot l'enigma del bocadillo de pernil"
   ],
   exploreDuration: "25 min",
   exploreMaterials: ["Sobre amb les propostes d'acció del grup assignat", "Rúbrica d'avaluació d'iguals (per avaluador)", "Projector: taula de propostes seleccionades per categoria"],

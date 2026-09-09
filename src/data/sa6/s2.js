@@ -1,11 +1,15 @@
 export const sa6s2 = {
   id: "s2", saId: "sa6",
-  title: "D'on ve l'energia? + Efecte hivernacle",
+  title: "D'on ve l'electricitat de l'endoll?",
   sessionNumber: 2, biome: "sa6", duration: "2h",
   engageImage: "/images/sa6-s2-energia.jpg",
 
   engageQuestion: "La nostra escola consumeix electricitat. D'on ve? De l'endoll, sí — però d'on ve l'electricitat de l'endoll? Poseu-vos d'acord en grup: quines fonts d'energia coneixeu? Quines creieu que son les més usades a Catalunya? I a nivell global?",
-  engageContext: "Posada en comú dels productes de casa (deures S1). Es construeix un mapa de petjades al projector. Seguidament, el docent presenta el lab de les ampolles: podem demostrar a classe, amb materials senzills, que el CO₂ reté calor? La hipòtesi és la de les alumnes.",
+  engageContext: "Posarem en comú els productes que has portat de casa i en construirem un mapa de petjades. Després ve el laboratori de les ampolles: es pot demostrar a classe, amb material senzill, que el CO₂ reté calor? La hipòtesi la poses tu.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "Posada en comú dels deures de S1 al projector. El lab de les ampolles el presenta el docent, però la hipòtesi és de l'alumnat.",
 
   levelObjectives: {
     A: [
@@ -61,7 +65,7 @@ export const sa6s2 = {
     "Pas 2 (5 min): ompliu una ampolla amb CO₂ (bicarbonat + vinagre) i l'altra amb aire normal. Col·loqueu el termòmetre a cada ampolla. Registreu la temperatura inicial",
     "Pas 3 (10 min): poseu les dues ampolles a la mateixa distància de la làmpada. Registreu la temperatura cada 2 minuts (5 mesures). Ompliu la taula de dades",
     "Pas 4 (5 min): compareu els resultats amb els altres grups. Interpreteu: la diferència és la que esperàveu? Quines limitacions té el model?",
-    "Moment epistèmic: el docent guia la discussió sobre el problema d'escala. La diferència de temperatura és petita al lab, però en el clima global, petites diferències de temperatura tenen efectes enormes"
+    "Posada en comú sobre el problema d'escala: al laboratori la diferència de temperatura és petita, però en el clima global una diferència petita de temperatura té efectes enormes"
   ],
   exploreDuration: "25 min",
   exploreMaterials: ["2 ampolles 2L per grup", "2 termòmetres", "Làmpada 100W o focus de projecció", "Bicarbonat (2 cullerades) + vinagre (100 mL) per generar CO₂", "Cronòmetre", "Fitxa de registre de dades"],
@@ -146,7 +150,7 @@ export const sa6s2 = {
   homework: {
     description: "Busca a quantes persones ha desplaçat un fenomen climàtic extrem (inundacions, onada de calor, sequera) en els darrers 5 anys. Aporta el nom del fenomen, l'any, la zona geogràfica i el nombre de persones afectades. Porta la informació a S3.",
     note: "Activitat de recerca no delegable a IA: requereix cerca activa, selecció de fonts fiables i valoració crítica de la informació.",
-    deadline: "2026-04-XX"
+    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (fonts d'energia, model ampolles, conseqüències canvi climàtic)",

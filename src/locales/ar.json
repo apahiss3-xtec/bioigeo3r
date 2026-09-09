@@ -53,7 +53,8 @@
     "roleB": "الدور ب",
     "prevSession": "الحصة السابقة",
     "nextSession": "الحصة التالية",
-    "backToSA": "العودة إلى الوحدة"
+    "backToSA": "العودة إلى الوحدة",
+    "repteInicial": "التحدي الأول"
   },
   "exitForm": {
     "nom": "الاسم",

@@ -5,7 +5,11 @@ export const sa3s3 = {
   engageImage: "/images/sa3-s3-vacunes.jpg",
 
   engageQuestion: "Un article que has vist a les xarxes diu que les vacunes causen autisme. Has preguntat a casa i alguns adults en dubten. Avui analitzareu l'article original i veureu per quina raó la revista el va retirar. Però primer: com saps si una informació científica és fiable?",
-  engageContext: "Revisió formulari comprensió prèvia (S2 deures). Connexió amb l'enigma 2 de la paret. El professor projecta el titular de l'article Wakefield de 1998 i un estudi de 2019 (1.2 M de nens). L'alumnat ha d'avaluar-los amb criteri — però primer cal aprendre els criteris.",
+  engageContext: "Avui tindràs davant el titular de l'article de Wakefield de 1998 i un estudi del 2019 fet amb 1,2 milions de nens, i hauràs de decidir quin dels dos et mereix confiança. Però primer cal aprendre amb quins criteris es decideix això.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "Revisió del formulari de comprensió prèvia (deures de S2). Connexió amb l'enigma 2 de la paret. El docent projecta els dos documents.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {
@@ -66,7 +70,7 @@ export const sa3s3 = {
     "Cada grup rep dues fitxes: Fitxa A (resum de l'article Wakefield 1998, n=12) i Fitxa B (resum de l'estudi danes 2019, n=1.200.000)",
     "Per grups de 3: apliqueu la graella dels 4 criteris a les dues fitxes (10 min)",
     "Posada en comú: cada grup comparteix la puntuació i el criteri decisiu (5 min)",
-    "El professor revela per quina raó The Lancet va retirar l'article: conflicte d'interès econòmic + dades manipulades + n massa petit",
+    "Es revela per quina raó The Lancet va retirar l'article: conflicte d'interès econòmic + dades manipulades + mostra massa petita",
     "Moment epistèmic: 'Un sol article, per gran que sigui la revista, mai és suficient. La ciència funciona per replicació.'"
   ],
   exploreDuration: "30 min",
@@ -154,7 +158,7 @@ export const sa3s3 = {
   homework: {
     description: "Llegeix la introducció als medicaments (apartat TEORIA d'aquesta pàgina, S4). Omple el formulari de comprensió prèvia (Classroom). Comença a pensar en el tema de la teva campanya de comunicació (pòster o vídeo de 60 s).",
     note: "La campanya és el producte final de la SA (entrega a S5). El tema ha de ser un mite sobre salut. Exemples: 'els antibiòtics curen totes les infeccions', 'el paracetamol és inofensiu', 'les drogues 'lleugeres' no enganxen'.",
-    deadline: "2026-11-XX"
+    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (vacunes, immunitat de grup, 4 criteris de qualitat)",

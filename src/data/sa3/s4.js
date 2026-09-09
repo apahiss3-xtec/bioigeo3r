@@ -1,11 +1,15 @@
 export const sa3s4 = {
   id: "s4", saId: "sa3",
-  title: "Medicaments: com actuen",
+  title: "Per què un antibiòtic no et cura la grip?",
   sessionNumber: 4, biome: "sa3", duration: "2h",
   engageImage: "/images/sa3-s4-farmacs.jpg",
 
   engageQuestion: "La teva mare et dóna un antibiòtic perquè tens grip. El teu pare et diu que no el prenguis. Qui té raó? Avui descobriràs com actuen els medicaments per dins — i per quina raó «millorar» no sempre prova que un fàrmac ha funcionat.",
-  engageContext: "Revisió formulari comprensió prèvia (S3 deures). El docent explica l'estructura de la sessió: primer les estacions de medicaments, després el mecanisme molecular, i finalment automedicació i efecte placebo.",
+  engageContext: "Avui passaràs per les estacions de medicaments, després miraràs què fan per dins, a escala molecular, i acabaràs amb l'automedicació i l'efecte placebo.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "Revisió del formulari de comprensió prèvia (deures de S3). El docent explica l'estructura de la sessió.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {
@@ -115,7 +119,7 @@ export const sa3s4 = {
   homework: {
     description: "Pensa en una substància que creus que pot generar dependència i una raó. Ho comentareu en veu alta a l'inici de S5 (no cal recerca).",
     note: "Lectura prèvia disponible per a S5 (drogues, addicció i síntesi de la SA).",
-    deadline: "2026-11-XX"
+    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (famílies de fàrmacs, mecanisme COX, automedicació, placebo)",

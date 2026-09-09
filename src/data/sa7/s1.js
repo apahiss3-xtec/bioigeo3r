@@ -1,11 +1,15 @@
 export const sa7s1 = {
   id: "s1", saId: "sa7",
-  title: "Les roques expliquen la historia",
+  title: "Què t'explica la roca del terra de l'aula?",
   sessionNumber: 1, biome: "sa7", duration: "2h",
   engageImage: "/images/sa7-s1-roques.jpg",
 
   engageQuestion: "El terra de la nostra aula, les façanes dels edificis del barri, els monuments... tots estan fets de roca. Però per quina raó hi ha roques tan diferents? Un granit és completament diferent d'una pissarra, i totes dues ho son d'un calcari. Al final d'avui sabràs identificar qualsevol mostra de roca i explicar per quina raó és com és.",
-  engageContext: "El docent presenta 6 mostres de roca sense etiquetes: granit, calcari, pissarra, basalt, arenisca, marbre. Els alumnes les observen, les toquen i les descriuen amb adjectius. Debat: quines han vist als edificis del barri? Quin material és el sòl del pati? Connexió amb l'enigma: una de les roques (basalt) és volcànica — serà la clau per entendre la Garrotxa a S2.",
+  engageContext: "Tindràs sis mostres de roca sense etiqueta: observa-les, toca-les i descriu-les amb adjectius. Quines has vist als edificis del barri? De què és el terra del pati? Una d'aquestes roques és volcànica, i serà la clau per entendre la Garrotxa.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "El docent presenta 6 mostres sense etiquetar: granit, calcari, pissarra, basalt, arenisca i marbre. La roca clau és el basalt (connexió amb S2).",
 
   levelObjectives: {
     A: [
@@ -65,7 +69,7 @@ export const sa7s1 = {
     "Passa 1 (10 min): observació visual i tàctil. Per a cada mostra anoteu: color principal, textura (cristal·lina, granular, làmines, compacta), brilla? (lluentor dels cristalls), és pesada o lleugera?",
     "Pas 2 (8 min): duresa i àcid. Intenteu ratllar la mostra amb l'ungla (duresa <2,5), amb una clau (duresa <5,5). Poseu 2 gotes d'HCl diluït a cada mostra: reacciona? (CaCO₃ → CO₂ = calcari o marbre)",
     "Pas 3 (7 min): classificació. Amb les dades, intenteu assignar cada mostra a una família (ígnia/sedimentària/metamòrfica) i un nom (granit, basalt, calcari, pissarra, arenisca, marbre)",
-    "Moment epistèmic: posada en comú. El docent confirma les identificacions i explica el raonament per a cada roca. Per quina raó el basalt (mostra ?) té cristalls tan petits en comparació al granit?"
+    "Posada en comú: es confirmen les identificacions i es raona cada roca. Per quina raó el basalt té cristalls tan petits en comparació amb el granit?"
   ],
   exploreDuration: "25 min",
   exploreMaterials: ["6 mostres de roca etiquetades (granit, basalt, calcari, pissarra, arenisca, marbre)", "HCl diluït al 10% (en comptagotes)", "Clau o moneda de coure (per a duresa)", "Lupa 10×", "Fitxa d'identificació de roques (per grup)"],
@@ -145,7 +149,7 @@ export const sa7s1 = {
   homework: {
     description: "Fotografia 3 materials de construcció de l'entorn del teu barri (façana d'un edifici, paviment del carrer, monument, pedres d'un mur...). Per a cada un, intenta identificar de quin tipus de roca es tracta (usa la clau de la fitxa) i escriu on creus que s'ha extret. Porta les fotos o les descripcions a S2.",
     note: "Activitat de camp no delegable a IA: requereix observació i identificació presencial de materials reals.",
-    deadline: "2026-05-XX"
+    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (minerals vs roques, les 3 famílies, cicle de les roques)",

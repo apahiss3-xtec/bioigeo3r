@@ -5,7 +5,11 @@ export const sa6s1 = {
   engageImage: "/images/sa6-s1-esmorzar.jpg",
 
   engageQuestion: "Avui has esmorzat (o ho faràs). Creus que el teu esmorzar contamina? Un bocadillo de pernil ibèric emet ≈500 gCO₂eq —cinc vegades més que un de formatge fresc. Un vol Barcelona–Londres emet ≈250 kg de CO₂ per persona. Per quina raó el pernil és tan contaminant? Ho descobrirem al llarg de la SA.",
-  engageContext: "Cada alumne anota mentalment o en paper el seu esmorzar d'avui. El docent mostra una taula de petjada de carboni d'aliments habituals (producte / gCO₂eq per 100g). Es planteja l'enigma: el bocadillo de pernil emet 5× més que el de formatge. Per quina raó? Es presenta la SA: al final sabrem calcular la petjada de carboni del nostre esmorzar i entendrem per quina raó els aliments d'origen animal solen tenir un impacte molt més alt.",
+  engageContext: "Apunta't l'esmorzar d'avui. Miraràs una taula de petjada de carboni d'aliments habituals i hi trobaràs l'enigma de la situació: un bocadillo de pernil emet cinc vegades més que un de formatge. Per quina raó? Al final sabràs calcular la petjada del teu esmorzar i entendràs per què els aliments d'origen animal solen tenir un impacte molt més alt.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "El docent projecta la taula de petjada de carboni (producte / gCO₂eq per 100 g).",
 
   levelObjectives: {
     A: [
@@ -65,7 +69,7 @@ export const sa6s1 = {
     "Tasca 1 (10 min): cadascú calcula la petjada del seu esmorzar. Sumeu els gCO₂eq de cada ingredient. Qui té l'esmorzar més contaminant del grup?",
     "Tasca 2 (10 min): compareu la petjada de 5 esmorzars tipus (continental, vegà, mediterrani, fast food, pernil i formatge). Classifiqueu-los de menor a major impacte",
     "Tasca 3 (5 min): debat breu — per quina raó la vedella i el porc surten sempre als primers llocs? Quines hipòtesis teniu?",
-    "Moment epistèmic: posada en comú. El docent sistematitza els gasos GEH i introdueix el concepte de CO₂ equivalent (CO₂eq)"
+    "Posada en comú: sistematitzem els gasos d'efecte hivernacle i apareix el concepte de CO₂ equivalent (CO₂eq)"
   ],
   exploreDuration: "25 min",
   exploreMaterials: ["Taula de petjada de carboni d'aliments (per grup)", "Calculadora", "Projector: diagrama comparatiu d'emissions per categoria d'aliment"],
@@ -150,7 +154,7 @@ export const sa6s1 = {
   homework: {
     description: "Fotografía l'etiqueta de 3 productes de la nevera de casa. Per a cadascun, busca la petjada de carboni aproximada a la taula que t'hem donat. Calcula la petjada total dels 3 productes i pregunta a casa: algú de la família n'és conscient? Porta les fotos i el càlcul a S2.",
     note: "Activitat de camp no delegable a IA: requereix observació i conversa familiar pròpia.",
-    deadline: "2026-04-XX"
+    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (efecte hivernacle, gasos GEH, petjada de carboni, impacte de la ramaderia)",

@@ -1,6 +1,6 @@
 export const sa2s7 = {
   id: "s7", saId: "sa2",
-  title: "Síntesi: resolució dels enigmes + informe FC",
+  title: "Ja pots explicar tota la gràfica de la Mercè?",
   sessionNumber: 7, biome: "sa2", duration: "2h",
   engageImage: "/images/sa2-s7-corredor-meta.jpg",
   isFinalSession: true,

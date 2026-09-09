@@ -5,7 +5,11 @@ export const sa6s3 = {
   engageImage: "/images/sa6-s3-greenwashing.jpg",
 
   engageQuestion: "Una marca de detergent diu que el seu producte és '100% natural i respectuós amb el medi ambient'. Un supermercat anuncia que les seves bosses son 'biodegradables'. Un producte de carn porta el segell 'CO₂ neutral'. Com saps si son veritat? Quines preguntes caldria fer?",
-  engageContext: "Posada en comú dels fenòmens climàtics extrems de la feina a casa. Es construeix un mapa col·lectiu d'impactes. Seguidament, el docent mostra 3 anuncis reals amb missatge 'verd': els alumnes han de dir si els creuen i per quina raó. Es presenten els 4 criteris CE2 per avaluar fonts ambientals.",
+  engageContext: "Posarem en comú els fenòmens climàtics extrems de la feina a casa i en farem un mapa col·lectiu. Després veuràs tres anuncis reals amb missatge «verd» i hauràs de dir si te'ls creus i per quina raó. Per decidir-ho tindràs quatre criteris per avaluar fonts ambientals.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "Els 4 criteris d'avaluació de fonts ambientals són els de la CE2.",
 
   levelObjectives: {
     A: [
@@ -59,8 +63,8 @@ export const sa6s3 = {
     "Per grups de 3: rebeu un sobre amb 5 anuncis o etiquetes reals d'empreses amb missatge mediambiental (impresos o en pantalla)",
     "Tasca 1 (15 min): per a cada anunci, apliqueu els 4 criteris d'avaluació (autoria, evidència, transparència, consens). Ompliu la taula d'anàlisi. Veredicte: fiable, sospitós o greenwashing clar?",
     "Tasca 2 (5 min): trieu l'anunci que us sembla el cas més clar de greenwashing i prepareu una presentació de 2 minuts per al grup gran",
-    "Tasca 3 (5 min): posada en comú. Cada grup presenta el seu cas. El docent sistematitza les 4 tàctiques de greenwashing més comunes",
-    "Moment epistèmic: el docent planteja la pregunta — és suficient que els consumidors siguin crítics, o cal regulació pública? Breu debat (3 min)"
+    "Tasca 3: posada en comú. Cada grup presenta el seu cas i entre tots sistematitzem les 4 tàctiques de greenwashing més comunes",
+    "Debat final: n'hi ha prou que els consumidors siguin crítics, o cal regulació pública?"
   ],
   exploreDuration: "25 min",
   exploreMaterials: ["Sobre amb 5 anuncis reals per grup (impresos)", "Fitxa de 4 criteris d'avaluació (per alumne)", "Projector: cas real de greenwashing jutjat per un tribunal europeu (p. ex. KLM 2023)"],
@@ -145,7 +149,7 @@ export const sa6s3 = {
   homework: {
     description: "Dissenya una acció concreta i viable per reduir la petjada de carboni de la nostra escola. Ha de ser una mesura que podríeu implementar realment (menú, energia, mobilitat, residus). Escriu: Descripció de la mesura / Estimació de la reducció d'emissions (gCO₂eq/any) / Recursos necessaris / Qui hauria d'aprovar-la. Porta-ho escrit a S4.",
     note: "Tasca creativa amb dimensió real. A S4, un 'comitè d'iguals' en avaluarà l'evidència i la viabilitat.",
-    deadline: "2026-04-XX"
+    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (greenwashing, 4 criteris CE2, 3R, petjada ecológica)",

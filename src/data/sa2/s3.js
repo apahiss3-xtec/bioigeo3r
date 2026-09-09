@@ -1,13 +1,17 @@
 export const sa2s3 = {
   id: "s3", saId: "sa2",
-  title: "La sang en moviment — primera pista de l'analítica",
+  title: "Per què veiem vermella una sang que és mig groga?",
   sessionNumber: 3, biome: "sa2", duration: "2h",
   engageImage: "/images/sa2-s3-circulatori.jpg",
 
   // Repte oral curt: hook visual del tub de sang centrifugada, abans d'escriure les idees prèvies.
   engageChallenge: "Ensenyem un tub de sang centrifugada: es veuen 3 capes (plasma groc 55%, eritròcits vermells 44%, leucòcits i plaquetes <1%). Per quina raó la sang sembla vermella si la majoria és plasma groc?",
   engageQuestion: "Avui comencem a desxifrar l'analítica de sang de la paret. La hemoglobina és baixa: 9.2 g/dL. Però primer: saps de quines coses es compon la sang?",
-  engageContext: "Hook visual: tub sang centrifugada → 3 capes visibles. 'Per quina raó la sang sembla vermella si el 55% és groc (plasma)?'",
+  engageContext: "Un tub de sang centrifugada es parteix en tres capes ben visibles, i la més gran és groga. Si el 55 % de la sang és plasma groc, per quina raó la veiem vermella?",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "Hook visual: tub de sang centrifugada amb les 3 capes.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {

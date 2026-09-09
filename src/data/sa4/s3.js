@@ -33,12 +33,16 @@
 //   · Les `hints` orienten el mètode; cap no conté cap resposta.
 export const sa4s3 = {
   id: "s3", saId: "sa4",
-  title: "Sexualitat, identitat i una pregunta delicada",
+  title: "Què pot dir la ciència sobre tu, i què no?",
   sessionNumber: 3, biome: "sa4", duration: "2h",
   engageImage: "/images/sa4-s3-cercle-dialeg.jpg",
 
   engageQuestion: "Què pot dir la ciència sobre nosaltres… i què no li toca decidir a ella?",
-  engageContext: "El docent llegeix DUES preguntes de la bústia, ja transcrites a màquina (mai el paper original, perquè no es reconegui cap lletra), i les respon amb to serè. No es pregunta mai qui les ha escrites. Tot seguit marca el guió del dia: avui se separaran quatre coses que se solen barrejar, i al final es dirà una cosa incòmoda — hi ha preguntes que la ciència no pot respondre, i això no és cap defecte de la ciència. L'acord d'aula queda penjat i visible tota la sessió: ningú no ha de parlar de si mateix, tots els casos són de persones inventades.",
+  engageContext: "Avui se separaran quatre coses que se solen barrejar, i al final es dirà una cosa incòmoda: hi ha preguntes que la ciència no pot respondre, i això no és cap defecte de la ciència. L'acord d'aula queda penjat i visible tota la sessió: ningú no ha de parlar de si mateix i tots els casos són de persones inventades.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "El docent llegeix DUES preguntes de la bústia, ja transcrites a màquina (mai el paper original), i les respon amb to serè. No es pregunta mai qui les ha escrites.",
 
   // ── OBJECTIUS D'APRENENTATGE PER VERSIÓ (A/B/C) ──────────
   // Coincideixen literalment amb la caixa 🎯 de la fitxa de la mateixa versió.

@@ -1,11 +1,15 @@
 export const sa7s3 = {
   id: "s3", saId: "sa7",
-  title: "De les roques als recursos",
+  title: "S'acabarà la pedra amb què està feta l'aula?",
   sessionNumber: 3, biome: "sa7", duration: "2h",
   engageImage: "/images/sa7-s3-recursos.jpg",
 
   engageQuestion: "Quin material és el terra de la nostra aula? Les parets? El sostre? Les cadires? Si busquem l'origen de cada material, gairebé tots venen de la Terra: pedra, sorra, argila, ferro, alumini, guix... Quant contamina produir-los? I si s'esgoten?",
-  engageContext: "El docent fa una volta visual per l'aula: el terra (gres o marbre), les parets (guix = mineral), el sostre (formigó de ciment = calcari + argila calcinats), les finestres (vidre = sorra de quars fosa), les cadires (acer = mineral de ferro). Debat: tots aquests materials existiran sempre o s'esgotaran? Quins son renovables? Connexió SA6: el ciment emet ≈8% del CO₂ global — per quina raó un material «de pedra» contamina tant?",
+  engageContext: "Fes una volta visual per l'aula: el terra, les parets de guix, el sostre de formigó, les finestres de vidre, les cadires d'acer. Tots aquests materials venen d'un mineral. Existiran sempre o s'esgotaran? Quins són renovables? I una connexió incòmoda amb la situació anterior: el ciment emet prop del 8 % del CO₂ global.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "El docent condueix la volta visual per l'aula (gres o marbre, guix, formigó, vidre, acer).",
 
   levelObjectives: {
     A: [
@@ -65,7 +69,7 @@ export const sa7s3 = {
     "Pas 1 (10 min): per a cada recurs, investigueu (fitxa de referència + recerca guiada): on s'extreu a Catalunya, com es processa, on s'usa, quin és l'impacte ambiental principal (paisatgístic, contaminació, emissió de CO₂...)",
     "Pas 2 (8 min): relacioneu el vostre recurs amb SA6 (canvi climàtic). Com contribueix a les emissions de GEH? Hi ha alternatives més sostenibles? Connexió amb el cicle del carboni geológic",
     "Pas 3 (7 min): prepareu 3 frases per presentar al grup classe: 1 curiositat del recurs, 1 dada d'impacte ambiental, 1 proposta de millora",
-    "Posada en comú: cada grup presenta les 3 frases. El docent sistematitza: tots els recursos geológics son finits a escala humana, però uns es reciclen millor que d'altres"
+    "Posada en comú: cada grup presenta les 3 frases i sistematitzem que tots els recursos geològics són finits a escala humana, però uns es reciclen millor que d'altres"
   ],
   exploreDuration: "25 min",
   exploreMaterials: ["Fitxes de recursos geológics (1 per grup, amb dades d'extracció, impacte i alternativas)", "Mapa de recursos geológics de Catalunya", "Projector: imatges de pedreres (oberta + restaurada), mina de potassa de Sallent"],
@@ -145,7 +149,7 @@ export const sa7s3 = {
   homework: {
     description: "Cerca la petjada de carboni aproximada d'un dels 5 materials de construcció més comuns (ciment, acer, alumini, vidre, fusta). Fes una llista de menor a major impacte i explica breument per quina raó la fusta és diferent dels altres. Porta la llista a S4.",
     note: "Recerca breu documentada (2-3 fonts), no delegable a IA: analitza i interpreta tu les dades que trobes.",
-    deadline: "2026-05-XX"
+    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (minerals vs roques, combustibles fòssils, recursos geológics de Catalunya, impacte ambiental)",

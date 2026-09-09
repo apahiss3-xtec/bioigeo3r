@@ -7,7 +7,11 @@ export const sa2s4 = {
   // Repte oral curt: pregunta causal oberta (connexió amb S3), deixada penjada fins a l'Explica.
   engageChallenge: "Sabem que el cor té 4 cavitats. Però per quina raó 4 i no 2? Per quina raó no es pot barrejar la sang oxigenada amb la desoxigenada? (Pregunta oberta — la respondreu al final de l'Explica.)",
   engageQuestion: "Dibuixa el cor per dins tal com te l'imagines. Quantes cambres té? Hi ha algun punt on la sang oxigenada i la desoxigenada es barregen?",
-  engageContext: "Predicció individual prèvia (2 min). Es compararà amb l'observació real al final de la sessió. Presentació del cor real + normes de seguretat.",
+  engageContext: "Escriu la teva predicció abans de veure el cor real: al final de la sessió la compararàs amb el que hauràs observat amb les teves mans.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "Predicció individual prèvia (2 min), que es compara amb l'observació real al final. Presentació del cor real i normes de seguretat.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {

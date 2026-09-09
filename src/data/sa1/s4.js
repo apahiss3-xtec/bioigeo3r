@@ -1,7 +1,10 @@
 export const sa1s4 = {
   id: "s4",
   saId: "sa1",
-  title: "Repte final: el pòster de la cèl·lula",
+  title: "Series capaç d'explicar la cèl·lula en un sol pòster?",
+  // El text informatiu que abans anava dins el títol: el títol és el ganxo,
+  // el que cal explicar viu al Repte inicial (tasca 1, 09/09/2026).
+  repteInicial: "Tot el que has après de la cèl·lula ha de cabre en un pòster que s'entengui a la primera. És el repte final de la SA: no es tracta de copiar apunts, sinó de decidir què és imprescindible i com fer-ho entendre.",
   sessionNumber: 4,
   biome: "sa1",
   duration: "2h",
@@ -9,7 +12,11 @@ export const sa1s4 = {
   isFinalSession: true,
 
   engageQuestion: "Ara que ho enteneu: sabríeu explicar la cèl·lula a algú de 1r ESO que no n'ha sentit a parlar mai? Teniu 45 minuts per demostrar-ho.",
-  engageContext: "Presentació del repte i de la rúbrica. Els alumnes ja coneixen la rúbrica des de S1.",
+  engageContext: "Coneixes la rúbrica des de la primera sessió. Avui és el dia de fer-la servir.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "Presentació del repte i de la rúbrica (l'alumnat ja la coneix des de S1).",
 
   exploreActivity: {
     what: "Individual: planifica el teu pòster sobre el cas de l'Elna (el tall al dit), decideix quines seccions hi posaràs i comença a elaborar-lo en digital.",

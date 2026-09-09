@@ -1,7 +1,10 @@
 export const sa1s3 = {
   id: "s3",
   saId: "sa1",
-  title: "Mateix ADN, cèl·lules tan diferents — i per què el cos en fa de noves",
+  title: "Si totes tenen el mateix ADN, per què són tan diferents?",
+  // El text informatiu que abans anava dins el títol: el títol és el ganxo,
+  // el que cal explicar viu al Repte inicial (tasca 1, 09/09/2026).
+  repteInicial: "Totes les teves cèl·lules porten el mateix manual d'instruccions, i tot i això n'hi ha que fan de pell, d'altres de nervi i d'altres de sang. Avui esbrinaràs com pot ser, i per què el teu cos ha de fabricar cèl·lules noves cada dia.",
   sessionNumber: 3,
   biome: "sa1",
   duration: "2h",
@@ -10,7 +13,11 @@ export const sa1s3 = {
   // Repte oral curt: el time-lapse en directe + pregunta oral, abans d'escriure les idees prèvies.
   engageChallenge: "Mirem juntes un time-lapse de 30 segons d'una cèl·lula dividint-se. En veu alta, tots alhora: per quina raó creieu que una cèl·lula es divideix?",
   engageQuestion: "Totes les teves cèl·lules tenen exactament el mateix ADN. Llavors, per quina raó una neurona i una cèl·lula de la pell són tan completament diferents?",
-  engageContext: "Idees prèvies individuals, 2 min. Després: time-lapse 30 seg de divisió cel·lular en directe. 'Per quina raó una cèl·lula es divideix?'",
+  engageContext: "Veuràs una cèl·lula dividint-se en directe, en un time-lapse de trenta segons. Abans de mirar-lo, escriu-ho: per quina raó creus que una cèl·lula es divideix?",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "Idees prèvies individuals, 2 min. Després, time-lapse de 30 s de divisió cel·lular en directe.",
 
   // Time-lapse REAL (microscòpia, no animació) de divisió cel·lular, per mostrar en directe abans
   // de la pregunta oral. Validat per Albert (2026-06-29): la part bona del vídeo comença al 0:51.

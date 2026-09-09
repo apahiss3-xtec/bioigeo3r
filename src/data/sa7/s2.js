@@ -5,7 +5,11 @@ export const sa7s2 = {
   engageImage: "/images/sa7-s2-terratrèmol.jpg",
 
   engageQuestion: "El 19 de novembre de 2021, un terratrèmol de magnitud 4,2 va sacsejar l'Alt Empordà. El 2023, una sèrie sísmica va afectar els Pirineus lleidatans. Per quina raó tremola la terra a Catalunya si no som a la vora d'un límit de plaques actiu com el Japó o Califòrnia? I per quina raó la Garrotxa, just al costat, té volcans?",
-  engageContext: "El docent mostra un mapa de distribució mundial de terratrèmols i volcans (darrera 100 anys). Els alumnes observen el patró: quasi tots es concentren als límits de les plaques tectòniques. Però Catalunya apareix al mapa amb activitat sísmica. Debat: per quina raó Catalunya surt al mapa? Quina diferència hi ha entre un terratrèmol i un volcà? Connexió amb S1: el basalt de la Garrotxa com a primera pista.",
+  engageContext: "Sobre un mapa mundial de terratrèmols i volcans dels últims cent anys veuràs que quasi tots es concentren als límits de les plaques tectòniques. Però Catalunya també hi apareix. Per quina raó? I quina diferència hi ha entre un terratrèmol i un volcà? El basalt de la Garrotxa que vas veure és la primera pista.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "El docent projecta el mapa de distribució mundial de terratrèmols i volcans dels darrers 100 anys.",
 
   levelObjectives: {
     A: [
@@ -65,7 +69,7 @@ export const sa7s2 = {
     "Pas 1 (10 min): superposeu els dos mapes (o transparències). On coincideixen els terratrèmols amb els límits de plaques? Hi ha terratrèmols que NO siguin als límits? (intraplacas — nota els punts calents)",
     "Pas 2 (8 min): identifiqueu en el mapa 3 límits divergents, 3 convergents de subducció, 3 col·lisions continentals i 2 transformants. Per a cada un, escriviu el fenomen geológic associat (dorsal, arc volcànic, cadena de muntanyes, falla)",
     "Pas 3 (7 min): localitzeu Catalunya al mapa. Quines plaques la rodegen? A quin tipus de límit correspon la frontera Pirineus? I la Garrotxa, és en un límit de plaques actual? (Resposta: NO — és intraplaques. Per quina raó hi ha volcans, doncs?)",
-    "Moment epistèmic: el docent explica la diferència entre volcans de subducció (arc) i volcans de rift / punts calents. La Garrotxa = rift postalpí (extensió) = mecanisme diferent de la subducció"
+    "Posada en comú: quina diferència hi ha entre els volcans de subducció (arc) i els de rift o punt calent? La Garrotxa és un rift postalpí (extensió), un mecanisme diferent de la subducció"
   ],
   exploreDuration: "25 min",
   exploreMaterials: ["Mapa de plaques tectòniques mundials (per grup)", "Mapa de sismicitat global (darrera 50 anys)", "Mapa de sismicitat i volcans de Catalunya i la Mediterrània occidental", "Projector: animació moviment de plaques (2 cm/any, visualització accelerada)"],
@@ -146,7 +150,7 @@ export const sa7s2 = {
   homework: {
     description: "Cerca en la premsa en línia una notícia recent (dels darrers 2 anys) sobre un terratrèmol a Espanya o Catalunya. Anota: data, magnitud, epicentre, danys. Explica breument per quina raó creus que va ocórrer allà on va ocórrer usant el que has après. Porta el retall o la captura de pantalla a S3.",
     note: "Activitat de recerca personal no delegable a IA: busca la notícia real i analitza-la tu.",
-    deadline: "2026-05-XX"
+    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (estructura de la Terra, tectònica de plaques, tipus de límits, terratrèmols)",

@@ -1,11 +1,15 @@
 export const sa7s4 = {
   id: "s4", saId: "sa7",
-  title: "Llegir el paisatge: la Terra com a arxiu",
+  title: "Per què Montserrat és com és?",
   sessionNumber: 4, biome: "sa7", duration: "2h",
   engageImage: "/images/sa7-s4-paisatge.jpg",
 
   engageQuestion: "Montserrat és de conglomerat erosionat. La Garrotxa és de basalt volcànic. El Delta de l'Ebre és de sediment fluvial en formació activa. El Pirineu és la cicatriu d'una col·lisió de continents. Cada paisatge de Catalunya explica una historia geológica diferent. Avui llegirem el paisatge i resoldrem l'enigma.",
-  engageContext: "El docent mostra 6 fotografies emblemàtiques del paisatge de Catalunya amb la pregunta: 'Per quina raó cada lloc és com és?' (Montserrat, Garrotxa, Delta de l'Ebre, Pirineus, Costa Brava, Cardona). Treball inicial individual: cada alumne escull una fotografia i escriu la seva hipòtesi sobre el procés geológic que l'ha format. Posada en comú. Connexió: avui completem la resolució de l'enigma de les Preses (1428).",
+  engageContext: "Sis fotografies de paisatges de Catalunya —Montserrat, la Garrotxa, el Delta de l'Ebre, els Pirineus, la Costa Brava i Cardona— amb una sola pregunta: per quina raó cada lloc és com és? Tria'n una i escriu la teva hipòtesi sobre el procés geològic que l'ha format. Avui completem la resolució de l'enigma de les Preses (1428).",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "El docent projecta les 6 fotografies i condueix la posada en comú de les hipòtesis.",
 
   levelObjectives: {
     A: [
@@ -138,7 +142,7 @@ export const sa7s4 = {
   homework: {
     description: "Porta la guia geológica col·lectiva de la classe a casa i comparteix-la amb algú de la família. Explica-li en 5 minuts l'enigma de les Preses (1428): per quina raó hi va haver aquell terratrèmol i per quina raó la Garrotxa té volcans. Anota la reacció de la persona: sabia alguna d'aquestes coses? S'ha sorprès?",
     note: "Activitat de comunicació científica informal: explicar la ciència a algú no especialista.",
-    deadline: "2026-06-XX"
+    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (paisatge de Catalunya, resolució de l'enigma, connexions SA)",

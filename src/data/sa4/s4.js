@@ -26,13 +26,17 @@
 
 export const sa4s4 = {
   id: "s4", saId: "sa4",
-  title: "Decisions informades",
+  title: "Com decideixes sobre el teu cos sense por ni vídeos?",
   sessionNumber: 4, biome: "sa4", duration: "2h",
   engageImage: "/images/sa4-s4-video-viral.jpg",
   isFinalSession: true,
 
   engageQuestion: "Com es decideix una cosa sobre el propi cos sense fer-ho per por ni per un vídeo?",
-  engageContext: "En entrar es recullen, en paper i sense nom, les frases que cadascú va portar de casa. El docent en llegeix tres, barrejades, sense dir de qui són ni preguntar-ho, i n'hi afegeix una quarta: «els anticonceptius et fan infèrtil per sempre», que circula molt. Es projecta el vídeo una sola vegada. Avui l'afirmació no s'accepta ni es rebutja: es comprova. I al final es responen, amb ciència i per escrit, tres preguntes de la bústia del primer dia — les mateixes per a tota la classe, transcrites a màquina i reformulades en tercera persona. Si el que va sortir de la bústia no cobreix els tres objectius, el docent completa amb les tres preguntes freqüents que porta impreses la plantilla.",
+  engageContext: "En entrar es recullen, en paper i sense nom, les frases que cadascú ha portat de casa. Se'n llegiran unes quantes, barrejades, i se n'hi afegirà una que circula molt: «els anticonceptius et fan infèrtil per sempre». Avui cap afirmació no s'accepta ni es rebutja: es comprova. I al final es responen per escrit, amb ciència, tres preguntes de la bústia del primer dia.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "El docent llegeix tres frases sense dir de qui són ni preguntar-ho i n'hi afegeix una quarta. El vídeo es projecta una sola vegada. Les tres preguntes de la bústia són les mateixes per a tota la classe, transcrites a màquina i reformulades en tercera persona; si el que va sortir de la bústia no cobreix els tres objectius, es completa amb les tres preguntes freqüents impreses a la plantilla.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {

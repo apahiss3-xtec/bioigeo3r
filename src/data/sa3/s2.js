@@ -1,11 +1,15 @@
 export const sa3s2 = {
   id: "s2", saId: "sa3",
-  title: "Les defenses del cos",
+  title: "Per què la varicel·la no torna mai?",
   sessionNumber: 2, biome: "sa3", duration: "2h",
   engageImage: "/images/sa3-s2-immunitat.jpg",
 
   engageQuestion: "Si el virus de la grip entra al teu cos avui, quan trigues a curar-te? Per quina raó alguns es curen en 3 dies i altres triguen 10? I per quina raó la varicel·la mai et torna a infectar un cop l'has passada?",
-  engageContext: "Revisió breu de la S1: el virus ha entrat. Ara el cos ha de respondre. Posada en comú dels R₀ de les malalties que han buscat a casa. Connexió amb l'enigma 1: per quina raó la Martina no va agafar la grip?",
+  engageContext: "El virus ja ha entrat: ara li toca respondre al cos. Posarem en comú els R₀ que has buscat a casa i tornarem a l'enigma: per quina raó la Martina no va agafar la grip?",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "Revisió breu de S1 i posada en comú dels R₀ de la feina a casa.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {
@@ -148,7 +152,7 @@ export const sa3s2 = {
   homework: {
     description: "Llegeix la introducció a les vacunes (apartat TEORIA d'aquesta pàgina, S3). Omple el formulari de comprensió prèvia (Classroom). A S3 comenceu directament l'anàlisi de fonts.",
     note: "Lectura obligatòria per a S3. El formulari de comprensió prèvia es fa servir al principi de S3.",
-    deadline: "2026-11-XX"
+    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (immunitat innata, adaptativa, antigen-anticòs, memòria)",

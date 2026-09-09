@@ -53,7 +53,8 @@
     "roleB": "کردار B",
     "prevSession": "پچھلا سیشن",
     "nextSession": "اگلا سیشن",
-    "backToSA": "یونٹ پر واپس جائیں"
+    "backToSA": "یونٹ پر واپس جائیں",
+    "repteInicial": "ابتدائی چیلنج"
   },
   "exitForm": {
     "nom": "نام",

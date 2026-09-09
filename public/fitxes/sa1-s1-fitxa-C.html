@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SA1 · S1 · Per què ens morim si no mengem ni respirem? (suport visual)</title>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --purple:#7B68C8; --purple-ink:#4a3b8c; --purple-light:#c5b8f0; --purple-tint:#f0edfb;
@@ -20,8 +20,8 @@
 body {
   font-family:'Fira Sans Extra Condensed', sans-serif;
   background:#b0a8c8;
-  color:var(--ink); font-size:13px; line-height:1.5;
-  padding:52px 20px 60px;
+  color:var(--ink); font-size:14.5px; line-height:1.5;
+  padding:27px 20px 31px;
 }
 #toolbar {
   position:fixed; top:0; left:0; right:0; z-index:200;
@@ -52,8 +52,8 @@ body {
 /* ── PAGINADOR A4 REAL ─────────────────────────────── */
 #sheets { display:flex; flex-direction:column; align-items:center; gap:26px; }
 .sheet { width:794px; min-height:1123px; background:var(--paper); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.18); overflow:visible; }
-.sheet-body { padding:36px 46px 18px; position:relative; overflow:visible; }
-.sheet.has-head .sheet-body { padding-top:54px; }
+.sheet-body { padding:19px 46px 9px; position:relative; overflow:visible; }
+.sheet.has-head .sheet-body { padding-top:28px; }
 .sheet-head { position:absolute; left:0; right:0; top:0; height:36px; display:none; justify-content:space-between; align-items:center; padding:0 46px; border-bottom:1.5px solid var(--purple-light); background:var(--paper); }
 .sheet.has-head .sheet-head { display:flex; }
 .sheet-head-l { font-family:'Inter',sans-serif; font-size:8.5px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--purple-ink); }
@@ -73,16 +73,16 @@ body {
 .header-band [contenteditable]:hover { background:rgba(255,255,255,.15); box-shadow:0 0 0 2px rgba(255,255,255,.3); }
 .header-band [contenteditable]:focus { background:rgba(255,255,255,.2); box-shadow:0 0 0 2.5px #fff; }
 span[contenteditable] { display:inline-block; }
-.wline { display:block; width:100%; min-height:32px; background:white; outline:none; padding:4px 4px; border-bottom:1.5px solid #C8C2DD; word-break:break-word; cursor:text; line-height:1.7; }
+.wline { display:block; width:100%; min-height:32px; background:white; outline:none; padding:2px 4px; border-bottom:1.5px solid #C8C2DD; word-break:break-word; cursor:text; line-height:1.7; }
 .wline:focus { border-bottom-color:var(--purple); background:rgba(123,104,200,.04); }
-.frase-completar { font-size:11.5px; line-height:2.4; margin:4px 0 6px; }
+.frase-completar { font-size:13.5px; line-height:2.4; margin:2px 0 3px; }
 .blank { display:inline-block; border-bottom:1.5px solid #C8C2DD; vertical-align:bottom; margin:0 3px; height:1.1em; }
 .blank-s  { width: 60px; }
 .blank-m  { width:100px; }
 .blank-l  { width:140px; }
 .blank-xl { width:200px; }
-.nom-field { margin-left:auto; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
-.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; font-family:'Fira Sans Extra Condensed',sans-serif; color:var(--ink); }
+.nom-field { margin-left:auto; font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:13.5px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; font-family:'Fira Sans Extra Condensed',sans-serif; color:var(--ink); }
 .input-span.data-span { min-width:65px; }
 .input-span:focus { border-bottom-color:var(--purple); }
 .nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(123,104,200,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); flex-shrink:0; }
@@ -103,121 +103,121 @@ span[contenteditable] { display:inline-block; }
 .header-right { display:flex; flex-direction:column; align-items:flex-end; gap:5px; }
 .logo-box { background:rgba(255,255,255,.92); border-radius:7px; padding:5px 6px; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 1px 6px rgba(0,0,0,.18); }
 .header-meta { font-size:9.5px; opacity:.52; text-align:right; line-height:1.7; }
-.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-.nivell-label { font-size:11px; color:var(--muted); font-style:italic; }
-.temps-badge { font-size:10px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
-.oa-box { background:linear-gradient(to right,#f5f2ff,var(--paper)); border-left:4px solid var(--purple); padding:10px 16px; }
-.oa-title { font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:6px; }
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:3px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.nivell-label { font-size:13.5px; color:var(--muted); font-style:normal; }
+.temps-badge { font-size:11px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
+.oa-box { background:linear-gradient(to right,#f5f2ff,var(--paper)); border-left:4px solid var(--purple); padding:5px 16px; }
+.oa-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
 .oa-list { list-style:none; padding:0; margin:0; }
-.oa-list li { font-size:11.5px; padding:3px 0 3px 22px; position:relative; line-height:1.4; border-bottom:1px dashed var(--rule); }
+.oa-list li { font-size:13.5px; padding:2px 0 2px 22px; position:relative; line-height:1.5; border-bottom:1px dashed var(--rule); }
 .oa-list li:last-child { border-bottom:none; }
-.oa-list li::before { content:'○'; position:absolute; left:4px; top:3px; font-size:11px; color:var(--purple-light); }
-.meta-oa-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
-.meta-oa-title { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; }
-.meta-oa-item { display:flex; align-items:flex-start; gap:8px; font-size:11px; margin-bottom:4px; padding:2px 0; }
+.oa-list li::before { content:'○'; position:absolute; left:4px; top:3px; font-size:13.5px; color:var(--purple-light); }
+.meta-oa-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:4px 10px; }
+.meta-oa-title { font-size:11px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:3px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; font-size:13.5px; margin-bottom:2px; padding:2px 0; }
 .meta-oa-item:last-child { margin-bottom:0; }
 .meta-oa-check { width:16px; height:16px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; margin-top:1px; }
-.meta-oa-text { flex:1; line-height:1.35; }
-.content { padding:14px 24px 24px; }
-.section { margin-top:14px; }
-.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
-.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
-.sdesc { font-size:10.5px; color:var(--ink-2); font-style:italic; font-family:'Crimson Pro',serif; }
-.temps { font-size:10px; color:var(--purple-ink); font-weight:700; margin-left:4px; }
-.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
-.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
-.previ-box p { font-size:12px; }
-.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.meta-oa-text { flex:1; line-height:1.5; }
+.content { padding:7px 24px 12px; }
+.section { margin-top:7px; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:4px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:14.5px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.stitle { font-size:16px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:13.5px; color:var(--ink-2); font-style:normal; font-family:'Crimson Pro',serif; }
+.temps { font-size:11px; color:var(--purple-ink); font-weight:700; margin-left:4px; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:5px; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:5px 12px; }
+.previ-box p { font-size:14px; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:4px 12px; margin:4px 0; }
 .connexio-icon { font-size:24px; flex-shrink:0; }
-.connexio-text { font-size:11px; line-height:1.4; }
+.connexio-text { font-size:13.5px; line-height:1.5; }
 .connexio-text strong { color:var(--purple-ink); }
 
 /* ── CÀPSULA "PER LLEGIR" (text de suport perquè l'alumne segueixi sense dependre del professor) ── */
-.info-box { background:#fff; border:2px solid var(--purple-light); border-radius:12px; padding:9px 12px; margin:8px 0; }
-.info-head { font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:5px; display:flex; align-items:center; gap:6px; }
-.info-box p { font-size:11.5px; line-height:1.5; margin:0 0 4px; }
+.info-box { background:#fff; border:2px solid var(--purple-light); border-radius:12px; padding:5px 12px; margin:4px 0; }
+.info-head { font-size:11px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; display:flex; align-items:center; gap:6px; }
+.info-box p { font-size:13.5px; line-height:1.5; margin:0 0 4px; }
 .info-box p:last-child { margin-bottom:0; }
 /* cadena causal en xips */
-.cadena { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:6px 0 2px; }
-.chip { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:9999px; padding:3px 11px; font-size:11px; font-weight:700; color:var(--purple-ink); }
+.cadena { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:3px 0 2px; }
+.chip { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:9999px; padding:2px 11px; font-size:13.5px; font-weight:700; color:var(--purple-ink); }
 .chip.b { background:var(--teal-tint); border-color:#8cc8be; color:var(--teal); }
 .chip.c { background:var(--orange-tint); border-color:#eebda0; color:var(--orange); }
-.cadena-arrow { font-size:14px; color:var(--muted); font-weight:900; }
+.cadena-arrow { font-size:14.5px; color:var(--muted); font-weight:900; }
 
 /* ── BANNER DE LA IDEA CLAU (àncora visual, es repeteix) ── */
-.clau { text-align:center; font-size:14px; font-weight:900; color:var(--teal); background:#fff; border:2px dashed var(--teal); border-radius:10px; padding:8px 10px; margin:8px 0; letter-spacing:.01em; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; }
+.clau { text-align:center; font-size:14.5px; font-weight:900; color:var(--teal); background:#fff; border:2px dashed var(--teal); border-radius:10px; padding:4px 10px; margin:4px 0; letter-spacing:.01em; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; }
 .clau .big { color:var(--orange); }
 
 /* ── MÈTODE DELS 3 PASSOS (exemple resolt + en blanc) ── */
-.passos-box { border:2px solid var(--purple-light); border-radius:12px; padding:0; margin:8px 0 6px; overflow:hidden; }
-.passos-cap { background:var(--purple-ink); color:#fff; font-size:11px; font-weight:900; letter-spacing:.05em; text-transform:uppercase; padding:6px 12px; display:flex; align-items:center; gap:8px; }
-.passos-cap .cas-tag { margin-left:auto; font-size:9.5px; font-weight:700; background:rgba(255,255,255,.18); border-radius:9999px; padding:2px 10px; letter-spacing:.04em; }
+.passos-box { border:2px solid var(--purple-light); border-radius:12px; padding:0; margin:4px 0 3px; overflow:hidden; }
+.passos-cap { background:var(--purple-ink); color:#fff; font-size:13.5px; font-weight:900; letter-spacing:.05em; text-transform:uppercase; padding:3px 12px; display:flex; align-items:center; gap:8px; }
+.passos-cap .cas-tag { margin-left:auto; font-size:11px; font-weight:700; background:rgba(255,255,255,.18); border-radius:9999px; padding:2px 10px; letter-spacing:.04em; }
 .passos-box.exemple { border-color:var(--green); }
 .passos-box.exemple .passos-cap { background:var(--green); }
-.pas { display:flex; align-items:flex-start; gap:10px; padding:8px 12px; border-bottom:1px dashed var(--rule); }
+.pas { display:flex; align-items:flex-start; gap:10px; padding:4px 12px; border-bottom:1px dashed var(--rule); }
 .pas:last-child { border-bottom:none; }
-.pas-num { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:var(--purple); color:#fff; font-size:12px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.pas-num { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:var(--purple); color:#fff; font-size:14px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
 .passos-box.exemple .pas-num { background:var(--green); }
 .pas-cos { flex:1; }
-.pas-q { font-size:11.5px; font-weight:700; color:var(--ink-2); margin-bottom:5px; }
+.pas-q { font-size:13.5px; font-weight:700; color:var(--ink-2); margin-bottom:3px; }
 .pas-opts { display:flex; gap:18px; flex-wrap:wrap; }
-.pas-opt { display:inline-flex; align-items:center; gap:6px; font-size:12px; }
+.pas-opt { display:inline-flex; align-items:center; gap:6px; font-size:14px; }
 .pas-box { width:15px; height:15px; border:1.8px solid var(--purple); border-radius:4px; display:inline-block; position:relative; flex-shrink:0; background:#fff; }
 .pas-opt.marcat .pas-box { background:var(--green); border-color:var(--green); }
-.pas-opt.marcat .pas-box::after { content:'✓'; position:absolute; top:-4px; left:1px; color:#fff; font-size:13px; font-weight:900; line-height:1; }
+.pas-opt.marcat .pas-box::after { content:'✓'; position:absolute; top:-4px; left:1px; color:#fff; font-size:14.5px; font-weight:900; line-height:1; }
 .pas-opt b { color:var(--purple-ink); }
-.pas-frase { padding:8px 12px; background:var(--purple-tint); }
-.pas-frase-lab { font-size:10.5px; font-weight:700; color:var(--purple-ink); margin-bottom:3px; }
+.pas-frase { padding:4px 12px; background:var(--purple-tint); }
+.pas-frase-lab { font-size:13.5px; font-weight:700; color:var(--purple-ink); margin-bottom:2px; }
 .pas-frase .wline { background:#fff; }
-.exemple-nota { font-size:10px; color:var(--green); font-style:italic; padding:5px 12px 8px; display:flex; align-items:center; gap:6px; }
+.exemple-nota { font-size:11px; color:var(--green); font-style:italic; padding:3px 12px 4px; display:flex; align-items:center; gap:6px; }
 
 /* ── ENCERCLA L'OPCIÓ (per al vocabulari de les 3 parts) ── */
-.circ-row { display:flex; align-items:center; gap:8px; padding:7px 0; border-bottom:1px dashed var(--rule); flex-wrap:wrap; }
+.circ-row { display:flex; align-items:center; gap:8px; padding:4px 0; border-bottom:1px dashed var(--rule); flex-wrap:wrap; }
 .circ-row:last-child { border-bottom:none; }
 .circ-pic { font-size:22px; flex-shrink:0; width:30px; text-align:center; }
-.circ-lab { font-size:12px; font-weight:900; color:var(--ink-2); min-width:88px; }
+.circ-lab { font-size:14px; font-weight:900; color:var(--ink-2); min-width:88px; }
 .circ-opts { display:flex; gap:10px; flex-wrap:wrap; }
-.circ-opt { display:inline-block; font-size:11.5px; padding:4px 12px; border:2px solid var(--purple-light); border-radius:9999px; background:#fff; color:var(--ink-2); cursor:default; }
-.circ-help { font-size:10px; color:var(--muted); font-style:italic; margin:2px 0 6px; }
+.circ-opt { display:inline-block; font-size:13.5px; padding:2px 12px; border:2px solid var(--purple-light); border-radius:9999px; background:#fff; color:var(--ink-2); cursor:default; }
+.circ-help { font-size:11px; color:var(--muted); font-style:italic; margin:2px 0 3px; }
 
 /* ── FRANJA D'IMATGES ── */
-.data-table { width:100%; border-collapse:collapse; font-size:11px; margin-bottom:10px; }
-.data-table th { background:var(--purple-ink); color:white; padding:6px 9px; text-align:left; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; }
-.data-table td { padding:5px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
-.find-list { list-style:none; padding:0; margin:6px 0; }
-.find-list li { display:flex; align-items:center; gap:9px; font-size:12px; padding:5px 0; border-bottom:1px dashed var(--rule); }
+.data-table { width:100%; border-collapse:collapse; font-size:13.5px; margin-bottom:5px; }
+.data-table th { background:var(--purple-ink); color:white; padding:3px 9px; text-align:left; font-size:11px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table td { padding:3px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.find-list { list-style:none; padding:0; margin:3px 0; }
+.find-list li { display:flex; align-items:center; gap:9px; font-size:14px; padding:3px 0; border-bottom:1px dashed var(--rule); }
 .find-list li:last-child { border-bottom:none; }
 .find-chk { width:18px; height:18px; border:2px solid var(--purple); border-radius:5px; flex-shrink:0; background:#fff; }
 .find-pic { font-size:18px; width:26px; text-align:center; }
-.draw-box { border:2px dashed var(--purple-light); border-radius:10px; background:#fff; min-height:130px; display:flex; align-items:flex-start; justify-content:flex-start; padding:8px 10px; }
+.draw-box { border:2px dashed var(--purple-light); border-radius:10px; background:#fff; min-height:130px; display:flex; align-items:flex-start; justify-content:flex-start; padding:4px 10px; }
 .draw-label { font-size:9px; color:var(--purple-light); letter-spacing:.1em; text-transform:uppercase; font-family:'Inter',sans-serif; }
-.explore-q { display:flex; gap:8px; margin-bottom:10px; align-items:flex-start; }
-.explore-qnum { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--orange); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
-.explore-qtext { font-size:11.5px; flex:1; }
-.exit-box { background:#EFEAF5; border:2px solid #5a4aa0; border-radius:10px; padding:12px 14px; }
-.exit-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:#5a4aa0; margin-bottom:8px; }
-.exit-q { font-size:11px; margin-bottom:4px; line-height:1.4; }
-.exit-opts { display:grid; grid-template-columns:repeat(2,1fr); gap:3px; margin:3px 0 6px; }
-.exit-opt { display:flex; align-items:center; gap:5px; font-size:10.5px; }
+.explore-q { display:flex; gap:8px; margin-bottom:5px; align-items:flex-start; }
+.explore-qnum { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--orange); color:white; font-size:13.5px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.explore-qtext { font-size:13.5px; flex:1; }
+.exit-box { background:#EFEAF5; border:2px solid #5a4aa0; border-radius:10px; padding:6px 14px; }
+.exit-title { font-size:13.5px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:#5a4aa0; margin-bottom:4px; }
+.exit-q { font-size:13.5px; margin-bottom:2px; line-height:1.5; }
+.exit-opts { display:grid; grid-template-columns:repeat(2,1fr); gap:3px; margin:2px 0 3px; }
+.exit-opt { display:flex; align-items:center; gap:5px; font-size:13.5px; }
 .chk { width:12px; height:12px; border:1.5px solid #5a4aa0; border-radius:3px; flex-shrink:0; background:white; }
-.meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
-.meta-item { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
-.meta-icon { font-size:18px; display:block; margin-bottom:3px; }
-.meta-label { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px; }
-.stars { display:flex; gap:4px; margin-top:4px; }
+.meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:4px; }
+.meta-item { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:4px 10px; }
+.meta-icon { font-size:18px; display:block; margin-bottom:2px; }
+.meta-label { font-size:11px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:2px; }
+.stars { display:flex; gap:4px; margin-top:2px; }
 .star { font-size:18px; color:#9080bc; cursor:default; }
-.tasca-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:10px 14px; margin-top:12px; }
-.tasca-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
-.tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:6px; font-size:11px; }
+.tasca-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:5px 14px; margin-top:6px; }
+.tasca-title { font-size:13.5px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:3px; font-size:13.5px; }
 .tasca-item:last-child { margin-bottom:0; }
-.tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
-.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(123,104,200,.05) 6px, rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
+.tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:13.5px; font-weight:900; display:flex; align-items:center; justify-content:center; }
+.spacer-block { position:relative; height:48px; margin:2px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(123,104,200,.05) 6px, rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
 .spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
 
-.small { font-size:10px; color:var(--muted); }
-.mt8 { margin-top:8px; }
-.footer { margin-top:12px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.small { font-size:11px; color:var(--muted); }
+.mt8 { margin-top:4px; }
+.footer { margin-top:6px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:4px; }
 .footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
 .footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
 
@@ -241,6 +241,17 @@ span[contenteditable] { display:inline-block; }
   .nivell-badge-small { background:transparent !important; border-color:#C8C2DD !important; }
 }
 
+
+/* ══════════════════════════════════════════════════════════════
+   LLEGIBILITAT-C v1 — llegibilitat de la Versió C (dislèxia). 09/09/2026.
+   Cos en 'Fira Sans Condensed' (mateixa família que l'Extra Condensed
+   de la casa, però amb lletres més obertes i distingibles), interlineat
+   ample i separació de paraules. Titulars, capçalera i peu no es toquen.
+   ══════════════════════════════════════════════════════════════ */
+.sheet-body,#doc{font-family:'Fira Sans Condensed','Fira Sans Extra Condensed',sans-serif;
+  line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
+.sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
+.sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
 </style>
 </head>
 <body>
@@ -314,13 +325,13 @@ span[contenteditable] { display:inline-block; }
 
       <div class="previ-box">
         <p>✏️ <span contenteditable="true"><strong>1.</strong> Dibuixa una cosa viva molt petita del teu cos. Com creus que és?</span></p>
-        <div class="draw-box deletable" style="margin-top:6px">
+        <div class="draw-box deletable" style="margin-top:3px">
           <div class="del-btn" onclick="deleteEl(this)">✕</div>
           <span class="draw-label">✏️ dibuixa aquí</span>
         </div>
 
-        <p style="margin-top:10px">✏️ <span contenteditable="true"><strong>2.</strong> Pots estar molts dies sense menjar. Però només uns minuts sense respirar. Què creus que passa si NO respires? Acaba la frase:</span></p>
-        <div style="font-size:9px;color:var(--muted);font-style:italic;margin-bottom:1px">Pots comen&ccedil;ar aix&iacute;: &laquo;Si no respiro, el meu cos&hellip;&raquo;</div>
+        <p style="margin-top:5px">✏️ <span contenteditable="true"><strong>2.</strong> Pots estar molts dies sense menjar. Però només uns minuts sense respirar. Què creus que passa si NO respires? Acaba la frase:</span></p>
+        <div style="font-size:11px;color:var(--muted);font-style:italic;margin-bottom:1px">Pots comen&ccedil;ar aix&iacute;: &laquo;Si no respiro, el meu cos&hellip;&raquo;</div>
         <div class="wline" contenteditable="true"></div>
       </div>
 
@@ -358,20 +369,20 @@ span[contenteditable] { display:inline-block; }
              alt="Cèl·lula amb les seves parts"
              style="max-width:100%;max-height:240px;object-fit:contain;border-radius:6px;border:1px solid var(--rule)"
              onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='../imatges_material_grafic/celula_animal_etiquetable.png';}else{this.style.display='none';}">
-        <figcaption style="font-size:9.5px;color:var(--ink-2);margin-top:4px">Una c&egrave;l&middot;lula per dins. A la llegenda de sota tens les <strong>3 parts</strong> que mirem avui, cada una amb el seu <strong>color</strong>: busca-les al dibuix. Els requadres buits del dibuix <strong>no s&rsquo;han d&rsquo;omplir</strong>.</figcaption>
+        <figcaption style="font-size:11px;color:var(--ink-2);margin-top:2px">Una c&egrave;l&middot;lula per dins. A la llegenda de sota tens les <strong>3 parts</strong> que mirem avui, cada una amb el seu <strong>color</strong>: busca-les al dibuix. Els requadres buits del dibuix <strong>no s&rsquo;han d&rsquo;omplir</strong>.</figcaption>
       </figure>
 
       <div class="deletable" style="position:relative;border:1.5px solid var(--rule-dark);border-radius:8px;padding:6px 10px;margin:0 0 10px">
         <div class="del-btn" onclick="deleteEl(this)">&#10005;</div>
-        <div style="font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:5px">Llegenda del dibuix</div>
-        <div style="display:grid;grid-template-columns:26px 1fr;gap:6px 8px;align-items:center;font-size:11.5px">
+        <div style="font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:3px">Llegenda del dibuix</div>
+        <div style="display:grid;grid-template-columns:26px 1fr;gap:6px 8px;align-items:center;font-size:13.5px">
           <div style="width:22px;height:22px;border-radius:50%;background:#6f8fb0;border:2px solid #3f6285;display:flex;align-items:center;justify-content:center"></div><div contenteditable="true"><strong>Membrana</strong> &mdash; la l&iacute;nia <strong>blava</strong> de fora, que ho envolta tot.</div>
           <div style="width:22px;height:22px;border-radius:50%;background:#c9a2dd;border:2px solid #8e5faa;display:flex;align-items:center;justify-content:center"></div><div contenteditable="true"><strong>Nucli</strong> &mdash; la bola gran <strong>lila</strong> del mig.</div>
           <div style="width:22px;height:22px;border-radius:50%;background:#f0a86a;border:2px solid #c47a3c;display:flex;align-items:center;justify-content:center"></div><div contenteditable="true"><strong>Mitocondri</strong> &mdash; les pe&ccedil;es <strong>taronges</strong> petites (n&rsquo;hi ha uns quants).</div>
         </div>
       </div>
 
-      <p style="font-size:11.5px;color:var(--ink-2);margin-bottom:4px" contenteditable="true">✏️ Obre l'aplicació <strong>«La cèl·lula per dins»</strong> (a la pàgina de la sessió al Classroom). Busca aquestes 3 parts i marca la casella ✔ quan trobis cada una:</p>
+      <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:2px" contenteditable="true">✏️ Obre l'aplicació <strong>«La cèl·lula per dins»</strong> (a la pàgina de la sessió al Classroom). Busca aquestes 3 parts i marca la casella ✔ quan trobis cada una:</p>
       <ul class="find-list">
         <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="find-chk"></span><span class="find-pic">🔵</span><span contenteditable="true"><strong>La membrana</strong> — la "pell" que envolta la cèl·lula</span></li>
         <li class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="find-chk"></span><span class="find-pic">🟣</span><span contenteditable="true"><strong>El nucli</strong> — la bola del mig que mana</span></li>
@@ -379,12 +390,12 @@ span[contenteditable] { display:inline-block; }
       </ul>
 
       <!-- Nivells d'organitzacio: C tambe els necessita, l'entrega de la Sessio 2 es comuna -->
-      <div class="info-box deletable" style="margin-top:10px">
+      <div class="info-box deletable" style="margin-top:5px">
         <div class="del-btn" onclick="deleteEl(this)">&#10005;</div>
         <div class="info-head">&#128214; Per llegir &mdash; de la c&egrave;l&middot;lula fins a tu</div>
         <p contenteditable="true">Una c&egrave;l&middot;lula sola &eacute;s molt petita. Moltes c&egrave;l&middot;lules iguals juntes fan un <strong>teixit</strong>. Diversos teixits junts fan un <strong>&ograve;rgan</strong> (com el cor). Diversos &ograve;rgans que treballen junts fan un <strong>aparell</strong>. I tots els aparells junts fan un <strong>organisme</strong>: tu.</p>
         <p contenteditable="true">La c&egrave;l&middot;lula &eacute;s el <strong>primer</strong> nivell que ja est&agrave; <strong>viu</strong>. El que hi ha per sota (&agrave;tom, mol&egrave;cula, org&agrave;nul) no viu tot sol.</p>
-        <div style="display:flex;align-items:center;justify-content:center;gap:5px;flex-wrap:wrap;margin-top:6px;font-size:10px;text-align:center">
+        <div style="display:flex;align-items:center;justify-content:center;gap:5px;flex-wrap:wrap;margin-top:3px;font-size:11px;text-align:center">
           <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#9883;&#65039;<br>&Agrave;tom</span><span style="color:var(--muted)">&rarr;</span>
           <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff"><svg viewBox="0 0 60 50" style="height:26px;width:auto;vertical-align:middle" role="img" aria-label="Molecula: atoms units"><line x1="30" y1="31" x2="15" y2="16" stroke="#7a5a92" stroke-width="4" stroke-linecap="round"/><line x1="30" y1="31" x2="45" y2="16" stroke="#7a5a92" stroke-width="4" stroke-linecap="round"/><circle cx="15" cy="16" r="7.5" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="2"/><circle cx="45" cy="16" r="7.5" fill="#fdf7ef" stroke="#6f8fb0" stroke-width="2"/><circle cx="30" cy="31" r="12" fill="#c9a2dd" stroke="#7a5a92" stroke-width="2"/></svg><br>Mol&egrave;cula</span><span style="color:var(--muted)">&rarr;</span>
           <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff"><img src="../imatges_material_grafic/mitocondri_servier.svg" alt="Mitocondri amb crestes" style="height:26px;width:auto;vertical-align:middle"><br>Org&agrave;nul</span><span style="color:var(--muted)">&rarr;</span>
@@ -396,7 +407,7 @@ span[contenteditable] { display:inline-block; }
           <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#127966;&#65039;<br>Ecosistema</span><span style="color:var(--muted)">&rarr;</span>
           <span style="border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 7px;background:#fff">&#127757;<br>Biosfera</span>
         </div>
-        <p style="font-size:9.5px;color:var(--muted);margin-top:5px;font-style:italic">S&oacute;n <strong>10 nivells</strong>. Aquesta &eacute;s la llista que has de fer servir per a la tasca de casa.</p>
+        <p style="font-size:11px;color:var(--muted);margin-top:3px;font-style:italic">S&oacute;n <strong>10 nivells</strong>. Aquesta &eacute;s la llista que has de fer servir per a la tasca de casa.</p>
       </div>
       <div class="frase-completar deletable">
         <span class="del-btn" onclick="deleteEl(this)">&#10005;</span>
@@ -446,14 +457,14 @@ span[contenteditable] { display:inline-block; }
           <span style="font-size:22px;color:var(--purple-ink)">➜</span>
           <div style="background:white;border:2px solid var(--purple);border-radius:14px;padding:10px 16px;text-align:center;min-width:126px">
             <img src="../imatges_material_grafic/mitocondri_servier.svg" alt="Mitocondri amb crestes" style="height:38px;width:auto;display:block;margin:0 auto 2px">
-            <div style="font-size:11.5px;font-weight:900;color:var(--purple-ink);margin-top:2px">MITOCONDRI</div>
-            <div style="font-size:9.5px;color:var(--muted)">aquí es fa l'energia</div>
+            <div style="font-size:13.5px;font-weight:900;color:var(--purple-ink);margin-top:2px">MITOCONDRI</div>
+            <div style="font-size:11px;color:var(--muted)">aquí es fa l'energia</div>
           </div>
           <span style="font-size:22px;color:var(--purple-ink)">➜</span>
-          <span class="chip c" style="font-size:12.5px;padding:6px 14px">⚡ Energia</span>
+          <span class="chip c" style="font-size:14.5px;padding:6px 14px">⚡ Energia</span>
         </div>
-        <figcaption style="font-size:9px;color:var(--muted);margin-top:4px;font-style:italic;text-align:center">Entren <strong>2 coses</strong> (menjar + aire) i en surt <strong>1</strong>: energia. <span style="font-style:normal">Mitocondri: Servier Medical Art (CC BY 4.0).</span></figcaption>
-        <p style="font-size:11px;color:var(--ink-2);margin-top:6px" contenteditable="true">&#127939; I si et mous molt (corres, puges escales), els m&uacute;sculs gasten <strong>m&eacute;s energia</strong>. Per aix&ograve; necessiten <strong>m&eacute;s menjar i m&eacute;s aire</strong>: per aix&ograve; respires m&eacute;s de pressa.</p>
+        <figcaption style="font-size:11px;color:var(--muted);margin-top:2px;font-style:italic;text-align:center">Entren <strong>2 coses</strong> (menjar + aire) i en surt <strong>1</strong>: energia. <span style="font-style:normal">Mitocondri: Servier Medical Art (CC BY 4.0).</span></figcaption>
+        <p style="font-size:13.5px;color:var(--ink-2);margin-top:3px" contenteditable="true">&#127939; I si et mous molt (corres, puges escales), els m&uacute;sculs gasten <strong>m&eacute;s energia</strong>. Per aix&ograve; necessiten <strong>m&eacute;s menjar i m&eacute;s aire</strong>: per aix&ograve; respires m&eacute;s de pressa.</p>
       </figure>
 
       <!-- BANNER IDEA CLAU -->
@@ -513,13 +524,13 @@ span[contenteditable] { display:inline-block; }
       <div class="divider"></div>
 
       <!-- recordatori idea clau (repetició) -->
-      <div class="clau deletable" style="margin-top:4px">
+      <div class="clau deletable" style="margin-top:2px">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         🍎 MENJAR <span class="big">+</span> 💨 AIRE <span class="big">→</span> ⚡ ENERGIA
       </div>
 
       <!-- MÈTODE DELS 3 PASSOS — EN BLANC -->
-      <div class="passos-box deletable" style="margin-top:8px">
+      <div class="passos-box deletable" style="margin-top:4px">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="passos-cap">✏️ Pensem en 3 passos — MARCA TU <span class="cas-tag">Per què ens morim si no mengem?</span></div>
         <div class="pas">
@@ -554,7 +565,7 @@ span[contenteditable] { display:inline-block; }
         </div>
         <div class="pas-frase">
           <div class="pas-frase-lab">✏️ Ara escriu UNA frase. Comença així:</div>
-          <div style="font-size:9px;color:var(--muted);font-style:italic;margin-bottom:1px">Pots comen&ccedil;ar aix&iacute;: &laquo;Si no menjo, el mitocondri no pot&hellip;&raquo;</div>
+          <div style="font-size:11px;color:var(--muted);font-style:italic;margin-bottom:1px">Pots comen&ccedil;ar aix&iacute;: &laquo;Si no menjo, el mitocondri no pot&hellip;&raquo;</div>
           <div class="wline" contenteditable="true"></div>
         </div>
       </div>
@@ -562,7 +573,7 @@ span[contenteditable] { display:inline-block; }
       <!-- ENCERCLA LA FUNCIÓ DE CADA PART — enunciat, ajuda i taula
            van junts: no es poden separar en dos fulls (criteri 1) -->
       <div class="keep-unit">
-      <p style="font-size:11.5px;color:var(--ink-2);margin:10px 0 2px" contenteditable="true">✏️ <strong>Encercla</strong> què fa cada part de la cèl·lula:</p>
+      <p style="font-size:13.5px;color:var(--ink-2);margin:10px 0 2px" contenteditable="true">✏️ <strong>Encercla</strong> què fa cada part de la cèl·lula:</p>
       <div class="circ-help" contenteditable="true">Torna a mirar el dibuix de dalt: quina part toca el que hi ha fora de la cèl·lula? Quina és la gran del mig? Quina és la petita on entren el menjar i l'aire?</div>
       <div class="passos-box deletable" style="margin-top:2px">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -595,29 +606,22 @@ span[contenteditable] { display:inline-block; }
       </div>
       </div><!-- /keep-unit -->
 
-      <!-- Plantes vs animals — molt senzill, encercla -->
-      <div class="info-box deletable" style="margin-top:10px">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="info-head">📖 Per llegir — i les plantes?</div>
-        <p contenteditable="true">Els <strong>animals</strong> han de <strong>menjar</strong> altres éssers vius. Les <strong>plantes</strong> NO mengen: fabriquen el seu menjar amb la llum del sol. Això es diu <strong>fotosíntesi</strong>.</p>
-        <p contenteditable="true">Però atenció: la planta es fa el menjar... i després l'ha de fer servir. Les plantes <strong>també tenen mitocondris</strong> i <strong>també respiren</strong>, igual que tu. Fer-se el menjar i treure'n l'energia són dues coses diferents.</p>
-      </div>
-      <div class="frase-completar deletable">
-        <span class="del-btn" onclick="deleteEl(this)">✕</span>
-        ✏️ Encercla: una <strong>planta</strong> fa el seu menjar amb la llum del&nbsp;
-        <span class="circ-opt" contenteditable="true">sol</span>&nbsp;
-        <span class="circ-opt" contenteditable="true">l&rsquo;aigua que reguem</span>.
+      <!-- RETALLAT 09/09/2026 (llegibilitat C): l'incis "i les plantes?" (caixa
+           "Per llegir" + encercla sobre fotosintesi) era contingut secundari
+           d'aquesta sessio -- la idea central es "menjar + aire = energia" a la
+           cellula animal -- i la fitxa nomes cabia en 4 fulls sense ell un cop
+           pujada la lletra. La fotosintesi es treballa a la seva propia sessio. -->
       </div>
     </div>
 
     <!-- Exit ticket: full independent -> exit_ticket_s1_VISUAL.html (regla "exit ticket separat"; abans incrustat aqui) -->
 
     <!-- ── METACOGNICIÓ ── -->
-    <div class="section deletable" style="margin-top:14px">
+    <div class="section deletable" style="margin-top:7px">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <p style="font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:6px">🧠 Metacognició — 5 min</p>
+      <p style="font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:3px">🧠 Metacognició — 5 min</p>
 
-      <div class="meta-oa-box deletable" style="margin-bottom:8px">
+      <div class="meta-oa-box deletable" style="margin-bottom:4px">
         <div class="del-btn" onclick="deleteEl(this)">✕</div>
         <div class="meta-oa-title">🎯 Torna als objectius del principi — Marca el que has après avui:</div>
         <div class="meta-oa-item deletable">
@@ -658,13 +662,13 @@ span[contenteditable] { display:inline-block; }
           <div class="stars">
             <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
           </div>
-          <div style="font-size:9.5px;color:var(--muted);margin-top:4px">Encercla les estrelles que consideres</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px">Encercla les estrelles que consideres</div>
         </div>
       </div>
     </div>
 
     <!-- ── TASCA PER A CASA ── -->
-    <div class="tasca-box deletable" style="margin-top:14px">
+    <div class="tasca-box deletable" style="margin-top:7px">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <div class="tasca-title">📚 Tasca per a casa — per a la Sessió 2</div>
       <div class="tasca-item deletable">

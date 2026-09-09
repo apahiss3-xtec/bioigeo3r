@@ -22,12 +22,16 @@
 //     la fitxa que l'alumne es queda i té damunt la taula.
 export const sa4s2 = {
   id: "s2", saId: "sa4",
-  title: "Com funcionem? La biologia de la reproducció",
+  title: "Per què els gàmetes en porten la meitat?",
   sessionNumber: 2, biome: "sa4", duration: "2h",
   engageImage: "/images/sa4-s2-generacions.jpg",
 
   engageQuestion: "A la primera unitat vau veure que la meiosi fa cèl·lules sexuals amb la meitat de cromosomes. Per quina raó la meitat i no la mateixa quantitat? Què passaria, generació rere generació, si cada gàmeta portés les DUES còpies de cada cromosoma?",
-  engageContext: "Primera resposta de la bústia: el docent porta DUES preguntes ja transcrites a màquina (mai el paper original, perquè no es reconegui cap lletra) i en respon una amb to científic i serè. No es pregunta mai qui l'ha escrita ni es comenta cap tret d'estil. La caixa continua oberta tota la unitat. Després, idees prèvies amb connexió explícita a la primera unitat: la meiosi deixa de ser un nom i passa a explicar una cosa concreta — d'on surten els gàmetes.",
+  engageContext: "Avui es responen les primeres preguntes de la bústia, transcrites a màquina perquè no es reconegui cap lletra. No es pregunta mai qui les ha escrites, i la bústia continua oberta. Després, una connexió amb la primera unitat: la meiosi deixa de ser un nom i passa a explicar una cosa concreta, d'on surten els gàmetes.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "El docent porta DUES preguntes ja transcrites (mai el paper original) i en respon una amb to científic i serè. No es comenta cap tret d'estil.",
 
   // ── OBJECTIUS D'APRENENTATGE PER VERSIÓ (A/B/C) ──────────
   // Coincideixen literalment amb la caixa 🎯 de la fitxa de la mateixa versió.

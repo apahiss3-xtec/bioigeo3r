@@ -22,12 +22,16 @@
 //    més amunt.
 export const sa4s1 = {
   id: "s1", saId: "sa4",
-  title: "Qui som? El lloc de l'ésser humà",
+  title: "Som animals?",
   sessionNumber: 1, biome: "sa4", duration: "2h",
   engageImage: "/images/sa4-s1-arbre-vida.jpg",
 
   engageQuestion: "Som animals? Què ens fa humans: que pensem, que parlem, que tenim cultura... o també alguna cosa biològica? On col·locaries l'ésser humà en un arbre amb un ximpanzé, un peix i una planta?",
-  engageContext: "Obertura de la bústia de preguntes anònimes (queda oberta tota la unitat i alimenta les sessions següents): tothom hi posa un paper, amb una pregunta sobre el cos, la reproducció o la sexualitat o bé amb un 'no en tinc cap' (perquè ningú quedi marcat ni per escriure ni per no escriure). IMPORTANT: el dia 1 NO se'n llegeix cap en veu alta — el docent se les emporta, les transcriu i les tria, i es responen a partir de la sessió 2. Per treballar avui la distinció ciència/valors s'usen preguntes-model impreses a la fitxa. Es presenta l'acord d'aula: es respecta, no es jutja, s'usa vocabulari científic, el que es diu a l'aula es queda a l'aula. Hook: una imatge de l'arbre de la vida amb l'humà com una branca minúscula entre milions — som una sola espècie del gènere Homo, totes les altres s'han extingit.",
+  engageContext: "Avui s'obre la bústia de preguntes anònimes, i queda oberta tota la unitat: tothom hi posa un paper, amb una pregunta sobre el cos, la reproducció o la sexualitat, o bé amb un «no en tinc cap» —perquè ningú no quedi marcat ni per escriure ni per no escriure. Avui no se'n llegeix cap: es responen a partir de la propera sessió. I es fixa l'acord d'aula: es respecta, no es jutja, es fa servir vocabulari científic, i el que es diu a l'aula es queda a l'aula.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "IMPORTANT: el dia 1 no es llegeix cap pregunta en veu alta. El docent se les emporta, les transcriu i les tria. Per treballar avui la distinció ciència/valors s'usen les preguntes-model impreses a la fitxa. Hook: imatge de l'arbre de la vida amb l'humà com una branca minúscula.",
 
   // ── OBJECTIUS D'APRENENTATGE PER VERSIÓ (A/B/C) ──────────
   // Han de coincidir literalment amb la caixa 🎯 de la fitxa de la mateixa versió.

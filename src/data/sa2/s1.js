@@ -1,13 +1,17 @@
 export const sa2s1 = {
   id: "s1", saId: "sa2",
-  title: "Nutrients: el combustible del cos",
+  title: "Quin combustible fa servir el teu cos?",
   sessionNumber: 1, biome: "sa2", duration: "2h",
   engageImage: "/images/sa2-s1-nutrients.jpg",
 
   // Repte oral curt abans d'escriure: presentació col·lectiva dels dos enigmes que pengen a la paret tota la SA.
   engageChallenge: "Mirem els dos enigmes que penjaran a la paret tota la SA: la gràfica de FC d'una corredora (per quina raó canvia tant?) i una analítica de sang amb valors alterats (per quina raó?). Avui no els podeu resoldre — al final de la SA, sí.",
   engageQuestion: "Mireu els dos enigmes a la paret. No els podeu resoldre encara. Al final de la SA, sí. Comencen avui: quin nutrient creus que és el combustible principal del corredor?",
-  engageContext: "Presentació dels dos enigmes de la SA (gràfica FC Mercè + analítica sang) que quedaran físicament a la paret tota la SA. Idees prèvies nutrients: 'Quins nutrients coneixes? Diferència entre nutrient i aliment?'",
+  engageContext: "Els dos enigmes queden penjats a la paret tota la situació: la gràfica de freqüència cardíaca de la Mercè i l'analítica de sang. Avui encara no els pots resoldre; comences a construir les eines. Primera pregunta: quina diferència hi ha entre un aliment i un nutrient?",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "Presentació dels dos enigmes de la SA (gràfica FC Mercè + analítica de sang), que queden físicament a la paret tota la SA. Idees prèvies sobre nutrients.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {

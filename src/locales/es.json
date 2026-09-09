@@ -53,7 +53,8 @@
     "roleB": "Rol B",
     "prevSession": "Sesión anterior",
     "nextSession": "Sesión siguiente",
-    "backToSA": "Volver a la SA"
+    "backToSA": "Volver a la SA",
+    "repteInicial": "Reto inicial"
   },
   "exitForm": {
     "nom": "Nombre",

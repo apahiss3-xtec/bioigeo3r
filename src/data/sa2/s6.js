@@ -1,6 +1,6 @@
 export const sa2s6 = {
   id: "s6", saId: "sa2",
-  title: "El sistema de control i l'equilibri intern",
+  title: "Qui mana sobre el teu cor si tu no hi penses?",
   sessionNumber: 6, biome: "sa2", duration: "2h",
   engageImage: "/images/sa2-s6-neuronal.jpg",
   flippedReading: "Lectura prèvia a casa (2 versions, Classroom): les dues vies de control del cos — els nervis (elèctrics, mil·lisegons) i les hormones (per la sang, minuts). Idea clau que cal portar a classe: una via és ràpida i breu; l'altra, lenta i duradora.",

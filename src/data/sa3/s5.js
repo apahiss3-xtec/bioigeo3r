@@ -1,12 +1,16 @@
 export const sa3s5 = {
   id: "s5", saId: "sa3",
-  title: "Drogues, addicció i síntesi",
+  title: "Per què costa tant deixar-ho, si només és voluntat?",
   sessionNumber: 5, biome: "sa3", duration: "2h",
   engageImage: "/images/sa3-s5-drogues.jpg",
   isFinalSession: true,
 
   engageQuestion: "Avui és la sessió final de la SA. Resoleu els dos enigmes que han estat a la paret tot el mes. Però primer: per quina raó costa tant deixar una addicció? És només qüestió de «voluntat»?",
-  engageContext: "Revisió formulari comprensió prèvia (S4 deures). Connexió amb els dos enigmes — avui es resolen tots dos. El docent explica l'estructura de la sessió: classificació de substàncies → la sinapsi i la droga → mapa de síntesi de tota la unitat → la campanya de comunicació científica.",
+  engageContext: "Avui es resolen els dos enigmes de la paret. Abans, però, entraràs a la sinapsi per veure què hi fa una droga, i acabaràs construint la campanya de comunicació científica.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "Revisió del formulari de comprensió prèvia (deures de S4). Estructura: classificació de substàncies → sinapsi i droga → mapa de síntesi de tota la unitat → campanya.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {

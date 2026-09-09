@@ -10,7 +10,11 @@ export const sa1s2 = {
   // Repte oral curt abans d'escriure: la mateixa predicció, en veu alta i tots alhora.
   engageChallenge: "Mà alçada, sense pensar-ho gaire: qui creu que el vostre ou s'inflarà si el poso en aigua pura? I qui creu que s'encongirà en aigua amb molta sal? Ara escriviu-ho.",
   engageQuestion: "Tens l'ou en vinagre a la bossa. Quin creus que serà el resultat si ara el poses en aigua amb molta sal? I en aigua pura? Escriu la teva predicció ABANS de fer res.",
-  engageContext: "Prediccions escrites individuals. No es corregeixen — es comproven amb l'experiment.",
+  engageContext: "La teva predicció no es corregeix: es comprova. Escriu-la abans de tocar res i després mira què fa l'ou de veritat.",
+
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "Prediccions escrites individuals abans de l'experiment. No es corregeixen: es comproven.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {

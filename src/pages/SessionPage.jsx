@@ -198,6 +198,17 @@ export default function SessionPage() {
               <T>{session.engageContext}</T>
             </p>
           )}
+          {/* Repte inicial: el text informatiu dens que abans anava al títol de
+              la sessió. El títol ha de ser un ganxo curt; el que cal explicar
+              viu aquí, en una targeta pròpia, i mai al títol. */}
+          {session.repteInicial && (
+            <div className="mt-6 rounded-2xl border border-[var(--rule-strong)] bg-[var(--surface)] p-5">
+              <p className="kicker mb-1" style={{ color: 'var(--biome-accent)' }}>🎯 {t('session.repteInicial')}</p>
+              <p className="text-lg">
+                <T>{session.repteInicial}</T>
+              </p>
+            </div>
+          )}
           {session.engageChallenge && (
             <div
               className="mt-6 rounded-2xl border-s-4 p-5"
