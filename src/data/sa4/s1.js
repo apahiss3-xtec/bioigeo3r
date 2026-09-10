@@ -149,7 +149,7 @@ export const sa4s1 = {
     { id: "F4", apartat: "1", title: "Exemple de com es dibuixa un arbre", src: "/images/sa4-s1-exemple-arbre.svg", note: "Cladograma mínim de tres espècies (pi, formiga, gat) que NO són a l'activitat. Serveix per modelar el format abans de demanar que en dibuixin un: cap versió no n'havia vist mai cap. Fitxes A i B." }
   ],
 
-  fitxaUrls: {
+  fitxaUrl: {
     A: "/fitxes/sa4-s1-fitxa-A.html",
     B: "/fitxes/sa4-s1-fitxa-B.html",
     C: "/fitxes/sa4-s1-fitxa-C.html"
@@ -189,7 +189,6 @@ export const sa4s1 = {
 
   homework: {
     description: "Cap deures obligatoris. Si et ve una pregunta al cap durant la setmana, escriu-la i posa-la a la bústia el proper dia. I fixa't en algun animal que vegis pel carrer o en una sèrie: quins dels nou caràcters d'avui tindria?",
-    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina: funcions vitals compartides, taxonomia i gènere Homo, i el moment epistèmic",

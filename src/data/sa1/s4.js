@@ -72,7 +72,6 @@ export const sa1s4 = {
 
   homework: {
     description: "Acaba el pòster i puja'l a Google Classroom (PDF o imatge). La setmana següent, grava i entrega el vídeo de 2-3 minuts explicant-lo sense llegir.",
-    deadline: "A concretar a Google Classroom"
   },
 
   recoveryInstructions: [

@@ -225,7 +225,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="header-subtitle" contenteditable="true">Què s'amaga dins el que mengem — i per què el cos ho necessita</div>
   </div>
   <div class="header-right">
-    <div class="logo-box"><img src="/logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
+    <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
     <div class="header-meta" contenteditable="true">3r ESO</div>
   </div>
 </div>
@@ -235,7 +235,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <span class="badge deletable" contenteditable="true">Autònom<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <span class="temps-badge deletable">⏱️ 2h total<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
-  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió A">A</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió A — Ampliació">A</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
 </div>
 
 <div class="oa-box deletable">
@@ -359,7 +359,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 </div>
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n3">★</div><div><div class="stitle" contenteditable="true">Repte — fes parlar les dades</div><div class="sdesc" contenteditable="true">Individual · dins dels 25 min de la secció 3 · Per a qui acabi abans</div></div></div>
+  <div class="section-header"><div class="snum n3">★</div><div><div class="stitle" contenteditable="true">Ampliació — fes parlar les dades</div><div class="sdesc" contenteditable="true">Individual · dins dels 25 min de la secció 3 · Per a qui acabi abans</div></div></div>
   <div class="divider"></div>
   <div class="info-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -431,7 +431,17 @@ function flattenDoc(){
   }
   const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
 }
-function extractFlow(){ FLOW = Array.from(document.getElementById('doc').children); }
+function extractFlow(){
+  FLOW = Array.from(document.getElementById('doc').children);
+  // Posicio original de cada fill de seccio: el paginador la fa servir per
+  // reassemblar en ordre una seccio que ha partit (sense aixo, cada
+  // repaginacio la desordena i separa una llegenda del seu dibuix).
+  FLOW.forEach(function(b){
+    if(b.classList && b.classList.contains('section')){
+      Array.prototype.forEach.call(b.children, function(k,i){ k._ord = i; });
+    }
+  });
+}
 function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
 
 function saveCaret(){
@@ -456,7 +466,15 @@ function repaginate(){
   const caret=saveCaret();
   FLOW = FLOW.filter(b=>b);
   // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
-  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } } });
+  var _origens=[];
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
+  // ...i es torna l'ordre original: els fills reassemblats s'afegien al final.
+  _origens.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
+  });
   FLOW.forEach(b=>{ if(b.parentNode) b.parentNode.removeChild(b); });
   host.innerHTML='';
   let body=null;

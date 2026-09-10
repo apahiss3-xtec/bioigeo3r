@@ -122,7 +122,7 @@ export const sa2s6 = {
     { id: "q2", type: "open", text: "Per quina raó l'adrenalina inhibeix la digestió durant l'exercici físic intens? Usa el concepte de 'prioritat de recursos'.", hint: "El cos no pot donar molta sang als músculs i a l'intestí alhora. Si està fugint o competint, quin dels dos prioritza?" },
     { id: "q3", type: "open", text: "Per quina raó l'orina és més fosca quan beus poca aigua? Connecta-ho amb l'ADH i el ronyó.", hint: "Quan en falta, l'ADH ordena al ronyó retenir aigua. Si retens aigua, l'orina queda més diluïda o més concentrada?" }
   ],
-  homework: { description: "Durant un dia, anota a la fitxa quants gots d'aigua beus i de quin color és la teva orina (4 moments). A més, NO t'oblidis les dades de FC en repòs dels 3 matins de la sessió passada: són NECESSÀRIES per a la Sessió 7.", deadline: null },
+  homework: { description: "Durant un dia, anota a la fitxa quants gots d'aigua beus i de quin color és la teva orina (4 moments). A més, NO t'oblidis les dades de FC en repòs dels 3 matins de la sessió passada: són NECESSÀRIES per a la Sessió 7." },
   recoveryInstructions: [
     "Fes el test de temps de reacció a casa: que algú et deixi caure un regle de 30 cm sense avisar; anota on l'agafes, 5 vegades amb cada mà",
     "Llegeix la teoria d'aquesta pàgina (les dues vies de control + el sistema excretor)",

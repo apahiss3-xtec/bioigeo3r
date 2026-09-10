@@ -151,7 +151,7 @@ export const sa4s2 = {
     { id: "F5", apartat: "2", title: "De la fecundació a la implantació", src: "/images/sa4-s2-fecundacio.svg", note: "Quatre vinyetes seguides. A ③ les divisions són per mitosi: connexió explícita amb la primera unitat." }
   ],
 
-  fitxaUrls: {
+  fitxaUrl: {
     A: "/fitxes/sa4-s2-fitxa-A.html",
     B: "/fitxes/sa4-s2-fitxa-B.html",
     C: "/fitxes/sa4-s2-fitxa-C.html"
@@ -191,7 +191,6 @@ export const sa4s2 = {
 
   homework: {
     description: "Tria UNA de les tres i escriu dues línies. (a) Pregunta a algú de casa o a un adult de confiança a quina edat va sentir a parlar per primera vegada del cicle menstrual i qui li ho va explicar. (b) Escriu on ho vas sentir tu per primera vegada. (c) Mira com ho explica una font fiable (per exemple Canal Salut) i resumeix-ho. Les tres valen igual. L'opció (a) no és delegable a cap IA ni a cap cercador: la resposta només existeix en aquella conversa.",
-    deadline: "la sessió següent"
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina: els aparells en clau de funció, de la meiosi al gàmeta, i el cicle menstrual",

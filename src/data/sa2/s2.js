@@ -133,7 +133,7 @@ export const sa2s2 = {
     { id: "q2", type: "open", text: "Per quina raó no és bon moment per menjar just abans de córrer? Connecta-ho amb el que has après avui.", hint: "Durant l'esforç la sang va als músculs. Si has de digerir alhora, dos òrgans es disputen el mateix recurs: quin?" },
     { id: "q3", type: "multiple", text: "Quin és el paper del bicarbonat que secreta el pàncrees?", options: ["Neutralitzar el quimo àcid per permetre que els enzims intestinals funcionin", "Afegir acidesa per destruir bacteris", "Absorbir greixos", "Produir glucosa"], correct: 0 }
   ],
-  homework: { description: "Cap.", deadline: null },
+  homework: { description: "Cap." },
   recoveryInstructions: [
     "Pots fer la simulació a casa (és divertida): necessites bol, pa, plàtan, vinagre, bicarbonat, mitja de niló, drap vell",
     "Segueix la guia de la simulació (descàrrega aquí — © Fátima Miró, citat)",

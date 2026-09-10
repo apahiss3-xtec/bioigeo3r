@@ -3,7 +3,7 @@
 export const sa4Avaluacio = {
   checklist: [
     { id: 'c1', oa: 'OA1', text: "Sé situar l'ésser humà com a única espècie vivent del gènere Homo i justificar-ho amb caràcters compartits i les funcions vitals (nutrició, relació, reproducció)." },
-    { id: 'c2', oa: 'OA1', text: "Sé per quina raó les classificacions científiques (cladogrames) son provisionals i poden canviar amb noves proves, com l'ADN." },
+    { id: 'c2', oa: 'OA1', text: "Sé per quina raó les classificacions científiques (cladogrames) són provisionals i poden canviar amb noves proves, com l'ADN." },
     { id: 'c3', oa: 'OA2', text: "Sé identificar les 4 fases del cicle menstrual (menstruació, fol·licular, ovulació, lútea) i les hormones principals de cadascuna (FSH, LH, estrògens, progesterona)." },
     { id: 'c4', oa: 'OA2', text: "Puc calcular el dia d'ovulació aproximat d'un cicle de qualsevol durada (fórmula: dies del cicle − 14) i sé per quina raó el 'dia 14' no és universal." },
     { id: 'c5', oa: 'OA2', text: "Sé identificar les estructures principals de l'aparell reproductor masculí (testicles, epidídim, conducte deferent) i femení (ovaris, trompes, úter, endometri) i n'explico la funció." },
@@ -12,7 +12,7 @@ export const sa4Avaluacio = {
     { id: 'c8', oa: 'OA3', text: "Sé explicar la diferència entre bessons univitel·lins (1 zigot dividit → mateixa genètica → mateix sexe biològic) i bivitel·lins (2 fecundacions → genètica diferent → poden ser sexes distints)." },
     { id: 'c9', oa: 'OA4', text: "Distingeixo el preservatiu (doble protecció: embaràs + ISTs) dels mètodes hormonals (embaràs, NO ISTs) i sé per quina raó la diferència és crítica per a la salut." },
     { id: 'c10', oa: 'OA4', text: "Sé explicar el mecanisme de la píndola (inhibició de l'ovulació per hormones sintètiques) i puc matisar el mite 'la píndola engreixa' amb evidència." },
-    { id: 'c11', oa: 'OA4', text: "Identifico les ISTs principals (VIH, HPV, herpes, clamidia), la via de transmissió principal i si son bacterianes (tractables amb antibiòtic) o víriques." },
+    { id: 'c11', oa: 'OA4', text: "Identifico les ISTs principals (VIH, HPV, herpes, clamidia), la via de transmissió principal i si són bacterianes (tractables amb antibiòtic) o víriques." },
     { id: 'c12', oa: 'OA4', text: "Sé explicar per quina raó el mètode del calendari és poc fiable: variació del dia d'ovulació (±3-5 dies) + supervivència dels espermatozoides 3-5 dies." }
   ],
 
@@ -59,15 +59,15 @@ export const sa4Avaluacio = {
         oa: 'OA4',
         text: "La Sandra vol saber el risc de transmissió del VIH per via oral i quina és la millor prevenció. Quina és la resposta correcta?",
         options: [
-          "El risc de transmissió oral del VIH és molt baix però no zero. Les vies principals son sanguínia (xeringues compartides) i de fluids sexuals. El preservatiu és la prevenció més eficaç",
+          "El risc de transmissió oral del VIH és molt baix però no zero. Les vies principals són sanguínia (xeringues compartides) i de fluids sexuals. El preservatiu és la prevenció més eficaç",
           "El VIH es transmet fàcilment per via oral (saliva) com qualsevol altre virus respiratori",
           "El VIH no es transmet per cap via sexual, únicament per transfusions sanguínies",
           "El VIH és un bacteri i es pot curar amb antibiòtics si es detecta aviat"
         ],
         correct: 0,
         feedback: {
-          correct: "Resposta matisada i correcta. La transmissió oral és molt baixa (concentracions mínimes a la saliva). Les vies principals son sanguínia i de fluids sexuals (semen, secrecions vaginals). A la lactància, la mare pot transmetre el VIH al nadó. El preservatiu és la millor prevenció.",
-          wrong: "El VIH és un virus (retrovirus RNA) que ataca els limfòcits T. Les vies de transmissió son sanguínia, de fluids sexuals i de mare a fill (no per aire ni saliva en condicions normals). No es tracta amb antibiòtics (és un virus, no un bacteri)."
+          correct: "Resposta matisada i correcta. La transmissió oral és molt baixa (concentracions mínimes a la saliva). Les vies principals són sanguínia i de fluids sexuals (semen, secrecions vaginals). A la lactància, la mare pot transmetre el VIH al nadó. El preservatiu és la millor prevenció.",
+          wrong: "El VIH és un virus (retrovirus RNA) que ataca els limfòcits T. Les vies de transmissió són sanguínia, de fluids sexuals i de mare a fill (no per aire ni saliva en condicions normals). No es tracta amb antibiòtics (és un virus, no un bacteri)."
         }
       },
       {
@@ -76,14 +76,14 @@ export const sa4Avaluacio = {
         text: "Connecta SA3 i SA4: per quina raó el VIH és tan perillós per al sistema immunitari? Quines cèl·lules destrueix i quines conseqüències té?",
         options: [
           "El VIH destrueix els limfòcits T CD4+ (T auxiliars), que coordinen tota la resposta immunitària adaptativa. Sense ells, el cos no pot fabricar anticossos ni destruir cèl·lules infectades → vulnerable a infeccions oportunistes (pneumònies, fongs) que normalment no afecten persones immunocompetents",
-          "El VIH destrueix els macrò-fags, que son la primera línia de defensa innata",
+          "El VIH destrueix els macrò-fags, que són la primera línia de defensa innata",
           "El VIH destrueix els eritròcits, causant una anèmia greu similar a la del Marc Fontana (SA2)",
           "El VIH no afecta el SI directament, sinó que causa una febre molt alta que mata les cèl·lules immunitàries"
         ],
         correct: 0,
         feedback: {
           correct: "Exacte. El VIH infecta i destrueix específicament els limfòcits T CD4+ (T auxiliars). De SA3: els limfòcits T coordinen la resposta adaptativa (activen limfòcits B per fer anticossos i T citotòxics per destruir cèl·lules infectades). Sense ells, el SI adaptatiu col·lapsa → SIDA = immunodeficiència adquirida.",
-          wrong: "Connecta amb SA3: els limfòcits T son els 'directors' de la immunitat adaptativa. El VIH ataca específicament els T CD4+ (auxiliars). Si desapareixen, qui organitza la producció d'anticossos? Resultat: el cos queda indefens davant infeccions que normalment hauria de controlar sense problema."
+          wrong: "Connecta amb SA3: els limfòcits T són els 'directors' de la immunitat adaptativa. El VIH ataca específicament els T CD4+ (auxiliars). Si desapareixen, qui organitza la producció d'anticossos? Resultat: el cos queda indefens davant infeccions que normalment hauria de controlar sense problema."
         }
       }
     ]

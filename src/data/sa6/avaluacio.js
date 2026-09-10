@@ -5,13 +5,13 @@ export const sa6Avaluacio = {
     { id: 'c1', oa: 'OA1', text: "Sé explicar el mecanisme de l'efecte hivernacle natural i com l'activitat humana l'ha amplificat des de la Revolució Industrial (+1,1 °C global fins al 2023)." },
     { id: 'c2', oa: 'OA1', text: "Identifico els tres principals gasos d'efecte hivernacle (CO₂, CH₄, N₂O), la seva font principal i per quina raó s'expressen en CO₂ equivalent (CO₂eq)." },
     { id: 'c3', oa: 'OA1', text: "Llisto almenys 4 conseqüències observables del canvi climàtic amb dades concretes (temperatura, glaceres, nivell del mar, acidificació, fenòmens extrems)." },
-    { id: 'c4', oa: 'OA2', text: "Distingeixo les fonts d'energia renovables de les no renovables, enumero almenys 4 de cada tipus i explico per quina raó les renovables son 'netes' des del punt de vista climàtic (però no des del punt de vista de la fabricació)." },
+    { id: 'c4', oa: 'OA2', text: "Distingeixo les fonts d'energia renovables de les no renovables, enumero almenys 4 de cada tipus i explico per quina raó les renovables són 'netes' des del punt de vista climàtic (però no des del punt de vista de la fabricació)." },
     { id: 'c5', oa: 'OA2', text: "Explico els tres pilars de la transició energètica (descarbonitzar l'electricitat, electrificar l'ús final, millorar l'eficiència) i l'objectiu climàtic dels Acords de París (+1,5 °C màxim)." },
     { id: 'c6', oa: 'OA3', text: "Sé calcular la petjada de carboni d'un aliment (gCO₂eq per ingredient) usant una taula de referència i interpreto per quina raó els aliments d'origen animal tenen generalment una petjada molt major que els vegetals." },
-    { id: 'c7', oa: 'OA3', text: "Explico les 3R per ordre de prioritat ecológica (Reducció → Reutilització → Reciclatge) i argumento per quina raó la reducció és sempre la primera opció." },
-    { id: 'c8', oa: 'OA3', text: "Sé interpretar la petjada ecológica (hectàrees globals per habitant) i la comparo amb la biocapacitat disponible per habitant (1,8 hag). Argumento quin canvi d'hàbit personal tindria l'impacte més gran." },
+    { id: 'c7', oa: 'OA3', text: "Explico les 3R per ordre de prioritat ecològica (Reducció → Reutilització → Reciclatge) i argumento per quina raó la reducció és sempre la primera opció." },
+    { id: 'c8', oa: 'OA3', text: "Sé interpretar la petjada ecològica (hectàrees globals per habitant) i la comparo amb la biocapacitat disponible per habitant (1,8 hag). Argumento quin canvi d'hàbit personal tindria l'impacte més gran." },
     { id: 'c9', oa: 'OA4', text: "Identifico almenys 3 tàctiques de greenwashing (afirmació vaga, compensació parcial, segell inventat, irrelevàncies) en exemples reals i aplico els 4 criteris CE2 (autoria, evidència, transparència, consens) per avaluar una afirmació ambiental." },
-    { id: 'c10', oa: 'OA4', text: "Explico la resolució de l'enigma del bocadillo de pernil: les 4 fonts d'emissió que fan que emeti 5× més CO₂eq que el de formatge fresc i per quina raó les decisions alimentàries son de les accions individuals amb major impacte climàtic." }
+    { id: 'c10', oa: 'OA4', text: "Explico la resolució de l'enigma del bocadillo de pernil: les 4 fonts d'emissió que fan que emeti 5× més CO₂eq que el de formatge fresc i per quina raó les decisions alimentàries són de les accions individuals amb major impacte climàtic." }
   ],
 
   // Cas de transferència: la sequera a Catalunya — context nou, diferent de l'enigma del bocadillo.
@@ -27,7 +27,7 @@ export const sa6Avaluacio = {
         options: [
           "L'augment de temperatura accelera l'evaporació de l'aigua (dels rius, embassaments i sòl), incrementa l'evapotranspiració de les plantes i fa que les precipitacions siguin més irregulars (pluges torrencials curtes vs. períodes secs llargs). Evidències: reducció del 10-20% de les precipitacions a la conca mediterrània en els darrers 50 anys (IPCC AR6); augment del 30% de la freqüència de sequeres extremes al sud d'Europa des del 1980; reducció del 20% del flux dels rius catalans en els darrers 30 anys (Agència Catalana de l'Aigua)",
           "El canvi climàtic augmenta les precipitacions arreu del planeta. Si plou més, no hi hauria sequera. La relació entre canvi climàtic i sequera és una hipòtesi controvertida sense consens científic",
-          "Les sequeres a Catalunya son fenòmens naturals cíclics sense relació amb el canvi climàtic. El clima de la Mediterrània sempre ha tingut episodis de sequera cada 30-40 anys",
+          "Les sequeres a Catalunya són fenòmens naturals cíclics sense relació amb el canvi climàtic. El clima de la Mediterrània sempre ha tingut episodis de sequera cada 30-40 anys",
           "L'augment de temperatura afecta les precipitacions de forma uniforme: redueix les precipitacions arreu del planeta. L'única solució és dessalar l'aigua del mar"
         ],
         correct: 0,
@@ -59,7 +59,7 @@ export const sa6Avaluacio = {
         options: [
           "Autoria: l'empresa embotelladora és directament interessada en vendre el producte → credibilitat baixa. Evidència: l'afirmació no aporta dades sobre la petjada de carboni de la producció, transport i embalatge de l'ampolla → falta d'evidència. Transparència: no declara l'impacte total (plàstic, transport, extracció de l'aqüífer) → ocultació. Consens: envassar aigua en plàstic d'un aqüífer en sequera NO és la solució recomanada pels experts en gestió hídrica → contradiu el consens. Veredicte: greenwashing clar (afirmació vaga + irrelevàncies)",
           "L'empresa té raó: l'aigua embotellada és més segura que la de l'aixeta, i en una situació d'emergència hídrica, qualsevol solució és bona. La credibilitat és alta perquè l'empresa té interessos en el sector de l'aigua",
-          "No es pot avaluar l'afirmació sense veure el balanç complet de l'empresa. Totes les afirmacions empresarials son sospitoses per defecte",
+          "No es pot avaluar l'afirmació sense veure el balanç complet de l'empresa. Totes les afirmacions empresarials són sospitoses per defecte",
           "L'empresa és fiable perquè les aigües minerals estan regulades per llei i les fonts naturals no s'esgoten mai"
         ],
         correct: 0,
@@ -75,7 +75,7 @@ export const sa6Avaluacio = {
         options: [
           "Reducció del 25% de la producció d'una granja de 5.000 porcs = 1.250 porcs menys/cicle (6 mesos). 1 porc ≈ 250 kg de carn → 1.250 porcs = 312.500 kg menys de carn de porc. Petjada de porc ≈ 6 kg CO₂eq/kg → estalvi ≈1.875.000 kg CO₂eq (1.875 tones CO₂eq) per cicle. Argument: les restriccions haurien de ser proporcionals a l'impacte hídric, no iguals en %. La indústria usa molt més volum total d'aigua que els particulars, però les restriccions iguals en % redueixen menys en termes absoluts la seva responsabilitat proporcional",
           "Les restriccions han de ser iguals per a particulars i indústria perquè la llei ha de tractar tothom per igual. La indústria ja paga per l'aigua que usa, de manera que no cal cap restricció addicional",
-          "Les restriccions a les granges porcines no tindrien cap efecte en les emissions de CO₂ perquè la petjada de carboni de la carn és independent de la quantitat d'agua usada per produir-la",
+          "Les restriccions a les granges porcines no tindrien cap efecte en les emissions de CO₂ perquè la petjada de carboni de la carn és independent de la quantitat d'aigua usada per produir-la",
           "La reducció de la producció de pernil augmentaria les emissions de CO₂ perquè si els consumidors no troben pernil compraran vedella, que emet 4 vegades més CO₂"
         ],
         correct: 0,

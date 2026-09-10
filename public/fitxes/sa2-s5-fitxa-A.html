@@ -266,7 +266,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="header-subtitle" contenteditable="true">Avui resolem els dos enigmes de la paret — i les dades les poses tu</div>
   </div>
   <div class="header-right">
-    <div class="logo-box"><img src="../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
+    <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
     <div class="header-meta" contenteditable="true">3r ESO</div>
   </div>
 </div>
@@ -277,7 +277,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <span class="badge deletable" contenteditable="true">Autònom<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <span class="temps-badge deletable">⏱️ 2 h · 120 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
-  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió A">A</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió A — Ampliació">A</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
 </div>
 
 <!-- ══ OA ══ -->
@@ -402,7 +402,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <p contenteditable="true">La sang no fabrica l'O₂: el recull. Ho fa als <strong>alvèols</strong>, on la paret és tan prima que l'O₂ hi passa a la sang i el CO₂ fa el camí contrari. Per això l'esforç accelera <em>dos</em> sistemes alhora, el cor i la respiració.</p>
     <figure class="deletable" style="position:relative;margin:6px auto;text-align:center;max-width:330px">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <img src="img/s5_respiratori_alveols.png" alt="De la boca als alveols: on passa l'oxigen a la sang" style="max-height:250px;max-width:100%;border:1px solid var(--rule);border-radius:10px;background:#fff" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <img src="s5_respiratori_alveols.png" alt="De la boca als alveols: on passa l'oxigen a la sang" style="max-height:250px;max-width:100%;border:1px solid var(--rule);border-radius:10px;background:#fff" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <div style="display:none;padding:24px;border:1px dashed #bbb;border-radius:10px;color:#888;font-size:11px">🖼️ Aparell respiratori i alvèols</div>
       <figcaption contenteditable="true" style="font-size:10px;color:var(--muted);margin-top:4px;line-height:1.4">Figura. El camí de l'aire: tràquea → bronquis → bronquíols → <strong>alvèols</strong>. A la dreta, un alvèol enganxat a un capil·lar: la sang hi arriba <strong>lila</strong> (sense O₂) i en surt <strong>vermella</strong> (amb O₂).</figcaption>
     </figure><p style="font-size:11px;margin-top:4px" contenteditable="true">① La paret d'un alvèol té el gruix d'<strong>una sola cèl·lula</strong>, i els dos pulmons en tenen uns <strong>300 milions</strong>. Explica com aquestes dues dades resolen el mateix problema.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="font-size:11px;margin-top:4px" contenteditable="true">② Corrent pots multiplicar per 4 la sang que el cor mou cada minut, però la superfície dels teus alvèols no canvia gens. Quin dels dos sistemes marca, doncs, el teu límit? Argumenta-ho.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
@@ -636,7 +636,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 </div>
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n4" style="background:var(--yellow)">★</div><div><div class="stitle" contenteditable="true">Repte — el cor com a bomba, amb números</div><div class="sdesc" contenteditable="true">Individual · si acabes abans · Aquí no hi ha cap caixa que et doni la resposta</div></div></div>
+  <div class="section-header"><div class="snum n4" style="background:var(--yellow)">★</div><div><div class="stitle" contenteditable="true">Ampliació — el cor com a bomba, amb números</div><div class="sdesc" contenteditable="true">Individual · si acabes abans · Aquí no hi ha cap caixa que et doni la resposta</div></div></div>
   <div class="divider"></div>
 
   <div class="card deletable">
@@ -735,7 +735,17 @@ function flattenDoc(){
   }
   const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
 }
-function extractFlow(){ FLOW = Array.from(document.getElementById('doc').children); }
+function extractFlow(){
+  FLOW = Array.from(document.getElementById('doc').children);
+  // Posicio original de cada fill de seccio: el paginador la fa servir per
+  // reassemblar en ordre una seccio que ha partit (sense aixo, cada
+  // repaginacio la desordena i separa una llegenda del seu dibuix).
+  FLOW.forEach(function(b){
+    if(b.classList && b.classList.contains('section')){
+      Array.prototype.forEach.call(b.children, function(k,i){ k._ord = i; });
+    }
+  });
+}
 function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
 
 function saveCaret(){
@@ -770,7 +780,15 @@ function repaginate(){
     sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
   }
   // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
-  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } } });
+  var _origens=[];
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
+  // ...i es torna l'ordre original: els fills reassemblats s'afegien al final.
+  _origens.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
+  });
   function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn') && !c.classList.contains('move-ctrl'); }); }
   function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
   function trySplitSection(sec){

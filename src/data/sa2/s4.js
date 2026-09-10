@@ -125,7 +125,7 @@ export const sa2s4 = {
     { id: "q2", type: "open", text: "Si el septe interventricular tingués un forat (comunicació interventricular), cap a quin costat passaria la sang pel forat i quina part del cor hauria de moure més sang del que li toca? Digues també què NO canviaria.", hint: "Un dels dos ventricles empeny molt més fort que l'altre, i la sang sempre va del lloc amb més pressió al lloc amb menys. Pensa què implica això per a la sang que surt cap al cos." },
     { id: "q3", type: "open", text: "Marc Fontana té anèmia. Usa el que has vist avui per explicar per quina raó el seu cor ha de treballar més dur.", hint: "Si cada litre de sang porta menys O₂ (poca hemoglobina), com pot el cor fer arribar el mateix O₂ als músculs? Què ha d'augmentar?" }
   ],
-  homework: { description: "Mesura't el pols en repòs (15 s × 4) i porta la xifra apuntada a la fitxa per a la Sessió 5. Versió A: pren-te'l també just després de pujar tres pisos i porta les dues xifres.", deadline: null },
+  homework: { description: "Mesura't el pols en repòs (15 s × 4) i porta la xifra apuntada a la fitxa per a la Sessió 5. Versió A: pren-te'l també just després de pujar tres pisos i porta les dues xifres." },
   recoveryInstructions: [
     "Mira el vídeo de dissecció de cor de porc (link a la secció EXPLICA, ~15 min)",
     "Omple la fitxa S4 seccions 1–4 basant-te en el vídeo",

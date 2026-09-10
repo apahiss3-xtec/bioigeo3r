@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sessió 4 · El cor per dins (dissecció) — IE Temple</title>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@500;600;700&amp;display=swap" rel="stylesheet">
 <style>
 
 :root {
@@ -26,7 +26,7 @@
   --green:   #4a9e5c; --green-tint:   #eaf4ec;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:13px; line-height:1.5; }
+body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:14.5px; line-height:1.5; }
 
 #toolbar { position:fixed; top:0; left:0; right:0; z-index:9000; background:#2d2347; display:flex; gap:6px; align-items:center; padding:6px 12px; box-shadow:0 2px 10px rgba(0,0,0,.25); }
 .tb-btn { font-family:'Inter',sans-serif; font-size:12px; font-weight:600; color:#fff; background:rgba(255,255,255,.12); border:none; cursor:pointer; padding:6px 11px; border-radius:7px; }
@@ -34,11 +34,11 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .tb-btn.active { background:var(--purple); }
 .tb-title { font-family:'Inter',sans-serif; font-size:11px; color:#cfc6ec; margin-left:auto; letter-spacing:.04em; }
 
-.page-wrap { margin:48px auto 40px; }
+.page-wrap { margin:29px auto 24px; }
 #doc { display:none; }
 #sheets { display:flex; flex-direction:column; align-items:center; gap:26px; }
-.sheet { width:794px; min-height:1123px; background:var(--surface); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.16); overflow:visible; padding-bottom:26px; }
-.sheet-body { padding:40px 18px 8px; position:relative; overflow:visible; }
+.sheet { width:794px; min-height:1123px; background:var(--surface); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.16); overflow:visible; padding-bottom:16px; }
+.sheet-body { padding:24px 18px 5px; position:relative; overflow:visible; }
 .sheet-foot { position:absolute; left:0; right:0; bottom:0; height:26px; display:flex; justify-content:space-between; align-items:center; padding:0 22px; font-family:'Inter',sans-serif; font-size:8px; font-weight:600; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; border-top:.5px solid var(--rule); background:var(--surface); }
 .sheet-body > .header-band { margin:-40px -18px 0; }
 .sheet-body > .nivell-strip { margin:0 -18px; }
@@ -57,97 +57,97 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .logo-box img { height:84px; display:block; }
 .header-meta { font-family:'Inter',sans-serif; font-size:8px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; opacity:.82; text-align:right; line-height:1.4; }
 
-.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:6px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
-.badge { font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
-.temps-badge { font-size:10px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
-.nom-field { font-size:11px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:4px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
+.badge { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
+.temps-badge { font-size:11px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
+.nom-field { font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
 .nom-field:first-of-type { margin-left:auto; }
-.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:13.5px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
 .input-span.data-span { min-width:70px; }
 .nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(123,104,200,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); vertical-align:middle; margin-left:4px; flex-shrink:0; }
 
-.oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin:12px 18px 4px; position:relative; }
-.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:13px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:6px; }
+.oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:6px 14px 7px; margin:7px 18px 2px; position:relative; }
+.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14.5px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:4px; }
 .oa-list { margin:0; padding-left:18px; list-style:none; }
-.oa-list li { font-size:11px; line-height:1.5; color:var(--ink-2); margin-bottom:3px; padding-left:4px; }
+.oa-list li { font-size:13.5px; line-height:1.5; color:var(--ink-2); margin-bottom:2px; padding-left:4px; }
 .oa-list li::before { content:"\2610 "; color:var(--purple); font-weight:700; margin-left:-18px; margin-right:4px; }
 
-.content { padding:4px 18px 14px; }
-.section { margin-top:12px; position:relative; }
-.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
-.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.content { padding:2px 18px 8px; }
+.section { margin-top:7px; position:relative; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:5px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:14.5px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .snum.n0 { background:var(--muted); } .snum.n1 { background:var(--orange); } .snum.n2 { background:var(--teal); }
 .snum.n3 { background:var(--art); } .snum.n4 { background:var(--purple-ink); }
-.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
-.sdesc { font-size:10px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
-.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+.stitle { font-size:16px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:11px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:6px; }
 
-.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
-.previ-box p { font-size:12px; }
-.previ-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch; margin-top:8px; }
-.draw-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:9px 12px; display:flex; flex-direction:column; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:5px 12px; }
+.previ-box p { font-size:14px; }
+.previ-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch; margin-top:5px; }
+.draw-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:5px 12px; display:flex; flex-direction:column; }
 .draw-box .card-label { color:var(--purple-ink); }
-.draw-area { flex:1 1 auto; min-height:240px; border:1.5px dashed var(--rule-dark); border-radius:8px; background:#fff; margin-top:6px; display:flex; align-items:flex-start; justify-content:flex-end; }
+.draw-area { flex:1 1 auto; min-height:240px; border:1.5px dashed var(--rule-dark); border-radius:8px; background:#fff; margin-top:4px; display:flex; align-items:flex-start; justify-content:flex-end; }
 .draw-area .draw-hint { font-size:9px; color:#c0b8d8; font-style:italic; padding:5px 8px; user-select:none; pointer-events:none; }
-.wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:6px; background:#fff; outline:none; padding:3px 4px; }
-.pista { font-size:10px; color:var(--muted); font-style:italic; margin:4px 0 2px; }
-.card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:10px 12px; margin-bottom:8px; }
+.wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:4px; background:#fff; outline:none; padding:2px 4px; }
+.pista { font-size:11px; color:var(--muted); font-style:italic; margin:2px 0 2px; }
+.card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:6px 12px; margin-bottom:5px; }
 .card.orange { border-color:var(--orange); background:var(--orange-tint); }
 .card.teal { border-color:var(--teal); background:var(--teal-tint); }
 .card.rose { border-color:var(--rose); background:var(--rose-tint); }
 .card.yellow { border-color:var(--yellow); background:var(--yellow-tint); }
-.card-label { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+.card-label { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
 
-.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:5px 12px; margin:5px 0; }
 .connexio-icon { font-size:24px; flex-shrink:0; }
-.connexio-text { font-size:11px; line-height:1.4; }
+.connexio-text { font-size:13.5px; line-height:1.5; }
 .connexio-text strong { color:var(--purple-ink); }
 
-.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
-.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:4px 10px; margin-bottom:6px; }
+.word-bank-title { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:2px; }
 .chips { display:flex; flex-wrap:wrap; gap:4px; }
-.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.chip { font-size:13.5px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
 
-.data-table { width:100%; border-collapse:collapse; font-size:11px; }
-.data-table th { background:var(--purple-ink); color:#fff; padding:5px 8px; text-align:left; font-size:9px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+.data-table th { background:var(--purple-ink); color:#fff; padding:3px 8px; text-align:left; font-size:11px; letter-spacing:.05em; text-transform:uppercase; }
 .data-table th:first-child { border-radius:5px 0 0 0; }
 .data-table th:last-child { border-radius:0 5px 0 0; }
-.data-table td { padding:5px 8px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table td { padding:3px 8px; border-bottom:1px solid var(--rule); vertical-align:middle; }
 .data-table tr:nth-child(even) td { background:var(--purple-tint); }
 .fill-cell { display:block; width:100%; min-height:22px; border-bottom:1.5px solid #C8C2DD; background:#fff; outline:none; padding:2px 3px; }
-.hint-cell { font-size:10px; color:var(--muted); }
-.yn-opt { font-size:11px; display:inline-flex; align-items:center; gap:3px; }
+.hint-cell { font-size:11px; color:var(--muted); }
+.yn-opt { font-size:13.5px; display:inline-flex; align-items:center; gap:3px; }
 .chk-sq { width:12px; height:12px; border:1.5px solid var(--rule-dark); border-radius:2px; flex-shrink:0; display:inline-block; print-color-adjust:exact; }
 
-.blank { display:inline-block; border:1px solid var(--rule); border-bottom:1.5px solid #C8C2DD; border-radius:3px 3px 0 0; vertical-align:bottom; margin:0 3px; height:auto; min-height:1.45em; line-height:1.45; padding:0 5px; background:#fff; outline:none; }
+.blank { display:inline-block; border:1px solid var(--rule); border-bottom:1.5px solid #C8C2DD; border-radius:3px 3px 0 0; vertical-align:bottom; margin:0 3px; height:auto; min-height:1.45em; line-height:1.5; padding:0 5px; background:#fff; outline:none; }
 .blank-s { min-width:60px; } .blank-m { min-width:100px; } .blank-l { min-width:140px; } .blank-xl { min-width:200px; }
-.frase-completar { font-size:11.5px; line-height:2.3; margin-bottom:4px; }
+.frase-completar { font-size:13.5px; line-height:2.3; margin-bottom:2px; }
 
-.info-box { background:#fff; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:8px 12px; margin:8px 0; position:relative; }
-.info-label { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
-.info-box p { font-size:11px; line-height:1.5; margin-bottom:3px; }
-.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0 3px; }
-.chain-chip { font-size:10.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
-.chain-arrow { color:var(--purple); font-weight:900; font-size:13px; }
+.info-box { background:#fff; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:5px 12px; margin:5px 0; position:relative; }
+.info-label { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:2px; }
+.info-box p { font-size:13.5px; line-height:1.5; margin-bottom:2px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:4px 0 2px; }
+.chain-chip { font-size:13.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:14.5px; }
 
-.circ-row { font-size:11.5px; line-height:2.1; margin-bottom:3px; }
+.circ-row { font-size:13.5px; line-height:2.1; margin-bottom:2px; }
 .circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:#fff; }
 
-.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; position:relative; }
-.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
-.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:5px 12px; margin:5px 0; position:relative; }
+.epist-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
+.epist-text { font-size:13.5px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
 
-.meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin-top:12px; position:relative; }
-.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:12px; font-weight:900; color:var(--purple-ink); margin-bottom:8px; }
-.meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:5px; }
+.meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:6px 14px 7px; margin-top:7px; position:relative; }
+.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14px; font-weight:900; color:var(--purple-ink); margin-bottom:5px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:3px; }
 .meta-oa-check { width:14px; height:14px; flex-shrink:0; border:1.5px solid var(--purple); border-radius:3px; margin-top:1px; print-color-adjust:exact; }
-.meta-oa-text { font-size:10.5px; color:var(--ink-2); line-height:1.4; }
-.meta-open { margin-top:8px; padding-top:8px; border-top:1px solid var(--rule-dark); }
-.meta-open-label { font-size:10px; font-weight:700; color:var(--muted); margin-bottom:3px; }
+.meta-oa-text { font-size:13.5px; color:var(--ink-2); line-height:1.5; }
+.meta-open { margin-top:5px; padding-top:5px; border-top:1px solid var(--rule-dark); }
+.meta-open-label { font-size:11px; font-weight:700; color:var(--muted); margin-bottom:2px; }
 
-.tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:10px 12px; margin-top:10px; position:relative; }
+.tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:6px 12px; margin-top:6px; position:relative; }
 
-.footer { margin-top:14px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer { margin-top:8px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:4px; }
 .footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
 .footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
 
@@ -168,46 +168,46 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .wline-del { display:none; position:absolute; top:50%; right:-7px; transform:translateY(-50%); width:16px; height:16px; background:var(--rose); color:#fff; border-radius:50%; font-size:10px; line-height:16px; text-align:center; cursor:pointer; z-index:40; box-shadow:0 1px 3px rgba(0,0,0,.3); user-select:none; }
 .wline:hover > .wline-del { display:block; }
 
-.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; }
+.spacer-block { position:relative; height:48px; margin:2px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; }
 .spacer-label { font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
 
-.mt8 { margin-top:8px; } .bold { font-weight:700; } .small { font-size:10px; color:var(--muted); }
+.mt8 { margin-top:5px; } .bold { font-weight:700; } .small { font-size:11px; color:var(--muted); }
 
 /* ── Figures de diagrama / fotografia (ancoratge visual) ── */
-.fig-grid { display:grid; gap:10px; margin:8px 0; }
+.fig-grid { display:grid; gap:10px; margin:5px 0; }
 .fig-grid.g2 { grid-template-columns:1fr 1fr; }
 .dfig { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:6px; text-align:center; }
 .dfig img { max-width:100%; max-height:165px; object-fit:contain; display:block; margin:0 auto; }
-.fig-cap { font-size:9px; color:var(--muted); margin-top:4px; line-height:1.3; }
+.fig-cap { font-size:11px; color:var(--muted); margin-top:2px; line-height:1.5; }
 
 
 .figw { position:relative; display:inline-block; line-height:0; }
 .figw img { display:block; max-width:100%; max-height:340px; object-fit:contain; }
 .fig-mark { position:absolute; transform:translate(-50%,-50%); width:19px; height:19px; border-radius:50%;
             background:#fff; border:2.2px solid var(--purple-ink); color:var(--purple-ink);
-            font-family:'Inter',sans-serif; font-weight:800; font-size:11px; line-height:15px; text-align:center;
+            font-family:'Inter',sans-serif; font-weight:800; font-size:13.5px; line-height:15px; text-align:center;
             box-shadow:0 1px 2px rgba(0,0,0,.35); }
 .dfig.tall img { max-height:340px; }
-.fig-legend { font-size:11px; line-height:1.9; padding-left:2px; }
+.fig-legend { font-size:13.5px; line-height:1.9; padding-left:2px; }
 .fig-legend .lg-n { display:inline-block; width:17px; height:17px; border-radius:50%; background:var(--purple-ink);
-            color:#fff; font-family:'Inter',sans-serif; font-weight:800; font-size:10px; line-height:17px;
+            color:#fff; font-family:'Inter',sans-serif; font-weight:800; font-size:11px; line-height:17px;
             text-align:center; margin-right:6px; }
-.fig-legend li { list-style:none; margin-bottom:3px; }
-.figbox { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start; margin:8px 0; }
+.fig-legend li { list-style:none; margin-bottom:2px; }
+.figbox { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start; margin:5px 0; }
 .protocol { counter-reset:pas; }
-.protocol li { list-style:none; font-size:11px; margin-bottom:5px; padding-left:22px; position:relative; }
+.protocol li { list-style:none; font-size:13.5px; margin-bottom:3px; padding-left:22px; position:relative; }
 .protocol li::before { counter-increment:pas; content:counter(pas); position:absolute; left:0; top:1px;
             width:16px; height:16px; border-radius:50%; background:var(--teal); color:#fff;
-            font-family:'Inter',sans-serif; font-weight:700; font-size:10px; line-height:16px; text-align:center; }
-.segur { background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:7px 9px; margin-top:6px; }
-.volta-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; margin:7px 0; }
-.volta-cell { border:1.5px solid var(--rule-dark); border-radius:8px; background:#fff; padding:6px 5px; text-align:center; font-size:10.5px; }
-.volta-num { display:block; width:100%; height:26px; border-bottom:1.5px solid #C8C2DD; margin-bottom:4px; background:#fdfcff; }
-.amp-box { border:2px solid var(--orange); border-left-width:6px; background:var(--orange-tint); border-radius:8px; padding:9px 11px; margin-top:9px; }
-.amp-title { font-family:'Inter',sans-serif; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:#a35a1f; margin-bottom:5px; }
-.dades-taula { width:100%; border-collapse:collapse; font-size:10.5px; margin:6px 0; }
-.dades-taula th, .dades-taula td { border:1px solid var(--rule-dark); padding:3px 5px; text-align:left; }
-.dades-taula th { background:var(--purple-tint); font-family:'Inter',sans-serif; font-size:10px; }
+            font-family:'Inter',sans-serif; font-weight:700; font-size:11px; line-height:16px; text-align:center; }
+.segur { background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:4px 9px; margin-top:4px; }
+.volta-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; margin:4px 0; }
+.volta-cell { border:1.5px solid var(--rule-dark); border-radius:8px; background:#fff; padding:4px 5px; text-align:center; font-size:13.5px; }
+.volta-num { display:block; width:100%; height:26px; border-bottom:1.5px solid #C8C2DD; margin-bottom:2px; background:#fdfcff; }
+.amp-box { border:2px solid var(--orange); border-left-width:6px; background:var(--orange-tint); border-radius:8px; padding:5px 11px; margin-top:5px; }
+.amp-title { font-family:'Inter',sans-serif; font-size:13.5px; font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:#a35a1f; margin-bottom:3px; }
+.dades-taula { width:100%; border-collapse:collapse; font-size:13.5px; margin:4px 0; }
+.dades-taula th, .dades-taula td { border:1px solid var(--rule-dark); padding:2px 5px; text-align:left; }
+.dades-taula th { background:var(--purple-tint); font-family:'Inter',sans-serif; font-size:11px; }
 
 
 @media print {
@@ -227,6 +227,17 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   .header-emoji-box { background:#ede8f8; }
 }
 
+
+/* ══════════════════════════════════════════════════════════════
+   LLEGIBILITAT-C v1 — llegibilitat de la Versió C (dislèxia). 09/09/2026.
+   Cos en 'Fira Sans Condensed' (mateixa família que l'Extra Condensed
+   de la casa, però amb lletres més obertes i distingibles), interlineat
+   ample i separació de paraules. Titulars, capçalera i peu no es toquen.
+   ══════════════════════════════════════════════════════════════ */
+.sheet-body,#doc{font-family:'Fira Sans Condensed','Fira Sans Extra Condensed',sans-serif;
+  line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
+.sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
+.sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
 </style>
 </head>
 <body>
@@ -253,7 +264,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="header-subtitle" contenteditable="true">Una bomba doble a les teves mans — per quina raó 4 cavitats i no 2</div>
   </div>
   <div class="header-right">
-    <div class="logo-box"><img src="../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
+    <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
     <div class="header-meta" contenteditable="true">3r ESO</div>
   </div>
 </div>
@@ -263,7 +274,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <span class="badge deletable" contenteditable="true">Amb suport visual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <span class="temps-badge deletable">⏱️ 2h total<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
-  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió C">C</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió C — Adaptació">C</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
 </div>
 
 <div class="oa-box deletable">
@@ -280,7 +291,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
 <div class="content">
 
-<div class="word-bank deletable" style="margin-top:10px">
+<div class="word-bank deletable" style="margin-top:6px">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="word-bank-title" contenteditable="true">📖 Vocabulari clau d'avui</div>
   <div class="chips">
@@ -310,8 +321,8 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     </div>
     <div class="previ-box">
       <p class="frase-completar" contenteditable="false">Crec que el cor té <span class="blank blank-s"></span> cavitats (cambres) per dins.</p>
-      <p contenteditable="true" style="font-size:11.5px;margin-top:6px">Hi ha algun punt on la sang neta i la sang bruta es barregen?&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> Sí</span>&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> No</span></p>
-      <p contenteditable="true" style="font-size:11.5px;margin-top:4px">Per què ho creus?</p>
+      <p contenteditable="true" style="font-size:13.5px;margin-top:4px">Hi ha algun punt on la sang neta i la sang bruta es barregen?&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> Sí</span>&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> No</span></p>
+      <p contenteditable="true" style="font-size:13.5px;margin-top:2px">Per què ho creus?</p>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     </div>
   </div>
@@ -338,8 +349,8 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card teal mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">◯ Encercla l'opció correcta i digues per què</div>
-    <p style="font-size:11px" contenteditable="true">Les artèries coronàries porten sang <span class="circ-opt">al múscul del propi cor</span> <span class="circ-opt">als pulmons</span>.</p>
-    <p style="font-size:11px" contenteditable="true">Per què ho has triat?</p>
+    <p style="font-size:13.5px" contenteditable="true">Les artèries coronàries porten sang <span class="circ-opt">al múscul del propi cor</span> <span class="circ-opt">als pulmons</span>.</p>
+    <p style="font-size:13.5px" contenteditable="true">Per què ho has triat?</p>
 <div class="wline" contenteditable="true"></div>
   </div>
 </div>
@@ -351,7 +362,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card teal deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🧪 Material i com fer el tall — llegiu-ho TOT abans de començar</div>
-    <p style="font-size:11px" contenteditable="true"><strong>Material per grup:</strong> 1 cor de porc o de xai · safata de dissecció · guants · tisores de punta rodona (o bisturí) · pinces · 4 etiquetes de colors · paper de cuina.</p>
+    <p style="font-size:13.5px" contenteditable="true"><strong>Material per grup:</strong> 1 cor de porc o de xai · safata de dissecció · guants · tisores de punta rodona (o bisturí) · pinces · 4 etiquetes de colors · paper de cuina.</p>
     <ol class="protocol">
       <li contenteditable="true">Poseu-vos els <strong>guants</strong>. El cor es queda SEMPRE dins de la safata.</li>
       <li contenteditable="true">Abans de tallar, feu la secció 1: mireu-lo per fora i toqueu-lo.</li>
@@ -363,21 +374,21 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
       <li contenteditable="true">En acabar: el cor a la bossa de residus, safata i eines a la pica, guants fora i <strong>mans amb sabó</strong>.</li>
     </ol>
     <div class="segur">
-      <p style="font-size:11px" contenteditable="true"><strong>⚠️ Seguretat:</strong> talleu sempre <strong>allunyant</strong> el fil de les vostres mans i de les dels companys. Mai amb el cor a la mà: sempre a la safata. Res de menjar ni beure a la taula. Si us talleu, aviseu de seguida.</p>
+      <p style="font-size:13.5px" contenteditable="true"><strong>⚠️ Seguretat:</strong> talleu sempre <strong>allunyant</strong> el fil de les vostres mans i de les dels companys. Mai amb el cor a la mà: sempre a la safata. Res de menjar ni beure a la taula. Si us talleu, aviseu de seguida.</p>
     </div>
   </div><div class="fig-grid g2"><div class="dfig tall deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><img src="disseccio_img_tall_ventricles.png" alt="Les dues línies de punts marquen els DOS talls que fareu: un per obrir cada ventricle. En obrir-los tots dos podreu comparar el gruix de les dues parets — i descobrir quin dels dos és el ventricle esquerre." onerror="this.style.display='none'"><div class="fig-cap" contenteditable="true">Les dues línies de punts marquen els DOS talls que fareu: un per obrir cada ventricle. En obrir-los tots dos podreu comparar el gruix de les dues parets — i descobrir quin dels dos és el ventricle esquerre.</div></div><div class="dfig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><img src="valvules_MUT.png" alt="Com funciona una vàlvula: quan està oberta (esquerra) deixa passar la sang; quan està tancada (dreta) no la deixa tornar enrere. És una porta d'un sol sentit." onerror="this.style.display='none'"><div class="fig-cap" contenteditable="true">Com funciona una vàlvula: quan està oberta (esquerra) deixa passar la sang; quan està tancada (dreta) no la deixa tornar enrere. És una porta d'un sol sentit.</div></div></div>
   <div class="info-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="info-label" contenteditable="true">📖 Per llegir — què hi trobaràs a dins</div>
     <p contenteditable="true">A dins el cor no és buit: està dividit en <strong>cambres</strong>. N'hi ha <strong>dues a dalt</strong>, que reben la sang que torna al cor: es diuen <strong>aurícules</strong>. I <strong>dues a baix</strong>, més grosses i musculoses, que l'expulsen: es diuen <strong>ventricles</strong>.</p>
-    <p contenteditable="true" style="margin-top:4px">Pel mig hi ha una paret sencera, el <strong>septe</strong> (també se'n diu envà), que separa el costat dret del costat esquerre. Com que és sencera, <strong>la sang d'un costat no passa a l'altre</strong>. I entre les cambres hi ha les <strong>vàlvules</strong>: portes que només s'obren en un sentit.</p>
+    <p contenteditable="true" style="margin-top:2px">Pel mig hi ha una paret sencera, el <strong>septe</strong> (també se'n diu envà), que separa el costat dret del costat esquerre. Com que és sencera, <strong>la sang d'un costat no passa a l'altre</strong>. I entre les cambres hi ha les <strong>vàlvules</strong>: portes que només s'obren en un sentit.</p>
   </div>
 
   <div class="info-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="info-label" contenteditable="true">📖 Per llegir — d'on surt el so «lub-dub»</div>
     <p contenteditable="true">Quan escoltes un batec no sents un cop, sinó dos: <strong>lub — dub</strong>. El so no el fa la sang movent-se: el fan <strong>les vàlvules en tancar-se de cop</strong>, com una porta que peta.</p>
-    <p contenteditable="true" style="margin-top:4px">El <strong>lub</strong> són les vàlvules d'<strong>entrada</strong> (les que hi ha entre cada aurícula i el seu ventricle) quan es tanquen, just quan el ventricle comença a estrènyer. El <strong>dub</strong> són les vàlvules de <strong>sortida</strong> (a la boca de l'aorta i de l'artèria pulmonar) quan es tanquen, just quan el ventricle acaba d'estrènyer.</p>
+    <p contenteditable="true" style="margin-top:2px">El <strong>lub</strong> són les vàlvules d'<strong>entrada</strong> (les que hi ha entre cada aurícula i el seu ventricle) quan es tanquen, just quan el ventricle comença a estrènyer. El <strong>dub</strong> són les vàlvules de <strong>sortida</strong> (a la boca de l'aorta i de l'artèria pulmonar) quan es tanquen, just quan el ventricle acaba d'estrènyer.</p>
   </div>
   <div class="card teal deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -391,10 +402,10 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">◯ Encercla l'opció correcta i digues per què</div>
-    <p style="font-size:11px" contenteditable="true">Per funcionar bé, el septe ha de tenir <span class="circ-opt">un forat petit</span> <span class="circ-opt">cap forat</span>.</p>
-    <p style="font-size:11px" contenteditable="true">Per què ho has triat?</p>
+    <p style="font-size:13.5px" contenteditable="true">Per funcionar bé, el septe ha de tenir <span class="circ-opt">un forat petit</span> <span class="circ-opt">cap forat</span>.</p>
+    <p style="font-size:13.5px" contenteditable="true">Per què ho has triat?</p>
 <div class="wline" contenteditable="true"></div>
-  <div class="draw-box deletable" style="margin-top:8px">
+  <div class="draw-box deletable" style="margin-top:5px">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">✏️ Dibuixa el cor OBERT tal com el veus ara i posa-hi els noms de totes les cavitats que hi trobis</div>
     <p class="pista" contenteditable="true">Escriu el nom al costat de cada cambra, amb una fletxa. Si no recordes un nom, mira el vocabulari de la primera pàgina.</p>
@@ -411,14 +422,14 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="info-label" contenteditable="true">📖 Per llegir — un múscul es fa fort segons la feina que fa</div>
     <p contenteditable="true">Pensa en la teva cama: el múscul de la cuixa és molt més gros que el del dit petit, perquè ha d'empènyer molt més pes. Amb el cor passa el mateix: <strong>el costat que ha d'empènyer la sang més lluny té la paret més gruixuda</strong>.</p>
-    <p contenteditable="true" style="margin-top:4px">Un dels dos costats del cor fa un viatge molt curt: la sang només ha d'anar fins als pulmons, que són just al costat. L'altre l'ha d'enviar fins al cap i fins als dits dels peus, i tornar.</p>
+    <p contenteditable="true" style="margin-top:2px">Un dels dos costats del cor fa un viatge molt curt: la sang només ha d'anar fins als pulmons, que són just al costat. L'altre l'ha d'enviar fins al cap i fins als dits dels peus, i tornar.</p>
   </div>
   <div class="card teal deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">◯ Toca les dues parets del cor obert i encercla</div>
-    <p style="font-size:11px" contenteditable="true">La paret més gruixuda és la del ventricle <span class="circ-opt">dret</span> <span class="circ-opt">esquerre</span>.</p>
-    <p style="font-size:11px" contenteditable="true">I aquest ventricle envia la sang <span class="circ-opt">als pulmons, que són a prop</span> <span class="circ-opt">a tot el cos, fins als peus</span>.</p>
-    <p style="font-size:11px" contenteditable="true">Explica com ho has decidit tocant el cor:</p>
+    <p style="font-size:13.5px" contenteditable="true">La paret més gruixuda és la del ventricle <span class="circ-opt">dret</span> <span class="circ-opt">esquerre</span>.</p>
+    <p style="font-size:13.5px" contenteditable="true">I aquest ventricle envia la sang <span class="circ-opt">als pulmons, que són a prop</span> <span class="circ-opt">a tot el cos, fins als peus</span>.</p>
+    <p style="font-size:13.5px" contenteditable="true">Explica com ho has decidit tocant el cor:</p>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
 
@@ -442,11 +453,11 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="fig-grid g2">
     <div class="card deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>
       <div class="card-label" contenteditable="true">🅰 Cas Arnau — un forat al septe</div>
-      <p style="font-size:11px" contenteditable="true">L'Arnau té 14 anys i va néixer amb un <strong>forat al septe</strong> que separa els dos ventricles. <em>Símptomes:</em> corrent es queda enrere molt abans que els companys i respira molt de pressa; en repòs està perfectament bé. El metge li sent un <strong>bufec</strong> (un soroll de sang que passa per on no hauria de passar). Els llavis i les ungles li tenen el color normal: <strong>no es posa blau</strong>.</p>
+      <p style="font-size:13.5px" contenteditable="true">L'Arnau té 14 anys i va néixer amb un <strong>forat al septe</strong> que separa els dos ventricles. <em>Símptomes:</em> corrent es queda enrere molt abans que els companys i respira molt de pressa; en repòs està perfectament bé. El metge li sent un <strong>bufec</strong> (un soroll de sang que passa per on no hauria de passar). Els llavis i les ungles li tenen el color normal: <strong>no es posa blau</strong>.</p>
     </div>
     <div class="card deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>
       <div class="card-label" contenteditable="true">🅱 Cas Nadia — coronàries tapades</div>
-      <p style="font-size:11px" contenteditable="true">La Nadia té 58 anys i té les <strong>artèries coronàries</strong> parcialment tapades per plaques de greix. <em>Símptomes:</em> quan puja escales li fa un dolor opressiu al pit i s'ha d'aturar; en aturar-se, al cap d'un parell de minuts el dolor desapareix del tot.</p>
+      <p style="font-size:13.5px" contenteditable="true">La Nadia té 58 anys i té les <strong>artèries coronàries</strong> parcialment tapades per plaques de greix. <em>Símptomes:</em> quan puja escales li fa un dolor opressiu al pit i s'ha d'aturar; en aturar-se, al cap d'un parell de minuts el dolor desapareix del tot.</p>
     </div>
   </div>
   <p class="pista" contenteditable="true">Tria UN dels dos casos i respon només aquell.</p>
@@ -454,7 +465,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="info-label" contenteditable="true">📖 Per llegir — què passa de debò a cada cas</div>
     <p contenteditable="true"><strong>Cas A (forat al septe).</strong> El costat esquerre empeny molt més fort que el dret (ho has comprovat tocant les parets). Per això, pel forat, la sang passa <strong>de l'esquerre al dret</strong>, i no al contrari. Resultat: una part de la sang que ja portava oxigen <strong>torna als pulmons una segona vegada</strong>, sense haver anat al cos. El costat dret i els pulmons han de moure molta més sang del que els toca, i s'esgoten. Quan l'Arnau corre i necessita molt més cabal, el sistema no dona més de si: es cansa i respira ràpid. <strong>La sang que surt cap al cos porta l'oxigen normal</strong> — per això no es posa blau.</p>
-    <p contenteditable="true" style="margin-top:4px"><strong>Cas B (coronàries tapades).</strong> Les coronàries reguen el <strong>múscul del propi cor</strong>. Si estan mig tapades, en repòs encara hi passa prou sang. Però pujant escales el cor ha de treballar molt més i necessita més oxigen del que li arriba: el múscul es queixa i fa mal. En aturar-se, el cor torna a necessitar poc i el dolor marxa.</p>
+    <p contenteditable="true" style="margin-top:2px"><strong>Cas B (coronàries tapades).</strong> Les coronàries reguen el <strong>múscul del propi cor</strong>. Si estan mig tapades, en repòs encara hi passa prou sang. Però pujant escales el cor ha de treballar molt més i necessita més oxigen del que li arriba: el múscul es queixa i fa mal. En aturar-se, el cor torna a necessitar poc i el dolor marxa.</p>
   </div>
   <p class="pista" contenteditable="true">Escriu A o B a la primera línia. Paraules per triar a les altres dues: oxigen · miocardi</p>
   <p class="frase-completar" contenteditable="false">He triat el cas <span class="blank blank-s"></span>.</p>
@@ -463,22 +474,22 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card teal mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">◯ Encercla i explica</div>
-    <p style="font-size:11px" contenteditable="true">Els dos casos tenen els símptomes <span class="circ-opt">només quan fan esforç</span> <span class="circ-opt">tot el dia igual</span>.</p>
-    <p style="font-size:11px" contenteditable="true">Per què ho has triat?</p>
+    <p style="font-size:13.5px" contenteditable="true">Els dos casos tenen els símptomes <span class="circ-opt">només quan fan esforç</span> <span class="circ-opt">tot el dia igual</span>.</p>
+    <p style="font-size:13.5px" contenteditable="true">Per què ho has triat?</p>
 <div class="wline" contenteditable="true"></div>
   </div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">✍️ Escriu el teu raonament pas a pas</div>
     <p class="pista" contenteditable="true">Fes servir els 4 passos de sempre. Si et costa començar: «Observo que…», «Em pregunto per quina raó…», «Això té a veure amb…», «Per tant…».</p>
-    <p style="font-size:11px" contenteditable="true">Per quina raó la persona que has triat es troba malament quan fa esforç i bé en repòs?</p>
-    <p style="font-size:11px;font-weight:700;margin-top:5px" contenteditable="true">OBSERVO:</p>
+    <p style="font-size:13.5px" contenteditable="true">Per quina raó la persona que has triat es troba malament quan fa esforç i bé en repòs?</p>
+    <p style="font-size:13.5px;font-weight:700;margin-top:3px" contenteditable="true">OBSERVO:</p>
 <div class="wline" contenteditable="true"></div>
-    <p style="font-size:11px;font-weight:700;margin-top:3px" contenteditable="true">EM PREGUNTO:</p>
+    <p style="font-size:13.5px;font-weight:700;margin-top:2px" contenteditable="true">EM PREGUNTO:</p>
 <div class="wline" contenteditable="true"></div>
-    <p style="font-size:11px;font-weight:700;margin-top:3px" contenteditable="true">CONNECTO:</p>
+    <p style="font-size:13.5px;font-weight:700;margin-top:2px" contenteditable="true">CONNECTO:</p>
 <div class="wline" contenteditable="true"></div>
-    <p style="font-size:11px;font-weight:700;margin-top:3px" contenteditable="true">DEDUEIXO:</p>
+    <p style="font-size:13.5px;font-weight:700;margin-top:2px" contenteditable="true">DEDUEIXO:</p>
 <div class="wline" contenteditable="true"></div>
   </div>
 </div>
@@ -486,7 +497,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="section-header"><div class="snum n5">5</div><div><div class="stitle" contenteditable="true">Posem-ho en comú — es resol el repte del principi</div><div class="sdesc" contenteditable="true">Tota la classe · ⏱️ 10 min + 7 min de full de sortida (te'l dono a part) · Recollida i tancament</div></div></div>
   <div class="divider"></div>
-  <p style="font-size:11px" contenteditable="true">Un portaveu de cada grup diu <strong>una</strong> cosa que ha vist al cor i que no s'esperava. Després tornem a la pregunta del principi: <strong>per quina raó el cor té 4 cavitats i no 2?</strong> Escriu aquí la resposta de la classe, amb les teves paraules:</p>
+  <p style="font-size:13.5px" contenteditable="true">Un portaveu de cada grup diu <strong>una</strong> cosa que ha vist al cor i que no s'esperava. Després tornem a la pregunta del principi: <strong>per quina raó el cor té 4 cavitats i no 2?</strong> Escriu aquí la resposta de la classe, amb les teves paraules:</p>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
 </div>
 <div class="meta-oa-box deletable">
@@ -496,15 +507,15 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="meta-open">
     <div class="meta-open-label" contenteditable="true">🪞 Compara el dibuix de la secció 0 (el cor imaginat) amb el de la secció 2 (el cor real): en què tenies raó? En què t'equivocaves?</div>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <div class="meta-open-label" style="margin-top:6px" contenteditable="true">❓ Encara em pregunto…</div>
+    <div class="meta-open-label" style="margin-top:4px" contenteditable="true">❓ Encara em pregunto…</div>
 <div class="wline" contenteditable="true"></div>
   </div>
 </div>
 <div class="tasca-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="card-label" contenteditable="true">📚 Per a la propera sessió</div>
-  <p style="font-size:12px;font-weight:700;color:var(--purple-ink)" contenteditable="true">La setmana que ve resoldrem l'enigma de la gràfica del cor del Marc Fontana, el corredor. Mesura't el pols en repòs i porta la xifra apuntada aquí.</p>
-  <p class="frase-completar" contenteditable="false" style="margin-top:4px">La meva FC en repòs: <span class="blank blank-s"></span> batecs/min. L'he mesurat a: <span class="blank blank-m"></span> (canell / coll) </p>
+  <p style="font-size:14px;font-weight:700;color:var(--purple-ink)" contenteditable="true">La setmana que ve resoldrem l'enigma de la gràfica del cor del Marc Fontana, el corredor. Mesura't el pols en repòs i porta la xifra apuntada aquí.</p>
+  <p class="frase-completar" contenteditable="false" style="margin-top:2px">La meva FC en repòs: <span class="blank blank-s"></span> batecs/min. L'he mesurat a: <span class="blank blank-m"></span> (canell / coll) </p>
   <p class="small mt8" contenteditable="true">⏱️ 3 min · No cal cap aparell: compta el pols al canell durant 15 segons i multiplica per 4. Fes-ho asseguda i tranquil·la.</p>
 
 </div>
@@ -535,7 +546,17 @@ function flattenDoc(){
   }
   const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
 }
-function extractFlow(){ FLOW = Array.from(document.getElementById('doc').children); }
+function extractFlow(){
+  FLOW = Array.from(document.getElementById('doc').children);
+  // Posicio original de cada fill de seccio: el paginador la fa servir per
+  // reassemblar en ordre una seccio que ha partit (sense aixo, cada
+  // repaginacio la desordena i separa una llegenda del seu dibuix).
+  FLOW.forEach(function(b){
+    if(b.classList && b.classList.contains('section')){
+      Array.prototype.forEach.call(b.children, function(k,i){ k._ord = i; });
+    }
+  });
+}
 function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
 
 function saveCaret(){
@@ -559,7 +580,15 @@ function repaginate(){
   const host=document.getElementById('sheets'); if(!host) return;
   const caret=saveCaret();
   // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
-  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } } });
+  var _origens=[];
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
+  // ...i es torna l'ordre original: els fills reassemblats s'afegien al final.
+  _origens.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
+  });
   FLOW = FLOW.filter(b=>b);
   FLOW.forEach(b=>{ if(b.parentNode) b.parentNode.removeChild(b); });
   host.innerHTML='';

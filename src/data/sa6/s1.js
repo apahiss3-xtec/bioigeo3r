@@ -59,7 +59,7 @@ export const sa6s1 = {
       {
         kind: "write",
         text: "Quines activitats de la teva vida quotidiana creus que generen més CO₂? Llista'n almenys 3 ordenades de major a menor impacte (estimat).",
-        starter: "Les activitats que crec que contaminen més son..."
+        starter: "Les activitats que crec que contaminen més són..."
       }
     ]
   },
@@ -87,7 +87,7 @@ export const sa6s1 = {
       id: "t2",
       apartat: "2",
       heading: "Gasos d'efecte hivernacle (==GEH==): CO₂, CH₄ i N₂O",
-      text: "Els principals ==gasos d'efecte hivernacle|r== (GEH) son: ==CO₂== (diòxid de carboni) — font principal: crema de combustibles fòssils (carbó, petroli, gas natural) i deforestació. Concentració actual: 422 ppm (2024), vs 280 ppm preindustrial. ==CH₄|o== (metà) — font principal: ramaderia (fermentació entèrica del bestiar), abocadors, explotació de gas natural. Potencial d'escalfament 28× el CO₂ en 100 anys. ==N₂O|b== (òxid nitrós) — font principal: adobs nitrogenats (agricultura), ramaderia. Potencial 273×. Per comparar el seu impacte s'usa el ==CO₂ equivalent (CO₂eq)|g==: s'expressa tot en termes de CO₂. Connexió SA5: els GEH alteren el ==cicle del carboni|g== que hem estudiat.",
+      text: "Els principals ==gasos d'efecte hivernacle|r== (GEH) són: ==CO₂== (diòxid de carboni) — font principal: crema de combustibles fòssils (carbó, petroli, gas natural) i deforestació. Concentració actual: 422 ppm (2024), vs 280 ppm preindustrial. ==CH₄|o== (metà) — font principal: ramaderia (fermentació entèrica del bestiar), abocadors, explotació de gas natural. Potencial d'escalfament 28× el CO₂ en 100 anys. ==N₂O|b== (òxid nitrós) — font principal: adobs nitrogenats (agricultura), ramaderia. Potencial 273×. Per comparar el seu impacte s'usa el ==CO₂ equivalent (CO₂eq)|g==: s'expressa tot en termes de CO₂. Connexió SA5: els GEH alteren el ==cicle del carboni|g== que hem estudiat.",
       type: "concept",
       video: "/animacions/sa6-s1-t2.mp4"
     },
@@ -111,7 +111,7 @@ export const sa6s1 = {
       id: "t5",
       apartat: "3",
       heading: "Connexió ==enigma 1==: primera pista — el cicle de vida del pernil",
-      text: "Ara pots entendre la primera pista de l'enigma. Un bocadillo de pernil ibèric (≈80g de pernil) emet ≈500 gCO₂eq, mentre que un de formatge fresc (≈80g) n'emet ≈100 gCO₂eq. Les ==quatre fonts d'emissió|r== del pernil son: 1. El porc produeix ==CH₄ per fermentació entèrica|r== (equivalent a ≈150 gCO₂eq per kg de carn). 2. La producció de ==pinso de cereal|r== per alimentar el porc (elevat ús de terra + adobs N₂O). 3. La ==gestió dels purins|o== de l'explotació porcina. 4. El ==transport i refrigeració|o== de la cadena de distribució. Per contra, el formatge emet menys perquè la vaca la produeix ==llet de forma més eficient|g== que la carn, i el formatge té menys etapes d'emissió. A S2 veurem la connexió amb les fonts d'energia.",
+      text: "Ara pots entendre la primera pista de l'enigma. Un bocadillo de pernil ibèric (≈80g de pernil) emet ≈500 gCO₂eq, mentre que un de formatge fresc (≈80g) n'emet ≈100 gCO₂eq. Les ==quatre fonts d'emissió|r== del pernil són: 1. El porc produeix ==CH₄ per fermentació entèrica|r== (equivalent a ≈150 gCO₂eq per kg de carn). 2. La producció de ==pinso de cereal|r== per alimentar el porc (elevat ús de terra + adobs N₂O). 3. La ==gestió dels purins|o== de l'explotació porcina. 4. El ==transport i refrigeració|o== de la cadena de distribució. Per contra, el formatge emet menys perquè la vaca la produeix ==llet de forma més eficient|g== que la carn, i el formatge té menys etapes d'emissió. A S2 veurem la connexió amb les fonts d'energia.",
       type: "epistemic",
       badge: "🧩 Enigma 1 — primera pista",
       video: "/animacions/sa6-s1-t5.mp4"
@@ -123,7 +123,10 @@ export const sa6s1 = {
     { id: "G2", apartat: "3", title: "Petjada de carboni comparada de 10 categories d'aliments", src: "/images/sa6-g2-petjada-aliments.svg", note: "Gràfic de barres horitzontal: kg CO₂eq per 100g de proteïna. Ordre descendent: vedella, xai, porc, formatge, pollastre, peix, llet, ou, llegums, tofu. Font: Our World in Data / Oxford (Poore & Nemecek 2018)." }
   ],
 
-  fitxaUrl: "/fitxes/sa6-s1-fitxa.pdf", teoriaPdfUrl: null,
+  // Sense fitxa imprimible encara: el PDF que hi havia aquí no existeix a
+  // public/fitxes/. Amb null, la web mostra «la fitxa es reparteix a classe»
+  // en comptes d'un enllaç trencat.
+  fitxaUrl: null, teoriaPdfUrl: null,
 
   fitxaGuide: {
     fitxaName: "Fitxa S1 — L'esmorzar dels meus CO₂",
@@ -154,7 +157,6 @@ export const sa6s1 = {
   homework: {
     description: "Fotografía l'etiqueta de 3 productes de la nevera de casa. Per a cadascun, busca la petjada de carboni aproximada a la taula que t'hem donat. Calcula la petjada total dels 3 productes i pregunta a casa: algú de la família n'és conscient? Porta les fotos i el càlcul a S2.",
     note: "Activitat de camp no delegable a IA: requereix observació i conversa familiar pròpia.",
-    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (efecte hivernacle, gasos GEH, petjada de carboni, impacte de la ramaderia)",

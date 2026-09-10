@@ -25,7 +25,7 @@ export const sa5Avaluacio = {
   // Cobreix OA1 (ecosistema), OA2 (xarxa tròfica + energia), OA3 (relacions + cicle carboni), OA4 (biodiversitat).
   test: {
     context:
-      "Els Ports de Tortosa-Beseit son un dels boscos de pi negre i alzina més ben conservats de Catalunya. El 2023, un incendi va cremar el 15% de la superfície. Dos anys després, investigadors del CREAF observen que: la població de conills ha augmentat un 40% (menys depredadors i menys vegetació alta = més visibilitat per als depredadors = paradoxa). Les àguiles cuabarrades (depredadores de 3r ordre) han abandonat la zona. Els bolets (descomponedors) s'han multiplicat als troncs cremats. La regeneració de l'alzina és molt lenta.",
+      "Els Ports de Tortosa-Beseit són un dels boscos de pi negre i alzina més ben conservats de Catalunya. El 2023, un incendi va cremar el 15% de la superfície. Dos anys després, investigadors del CREAF observen que: la població de conills ha augmentat un 40% (menys depredadors i menys vegetació alta = més visibilitat per als depredadors = paradoxa). Les àguiles cuabarrades (depredadores de 3r ordre) han abandonat la zona. Els bolets (descomponedors) s'han multiplicat als troncs cremats. La regeneració de l'alzina és molt lenta.",
     questions: [
       {
         id: 't1',
@@ -33,7 +33,7 @@ export const sa5Avaluacio = {
         text: "L'incendi ha modificat els components abiòtics del bosc. Esmenta 3 factors abiòtics que han canviat amb l'incendi i explica com cadascun afecta els éssers vius del bosc.",
         options: [
           "Temperatura del sòl (augmenta → mata llavors i bacteris del sòl), llum disponible al sòl (augmenta → afavoreix plantes pioneres helèofites), composició química del sòl (augmenta minerals minerals per la cendra → fertilització temporal però pèrdua de matèria orgànica)",
-          "Només canvia la temperatura; els altres factors abiòtics son independents del foc",
+          "Només canvia la temperatura; els altres factors abiòtics són independents del foc",
           "L'incendi no afecta factors abiòtics, únicament els éssers vius (components biòtics)",
           "Canvia la llum i la humitat, però la composició química del sòl és immutable"
         ],
@@ -49,7 +49,7 @@ export const sa5Avaluacio = {
         text: "Construeix una cadena tròfica de 4 eslabons per al bosc dels Ports i calcula l'energia disponible a cada nivell si els productors capturen 100.000 kcal/any. Per quina raó l'àguila cuabarrada (superdepredadora) és la primera en abandonar la zona?",
         options: [
           "Alzina (100.000 kcal) → Conill (10.000 kcal, 10%) → Guineu (1.000 kcal, 10%) → Àguila (100 kcal, 10%). L'àguila és la primera a patir perquè al 4t nivell tròfic l'energia disponible és ínfima (100 kcal); qualsevol reducció als nivells inferiors provoca la insuficiència d'aliment per mantenir-la",
-          "L'àguila abandona per raons de comportament, no per manca d'energia: les àguiles son sensibles al soroll de l'incendi",
+          "L'àguila abandona per raons de comportament, no per manca d'energia: les àguiles són sensibles al soroll de l'incendi",
           "L'àguila és la primera a patir perquè és la que menys es reprodueix. La regla del 10% no s'aplica als superdepredadors",
           "Al 4t nivell hi ha 50.000 kcal perquè l'energia s'acumula en pujant la cadena"
         ],
@@ -71,8 +71,8 @@ export const sa5Avaluacio = {
         ],
         correct: 0,
         feedback: {
-          correct: "Correcte. Els bolets son heteròtrofs descomponedors: obtenen energia i carboni degradant la matèria orgànica morta. Amb tants troncs cremats disponibles, el seu substrat d'alimentació és abundant. Rol en el cicle del carboni: converteixen la matèria orgànica → CO₂ (retorna a l'atmosfera, disponible per a la fotosíntesi dels nous arbres) + minerals inorgànics (nutrients per al sòl). Son l'engranatge que tanca el cicle i permet la regeneració del bosc.",
-          wrong: "Recorda: els bolets son descomponedors, no productors (no fan fotosíntesi). S'alimenten de matèria orgànica morta (fusta, fulles, cadàvers). En el cicle del carboni, els descomponedors converteixen la matèria orgànica en CO₂ (alliberat a l'atmosfera) i minerals (alliberats al sòl). Sense ells, la biomassa morta s'acumularia i els nutrients no tornarien al sistema."
+          correct: "Correcte. Els bolets són heteròtrofs descomponedors: obtenen energia i carboni degradant la matèria orgànica morta. Amb tants troncs cremats disponibles, el seu substrat d'alimentació és abundant. Rol en el cicle del carboni: converteixen la matèria orgànica → CO₂ (retorna a l'atmosfera, disponible per a la fotosíntesi dels nous arbres) + minerals inorgànics (nutrients per al sòl). Son l'engranatge que tanca el cicle i permet la regeneració del bosc.",
+          wrong: "Recorda: els bolets són descomponedors, no productors (no fan fotosíntesi). S'alimenten de matèria orgànica morta (fusta, fulles, cadàvers). En el cicle del carboni, els descomponedors converteixen la matèria orgànica en CO₂ (alliberat a l'atmosfera) i minerals (alliberats al sòl). Sense ells, la biomassa morta s'acumularia i els nutrients no tornarien al sistema."
         }
       },
       {
@@ -80,15 +80,15 @@ export const sa5Avaluacio = {
         oa: 'OA4',
         text: "L'incendi és una pertorbació natural que ha afectat la biodiversitat dels Ports. Identifica 2 de les amenaces HIPPO presents en aquest cas i proposa 2 mesures de gestió post-incendi que millorarien la recuperació de la biodiversitat.",
         options: [
-          "Amenaces: Hàbitat loss (destrucció temporal de l'hàbitat forestal) i potencialment Invasive species (les zones obertes post-incendi son colonitzades ràpidament per plantes invasores com l'ailant). Mesures: reintroducció de plantes autòctones pioneres (accelera la recuperació de la xarxa tròfica) + control d'espècies invasores a les zones obertes (evita que monopolitzin el sòl nu)",
+          "Amenaces: Hàbitat loss (destrucció temporal de l'hàbitat forestal) i potencialment Invasive species (les zones obertes post-incendi són colonitzades ràpidament per plantes invasores com l'ailant). Mesures: reintroducció de plantes autòctones pioneres (accelera la recuperació de la xarxa tròfica) + control d'espècies invasores a les zones obertes (evita que monopolitzin el sòl nu)",
           "L'incendi no entra a cap categoria HIPPO perquè és un fenomen natural. Les mesures han de ser únicament esperar la regeneració espontània",
           "Amenaces: únicament Pollution (el fum de l'incendi). Mesures: apagar l'incendi i plantar arbres exòtics de creixement ràpid (eucaliptus) per recuperar la cobertura vegetal ràpidament",
           "L'única amenaça és la sobreexplotació (Overexploitation) perquè els animals han perdut el seu aliment"
         ],
         correct: 0,
         feedback: {
-          correct: "Excel·lent anàlisi. L'incendi activa especialment Habitat loss (la destrucció de l'hàbitat, tot i que temporal, és una de les 5 amenaces HIPPO). Les zones obertes post-incendi son un terreny abonable per a espècies invasores (Invasive species), ja que les autòctones triguen més a regenerar-se. Les mesures proposades son ecològicament sòlides: afavorir les plantes autòctones pioneres (jara, romaní, garriga) permet que la xarxa tròfica es reconstrueixi de baix a dalt; controlar les invasores evita que bloquegin la regeneració del bosc climàcic (alzinar).",
-          wrong: "Recorda el marc HIPPO: Habitat loss / Invasive species / Pollution / Population (sobreexplotació) / Overexploitation. Un incendi que destrueix l'hàbitat forestal entra clarament a Habitat loss. A més, les zones obertes post-incendi son molt vulnerables a la colonització per espècies invasores (Invasive species) com l'ailant (Ailanthus altissima), molt competitiu en sòls pertorbats. Les mesures no han de ser plantar arbres exòtics de creixement ràpid (empitjorarien la biodiversitat a llarg termini) sinó restaurar l'ecosistema autòcton."
+          correct: "Excel·lent anàlisi. L'incendi activa especialment Habitat loss (la destrucció de l'hàbitat, tot i que temporal, és una de les 5 amenaces HIPPO). Les zones obertes post-incendi són un terreny abonable per a espècies invasores (Invasive species), ja que les autòctones triguen més a regenerar-se. Les mesures proposades són ecològicament sòlides: afavorir les plantes autòctones pioneres (jara, romaní, garriga) permet que la xarxa tròfica es reconstrueixi de baix a dalt; controlar les invasores evita que bloquegin la regeneració del bosc climàcic (alzinar).",
+          wrong: "Recorda el marc HIPPO: Habitat loss / Invasive species / Pollution / Population (sobreexplotació) / Overexploitation. Un incendi que destrueix l'hàbitat forestal entra clarament a Habitat loss. A més, les zones obertes post-incendi són molt vulnerables a la colonització per espècies invasores (Invasive species) com l'ailant (Ailanthus altissima), molt competitiu en sòls pertorbats. Les mesures no han de ser plantar arbres exòtics de creixement ràpid (empitjorarien la biodiversitat a llarg termini) sinó restaurar l'ecosistema autòcton."
         }
       }
     ]

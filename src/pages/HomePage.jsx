@@ -46,7 +46,9 @@ export default function HomePage() {
                 <p className="italic text-[var(--muted)] mb-4">{sa.subtitle}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-[var(--muted)]">
-                    {t('home.sessionsCount', { count: sa.sessions })}
+                    {/* El recompte surt de les sessions que realment es poden obrir, no de
+                        les planificades: la SA5 en té 4 al disseny i només 1 feta. */}
+                    {t('home.sessionsCount', { count: sa.sessionsData?.length ?? sa.sessions })}
                   </span>
                   <span
                     className="font-display font-semibold uppercase tracking-wider text-sm"

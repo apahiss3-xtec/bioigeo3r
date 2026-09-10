@@ -110,7 +110,7 @@ span[contenteditable] { display:inline-block; }
 .input-span:focus { border-bottom-color:var(--purple); }
 
 /* ── INDICADOR DE NIVELL (petit, per al docent) ──── */
-/* No mostrar "Versió A/B/C" a la fitxa; només una lletra discreta */
+/* No mostrar "Nivell A/B/C" a la fitxa; només una lletra discreta */
 .nivell-badge-small {
   display:inline-flex; align-items:center; justify-content:center;
   width:17px; height:17px; border-radius:50%;
@@ -385,7 +385,7 @@ span[contenteditable] { display:inline-block; }
       Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
       &nbsp;&nbsp;Data:&nbsp;<span class="input-span data-span" contenteditable="true"></span>
       <!-- Indicador discret: només el docent sap que "C" = Adaptació -->
-      &nbsp;<span class="nivell-badge-small" title="Versió B">B</span>
+      &nbsp;<span class="nivell-badge-small" title="Versió B — Estàndard">B</span>
     </div>
   </div><div class="oa-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -447,7 +447,7 @@ span[contenteditable] { display:inline-block; }
 
       <p style="font-size:11.5px;color:var(--ink-2);margin-bottom:8px" contenteditable="true">Explora la cèl·lula a la web durant uns minuts. Després busca aquestes <strong>3 parts</strong> i respon:</p>
 
-      <!-- Pregunta 1: mitocondri — frase SENCERA amb blancs inline (Versió C) -->
+      <!-- Pregunta 1: mitocondri — frase SENCERA amb blancs inline (Nivell C) -->
       
 
       <!-- Pregunta 2: membrana — inici de frase -->
@@ -744,7 +744,17 @@ function flattenDoc(){
   }
   const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
 }
-function extractFlow(){ FLOW = Array.from(document.getElementById('doc').children); }
+function extractFlow(){
+  FLOW = Array.from(document.getElementById('doc').children);
+  // Posicio original de cada fill de seccio: el paginador la fa servir per
+  // reassemblar en ordre una seccio que ha partit (sense aixo, cada
+  // repaginacio la desordena i separa una llegenda del seu dibuix).
+  FLOW.forEach(function(b){
+    if(b.classList && b.classList.contains('section')){
+      Array.prototype.forEach.call(b.children, function(k,i){ k._ord = i; });
+    }
+  });
+}
 function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
 
 function saveCaret(){
@@ -767,8 +777,16 @@ function restoreCaret(d){
 function repaginate(){
   const host=document.getElementById('sheets'); if(!host) return;
   const caret=saveCaret();
+  var _origens=[];
   host.querySelectorAll('.section[data-cont]').forEach(function(cont){
-    var o=cont._origin; if(o){ while(cont.firstChild){ o.appendChild(cont.firstChild); } }
+    var o=cont._origin; if(o){ while(cont.firstChild){ o.appendChild(cont.firstChild); } if(_origens.indexOf(o)<0) _origens.push(o); }
+  });
+  // ...i es torna l'ordre original: els fills reassemblats s'afegien al final.
+  _origens.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
   });
   FLOW = FLOW.filter(function(b){ return b; });
   FLOW.forEach(function(b){ if(b.parentNode) b.parentNode.removeChild(b); });

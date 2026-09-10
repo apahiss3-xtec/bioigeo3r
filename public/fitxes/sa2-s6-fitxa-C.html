@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sessió 6 · El sistema de control i l'equilibri intern — IE Temple</title>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@500;600;700&amp;display=swap" rel="stylesheet">
 <style>
 :root {
   --purple:       #7B68C8;
@@ -25,7 +25,7 @@
   --green:   #4a9e5c; --green-tint:   #eaf4ec;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:13px; line-height:1.5; }
+body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:14.5px; line-height:1.5; }
 
 #toolbar { position:fixed; top:0; left:0; right:0; z-index:9000; background:#2d2347; display:flex; gap:6px; align-items:center; padding:6px 12px; box-shadow:0 2px 10px rgba(0,0,0,.25); }
 .tb-btn { font-family:'Inter',sans-serif; font-size:12px; font-weight:600; color:#fff; background:rgba(255,255,255,.12); border:none; cursor:pointer; padding:6px 11px; border-radius:7px; }
@@ -33,11 +33,11 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .tb-btn.active { background:var(--purple); }
 .tb-title { font-family:'Inter',sans-serif; font-size:11px; color:#cfc6ec; margin-left:auto; letter-spacing:.04em; }
 
-.page-wrap { margin:48px auto 40px; }
+.page-wrap { margin:43px auto 36px; }
 #doc { display:none; }
 #sheets { display:flex; flex-direction:column; align-items:center; gap:26px; }
-.sheet { width:794px; min-height:1123px; background:var(--surface); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.16); overflow:visible; padding-bottom:26px; }
-.sheet-body { padding:40px 18px 8px; position:relative; overflow:visible; }
+.sheet { width:794px; min-height:1123px; background:var(--surface); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.16); overflow:visible; padding-bottom:23px; }
+.sheet-body { padding:36px 18px 7px; position:relative; overflow:visible; }
 .sheet-foot { position:absolute; left:0; right:0; bottom:0; height:26px; display:flex; justify-content:space-between; align-items:center; padding:0 22px; font-family:'Inter',sans-serif; font-size:8px; font-weight:600; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; border-top:.5px solid var(--rule); background:var(--surface); }
 .sheet-body > .header-band { margin:-40px -18px 0; }
 .sheet-body > .nivell-strip { margin:0 -18px; }
@@ -56,103 +56,103 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .logo-box img { height:84px; display:block; }
 .header-meta { font-family:'Inter',sans-serif; font-size:8px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; opacity:.82; text-align:right; line-height:1.4; }
 
-.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:6px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
-.badge { font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
-.temps-badge { font-size:10px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
-.nom-field { font-size:11px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
+.badge { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
+.temps-badge { font-size:11px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
+.nom-field { font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
 .nom-field:first-of-type { margin-left:auto; }
-.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:13.5px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
 .input-span.data-span { min-width:70px; }
 .nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(123,104,200,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); vertical-align:middle; margin-left:4px; flex-shrink:0; }
 
-.oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin:12px 18px 4px; position:relative; }
-.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:13px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:6px; }
+.oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:9px 14px 11px; margin:11px 18px 4px; position:relative; }
+.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14.5px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:5px; }
 .oa-list { margin:0; padding-left:18px; list-style:none; }
-.oa-list li { font-size:11px; line-height:1.5; color:var(--ink-2); margin-bottom:3px; padding-left:4px; }
+.oa-list li { font-size:13.5px; line-height:1.5; color:var(--ink-2); margin-bottom:3px; padding-left:4px; }
 .oa-list li::before { content:"\2610 "; color:var(--purple); font-weight:700; margin-left:-18px; margin-right:4px; }
 
-.content { padding:4px 18px 14px; }
-.section { margin-top:12px; position:relative; }
-.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
-.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.content { padding:4px 18px 13px; }
+.section { margin-top:11px; position:relative; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:7px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:14.5px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .snum.n0 { background:var(--muted); } .snum.n1 { background:var(--orange); } .snum.n2 { background:var(--teal); }
 .snum.n3 { background:var(--art); } .snum.n4 { background:var(--purple-ink); }
-.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
-.sdesc { font-size:10px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
-.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+.stitle { font-size:16px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:11px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:9px; }
 
-.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
-.previ-box p { font-size:12px; }
-.previ-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch; margin-top:8px; }
-.draw-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:9px 12px; display:flex; flex-direction:column; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:8px 12px; }
+.previ-box p { font-size:14px; }
+.previ-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch; margin-top:7px; }
+.draw-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; display:flex; flex-direction:column; }
 .draw-box .card-label { color:var(--purple-ink); }
-.draw-area { flex:1 1 auto; min-height:240px; border:1.5px dashed var(--rule-dark); border-radius:8px; background:#fff; margin-top:6px; display:flex; align-items:flex-start; justify-content:flex-end; }
+.draw-area { flex:1 1 auto; min-height:240px; border:1.5px dashed var(--rule-dark); border-radius:8px; background:#fff; margin-top:5px; display:flex; align-items:flex-start; justify-content:flex-end; }
 .draw-area .draw-hint { font-size:9px; color:#c0b8d8; font-style:italic; padding:5px 8px; user-select:none; pointer-events:none; }
-.wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:6px; background:#fff; outline:none; padding:3px 4px; }
-.pista { font-size:10px; color:var(--muted); font-style:italic; margin:4px 0 2px; }
-.card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:10px 12px; margin-bottom:8px; }
+.wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:5px; background:#fff; outline:none; padding:3px 4px; }
+.pista { font-size:11px; color:var(--muted); font-style:italic; margin:4px 0 2px; }
+.card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:9px 12px; margin-bottom:7px; }
 .card.orange { border-color:var(--orange); background:var(--orange-tint); }
 .card.teal { border-color:var(--teal); background:var(--teal-tint); }
 .card.rose { border-color:var(--rose); background:var(--rose-tint); }
 .card.yellow { border-color:var(--yellow); background:var(--yellow-tint); }
-.card-label { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+.card-label { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
 
-.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:7px 12px; margin:7px 0; }
 .connexio-icon { font-size:24px; flex-shrink:0; }
-.connexio-text { font-size:11px; line-height:1.4; }
+.connexio-text { font-size:13.5px; line-height:1.5; }
 .connexio-text strong { color:var(--purple-ink); }
 
-.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
-.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:6px 10px; margin-bottom:9px; }
+.word-bank-title { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
 .chips { display:flex; flex-wrap:wrap; gap:4px; }
-.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.chip { font-size:13.5px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
 
-.data-table { width:100%; border-collapse:collapse; font-size:11px; }
-.data-table th { background:var(--purple-ink); color:#fff; padding:5px 8px; text-align:left; font-size:9px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+.data-table th { background:var(--purple-ink); color:#fff; padding:4px 8px; text-align:left; font-size:11px; letter-spacing:.05em; text-transform:uppercase; }
 .data-table th:first-child { border-radius:5px 0 0 0; }
 .data-table th:last-child { border-radius:0 5px 0 0; }
-.data-table td { padding:5px 8px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table td { padding:4px 8px; border-bottom:1px solid var(--rule); vertical-align:middle; }
 .data-table tr:nth-child(even) td { background:var(--purple-tint); }
 .data-table.analitica tr.row-baixa td { background:var(--rose-tint); }
 .data-table.analitica tr.row-alta td { background:var(--green-tint); }
 .fill-cell { display:block; width:100%; min-height:22px; border-bottom:1.5px solid #C8C2DD; background:#fff; outline:none; padding:2px 3px; }
-.yn-opt { font-size:11px; display:inline-flex; align-items:center; gap:3px; }
+.yn-opt { font-size:13.5px; display:inline-flex; align-items:center; gap:3px; }
 .chk-sq { width:12px; height:12px; border:1.5px solid var(--rule-dark); border-radius:2px; flex-shrink:0; display:inline-block; print-color-adjust:exact; }
 
-.milimetrat-title { background:var(--purple-ink); color:#fff; font-size:10px; font-weight:700; padding:4px 10px; text-transform:uppercase; letter-spacing:.05em; display:flex; justify-content:space-between; align-items:center; }
-.g1-wrap { border:1.5px solid var(--rule); border-radius:8px; overflow:hidden; margin:8px 0; position:relative; }
+.milimetrat-title { background:var(--purple-ink); color:#fff; font-size:11px; font-weight:700; padding:4px 10px; text-transform:uppercase; letter-spacing:.05em; display:flex; justify-content:space-between; align-items:center; }
+.g1-wrap { border:1.5px solid var(--rule); border-radius:8px; overflow:hidden; margin:7px 0; position:relative; }
 .img-marcador { min-height:180px; align-items:center; justify-content:center; background:repeating-linear-gradient(45deg,#faf8ff,#faf8ff 10px,#f0edfb 10px,#f0edfb 20px); border:2px dashed var(--purple-light); }
-.img-marcador-in { text-align:center; padding:14px 18px; }
+.img-marcador-in { text-align:center; padding:13px 18px; }
 
-.blank { display:inline-block; border:1px solid var(--rule); border-bottom:1.5px solid #C8C2DD; border-radius:3px 3px 0 0; vertical-align:bottom; margin:0 3px; height:auto; min-height:1.45em; line-height:1.45; padding:0 5px; background:#fff; outline:none; }
+.blank { display:inline-block; border:1px solid var(--rule); border-bottom:1.5px solid #C8C2DD; border-radius:3px 3px 0 0; vertical-align:bottom; margin:0 3px; height:auto; min-height:1.45em; line-height:1.5; padding:0 5px; background:#fff; outline:none; }
 .blank-s { min-width:60px; } .blank-m { min-width:100px; } .blank-l { min-width:140px; } .blank-xl { min-width:200px; }
-.frase-completar { font-size:11.5px; line-height:2.3; margin-bottom:4px; }
+.frase-completar { font-size:13.5px; line-height:2.3; margin-bottom:4px; }
 
-.info-box { background:#fff; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:8px 12px; margin:8px 0; position:relative; }
-.info-label { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
-.info-box p { font-size:11px; line-height:1.5; margin-bottom:3px; }
-.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0 3px; }
-.chain-chip { font-size:10.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
-.chain-arrow { color:var(--purple); font-weight:900; font-size:13px; }
+.info-box { background:#fff; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:7px 12px; margin:7px 0; position:relative; }
+.info-label { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.info-box p { font-size:13.5px; line-height:1.5; margin-bottom:3px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:5px 0 3px; }
+.chain-chip { font-size:13.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:14.5px; }
 
-.circ-row { font-size:11.5px; line-height:2.1; margin-bottom:3px; }
+.circ-row { font-size:13.5px; line-height:2.1; margin-bottom:3px; }
 .circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:#fff; }
 
-.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; position:relative; }
-.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
-.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:7px 12px; margin:7px 0; position:relative; }
+.epist-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
+.epist-text { font-size:13.5px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
 
-.meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin-top:12px; position:relative; }
-.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:12px; font-weight:900; color:var(--purple-ink); margin-bottom:8px; }
-.meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:5px; }
+.meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:9px 14px 11px; margin-top:11px; position:relative; }
+.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14px; font-weight:900; color:var(--purple-ink); margin-bottom:7px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:4px; }
 .meta-oa-check { width:14px; height:14px; flex-shrink:0; border:1.5px solid var(--purple); border-radius:3px; margin-top:1px; print-color-adjust:exact; }
-.meta-oa-text { font-size:10.5px; color:var(--ink-2); line-height:1.4; }
-.meta-open { margin-top:8px; padding-top:8px; border-top:1px solid var(--rule-dark); }
-.meta-open-label { font-size:10px; font-weight:700; color:var(--muted); margin-bottom:3px; }
+.meta-oa-text { font-size:13.5px; color:var(--ink-2); line-height:1.5; }
+.meta-open { margin-top:7px; padding-top:7px; border-top:1px solid var(--rule-dark); }
+.meta-open-label { font-size:11px; font-weight:700; color:var(--muted); margin-bottom:3px; }
 
-.tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:10px 12px; margin-top:10px; position:relative; }
+.tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:9px 12px; margin-top:9px; position:relative; }
 
-.footer { margin-top:14px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer { margin-top:13px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:6px; }
 .footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
 .footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
 
@@ -176,7 +176,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; }
 .spacer-label { font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
 
-.mt8 { margin-top:8px; } .bold { font-weight:700; } .small { font-size:10px; color:var(--muted); }
+.mt8 { margin-top:7px; } .bold { font-weight:700; } .small { font-size:11px; color:var(--muted); }
 
 @media print {
   @page { size:A4; margin:0; }
@@ -194,6 +194,17 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   .input-span:empty::before { display:none; }
   .header-emoji-box { background:#ede8f8; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   LLEGIBILITAT-C v1 — llegibilitat de la Versió C (dislèxia). 09/09/2026.
+   Cos en 'Fira Sans Condensed' (mateixa família que l'Extra Condensed
+   de la casa, però amb lletres més obertes i distingibles), interlineat
+   ample i separació de paraules. Titulars, capçalera i peu no es toquen.
+   ══════════════════════════════════════════════════════════════ */
+.sheet-body,#doc{font-family:'Fira Sans Condensed','Fira Sans Extra Condensed',sans-serif;
+  line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
+.sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
+.sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
 </style>
 </head>
 <body>
@@ -220,7 +231,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="header-subtitle" contenteditable="true">Qui mana al cos quan tu no hi penses? I on va tot el que no necessita?</div>
   </div>
   <div class="header-right">
-    <div class="logo-box"><img src="../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
+    <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
     <div class="header-meta" contenteditable="true">3r ESO</div>
   </div>
 </div>
@@ -230,7 +241,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <span class="badge deletable" contenteditable="true">Amb suport visual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <span class="temps-badge deletable">⏱️ 2h total<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
-  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió C">C</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió C — Adaptació">C</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
 </div>
 
 <div class="oa-box deletable">
@@ -247,7 +258,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
 <div class="content">
 
-<div class="word-bank deletable" style="margin-top:10px">
+<div class="word-bank deletable" style="margin-top:9px">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="word-bank-title" contenteditable="true">📖 Vocabulari clau d'avui</div>
   <div class="chips">
@@ -279,15 +290,15 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="divider"></div>
   <div class="draw-box">
     <div class="card-label" contenteditable="true">✏️ Dibuixa la teva hipòtesi · per on surten els residus líquids</div>
-    <p style="font-size:10.5px" contenteditable="true">Esbossa un cos i marca per on creus que el cos elimina la urea, les sals i l'aigua que sobren. Al final ho compararàs amb el model real.</p>
+    <p style="font-size:13.5px" contenteditable="true">Esbossa un cos i marca per on creus que el cos elimina la urea, les sals i l'aigua que sobren. Al final ho compararàs amb el model real.</p>
     <div class="draw-area"></div>
   </div>
   <div class="previ-box mt8">
     <p contenteditable="true"><strong>①</strong> Quan et poses nerviós/osa o t'espantes, el cor s'accelera <strong>sense que tu li diguis res</strong>. Per quina raó creus que passa?</p>
     <p class="pista" contenteditable="true">Comença així si vols: «Crec que el cor s'accelera perquè…» / «Crec que el color de l'orina canvia perquè…»</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <p style="margin-top:6px" contenteditable="true"><strong>②</strong> La teva orina té sempre el mateix color? Per quina raó creus que alguns dies és molt clara i d'altres molt fosca?</p>
+    <p style="margin-top:5px" contenteditable="true"><strong>②</strong> La teva orina té sempre el mateix color? Per quina raó creus que alguns dies és molt clara i d'altres molt fosca?</p>
     <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <p style="margin-top:6px" contenteditable="true"><strong>③</strong> El CO₂ ja saps per on surt: pels pulmons. Però les teves cèl·lules també fabriquen residus líquids (urea, sals, excés d'aigua). <strong>Per on creus que surten del cos?</strong></p>
+    <p style="margin-top:5px" contenteditable="true"><strong>③</strong> El CO₂ ja saps per on surt: pels pulmons. Però les teves cèl·lules també fabriquen residus líquids (urea, sals, excés d'aigua). <strong>Per on creus que surten del cos?</strong></p>
     <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
   <div class="connexio-box mt8 deletable">
@@ -305,45 +316,45 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card orange deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">⏱️ Estació A · Quant triga una ordre a fer el viatge? (en parelles, regle de 30 cm)</div>
-    <p style="font-size:11px" contenteditable="true">Qui fa de parella subjecta el regle pel 30 i el deixa caure <strong>sense avisar</strong>. Tu tanques la mà tan de pressa com puguis. Anota <strong>en quin número</strong> l'has agafat: aquells centímetres són el temps que ha trigat el senyal a anar de l'ull al cervell i del cervell als dits.</p>
-<table class="data-table" style="margin-top:4px"><thead><tr><th contenteditable="true">Distància caiguda</th><th contenteditable="true">5 cm</th><th contenteditable="true">10 cm</th><th contenteditable="true">15 cm</th><th contenteditable="true">20 cm</th><th contenteditable="true">25 cm</th><th contenteditable="true">30 cm</th></tr></thead><tbody><tr><td style="font-weight:700;text-align:left">Temps de reacció</td><td style="text-align:center">101 ms</td><td style="text-align:center">143 ms</td><td style="text-align:center">175 ms</td><td style="text-align:center">202 ms</td><td style="text-align:center">226 ms</td><td style="text-align:center">247 ms</td></tr></tbody></table><p class="pista" contenteditable="true">Fes servir la taula de dalt per passar els cm a mil·lisegons. Si el teu valor queda entremig, tria el més proper.</p><table class="data-table" style="margin-top:6px"><thead><tr><th contenteditable="true"></th><th contenteditable="true">Mà dominant · cm</th><th contenteditable="true">Mà dominant · ms</th><th contenteditable="true">L'altra mà · cm</th><th contenteditable="true">L'altra mà · ms</th></tr></thead><tbody><tr class="deletable"><td style="font-weight:700">Prova 1</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Prova 2</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Prova 3</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Prova 4</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Prova 5</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><div class="circ-row" contenteditable="true">La meva mà dominant ha estat <span class="circ-opt">més ràpida</span> / <span class="circ-opt">més lenta</span> que l'altra.</div><div class="circ-row" contenteditable="true">Totes les proves m'han donat el mateix número: <span class="circ-opt">sí</span> / <span class="circ-opt">no</span>. Per això en fem <span class="circ-opt">5</span> / <span class="circ-opt">1</span>.</div>
+    <p style="font-size:13.5px" contenteditable="true">Qui fa de parella subjecta el regle pel 30 i el deixa caure <strong>sense avisar</strong>. Tu tanques la mà tan de pressa com puguis. Anota <strong>en quin número</strong> l'has agafat: aquells centímetres són el temps que ha trigat el senyal a anar de l'ull al cervell i del cervell als dits.</p>
+<table class="data-table" style="margin-top:4px"><thead><tr><th contenteditable="true">Distància caiguda</th><th contenteditable="true">5 cm</th><th contenteditable="true">10 cm</th><th contenteditable="true">15 cm</th><th contenteditable="true">20 cm</th><th contenteditable="true">25 cm</th><th contenteditable="true">30 cm</th></tr></thead><tbody><tr><td style="font-weight:700;text-align:left">Temps de reacció</td><td style="text-align:center">101 ms</td><td style="text-align:center">143 ms</td><td style="text-align:center">175 ms</td><td style="text-align:center">202 ms</td><td style="text-align:center">226 ms</td><td style="text-align:center">247 ms</td></tr></tbody></table><p class="pista" contenteditable="true">Fes servir la taula de dalt per passar els cm a mil·lisegons. Si el teu valor queda entremig, tria el més proper.</p><table class="data-table" style="margin-top:5px"><thead><tr><th contenteditable="true"></th><th contenteditable="true">Mà dominant · cm</th><th contenteditable="true">Mà dominant · ms</th><th contenteditable="true">L'altra mà · cm</th><th contenteditable="true">L'altra mà · ms</th></tr></thead><tbody><tr class="deletable"><td style="font-weight:700">Prova 1</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Prova 2</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Prova 3</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Prova 4</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Prova 5</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><div class="circ-row" contenteditable="true">La meva mà dominant ha estat <span class="circ-opt">més ràpida</span> / <span class="circ-opt">més lenta</span> que l'altra.</div><div class="circ-row" contenteditable="true">Totes les proves m'han donat el mateix número: <span class="circ-opt">sí</span> / <span class="circ-opt">no</span>. Per això en fem <span class="circ-opt">5</span> / <span class="circ-opt">1</span>.</div>
   </div>
   <div class="card teal mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🦶 Estació B · L'arc reflex en directe (grups de 5, amb una pilota)</div>
-    <p style="font-size:11px" contenteditable="true">Cada persona del grup fa un paper i es passa la pilota en l'ordre correcte: <strong>receptor</strong> (la pell del peu) · <strong>nervi que puja</strong> · <strong>medul·la espinal</strong> · <strong>nervi que baixa</strong> · <strong>efector</strong> (el múscul que retira el peu).</p>
+    <p style="font-size:13.5px" contenteditable="true">Cada persona del grup fa un paper i es passa la pilota en l'ordre correcte: <strong>receptor</strong> (la pell del peu) · <strong>nervi que puja</strong> · <strong>medul·la espinal</strong> · <strong>nervi que baixa</strong> · <strong>efector</strong> (el múscul que retira el peu).</p>
 <p class="frase-completar" contenteditable="false">L'ordre fa aquest camí: <span class="blank blank-m"></span> (el peu) → nervi que puja → <span class="blank blank-m"></span> → nervi que baixa → <span class="blank blank-m"></span> (el múscul).</p><div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">receptor</span><span class="chip" contenteditable="true">medul·la espinal</span><span class="chip" contenteditable="true">efector</span><span class="chip" contenteditable="true">cervell</span></div></div><div class="circ-row" contenteditable="true">Si traiem el «cervell» del grup, el reflex <span class="circ-opt">continua funcionant</span> / <span class="circ-opt">s'atura</span>.</div>
   </div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🃏 Estació C · Targetes: qui fabrica cada hormona i què fa (en parelles)</div>
-    <p style="font-size:11px" contenteditable="true">Amb les targetes de la taula, encaixa cada hormona amb la seva glàndula, la situació en què apareix i l'efecte que provoca. Copia el resultat aquí:</p>
-<table class="data-table" style="margin-top:6px"><thead><tr><th contenteditable="true" style="text-align:left">Hormona</th><th contenteditable="true">Quina glàndula la fabrica</th><th contenteditable="true">En quina situació</th><th contenteditable="true">Quin efecte té</th></tr></thead><tbody><tr class="deletable"><td style="text-align:left;font-weight:700">Adrenalina</td><td style="font-size:9.5px;background:#f4f0fb;font-weight:700">glàndula suprarenal</td><td style="font-size:9.5px;background:#f4f0fb;font-weight:700">t'espantes / esprintes</td><td style="font-size:9.5px;background:#f4f0fb;font-weight:700">puja la FC, obre els bronquis, frena la digestió</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Insulina</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">ADH</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">EPO</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p class="pista" contenteditable="true">La primera fila ja està feta: és el model. Les targetes de la taula del grup et donen les altres.</p><div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">pàncrees</span><span class="chip" contenteditable="true">hipòfisi (al cervell)</span><span class="chip" contenteditable="true">ronyó</span><span class="chip" contenteditable="true">acabes de dinar</span><span class="chip" contenteditable="true">fa calor i no beus</span><span class="chip" contenteditable="true">vius a la muntanya, amb poc O₂</span><span class="chip" contenteditable="true">fa entrar la glucosa a les cèl·lules</span><span class="chip" contenteditable="true">mana al ronyó retenir aigua</span><span class="chip" contenteditable="true">mana fabricar més eritròcits</span></div></div>
+    <p style="font-size:13.5px" contenteditable="true">Amb les targetes de la taula, encaixa cada hormona amb la seva glàndula, la situació en què apareix i l'efecte que provoca. Copia el resultat aquí:</p>
+<table class="data-table" style="margin-top:5px"><thead><tr><th contenteditable="true" style="text-align:left">Hormona</th><th contenteditable="true">Quina glàndula la fabrica</th><th contenteditable="true">En quina situació</th><th contenteditable="true">Quin efecte té</th></tr></thead><tbody><tr class="deletable"><td style="text-align:left;font-weight:700">Adrenalina</td><td style="font-size:11px;background:#f4f0fb;font-weight:700">glàndula suprarenal</td><td style="font-size:11px;background:#f4f0fb;font-weight:700">t'espantes / esprintes</td><td style="font-size:11px;background:#f4f0fb;font-weight:700">puja la FC, obre els bronquis, frena la digestió</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Insulina</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">ADH</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">EPO</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p class="pista" contenteditable="true">La primera fila ja està feta: és el model. Les targetes de la taula del grup et donen les altres.</p><div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">pàncrees</span><span class="chip" contenteditable="true">hipòfisi (al cervell)</span><span class="chip" contenteditable="true">ronyó</span><span class="chip" contenteditable="true">acabes de dinar</span><span class="chip" contenteditable="true">fa calor i no beus</span><span class="chip" contenteditable="true">vius a la muntanya, amb poc O₂</span><span class="chip" contenteditable="true">fa entrar la glucosa a les cèl·lules</span><span class="chip" contenteditable="true">mana al ronyó retenir aigua</span><span class="chip" contenteditable="true">mana fabricar més eritròcits</span></div></div>
   </div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🧾 Estació D · El residu invisible — analítica del Marc Fontana (28 anys, corredor amb fatiga)</div>
-    <p style="font-size:10.5px;color:var(--muted);font-style:italic" contenteditable="true">Dades amb finalitat didàctica. Fixa't en les dues files noves: <strong>urea</strong> i <strong>creatinina</strong> — els residus que filtra el ronyó.</p>
+    <p style="font-size:13.5px;color:var(--muted);font-style:italic" contenteditable="true">Dades amb finalitat didàctica. Fixa't en les dues files noves: <strong>urea</strong> i <strong>creatinina</strong> — els residus que filtra el ronyó.</p>
 <table class="data-table analitica" style="margin-top:4px">
 <thead><tr><th contenteditable="true" style="text-align:left">Paràmetre</th><th contenteditable="true">Valor del Marc</th><th contenteditable="true">Valors normals</th><th contenteditable="true">Què mesura</th><th contenteditable="true">És normal?</th></tr></thead><tbody>
-<tr class="row-alta deletable"><td style="text-align:left;font-weight:700">Glucosa</td><td style="text-align:center;font-weight:700">88 mg/dL</td><td style="text-align:center;color:var(--muted)">70 – 100</td><td style="font-size:9.5px;color:var(--muted)">energia de les cèl·lules</td><td style="text-align:center"><span class="circ-opt">normal</span> / <span class="circ-opt">no</span></td></tr>
-<tr class="row-baixa deletable"><td style="text-align:left;font-weight:700">Hemoglobina (Hb)</td><td style="text-align:center;font-weight:700">9,2 g/dL</td><td style="text-align:center;color:var(--muted)">13 – 17</td><td style="font-size:9.5px;color:var(--muted)">transporta l'O₂ → poca = anèmia</td><td style="text-align:center"><span class="circ-opt">normal</span> / <span class="circ-opt">no</span></td></tr>
-<tr class="row-baixa deletable"><td style="text-align:left;font-weight:700">Ferritina</td><td style="text-align:center;font-weight:700">8 ng/mL</td><td style="text-align:center;color:var(--muted)">30 – 400</td><td style="font-size:9.5px;color:var(--muted)">reserva de ferro del cos</td><td style="text-align:center"><span class="circ-opt">normal</span> / <span class="circ-opt">no</span></td></tr>
-<tr class="row-alta deletable"><td style="text-align:left;font-weight:700">Urea</td><td style="text-align:center;font-weight:700">32 mg/dL</td><td style="text-align:center;color:var(--muted)">17 – 49</td><td style="font-size:9.5px;color:var(--muted)">residu de les proteïnes — el filtra el ronyó</td><td style="text-align:center"><span class="circ-opt">normal</span> / <span class="circ-opt">no</span></td></tr>
-<tr class="row-alta deletable"><td style="text-align:left;font-weight:700">Creatinina</td><td style="text-align:center;font-weight:700">0,9 mg/dL</td><td style="text-align:center;color:var(--muted)">0,7 – 1,3</td><td style="font-size:9.5px;color:var(--muted)">residu del múscul — diu si el ronyó filtra bé</td><td style="text-align:center"><span class="circ-opt">normal</span> / <span class="circ-opt">no</span></td></tr>
+<tr class="row-alta deletable"><td style="text-align:left;font-weight:700">Glucosa</td><td style="text-align:center;font-weight:700">88 mg/dL</td><td style="text-align:center;color:var(--muted)">70 – 100</td><td style="font-size:11px;color:var(--muted)">energia de les cèl·lules</td><td style="text-align:center"><span class="circ-opt">normal</span> / <span class="circ-opt">no</span></td></tr>
+<tr class="row-baixa deletable"><td style="text-align:left;font-weight:700">Hemoglobina (Hb)</td><td style="text-align:center;font-weight:700">9,2 g/dL</td><td style="text-align:center;color:var(--muted)">13 – 17</td><td style="font-size:11px;color:var(--muted)">transporta l'O₂ → poca = anèmia</td><td style="text-align:center"><span class="circ-opt">normal</span> / <span class="circ-opt">no</span></td></tr>
+<tr class="row-baixa deletable"><td style="text-align:left;font-weight:700">Ferritina</td><td style="text-align:center;font-weight:700">8 ng/mL</td><td style="text-align:center;color:var(--muted)">30 – 400</td><td style="font-size:11px;color:var(--muted)">reserva de ferro del cos</td><td style="text-align:center"><span class="circ-opt">normal</span> / <span class="circ-opt">no</span></td></tr>
+<tr class="row-alta deletable"><td style="text-align:left;font-weight:700">Urea</td><td style="text-align:center;font-weight:700">32 mg/dL</td><td style="text-align:center;color:var(--muted)">17 – 49</td><td style="font-size:11px;color:var(--muted)">residu de les proteïnes — el filtra el ronyó</td><td style="text-align:center"><span class="circ-opt">normal</span> / <span class="circ-opt">no</span></td></tr>
+<tr class="row-alta deletable"><td style="text-align:left;font-weight:700">Creatinina</td><td style="text-align:center;font-weight:700">0,9 mg/dL</td><td style="text-align:center;color:var(--muted)">0,7 – 1,3</td><td style="font-size:11px;color:var(--muted)">residu del múscul — diu si el ronyó filtra bé</td><td style="text-align:center"><span class="circ-opt">normal</span> / <span class="circ-opt">no</span></td></tr>
 </tbody></table>
 <p class="pista" contenteditable="true">El color de les files només serveix per llegir-la millor: <strong>rosa = per sota del normal</strong>, <strong>verd = dins del normal</strong>. Verd NO vol dir «alerta».</p>
     <div class="card teal mt8 deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <div class="card-label" contenteditable="true">🔎 Investiga com un metge — pas a pas</div>
-      <p style="font-size:11px;font-weight:800;color:var(--purple-ink)" contenteditable="true">👁️ OBSERVO</p>
+      <p style="font-size:13.5px;font-weight:800;color:var(--purple-ink)" contenteditable="true">👁️ OBSERVO</p>
       <p class="frase-completar" contenteditable="false">Els dos valors que el Marc té per sota del normal són l'<span class="blank blank-m"></span> i la <span class="blank blank-m"></span>.</p>
       <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">hemoglobina</span><span class="chip" contenteditable="true">ferritina</span><span class="chip" contenteditable="true">urea</span><span class="chip" contenteditable="true">creatinina</span></div></div>
-      <p style="font-size:11px;font-weight:800;color:var(--purple-ink);margin-top:8px" contenteditable="true">❓ EM PREGUNTO</p>
+      <p style="font-size:13.5px;font-weight:800;color:var(--purple-ink);margin-top:7px" contenteditable="true">❓ EM PREGUNTO</p>
       <div class="circ-row" contenteditable="true">Si el ronyó del Marc no filtrés bé, la urea i la creatinina de la seva sang serien <span class="circ-opt">altes</span> / <span class="circ-opt">baixes</span> / <span class="circ-opt">iguals</span>, perquè s'hi acumularien.</div>
-      <p style="font-size:11px;font-weight:800;color:var(--purple-ink);margin-top:8px" contenteditable="true">🔗 CONNECTO</p>
+      <p style="font-size:13.5px;font-weight:800;color:var(--purple-ink);margin-top:7px" contenteditable="true">🔗 CONNECTO</p>
       <div class="circ-row" contenteditable="true">Miro la taula: la urea i la creatinina del Marc són <span class="circ-opt">normals</span> / <span class="circ-opt">altes</span>. Això <span class="circ-opt">encaixa</span> / <span class="circ-opt">no encaixa</span> amb un ronyó espatllat.</div>
-      <p style="font-size:11px;font-weight:800;color:var(--purple-ink);margin-top:8px" contenteditable="true">✅ DEDUEIXO</p>
+      <p style="font-size:13.5px;font-weight:800;color:var(--purple-ink);margin-top:7px" contenteditable="true">✅ DEDUEIXO</p>
       <p class="frase-completar" contenteditable="false">El ronyó del Marc funciona <span class="blank blank-s"></span>. El que li falta és <span class="blank blank-m"></span>, i per això té poca hemoglobina.</p>
       <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">bé</span><span class="chip" contenteditable="true">malament</span><span class="chip" contenteditable="true">ferro</span><span class="chip" contenteditable="true">aigua</span></div></div>
     </div>
@@ -363,7 +374,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">📊 Compara les dues vies</div>
-<table class="data-table" style="margin-top:6px"><thead><tr><th contenteditable="true"></th><th contenteditable="true">Via NERVIOSA</th><th contenteditable="true">Via HORMONAL</th></tr></thead><tbody><tr class="deletable"><td style="text-align:left;font-weight:700">Per on viatja</td><td style="text-align:center;background:#f4f0fb;font-weight:700">pel nervi (elèctric)</td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Quant triga</td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Un exemple</td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p class="pista" contenteditable="true">La primera casella ja està feta: és el model.</p><div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">per la sang</span><span class="chip" contenteditable="true">mil·lisegons</span><span class="chip" contenteditable="true">minuts</span><span class="chip" contenteditable="true">retirar el peu d'una xinxeta</span><span class="chip" contenteditable="true">l'adrenalina quan t'espantes</span></div></div><div class="circ-row" contenteditable="true">Quan t'espantes, el primer que arriba al cor és l'ordre <span class="circ-opt">pel nervi</span> / <span class="circ-opt">per l'hormona</span>, perquè és <span class="circ-opt">més ràpida</span> / <span class="circ-opt">més lenta</span>.</div><div class="circ-row" contenteditable="true">Després arriba l'<strong>adrenalina</strong> per la sang, i fa que el cor es quedi accelerat <span class="circ-opt">una bona estona</span> / <span class="circ-opt">només un instant</span>.</div>
+<table class="data-table" style="margin-top:5px"><thead><tr><th contenteditable="true"></th><th contenteditable="true">Via NERVIOSA</th><th contenteditable="true">Via HORMONAL</th></tr></thead><tbody><tr class="deletable"><td style="text-align:left;font-weight:700">Per on viatja</td><td style="text-align:center;background:#f4f0fb;font-weight:700">pel nervi (elèctric)</td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Quant triga</td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Un exemple</td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p class="pista" contenteditable="true">La primera casella ja està feta: és el model.</p><div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">per la sang</span><span class="chip" contenteditable="true">mil·lisegons</span><span class="chip" contenteditable="true">minuts</span><span class="chip" contenteditable="true">retirar el peu d'una xinxeta</span><span class="chip" contenteditable="true">l'adrenalina quan t'espantes</span></div></div><div class="circ-row" contenteditable="true">Quan t'espantes, el primer que arriba al cor és l'ordre <span class="circ-opt">pel nervi</span> / <span class="circ-opt">per l'hormona</span>, perquè és <span class="circ-opt">més ràpida</span> / <span class="circ-opt">més lenta</span>.</div><div class="circ-row" contenteditable="true">Després arriba l'<strong>adrenalina</strong> per la sang, i fa que el cor es quedi accelerat <span class="circ-opt">una bona estona</span> / <span class="circ-opt">només un instant</span>.</div>
   </div>
 </div>
 
@@ -373,15 +384,15 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="divider"></div>
   <div class="g1-wrap deletable" style="border-color:var(--rule)">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="milimetrat-title" style="background:#8a5a4a"><span contenteditable="true">El ronyó com a filtre de la sang</span><span style="font-size:9px;opacity:.8" contenteditable="true">esquema didàctic</span></div>
+    <div class="milimetrat-title" style="background:#8a5a4a"><span contenteditable="true">El ronyó com a filtre de la sang</span><span style="font-size:11px;opacity:.8" contenteditable="true">esquema didàctic</span></div>
     <img src="../imatges-cientifiques/s6_ronyo_marcadors.png" alt="Esquema del ronyó amb cinc marcadors numerats: sang que entra amb residus, ronyó, sang filtrada que surt, urèter i bufeta"
-   style="width:100%;display:block"
+   style="max-height:600px;width:auto;max-width:100%;display:block;margin:0 auto"
    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
 <div class="img-marcador" style="display:none">
   <div class="img-marcador-in">
     <div style="font-size:24px">🫘</div>
-    <div style="font-weight:900;color:var(--purple-ink);font-size:12px;margin-top:2px">Imatge pendent · s6_ronyo_marcadors.png</div>
-    <div style="font-size:10px;color:var(--muted);margin-top:2px">Ronyó amb marcadors ①–⑤: sang amb residus · ronyó · sang filtrada · urèter · bufeta</div>
+    <div style="font-weight:900;color:var(--purple-ink);font-size:14px;margin-top:2px">Imatge pendent · s6_ronyo_marcadors.png</div>
+    <div style="font-size:11px;color:var(--muted);margin-top:2px">Ronyó amb marcadors ①–⑤: sang amb residus · ronyó · sang filtrada · urèter · bufeta</div>
   </div>
 </div>
   </div>
@@ -389,7 +400,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🔢 Llegenda del dibuix</div>
-    <p style="font-size:11px;line-height:1.7" contenteditable="true">
+    <p style="font-size:13.5px;line-height:1.7" contenteditable="true">
       <strong>①</strong> sang que ARRIBA, amb residus (els puntets foscos són la urea) &nbsp;·&nbsp;
       <strong>②</strong> ronyó &nbsp;·&nbsp;
       <strong>③</strong> sang que SURT, ja filtrada &nbsp;·&nbsp;
@@ -419,7 +430,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card rose mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">Classifica — per quina porta surt cada residu?</div>
-    <p style="font-size:11px" contenteditable="true">Escriu cada residu a la columna que li toca:</p>
+    <p style="font-size:13.5px" contenteditable="true">Escriu cada residu a la columna que li toca:</p>
     <table class="data-table" style="margin-top:4px"><thead><tr><th contenteditable="true">🫁 Surt pels PULMONS</th><th contenteditable="true">🫘 Surt pel RONYÓ</th></tr></thead>
     <tbody><tr class="deletable"><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
     <tr class="deletable"><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
@@ -427,15 +438,15 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   </div>
   <div class="g1-wrap mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="milimetrat-title" style="background:#6b5a8a"><span contenteditable="true">Les hormones missatgeres del ronyó</span><span style="font-size:9px;opacity:.8" contenteditable="true">esquema didàctic</span></div>
+    <div class="milimetrat-title" style="background:#6b5a8a"><span contenteditable="true">Les hormones missatgeres del ronyó</span><span style="font-size:11px;opacity:.8" contenteditable="true">esquema didàctic</span></div>
     <img src="../imatges-cientifiques/s6_hormones_etiquetada.png" alt="Les dues hormones del ronyó: l'ADH fa que l'aigua torni a la sang i l'EPO fa que dins de l'os es fabriquin glòbuls vermells nous"
    style="width:100%;display:block"
    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
 <div class="img-marcador" style="display:none">
   <div class="img-marcador-in">
     <div style="font-size:24px">🧪</div>
-    <div style="font-weight:900;color:var(--purple-ink);font-size:12px;margin-top:2px">Imatge pendent · s6_hormones_etiquetada.png</div>
-    <div style="font-size:10px;color:var(--muted);margin-top:2px">ADH i EPO com a missatgers del ronyó · cervell · ADH · ronyó · retenir aigua · EPO · medul·la òssia · eritròcits</div>
+    <div style="font-weight:900;color:var(--purple-ink);font-size:14px;margin-top:2px">Imatge pendent · s6_hormones_etiquetada.png</div>
+    <div style="font-size:11px;color:var(--muted);margin-top:2px">ADH i EPO com a missatgers del ronyó · cervell · ADH · ronyó · retenir aigua · EPO · medul·la òssia · eritròcits</div>
   </div>
 </div>
   </div>
@@ -443,7 +454,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🔢 Com llegir el dibuix</div>
-    <p style="font-size:11px;line-height:1.7" contenteditable="true">
+    <p style="font-size:13.5px;line-height:1.7" contenteditable="true">
       <strong>Esquerra (ADH):</strong> el cervell envia el senyal de l'ADH al ronyó → el ronyó <strong>no deixa marxar</strong> l'aigua i la torna a la sang (fletxa blava) → surt poca orina.<br>
       <strong>Dreta (EPO):</strong> el ronyó envia el senyal de l'EPO a l'interior de l'os — la <strong>medul·la òssia</strong> — → allà es fabriquen <strong>eritròcits</strong> (glòbuls vermells) nous → van a la sang.
     </p>
@@ -456,10 +467,10 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">💧 Dos gots d'orina — encercla i justifica</div>
-    <p style="font-size:11px" contenteditable="true">La Júlia ha begut 2 litres d'aigua. El Pau no ha begut res des del matí i ha jugat a bàsquet.</p>
+    <p style="font-size:13.5px" contenteditable="true">La Júlia ha begut 2 litres d'aigua. El Pau no ha begut res des del matí i ha jugat a bàsquet.</p>
     <div class="circ-row" contenteditable="true">L'orina fosca i escassa és la <span class="circ-opt">de la Júlia</span> / <span class="circ-opt">del Pau</span>.</div>
     <div class="circ-row" contenteditable="true">Aquesta persona té <span class="circ-opt">molta</span> / <span class="circ-opt">poca</span> ADH a la sang, i per això el seu ronyó <span class="circ-opt">reté</span> / <span class="circ-opt">deixa marxar</span> l'aigua.</div>
-    <p style="font-size:11px;margin-top:4px" contenteditable="true">Acaba la frase: si el Pau ara beu un litre d'aigua, la seva ADH <span class="blank blank-s"></span> i la seva orina es tornarà <span class="blank blank-s"></span>.</p>
+    <p style="font-size:13.5px;margin-top:4px" contenteditable="true">Acaba la frase: si el Pau ara beu un litre d'aigua, la seva ADH <span class="blank blank-s"></span> i la seva orina es tornarà <span class="blank blank-s"></span>.</p>
     <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">baixarà</span><span class="chip" contenteditable="true">pujarà</span><span class="chip" contenteditable="true">més clara</span><span class="chip" contenteditable="true">més fosca</span></div></div>
   </div>
   <div class="card rose mt8 deletable">
@@ -479,7 +490,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🔁 El cos s'autoregula — completa el cercle</div>
-    <p style="font-size:11px" contenteditable="true">Aquestes quatre caselles formen un cercle. Escriu-hi el que falta:</p>
+    <p style="font-size:13.5px" contenteditable="true">Aquestes quatre caselles formen un cercle. Escriu-hi el que falta:</p>
     <p class="frase-completar" contenteditable="false">1r · Bec <span class="blank blank-s"></span> aigua &nbsp;→&nbsp; 2n · puja l'<span class="blank blank-s"></span> &nbsp;→&nbsp; 3r · el ronyó <span class="blank blank-m"></span> aigua &nbsp;→&nbsp; 4t · l'aigua de la sang torna a estar <span class="blank blank-s"></span>.</p>
     <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">poca</span><span class="chip" contenteditable="true">ADH</span><span class="chip" contenteditable="true">reté</span><span class="chip" contenteditable="true">bé</span></div></div>
     <div class="circ-row" contenteditable="true">Quan l'aigua ja torna a estar bé, el cos <span class="circ-opt">deixa de fabricar</span> / <span class="circ-opt">fabrica encara més</span> ADH.</div>
@@ -488,11 +499,11 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card teal mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🕵️ Tanquem el cas del Marc Fontana — pas a pas</div>
-    <p style="font-size:11px;font-weight:800;color:var(--purple-ink)" contenteditable="true">👁️ OBSERVO</p>
+    <p style="font-size:13.5px;font-weight:800;color:var(--purple-ink)" contenteditable="true">👁️ OBSERVO</p>
     <div class="circ-row" contenteditable="true">Els residus que filtra el ronyó (urea i creatinina) al Marc són <span class="circ-opt">normals</span> / <span class="circ-opt">alts</span>.</div>
-    <p style="font-size:11px;font-weight:800;color:var(--purple-ink);margin-top:6px" contenteditable="true">🔗 CONNECTO</p>
+    <p style="font-size:13.5px;font-weight:800;color:var(--purple-ink);margin-top:5px" contenteditable="true">🔗 CONNECTO</p>
     <div class="circ-row" contenteditable="true">Un ronyó que no filtra <span class="circ-opt">acumularia</span> / <span class="circ-opt">no acumularia</span> urea a la sang, i també fabricaria <span class="circ-opt">poca</span> / <span class="circ-opt">molta</span> EPO.</div>
-    <p style="font-size:11px;font-weight:800;color:var(--purple-ink);margin-top:6px" contenteditable="true">✅ DEDUEIXO</p>
+    <p style="font-size:13.5px;font-weight:800;color:var(--purple-ink);margin-top:5px" contenteditable="true">✅ DEDUEIXO</p>
     <p class="frase-completar" contenteditable="false">El ronyó del Marc està <span class="blank blank-s"></span>. La seva anèmia ve de la falta de <span class="blank blank-s"></span>.</p>
     <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">sa</span><span class="chip" contenteditable="true">malalt</span><span class="chip" contenteditable="true">ferro</span><span class="chip" contenteditable="true">aigua</span></div></div>
   </div>
@@ -501,7 +512,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div style="font-size:22px;flex-shrink:0">🔬</div>
     <div style="flex:1">
       <div class="epist-title" contenteditable="true">Pensa-hi — l'EPO dels ciclistes</div>
-      <div class="epist-text" contenteditable="true">Alguns esportistes fan trampes injectant-se EPO. <strong>Encercla:</strong> amb més EPO tindrien <span class="circ-opt">més glòbuls vermells</span> / <span class="circ-opt">menys glòbuls vermells</span>, i així portarien <span class="circ-opt">més oxigen</span> / <span class="circ-opt">menys oxigen</span> als músculs.</div><p style="font-size:11px;margin-top:4px" contenteditable="true">Acaba la frase: «Els donava avantatge perquè amb més oxigen els músculs poden…»</p><div class="wline" contenteditable="true"></div>
+      <div class="epist-text" contenteditable="true">Alguns esportistes fan trampes injectant-se EPO. <strong>Encercla:</strong> amb més EPO tindrien <span class="circ-opt">més glòbuls vermells</span> / <span class="circ-opt">menys glòbuls vermells</span>, i així portarien <span class="circ-opt">més oxigen</span> / <span class="circ-opt">menys oxigen</span> als músculs.</div><p style="font-size:13.5px;margin-top:4px" contenteditable="true">Acaba la frase: «Els donava avantatge perquè amb més oxigen els músculs poden…»</p><div class="wline" contenteditable="true"></div>
     </div>
   </div>
 </div>
@@ -513,7 +524,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="meta-open">
     <div class="meta-open-label" contenteditable="true">🪞 La meva hipòtesi inicial (apartat 0) era encertada? En què m'equivocava?</div>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <div class="meta-open-label" style="margin-top:6px" contenteditable="true">❓ Encara em pregunto…</div>
+    <div class="meta-open-label" style="margin-top:5px" contenteditable="true">❓ Encara em pregunto…</div>
 <div class="wline" contenteditable="true"></div>
   </div>
   <p class="small" contenteditable="true">Després d'això et donaré el <strong>full de sortida</strong> (8 min): és l'únic full que recullo avui.</p>
@@ -522,9 +533,9 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <div class="tasca-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="card-label" contenteditable="true">📚 Tasca per a casa — el teu ronyó en acció (1 dia)</div>
-  <p style="font-size:12px;font-weight:700;color:var(--purple-ink)" contenteditable="true">Durant un dia, observa la relació entre el que beus i la teva orina. Apunta-ho aquí:</p>
-<table class="data-table" style="margin-top:6px"><thead><tr><th contenteditable="true">Moment del dia</th><th contenteditable="true">Quants gots d'aigua he begut des de l'anterior</th><th contenteditable="true">Color de l'orina (clara / mitjana / fosca)</th></tr></thead><tbody><tr class="deletable"><td style="font-weight:700">Al llevar-te</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Migdia</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Tarda</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Abans de dormir</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
-  <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:8px" contenteditable="true">Quina conclusió en treus sobre com el teu ronyó regula l'aigua del cos?</p>
+  <p style="font-size:14px;font-weight:700;color:var(--purple-ink)" contenteditable="true">Durant un dia, observa la relació entre el que beus i la teva orina. Apunta-ho aquí:</p>
+<table class="data-table" style="margin-top:5px"><thead><tr><th contenteditable="true">Moment del dia</th><th contenteditable="true">Quants gots d'aigua he begut des de l'anterior</th><th contenteditable="true">Color de l'orina (clara / mitjana / fosca)</th></tr></thead><tbody><tr class="deletable"><td style="font-weight:700">Al llevar-te</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Migdia</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Tarda</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Abans de dormir</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
+  <p style="font-size:13.5px;font-weight:700;color:var(--purple-ink);margin-top:7px" contenteditable="true">Quina conclusió en treus sobre com el teu ronyó regula l'aigua del cos?</p>
 <p class="pista" contenteditable="true">Per començar: compara les dues columnes. Quan la columna dels gots té un número petit, què li passa a la columna del color?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   <p class="small mt8" contenteditable="true">⚠️ <strong>Porta aquesta fitxa a la Sessió 7</strong> — i <strong>no t'oblidis les dades de freqüència cardíaca en repòs dels 3 matins</strong> que vas mesurar la sessió passada: les necessitaràs. ⏱️ 1 min cada cop · No es pot fer amb IA: són observacions teves del teu propi cos.</p>
 </div>
@@ -555,7 +566,17 @@ function flattenDoc(){
   }
   const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
 }
-function extractFlow(){ FLOW = Array.from(document.getElementById('doc').children); }
+function extractFlow(){
+  FLOW = Array.from(document.getElementById('doc').children);
+  // Posicio original de cada fill de seccio: el paginador la fa servir per
+  // reassemblar en ordre una seccio que ha partit (sense aixo, cada
+  // repaginacio la desordena i separa una llegenda del seu dibuix).
+  FLOW.forEach(function(b){
+    if(b.classList && b.classList.contains('section')){
+      Array.prototype.forEach.call(b.children, function(k,i){ k._ord = i; });
+    }
+  });
+}
 function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
 
 function saveCaret(){
@@ -580,7 +601,15 @@ function repaginate(){
   const caret=saveCaret();
   FLOW = FLOW.filter(b=>b);
   // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
-  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } } });
+  var _origens=[];
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
+  // ...i es torna l'ordre original: els fills reassemblats s'afegien al final.
+  _origens.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
+  });
   FLOW.forEach(b=>{ if(b.parentNode) b.parentNode.removeChild(b); });
   host.innerHTML='';
   let body=null;

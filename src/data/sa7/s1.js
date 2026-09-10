@@ -4,7 +4,7 @@ export const sa7s1 = {
   sessionNumber: 1, biome: "sa7", duration: "2h",
   engageImage: "/images/sa7-s1-roques.jpg",
 
-  engageQuestion: "El terra de la nostra aula, les façanes dels edificis del barri, els monuments... tots estan fets de roca. Però per quina raó hi ha roques tan diferents? Un granit és completament diferent d'una pissarra, i totes dues ho son d'un calcari. Al final d'avui sabràs identificar qualsevol mostra de roca i explicar per quina raó és com és.",
+  engageQuestion: "El terra de la nostra aula, les façanes dels edificis del barri, els monuments... tots estan fets de roca. Però per quina raó hi ha roques tan diferents? Un granit és completament diferent d'una pissarra, i totes dues ho són d'un calcari. Al final d'avui sabràs identificar qualsevol mostra de roca i explicar per quina raó és com és.",
   engageContext: "Tindràs sis mostres de roca sense etiqueta: observa-les, toca-les i descriu-les amb adjectius. Quines has vist als edificis del barri? De què és el terra del pati? Una d'aquestes roques és volcànica, i serà la clau per entendre la Garrotxa.",
 
   // NO es renderitza al web: guió del docent (logística, temps,
@@ -15,7 +15,7 @@ export const sa7s1 = {
     A: [
       "Identifico qualsevol mostra de roca pel seu origen (ígnia/sedimentària/metamòrfica) usant almenys 3 criteris d'observació (textura, mida de cristalls, presència de fòssils, laminació, reacció amb HCl) i argumento per quina raó cada característica és una evidència del procés de formació.",
       "Explico el cicle de les roques de forma completa: magma → roca ígnia → erosió → sediment → roca sedimentària → metamorfisme → roca metamòrfica → fusió → magma. Identifico en quin punt del cicle estan les roques del laboratori.",
-      "Connecto els tipus de roca amb els processos geológics de la SA: per quina raó el basalt de la Garrotxa és extrusiu i no intrusiu, i quina diferència hi ha en la mida dels cristalls.",
+      "Connecto els tipus de roca amb els processos geològics de la SA: per quina raó el basalt de la Garrotxa és extrusiu i no intrusiu, i quina diferència hi ha en la mida dels cristalls.",
       "Dissenyo un protocol d'identificació de roques desconegudes amb almenys 5 proves ordenades de menys a més destructiva. Justifique l'ordre amb criteris de metodologia científica (CE3)."
     ],
     B: [
@@ -25,7 +25,7 @@ export const sa7s1 = {
       "Explico el cicle de les roques: com les tres famílies es transformen les unes en les altres al llarg de milions d'anys."
     ],
     C: [
-      "Completo: les tres famílies de roques son _____, _____ i _____. Cada família es forma de manera diferent: les ígnies es formen quan _____; les sedimentàries quan _____; les metamòrfiques quan _____.",
+      "Completo: les tres famílies de roques són _____, _____ i _____. Cada família es forma de manera diferent: les ígnies es formen quan _____; les sedimentàries quan _____; les metamòrfiques quan _____.",
       "Identifico en el laboratori: la roca que reacciona amb àcid és _____ (família: _____). La roca amb capes visibles és _____ (família: _____). La roca de cristalls grans i molts colors és _____ (família: _____).",
       "Completo el cicle de les roques: magma → roca _____ → erosió → _____ → roca sedimentària → calor i pressió → roca _____.",
       "Anoto 2 característiques que m'han ajudat a identificar una roca al laboratori: 1. _____ 2. _____."
@@ -35,7 +35,7 @@ export const sa7s1 = {
   apartatExtras: {
     "2": {
       scaffold: "Omple la taula d'identificació de les 3 famílies: Família / Procés de formació / 2 exemples / 1 característica clau. Ígnies: procés = ___ / exemples = ___, ___ / característica = ___. Sedimentàries: procés = ___ / exemples = ___, ___ / característica = ___. Metamòrfiques: procés = ___ / exemples = ___, ___ / característica = ___.",
-      challenge: "Investiga el concepte de 'datació radiomètrica': com podem saber l'edat d'una roca ígnia usant la desintegració radioactiva? Explica el principi del rellotge atòmic (isòtop pare → isòtop fill) i per quina raó les roques sedimentàries son molt difícils de datar directament (però els fòssils que contenen no)."
+      challenge: "Investiga el concepte de 'datació radiomètrica': com podem saber l'edat d'una roca ígnia usant la desintegració radioactiva? Explica el principi del rellotge atòmic (isòtop pare → isòtop fill) i per quina raó les roques sedimentàries són molt difícils de datar directament (però els fòssils que contenen no)."
     },
     "3": {
       scaffold: "Al laboratori, respon per a cada mostra: color (clar/fosc), textura (cristal·lina/granular/làmines), pots ratllar-la amb una ungla? (sí/no), reacciona amb unes gotes d'àcid? (sí/no). Amb aquests 4 criteris, quina família creus que és? Compara amb el teu company.",
@@ -79,7 +79,7 @@ export const sa7s1 = {
       id: "t1",
       apartat: "2",
       heading: "Roques i minerals: les ==tres famílies== del regne inorgànic",
-      text: "Una ==roca== és un material natural sòlid format per un o més ==minerals|g==. Un ==mineral|g== és una substància inorgànica, natural, amb composició química definida i estructura cristal·lina pròpia (quars = SiO₂ sempre). La diferència clau: un mineral té sempre la mateixa composició; una roca és una barreja. El granit, per exemple, conté ==quars|b== (gris translúcid), ==feldspat|o== (rosa o blanc) i ==mica|r== (làmines negres brillants). Les roques es classifiquen en tres famílies segons el seu origen: ==ígnies== (del foc), ==sedimentàries== (de sediments) i ==metamòrfiques== (transformat per calor/pressió). Cada família és la memòria d'un procés geológic diferent.",
+      text: "Una ==roca== és un material natural sòlid format per un o més ==minerals|g==. Un ==mineral|g== és una substància inorgànica, natural, amb composició química definida i estructura cristal·lina pròpia (quars = SiO₂ sempre). La diferència clau: un mineral té sempre la mateixa composició; una roca és una barreja. El granit, per exemple, conté ==quars|b== (gris translúcid), ==feldspat|o== (rosa o blanc) i ==mica|r== (làmines negres brillants). Les roques es classifiquen en tres famílies segons el seu origen: ==ígnies== (del foc), ==sedimentàries== (de sediments) i ==metamòrfiques== (transformat per calor/pressió). Cada família és la memòria d'un procés geològic diferent.",
       type: "concept"
     },
     {
@@ -92,8 +92,8 @@ export const sa7s1 = {
     {
       id: "t3",
       apartat: "3",
-      heading: "Roques ==sedimentàries==: la memoria del paisatge passat",
-      text: "Les roques ==sedimentàries== es formen per acumulació de ==sediments|o== (fragments d'altres roques, restes d'organismes, minerals precipitats) en medis aquàtics o eòlics. El procés de ==litificació|g== té dues fases: 1) ==compactació== (el pes dels sediments superiors pressiona els inferiors i treu l'aigua) + 2) ==cimentació== (minerals dissolts precipiten entre els grans unint-los). Les principals: ==arenisca|o== (grans de sorra cimentats; sovint es veuen a simple vista), ==calcari|b== (CaCO₃ de restes de closques i esquelets, reacciona amb HCl → efervescència), ==argil·lita== (partícules molt fines, compacte). Una característica clau: les roques sedimentàries son les úniques que poden contenir ==fòssils|g== (restes d'organismes atrapats durant la litificació). La pedrera de Montjuïc és conglomerat sedimentari, no granit.",
+      heading: "Roques ==sedimentàries==: la memòria del paisatge passat",
+      text: "Les roques ==sedimentàries== es formen per acumulació de ==sediments|o== (fragments d'altres roques, restes d'organismes, minerals precipitats) en medis aquàtics o eòlics. El procés de ==litificació|g== té dues fases: 1) ==compactació== (el pes dels sediments superiors pressiona els inferiors i treu l'aigua) + 2) ==cimentació== (minerals dissolts precipiten entre els grans unint-los). Les principals: ==arenisca|o== (grans de sorra cimentats; sovint es veuen a simple vista), ==calcari|b== (CaCO₃ de restes de closques i esquelets, reacciona amb HCl → efervescència), ==argil·lita== (partícules molt fines, compacte). Una característica clau: les roques sedimentàries són les úniques que poden contenir ==fòssils|g== (restes d'organismes atrapats durant la litificació). La pedrera de Montjuïc és conglomerat sedimentari, no granit.",
       type: "concept"
     },
     {
@@ -107,7 +107,7 @@ export const sa7s1 = {
       id: "t5",
       apartat: "3",
       heading: "El ==cicle de les roques==: la Terra recicla els seus materials",
-      text: "Cap roca és permanent: totes es van transformant al llarg de milions d'anys en un cicle continu. El ==cicle de les roques== connecta les tres famílies: 1) ==Magma → roca ígnia==: el magma es refreda i cristal·litza. 2) ==Roca ígnia → sediment → roca sedimentària==: l'erosió (vent, pluja, glaceres) fragmenta qualsevol roca, els sediments s'acumulen i es litifiquen. 3) ==Roca sedimentària → metamòrfica==: enterrada en profunditat o en una col·lisió de plaques, la calor i la pressió la transformen. 4) ==Roca metamòrfica → magma==: si la temperatura és prou alta, es fon i torna a ser magma. Implicació clau per a l'enigma: les ==roques basàltiques|r== de la Garrotxa son ígnies extrusives recents (fa ≈11.000 anys), la qual cosa indica activitat magmàtica recent en una zona on no hi hauria d'haver volcans de subducció. Per quina raó? Ho respondrem a S2.",
+      text: "Cap roca és permanent: totes es van transformant al llarg de milions d'anys en un cicle continu. El ==cicle de les roques== connecta les tres famílies: 1) ==Magma → roca ígnia==: el magma es refreda i cristal·litza. 2) ==Roca ígnia → sediment → roca sedimentària==: l'erosió (vent, pluja, glaceres) fragmenta qualsevol roca, els sediments s'acumulen i es litifiquen. 3) ==Roca sedimentària → metamòrfica==: enterrada en profunditat o en una col·lisió de plaques, la calor i la pressió la transformen. 4) ==Roca metamòrfica → magma==: si la temperatura és prou alta, es fon i torna a ser magma. Implicació clau per a l'enigma: les ==roques basàltiques|r== de la Garrotxa són ígnies extrusives recents (fa ≈11.000 anys), la qual cosa indica activitat magmàtica recent en una zona on no hi hauria d'haver volcans de subducció. Per quina raó? Ho respondrem a S2.",
       type: "epistemic",
       badge: "🧩 Enigma — primera pista"
     }
@@ -118,17 +118,20 @@ export const sa7s1 = {
     { id: "G2", apartat: "3", title: "Cicle de les roques", src: "/images/sa7-g2-cicle-roques.svg", note: "Diagrama cíclic: Magma (centre) → Roca ígnia (↑ refredar-se) → Sediment (→ erosió) → Roca sedimentaria (→ litificació) → Roca metamòrfica (↓ calor+pressió) → Magma (↓ fusió). Fletxes i noms dels processos per cada transició." }
   ],
 
-  fitxaUrl: "/fitxes/sa7-s1-fitxa.pdf", teoriaPdfUrl: null,
+  // Sense fitxa imprimible encara: el PDF que hi havia aquí no existeix a
+  // public/fitxes/. Amb null, la web mostra «la fitxa es reparteix a classe»
+  // en comptes d'un enllaç trencat.
+  fitxaUrl: null, teoriaPdfUrl: null,
 
   fitxaGuide: {
-    fitxaName: "Fitxa S1 — Les roques expliquen la historia",
+    fitxaName: "Fitxa S1 — Les roques expliquen la història",
     steps: [
       { apartat: "0", title: "Idees prèvies sobre roques i minerals", time: "5 min", phase: "engage", instruction: "Apartat 0: respon les 3 preguntes inicials (dibuix + hipòtesis). No es corregeix ara — al final de la SA comparareu.", hints: [] },
       { apartat: "1", title: "Lab d'identificació de roques (6 mostres)", time: "25 min", phase: "explore", instruction: "Apartat 1: omple la fitxa d'identificació de les 6 mostres (color, textura, duresa, reacció àcid, família, nom). Compara amb el grup abans de la posada en comú.", hints: [
-        "Truc: si la mostra fa efervescència (bombolles) amb HCl, és un carbonat (calcari o marbre). Si és marbre, els cristalls de calcita son visibles i la textura és granulosa; si és calcari, pot tenir fòssils.",
+        "Truc: si la mostra fa efervescència (bombolles) amb HCl, és un carbonat (calcari o marbre). Si és marbre, els cristalls de calcita són visibles i la textura és granulosa; si és calcari, pot tenir fòssils.",
         "La pissarra es cliva en làmines planes (com fulls de paper endurit). El granit té cristalls de tres colors: quars gris, feldspat rosa i mica negra brillant."
       ] },
-      { apartat: "2", title: "Les tres famílies i el procés de formació", time: "20 min", phase: "explica", instruction: "Apartat 2: omple la taula de les 3 famílies (família / procés / exemples / característica clau). Respon: per quina raó el basalt té cristalls petits i el granit grans si totes dues son roques ígnies?", hints: [
+      { apartat: "2", title: "Les tres famílies i el procés de formació", time: "20 min", phase: "explica", instruction: "Apartat 2: omple la taula de les 3 famílies (família / procés / exemples / característica clau). Respon: per quina raó el basalt té cristalls petits i el granit grans si totes dues són roques ígnies?", hints: [
         "Clau: velocitat de refredament. Lent (en profunditat) → cristalls grans. Ràpid (a la superfície, extrusiu) → cristalls petits o textura vítria.",
         "Ígnies = del foc (magma). Sedimentàries = de sediments (erosió + litificació). Metamòrfiques = transformades (calor + pressió)."
       ] },
@@ -149,7 +152,6 @@ export const sa7s1 = {
   homework: {
     description: "Fotografia 3 materials de construcció de l'entorn del teu barri (façana d'un edifici, paviment del carrer, monument, pedres d'un mur...). Per a cada un, intenta identificar de quin tipus de roca es tracta (usa la clau de la fitxa) i escriu on creus que s'ha extret. Porta les fotos o les descripcions a S2.",
     note: "Activitat de camp no delegable a IA: requereix observació i identificació presencial de materials reals.",
-    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (minerals vs roques, les 3 famílies, cicle de les roques)",

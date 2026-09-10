@@ -13,20 +13,23 @@ import { sa5Avaluacio } from './sa5/avaluacio.js'
 import { sa6Avaluacio } from './sa6/avaluacio.js'
 import { sa7Avaluacio } from './sa7/avaluacio.js'
 
-// SA publicades amb contingut complet (fitxes A/B/C reals)
+// SA publicades: el text de sessió ja està net i revisat, així que es publica.
+// SA1–SA5 porten fitxa imprimible real (HTML A/B/C a public/fitxes/); SA6 i SA7
+// encara no en tenen cap, i el seu `fitxaUrl` és `null` — la pàgina de sessió
+// mostra llavors «la fitxa es reparteix a classe» en comptes d'un enllaç trencat.
 export const publishedSAs = [
   { ...sa1, sessionsData: sa1Sessions, avaluacio: sa1Avaluacio, published: true },
   { ...sa2, sessionsData: sa2Sessions, avaluacio: sa2Avaluacio, published: true },
-  { ...sa3, sessionsData: sa3Sessions, avaluacio: sa3Avaluacio, published: true }
+  { ...sa3, sessionsData: sa3Sessions, avaluacio: sa3Avaluacio, published: true },
+  { ...sa4, sessionsData: sa4Sessions, avaluacio: sa4Avaluacio, published: true },
+  { ...sa5, sessionsData: sa5Sessions, avaluacio: sa5Avaluacio, published: true },
+  { ...sa6, sessionsData: sa6Sessions, avaluacio: sa6Avaluacio, published: true },
+  { ...sa7, sessionsData: sa7Sessions, avaluacio: sa7Avaluacio, published: true }
 ]
 
-// SA pendents (contingut a sas.js encara sense fitxes; no es publiquen a la web fins que les tinguin)
-export const upcomingSAs = [
-  { ...sa4, sessionsData: sa4Sessions, avaluacio: sa4Avaluacio, published: false },
-  { ...sa5, sessionsData: sa5Sessions, avaluacio: sa5Avaluacio, published: false },
-  { ...sa6, sessionsData: sa6Sessions, avaluacio: sa6Avaluacio, published: false },
-  { ...sa7, sessionsData: sa7Sessions, avaluacio: sa7Avaluacio, published: false }
-]
+// Ja no hi ha cap SA en espera. Es deixa l'array (buit) perquè hi ha components
+// que l'importen; hi tornaran les SA noves que encara no tinguin text tancat.
+export const upcomingSAs = []
 
 export const allSAs = [...publishedSAs, ...upcomingSAs]
 

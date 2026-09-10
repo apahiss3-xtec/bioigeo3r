@@ -176,7 +176,7 @@ export const sa4s3 = {
     { id: "F3", apartat: "2", title: "Els primers dies (escala esquemàtica)", src: "/images/sa4-s3-primers-dies.svg", note: "Deliberadament sòbria: cercles del mateix diàmetre sobre un eix de temps. Serveix per concretar el «què SÍ que pot dir la ciència», no per il·lustrar emotivament." }
   ],
 
-  fitxaUrls: {
+  fitxaUrl: {
     A: "/fitxes/sa4-s3-fitxa-A.html",
     B: "/fitxes/sa4-s3-fitxa-B.html",
     C: "/fitxes/sa4-s3-fitxa-C.html"
@@ -223,7 +223,6 @@ export const sa4s3 = {
 
   homework: {
     description: "Tria UNA de les tres i porta-la escrita (dues línies). (a) Copia una frase PÚBLICA que hagis sentit o llegit sobre sexualitat, cossos o com evitar un embaràs: a la ràdio, a la tele, en un anunci, en un titular o en una xarxa. Digues de quin mitjà l'has treta i si és comprovable o una valoració. (b) Mira un anunci qualsevol i escriu una cosa que doni per fet sobre què és «de noi» o «de noia». (c) Busca a una font fiable (per exemple Canal Salut) una afirmació sobre salut sexual i copia-la amb la font. Les tres valen igual. Les opcions (a) i (b) no són delegables a cap IA: demanen una frase concreta captada en un mitjà real, amb la font. Les frases es recullen en un paper i es treballen a la sessió següent sense dir qui les ha portades; no s'hi copien converses privades ni cal dir on es va sentir res.",
-    deadline: "la sessió següent"
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina: les quatre finestres, la frontera ciència/societat i els tres tipus de frase",

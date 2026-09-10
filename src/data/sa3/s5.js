@@ -145,7 +145,7 @@ export const sa3s5 = {
     ]
   },
 
-  homework: { description: "Prova escrita de la SA (Defensors del cos): repassa el mapa síntesi, els dos enigmes i els mecanismes (vacuna, fàrmac, droga). Acaba i entrega la campanya de comunicació científica a Classroom.", deadline: "1 setmana (data acordada a Classroom)" },
+  homework: { description: "Prova escrita de la SA (Defensors del cos): repassa el mapa síntesi, els dos enigmes i els mecanismes (vacuna, fàrmac, droga). Acaba i entrega la campanya de comunicació científica a Classroom." },
 
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (endogen/exogen, sinapsi i dopamina, tolerància i abstinència, síntesi SA3)",

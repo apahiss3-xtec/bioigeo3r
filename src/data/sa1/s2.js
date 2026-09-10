@@ -238,7 +238,6 @@ export const sa1s2 = {
 
   homework: {
     description: "Llegeix el text curt sobre divisió cel·lular (disponible a Classroom) per preparar la S3.",
-    deadline: null
   },
 
   recoveryInstructions: [

@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sessió 7 · Síntesi de la unitat — IE Temple</title>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@500;600;700&amp;display=swap" rel="stylesheet">
 <style>
 :root {
   --purple:       #7B68C8;
@@ -25,7 +25,7 @@
   --green:   #4a9e5c; --green-tint:   #eaf4ec;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:13px; line-height:1.5; }
+body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:14.5px; line-height:1.5; }
 
 #toolbar { position:fixed; top:0; left:0; right:0; z-index:9000; background:#2d2347; display:flex; gap:6px; align-items:center; padding:6px 12px; box-shadow:0 2px 10px rgba(0,0,0,.25); }
 .tb-btn { font-family:'Inter',sans-serif; font-size:12px; font-weight:600; color:#fff; background:rgba(255,255,255,.12); border:none; cursor:pointer; padding:6px 11px; border-radius:7px; }
@@ -33,11 +33,11 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .tb-btn.active { background:var(--purple); }
 .tb-title { font-family:'Inter',sans-serif; font-size:11px; color:#cfc6ec; margin-left:auto; letter-spacing:.04em; }
 
-.page-wrap { margin:48px auto 40px; }
+.page-wrap { margin:39px auto 33px; }
 #doc { display:none; }
 #sheets { display:flex; flex-direction:column; align-items:center; gap:26px; }
-.sheet { width:794px; min-height:1123px; background:var(--surface); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.16); overflow:visible; padding-bottom:26px; }
-.sheet-body { padding:40px 18px 8px; position:relative; overflow:visible; }
+.sheet { width:794px; min-height:1123px; background:var(--surface); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.16); overflow:visible; padding-bottom:21px; }
+.sheet-body { padding:33px 18px 7px; position:relative; overflow:visible; }
 .sheet-foot { position:absolute; left:0; right:0; bottom:0; height:26px; display:flex; justify-content:space-between; align-items:center; padding:0 22px; font-family:'Inter',sans-serif; font-size:8px; font-weight:600; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; border-top:.5px solid var(--rule); background:var(--surface); }
 .sheet-body > .header-band { margin:-40px -18px 0; }
 .sheet-body > .nivell-strip { margin:0 -18px; }
@@ -56,103 +56,103 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .logo-box img { height:84px; display:block; }
 .header-meta { font-family:'Inter',sans-serif; font-size:8px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; opacity:.82; text-align:right; line-height:1.4; }
 
-.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:6px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
-.badge { font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
-.temps-badge { font-size:10px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
-.nom-field { font-size:11px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
+.badge { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
+.temps-badge { font-size:11px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
+.nom-field { font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
 .nom-field:first-of-type { margin-left:auto; }
-.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:13.5px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
 .input-span.data-span { min-width:70px; }
 .nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(123,104,200,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); vertical-align:middle; margin-left:4px; flex-shrink:0; }
 
-.oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin:12px 18px 4px; position:relative; }
-.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:13px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:6px; }
+.oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 14px 10px; margin:10px 18px 3px; position:relative; }
+.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14.5px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:5px; }
 .oa-list { margin:0; padding-left:18px; list-style:none; }
-.oa-list li { font-size:11px; line-height:1.5; color:var(--ink-2); margin-bottom:3px; padding-left:4px; }
+.oa-list li { font-size:13.5px; line-height:1.5; color:var(--ink-2); margin-bottom:2px; padding-left:4px; }
 .oa-list li::before { content:"\2610 "; color:var(--purple); font-weight:700; margin-left:-18px; margin-right:4px; }
 
-.content { padding:4px 18px 14px; }
-.section { margin-top:12px; position:relative; }
-.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
-.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.content { padding:3px 18px 11px; }
+.section { margin-top:10px; position:relative; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:7px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:14.5px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .snum.n0 { background:var(--muted); } .snum.n1 { background:var(--orange); } .snum.n2 { background:var(--teal); }
 .snum.n3 { background:var(--art); } .snum.n4 { background:var(--purple-ink); }
-.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
-.sdesc { font-size:10px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
-.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+.stitle { font-size:16px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:11px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:8px; }
 
-.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
-.previ-box p { font-size:12px; }
-.previ-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch; margin-top:8px; }
-.draw-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:9px 12px; display:flex; flex-direction:column; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:7px 12px; }
+.previ-box p { font-size:14px; }
+.previ-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch; margin-top:7px; }
+.draw-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:7px 12px; display:flex; flex-direction:column; }
 .draw-box .card-label { color:var(--purple-ink); }
-.draw-area { flex:1 1 auto; min-height:240px; border:1.5px dashed var(--rule-dark); border-radius:8px; background:#fff; margin-top:6px; display:flex; align-items:flex-start; justify-content:flex-end; }
+.draw-area { flex:1 1 auto; min-height:240px; border:1.5px dashed var(--rule-dark); border-radius:8px; background:#fff; margin-top:5px; display:flex; align-items:flex-start; justify-content:flex-end; }
 .draw-area .draw-hint { font-size:9px; color:#c0b8d8; font-style:italic; padding:5px 8px; user-select:none; pointer-events:none; }
-.wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:6px; background:#fff; outline:none; padding:3px 4px; }
-.pista { font-size:10px; color:var(--muted); font-style:italic; margin:4px 0 2px; }
-.card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:10px 12px; margin-bottom:8px; }
+.wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:5px; background:#fff; outline:none; padding:2px 4px; }
+.pista { font-size:11px; color:var(--muted); font-style:italic; margin:3px 0 2px; }
+.card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:8px 12px; margin-bottom:7px; }
 .card.orange { border-color:var(--orange); background:var(--orange-tint); }
 .card.teal { border-color:var(--teal); background:var(--teal-tint); }
 .card.rose { border-color:var(--rose); background:var(--rose-tint); }
 .card.yellow { border-color:var(--yellow); background:var(--yellow-tint); }
-.card-label { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+.card-label { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
 
-.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:7px 12px; margin:7px 0; }
 .connexio-icon { font-size:24px; flex-shrink:0; }
-.connexio-text { font-size:11px; line-height:1.4; }
+.connexio-text { font-size:13.5px; line-height:1.5; }
 .connexio-text strong { color:var(--purple-ink); }
 
-.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
-.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:6px 10px; margin-bottom:8px; }
+.word-bank-title { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
 .chips { display:flex; flex-wrap:wrap; gap:4px; }
-.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.chip { font-size:13.5px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
 
-.data-table { width:100%; border-collapse:collapse; font-size:11px; }
-.data-table th { background:var(--purple-ink); color:#fff; padding:5px 8px; text-align:left; font-size:9px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+.data-table th { background:var(--purple-ink); color:#fff; padding:4px 8px; text-align:left; font-size:11px; letter-spacing:.05em; text-transform:uppercase; }
 .data-table th:first-child { border-radius:5px 0 0 0; }
 .data-table th:last-child { border-radius:0 5px 0 0; }
-.data-table td { padding:5px 8px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table td { padding:4px 8px; border-bottom:1px solid var(--rule); vertical-align:middle; }
 .data-table tr:nth-child(even) td { background:var(--purple-tint); }
 .data-table.analitica tr.row-baixa td { background:var(--rose-tint); }
 .data-table.analitica tr.row-alta td { background:var(--green-tint); }
 .fill-cell { display:block; width:100%; min-height:22px; border-bottom:1.5px solid #C8C2DD; background:#fff; outline:none; padding:2px 3px; }
-.yn-opt { font-size:11px; display:inline-flex; align-items:center; gap:3px; }
+.yn-opt { font-size:13.5px; display:inline-flex; align-items:center; gap:3px; }
 .chk-sq { width:12px; height:12px; border:1.5px solid var(--rule-dark); border-radius:2px; flex-shrink:0; display:inline-block; print-color-adjust:exact; }
 
-.milimetrat-title { background:var(--purple-ink); color:#fff; font-size:10px; font-weight:700; padding:4px 10px; text-transform:uppercase; letter-spacing:.05em; display:flex; justify-content:space-between; align-items:center; }
-.g1-wrap { border:1.5px solid var(--rule); border-radius:8px; overflow:hidden; margin:8px 0; position:relative; }
+.milimetrat-title { background:var(--purple-ink); color:#fff; font-size:11px; font-weight:700; padding:3px 10px; text-transform:uppercase; letter-spacing:.05em; display:flex; justify-content:space-between; align-items:center; }
+.g1-wrap { border:1.5px solid var(--rule); border-radius:8px; overflow:hidden; margin:7px 0; position:relative; }
 .img-marcador { min-height:180px; align-items:center; justify-content:center; background:repeating-linear-gradient(45deg,#faf8ff,#faf8ff 10px,#f0edfb 10px,#f0edfb 20px); border:2px dashed var(--purple-light); }
-.img-marcador-in { text-align:center; padding:14px 18px; }
+.img-marcador-in { text-align:center; padding:11px 18px; }
 
-.blank { display:inline-block; border:1px solid var(--rule); border-bottom:1.5px solid #C8C2DD; border-radius:3px 3px 0 0; vertical-align:bottom; margin:0 3px; height:auto; min-height:1.45em; line-height:1.45; padding:0 5px; background:#fff; outline:none; }
+.blank { display:inline-block; border:1px solid var(--rule); border-bottom:1.5px solid #C8C2DD; border-radius:3px 3px 0 0; vertical-align:bottom; margin:0 3px; height:auto; min-height:1.45em; line-height:1.5; padding:0 5px; background:#fff; outline:none; }
 .blank-s { min-width:60px; } .blank-m { min-width:100px; } .blank-l { min-width:140px; } .blank-xl { min-width:200px; }
-.frase-completar { font-size:11.5px; line-height:2.3; margin-bottom:4px; }
+.frase-completar { font-size:13.5px; line-height:2.3; margin-bottom:3px; }
 
-.info-box { background:#fff; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:8px 12px; margin:8px 0; position:relative; }
-.info-label { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
-.info-box p { font-size:11px; line-height:1.5; margin-bottom:3px; }
-.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0 3px; }
-.chain-chip { font-size:10.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
-.chain-arrow { color:var(--purple); font-weight:900; font-size:13px; }
+.info-box { background:#fff; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:7px 12px; margin:7px 0; position:relative; }
+.info-label { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:2px; }
+.info-box p { font-size:13.5px; line-height:1.5; margin-bottom:2px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:5px 0 2px; }
+.chain-chip { font-size:13.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:14.5px; }
 
-.circ-row { font-size:11.5px; line-height:2.1; margin-bottom:3px; }
+.circ-row { font-size:13.5px; line-height:2.1; margin-bottom:2px; }
 .circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:#fff; }
 
-.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; position:relative; }
-.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
-.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:7px 12px; margin:7px 0; position:relative; }
+.epist-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
+.epist-text { font-size:13.5px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
 
-.meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin-top:12px; position:relative; }
-.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:12px; font-weight:900; color:var(--purple-ink); margin-bottom:8px; }
-.meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:5px; }
+.meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:8px 14px 10px; margin-top:10px; position:relative; }
+.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14px; font-weight:900; color:var(--purple-ink); margin-bottom:7px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:4px; }
 .meta-oa-check { width:14px; height:14px; flex-shrink:0; border:1.5px solid var(--purple); border-radius:3px; margin-top:1px; print-color-adjust:exact; }
-.meta-oa-text { font-size:10.5px; color:var(--ink-2); line-height:1.4; }
-.meta-open { margin-top:8px; padding-top:8px; border-top:1px solid var(--rule-dark); }
-.meta-open-label { font-size:10px; font-weight:700; color:var(--muted); margin-bottom:3px; }
+.meta-oa-text { font-size:13.5px; color:var(--ink-2); line-height:1.5; }
+.meta-open { margin-top:7px; padding-top:7px; border-top:1px solid var(--rule-dark); }
+.meta-open-label { font-size:11px; font-weight:700; color:var(--muted); margin-bottom:2px; }
 
-.tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:10px 12px; margin-top:10px; position:relative; }
+.tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:8px 12px; margin-top:8px; position:relative; }
 
-.footer { margin-top:14px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer { margin-top:11px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:6px; }
 .footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
 .footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
 
@@ -173,10 +173,10 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .wline-del { display:none; position:absolute; top:50%; right:-7px; transform:translateY(-50%); width:16px; height:16px; background:var(--rose); color:#fff; border-radius:50%; font-size:10px; line-height:16px; text-align:center; cursor:pointer; z-index:40; box-shadow:0 1px 3px rgba(0,0,0,.3); user-select:none; }
 .wline:hover > .wline-del { display:block; }
 
-.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; }
+.spacer-block { position:relative; height:48px; margin:3px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; }
 .spacer-label { font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
 
-.mt8 { margin-top:8px; } .bold { font-weight:700; } .small { font-size:10px; color:var(--muted); }
+.mt8 { margin-top:7px; } .bold { font-weight:700; } .small { font-size:11px; color:var(--muted); }
 
 @media print {
   @page { size:A4; margin:0; }
@@ -194,6 +194,17 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   .input-span:empty::before { display:none; }
   .header-emoji-box { background:#ede8f8; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   LLEGIBILITAT-C v1 — llegibilitat de la Versió C (dislèxia). 09/09/2026.
+   Cos en 'Fira Sans Condensed' (mateixa família que l'Extra Condensed
+   de la casa, però amb lletres més obertes i distingibles), interlineat
+   ample i separació de paraules. Titulars, capçalera i peu no es toquen.
+   ══════════════════════════════════════════════════════════════ */
+.sheet-body,#doc{font-family:'Fira Sans Condensed','Fira Sans Extra Condensed',sans-serif;
+  line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
+.sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
+.sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
 </style>
 </head>
 <body>
@@ -220,7 +231,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="header-subtitle" contenteditable="true">Ara ja ho saps tot: què li passa a la Mercè i què li passa al Marc?</div>
   </div>
   <div class="header-right">
-    <div class="logo-box"><img src="../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
+    <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
     <div class="header-meta" contenteditable="true">3r ESO</div>
   </div>
 </div>
@@ -230,7 +241,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <span class="badge deletable" contenteditable="true">Amb suport visual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <span class="temps-badge deletable">⏱️ 2h total<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
-  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió C">C</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió C — Adaptació">C</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
 </div>
 
 <div class="oa-box deletable">
@@ -247,7 +258,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
 <div class="content">
 
-<div class="word-bank deletable" style="margin-top:10px">
+<div class="word-bank deletable" style="margin-top:8px">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="word-bank-title" contenteditable="true">📖 Vocabulari clau d'avui</div>
   <div class="chips">
@@ -278,12 +289,12 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Els dos enigmes, resolts</div><div class="sdesc" contenteditable="true">⏱️ 12 min · 7 min tu sol/a i, després, 5 min de posada en comú amb tota la classe</div></div></div>
   <div class="divider"></div>
-  <div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">📖 Per llegir abans de començar</div><p style="font-size:11px;line-height:1.65" contenteditable="true">Els dos enigmes han estat penjats a la paret tota la unitat. L'<strong>enigma 1</strong> és la gràfica de la <strong>Mercè</strong>: puja de pressa i baixa a poc a poc. L'<strong>enigma 2</strong> és l'anàlisi de sang d'en <strong>Marc Fontana</strong>: es cansa molt de seguida.</p></div>
+  <div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">📖 Per llegir abans de començar</div><p style="font-size:13.5px;line-height:1.65" contenteditable="true">Els dos enigmes han estat penjats a la paret tota la unitat. L'<strong>enigma 1</strong> és la gràfica de la <strong>Mercè</strong>: puja de pressa i baixa a poc a poc. L'<strong>enigma 2</strong> és l'anàlisi de sang d'en <strong>Marc Fontana</strong>: es cansa molt de seguida.</p></div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🧩 Enigma 2 · completa la cadena</div>
     <p class="frase-completar" contenteditable="false">Al Marc li falta <span class="blank blank-m"></span> → fabrica menys <span class="blank blank-m"></span> → cada litre de la seva sang porta menys <span class="blank blank-m"></span> → el cor ha de bategar <span class="blank blank-s"></span> → arriba la <span class="blank blank-s"></span>.</p>
-    <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">ferro</span><span class="chip" contenteditable="true">hemoglobina</span><span class="chip" contenteditable="true">oxigen</span><span class="chip" contenteditable="true">més ràpid</span><span class="chip" contenteditable="true">fatiga</span><span class="chip" contenteditable="true">aigua</span><span class="chip" contenteditable="true">més a poc a poc</span></div></div>
+    <div class="word-bank" style="margin-top:3px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">ferro</span><span class="chip" contenteditable="true">hemoglobina</span><span class="chip" contenteditable="true">oxigen</span><span class="chip" contenteditable="true">més ràpid</span><span class="chip" contenteditable="true">fatiga</span><span class="chip" contenteditable="true">aigua</span><span class="chip" contenteditable="true">més a poc a poc</span></div></div>
   </div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -294,8 +305,8 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🩸 L'analítica d'en Marc Fontana (enigma 2)</div>
-    <p style="font-size:11px" contenteditable="true"><strong>Qui és:</strong> en Marc Fontana té <strong>20 anys</strong>, s'entrena cada dia i té una <strong>FC en repòs de 82 bat/min</strong> (abans no era així: fa un any la tenia a 58).</p>
-    <table class="data-table" style="margin-top:4px"><thead><tr>
+    <p style="font-size:13.5px" contenteditable="true"><strong>Qui és:</strong> en Marc Fontana té <strong>20 anys</strong>, s'entrena cada dia i té una <strong>FC en repòs de 82 bat/min</strong> (abans no era així: fa un any la tenia a 58).</p>
+    <table class="data-table" style="margin-top:3px"><thead><tr>
       <th contenteditable="true">Valor</th><th contenteditable="true">El Marc</th>
       <th contenteditable="true">Normal</th><th contenteditable="true">Com està</th></tr></thead>
     <tbody><tr class="deletable"><td style="text-align:left;font-weight:700">Hemoglobina</td><td style="text-align:center">9,2 g/dL</td><td style="text-align:center">13,0 – 16,5</td><td style="text-align:center;color:#c0474a;font-weight:800">baixa</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Ferritina (reserva de ferro)</td><td style="text-align:center">8 ng/mL</td><td style="text-align:center">30 – 300</td><td style="text-align:center;color:#c0474a;font-weight:800">baixa</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Eritròcits</td><td style="text-align:center">4,1 milions/µL</td><td style="text-align:center">4,5 – 5,9</td><td style="text-align:center;color:#c0474a;font-weight:800">una mica baixa</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Urea</td><td style="text-align:center">32 mg/dL</td><td style="text-align:center">17 – 49</td><td style="text-align:center;color:#4a9e5c;font-weight:800">normal</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Creatinina</td><td style="text-align:center">0,9 mg/dL</td><td style="text-align:center">0,7 – 1,3</td><td style="text-align:center;color:#4a9e5c;font-weight:800">normal</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Leucòcits</td><td style="text-align:center">6.200 /µL</td><td style="text-align:center">4.000 – 10.000</td><td style="text-align:center;color:#4a9e5c;font-weight:800">normal</td></tr></tbody></table>
@@ -312,17 +323,17 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Mateix esforç, dos cossos diferents</div><div class="sdesc" contenteditable="true">En parelles · ⏱️ 18 min · Gràfica G2</div></div></div>
   <div class="divider"></div>
-  <div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">📖 Per llegir abans de començar</div><p style="font-size:11px;line-height:1.65" contenteditable="true">Les dues persones de la gràfica tenen <strong>20 anys</strong> i fan <strong>el mateix esforç</strong>, durant els mateixos 5 minuts. L'única diferència és que una està <strong>entrenada</strong> i l'altra no. La línia <strong>verda contínua</strong> és l'esportista; la <strong>lila de ratlletes</strong>, la persona sedentària.</p></div>
+  <div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">📖 Per llegir abans de començar</div><p style="font-size:13.5px;line-height:1.65" contenteditable="true">Les dues persones de la gràfica tenen <strong>20 anys</strong> i fan <strong>el mateix esforç</strong>, durant els mateixos 5 minuts. L'única diferència és que una està <strong>entrenada</strong> i l'altra no. La línia <strong>verda contínua</strong> és l'esportista; la <strong>lila de ratlletes</strong>, la persona sedentària.</p></div>
   <div class="g1-wrap mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="milimetrat-title" style="background:#6b5a8a"><span contenteditable="true">G2 · Mateix esforç, dues persones de 20 anys</span><span style="font-size:9px;opacity:.8" contenteditable="true">comparació en parelles</span></div>
+    <div class="milimetrat-title" style="background:#6b5a8a"><span contenteditable="true">G2 · Mateix esforç, dues persones de 20 anys</span><span style="font-size:11px;opacity:.8" contenteditable="true">comparació en parelles</span></div>
     <img src="img/sa2-g2-elit-sedentari.svg" alt="Dues corbes de freqüència cardíaca per al mateix esforç de 5 minuts: esportista d'elit i persona sedentària" style="width:100%;display:block"
       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div class="img-marcador" style="display:none">
       <div class="img-marcador-in">
         <div style="font-size:24px">📈</div>
-        <div style="font-weight:900;color:var(--purple-ink);font-size:12px;margin-top:2px">Gràfica pendent · sa2-g2-elit-sedentari.svg</div>
-        <div style="font-size:10px;color:var(--muted);margin-top:2px">Dues corbes de freqüència cardíaca per al mateix esforç de 5 minuts: esportista d'elit i persona sedentària</div>
+        <div style="font-weight:900;color:var(--purple-ink);font-size:14px;margin-top:2px">Gràfica pendent · sa2-g2-elit-sedentari.svg</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px">Dues corbes de freqüència cardíaca per al mateix esforç de 5 minuts: esportista d'elit i persona sedentària</div>
       </div>
     </div>
   </div>
@@ -337,14 +348,14 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">✍️ Escriviu una conclusió, entre tots dos</div>
-    <p style="font-size:11px" contenteditable="true">Acabeu la frase amb les vostres paraules. Ha de dir <strong>què passa</strong> i <strong>per quina raó</strong>.</p>
+    <p style="font-size:13.5px" contenteditable="true">Acabeu la frase amb les vostres paraules. Ha de dir <strong>què passa</strong> i <strong>per quina raó</strong>.</p>
     <p class="frase-completar" contenteditable="false">L'esportista es recupera més de pressa que la persona sedentària perquè el seu cor</p>
     <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">✅ Ara comprova-ho</div>
-    <p style="font-size:11px" contenteditable="true">Un cor entrenat és més gros i fort: amb <strong>cada batec</strong> mou més sang, així que no li cal bategar tantes vegades per fer la mateixa feina. Ho havies escrit així?</p>
+    <p style="font-size:13.5px" contenteditable="true">Un cor entrenat és més gros i fort: amb <strong>cada batec</strong> mou més sang, així que no li cal bategar tantes vegades per fer la mateixa feina. Ho havies escrit així?</p>
   </div>
 </div>
 
@@ -352,38 +363,38 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="section-header"><div class="snum n2">2</div><div><div class="stitle" contenteditable="true">Un cas que no has vist mai</div><div class="sdesc" contenteditable="true">Individual, sense ajuda · ⏱️ 22 min · Gràfica G3 — es recull</div></div></div>
   <div class="divider"></div>
-  <div class="epist-box mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="epist-title" contenteditable="true">✋ Aquest apartat es recull i es corregeix</div><div class="epist-text" contenteditable="true">Es fa <strong>individualment i sense demanar ajuda</strong>. No passa res si no ho encertes tot: el que es valora és que <strong>facis servir les dades</strong> i que el teu raonament es pugui seguir. Una hipòtesi ben raonada i equivocada val més que una resposta encertada sense arguments. <br><strong>Com s'entrega:</strong> al final de la classe es recull aquest apartat i el full de sortida. L'informe de l'apartat 4 no es recull en paper — el continues i l'entregues al Classroom.</div></div><div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">📖 Per llegir abans de començar</div><p style="font-size:11px;line-height:1.65" contenteditable="true">La gràfica de la <strong>Mercè</strong> ja la coneixes: et servirà de model. La <strong>nova</strong> és d'en Nil, que té <strong>la mateixa edat</strong>. La baixada de la corba és la <strong>recuperació</strong>: com més de pressa baixa, millor està el cos. Compara sobretot <strong>on comencen</strong> i <strong>com baixen</strong>.</p></div>
+  <div class="epist-box mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="epist-title" contenteditable="true">✋ Aquest apartat es recull i es corregeix</div><div class="epist-text" contenteditable="true">Es fa <strong>individualment i sense demanar ajuda</strong>. No passa res si no ho encertes tot: el que es valora és que <strong>facis servir les dades</strong> i que el teu raonament es pugui seguir. Una hipòtesi ben raonada i equivocada val més que una resposta encertada sense arguments. <br><strong>Com s'entrega:</strong> al final de la classe es recull aquest apartat i el full de sortida. L'informe de l'apartat 4 no es recull en paper — el continues i l'entregues al Classroom.</div></div><div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">📖 Per llegir abans de començar</div><p style="font-size:13.5px;line-height:1.65" contenteditable="true">La gràfica de la <strong>Mercè</strong> ja la coneixes: et servirà de model. La <strong>nova</strong> és d'en Nil, que té <strong>la mateixa edat</strong>. La baixada de la corba és la <strong>recuperació</strong>: com més de pressa baixa, millor està el cos. Compara sobretot <strong>on comencen</strong> i <strong>com baixen</strong>.</p></div>
   <div class="g1-wrap mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="milimetrat-title" style="background:#6b5a8a"><span contenteditable="true">G1 · La Mercè (14 anys) — cursa de 10 km</span><span style="font-size:9px;opacity:.8" contenteditable="true">enigma 1 · ja resolt</span></div>
+    <div class="milimetrat-title" style="background:#6b5a8a"><span contenteditable="true">G1 · La Mercè (14 anys) — cursa de 10 km</span><span style="font-size:11px;opacity:.8" contenteditable="true">enigma 1 · ja resolt</span></div>
     <img src="img/sa2-g1-merce.svg" alt="Gràfica de freqüència cardíaca de la Mercè: repòs 65, pic 185 a la meta del minut 55, i tornada per sota de 80 al minut 70" style="width:100%;display:block"
       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div class="img-marcador" style="display:none">
       <div class="img-marcador-in">
         <div style="font-size:24px">📈</div>
-        <div style="font-weight:900;color:var(--purple-ink);font-size:12px;margin-top:2px">Gràfica pendent · sa2-g1-merce.svg</div>
-        <div style="font-size:10px;color:var(--muted);margin-top:2px">Gràfica de freqüència cardíaca de la Mercè: repòs 65, pic 185 a la meta del minut 55, i tornada per sota de 80 al minut 70</div>
+        <div style="font-weight:900;color:var(--purple-ink);font-size:14px;margin-top:2px">Gràfica pendent · sa2-g1-merce.svg</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px">Gràfica de freqüència cardíaca de la Mercè: repòs 65, pic 185 a la meta del minut 55, i tornada per sota de 80 al minut 70</div>
       </div>
     </div>
   </div>
   <div class="g1-wrap mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="milimetrat-title" style="background:#6b5a8a"><span contenteditable="true">G3 · Cas nou — en Nil, 14 anys</span><span style="font-size:9px;opacity:.8" contenteditable="true">avaluació individual</span></div>
+    <div class="milimetrat-title" style="background:#6b5a8a"><span contenteditable="true">G3 · Cas nou — en Nil, 14 anys</span><span style="font-size:11px;opacity:.8" contenteditable="true">avaluació individual</span></div>
     <img src="img/sa2-g3-cas-nou.svg" alt="Gràfica de freqüència cardíaca d'en Nil: repòs 95, pic 195 durant un footing suau, i encara 115 quinze minuts després de parar" style="width:100%;display:block"
       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div class="img-marcador" style="display:none">
       <div class="img-marcador-in">
         <div style="font-size:24px">📈</div>
-        <div style="font-weight:900;color:var(--purple-ink);font-size:12px;margin-top:2px">Gràfica pendent · sa2-g3-cas-nou.svg</div>
-        <div style="font-size:10px;color:var(--muted);margin-top:2px">Gràfica de freqüència cardíaca d'en Nil: repòs 95, pic 195 durant un footing suau, i encara 115 quinze minuts després de parar</div>
+        <div style="font-weight:900;color:var(--purple-ink);font-size:14px;margin-top:2px">Gràfica pendent · sa2-g3-cas-nou.svg</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px">Gràfica de freqüència cardíaca d'en Nil: repòs 95, pic 195 durant un footing suau, i encara 115 quinze minuts després de parar</div>
       </div>
     </div>
   </div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">① Busca aquests quatre números a les gràfiques i escriu-los</div>
-    <p style="font-size:11px" contenteditable="true">Tots quatre hi són. Dos són als rètols de dins del gràfic i dos, a la franja de sota.</p>
-    <table class="data-table" style="margin-top:4px"><thead><tr>
+    <p style="font-size:13.5px" contenteditable="true">Tots quatre hi són. Dos són als rètols de dins del gràfic i dos, a la franja de sota.</p>
+    <table class="data-table" style="margin-top:3px"><thead><tr>
       <th contenteditable="true">Què busco</th><th contenteditable="true">La Mercè (G1)</th><th contenteditable="true">En Nil (G3)</th></tr></thead>
     <tbody>
       <tr class="deletable"><td style="text-align:left;font-weight:700">FC en repòs</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
@@ -394,23 +405,23 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card teal mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">② La meva hipòtesi, pas a pas</div>
-    <p style="font-size:11px;font-weight:800;color:var(--purple-ink)" contenteditable="true">👁️ OBSERVO</p>
-    <p style="font-size:11px" contenteditable="true">Mira la taula que acabes d'omplir i encercla:</p>
+    <p style="font-size:13.5px;font-weight:800;color:var(--purple-ink)" contenteditable="true">👁️ OBSERVO</p>
+    <p style="font-size:13.5px" contenteditable="true">Mira la taula que acabes d'omplir i encercla:</p>
     <div class="circ-row" contenteditable="true">L'exercici d'en Nil va ser <span class="circ-opt">més fluix</span> / <span class="circ-opt">més fort</span> que el de la Mercè, però el seu pic va ser <span class="circ-opt">més alt</span> / <span class="circ-opt">més baix</span>.</div>
-    <p style="font-size:11px;margin-top:6px" contenteditable="true">Ara mira les dues baixades. Quinze minuts després de parar, la Mercè és a 80 i en Nil a 115:</p>
+    <p style="font-size:13.5px;margin-top:5px" contenteditable="true">Ara mira les dues baixades. Quinze minuts després de parar, la Mercè és a 80 i en Nil a 115:</p>
     <div class="circ-row" contenteditable="true">La recuperació d'en Nil és <span class="circ-opt">més ràpida</span> / <span class="circ-opt">més lenta</span> que la de la Mercè.</div>
-    <p style="font-size:11px;font-weight:800;color:var(--purple-ink);margin-top:8px" contenteditable="true">❓ EM PREGUNTO</p>
+    <p style="font-size:13.5px;font-weight:800;color:var(--purple-ink);margin-top:7px" contenteditable="true">❓ EM PREGUNTO</p>
     <div class="circ-row" contenteditable="true">Si el cor ha de bategar tant per un esforç tan petit, deu ser perquè cada litre de la seva sang porta <span class="circ-opt">poc oxigen</span> / <span class="circ-opt">massa oxigen</span>.</div>
-    <p style="font-size:11px;font-weight:800;color:var(--purple-ink);margin-top:8px" contenteditable="true">🔗 CONNECTO</p>
+    <p style="font-size:13.5px;font-weight:800;color:var(--purple-ink);margin-top:7px" contenteditable="true">🔗 CONNECTO</p>
     <div class="circ-row" contenteditable="true">Això s'assembla al cas <span class="circ-opt">del Marc Fontana</span> / <span class="circ-opt">de l'esportista d'elit</span>, que tenia <span class="circ-opt">l'hemoglobina baixa</span> / <span class="circ-opt">la urea alta</span>.</div>
-    <p style="font-size:11px;font-weight:800;color:var(--purple-ink);margin-top:8px" contenteditable="true">✅ DEDUEIXO</p>
+    <p style="font-size:13.5px;font-weight:800;color:var(--purple-ink);margin-top:7px" contenteditable="true">✅ DEDUEIXO</p>
     <p class="frase-completar" contenteditable="false">Crec que en Nil podria tenir <span class="blank blank-m"></span>, i el valor de la seva anàlisi de sang que estaria alterat és l'<span class="blank blank-m"></span>.</p>
-    <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">anèmia</span><span class="chip" contenteditable="true">una infecció</span><span class="chip" contenteditable="true">hemoglobina</span><span class="chip" contenteditable="true">creatinina</span></div></div>
+    <div class="word-bank" style="margin-top:3px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">anèmia</span><span class="chip" contenteditable="true">una infecció</span><span class="chip" contenteditable="true">hemoglobina</span><span class="chip" contenteditable="true">creatinina</span></div></div>
   </div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">③ Escriu-ho tu ara, amb les teves paraules</div>
-    <p style="font-size:11px" contenteditable="true">Amb el que has encerclat i completat a dalt, escriu dues frases explicant què li passa a en Nil.</p>
+    <p style="font-size:13.5px" contenteditable="true">Amb el que has encerclat i completat a dalt, escriu dues frases explicant què li passa a en Nil.</p>
     <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
 </div>
@@ -419,29 +430,29 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="section-header"><div class="snum n3">3</div><div><div class="stitle" contenteditable="true">Quatre aparells, una sola feina</div><div class="sdesc" contenteditable="true">Tota la classe · ⏱️ 18 min · El cicle complet de la nutrició</div></div></div>
   <div class="divider"></div>
-  <div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">📖 Per llegir abans de començar</div><p style="font-size:11px;line-height:1.65" contenteditable="true">El cos no és un munt d'òrgans que van cadascun a la seva: és <strong>un sol sistema</strong>. El <strong>digestiu</strong> aporta la <strong>glucosa</strong>, el <strong>respiratori</strong> aporta l'<strong>oxigen</strong>, la <strong>sang</strong> ho reparteix i el <strong>mitocondri</strong> ho crema per fabricar <strong>ATP</strong>. Els residus surten per dues portes diferents: el <strong>CO₂</strong> pels <strong>pulmons</strong>, i la <strong>urea</strong>, les <strong>sals</strong> i l'<strong>aigua que sobra</strong> pel <strong>ronyó</strong>.</p></div><div class="chain mt8"><span class="chain-chip">🍞 Glucosa (digestiu)</span><span class="chain-arrow">+</span><span class="chain-chip">🫁 O₂ (respiratori)</span><span class="chain-arrow">→</span><span class="chain-chip">🩸 La sang ho reparteix (circulatori)</span><span class="chain-arrow">→</span><span class="chain-chip">⚡ ATP al mitocondri</span><span class="chain-arrow">→</span><span class="chain-chip">💨 CO₂ i aigua, pels pulmons</span></div><div class="chain mt8"><span class="chain-chip">🥩 Proteïnes (digestiu)</span><span class="chain-arrow">→</span><span class="chain-chip">🩸 La sang les reparteix</span><span class="chain-arrow">→</span><span class="chain-chip">🧪 En sobra: es fa urea</span><span class="chain-arrow">→</span><span class="chain-chip">💧 Urea, sals i aigua pel ronyó</span></div><div class="info-box mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="info-label" contenteditable="true">⚗️ La reacció que fa el mitocondri (la respiració cel·lular)</div><p style="font-size:12px;text-align:center;font-weight:700;color:var(--purple-ink)" contenteditable="true">glucosa + O₂ &nbsp;→&nbsp; CO₂ + H₂O + ATP</p><p style="font-size:11px;margin-top:4px" contenteditable="true">Fixa-t'hi: d'aquesta reacció en surten <strong>CO₂</strong> i <strong>aigua</strong>, no urea. La <strong>urea</strong> ve d'una altra banda: de les <strong>proteïnes</strong> que sobren. Per això són dues cadenes i no una.</p></div>
+  <div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">📖 Per llegir abans de començar</div><p style="font-size:13.5px;line-height:1.65" contenteditable="true">El cos no és un munt d'òrgans que van cadascun a la seva: és <strong>un sol sistema</strong>. El <strong>digestiu</strong> aporta la <strong>glucosa</strong>, el <strong>respiratori</strong> aporta l'<strong>oxigen</strong>, la <strong>sang</strong> ho reparteix i el <strong>mitocondri</strong> ho crema per fabricar <strong>ATP</strong>. Els residus surten per dues portes diferents: el <strong>CO₂</strong> pels <strong>pulmons</strong>, i la <strong>urea</strong>, les <strong>sals</strong> i l'<strong>aigua que sobra</strong> pel <strong>ronyó</strong>.</p></div><div class="chain mt8"><span class="chain-chip">🍞 Glucosa (digestiu)</span><span class="chain-arrow">+</span><span class="chain-chip">🫁 O₂ (respiratori)</span><span class="chain-arrow">→</span><span class="chain-chip">🩸 La sang ho reparteix (circulatori)</span><span class="chain-arrow">→</span><span class="chain-chip">⚡ ATP al mitocondri</span><span class="chain-arrow">→</span><span class="chain-chip">💨 CO₂ i aigua, pels pulmons</span></div><div class="chain mt8"><span class="chain-chip">🥩 Proteïnes (digestiu)</span><span class="chain-arrow">→</span><span class="chain-chip">🩸 La sang les reparteix</span><span class="chain-arrow">→</span><span class="chain-chip">🧪 En sobra: es fa urea</span><span class="chain-arrow">→</span><span class="chain-chip">💧 Urea, sals i aigua pel ronyó</span></div><div class="info-box mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="info-label" contenteditable="true">⚗️ La reacció que fa el mitocondri (la respiració cel·lular)</div><p style="font-size:14px;text-align:center;font-weight:700;color:var(--purple-ink)" contenteditable="true">glucosa + O₂ &nbsp;→&nbsp; CO₂ + H₂O + ATP</p><p style="font-size:13.5px;margin-top:3px" contenteditable="true">Fixa-t'hi: d'aquesta reacció en surten <strong>CO₂</strong> i <strong>aigua</strong>, no urea. La <strong>urea</strong> ve d'una altra banda: de les <strong>proteïnes</strong> que sobren. Per això són dues cadenes i no una.</p></div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🧩 Completa el cicle</div>
     <p class="frase-completar" contenteditable="false">El digestiu porta la <span class="blank blank-m"></span>. El respiratori porta l'<span class="blank blank-m"></span>. Tots dos arriben a la cèl·lula per la <span class="blank blank-s"></span>. Al <span class="blank blank-m"></span> es fabrica l'<span class="blank blank-s"></span>.</p>
-    <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">glucosa</span><span class="chip" contenteditable="true">oxigen</span><span class="chip" contenteditable="true">sang</span><span class="chip" contenteditable="true">mitocondri</span><span class="chip" contenteditable="true">ATP</span><span class="chip" contenteditable="true">urea</span><span class="chip" contenteditable="true">bufeta</span></div></div>
+    <div class="word-bank" style="margin-top:3px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">glucosa</span><span class="chip" contenteditable="true">oxigen</span><span class="chip" contenteditable="true">sang</span><span class="chip" contenteditable="true">mitocondri</span><span class="chip" contenteditable="true">ATP</span><span class="chip" contenteditable="true">urea</span><span class="chip" contenteditable="true">bufeta</span></div></div>
   </div>
   <div class="card rose mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🚪 Per quina porta surt cada residu?</div>
-    <p style="font-size:11px" contenteditable="true">Compte: no en va un a cada columna. Mira bé quants n'hi ha de cada.</p>
-    <table class="data-table" style="margin-top:4px"><thead><tr><th contenteditable="true">🫁 Surt pels PULMONS</th><th contenteditable="true">🫘 Surt pel RONYÓ</th></tr></thead>
+    <p style="font-size:13.5px" contenteditable="true">Compte: no en va un a cada columna. Mira bé quants n'hi ha de cada.</p>
+    <table class="data-table" style="margin-top:3px"><thead><tr><th contenteditable="true">🫁 Surt pels PULMONS</th><th contenteditable="true">🫘 Surt pel RONYÓ</th></tr></thead>
     <tbody><tr class="deletable"><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
     <tr class="deletable"><td style="background:#f4f2fa"></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
     <tr class="deletable"><td style="background:#f4f2fa"></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
-    <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">CO₂</span><span class="chip" contenteditable="true">urea</span><span class="chip" contenteditable="true">sals</span><span class="chip" contenteditable="true">aigua que sobra</span></div></div>
+    <div class="word-bank" style="margin-top:3px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">CO₂</span><span class="chip" contenteditable="true">urea</span><span class="chip" contenteditable="true">sals</span><span class="chip" contenteditable="true">aigua que sobra</span></div></div>
   </div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">✍️ Una sola peça, tot el sistema</div>
-    <p style="font-size:11px" contenteditable="true">Al Marc només li falta <strong>una</strong> cosa: ferro. Encercla tot allò que se li acaba veient afectat:</p>
+    <p style="font-size:13.5px" contenteditable="true">Al Marc només li falta <strong>una</strong> cosa: ferro. Encercla tot allò que se li acaba veient afectat:</p>
     <div class="circ-row" contenteditable="true"><span class="circ-opt">l'oxigen que porta la sang</span> · <span class="circ-opt">el color dels ulls</span> · <span class="circ-opt">la feina del cor</span> · <span class="circ-opt">l'energia dels músculs</span> · <span class="circ-opt">l'alçada</span></div>
-    <p style="font-size:11px;margin-top:6px" contenteditable="true">Escriu per quina raó una sola peça pot afectar tantes coses:</p>
+    <p style="font-size:13.5px;margin-top:5px" contenteditable="true">Escriu per quina raó una sola peça pot afectar tantes coses:</p>
     <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
   <div class="connexio-box mt8 deletable">
@@ -458,7 +469,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="info-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="info-label" contenteditable="true">👥 Com us repartiu la feina</div>
-    <p style="font-size:11px" contenteditable="true"><strong>Rol A — investigador/a de camp:</strong> seccions 2 (Mètode) i 3 (Resultats).<br>
+    <p style="font-size:13.5px" contenteditable="true"><strong>Rol A — investigador/a de camp:</strong> seccions 2 (Mètode) i 3 (Resultats).<br>
     <strong>Rol B — analista:</strong> seccions 4 (Discussió) i 5 (Conclusions).<br>
     La secció 1 la feu <strong>tots dos junts</strong>. Cadascú entrega les seves seccions i, a més, l'informe sencer com a annex.</p>
   </div>
@@ -471,10 +482,10 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🆘 Si no tens les teves dades — joc de reserva (la Berta, 14 anys)</div>
-    <p style="font-size:11px" contenteditable="true">Fes-lo servir <strong>només</strong> si vas faltar a la sessió 5 o no tens les teves mesures. Digues-ho a l'informe: «hem fet servir el joc de dades de reserva».</p>
-    <p style="font-size:11px;margin-top:4px" contenteditable="true"><strong>FC en repòs, 3 matins:</strong> 70 · 74 · 72 → mitjana <strong>72 bat/min</strong>.</p>
-    <p style="font-size:11px" contenteditable="true"><strong>Prova d'esforç</strong> (3 min de repòs, 2 min de cursa <strong>a fons</strong>, 7 min de recuperació asseguda), en bat/min:</p>
-    <table class="data-table" style="margin-top:4px"><thead><tr>
+    <p style="font-size:13.5px" contenteditable="true">Fes-lo servir <strong>només</strong> si vas faltar a la sessió 5 o no tens les teves mesures. Digues-ho a l'informe: «hem fet servir el joc de dades de reserva».</p>
+    <p style="font-size:13.5px;margin-top:3px" contenteditable="true"><strong>FC en repòs, 3 matins:</strong> 70 · 74 · 72 → mitjana <strong>72 bat/min</strong>.</p>
+    <p style="font-size:13.5px" contenteditable="true"><strong>Prova d'esforç</strong> (3 min de repòs, 2 min de cursa <strong>a fons</strong>, 7 min de recuperació asseguda), en bat/min:</p>
+    <table class="data-table" style="margin-top:3px"><thead><tr>
       <th contenteditable="true">min</th><th contenteditable="true">0</th><th contenteditable="true">1</th><th contenteditable="true">2</th><th contenteditable="true">3</th><th contenteditable="true">4</th><th contenteditable="true">5</th><th contenteditable="true">6</th><th contenteditable="true">7</th><th contenteditable="true">8</th><th contenteditable="true">9</th><th contenteditable="true">10</th><th contenteditable="true">11</th><th contenteditable="true">12</th></tr></thead>
     <tbody><tr><td style="font-weight:700;text-align:left">FC</td><td style="text-align:center">73</td><td style="text-align:center">72</td><td style="text-align:center">74</td><td style="text-align:center">72</td><td style="text-align:center">132</td><td style="text-align:center">178</td><td style="text-align:center">141</td><td style="text-align:center">118</td><td style="text-align:center">104</td><td style="text-align:center">96</td><td style="text-align:center">90</td><td style="text-align:center">87</td><td style="text-align:center">85</td></tr></tbody></table>
     <p class="pista" contenteditable="true">La Berta té 14 anys: FC màxima teòrica 206 i llindar anaeròbic cap a 175. Amb el pic de 178 el toca just un moment — per això la cursa era curta i a fons.</p>
@@ -482,45 +493,45 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="card mt8 deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <div class="card-label" contenteditable="true">1 · Pregunta d'investigació <span style="font-weight:400">(la fem els dos junts)</span></div>
-      <p style="font-size:11px" contenteditable="true">Una pregunta d'investigació es pot respondre amb dades. Per exemple: «Quant triga la meva FC a tornar al repòs després de córrer 2 minuts?»</p>
-      <p style="font-size:11px;margin-top:4px" contenteditable="true">La nostra pregunta:</p>
+      <p style="font-size:13.5px" contenteditable="true">Una pregunta d'investigació es pot respondre amb dades. Per exemple: «Quant triga la meva FC a tornar al repòs després de córrer 2 minuts?»</p>
+      <p style="font-size:13.5px;margin-top:3px" contenteditable="true">La nostra pregunta:</p>
       <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     </div>
     <div class="card mt8 deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <div class="card-label" contenteditable="true">2 · Mètode <span style="font-weight:400">[Rol A]</span></div>
-      <p style="font-size:11px" contenteditable="true">Explica <strong>què vau fer</strong>, pas a pas, com si algú ho hagués de repetir. Contesta aquestes tres coses:</p>
-      <p style="font-size:11px" contenteditable="true">· On vas prendre el pols i durant quants segons?</p>
+      <p style="font-size:13.5px" contenteditable="true">Explica <strong>què vau fer</strong>, pas a pas, com si algú ho hagués de repetir. Contesta aquestes tres coses:</p>
+      <p style="font-size:13.5px" contenteditable="true">· On vas prendre el pols i durant quants segons?</p>
       <div class="wline" contenteditable="true"></div>
-      <p style="font-size:11px;margin-top:4px" contenteditable="true">· Quin exercici vas fer i quanta estona?</p>
+      <p style="font-size:13.5px;margin-top:3px" contenteditable="true">· Quin exercici vas fer i quanta estona?</p>
       <div class="wline" contenteditable="true"></div>
-      <p style="font-size:11px;margin-top:4px" contenteditable="true">· Quantes vegades vas repetir la mesura?</p>
+      <p style="font-size:13.5px;margin-top:3px" contenteditable="true">· Quantes vegades vas repetir la mesura?</p>
       <div class="wline" contenteditable="true"></div>
     </div>
     <div class="card mt8 deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <div class="card-label" contenteditable="true">3 · Resultats <span style="font-weight:400">[Rol A]</span></div>
-      <p style="font-size:11px" contenteditable="true">Els resultats són <strong>només dades</strong>: la taula i la gràfica. Encara no s'expliquen.</p>
-      <table class="data-table" style="margin-top:4px"><thead><tr><th contenteditable="true">Moment</th><th contenteditable="true">FC (bat/min)</th></tr></thead>
+      <p style="font-size:13.5px" contenteditable="true">Els resultats són <strong>només dades</strong>: la taula i la gràfica. Encara no s'expliquen.</p>
+      <table class="data-table" style="margin-top:3px"><thead><tr><th contenteditable="true">Moment</th><th contenteditable="true">FC (bat/min)</th></tr></thead>
       <tbody><tr class="deletable"><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
-      <p style="font-size:11px;margin-top:6px" contenteditable="true">Enganxa aquí la teva gràfica de la sessió 5, o torna-la a dibuixar:</p>
+      <p style="font-size:13.5px;margin-top:5px" contenteditable="true">Enganxa aquí la teva gràfica de la sessió 5, o torna-la a dibuixar:</p>
       <div class="draw-box mt8"><div class="draw-area"></div></div>
     </div>
     <div class="card mt8 deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <div class="card-label" contenteditable="true">4 · Discussió <span style="font-weight:400">[Rol B]</span></div>
-      <p style="font-size:11px" contenteditable="true">Aquí sí que s'explica. Completa les frases:</p>
+      <p style="font-size:13.5px" contenteditable="true">Aquí sí que s'explica. Completa les frases:</p>
       <p class="frase-completar" contenteditable="false">Quan vaig començar a córrer, la FC va pujar perquè els músculs necessitaven més <span class="blank blank-m"></span>.</p>
       <p class="frase-completar" contenteditable="false">Vaig arribar a la zona <span class="blank blank-m"></span>, perquè la meva FC màxima va ser de <span class="blank blank-s"></span>.</p>
-      <p style="font-size:11px;margin-top:4px" contenteditable="true">Comparant-me amb l'esportista i el sedentari de la gràfica G2, m'assemblo més a…</p>
+      <p style="font-size:13.5px;margin-top:3px" contenteditable="true">Comparant-me amb l'esportista i el sedentari de la gràfica G2, m'assemblo més a…</p>
       <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-      <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">oxigen</span><span class="chip" contenteditable="true">aeròbica</span><span class="chip" contenteditable="true">anaeròbica</span></div></div>
+      <div class="word-bank" style="margin-top:3px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip" contenteditable="true">oxigen</span><span class="chip" contenteditable="true">aeròbica</span><span class="chip" contenteditable="true">anaeròbica</span></div></div>
       <p class="pista" contenteditable="true">⚠️ Compte: ells tenen 20 anys i tu en tens 14, o sigui que no teniu la mateixa FC màxima. El que pots comparar és la <strong>forma</strong> de la corba (com puja i com baixa), no els números un per un.</p>
     </div>
     <div class="card mt8 deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <div class="card-label" contenteditable="true">5 · Conclusions <span style="font-weight:400">[Rol B]</span></div>
-      <p style="font-size:11px" contenteditable="true">Torna a la pregunta de la secció 1 i respon-la en una o dues frases.</p>
+      <p style="font-size:13.5px" contenteditable="true">Torna a la pregunta de la secció 1 i respon-la en una o dues frases.</p>
       <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     </div>
 </div>
@@ -546,8 +557,8 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <div class="tasca-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="card-label" contenteditable="true">🏠 Per a casa</div>
-  <p style="font-size:11px" contenteditable="true">Acaba la teva part de l'informe i entrega-la al Classroom. Torna a llegir la teva secció en veu alta abans d'enviar-la: si hi ha una frase que no entens tu, canvia-la.</p>
-  <p style="font-size:11px;margin-top:6px" contenteditable="true"><strong>Abans de marxar:</strong> el <strong>full d'avaluació final</strong> (o el formulari del Classroom) — ⏱️ 12 min, individual.</p>
+  <p style="font-size:13.5px" contenteditable="true">Acaba la teva part de l'informe i entrega-la al Classroom. Torna a llegir la teva secció en veu alta abans d'enviar-la: si hi ha una frase que no entens tu, canvia-la.</p>
+  <p style="font-size:13.5px;margin-top:5px" contenteditable="true"><strong>Abans de marxar:</strong> el <strong>full d'avaluació final</strong> (o el formulari del Classroom) — ⏱️ 12 min, individual.</p>
 </div>
 
 <div class="footer deletable">
@@ -576,7 +587,17 @@ function flattenDoc(){
   }
   const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
 }
-function extractFlow(){ FLOW = Array.from(document.getElementById('doc').children); }
+function extractFlow(){
+  FLOW = Array.from(document.getElementById('doc').children);
+  // Posicio original de cada fill de seccio: el paginador la fa servir per
+  // reassemblar en ordre una seccio que ha partit (sense aixo, cada
+  // repaginacio la desordena i separa una llegenda del seu dibuix).
+  FLOW.forEach(function(b){
+    if(b.classList && b.classList.contains('section')){
+      Array.prototype.forEach.call(b.children, function(k,i){ k._ord = i; });
+    }
+  });
+}
 function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
 
 function saveCaret(){
@@ -601,7 +622,15 @@ function repaginate(){
   const caret=saveCaret();
   FLOW = FLOW.filter(b=>b);
   // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
-  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } } });
+  var _origens=[];
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
+  // ...i es torna l'ordre original: els fills reassemblats s'afegien al final.
+  _origens.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
+  });
   FLOW.forEach(b=>{ if(b.parentNode) b.parentNode.removeChild(b); });
   host.innerHTML='';
   let body=null;

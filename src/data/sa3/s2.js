@@ -40,7 +40,7 @@ export const sa3s2 = {
       challenge: "Per quina raó una persona amb VIH (que destrueix limfòcits T) pot morir de malalties que normalment no maten? Explica la cadena: menys limfòcits T → _____ → _____ → mort per infecció oportunista. Quin tipus d'immunitat queda intacta i quina queda compromesa?"
     },
     "3": {
-      scaffold: "Esquema antigen-anticòs: dibuixa un antigen (cercle amb protuberàncies) i un anticòs (forma de Y). Uneix-los amb una fletxa i escriu 'unió específica: clau-pany'. Per quina raó un anticòs contra la grip no funciona contra la varicel·la? Pista: les protuberàncies de la 'clau' son _____ per a cada patogen.",
+      scaffold: "Esquema antigen-anticòs: dibuixa un antigen (cercle amb protuberàncies) i un anticòs (forma de Y). Uneix-los amb una fletxa i escriu 'unió específica: clau-pany'. Per quina raó un anticòs contra la grip no funciona contra la varicel·la? Pista: les protuberàncies de la 'clau' són _____ per a cada patogen.",
       challenge: "Dissenya un experiment per comprovar que l'anticòs contra la grip és específic. Quins grups tindries? Quina és la variable independent? Quin seria el resultat si el teu model és correcte? I si no ho és?"
     }
   },
@@ -111,7 +111,7 @@ export const sa3s2 = {
       apartat: "3",
       video: "/animacions/sa3-s2-t5.mp4",
       heading: "Connexió ==enigma 1==: la Martina no vacunada",
-      text: "La Martina podria tenir memòria d'una soca de grip similar d'anys anteriors (resposta ràpida que va avortar la infecció). O bé, la ==immunitat de grup|g==: si la meitat de la classe estava vacunada, el virus va tenir menys vectors per arribar a ella. Les dues raons son compatibles. Enigma 1 — ==primera pista|o==, resolució completa a S5.",
+      text: "La Martina podria tenir memòria d'una soca de grip similar d'anys anteriors (resposta ràpida que va avortar la infecció). O bé, la ==immunitat de grup|g==: si la meitat de la classe estava vacunada, el virus va tenir menys vectors per arribar a ella. Les dues raons són compatibles. Enigma 1 — ==primera pista|o==, resolució completa a S5.",
       type: "epistemic",
       badge: "🧩 Enigma 1"
     }
@@ -152,7 +152,6 @@ export const sa3s2 = {
   homework: {
     description: "Llegeix la introducció a les vacunes (apartat TEORIA d'aquesta pàgina, S3). Omple el formulari de comprensió prèvia (Classroom). A S3 comenceu directament l'anàlisi de fonts.",
     note: "Lectura obligatòria per a S3. El formulari de comprensió prèvia es fa servir al principi de S3.",
-    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (immunitat innata, adaptativa, antigen-anticòs, memòria)",

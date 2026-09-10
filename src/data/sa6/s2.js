@@ -4,7 +4,7 @@ export const sa6s2 = {
   sessionNumber: 2, biome: "sa6", duration: "2h",
   engageImage: "/images/sa6-s2-energia.jpg",
 
-  engageQuestion: "La nostra escola consumeix electricitat. D'on ve? De l'endoll, sí — però d'on ve l'electricitat de l'endoll? Poseu-vos d'acord en grup: quines fonts d'energia coneixeu? Quines creieu que son les més usades a Catalunya? I a nivell global?",
+  engageQuestion: "La nostra escola consumeix electricitat. D'on ve? De l'endoll, sí — però d'on ve l'electricitat de l'endoll? Poseu-vos d'acord en grup: quines fonts d'energia coneixeu? Quines creieu que són les més usades a Catalunya? I a nivell global?",
   engageContext: "Posarem en comú els productes que has portat de casa i en construirem un mapa de petjades. Després ve el laboratori de les ampolles: es pot demostrar a classe, amb material senzill, que el CO₂ reté calor? La hipòtesi la poses tu.",
 
   // NO es renderitza al web: guió del docent (logística, temps,
@@ -16,10 +16,10 @@ export const sa6s2 = {
       "Distingeixo entre energia primària (font: carbó, vent, sol) i energia final (electricitat, calor a casa) i explico les pèrdues de conversió. Calculo l'eficiència d'una planta tèrmica de carbó (≈35%) vs una fotovoltaica (≈20%) vs una eòlica (≈40%).",
       "Analitzo el mix elèctric de Catalunya (% de cada font) i argumento per quina raó la descarbonització del sector elèctric és condició necessària però no suficient per assolir la neutralitat de carboni.",
       "Diseño un experiment adequat per demostrar l'efecte hivernacle a petita escala (variable dependent, independent, control), identifico les limitacions del model i explico per quina raó no podem extrapolar directament els resultats al clima global.",
-      "Relaciono el concepte de retroalimentació positiva (feedback loop) amb l'escalfament global: fusió de gel àrtic → menys albedo → més absorció de calor → més fusió. Argumenta per quina raó els punts de no retorn (tipping points) son la preocupació principal dels científics del clima."
+      "Relaciono el concepte de retroalimentació positiva (feedback loop) amb l'escalfament global: fusió de gel àrtic → menys albedo → més absorció de calor → més fusió. Argumenta per quina raó els punts de no retorn (tipping points) són la preocupació principal dels científics del clima."
     ],
     B: [
-      "Distingeixo les fonts d'energia renovables de les no renovables i explico per quina raó les renovables son considerades 'netes' des d'un punt de vista climàtic.",
+      "Distingeixo les fonts d'energia renovables de les no renovables i explico per quina raó les renovables són considerades 'netes' des d'un punt de vista climàtic.",
       "Enumero almenys 4 fonts d'energia renovables i 3 de no renovables, i associo cada una al seu impacte principal sobre el clima o el medi ambient.",
       "Descric el disseny del lab de les ampolles (hipòtesi, variable independent, control, resultat esperat) i interpreto per quina raó la diferència de temperatura és petita però significativa.",
       "Llisto almenys 3 conseqüències observables del canvi climàtic i les relaciono amb les evidències científiques disponibles (IPCC)."
@@ -53,7 +53,7 @@ export const sa6s2 = {
       },
       {
         kind: "write",
-        text: "Quines fonts d'energia coneixes? Fes dues llistes: les que creus que son 'netes' per al clima, i les que creus que no ho son. Explica el criteri que fas servir.",
+        text: "Quines fonts d'energia coneixes? Fes dues llistes: les que creus que són 'netes' per al clima, i les que creus que no ho són. Explica el criteri que fas servir.",
         starter: "Energies netes per al clima: ... Energies no netes: ... El meu criteri és..."
       }
     ]
@@ -75,7 +75,7 @@ export const sa6s2 = {
       id: "t1",
       apartat: "2",
       heading: "Fonts d'energia ==no renovables==: els combustibles fòssils",
-      text: "Les fonts d'energia ==no renovables|r== s'esgoten o triguen milions d'anys a regenerar-se. Els ==combustibles fòssils== (carbó, petroli, gas natural) son restes d'organismes vius de fa 300-60 milions d'anys transformades per pressió i temperatura. En cremar-los, alliberem el CO₂ que aquells organismes havien fixat de l'atmosfera milions d'anys enrere — en qüestió de segles. Connexió SA5: el ==cicle del carboni|g== s'ha accelerat de forma artificial. L'==energia nuclear== usa urani (també no renovable) per fissió: no emet CO₂ directament, però genera residus radioactius de llarga durada. Avui, els combustibles fòssils proporcionen ≈80% de l'energia primària global (AIE, 2023).",
+      text: "Les fonts d'energia ==no renovables|r== s'esgoten o triguen milions d'anys a regenerar-se. Els ==combustibles fòssils== (carbó, petroli, gas natural) són restes d'organismes vius de fa 300-60 milions d'anys transformades per pressió i temperatura. En cremar-los, alliberem el CO₂ que aquells organismes havien fixat de l'atmosfera milions d'anys enrere — en qüestió de segles. Connexió SA5: el ==cicle del carboni|g== s'ha accelerat de forma artificial. L'==energia nuclear== usa urani (també no renovable) per fissió: no emet CO₂ directament, però genera residus radioactius de llarga durada. Avui, els combustibles fòssils proporcionen ≈80% de l'energia primària global (AIE, 2023).",
       type: "concept",
       video: "/animacions/sa6-s2-t1.mp4"
     },
@@ -83,7 +83,7 @@ export const sa6s2 = {
       id: "t2",
       apartat: "2",
       heading: "Fonts d'energia ==renovables==: el futur de l'energia",
-      text: "Les fonts d'energia ==renovables|g== es regeneren de forma natural en escala humana. Les principals son: ==Solar fotovoltaica|g==: la llum solar genera electricitat directament (cèl·lules fotovoltaiques). ==Solar tèrmica|g==: la calor solar s'usa per escalfar aigua o generar vapor. ==Eòlica|b==: el vent fa girar turbines. ==Hidràulica|b==: l'energia de l'aigua en caiguda. ==Geotèrmica|o==: la calor interna de la Terra. ==Biomassa|o==: crema de matèria orgànica (carboni neutral si és sostenible). Cap de les renovables emet CO₂ en el moment de la generació, però totes tenen un impacte ambiental en la fabricació dels equips (energia gris). A Catalunya (2023): 55% renovable (eòlica + hidràulica + solar + nuclear), 45% fòssil.",
+      text: "Les fonts d'energia ==renovables|g== es regeneren de forma natural en escala humana. Les principals són: ==Solar fotovoltaica|g==: la llum solar genera electricitat directament (cèl·lules fotovoltaiques). ==Solar tèrmica|g==: la calor solar s'usa per escalfar aigua o generar vapor. ==Eòlica|b==: el vent fa girar turbines. ==Hidràulica|b==: l'energia de l'aigua en caiguda. ==Geotèrmica|o==: la calor interna de la Terra. ==Biomassa|o==: crema de matèria orgànica (carboni neutral si és sostenible). Cap de les renovables emet CO₂ en el moment de la generació, però totes tenen un impacte ambiental en la fabricació dels equips (energia gris). A Catalunya (2023): 55% renovable (eòlica + hidràulica + solar + nuclear), 45% fòssil.",
       type: "concept",
       video: "/animacions/sa6-s2-t2.mp4"
     },
@@ -91,7 +91,7 @@ export const sa6s2 = {
       id: "t3",
       apartat: "3",
       heading: "El model de les ampolles: que hem demostrat i quins ==límits== té",
-      text: "L'experiment de les ampolles demostra que el CO₂ ==reté més calor|r== que l'aire normal — la base física de l'efecte hivernacle. La diferència de temperatura (típicament 1-3 °C en 10 minuts) sembla petita. ==Moment epistèmic==: el clima global no funciona com dues ampolles sota una làmpada. Les diferències d'escala son enormes: el model simplifica la composició de l'atmosfera real (0,04% CO₂), la convecció, la radiació infraroja, les retroalimentacions de núvols, etc. El que el model sí demostra és el ==principi|g==: certes molècules (CO₂, CH₄) absorbeixen radiació infraroja i la reemeten en totes direccions, retenint calor. Com tot model científic, és útil i limitat alhora.",
+      text: "L'experiment de les ampolles demostra que el CO₂ ==reté més calor|r== que l'aire normal — la base física de l'efecte hivernacle. La diferència de temperatura (típicament 1-3 °C en 10 minuts) sembla petita. ==Moment epistèmic==: el clima global no funciona com dues ampolles sota una làmpada. Les diferències d'escala són enormes: el model simplifica la composició de l'atmosfera real (0,04% CO₂), la convecció, la radiació infraroja, les retroalimentacions de núvols, etc. El que el model sí demostra és el ==principi|g==: certes molècules (CO₂, CH₄) absorbeixen radiació infraroja i la reemeten en totes direccions, retenint calor. Com tot model científic, és útil i limitat alhora.",
       type: "epistemic",
       video: "/animacions/sa6-s2-t3.mp4"
     },
@@ -119,7 +119,10 @@ export const sa6s2 = {
     { id: "G2", apartat: "3", title: "Projeccions del canvi climàtic: temperatura i nivell del mar", src: "/images/sa6-g4-projeccions-clima.svg", note: "Gràfic de línies: temperatura global 1850-2100 amb 3 escenaris (SSP1-1.9 / SSP2-4.5 / SSP5-8.5). Eix secundari: pujada del nivell del mar. Font: IPCC AR6 (2021)." }
   ],
 
-  fitxaUrl: "/fitxes/sa6-s2-fitxa.pdf", teoriaPdfUrl: null,
+  // Sense fitxa imprimible encara: el PDF que hi havia aquí no existeix a
+  // public/fitxes/. Amb null, la web mostra «la fitxa es reparteix a classe»
+  // en comptes d'un enllaç trencat.
+  fitxaUrl: null, teoriaPdfUrl: null,
 
   fitxaGuide: {
     fitxaName: "Fitxa S2 — D'on ve l'energia? + Efecte hivernacle",
@@ -135,7 +138,7 @@ export const sa6s2 = {
       ] },
       { apartat: "3", title: "Conseqüències del CC i connexió enigma", time: "10 min", phase: "explica", instruction: "Apartat 3: omple la taula de conseqüències del canvi climàtic (evidència actual + projecció 2100). Escriu la segona pista de l'enigma: com es connecta l'energia al cicle de producció del pernil?", hints: [
         "Evidències: temperatura (+1,1°C), glaceres (−40% gel àrtic), mar (+20 cm), acidificació dels oceans (pH −0,1).",
-        "Pista enigma: les etapes amb més consum energètic de la cadena porcina son la producció de pinso (maquinària agrícola) i la refrigeració de la distribució."
+        "Pista enigma: les etapes amb més consum energètic de la cadena porcina són la producció de pinso (maquinària agrícola) i la refrigeració de la distribució."
       ] }
     ]
   },
@@ -150,7 +153,6 @@ export const sa6s2 = {
   homework: {
     description: "Busca a quantes persones ha desplaçat un fenomen climàtic extrem (inundacions, onada de calor, sequera) en els darrers 5 anys. Aporta el nom del fenomen, l'any, la zona geogràfica i el nombre de persones afectades. Porta la informació a S3.",
     note: "Activitat de recerca no delegable a IA: requereix cerca activa, selecció de fonts fiables i valoració crítica de la informació.",
-    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (fonts d'energia, model ampolles, conseqüències canvi climàtic)",

@@ -133,7 +133,6 @@ export const sa2s1 = {
   homework: {
     description: "Fotografiar els 3 productes que realment menges (no els que creus que hauries de menjar). Classifica'ls per nutrient dominant i anota si és ultraprocessat. Es defensarà oralment a S2.",
     note: "No realitzable amb IA si cal explicar-ho en veu alta.",
-    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina, especialment l'equació central (glucosa + O₂ → ATP)",

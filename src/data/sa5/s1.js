@@ -149,7 +149,7 @@ export const sa5s1 = {
     { id: "F3", apartat: "4", title: "La xarxa del pati a mig fer (versió C)", src: "/images/sa5-s1-xarxa-pati-semi.svg", note: "Bastida de l'Elaborate: herba, cargol i merla ja col·locats amb la primera cadena de fletxes feta, i tres caixes de punts per omplir amb el cens propi. Només la versió C." }
   ],
 
-  fitxaUrls: {
+  fitxaUrl: {
     A: "/fitxes/sa5-s1-fitxa-A.html",
     B: "/fitxes/sa5-s1-fitxa-B.html",
     C: "/fitxes/sa5-s1-fitxa-C.html"
@@ -194,7 +194,6 @@ export const sa5s1 = {
 
   homework: {
     description: "Aquesta nit, mira què sopes: tria dos aliments del plat i escriu de quin ésser viu venia cadascun i si aquell ésser viu era un productor o un consumidor. Es porta escrit a mà i es fa servir a la sessió següent per entrar al flux d'energia i al cicle de la matèria. (Opcional: si de camí a casa veus una relació ecològica, fes-li una foto.)",
-    deadline: "Sessió 2"
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina: les cinc relacions ecològiques, els tres papers tròfics i l'efecte cascada",

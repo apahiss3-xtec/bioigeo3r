@@ -4,7 +4,7 @@ export const sa6s3 = {
   sessionNumber: 3, biome: "sa6", duration: "2h",
   engageImage: "/images/sa6-s3-greenwashing.jpg",
 
-  engageQuestion: "Una marca de detergent diu que el seu producte és '100% natural i respectuós amb el medi ambient'. Un supermercat anuncia que les seves bosses son 'biodegradables'. Un producte de carn porta el segell 'CO₂ neutral'. Com saps si son veritat? Quines preguntes caldria fer?",
+  engageQuestion: "Una marca de detergent diu que el seu producte és '100% natural i respectuós amb el medi ambient'. Un supermercat anuncia que les seves bosses són 'biodegradables'. Un producte de carn porta el segell 'CO₂ neutral'. Com saps si són veritat? Quines preguntes caldria fer?",
   engageContext: "Posarem en comú els fenòmens climàtics extrems de la feina a casa i en farem un mapa col·lectiu. Després veuràs tres anuncis reals amb missatge «verd» i hauràs de dir si te'ls creus i per quina raó. Per decidir-ho tindràs quatre criteris per avaluar fonts ambientals.",
 
   // NO es renderitza al web: guió del docent (logística, temps,
@@ -15,13 +15,13 @@ export const sa6s3 = {
     A: [
       "Aplico els 4 criteris d'avaluació de fonts (autoria, evidència, transparència, consens) a un informe corporatiu real de sostenibilitat (p. ex. informe anual de Nestlé, IKEA o Coca-Cola) i identifico al menys 2 tàctiques de greenwashing específiques amb referència al document.",
       "Distingeixo entre acció individual i acció sistèmica en la reducció de la petjada de carboni, i argumento per quina raó les campanyes de responsabilitat individual (calcular la teva petjada personal) van ser promogudes inicialment per empreses fòssils com a estratègia de desviació de l'atenció pública.",
-      "Calculo la petjada ecológica personal en hectàrees globals (hag) usant una calculadora estàndard, la comparo amb la biocapacitat disponible per habitant (1,8 hag) i proposo un pla de reducció amb accions concretes i quantificades.",
+      "Calculo la petjada ecològica personal en hectàrees globals (hag) usant una calculadora estàndard, la comparo amb la biocapacitat disponible per habitant (1,8 hag) i proposo un pla de reducció amb accions concretes i quantificades.",
       "Avaluo críticament el concepte de 'compensació de carboni' (carbon offset): en quins casos pot ser vàlid? Quines trampes pot amagar? Construeixo un argument fonamentat en evidències sobre si hauria de ser una eina principal o marginal de la política climàtica."
     ],
     B: [
       "Defineixo greenwashing i identifico almenys 4 tàctiques de comunicació enganyosa en exemples reals.",
       "Aplico els 4 criteris de fiabilitat (CE2) per avaluar si una afirmació ambiental d'una empresa és creïble.",
-      "Explico la diferència entre petjada de carboni individual i sistèmica, i argumento per quina raó les decisions col·lectives (polítiques públiques, regulació) son més efectives que l'acció individual aïllada.",
+      "Explico la diferència entre petjada de carboni individual i sistèmica, i argumento per quina raó les decisions col·lectives (polítiques públiques, regulació) són més efectives que l'acció individual aïllada.",
       "Enumero les tres R (Reducció, Reutilització, Reciclatge) en ordre de prioritat ecològica i argumento per quina raó la reducció és sempre la primera opció."
     ],
     C: [
@@ -39,7 +39,7 @@ export const sa6s3 = {
     },
     "3": {
       scaffold: "Omple la taula de les 3R: Reducció → exemple concret que puc fer: ___. Impacte estimat (alt/mitjà/baix): ___. Reutilització → exemple: ___. Impacte: ___. Reciclatge → exemple: ___. Impacte: ___. Per quina raó la Reducció sempre ha d'anar primer?",
-      challenge: "El concepte de 'petjada de carboni personal' va ser popularitzat per BP (British Petroleum) en una campanya de 2004 que va crear la primera calculadora de petjada personal de CO₂ en línia. Investiga: per quina raó una empresa petrolifera podria estar interessada a promoure la responsabilitat individual? Quin és l'efecte sobre la pressió pública per regular el sector? Construeix un argument sobre si la responsabilitat individual i la col·lectiva son complementàries o oposades."
+      challenge: "El concepte de 'petjada de carboni personal' va ser popularitzat per BP (British Petroleum) en una campanya de 2004 que va crear la primera calculadora de petjada personal de CO₂ en línia. Investiga: per quina raó una empresa petrolifera podria estar interessada a promoure la responsabilitat individual? Quin és l'efecte sobre la pressió pública per regular el sector? Construeix un argument sobre si la responsabilitat individual i la col·lectiva són complementàries o oposades."
     }
   },
 
@@ -49,7 +49,7 @@ export const sa6s3 = {
       {
         kind: "write",
         text: "Has vist mai un producte o anunci amb missatge 'verd' o 'sostenible' que et semblés sospitós? Descriu-lo. Quines preguntes li faries a l'empresa?",
-        starter: "L'anunci o producte que em semblava sospitós era... i les preguntes que li faria son..."
+        starter: "L'anunci o producte que em semblava sospitós era... i les preguntes que li faria són..."
       },
       {
         kind: "write",
@@ -90,15 +90,15 @@ export const sa6s3 = {
       id: "t3",
       apartat: "3",
       heading: "Consum responsable: les ==3R== per ordre de prioritat",
-      text: "Les ==3R== (Reducció, Reutilització, Reciclatge) son les estratègies de consum responsable, i l'ordre importa molt: ==Reducció|g== (primer i més eficient): no comprar allò que no cal. Evitar l'emissió és millor que gestionar-la després. ==Reutilització|o== (segon): allargar la vida dels productes (reparar, revendre, donar). ==Reciclatge|r== (tercer, menys eficient): transformar el residu en matèria primera nova. El reciclatge té un cost energètic i no és mai al 100%. Exemple: reciclar alumini requereix el 5% de l'energia de produir-ne de nou — molt bo. Però reciclar plàstic mixt és molt menys eficient. Molts anuncis promouen el reciclatge per desviar l'atenció de la reducció del consum. L'ordre correcte és sempre: ==Reduir primer|g== — l'embalatge que no existeix no cal reciclar-lo.",
+      text: "Les ==3R== (Reducció, Reutilització, Reciclatge) són les estratègies de consum responsable, i l'ordre importa molt: ==Reducció|g== (primer i més eficient): no comprar allò que no cal. Evitar l'emissió és millor que gestionar-la després. ==Reutilització|o== (segon): allargar la vida dels productes (reparar, revendre, donar). ==Reciclatge|r== (tercer, menys eficient): transformar el residu en matèria primera nova. El reciclatge té un cost energètic i no és mai al 100%. Exemple: reciclar alumini requereix el 5% de l'energia de produir-ne de nou — molt bo. Però reciclar plàstic mixt és molt menys eficient. Molts anuncis promouen el reciclatge per desviar l'atenció de la reducció del consum. L'ordre correcte és sempre: ==Reduir primer|g== — l'embalatge que no existeix no cal reciclar-lo.",
       type: "concept",
       video: "/animacions/sa6-s3-t3.mp4"
     },
     {
       id: "t4",
       apartat: "3",
-      heading: "==Petjada ecológica==: més enllà del carboni",
-      text: "La ==petjada ecológica|o== és la mesura de la demanda humana sobre la natura, expressada en ==hectàrees globals (hag)|g==: quanta superfície de terra i mar productius necessita un estil de vida concret per a generar tots els recursos que consumeix i absorbir tots els residus que produeix. La biocapacitat disponible per habitant és de ==1,8 hag/habitant|g==. La petjada ecológica d'un ciutadà dels Països Catalans és ≈4-5 hag — el doble del que el planeta pot suportar. La petjada ecológica inclou: la ==petjada de carboni|r== (la major part), la petjada de conreus, de pastures, de boscos, de pesca, d'urbanització. Un planeta sencer no seria suficient si tothom visqués com a Europa. Si visqués com als EUA, caldrien 5 planetes.",
+      heading: "==Petjada ecològica==: més enllà del carboni",
+      text: "La ==petjada ecològica|o== és la mesura de la demanda humana sobre la natura, expressada en ==hectàrees globals (hag)|g==: quanta superfície de terra i mar productius necessita un estil de vida concret per a generar tots els recursos que consumeix i absorbir tots els residus que produeix. La biocapacitat disponible per habitant és de ==1,8 hag/habitant|g==. La petjada ecològica d'un ciutadà dels Països Catalans és ≈4-5 hag — el doble del que el planeta pot suportar. La petjada ecològica inclou: la ==petjada de carboni|r== (la major part), la petjada de conreus, de pastures, de boscos, de pesca, d'urbanització. Un planeta sencer no seria suficient si tothom visqués com a Europa. Si visqués com als EUA, caldrien 5 planetes.",
       type: "concept",
       video: "/animacions/sa6-s3-t4.mp4"
     },
@@ -115,10 +115,13 @@ export const sa6s3 = {
 
   graphicResources: [
     { id: "G1", apartat: "2", title: "Les 4 tàctiques de greenwashing amb exemples reals", src: "/images/sa6-g5-greenwashing-tactics.svg", note: "Infografia: 4 quadres, un per tàctica (afirmació vaga / compensació parcial / segell inventat / irrelevàncies). Exemple real d'empresa per a cada tàctica. Any i veredicte (tribunal / ASA / CE)." },
-    { id: "G2", apartat: "3", title: "Petjada ecológica per països (hag/habitant, 2023)", src: "/images/sa6-g6-petjada-ecologica-paises.svg", note: "Mapa mundial amb escala de color per petjada ecológica. Línia vermella: biocapacitat disponible per habitant (1,8 hag). Anotació: EUA ≈8,1 / Europa ≈4,7 / Índia ≈1,2 hag. Font: Global Footprint Network 2023." }
+    { id: "G2", apartat: "3", title: "Petjada ecològica per països (hag/habitant, 2023)", src: "/images/sa6-g6-petjada-ecologica-paises.svg", note: "Mapa mundial amb escala de color per petjada ecològica. Línia vermella: biocapacitat disponible per habitant (1,8 hag). Anotació: EUA ≈8,1 / Europa ≈4,7 / Índia ≈1,2 hag. Font: Global Footprint Network 2023." }
   ],
 
-  fitxaUrl: "/fitxes/sa6-s3-fitxa.pdf", teoriaPdfUrl: null,
+  // Sense fitxa imprimible encara: el PDF que hi havia aquí no existeix a
+  // public/fitxes/. Amb null, la web mostra «la fitxa es reparteix a classe»
+  // en comptes d'un enllaç trencat.
+  fitxaUrl: null, teoriaPdfUrl: null,
 
   fitxaGuide: {
     fitxaName: "Fitxa S3 — Greenwashing: veritat o mentida?",
@@ -132,9 +135,9 @@ export const sa6s3 = {
         "CE2: no es tracta de dir que totes les empreses mentides. El criteri és exigir evidència. Una empresa pot tenir un missatge verd creïble si aporta dades verificables i verificació externa.",
         "La certificació ISO 14001 (gestió ambiental) és més fiable que un segell de disseny propi, però no garanteix zero emissions — tan sols que l'empresa té un sistema de gestió ambiental."
       ] },
-      { apartat: "3", title: "3R, petjada ecológica i pista enigma", time: "10 min", phase: "explica", instruction: "Apartat 3: ordena les 3R de major a menor efectivitat. Calcula la teva petjada ecológica (calculadora facilitada). Escriu la tercera pista de l'enigma: aplica els 4 criteris a una etiqueta de pernil real.", hints: [
+      { apartat: "3", title: "3R, petjada ecològica i pista enigma", time: "10 min", phase: "explica", instruction: "Apartat 3: ordena les 3R de major a menor efectivitat. Calcula la teva petjada ecològica (calculadora facilitada). Escriu la tercera pista de l'enigma: aplica els 4 criteris a una etiqueta de pernil real.", hints: [
         "Reducció sempre primer: el millor residu és el que no es genera. Reciclar bé és millor que no reciclar, però és l'última opció.",
-        "Petjada ecológica: la major part (50-70%) sol ser la petjada alimentària + transport. L'electricitat a casa sol ser un 10-15% del total."
+        "Petjada ecològica: la major part (50-70%) sol ser la petjada alimentària + transport. L'electricitat a casa sol ser un 10-15% del total."
       ] }
     ]
   },
@@ -142,20 +145,19 @@ export const sa6s3 = {
   exitTicketType: "paper",
   exitTicketQuestions: [
     { id: "q1", type: "open", text: "Analitza aquesta afirmació: 'La nostra empresa ha plantat 500.000 arbres per compensar les seves emissions de CO₂'. Aplica els 4 criteris CE2 (autoria, evidència, transparència, consens) i dona un veredicte argumentat.", hint: "Autoria: és la pròpia empresa → interessat. Evidència: quants kg CO₂ absorbeixen 500.000 arbres? Quants anys? A quin bioma? Transparència: quantes tones CO₂ emet l'empresa al total? Consens: és l'arboricultura una solució adequada per al volum d'emissions? Veredicte: probablement greenwashing per compensació parcial." },
-    { id: "q2", type: "open", text: "Explica les 3R per ordre de prioritat ecológica i posa un exemple concret per a cada una. Per quina raó la reducció ha d'anar sempre en primer lloc?", hint: "Reducció (evitar): no comprar la bossa de plàstic. Reutilització (allargar): usar la bossa de roba 100 vegades. Reciclatge (transformar): reciclar quan no hi ha alternativa. La reducció és prioritària perquè evita tota la cadena d'impacte: fabricació + transport + residus." },
+    { id: "q2", type: "open", text: "Explica les 3R per ordre de prioritat ecològica i posa un exemple concret per a cada una. Per quina raó la reducció ha d'anar sempre en primer lloc?", hint: "Reducció (evitar): no comprar la bossa de plàstic. Reutilització (allargar): usar la bossa de roba 100 vegades. Reciclatge (transformar): reciclar quan no hi ha alternativa. La reducció és prioritària perquè evita tota la cadena d'impacte: fabricació + transport + residus." },
     { id: "q3", type: "multiple", text: "Quin dels següents és un exemple clar de greenwashing?", options: ["Un producte amb etiqueta 'lliure de CFC' (els CFC estan prohibits per llei des de 1989)", "Un informe d'emissions verificat externament per una auditora independent", "Un producte amb certificació FSC per a la fusta (gestió forestal sostenible)", "Una empresa que declara les seves emissions Scope 1, 2 i 3 detalladament"], correct: 0 }
   ],
 
   homework: {
     description: "Dissenya una acció concreta i viable per reduir la petjada de carboni de la nostra escola. Ha de ser una mesura que podríeu implementar realment (menú, energia, mobilitat, residus). Escriu: Descripció de la mesura / Estimació de la reducció d'emissions (gCO₂eq/any) / Recursos necessaris / Qui hauria d'aprovar-la. Porta-ho escrit a S4.",
     note: "Tasca creativa amb dimensió real. A S4, un 'comitè d'iguals' en avaluarà l'evidència i la viabilitat.",
-    deadline: null
   },
   recoveryInstructions: [
-    "Llegeix la teoria d'aquesta pàgina (greenwashing, 4 criteris CE2, 3R, petjada ecológica)",
+    "Llegeix la teoria d'aquesta pàgina (greenwashing, 4 criteris CE2, 3R, petjada ecològica)",
     "Analitza 2 anuncis reals amb els 4 criteris. Veredicte argumentat",
     "Explica les 3R per ordre i dona un exemple de cada una",
-    "Calcula la teva petjada ecológica (calculadora en línia)",
+    "Calcula la teva petjada ecològica (calculadora en línia)",
     "Omple la fitxa S3 apartats 0-3"
   ],
   oaLinks: ["OA3", "OA4"], competencies: ["CE2", "CE5"]

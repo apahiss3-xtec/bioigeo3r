@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sessió 5 · Respiració i esforç: la FC — IE Temple</title>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@500;600;700&amp;display=swap" rel="stylesheet">
 <style>
 :root {
   --purple:       #7B68C8;
@@ -25,7 +25,7 @@
   --green:   #4a9e5c; --green-tint:   #eaf4ec;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:13px; line-height:1.5; }
+body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:14.5px; line-height:1.5; }
 
 /* ── TOOLBAR ── */
 #toolbar { position:fixed; top:0; left:0; right:0; z-index:9000; background:#2d2347; display:flex; gap:6px; align-items:center; padding:6px 12px; box-shadow:0 2px 10px rgba(0,0,0,.25); }
@@ -60,134 +60,134 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
 /* ── STRIP NIVELL ── */
 .nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:6px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
-.badge { font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
-.temps-badge { font-size:10px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
-.nom-field { font-size:11px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
+.badge { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
+.temps-badge { font-size:11px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
+.nom-field { font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
 .nom-field:first-of-type { margin-left:auto; }
-.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:13.5px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
 .input-span.data-span { min-width:70px; }
 .nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(123,104,200,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); vertical-align:middle; margin-left:4px; flex-shrink:0; }
 
 /* ── OA BOX ── */
 .oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin:12px 18px 4px; position:relative; }
-.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:13px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:6px; }
+.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14.5px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:6px; }
 .oa-list { margin:0; padding-left:18px; list-style:none; }
-.oa-list li { font-size:11px; line-height:1.5; color:var(--ink-2); margin-bottom:3px; padding-left:4px; }
+.oa-list li { font-size:13.5px; line-height:1.5; color:var(--ink-2); margin-bottom:3px; padding-left:4px; }
 .oa-list li::before { content:"□ "; color:var(--purple); font-weight:700; margin-left:-18px; margin-right:4px; }
 
 /* ── CONTINGUT ── */
 .content { padding:4px 18px 14px; }
 .section { margin-top:12px; position:relative; }
 .section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
-.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:14.5px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .snum.n0 { background:var(--muted); } .snum.n1 { background:var(--orange); } .snum.n2 { background:var(--teal); }
 .snum.n3 { background:var(--art); } .snum.n4 { background:var(--purple-ink); }
-.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
-.sdesc { font-size:10px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
+.stitle { font-size:16px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:11px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
 .divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
 
 /* ── BLOCS ── */
 .previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
-.previ-box p { font-size:12px; }
+.previ-box p { font-size:14px; }
 .previ-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch; margin-top:8px; }
 .draw-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:9px 12px; display:flex; flex-direction:column; }
 .draw-box .card-label { color:var(--purple-ink); }
 .draw-area { flex:1 1 auto; min-height:240px; border:1.5px dashed var(--rule-dark); border-radius:8px; background:#fff; margin-top:6px; display:flex; align-items:flex-start; justify-content:flex-end; }
 .draw-area .draw-hint { font-size:9px; color:#c0b8d8; font-style:italic; padding:5px 8px; user-select:none; pointer-events:none; }
 .wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:6px; background:#fff; outline:none; padding:3px 4px; }
-.pista { font-size:10px; color:var(--muted); font-style:italic; margin:4px 0 2px; }
+.pista { font-size:11px; color:var(--muted); font-style:italic; margin:4px 0 2px; }
 .card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:10px 12px; margin-bottom:8px; }
 .card.orange { border-color:var(--orange); background:var(--orange-tint); }
 .card.teal { border-color:var(--teal); background:var(--teal-tint); }
 .card.rose { border-color:var(--rose); background:var(--rose-tint); }
 .card.yellow { border-color:var(--yellow); background:var(--yellow-tint); }
-.card-label { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+.card-label { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
 
 /* ── CONNEXIÓ ── */
 .connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
 .connexio-icon { font-size:24px; flex-shrink:0; }
-.connexio-text { font-size:11px; line-height:1.4; }
+.connexio-text { font-size:13.5px; line-height:1.5; }
 .connexio-text strong { color:var(--purple-ink); }
 
 /* ── WORD BANK ── */
 .word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
-.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.word-bank-title { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
 .chips { display:flex; flex-wrap:wrap; gap:4px; }
-.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.chip { font-size:13.5px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
 
 /* ── TAULES ── */
-.data-table { width:100%; border-collapse:collapse; font-size:11px; }
-.data-table th { background:var(--purple-ink); color:#fff; padding:5px 8px; text-align:left; font-size:9px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+.data-table th { background:var(--purple-ink); color:#fff; padding:5px 8px; text-align:left; font-size:11px; letter-spacing:.05em; text-transform:uppercase; }
 .data-table th:first-child { border-radius:5px 0 0 0; }
 .data-table th:last-child { border-radius:0 5px 0 0; }
 .data-table td { padding:5px 8px; border-bottom:1px solid var(--rule); vertical-align:middle; }
 .data-table tr:nth-child(even) td { background:var(--purple-tint); }
 .fill-cell { display:block; width:100%; min-height:22px; border-bottom:1.5px solid #C8C2DD; background:#fff; outline:none; padding:2px 3px; }
-.hint-cell { font-size:10px; color:var(--muted); }
-.yn-opt { font-size:11px; display:inline-flex; align-items:center; gap:3px; }
+.hint-cell { font-size:11px; color:var(--muted); }
+.yn-opt { font-size:13.5px; display:inline-flex; align-items:center; gap:3px; }
 .chk-sq { width:12px; height:12px; border:1.5px solid var(--rule-dark); border-radius:2px; flex-shrink:0; display:inline-block; print-color-adjust:exact; }
 
 /* ── TAULA FC ── */
-.fc-table { width:100%; border-collapse:collapse; font-size:10.5px; }
-.fc-table th { background:var(--purple-ink); color:#fff; padding:5px 8px; text-align:center; font-size:9px; text-transform:uppercase; letter-spacing:.06em; }
+.fc-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+.fc-table th { background:var(--purple-ink); color:#fff; padding:5px 8px; text-align:center; font-size:11px; text-transform:uppercase; letter-spacing:.06em; }
 .fc-table th:first-child { border-radius:6px 0 0 0; }
 .fc-table th:last-child { border-radius:0 6px 0 0; }
 .fc-table td { padding:4px 8px; text-align:center; border-bottom:1px solid var(--rule); }
-.fc-table td:first-child { text-align:left; font-weight:700; font-size:9.5px; color:var(--muted); }
+.fc-table td:first-child { text-align:left; font-weight:700; font-size:11px; color:var(--muted); }
 .fc-table tr.repos td { background:#f2f6fd; }
 .fc-table tr.exercici td { background:var(--rose-tint); }
 .fc-table tr.recuperacio td { background:var(--green-tint); }
 
 /* ── ZONES FC ── */
 .zones-bar { height:30px; border-radius:8px; overflow:hidden; display:flex; margin:4px 0 2px; border:1.5px solid var(--rule); }
-.zone-seg { display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:.04em; text-align:center; }
+.zone-seg { display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:.04em; text-align:center; }
 .fc-calc-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:10px 14px; margin:10px 0 8px; position:relative; }
-.fc-formula { font-size:15px; font-weight:900; color:var(--purple-ink); text-align:center; padding:6px; background:#fff; border-radius:6px; margin:4px 0; }
+.fc-formula { font-size:16px; font-weight:900; color:var(--purple-ink); text-align:center; padding:6px; background:#fff; border-radius:6px; margin:4px 0; }
 
 /* ── GRÀFIQUES ── */
 .milimetrat-wrap { border:2px solid var(--rule-dark); border-radius:8px; overflow:hidden; margin:8px 0; position:relative; }
-.milimetrat-title { background:var(--purple-ink); color:#fff; font-size:10px; font-weight:700; padding:4px 10px; text-transform:uppercase; letter-spacing:.05em; display:flex; justify-content:space-between; align-items:center; }
+.milimetrat-title { background:var(--purple-ink); color:#fff; font-size:11px; font-weight:700; padding:4px 10px; text-transform:uppercase; letter-spacing:.05em; display:flex; justify-content:space-between; align-items:center; }
 .milimetrat { background-image:linear-gradient(rgba(100,120,200,.08) 1px, transparent 1px),linear-gradient(90deg, rgba(100,120,200,.08) 1px, transparent 1px),linear-gradient(rgba(100,120,200,.25) 1px, transparent 1px),linear-gradient(90deg, rgba(100,120,200,.25) 1px, transparent 1px); background-size:5px 5px,5px 5px,25px 25px,25px 25px; background-position:-1px -1px,-1px -1px,-1px -1px,-1px -1px; }
 .milimetrat-axis-y { position:absolute; left:0; top:24px; bottom:20px; width:40px; background:rgba(255,255,255,.88); border-right:1.5px solid #aaa; display:flex; flex-direction:column; justify-content:space-between; padding:4px 4px; font-size:8px; color:var(--muted); text-align:right; }
 .milimetrat-axis-x { position:absolute; bottom:0; height:20px; background:rgba(255,255,255,.88); border-top:1.5px solid #aaa; display:flex; justify-content:space-around; align-items:center; font-size:8px; color:var(--muted); right:0; }
 .g1-wrap { border:1.5px solid var(--rule); border-radius:8px; overflow:hidden; margin:8px 0; position:relative; }
-.g1-title { background:var(--art); color:#fff; font-size:10px; font-weight:700; padding:5px 10px; display:flex; justify-content:space-between; align-items:center; }
+.g1-title { background:var(--art); color:#fff; font-size:11px; font-weight:700; padding:5px 10px; display:flex; justify-content:space-between; align-items:center; }
 .g2-wrap { border:1.5px solid var(--rule); border-radius:8px; overflow:hidden; margin:8px 0; position:relative; }
-.g2-title { background:var(--purple-ink); color:#fff; font-size:10px; font-weight:700; padding:5px 10px; display:flex; justify-content:space-between; align-items:center; }
-.g2-llegenda { display:flex; gap:16px; padding:5px 10px; background:#fafafa; border-bottom:1px solid var(--rule); font-size:9.5px; flex-wrap:wrap; }
+.g2-title { background:var(--purple-ink); color:#fff; font-size:11px; font-weight:700; padding:5px 10px; display:flex; justify-content:space-between; align-items:center; }
+.g2-llegenda { display:flex; gap:16px; padding:5px 10px; background:#fafafa; border-bottom:1px solid var(--rule); font-size:11px; flex-wrap:wrap; }
 .g2-item { display:flex; align-items:center; gap:5px; }
 .g2-dot { width:16px; height:4px; border-radius:2px; flex-shrink:0; }
 
 /* ── BLANKS ── */
-.blank { display:inline-block; border:1px solid var(--rule); border-bottom:1.5px solid #C8C2DD; border-radius:3px 3px 0 0; vertical-align:bottom; margin:0 3px; height:auto; min-height:1.45em; line-height:1.45; padding:0 5px; background:#fff; outline:none; }
+.blank { display:inline-block; border:1px solid var(--rule); border-bottom:1.5px solid #C8C2DD; border-radius:3px 3px 0 0; vertical-align:bottom; margin:0 3px; height:auto; min-height:1.45em; line-height:1.5; padding:0 5px; background:#fff; outline:none; }
 .blank-s { min-width:60px; } .blank-m { min-width:100px; } .blank-l { min-width:140px; } .blank-xl { min-width:200px; }
-.frase-completar { font-size:11.5px; line-height:2.3; margin-bottom:4px; }
+.frase-completar { font-size:13.5px; line-height:2.3; margin-bottom:4px; }
 
 /* ── CÀPSULES PER LLEGIR ── */
 .info-box { background:#fff; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:8px 12px; margin:8px 0; position:relative; }
-.info-label { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
-.info-box p { font-size:11px; line-height:1.5; margin-bottom:3px; }
+.info-label { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.info-box p { font-size:13.5px; line-height:1.5; margin-bottom:3px; }
 .chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0 3px; }
-.chain-chip { font-size:10.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
-.chain-arrow { color:var(--purple); font-weight:900; font-size:13px; }
+.chain-chip { font-size:13.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:14.5px; }
 
 /* ── ENCERCLA L'OPCIÓ (guiatge nivell C) ── */
-.circ-row { font-size:11.5px; line-height:2.1; margin-bottom:3px; }
+.circ-row { font-size:13.5px; line-height:2.1; margin-bottom:3px; }
 .circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:#fff; }
 
 /* ── EPIST ── */
 .epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; position:relative; }
-.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
-.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+.epist-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
+.epist-text { font-size:13.5px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
 
 /* ── METACOGNICIÓ OA-BASED ── */
 .meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin-top:12px; position:relative; }
-.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:12px; font-weight:900; color:var(--purple-ink); margin-bottom:8px; }
+.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14px; font-weight:900; color:var(--purple-ink); margin-bottom:8px; }
 .meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:5px; }
 .meta-oa-check { width:14px; height:14px; flex-shrink:0; border:1.5px solid var(--purple); border-radius:3px; margin-top:1px; print-color-adjust:exact; }
-.meta-oa-text { font-size:10.5px; color:var(--ink-2); line-height:1.4; }
+.meta-oa-text { font-size:13.5px; color:var(--ink-2); line-height:1.5; }
 .meta-open { margin-top:8px; padding-top:8px; border-top:1px solid var(--rule-dark); }
-.meta-open-label { font-size:10px; font-weight:700; color:var(--muted); margin-bottom:3px; }
+.meta-open-label { font-size:11px; font-weight:700; color:var(--muted); margin-bottom:3px; }
 
 /* ── TASCA CASA ── */
 .tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:10px 12px; margin-top:10px; position:relative; }
@@ -221,7 +221,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; }
 .spacer-label { font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
 
-.mt8 { margin-top:8px; } .bold { font-weight:700; } .small { font-size:10px; color:var(--muted); }
+.mt8 { margin-top:8px; } .bold { font-weight:700; } .small { font-size:11px; color:var(--muted); }
 
 @media print {
   @page { size:A4; margin:0; }
@@ -239,6 +239,17 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   .input-span:empty::before { display:none; }
   .header-emoji-box { background:#ede8f8; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   LLEGIBILITAT-C v1 — llegibilitat de la Versió C (dislèxia). 09/09/2026.
+   Cos en 'Fira Sans Condensed' (mateixa família que l'Extra Condensed
+   de la casa, però amb lletres més obertes i distingibles), interlineat
+   ample i separació de paraules. Titulars, capçalera i peu no es toquen.
+   ══════════════════════════════════════════════════════════════ */
+.sheet-body,#doc{font-family:'Fira Sans Condensed','Fira Sans Extra Condensed',sans-serif;
+  line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
+.sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
+.sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
 </style>
 </head>
 <body>
@@ -266,7 +277,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="header-subtitle" contenteditable="true">Avui resolem els dos enigmes de la paret — i les dades les poses tu</div>
   </div>
   <div class="header-right">
-    <div class="logo-box"><img src="../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
+    <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
     <div class="header-meta" contenteditable="true">3r ESO</div>
   </div>
 </div>
@@ -277,7 +288,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <span class="badge deletable" contenteditable="true">Amb suport visual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <span class="temps-badge deletable">⏱️ 2 h · 120 min<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
   <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
-  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió C">C</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió C — Adaptació">C</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
 </div>
 
 <!-- ══ OA ══ -->
@@ -322,21 +333,21 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="previ-grid">
     <div class="previ-box">
       <p contenteditable="true"><strong>Per quina raó creus que augmenta la freqüència cardíaca quan fas exercici?</strong> Escriu la teva hipòtesi ara.</p>
-      <p style="font-size:10px;color:var(--muted);font-style:italic;margin:4px 0 2px" contenteditable="true">Pots començar així: «Crec que el cor batega més ràpid perquè…»</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+      <p style="font-size:11px;color:var(--muted);font-style:italic;margin:4px 0 2px" contenteditable="true">Pots començar així: «Crec que el cor batega més ràpid perquè…»</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     </div>
     <div class="draw-box">
       <div class="card-label" contenteditable="true">🔢 Les teves estimacions (abans de mesurar res)</div>
       <p class="frase-completar" contenteditable="false" style="margin-top:8px">La meva FC en repòs, ara mateix, crec que és de <span class="blank blank-s"></span> bat/min.</p>
       <p class="frase-completar" contenteditable="false">La FC màxima que crec que puc assolir és de <span class="blank blank-s"></span> bat/min.</p>
       <p class="frase-completar" contenteditable="false">Després de l'exercici, crec que trigaré <span class="blank blank-s"></span> minuts a tornar al repòs.</p>
-      <p style="font-size:10px;color:var(--muted);font-style:italic" contenteditable="true">Després de l'experiment tornaràs aquí a comprovar si ho havies encertat.</p>
+      <p style="font-size:11px;color:var(--muted);font-style:italic" contenteditable="true">Després de l'experiment tornaràs aquí a comprovar si ho havies encertat.</p>
     </div>
   </div>
   <div class="card mt8 deletable" style="border-color:var(--yellow);background:var(--yellow-tint)">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">📌 Els dos enigmes que pengen a la paret des de la Sessió 1</div>
-    <p style="font-size:11px;margin-top:3px" contenteditable="true"><strong>Enigma 1 — la Mercè.</strong> La Mercè té 14 anys i corre 10 km. En creuar la meta, el cor li va a 185 bat/min. En mig minut ja n'ha baixat 15… però encara triga un quart d'hora a tornar a la normalitat. <em>Per quina raó puja de pressa i baixa a poc a poc?</em></p>
-    <p style="font-size:11px;margin-top:4px" contenteditable="true"><strong>Enigma 2 — el Marc Fontana.</strong> El Marc té 14 anys i s'ofega pujant les escales de l'institut. A l'analítica li surt l'hemoglobina a <strong>9,2 g/dL</strong> (en un noi de la seva edat, el normal és <strong>13–16 g/dL</strong>). <em>Per quina raó, fent el mateix esforç que tu, ell arriba abans al límit?</em></p>
+    <p style="font-size:13.5px;margin-top:3px" contenteditable="true"><strong>Enigma 1 — la Mercè.</strong> La Mercè té 14 anys i corre 10 km. En creuar la meta, el cor li va a 185 bat/min. En mig minut ja n'ha baixat 15… però encara triga un quart d'hora a tornar a la normalitat. <em>Per quina raó puja de pressa i baixa a poc a poc?</em></p>
+    <p style="font-size:13.5px;margin-top:4px" contenteditable="true"><strong>Enigma 2 — el Marc Fontana.</strong> El Marc té 14 anys i s'ofega pujant les escales de l'institut. A l'analítica li surt l'hemoglobina a <strong>9,2 g/dL</strong> (en un noi de la seva edat, el normal és <strong>13–16 g/dL</strong>). <em>Per quina raó, fent el mateix esforç que tu, ell arriba abans al límit?</em></p>
   </div>
   <div class="connexio-box mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -353,7 +364,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="card teal deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <div class="card-label" contenteditable="true">📋 Com mesurar el pols</div>
-      <ol style="font-size:11px;padding-left:16px;line-height:1.8">
+      <ol style="font-size:13.5px;padding-left:16px;line-height:1.8">
         <li contenteditable="true">Col·loca 2 dits (índex i mig, mai el polze) al canell o al coll, i <strong>prem fluix</strong>: si prems massa fort, deixaràs de notar-lo.</li>
         <li contenteditable="true">Compta els batecs durant <strong>15 segons</strong>.</li>
         <li contenteditable="true">Multiplica × 4 → bat/min.</li>
@@ -363,22 +374,22 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="card rose deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <div class="card-label" contenteditable="true">⚠️ Protocol de seguretat</div>
-      <p style="font-size:11px" contenteditable="true">Si et mareges o et fa mal el pit, <strong>para immediatament</strong> i avisa el professor. No hi ha cap nota a guanyar si et trobes malament.</p>
+      <p style="font-size:13.5px" contenteditable="true">Si et mareges o et fa mal el pit, <strong>para immediatament</strong> i avisa el professor. No hi ha cap nota a guanyar si et trobes malament.</p>
     </div>
   </div>
 
     <figure class="deletable" style="position:relative;margin:8px auto;text-align:center;max-width:340px">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <img src="img/s5_on_prendre_pols_nivell_c.png" alt="On buscar el pols: al canell i al coll" style="max-height:210px;max-width:100%;border:1px solid var(--rule);border-radius:10px;background:#fff" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'">
-      <div style="display:none;padding:24px;border:1px dashed #bbb;border-radius:10px;color:#888;font-size:11px">🖼️ On buscar el pols (canell i coll)</div>
-      <figcaption contenteditable="true" style="font-size:10px;color:var(--muted);margin-top:4px;line-height:1.4">Figura 1. Tens <strong>dues opcions</strong> per trobar el pols (tria\'n una): al <strong>canell</strong> o al <strong>coll</strong>. Hi poses dos dits —l\'índex i el mig, mai el polze— i prems fluix: si prems massa fort, deixaràs de notar-lo.</figcaption>
+      <img src="s5_on_prendre_pols_nivell_c.png" alt="On buscar el pols: al canell i al coll" style="max-height:210px;max-width:100%;border:1px solid var(--rule);border-radius:10px;background:#fff" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'">
+      <div style="display:none;padding:24px;border:1px dashed #bbb;border-radius:10px;color:#888;font-size:13.5px">🖼️ On buscar el pols (canell i coll)</div>
+      <figcaption contenteditable="true" style="font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4">Figura 1. Tens <strong>dues opcions</strong> per trobar el pols (tria\'n una): al <strong>canell</strong> o al <strong>coll</strong>. Hi poses dos dits —l\'índex i el mig, mai el polze— i prems fluix: si prems massa fort, deixaràs de notar-lo.</figcaption>
     </figure>
     <p class="pista deletable" style="margin:6px 0"><span class="del-btn" onclick="deleteEl(this)">✕</span>💡 Exemple de càlcul: si comptes <strong>18 batecs en 15 segons</strong> → 18 × 4 = <strong>72 bat/min</strong>.</p><table class="fc-table">
 <thead><tr><th contenteditable="true" style="text-align:left">Moment</th><th contenteditable="true">Temps</th><th contenteditable="true">La teva FC (bat/min)</th><th contenteditable="true">FC company/a (bat/min)</th><th contenteditable="true">Diferència (la teva − la seva)</th></tr></thead><tbody>
 <tr class="repos deletable"><td>Repòs (inici)</td><td>0 min</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
 <tr class="repos deletable"><td>Repòs</td><td>1 min</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
 <tr class="repos deletable"><td>Repòs</td><td>2 min</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
-<tr class="exercici deletable"><td style="color:var(--art);font-weight:900">🏃 EXERCICI (2 minuts)</td><td>—</td><td colspan="3" style="font-size:10px;color:var(--muted);font-style:italic;text-align:left">Salt a peu coix, cursa al passadís o, si no pots saltar, 2 min d'elevacions ràpides de braços assegut/da · mesura la FC just el segon que pares</td></tr>
+<tr class="exercici deletable"><td style="color:var(--art);font-weight:900">🏃 EXERCICI (2 minuts)</td><td>—</td><td colspan="3" style="font-size:11px;color:var(--muted);font-style:italic;text-align:left">Salt a peu coix, cursa al passadís o, si no pots saltar, 2 min d'elevacions ràpides de braços assegut/da · mesura la FC just el segon que pares</td></tr>
 <tr class="exercici deletable"><td>Just en parar</td><td>0 s</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
 <tr class="recuperacio deletable"><td>Recuperació</td><td>1 min</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
 <tr class="recuperacio deletable"><td>Recuperació</td><td>2 min</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
@@ -393,12 +404,12 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   </div>
   <div class="fc-calc-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-bottom:6px" contenteditable="true">Calcula la teva FC màxima pas a pas:</p>
-    <div style="background:#f3eefa;border:1px dashed var(--purple-ink);border-radius:8px;padding:6px 8px;margin-bottom:8px;font-size:10px;line-height:1.35" contenteditable="true">👀 <strong>Exemple ja resolt — la Bruna té 13 anys.</strong> Primer: FCmàx = 220 − 13 = <strong>207</strong> bat/min. Després busca «13 anys» a la taula de sota: el seu llindar és <strong>176</strong> bat/min. Vol dir que, si la FC de la Bruna passa de 176, ja està a la zona anaeròbica.</div>
+    <p style="font-size:13.5px;font-weight:700;color:var(--purple-ink);margin-bottom:6px" contenteditable="true">Calcula la teva FC màxima pas a pas:</p>
+    <div style="background:#f3eefa;border:1px dashed var(--purple-ink);border-radius:8px;padding:6px 8px;margin-bottom:8px;font-size:11px;line-height:1.35" contenteditable="true">👀 <strong>Exemple ja resolt — la Bruna té 13 anys.</strong> Primer: FCmàx = 220 − 13 = <strong>207</strong> bat/min. Després busca «13 anys» a la taula de sota: el seu llindar és <strong>176</strong> bat/min. Vol dir que, si la FC de la Bruna passa de 176, ja està a la zona anaeròbica.</div>
     <p class="frase-completar" contenteditable="false">1️⃣ La meva edat: <span class="blank blank-s"></span> anys.</p>
     <p class="frase-completar" contenteditable="false">2️⃣ FCmàx = 220 − la meva edat = <span class="blank blank-s"></span> bat/min.</p>
     <p class="frase-completar" contenteditable="false">3️⃣ El meu <strong>llindar anaeròbic</strong> (FCmàx × 0,85). No cal que multipliquis: <strong>busca la teva edat a la taula i copia el número de la columna verda.</strong></p>
-    <table style="width:100%;border-collapse:collapse;font-size:9.5px;margin:2px 0 6px;text-align:center">
+    <table style="width:100%;border-collapse:collapse;font-size:11px;margin:2px 0 6px;text-align:center">
       <thead><tr style="background:var(--purple-ink);color:#fff">
         <th style="border:1px solid #d9cbe9;padding:3px 2px">La teva edat</th>
         <th style="border:1px solid #d9cbe9;padding:3px 2px">FCmàx (220 − edat)</th>
@@ -413,7 +424,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     </table>
     <p class="frase-completar" contenteditable="false">El meu llindar anaeròbic és <span class="blank blank-s"></span> bat/min.</p>
     <p class="frase-completar" contenteditable="false">4️⃣ La meva FC just en acabar l'exercici ha estat de <span class="blank blank-s"></span> bat/min. Ara <strong>compara-la amb el teu llindar</strong>: si és més gran, has estat a la zona anaeròbica; si és més petita, a l'aeròbica. He estat a la zona:&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> Aeròbica</span>&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> Anaeròbica</span></p>
-    <div style="font-size:9px;color:var(--muted);margin:8px 0 2px" contenteditable="true">Escala de zones de FC (% de la teva FCmàx):</div>
+    <div style="font-size:11px;color:var(--muted);margin:8px 0 2px" contenteditable="true">Escala de zones de FC (% de la teva FCmàx):</div>
     <div class="zones-bar"><div class="zone-seg" style="width:60%;background:#b9b3c9;font-size:8px">0–60% · repòs i esforç suau</div><div class="zone-seg" style="width:25%;background:#5a9e6a">60–85% · aeròbica</div><div class="zone-seg" style="width:15%;background:#c0474a;font-size:8px">85–100% · anaeròbica</div></div><div style="display:flex;justify-content:space-between;font-size:8px;color:var(--muted);margin-top:2px"><span>0%</span><span>60%</span><span>85%</span><span>100% = la teva FCmàx</span></div>
   </div>
   <div class="info-box deletable">
@@ -427,9 +438,9 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <p contenteditable="true">Quan corres respires més fort. L'aire entra i baixa fins als <strong>alvèols</strong>: uns saquets molt petits que hi ha dins del pulmó. Allà l'<strong>O₂</strong> passa a la sang, i el <strong>CO₂</strong> surt de la sang cap a l'aire.</p>
     <figure class="deletable" style="position:relative;margin:6px auto;text-align:center;max-width:330px">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <img src="img/s5_respiratori_alveols.png" alt="De la boca als alveols: on passa l'oxigen a la sang" style="max-height:250px;max-width:100%;border:1px solid var(--rule);border-radius:10px;background:#fff" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <div style="display:none;padding:24px;border:1px dashed #bbb;border-radius:10px;color:#888;font-size:11px">🖼️ Aparell respiratori i alvèols</div>
-      <figcaption contenteditable="true" style="font-size:10px;color:var(--muted);margin-top:4px;line-height:1.4">Figura. El camí de l'aire: tràquea → bronquis → bronquíols → <strong>alvèols</strong>. A la dreta, un alvèol enganxat a un capil·lar: la sang hi arriba <strong>lila</strong> (sense O₂) i en surt <strong>vermella</strong> (amb O₂).</figcaption>
+      <img src="s5_respiratori_alveols.png" alt="De la boca als alveols: on passa l'oxigen a la sang" style="max-height:250px;max-width:100%;border:1px solid var(--rule);border-radius:10px;background:#fff" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div style="display:none;padding:24px;border:1px dashed #bbb;border-radius:10px;color:#888;font-size:13.5px">🖼️ Aparell respiratori i alvèols</div>
+      <figcaption contenteditable="true" style="font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4">Figura. El camí de l'aire: tràquea → bronquis → bronquíols → <strong>alvèols</strong>. A la dreta, un alvèol enganxat a un capil·lar: la sang hi arriba <strong>lila</strong> (sense O₂) i en surt <strong>vermella</strong> (amb O₂).</figcaption>
     </figure><div class="circ-row" contenteditable="true">1. L'O₂ passa de l'aire a la sang <span class="circ-opt">als alvèols</span> / <span class="circ-opt">a la tràquea</span>.</div><div class="circ-row" contenteditable="true">2. La sang que <strong>surt</strong> de l'alvèol és <span class="circ-opt">lila (sense O₂)</span> / <span class="circ-opt">vermella (amb O₂)</span>.</div><div class="circ-row" contenteditable="true">3. Quan corres respires més fort perquè així entra més <span class="circ-opt">oxigen</span> / <span class="circ-opt">sang</span> als alvèols.</div>
   </div>
   <div class="epist-box deletable">
@@ -437,7 +448,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div style="font-size:22px;flex-shrink:0">🔬</div>
     <div style="flex:1">
       <div class="epist-title" contenteditable="true">Pensa-hi — Ens podem fiar de les nostres dades?</div>
-      <div class="epist-text" contenteditable="true">Hem fet un experiment de debò. Però és prou bo? <strong>Encercla</strong> la resposta que et sembli correcta:</div><div class="circ-row" contenteditable="true">1. Un estudi és més fiable si el fan <span class="circ-opt">moltes persones</span> / <span class="circ-opt">poques persones</span>.</div><div class="circ-row" contenteditable="true">2. Nosaltres només som una classe (uns 20). La nostra <strong>mostra</strong> (la gent estudiada) és <span class="circ-opt">gran</span> / <span class="circ-opt">petita</span>.</div><div class="circ-row" contenteditable="true">3. Tothom ha fet exactament el mateix exercici, la mateixa estona? <span class="circ-opt">sí</span> / <span class="circ-opt">no</span>. Si no, les <strong>condicions</strong> no estaven ben <strong>controlades</strong>.</div><div class="circ-row" contenteditable="true">4. Conclusió: una revista científica <span class="circ-opt">acceptaria</span> / <span class="circ-opt">no acceptaria</span> les nostres dades.</div><div style="font-size:10.5px;margin-top:5px" contenteditable="true">Escriu <strong>un</strong> motiu, fent servir el que has encerclat a 1, 2 o 3:</div><div class="wline" contenteditable="true"></div>
+      <div class="epist-text" contenteditable="true">Hem fet un experiment de debò. Però és prou bo? <strong>Encercla</strong> la resposta que et sembli correcta:</div><div class="circ-row" contenteditable="true">1. Un estudi és més fiable si el fan <span class="circ-opt">moltes persones</span> / <span class="circ-opt">poques persones</span>.</div><div class="circ-row" contenteditable="true">2. Nosaltres només som una classe (uns 20). La nostra <strong>mostra</strong> (la gent estudiada) és <span class="circ-opt">gran</span> / <span class="circ-opt">petita</span>.</div><div class="circ-row" contenteditable="true">3. Tothom ha fet exactament el mateix exercici, la mateixa estona? <span class="circ-opt">sí</span> / <span class="circ-opt">no</span>. Si no, les <strong>condicions</strong> no estaven ben <strong>controlades</strong>.</div><div class="circ-row" contenteditable="true">4. Conclusió: una revista científica <span class="circ-opt">acceptaria</span> / <span class="circ-opt">no acceptaria</span> les nostres dades.</div><div style="font-size:13.5px;margin-top:5px" contenteditable="true">Escriu <strong>un</strong> motiu, fent servir el que has encerclat a 1, 2 o 3:</div><div class="wline" contenteditable="true"></div>
     </div>
   </div>
 </div>
@@ -455,7 +466,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   </div>
   <div class="milimetrat-wrap deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="milimetrat-title"><span contenteditable="true">La meva gràfica de FC · eix vertical = FC (bat/min)</span><span style="font-size:9px;opacity:.7" contenteditable="true">● = punt mesurat · uneix els punts amb una línia</span></div>
+    <div class="milimetrat-title"><span contenteditable="true">La meva gràfica de FC · eix vertical = FC (bat/min)</span><span style="font-size:11px;opacity:.7" contenteditable="true">● = punt mesurat · uneix els punts amb una línia</span></div>
     <div class="milimetrat" style="height:180px;position:relative">
       <div class="milimetrat-axis-y"><span>220</span><span>200</span><span>180</span><span>160</span><span>140</span><span>120</span><span>100</span><span>80</span><span>60</span></div>
       <div class="milimetrat-axis-x" style="left:44px"><span>Rep 0'</span><span>Rep 1'</span><span>Rep 2'</span><span>Exercici</span><span>Rec 1'</span><span>Rec 2'</span><span>Rec 3'</span><span>Rec 4'</span><span>Rec 5'</span></div>
@@ -467,12 +478,12 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="card deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <div class="card-label" contenteditable="true">La meva FC màxima assolida durant l'exercici</div>
-      <p class="frase-completar" contenteditable="false" style="text-align:center;font-size:14px;font-weight:900;color:var(--art)"><span class="blank blank-m"></span> bat/min</p>
+      <p class="frase-completar" contenteditable="false" style="text-align:center;font-size:14.5px;font-weight:900;color:var(--art)"><span class="blank blank-m"></span> bat/min</p>
     </div>
     <div class="card deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <div class="card-label" contenteditable="true">He entrat a zona anaeròbica?</div>
-      <div style="margin-top:6px;font-size:11px;display:flex;gap:16px"><span class="yn-opt"><span class="chk-sq"></span> Sí</span><span class="yn-opt"><span class="chk-sq"></span> No</span><span class="yn-opt"><span class="chk-sq"></span> No ho puc saber</span></div>
+      <div style="margin-top:6px;font-size:13.5px;display:flex;gap:16px"><span class="yn-opt"><span class="chk-sq"></span> Sí</span><span class="yn-opt"><span class="chk-sq"></span> No</span><span class="yn-opt"><span class="chk-sq"></span> No ho puc saber</span></div>
       <p class="pista" contenteditable="true">Recorda: zona anaeròbica = anar tan fort que falta oxigen. Hi has entrat si la teva FC ha superat el llindar que has calculat (FCmàx × 0,85).</p>
     </div>
   </div>
@@ -485,7 +496,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
   <div class="g1-wrap deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="g1-title"><span contenteditable="true">G1 · FC de la Mercè durant una cursa de 10 km</span><span style="font-size:9px;opacity:.7" contenteditable="true">Dades recreades amb finalitat didàctica</span></div>
+    <div class="g1-title"><span contenteditable="true">G1 · FC de la Mercè durant una cursa de 10 km</span><span style="font-size:11px;opacity:.7" contenteditable="true">Dades recreades amb finalitat didàctica</span></div>
     <svg viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:white;padding:8px 10px 4px">
   <rect x="52.0" y="18.0" width="508.0" height="23.9" fill="#fce8ed" opacity="0.55"/>
   <rect x="52.0" y="41.9" width="508.0" height="48.8" fill="#d4edda" opacity="0.45"/>
@@ -549,7 +560,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card teal mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🧭 Com es llegeix una gràfica (segueix aquests passos)</div>
-    <ol style="font-size:10.5px;padding-left:16px;line-height:1.7">
+    <ol style="font-size:13.5px;padding-left:16px;line-height:1.7">
       <li contenteditable="true">Mira l'<strong>eix horitzontal</strong>: què mesura? En quines unitats?</li>
       <li contenteditable="true">Mira l'<strong>eix vertical</strong>: què mesura? En quines unitats?</li>
       <li contenteditable="true">Busca el <strong>punt més alt</strong> (el pic) i llegeix-ne els dos valors.</li>
@@ -560,7 +571,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="card deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">① En quin minut la FC de la Mercè és màxima?</div><div class="fill-cell" contenteditable="true"></div></div>
     <div class="card deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">② Quin valor té aquest pic (en bat/min)?</div><div class="fill-cell" contenteditable="true"></div></div>
     <div class="card deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">③ A partir de quin minut la FC de la Mercè torna a estar per sota de 80 bat/min?</div><div class="fill-cell" contenteditable="true"></div></div>
-    <div class="card deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">④ Què és més ràpid?</div><div style="margin-top:6px;font-size:11px;display:flex;gap:14px"><span class="yn-opt"><span class="chk-sq"></span> La pujada</span><span class="yn-opt"><span class="chk-sq"></span> La baixada (recuperació)</span></div></div>
+    <div class="card deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true">④ Què és més ràpid?</div><div style="margin-top:6px;font-size:13.5px;display:flex;gap:14px"><span class="yn-opt"><span class="chk-sq"></span> La pujada</span><span class="yn-opt"><span class="chk-sq"></span> La baixada (recuperació)</span></div></div>
   </div>
 
   <div class="info-box deletable">
@@ -571,22 +582,22 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card teal mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">✍️ Escriu la teva explicació amb els 4 passos de sempre</div>
-    <p style="font-size:10.5px;color:var(--muted);margin-bottom:2px" contenteditable="true">Pregunta: <strong>per quina raó la FC de la Mercè puja de pressa però baixa a poc a poc?</strong></p>
-    <p style="font-size:10.5px;font-weight:700;color:var(--teal);margin-top:6px" contenteditable="true">1. OBSERVO <span style="font-weight:400;color:var(--muted)">— comença així: «A la gràfica veig que la línia puja de… a… en pocs minuts, i que per baixar triga…»</span></p>
+    <p style="font-size:13.5px;color:var(--muted);margin-bottom:2px" contenteditable="true">Pregunta: <strong>per quina raó la FC de la Mercè puja de pressa però baixa a poc a poc?</strong></p>
+    <p style="font-size:13.5px;font-weight:700;color:var(--teal);margin-top:6px" contenteditable="true">1. OBSERVO <span style="font-weight:400;color:var(--muted)">— comença així: «A la gràfica veig que la línia puja de… a… en pocs minuts, i que per baixar triga…»</span></p>
 <div class="wline" contenteditable="true"></div>
-    <p style="font-size:10.5px;font-weight:700;color:var(--teal);margin-top:4px" contenteditable="true">2. EM PREGUNTO <span style="font-weight:400;color:var(--muted)">— comença així: «Em pregunto per quina raó el cor no torna al repòs de cop, si ella ja ha…»</span></p>
+    <p style="font-size:13.5px;font-weight:700;color:var(--teal);margin-top:4px" contenteditable="true">2. EM PREGUNTO <span style="font-weight:400;color:var(--muted)">— comença així: «Em pregunto per quina raó el cor no torna al repòs de cop, si ella ja ha…»</span></p>
 <div class="wline" contenteditable="true"></div>
-    <p style="font-size:10.5px;font-weight:700;color:var(--teal);margin-top:4px" contenteditable="true">3. CONNECTO <span style="font-weight:400;color:var(--muted)">— comença així: «Això té a veure amb el deute d'oxigen, perquè els músculs encara han d'eliminar…»</span></p>
+    <p style="font-size:13.5px;font-weight:700;color:var(--teal);margin-top:4px" contenteditable="true">3. CONNECTO <span style="font-weight:400;color:var(--muted)">— comença així: «Això té a veure amb el deute d'oxigen, perquè els músculs encara han d'eliminar…»</span></p>
 <div class="wline" contenteditable="true"></div>
-    <p style="font-size:10.5px;font-weight:700;color:var(--teal);margin-top:4px" contenteditable="true">4. DEDUEIXO <span style="font-weight:400;color:var(--muted)">— comença així: «Per tant, la recuperació és lenta perquè…»</span></p>
+    <p style="font-size:13.5px;font-weight:700;color:var(--teal);margin-top:4px" contenteditable="true">4. DEDUEIXO <span style="font-weight:400;color:var(--muted)">— comença així: «Per tant, la recuperació és lenta perquè…»</span></p>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
   <div class="card rose mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">⑥ Aplica-ho a un cas nou</div>
-    <p style="font-size:11px" contenteditable="true">La Mercè, en lloc de córrer 10 km, fa <strong>30 segons</strong> d'esprint i para. Encercla el que creus que passarà:</p>
+    <p style="font-size:13.5px" contenteditable="true">La Mercè, en lloc de córrer 10 km, fa <strong>30 segons</strong> d'esprint i para. Encercla el que creus que passarà:</p>
     <div class="circ-row" contenteditable="true">La seva FC tornarà al repòs <span class="circ-opt">de seguida, en un parell de minuts</span> / <span class="circ-opt">al cap d'un quart d'hora, igual que abans</span>.</div>
-    <p style="font-size:10.5px;margin-top:2px" contenteditable="true">Per quina raó? (pensa quant de deute d'oxigen ha acumulat en 30 segons)</p>
+    <p style="font-size:13.5px;margin-top:2px" contenteditable="true">Per quina raó? (pensa quant de deute d'oxigen ha acumulat en 30 segons)</p>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
 </div>
@@ -598,7 +609,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
   <div class="g2-wrap deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="g2-title"><span contenteditable="true">G2 · Dues persones de 20 anys fan exactament el mateix exercici</span><span style="font-size:9px;opacity:.75" contenteditable="true">Mateixa intensitat i mateixa estona (5 min) · FCmàx de tots dos = 200 → llindar = 170 bat/min</span></div>
+    <div class="g2-title"><span contenteditable="true">G2 · Dues persones de 20 anys fan exactament el mateix exercici</span><span style="font-size:11px;opacity:.75" contenteditable="true">Mateixa intensitat i mateixa estona (5 min) · FCmàx de tots dos = 200 → llindar = 170 bat/min</span></div>
     <div class="g2-llegenda">
       <div class="g2-item"><div class="g2-dot" style="background:#4a9e5c"></div><span contenteditable="true">Esportista d'elit, 20 anys — <strong>línia contínua verda</strong> (FC en repòs ≈45 bat/min)</span></div>
       <div class="g2-item"><div class="g2-dot" style="background:#7B68C8;border-bottom:2px dashed #fff"></div><span contenteditable="true">Persona sedentària, 20 anys — <strong>línia discontínua lila</strong> (FC en repòs ≈78 bat/min)</span></div>
@@ -676,7 +687,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">⑥ Completa la conclusió</div>
     <p class="frase-completar" contenteditable="false">L'esportista es recupera més ràpid perquè el seu cor, amb cada batec, envia <span class="blank blank-m"></span> sang, i així elimina abans el CO₂ i el lactat.</p>
-    <p style="font-size:11px;margin-top:6px" contenteditable="true">⑦ El sedentari, al minut 20, encara no ha tornat al seu repòs. Encercla què li passa al cos:</p>
+    <p style="font-size:13.5px;margin-top:6px" contenteditable="true">⑦ El sedentari, al minut 20, encara no ha tornat al seu repòs. Encercla què li passa al cos:</p>
     <div class="circ-row" contenteditable="true"><span class="circ-opt">Encara està netejant residus dels músculs</span> / <span class="circ-opt">Ja ho ha netejat tot però el cor no s'atura</span>.</div>
   </div>
 </div>
@@ -696,9 +707,9 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <div class="tasca-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="card-label" contenteditable="true">📚 Tasca per a casa — els propers 3 matins (prepara la Sessió 6)</div>
-  <p style="font-size:12px;font-weight:700;color:var(--purple-ink)" contenteditable="true">Just en llevar-te (abans d'esmorzar i sense moure't gaire), mesura la teva FC en repòs: compta els batecs durant 30 segons i multiplica × 2 (a casa comptem el doble d'estona que a classe perquè, en repòs, com més estona comptes més fiable surt la mesura). Apunta-ho aquí:</p>
+  <p style="font-size:14px;font-weight:700;color:var(--purple-ink)" contenteditable="true">Just en llevar-te (abans d'esmorzar i sense moure't gaire), mesura la teva FC en repòs: compta els batecs durant 30 segons i multiplica × 2 (a casa comptem el doble d'estona que a classe perquè, en repòs, com més estona comptes més fiable surt la mesura). Apunta-ho aquí:</p>
 <table class="data-table" style="margin-top:6px"><thead><tr><th contenteditable="true">Matí</th><th contenteditable="true">Data</th><th contenteditable="true">Hora de llevar-te</th><th contenteditable="true">FC en repòs (bat/min)</th><th contenteditable="true">Notes (mal dormit, malalt/a…)</th></tr></thead><tbody><tr class="deletable"><td style="font-weight:700">Matí 1</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Matí 2</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Matí 3</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
-  <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:8px" contenteditable="true">A partir de les teves dades, formula una pregunta d'investigació pròpia:</p>
+  <p style="font-size:13.5px;font-weight:700;color:var(--purple-ink);margin-top:8px" contenteditable="true">A partir de les teves dades, formula una pregunta d'investigació pròpia:</p>
 <p class="pista" contenteditable="true">Exemple de pregunta: «Per quina raó la meva FC és diferent el dia que he dormit menys?»</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   <p class="small mt8" contenteditable="true">⚠️ <strong>Porta aquesta fitxa a la Sessió 6.</strong> Posarem en comú les dades de tota la classe. ⏱️ 2 min cada matí · No es pot fer amb IA: les pulsacions són teves.</p>
 </div>
@@ -734,7 +745,17 @@ function flattenDoc(){
   }
   const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
 }
-function extractFlow(){ FLOW = Array.from(document.getElementById('doc').children); }
+function extractFlow(){
+  FLOW = Array.from(document.getElementById('doc').children);
+  // Posicio original de cada fill de seccio: el paginador la fa servir per
+  // reassemblar en ordre una seccio que ha partit (sense aixo, cada
+  // repaginacio la desordena i separa una llegenda del seu dibuix).
+  FLOW.forEach(function(b){
+    if(b.classList && b.classList.contains('section')){
+      Array.prototype.forEach.call(b.children, function(k,i){ k._ord = i; });
+    }
+  });
+}
 function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
 
 function saveCaret(){
@@ -769,7 +790,15 @@ function repaginate(){
     sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
   }
   // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
-  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } } });
+  var _origens=[];
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
+  // ...i es torna l'ordre original: els fills reassemblats s'afegien al final.
+  _origens.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
+  });
   function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn') && !c.classList.contains('move-ctrl'); }); }
   function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
   function trySplitSection(sec){

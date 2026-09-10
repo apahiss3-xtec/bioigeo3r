@@ -141,7 +141,7 @@ export const sa2s7 = {
     note: "Pic ~178 bpm (just per sobre del llindar anaeròbic 175: toca la zona anaeròbica un moment, i per això la cursa és curta i a fons) i recuperació RÀPIDA: en 5 min ja torna a prop del repòs. És el patró sa que serveix de base per a la Discussió."
   },
 
-  homework: { description: "Acabar l'informe FC i entregar a Classroom en un termini d'una setmana.", deadline: null },
+  homework: { description: "Acabar l'informe FC i entregar a Classroom en un termini d'una setmana." },
 
   recoveryInstructions: [
     "Fes la gràfica G3 individualment (descàrrega a ELABORA): respon les 4 preguntes sense ajuda",

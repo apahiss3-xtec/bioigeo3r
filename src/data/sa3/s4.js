@@ -119,7 +119,6 @@ export const sa3s4 = {
   homework: {
     description: "Pensa en una substància que creus que pot generar dependència i una raó. Ho comentareu en veu alta a l'inici de S5 (no cal recerca).",
     note: "Lectura prèvia disponible per a S5 (drogues, addicció i síntesi de la SA).",
-    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (famílies de fàrmacs, mecanisme COX, automedicació, placebo)",

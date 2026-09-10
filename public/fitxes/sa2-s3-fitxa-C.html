@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>S3 · El Sistema Circulatori i la Sang — IE Temple</title>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --purple:       #7B68C8;
@@ -27,7 +27,7 @@
   --green:   #4a9e5c; --green-tint:   #eaf4ec;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:13px; line-height:1.5; }
+body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:14.5px; line-height:1.5; }
 
 /* ── TOOLBAR ── */
 #toolbar {
@@ -44,7 +44,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .tb-btn.active { background:var(--purple); }
 .tb-title { font-family:'Inter',sans-serif; font-size:11px; color:#cfc6ec; margin-left:auto; letter-spacing:.04em; }
 
-.page-wrap { max-width:794px; margin:48px auto 30px; background:var(--surface); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.14); }
+.page-wrap { max-width:794px; margin:33px auto 20px; background:var(--surface); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.14); }
 #doc { position:relative; }
 
 /* ── CAPÇALERA ── */
@@ -64,149 +64,149 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .header-meta { font-family:'Inter',sans-serif; font-size:8px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; opacity:.8; text-align:right; line-height:1.4; }
 
 /* ── STRIP NIVELL ── */
-.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:6px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
-.badge { font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
-.temps-badge { font-size:10px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
-.nom-field { font-size:11px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:4px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
+.badge { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
+.temps-badge { font-size:11px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
+.nom-field { font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
 .nom-field:first-of-type { margin-left:auto; }
-.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:13.5px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
 .input-span.data-span { min-width:70px; }
-.input-span:empty::before { content:attr(data-hint); color:#c0b8d8; font-style:italic; pointer-events:none; font-size:10px; }
+.input-span:empty::before { content:attr(data-hint); color:#c0b8d8; font-style:italic; pointer-events:none; font-size:11px; }
 .nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(123,104,200,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); vertical-align:middle; margin-left:4px; flex-shrink:0; }
 
 /* ── OA BOX ── */
-.oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin:12px 18px 4px; position:relative; }
-.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:13px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:6px; }
+.oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:7px 14px 8px; margin:8px 18px 3px; position:relative; }
+.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14.5px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:4px; }
 .oa-list { margin:0; padding-left:18px; list-style:none; }
-.oa-list li { font-size:11px; line-height:1.5; color:var(--ink-2); margin-bottom:3px; padding-left:4px; }
+.oa-list li { font-size:13.5px; line-height:1.5; color:var(--ink-2); margin-bottom:2px; padding-left:4px; }
 .oa-list li::before { content:"□ "; color:var(--purple); font-weight:700; margin-left:-18px; margin-right:4px; }
 
 /* ── CONTINGUT ── */
-.content { padding:4px 18px 14px; }
-.section { margin-top:15px; position:relative; }
-.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
-.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.content { padding:3px 18px 10px; }
+.section { margin-top:10px; position:relative; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:5px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:14.5px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .snum.n0 { background:var(--muted); } .snum.n1 { background:var(--art); } .snum.n2 { background:var(--art); }
 .snum.n3 { background:var(--purple); } .snum.n4 { background:var(--rose); } .snum.n5 { background:var(--green); }
-.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
-.sdesc { font-size:10px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
-.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+.stitle { font-size:16px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:11px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:7px; }
 
 /* ── BLOCS ── */
-.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
-.previ-box p { font-size:12px; }
-.wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:6px; background:#fff; outline:none; padding:3px 4px; }
-.wline:empty::before { content:attr(data-hint); color:#c0b8d8; font-style:italic; pointer-events:none; font-size:11px; }
-.pista { font-size:10px; color:var(--muted); font-style:italic; margin:4px 0 2px; }
-.card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:10px 12px; margin-bottom:8px; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:6px 12px; }
+.previ-box p { font-size:14px; }
+.wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:4px; background:#fff; outline:none; padding:2px 4px; }
+.wline:empty::before { content:attr(data-hint); color:#c0b8d8; font-style:normal; pointer-events:none; font-size:13.5px; }
+.pista { font-size:11px; color:var(--muted); font-style:italic; margin:3px 0 2px; }
+.card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:7px 12px; margin-bottom:5px; }
 .card.orange { border-color:var(--orange); background:var(--orange-tint); }
 .card.teal { border-color:var(--teal); background:var(--teal-tint); }
 .card.rose { border-color:var(--rose); background:var(--rose-tint); }
 .card.yellow { border-color:var(--yellow); background:var(--yellow-tint); }
-.card-label { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+.card-label { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
 
 /* ── CONNEXIÓ ── */
-.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:5px 12px; margin:5px 0; }
 .connexio-icon { font-size:24px; flex-shrink:0; }
-.connexio-text { font-size:11px; line-height:1.4; }
+.connexio-text { font-size:13.5px; line-height:1.5; }
 .connexio-text strong { color:var(--purple-ink); }
 
 /* ── SANG ── */
-.sang-layout { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:10px 0; align-items:start; }
+.sang-layout { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:7px 0; align-items:start; }
 .sang-img-wrap img { width:100%; border-radius:8px; border:1.5px solid var(--rule); display:block; }
-.sang-img-caption { font-size:9px; color:var(--muted); font-style:italic; text-align:center; margin-top:3px; line-height:1.3; }
-.sang-bar { display:flex; height:28px; border-radius:6px; overflow:hidden; margin:8px 0; border:1.5px solid var(--rule-dark); }
-.sang-bar-plasma { background:var(--plasma); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:#7a5010; }
-.sang-bar-eritro { background:var(--art); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:#fff; }
+.sang-img-caption { font-size:11px; color:var(--muted); font-style:italic; text-align:center; margin-top:2px; line-height:1.5; }
+.sang-bar { display:flex; height:28px; border-radius:6px; overflow:hidden; margin:5px 0; border:1.5px solid var(--rule-dark); }
+.sang-bar-plasma { background:var(--plasma); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#7a5010; }
+.sang-bar-eritro { background:var(--art); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#fff; }
 .sang-bar-altres { background:#9080c0; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:700; color:#fff; }
-.sang-comp-row { display:flex; align-items:center; gap:8px; font-size:11px; margin-bottom:4px; }
+.sang-comp-row { display:flex; align-items:center; gap:8px; font-size:13.5px; margin-bottom:3px; }
 .sang-comp-dot { width:14px; height:14px; border-radius:50%; flex-shrink:0; }
-.sang-comp-pct { font-size:13px; font-weight:900; min-width:35px; }
+.sang-comp-pct { font-size:14.5px; font-weight:900; min-width:35px; }
 .sang-comp-name { font-weight:700; min-width:90px; }
-.sang-comp-fun { font-size:10px; color:var(--muted); flex:1; }
+.sang-comp-fun { font-size:11px; color:var(--muted); flex:1; }
 
 /* ── COR ── */
-.cor-layout { display:grid; grid-template-columns:1fr 1.25fr; gap:16px; margin:10px 0; align-items:start; }
-.cor-img-big { text-align:center; margin:12px 0 6px; }
+.cor-layout { display:grid; grid-template-columns:1fr 1.25fr; gap:16px; margin:7px 0; align-items:start; }
+.cor-img-big { text-align:center; margin:8px 0 4px; }
 .cor-img-big img { width:100%; max-width:560px; border-radius:8px; border:1.5px solid var(--rule-dark); display:inline-block; }
 .cor-img-wrap img { width:100%; border-radius:8px; border:1.5px solid var(--rule-dark); display:block; }
-.cor-img-caption { font-size:9px; color:var(--muted); font-style:italic; text-align:center; margin-top:3px; line-height:1.3; }
+.cor-img-caption { font-size:11px; color:var(--muted); font-style:italic; text-align:center; margin-top:2px; line-height:1.5; }
 
 /* ── WORD BANK ── */
-.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
-.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:5px 10px; margin-bottom:7px; }
+.word-bank-title { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
 .chips { display:flex; flex-wrap:wrap; gap:4px; }
-.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.chip { font-size:13.5px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
 .chip.art { border-color:var(--art); color:var(--art); }
 .chip.ven { border-color:var(--ven); color:var(--ven); }
 
 /* ── TAULES ── */
-.label-table, .data-table { width:100%; border-collapse:collapse; font-size:11px; }
-.data-table th { background:var(--purple-ink); color:#fff; padding:5px 8px; text-align:left; font-size:9px; letter-spacing:.05em; text-transform:uppercase; }
-.label-table th { background:var(--art); color:#fff; padding:5px 8px; text-align:left; font-size:9px; letter-spacing:.05em; text-transform:uppercase; }
+.label-table, .data-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+.data-table th { background:var(--purple-ink); color:#fff; padding:3px 8px; text-align:left; font-size:11px; letter-spacing:.05em; text-transform:uppercase; }
+.label-table th { background:var(--art); color:#fff; padding:3px 8px; text-align:left; font-size:11px; letter-spacing:.05em; text-transform:uppercase; }
 .label-table th:first-child, .data-table th:first-child { border-radius:5px 0 0 0; }
 .label-table th:last-child, .data-table th:last-child { border-radius:0 5px 0 0; }
-.label-table td, .data-table td { padding:5px 8px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.label-table td, .data-table td { padding:3px 8px; border-bottom:1px solid var(--rule); vertical-align:middle; }
 .data-table tr:nth-child(even) td { background:var(--purple-tint); }
 .label-table tr:nth-child(even) td { background:var(--art-tint); }
 .fill-cell { display:block; width:100%; min-height:22px; border-bottom:1.5px solid #C8C2DD; background:#fff; outline:none; padding:2px 3px; }
-.hint-cell { font-size:10px; color:var(--muted); }
+.hint-cell { font-size:11px; color:var(--muted); }
 .yes-no { display:flex; gap:8px; }
-.yn-opt { font-size:11px; display:flex; align-items:center; gap:3px; }
+.yn-opt { font-size:13.5px; display:flex; align-items:center; gap:3px; }
 .chk-sq { width:12px; height:12px; border:1.5px solid var(--rule-dark); border-radius:2px; flex-shrink:0; display:inline-block; }
 .val-low { color:var(--rose); font-weight:900; }
 .val-ok { color:var(--green); font-weight:700; }
 .val-flag > td { background:var(--rose-tint) !important; }
 
 /* ── DOBLE CIRCULACIÓ ── */
-.circ-schema { display:grid; grid-template-columns:1fr 110px 1fr; margin:10px 0; background:#fff; border:1.5px solid var(--rule); border-radius:10px; overflow:hidden; }
-.circ-col { padding:10px 12px; text-align:center; }
+.circ-schema { display:grid; grid-template-columns:1fr 110px 1fr; margin:7px 0; background:#fff; border:1.5px solid var(--rule); border-radius:10px; overflow:hidden; }
+.circ-col { padding:7px 12px; text-align:center; }
 .circ-col.left { background:var(--art-tint); }
 .circ-col.right { background:var(--ven-tint); }
-.circ-center { background:var(--purple-tint); padding:10px 8px; text-align:center; border-left:1px solid var(--rule); border-right:1px solid var(--rule); }
-.circ-label { font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; margin-bottom:4px; }
+.circ-center { background:var(--purple-tint); padding:7px 8px; text-align:center; border-left:1px solid var(--rule); border-right:1px solid var(--rule); }
+.circ-label { font-size:11px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; margin-bottom:3px; }
 .circ-col.left .circ-label { color:var(--art); }
 .circ-col.right .circ-label { color:var(--ven); }
-.circ-center .circ-label { color:var(--purple-ink); font-size:11px; }
-.circ-text { font-size:9.5px; color:var(--ink-2); line-height:1.4; }
+.circ-center .circ-label { color:var(--purple-ink); font-size:13.5px; }
+.circ-text { font-size:11px; color:var(--ink-2); line-height:1.5; }
 
 /* ── IDEA CLAU (bàner) ── */
-.clau { display:flex; align-items:center; gap:10px; background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%); color:#fff; border-radius:8px; padding:9px 14px; margin:10px 0; }
+.clau { display:flex; align-items:center; gap:10px; background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%); color:#fff; border-radius:8px; padding:6px 14px; margin:7px 0; }
 .clau-icon { font-size:20px; flex-shrink:0; }
-.clau-text { font-size:12px; font-weight:700; line-height:1.4; }
+.clau-text { font-size:14px; font-weight:700; line-height:1.5; }
 
 /* ── RAONO EN 4 PASSOS ── */
-.raona-box { border:2px solid var(--purple-light); border-radius:12px; padding:0; margin:8px 0; overflow:hidden; }
-.raona-cap { background:var(--purple-ink); color:#fff; font-size:11px; font-weight:900; letter-spacing:.05em; text-transform:uppercase; padding:6px 12px; }
-.raona-pas { padding:7px 12px; border-bottom:1px dashed var(--rule); }
+.raona-box { border:2px solid var(--purple-light); border-radius:12px; padding:0; margin:5px 0; overflow:hidden; }
+.raona-cap { background:var(--purple-ink); color:#fff; font-size:13.5px; font-weight:900; letter-spacing:.05em; text-transform:uppercase; padding:4px 12px; }
+.raona-pas { padding:5px 12px; border-bottom:1px dashed var(--rule); }
 .raona-pas:last-child { border-bottom:none; }
-.raona-pas-lab { font-size:10px; font-weight:900; color:var(--purple-ink); letter-spacing:.06em; text-transform:uppercase; margin-bottom:3px; }
+.raona-pas-lab { font-size:11px; font-weight:900; color:var(--purple-ink); letter-spacing:.06em; text-transform:uppercase; margin-bottom:2px; }
 
 /* ── EXEMPLE RESOLT / PER LLEGIR ── */
-.exemple-box { background:var(--green-tint); border:1.5px solid var(--green); border-radius:8px; padding:8px 12px; margin-bottom:8px; }
-.exemple-label { font-size:9px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin-bottom:3px; }
-.perllegir-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:9px 12px; margin-bottom:8px; }
-.perllegir-label { font-size:9px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.exemple-box { background:var(--green-tint); border:1.5px solid var(--green); border-radius:8px; padding:5px 12px; margin-bottom:5px; }
+.exemple-label { font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin-bottom:2px; }
+.perllegir-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:6px 12px; margin-bottom:5px; }
+.perllegir-label { font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:2px; }
 
 /* ── EPIST ── */
-.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; }
-.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
-.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:5px 12px; margin:5px 0; }
+.epist-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
+.epist-text { font-size:13.5px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
 
 /* ── METACOGNICIÓ OA-BASED ── */
-.meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin-top:12px; position:relative; }
-.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:12px; font-weight:900; color:var(--purple-ink); margin-bottom:8px; }
-.meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:5px; }
+.meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:7px 14px 8px; margin-top:8px; position:relative; }
+.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14px; font-weight:900; color:var(--purple-ink); margin-bottom:5px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:3px; }
 .meta-oa-check { width:14px; height:14px; flex-shrink:0; border:1.5px solid var(--purple); border-radius:3px; margin-top:1px; print-color-adjust:exact; }
-.meta-oa-text { font-size:10.5px; color:var(--ink-2); line-height:1.4; }
-.meta-open { margin-top:8px; padding-top:8px; border-top:1px solid var(--rule-dark); }
-.meta-open-label { font-size:10px; font-weight:700; color:var(--muted); margin-bottom:3px; }
+.meta-oa-text { font-size:13.5px; color:var(--ink-2); line-height:1.5; }
+.meta-open { margin-top:5px; padding-top:5px; border-top:1px solid var(--rule-dark); }
+.meta-open-label { font-size:11px; font-weight:700; color:var(--muted); margin-bottom:2px; }
 
 /* ── TASCA CASA ── */
-.tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:10px 12px; margin-top:10px; position:relative; }
+.tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:7px 12px; margin-top:7px; position:relative; }
 
 /* ── FOOTER ── */
-.footer { margin-top:14px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer { margin-top:10px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:5px; }
 .footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
 .footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
 
@@ -217,15 +217,15 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .deletable:has(.deletable:hover) > .del-btn { display:none; }
 
 /* ── SPACER ── */
-.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; }
+.spacer-block { position:relative; height:48px; margin:3px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; }
 .spacer-label { font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
 
 /* ── SALTS DE PÀGINA ── */
 .page-break-line { position:absolute; left:0; right:0; border-top:2px dashed #9080bc; pointer-events:none; z-index:10; }
-.page-break-label { position:absolute; right:10px; top:-11px; background:#9080bc; color:#fff; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
+.page-break-label { position:absolute; right:10px; top:-11px; background:#9080bc; color:#fff; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
 .page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
 
-.mt8 { margin-top:8px; } .bold { font-weight:700; } .small { font-size:10px; color:var(--muted); }
+.mt8 { margin-top:5px; } .bold { font-weight:700; } .small { font-size:11px; color:var(--muted); }
 
 @media print {
   @page { size:A4; margin:10mm 12mm; }
@@ -243,9 +243,20 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   .header-emoji-box { background:#ede8f8; }
 }
 
-.temps-sec { margin-left:auto; align-self:center; font-size:9.5px; font-weight:700; color:var(--purple-ink); background:var(--purple-tint); border:1px solid var(--purple-light); padding:1px 7px; border-radius:9999px; flex-shrink:0; }
+.temps-sec { margin-left:auto; align-self:center; font-size:11px; font-weight:700; color:var(--purple-ink); background:var(--purple-tint); border:1px solid var(--purple-light); padding:1px 7px; border-radius:9999px; flex-shrink:0; }
 .section-header { display:flex; align-items:flex-start; gap:9px; }
 @media print { .temps-sec { border-color:#bbb; } }
+
+/* ══════════════════════════════════════════════════════════════
+   LLEGIBILITAT-C v1 — llegibilitat de la Versió C (dislèxia). 09/09/2026.
+   Cos en 'Fira Sans Condensed' (mateixa família que l'Extra Condensed
+   de la casa, però amb lletres més obertes i distingibles), interlineat
+   ample i separació de paraules. Titulars, capçalera i peu no es toquen.
+   ══════════════════════════════════════════════════════════════ */
+.sheet-body,#doc{font-family:'Fira Sans Condensed','Fira Sans Extra Condensed',sans-serif;
+  line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
+.sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
+.sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
 </style>
 </head>
 <body>
@@ -272,7 +283,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="header-subtitle" contenteditable="true">Per quina raó la sang sembla vermella si el 55% és groga?</div>
   </div>
   <div class="header-right">
-    <div class="logo-box"><img src="../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
+    <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
     <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
   </div>
 </div>
@@ -302,7 +313,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <div class="content">
 
 <!-- ══ VOCABULARI CLAU ══ -->
-<div class="word-bank deletable" style="margin-top:10px">
+<div class="word-bank deletable" style="margin-top:7px">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="word-bank-title">📖 Vocabulari clau d'avui</div>
   <div class="chips">
@@ -346,7 +357,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label">🤔 Hipòtesi prèvia</div>
-    <p style="font-size:11px">De cada 100 targetes, quantes creus que seran eritròcits (glòbuls vermells)? I quants leucòcits?</p>
+    <p style="font-size:13.5px">De cada 100 targetes, quantes creus que seran eritròcits (glòbuls vermells)? I quants leucòcits?</p>
     <div class="wline" contenteditable="true"></div>
   </div>
 
@@ -356,26 +367,26 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
         <img src="../imatges-cientifiques/frotis_celules_sang.png" alt="Frotis de sang al microscopi òptic: ① glòbuls vermells (eritròcits), ② glòbuls blancs (leucòcits), ③ plaquetes" onerror="this.style.display='none'">
       </div>
       <div class="sang-img-caption">Frotis de sang real al microscopi òptic — ① eritròcits · ② leucòcits · ③ plaquetes<br>Imatge IE Temple (ús escolar)</div>
-      <div style="margin-top:8px">
-        <p style="font-size:11px;font-weight:700;margin-bottom:3px">Observa la imatge i identifica:</p>
-        <p class="pista" style="margin-bottom:5px">Tria d'aquí: <strong>eritròcits · leucòcits · plaquetes</strong></p>
-        <div style="font-size:11px;margin-bottom:4px">① Cèl·lules bicòncaves, vermelles, sense nucli → <span class="fill-cell" contenteditable="true" style="display:inline-block;width:110px;vertical-align:bottom"></span></div>
-        <div style="font-size:11px;margin-bottom:4px">② Cèl·lules irregulars amb nucli lobulat → <span class="fill-cell" contenteditable="true" style="display:inline-block;width:110px;vertical-align:bottom"></span></div>
-        <div style="font-size:11px">③ Fragments petits, irregulars → <span class="fill-cell" contenteditable="true" style="display:inline-block;width:110px;vertical-align:bottom"></span></div>
+      <div style="margin-top:5px">
+        <p style="font-size:13.5px;font-weight:700;margin-bottom:2px">Observa la imatge i identifica:</p>
+        <p class="pista" style="margin-bottom:3px">Tria d'aquí: <strong>eritròcits · leucòcits · plaquetes</strong></p>
+        <div style="font-size:13.5px;margin-bottom:3px">① Cèl·lules bicòncaves, vermelles, sense nucli → <span class="fill-cell" contenteditable="true" style="display:inline-block;width:110px;vertical-align:bottom"></span></div>
+        <div style="font-size:13.5px;margin-bottom:3px">② Cèl·lules irregulars amb nucli lobulat → <span class="fill-cell" contenteditable="true" style="display:inline-block;width:110px;vertical-align:bottom"></span></div>
+        <div style="font-size:13.5px">③ Fragments petits, irregulars → <span class="fill-cell" contenteditable="true" style="display:inline-block;width:110px;vertical-align:bottom"></span></div>
         <div class="card mt8 deletable" style="background:var(--purple-tint)">
           <div class="del-btn" onclick="deleteEl(this)">✕</div>
           <div class="card-label">📖 Glossari — paraules de la imatge</div>
-          <p style="font-size:10.5px;margin:2px 0"><strong>Cèl·lula bicòncava:</strong> cèl·lula aplanada i enfonsada pel centre per les dues cares (com un disc xafat al mig). Aquesta forma li dona més superfície per agafar i deixar oxigen. És la forma dels eritròcits (glòbuls vermells).</p>
-          <p style="font-size:10.5px;margin:2px 0"><strong>Nucli lobulat:</strong> nucli dividit en diversos lòbuls (trossos units) en comptes de ser rodó. És típic de molts leucòcits (glòbuls blancs), les cèl·lules de defensa.</p>
+          <p style="font-size:13.5px;margin:2px 0"><strong>Cèl·lula bicòncava:</strong> cèl·lula aplanada i enfonsada pel centre per les dues cares (com un disc xafat al mig). Aquesta forma li dona més superfície per agafar i deixar oxigen. És la forma dels eritròcits (glòbuls vermells).</p>
+          <p style="font-size:13.5px;margin:2px 0"><strong>Nucli lobulat:</strong> nucli dividit en diversos lòbuls (trossos units) en comptes de ser rodó. És típic de molts leucòcits (glòbuls blancs), les cèl·lules de defensa.</p>
         </div>
       </div>
     </div>
     <div>
-      <p style="font-size:11px;font-weight:700;margin-bottom:5px">Proporcions reals (contrasta-ho amb les targetes):</p>
+      <p style="font-size:13.5px;font-weight:700;margin-bottom:3px">Proporcions reals (contrasta-ho amb les targetes):</p>
       <div class="sang-img-wrap">
         <img src="../imatges-cientifiques/composicio_sang_humana.png" alt="Composició de la sang humana en volum: 55% plasma i 45% cèl·lules sanguínies (>99% glòbuls vermells, <1% glòbuls blancs i plaquetes)" onerror="this.style.display='none'">
       </div>
-      <div class="sang-img-caption" style="margin-bottom:8px">Composició de la sang humana en volum (sang centrifugada)<br>Imatge IE Temple (ús escolar)</div>
+      <div class="sang-img-caption" style="margin-bottom:5px">Composició de la sang humana en volum (sang centrifugada)<br>Imatge IE Temple (ús escolar)</div>
       <div class="sang-comp-row">
         <div class="sang-comp-dot" style="background:var(--plasma);border:1px solid #c8960a"></div>
         <span class="sang-comp-pct">55%</span><span class="sang-comp-name">Plasma</span>
@@ -397,7 +408,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card rose mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label">🔑 Pregunta clau</div>
-    <p style="font-size:12px;font-weight:700">Per quina raó la sang sembla completament vermella si el 55% és de color groc (plasma)?</p>
+    <p style="font-size:14px;font-weight:700">Per quina raó la sang sembla completament vermella si el 55% és de color groc (plasma)?</p>
     <p class="pista">Per començar: "La sang sembla vermella perquè els eritròcits tenen…"</p>
     <div class="wline" contenteditable="true"></div>
     <div class="wline" contenteditable="true"></div>
@@ -407,11 +418,11 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <!-- ══ 2 · ETIQUETA EL COR ══ -->
 <div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum n2">2</div><div><div class="stitle">Etiqueta el cor</div><div class="sdesc">Escriu al costat de cada nom el número del marcador que li correspon</div></div><span class="temps-sec">30′</span></div>
 <div class="divider"></div>
-<div class="word-bank deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="word-bank-title">Banc de paraules — 9 etiquetes per a 9 marcadors</div><p style="font-size:10px;margin:0 0 4px">Cada nom s’usa <strong>una sola vegada</strong>. El color del xip et diu si aquella sang porta oxigen (vermell) o no (blau): mira el color del dibuix per decidir on va cadascun.</p><div class="chips"><span class="chip ven">Vena cava superior</span><span class="chip ven">Vena cava inferior</span><span class="chip ven">Artèria pulmonar</span><span class="chip ven">Aurícula dreta</span><span class="chip ven">Ventricle dret</span><span class="chip art">Aorta</span><span class="chip art">Venes pulmonars</span><span class="chip art">Aurícula esquerra</span><span class="chip art">Ventricle esquerre</span></div></div>
+<div class="word-bank deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="word-bank-title">Banc de paraules — 9 etiquetes per a 9 marcadors</div><p style="font-size:11px;margin:0 0 4px">Cada nom s’usa <strong>una sola vegada</strong>. El color del xip et diu si aquella sang porta oxigen (vermell) o no (blau): mira el color del dibuix per decidir on va cadascun.</p><div class="chips"><span class="chip ven">Vena cava superior</span><span class="chip ven">Vena cava inferior</span><span class="chip ven">Artèria pulmonar</span><span class="chip ven">Aurícula dreta</span><span class="chip ven">Ventricle dret</span><span class="chip art">Aorta</span><span class="chip art">Venes pulmonars</span><span class="chip art">Aurícula esquerra</span><span class="chip art">Ventricle esquerre</span></div></div>
 <div class="cor-img-big"><img src="../imatges-cientifiques/cor_mut_numerat.png" alt="Cor humà en secció amb nou marcadors numerats dins de cercles, sense noms" onerror="this.style.display='none'"><div class="cor-img-caption">Cor humà en secció (vista anterior) · <strong>mut, amb 9 marcadors</strong> — Imatge pròpia IE Temple<br><span style="color:var(--art)">●</span> vermell/rosat = sang <strong>oxigenada</strong> (rica en O₂) &nbsp;·&nbsp; <span style="color:var(--ven)">●</span> blau = sang <strong>desoxigenada</strong> (pobra en O₂)</div></div>
-<div class="card teal mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">⚠️ Compte amb una trampa</div><p style="font-size:11px">Al dibuix veràs que l’<strong>artèria pulmonar és blava</strong> i les <strong>venes pulmonars són vermelles</strong>. No és cap error. <strong>Artèria</strong> vol dir «vas que SURT del cor» i <strong>vena</strong> vol dir «vas que ARRIBA al cor»: el nom depèn del sentit del corrent, no de si la sang porta oxigen o no. Només en aquests dos vasos (els dels pulmons) el color va al revés del que esperaries.</p></div>
-<div class="cor-layout"><div><div class="card rose mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">💡 Observo → Em pregunto → Connecto → Dedueixo</div><p style="font-size:10.5px;margin:0 0 3px"><strong>OBSERVO:</strong> mira el gruix de la paret del ventricle esquerre (8) i la del ventricle dret (7) al dibuix. Quina és més gruixuda?</p><div class="wline" contenteditable="true"></div><p style="font-size:10.5px;margin:4px 0 3px"><strong>EM PREGUNTO:</strong> per quina raó no són iguals?</p><p style="font-size:10.5px;margin:4px 0 3px"><strong>CONNECTO:</strong> el ventricle dret només ha d’enviar la sang als <strong>pulmons</strong>, que són aquí mateix. El ventricle esquerre l’ha d’enviar a <strong>tot el cos</strong>, fins als dits dels peus.</p><p style="font-size:10.5px;margin:4px 0 3px"><strong>DEDUEIXO:</strong> encercla la conclusió correcta:</p><div style="display:flex;gap:12px;flex-wrap:wrap;font-size:10.5px"><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Com més lluny ha d’arribar la sang, més força cal, i més múscul té la paret</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> El costat esquerre és més gran perquè sí</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> El costat esquerre guarda més sang</label></div></div></div><div><table class="label-table"><thead><tr><th>Nom de l’estructura</th><th style="text-align:center">Quin número és?</th></tr></thead><tbody><tr class="deletable"><td style="color:var(--art);font-weight:700">Ventricle esquerre</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--ven);font-weight:700">Vena cava superior</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--art);font-weight:700">Aurícula esquerra</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--ven);font-weight:700">Artèria pulmonar</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--ven);font-weight:700">Ventricle dret</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--art);font-weight:700">Aorta</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--ven);font-weight:700">Aurícula dreta</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--art);font-weight:700">Venes pulmonars</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--ven);font-weight:700">Vena cava inferior</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr></tbody></table><div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">🚪 Les vàlvules cardíaques</div><p style="font-size:10.5px;margin:0 0 5px"><strong>📖 Per llegir:</strong> les vàlvules són portes que només deixen passar la sang en un sentit. Quan es <strong>tanquen</strong> de cop, les seves làmines xoquen i fan soroll: això és el «lub-dub» que se sent amb el fonendoscopi. El <strong>«lub»</strong> és el tancament de les vàlvules d’entrada als ventricles (tricúspide i mitral) i el <strong>«dub»</strong>, el de les semilunars, a la sortida.</p><table style="width:100%;border-collapse:collapse;font-size:10.5px"><tr style="background:var(--purple-tint)"><td style="padding:3px 6px;font-weight:700">Tricúspide</td><td style="padding:3px 6px">Entre aurícula i ventricle <span class="fill-cell" contenteditable="true" style="display:inline-block;width:90px;vertical-align:bottom"></span></td><td style="padding:3px 6px;color:var(--muted)">3 làmines</td></tr><tr><td style="padding:3px 6px;font-weight:700">Mitral (bicúspide)</td><td style="padding:3px 6px">Entre aurícula i ventricle <span class="fill-cell" contenteditable="true" style="display:inline-block;width:90px;vertical-align:bottom"></span></td><td style="padding:3px 6px;color:var(--muted)">2 làmines</td></tr><tr style="background:var(--purple-tint)"><td style="padding:3px 6px;font-weight:700">Semilunars (×2)</td><td style="padding:3px 6px">A la sortida dels ventricles — eviten el reflux</td><td style="padding:3px 6px;color:var(--muted)">3 làmines</td></tr></table><p style="font-size:10.5px;margin-top:6px">El so del cor es produeix quan les vàlvules <strong>es tanquen</strong>. Encercla la resposta que ho explica millor:</p><div style="display:flex;gap:12px;flex-wrap:wrap;font-size:10.5px;margin-top:3px"><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Perquè en tancar-se les làmines xoquen entre elles</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Perquè la sang és molt sorollosa</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Perquè el cor crida</label></div></div></div></div>
-<div class="card teal mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">⚠️ Cas clínic — Comunicació Interventricular (CIV)</div><p style="font-size:11px"><strong>📖 Per llegir:</strong> el <strong>septe (envà) interventricular</strong> és la paret que separa els dos ventricles. El ventricle esquerre empeny amb <strong>molta més força</strong> que el dret. Per això, si aquesta paret té un forat (CIV), part de la sang <strong>ja oxigenada</strong> passa de l’esquerre al dret i torna als pulmons una segona vegada, sense haver arribat al cos. El cor dret i els pulmons han de moure molta més sang de la que els tocaria.</p><p style="font-size:11px">Quins símptomes esperes? Marca’n els que et semblin lògics <em>a partir del text de dalt</em>:</p><div style="display:flex;gap:14px;margin-top:5px;font-size:11px;flex-wrap:wrap"><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Es cansa de seguida quan fa esforç</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> El costat dret del cor s’engrandeix</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Febre alta</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Cap símptoma, si el forat és molt petit</label></div></div>
+<div class="card teal mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">⚠️ Compte amb una trampa</div><p style="font-size:13.5px">Al dibuix veràs que l’<strong>artèria pulmonar és blava</strong> i les <strong>venes pulmonars són vermelles</strong>. No és cap error. <strong>Artèria</strong> vol dir «vas que SURT del cor» i <strong>vena</strong> vol dir «vas que ARRIBA al cor»: el nom depèn del sentit del corrent, no de si la sang porta oxigen o no. Només en aquests dos vasos (els dels pulmons) el color va al revés del que esperaries.</p></div>
+<div class="cor-layout"><div><div class="card rose mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">💡 Observo → Em pregunto → Connecto → Dedueixo</div><p style="font-size:13.5px;margin:0 0 3px"><strong>OBSERVO:</strong> mira el gruix de la paret del ventricle esquerre (8) i la del ventricle dret (7) al dibuix. Quina és més gruixuda?</p><div class="wline" contenteditable="true"></div><p style="font-size:13.5px;margin:4px 0 3px"><strong>EM PREGUNTO:</strong> per quina raó no són iguals?</p><p style="font-size:13.5px;margin:4px 0 3px"><strong>CONNECTO:</strong> el ventricle dret només ha d’enviar la sang als <strong>pulmons</strong>, que són aquí mateix. El ventricle esquerre l’ha d’enviar a <strong>tot el cos</strong>, fins als dits dels peus.</p><p style="font-size:13.5px;margin:4px 0 3px"><strong>DEDUEIXO:</strong> encercla la conclusió correcta:</p><div style="display:flex;gap:12px;flex-wrap:wrap;font-size:13.5px"><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Com més lluny ha d’arribar la sang, més força cal, i més múscul té la paret</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> El costat esquerre és més gran perquè sí</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> El costat esquerre guarda més sang</label></div></div></div><div><table class="label-table"><thead><tr><th>Nom de l’estructura</th><th style="text-align:center">Quin número és?</th></tr></thead><tbody><tr class="deletable"><td style="color:var(--art);font-weight:700">Ventricle esquerre</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--ven);font-weight:700">Vena cava superior</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--art);font-weight:700">Aurícula esquerra</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--ven);font-weight:700">Artèria pulmonar</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--ven);font-weight:700">Ventricle dret</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--art);font-weight:700">Aorta</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--ven);font-weight:700">Aurícula dreta</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--art);font-weight:700">Venes pulmonars</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr><tr class="deletable"><td style="color:var(--ven);font-weight:700">Vena cava inferior</td><td style="text-align:center"><span class="fill-cell" contenteditable="true" style="display:inline-block;width:46px"></span></td></tr></tbody></table><div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">🚪 Les vàlvules cardíaques</div><p style="font-size:13.5px;margin:0 0 5px"><strong>📖 Per llegir:</strong> les vàlvules són portes que només deixen passar la sang en un sentit. Quan es <strong>tanquen</strong> de cop, les seves làmines xoquen i fan soroll: això és el «lub-dub» que se sent amb el fonendoscopi. El <strong>«lub»</strong> és el tancament de les vàlvules d’entrada als ventricles (tricúspide i mitral) i el <strong>«dub»</strong>, el de les semilunars, a la sortida.</p><table style="width:100%;border-collapse:collapse;font-size:13.5px"><tr style="background:var(--purple-tint)"><td style="padding:3px 6px;font-weight:700">Tricúspide</td><td style="padding:3px 6px">Entre aurícula i ventricle <span class="fill-cell" contenteditable="true" style="display:inline-block;width:90px;vertical-align:bottom"></span></td><td style="padding:3px 6px;color:var(--muted)">3 làmines</td></tr><tr><td style="padding:3px 6px;font-weight:700">Mitral (bicúspide)</td><td style="padding:3px 6px">Entre aurícula i ventricle <span class="fill-cell" contenteditable="true" style="display:inline-block;width:90px;vertical-align:bottom"></span></td><td style="padding:3px 6px;color:var(--muted)">2 làmines</td></tr><tr style="background:var(--purple-tint)"><td style="padding:3px 6px;font-weight:700">Semilunars (×2)</td><td style="padding:3px 6px">A la sortida dels ventricles — eviten el reflux</td><td style="padding:3px 6px;color:var(--muted)">3 làmines</td></tr></table><p style="font-size:13.5px;margin-top:4px">El so del cor es produeix quan les vàlvules <strong>es tanquen</strong>. Encercla la resposta que ho explica millor:</p><div style="display:flex;gap:12px;flex-wrap:wrap;font-size:13.5px;margin-top:2px"><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Perquè en tancar-se les làmines xoquen entre elles</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Perquè la sang és molt sorollosa</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Perquè el cor crida</label></div></div></div></div>
+<div class="card teal mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">⚠️ Cas clínic — Comunicació Interventricular (CIV)</div><p style="font-size:13.5px"><strong>📖 Per llegir:</strong> el <strong>septe (envà) interventricular</strong> és la paret que separa els dos ventricles. El ventricle esquerre empeny amb <strong>molta més força</strong> que el dret. Per això, si aquesta paret té un forat (CIV), part de la sang <strong>ja oxigenada</strong> passa de l’esquerre al dret i torna als pulmons una segona vegada, sense haver arribat al cos. El cor dret i els pulmons han de moure molta més sang de la que els tocaria.</p><p style="font-size:13.5px">Quins símptomes esperes? Marca’n els que et semblin lògics <em>a partir del text de dalt</em>:</p><div style="display:flex;gap:14px;margin-top:3px;font-size:13.5px;flex-wrap:wrap"><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Es cansa de seguida quan fa esforç</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> El costat dret del cor s’engrandeix</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Febre alta</label><label style="display:flex;align-items:center;gap:3px"><span class="chk-sq"></span> Cap símptoma, si el forat és molt petit</label></div></div>
 </div>
 
 <!-- ══ AVÍS: clau d'autocorrecció en document a part ══ -->
@@ -426,7 +437,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="deletable" style="text-align:center;margin:6px 0">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <img src="../imatges-cientifiques/circulacio_doble.png" alt="Diagrama de la circulació doble: circuit pulmonar (cor-pulmons) i circuit sistèmic (cor-resta del cos), amb intercanvi de gasos a l'alvèol i a la cèl·lula muscular" style="max-width:340px;width:100%;height:auto" onerror="this.style.display='none'">
-    <div style="font-size:9px;color:var(--muted);margin-top:2px;line-height:1.4">Circulació <strong>doble</strong>: el <strong>circuit pulmonar</strong> (cor ↔ pulmons, la sang agafa O₂) i el <strong>circuit sistèmic</strong> (cor ↔ resta del cos, la sang lliura O₂). La sang passa <strong>dos cops</strong> pel cor a cada volta. · Imatge pròpia IE Temple</div>
+    <div style="font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4">Circulació <strong>doble</strong>: el <strong>circuit pulmonar</strong> (cor ↔ pulmons, la sang agafa O₂) i el <strong>circuit sistèmic</strong> (cor ↔ resta del cos, la sang lliura O₂). La sang passa <strong>dos cops</strong> pel cor a cada volta. · Imatge pròpia IE Temple</div>
   </div>
   <div class="circ-schema deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -438,7 +449,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="circ-center">
       <div class="circ-label">❤️ COR</div>
       <div style="font-size:24px;margin:6px 0">↕</div>
-      <div style="font-size:9px;color:var(--muted);line-height:1.5">Pressió:<br>gran circ. ALTA<br>petita circ. BAIXA<br>(protegeix els alvèols)</div>
+      <div style="font-size:11px;color:var(--muted);line-height:1.5">Pressió:<br>gran circ. ALTA<br>petita circ. BAIXA<br>(protegeix els alvèols)</div>
     </div>
     <div class="circ-col right">
       <div class="circ-label">🔵 Circulació petita (pulmonar)</div>
@@ -472,7 +483,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="clau-icon">💡</div>
   <div class="clau-text" contenteditable="true">Idea clau: la sang fa dos circuits perquè necessita molta pressió per arribar a tot el cos, però els pulmons només aguanten poca pressió sense fer-se malbé.</div>
-<div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">🛤️ Els tres tipus de vasos</div><div style="text-align:center;margin:4px 0"><img src="../imatges-cientifiques/comparacio_vasos_sanguinis.png" alt="Comparació entre artèria, vena i capil·lar: gruix de la paret, llum del vas i vàlvules" style="max-width:330px;width:100%;height:auto" onerror="this.style.display='none'"><div style="font-size:9px;color:var(--muted);font-style:italic">Artèria · vena · capil·lar</div></div><p style="font-size:10.5px;margin:4px 0 3px"><strong>📖 Per llegir:</strong> les <strong>artèries</strong> surten del cor i han d’aguantar la sang que hi arriba de cop: tenen la paret gruixuda i elàstica. Les <strong>venes</strong> tornen al cor amb poca pressió i porten <strong>vàlvules</strong> perquè la sang no caigui cap avall. Els <strong>capil·lars</strong> tenen la paret d’una sola capa de cèl·lules: és allà on l’O₂ i els nutrients passen a les cèl·lules.</p><p style="font-size:10.5px;margin-top:5px">Fixa’t en la imatge: quin dels tres vasos té la paret més gruixuda, i quina relació té això amb la pressió que hi ha a dins?</p><div class="wline" contenteditable="true"></div></div>
+<div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">🛤️ Els tres tipus de vasos</div><div style="text-align:center;margin:4px 0"><img src="../imatges-cientifiques/comparacio_vasos_sanguinis.png" alt="Comparació entre artèria, vena i capil·lar: gruix de la paret, llum del vas i vàlvules" style="max-width:330px;width:100%;height:auto" onerror="this.style.display='none'"><div style="font-size:11px;color:var(--muted);font-style:italic">Artèria · vena · capil·lar</div></div><p style="font-size:13.5px;margin:4px 0 3px"><strong>📖 Per llegir:</strong> les <strong>artèries</strong> surten del cor i han d’aguantar la sang que hi arriba de cop: tenen la paret gruixuda i elàstica. Les <strong>venes</strong> tornen al cor amb poca pressió i porten <strong>vàlvules</strong> perquè la sang no caigui cap avall. Els <strong>capil·lars</strong> tenen la paret d’una sola capa de cèl·lules: és allà on l’O₂ i els nutrients passen a les cèl·lules.</p><p style="font-size:13.5px;margin-top:3px">Fixa’t en la imatge: quin dels tres vasos té la paret més gruixuda, i quina relació té això amb la pressió que hi ha a dins?</p><div class="wline" contenteditable="true"></div></div>
 </div>
 
 <!-- ══ 4 · ANALÍTICA DEL MARC ══ -->
@@ -484,21 +495,21 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="perllegir-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="perllegir-label">📖 Per llegir</div>
-    <p style="font-size:11.5px" contenteditable="true">El "rang de referència" és el marge de valors normals en una persona sana. Si el valor del Marc és més baix que el rang, marca "Baix"; si hi cau dins, marca "Correcte". La fila de l'Hemoglobina ja està feta com a exemple.</p>
+    <p style="font-size:13.5px" contenteditable="true">El "rang de referència" és el marge de valors normals en una persona sana. Si el valor del Marc és més baix que el rang, marca "Baix"; si hi cau dins, marca "Correcte". La fila de l'Hemoglobina ja està feta com a exemple.</p>
   </div>
 
   <div class="exemple-box">
     <div class="exemple-label">✓ Exemple ja fet — Hemoglobina</div>
-    <p style="font-size:11px">El Marc té 9,2 g/dL i el rang normal és 13,5–17,5 g/dL <span style="font-size:9px;color:var(--muted)">(home adult)</span>. Com que 9,2 és més petit que 13,5, és <strong>Baix</strong>.</p>
+    <p style="font-size:13.5px">El Marc té 9,2 g/dL i el rang normal és 13,5–17,5 g/dL <span style="font-size:11px;color:var(--muted)">(home adult)</span>. Com que 9,2 és més petit que 13,5, és <strong>Baix</strong>.</p>
   </div>
 
   <table class="data-table">
     <thead><tr><th>Paràmetre</th><th>Valor del Marc</th><th>Rang de referència</th><th>Nivell?</th></tr></thead>
     <tbody>
-      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Hemoglobina (Hb)</td><td>9,2 g/dL</td><td>13,5–17,5 g/dL <span style="font-size:9px;color:var(--muted)">(home adult)</span></td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq" style="background:var(--rose);border-color:var(--rose)"></span>Baix ✓</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div></div></td></tr>
-      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Eritròcits</td><td>3,8×10⁶/µL</td><td>4,5–5,5×10⁶/µL</td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div></div></td></tr>
-      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Ferro sèric</td><td>38 µg/dL</td><td>60–180 µg/dL</td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div></div></td></tr>
-      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Glucosa (control)</td><td>94 mg/dL</td><td>70–100 mg/dL</td><td><div class="yes-no" style="gap:6px;font-size:10px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div></div></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Hemoglobina (Hb)</td><td>9,2 g/dL</td><td>13,5–17,5 g/dL <span style="font-size:11px;color:var(--muted)">(home adult)</span></td><td><div class="yes-no" style="gap:6px;font-size:11px"><div class="yn-opt"><span class="chk-sq" style="background:var(--rose);border-color:var(--rose)"></span>Baix ✓</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div></div></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Eritròcits</td><td>3,8×10⁶/µL</td><td>4,5–5,5×10⁶/µL</td><td><div class="yes-no" style="gap:6px;font-size:11px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div></div></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Ferro sèric</td><td>38 µg/dL</td><td>60–180 µg/dL</td><td><div class="yes-no" style="gap:6px;font-size:11px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div></div></td></tr>
+      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold">Glucosa (control)</td><td>94 mg/dL</td><td>70–100 mg/dL</td><td><div class="yes-no" style="gap:6px;font-size:11px"><div class="yn-opt"><span class="chk-sq"></span>Baix</div><div class="yn-opt"><span class="chk-sq"></span>Correcte</div></div></td></tr>
     </tbody>
   </table>
   <p class="pista mt8">Pista: si un valor és "Baix", no cal escriure res més ara — a la propera activitat ho explicaràs tot junt.</p>
@@ -507,7 +518,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label">🔍 Completa el diagnòstic</div>
     <p class="pista">Paraules per omplir els buits: <strong>ferro · hemoglobina · oxigen (O₂)</strong></p>
-    <p style="font-size:11px;margin-top:2px">La peça que falla és el <span class="fill-cell" contenteditable="true" style="display:inline-block;width:90px;vertical-align:bottom"></span> perquè el ferro baix provoca que la <span class="fill-cell" contenteditable="true" style="display:inline-block;width:110px;vertical-align:bottom"></span> baixi, i per tant els músculs reben menys <span class="fill-cell" contenteditable="true" style="display:inline-block;width:60px;vertical-align:bottom"></span> → fatiga precoç.</p>
+    <p style="font-size:13.5px;margin-top:2px">La peça que falla és el <span class="fill-cell" contenteditable="true" style="display:inline-block;width:90px;vertical-align:bottom"></span> perquè el ferro baix provoca que la <span class="fill-cell" contenteditable="true" style="display:inline-block;width:110px;vertical-align:bottom"></span> baixi, i per tant els músculs reben menys <span class="fill-cell" contenteditable="true" style="display:inline-block;width:60px;vertical-align:bottom"></span> → fatiga precoç.</p>
     <p class="small mt8">Diagnòstic: <strong>anèmia ferropènica</strong>. Tractament: suplements de ferro + vitamina C (millora l'absorció intestinal del ferro).</p>
   </div>
 </div>
@@ -534,7 +545,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <div class="tasca-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="card-label">📚 Tasca per a casa — Prepara la S4</div>
-  <p style="font-size:12px;font-weight:700;color:var(--purple-ink)">Mesura el teu pols en repòs (sense haver fet exercici l'última hora). Posa els dits índex i mig al coll o al canell, compta les pulsacions durant 30 segons i multiplica per 2. Anota el resultat i porta'l a la S4.</p>
+  <p style="font-size:14px;font-weight:700;color:var(--purple-ink)">Mesura el teu pols en repòs (sense haver fet exercici l'última hora). Posa els dits índex i mig al coll o al canell, compta les pulsacions durant 30 segons i multiplica per 2. Anota el resultat i porta'l a la S4.</p>
   <p class="small mt8">El meu pols en repòs: ______ ppm · Hora de la mesura: ______</p>
   <p class="small mt8">⏱️ 2 minuts · Necessites un rellotge i els teus propis dits · No es pot fer amb IA.</p>
 </div>

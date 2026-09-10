@@ -4,7 +4,7 @@ export const sa6s4 = {
   sessionNumber: 4, biome: "sa6", duration: "2h",
   engageImage: "/images/sa6-s4-accio.jpg",
 
-  engageQuestion: "Heu dissenyat una proposta d'acció per reduir la petjada de la nostra escola. Ara toca avaluar-les com ho faria un ajuntament o una escola real: amb evidència i viabilitat. Quines propostes son realistes i impactants? Com s'argumenta que una mesura és efectiva?",
+  engageQuestion: "Heu dissenyat una proposta d'acció per reduir la petjada de la nostra escola. Ara toca avaluar-les com ho faria un ajuntament o una escola real: amb evidència i viabilitat. Quines propostes són realistes i impactants? Com s'argumenta que una mesura és efectiva?",
   engageContext: "Posarem en comú les propostes individuals de la feina a casa i es constitueix el comitè d'iguals: cada grup avalua les propostes d'un altre grup amb la rúbrica d'evidència i viabilitat. Al final es resol l'enigma del bocadillo de pernil i es tanca la situació.",
 
   // NO es renderitza al web: guió del docent (logística, temps,
@@ -14,8 +14,8 @@ export const sa6s4 = {
   levelObjectives: {
     A: [
       "Avaluo la proposta d'acció d'un altre grup aplicant la rúbrica de 4 dimensions (evidència d'emissions / viabilitat / impacte estimat / coherència amb els ODS) i justificao cada puntuació amb argumentació científica.",
-      "Relaciono la proposta d'acció escolar amb almenys 2 dels 17 Objectius de Desenvolupament Sostenible (ODS) de l'ONU i argumento per quina raó les accions locals son necessàries però insuficients sense acció sistèmica.",
-      "Analitzo els acords internacionals sobre el clima (Kyoto 1997, París 2015, Glasgow COP26 2021) identificant els seus objectius principals, l'any de ratificació, els països signants clau i per quina raó molts científics consideren que els compromisos actuals son insuficients.",
+      "Relaciono la proposta d'acció escolar amb almenys 2 dels 17 Objectius de Desenvolupament Sostenible (ODS) de l'ONU i argumento per quina raó les accions locals són necessàries però insuficients sense acció sistèmica.",
+      "Analitzo els acords internacionals sobre el clima (Kyoto 1997, París 2015, Glasgow COP26 2021) identificant els seus objectius principals, l'any de ratificació, els països signants clau i per quina raó molts científics consideren que els compromisos actuals són insuficients.",
       "Construeixo un argument complet sobre si les escoles haurien de tenir una política climàtica explícita: aporto exemples reals d'escoles amb zero emissions, quantifico l'impacte potencial i contraresto l'argument de 'les escoles no fan la diferència'."
     ],
     B: [
@@ -35,7 +35,7 @@ export const sa6s4 = {
   apartatExtras: {
     "2": {
       scaffold: "Omple la taula de la transició energètica: del fòssil a les renovables. Font fòssil → renovable equivalent: Carbó → ___. Petroli (cotxe) → ___. Gas natural (calefacció) → ___. Per quina raó no podem fer la transició de cop? Quins 2 obstacles principals hi ha (tècnic / econòmic / social)?",
-      challenge: "Analitza els 3 escenaris d'emissions de l'IPCC (SSP1-1.9, SSP2-4.5, SSP5-8.5): quines polítiques concretes cal implementar per a cada escenari? Quina és la probabilitat que el món segueixi cada trajectòria? Argumenta quin és el millor i el pitjor escenari des d'un punt de vista de justícia global (els països menys emissors son els que patiran més els impactes)."
+      challenge: "Analitza els 3 escenaris d'emissions de l'IPCC (SSP1-1.9, SSP2-4.5, SSP5-8.5): quines polítiques concretes cal implementar per a cada escenari? Quina és la probabilitat que el món segueixi cada trajectòria? Argumenta quin és el millor i el pitjor escenari des d'un punt de vista de justícia global (els països menys emissors són els que patiran més els impactes)."
     },
     "3": {
       scaffold: "Omple el quadre de resolució de l'enigma: el bocadillo de pernil emet 5× més CO₂ que el formatge perquè: Font 1 → ___. Font 2 → ___. Font 3 → ___. Font 4 → ___. Si volgués reduir la petjada sense canviar el tipus d'esmorzar, quina mesura seria la més efectiva?",
@@ -74,7 +74,7 @@ export const sa6s4 = {
       id: "t1",
       apartat: "2",
       heading: "Transició energètica: del ==fòssil== a les ==renovables==",
-      text: "La ==transició energètica|g== és el procés de substitució progressiva de les fonts d'energia fòssils per renovables. No és un canvi instantani: els sistemes energètics son enormement complexos i els canvis requereixen dècades. Els tres pilars de la transició son: ==Descarbonitzar l'electricitat|g== (substituir centrals de carbó i gas per solar i eòlica). ==Electrificar l'ús final|g== (cotxes elèctrics, calderes de bomba de calor, trens). ==Millorar l'eficiència energètica|g== (aïllament d'edificis, electrodomèstics A+++). A Espanya: l'objectiu és 74% d'electricitat renovable per al 2030 i neutralitat de carboni per al 2050. Catalunya: Llei de Canvi Climàtic de 2017, objectiu de reducció del 40% d'emissions per al 2030 vs 1990. El principal obstacle no és la tecnologia (les renovables ja son la font d'electricitat més barata) sinó la velocitat del desplegament.",
+      text: "La ==transició energètica|g== és el procés de substitució progressiva de les fonts d'energia fòssils per renovables. No és un canvi instantani: els sistemes energètics són enormement complexos i els canvis requereixen dècades. Els tres pilars de la transició són: ==Descarbonitzar l'electricitat|g== (substituir centrals de carbó i gas per solar i eòlica). ==Electrificar l'ús final|g== (cotxes elèctrics, calderes de bomba de calor, trens). ==Millorar l'eficiència energètica|g== (aïllament d'edificis, electrodomèstics A+++). A Espanya: l'objectiu és 74% d'electricitat renovable per al 2030 i neutralitat de carboni per al 2050. Catalunya: Llei de Canvi Climàtic de 2017, objectiu de reducció del 40% d'emissions per al 2030 vs 1990. El principal obstacle no és la tecnologia (les renovables ja són la font d'electricitat més barata) sinó la velocitat del desplegament.",
       type: "concept",
       video: "/animacions/sa6-s4-t1.mp4"
     },
@@ -90,7 +90,7 @@ export const sa6s4 = {
       id: "t3",
       apartat: "3",
       heading: "==Resolució== de l'enigma: el cicle de vida complet del bocadillo de pernil",
-      text: "Ara pots resoldre l'enigma de SA6. El bocadillo de pernil ibèric (≈80g) emet ≈500 gCO₂eq vs ≈100 gCO₂eq del formatge fresc. Les ==quatre fonts d'emissió|r== que hem descobert al llarg de la SA: 1. ==CH₄ entèric|r== (S1): la fermentació digestiva del porc genera metà (potencial 28× el CO₂). 2. ==Producció del pinso|r== (S1): 1 kg de porc requereix 3-4 kg de cereals → adobs N₂O + maquinària dièsel. 3. ==Energia de la cadena|o== (S2): calefacció de granges, escorxadors i refrigeració del transport, majoritàriament fòssil. 4. ==Greenwashing de l'etiquetatge|o== (S3): les afirmacions 'natural' o 'sostenible' del sector carni rarament estan avalades per auditories independents d'emissions. Per contra, el formatge fresc té una cadena més curta, menys fases energètiques i la vaca produeix llet amb menor emissió per unitat de proteïna que carn. ==Conclusió|g==: les decisions alimentàries son de les accions individuals amb major impacte en la petjada de carboni personal.",
+      text: "Ara pots resoldre l'enigma de SA6. El bocadillo de pernil ibèric (≈80g) emet ≈500 gCO₂eq vs ≈100 gCO₂eq del formatge fresc. Les ==quatre fonts d'emissió|r== que hem descobert al llarg de la SA: 1. ==CH₄ entèric|r== (S1): la fermentació digestiva del porc genera metà (potencial 28× el CO₂). 2. ==Producció del pinso|r== (S1): 1 kg de porc requereix 3-4 kg de cereals → adobs N₂O + maquinària dièsel. 3. ==Energia de la cadena|o== (S2): calefacció de granges, escorxadors i refrigeració del transport, majoritàriament fòssil. 4. ==Greenwashing de l'etiquetatge|o== (S3): les afirmacions 'natural' o 'sostenible' del sector carni rarament estan avalades per auditories independents d'emissions. Per contra, el formatge fresc té una cadena més curta, menys fases energètiques i la vaca produeix llet amb menor emissió per unitat de proteïna que carn. ==Conclusió|g==: les decisions alimentàries són de les accions individuals amb major impacte en la petjada de carboni personal.",
       type: "resolution",
       badge: "✅ Resolució — Enigma 1",
       video: "/animacions/sa6-s4-t3.mp4"
@@ -102,7 +102,10 @@ export const sa6s4 = {
     { id: "G2", apartat: "3", title: "Cicle de vida complet del bocadillo de pernil (resolució enigma)", src: "/images/sa6-g8-cicle-pernil.svg", note: "Diagrama de flux: pinso (camps+adobs+maquinària) → granja porcina (CH₄ entèric + purins) → escorxador (energia) → curat (sal+temps+energia) → transport refrigerat → supermercat → bocadillo. GCO₂eq anotats en cada fase. Comparació amb el formatge fresc en paral·lel." }
   ],
 
-  fitxaUrl: "/fitxes/sa6-s4-fitxa.pdf", teoriaPdfUrl: null,
+  // Sense fitxa imprimible encara: el PDF que hi havia aquí no existeix a
+  // public/fitxes/. Amb null, la web mostra «la fitxa es reparteix a classe»
+  // en comptes d'un enllaç trencat.
+  fitxaUrl: null, teoriaPdfUrl: null,
 
   productInstructions: {
     title: "Proposta d'acció escolar per reduir la petjada de carboni de l'escola",
@@ -126,8 +129,8 @@ export const sa6s4 = {
         "Avaluació justa: puntua segons la rúbrica, no segons si t'agrada la mesura. Una proposta de 'plantar arbres' cal avaluar-la en evidència (quant CO₂ absorbeix realment?) i viabilitat (qui i quan els planta?).",
         "La dimensió 'impacte estimat' és clau: una mesura molt fàcil però de poc impacte és menys valuosa que una ambiciosa amb impacte demostrat."
       ] },
-      { apartat: "2", title: "Transició energètica i acords internacionals", time: "15 min", phase: "explica", instruction: "Apartat 2: omple el quadre de la transició energètica (G1). Compara Kyoto vs París (objectius, signants, limitacions). Respon: per quina raó els compromisos actuals son insuficients?", hints: [
-        "Kyoto vs París: Kyoto era vinculant però no incloïa els grans emissors emergents. París inclou tothom però els compromisos son voluntaris (NDCs: contribucions determinades a nivell nacional).",
+      { apartat: "2", title: "Transició energètica i acords internacionals", time: "15 min", phase: "explica", instruction: "Apartat 2: omple el quadre de la transició energètica (G1). Compara Kyoto vs París (objectius, signants, limitacions). Respon: per quina raó els compromisos actuals són insuficients?", hints: [
+        "Kyoto vs París: Kyoto era vinculant però no incloïa els grans emissors emergents. París inclou tothom però els compromisos són voluntaris (NDCs: contribucions determinades a nivell nacional).",
         "El gap climàtic: la diferència entre el que els països han promès i el que cal fer per mantenir-se per sota de +1,5 °C s'anomena 'implementation gap'. L'UNEP el calcula cada any."
       ] },
       { apartat: "3", title: "Resolució enigma + síntesi SA6", time: "10 min", phase: "explica", instruction: "Apartat 3: completa el diagrama del cicle de vida del bocadillo de pernil (G2). Respon l'enigma: quines 4 fonts fan que el pernil emeti 5× més que el formatge? Escriu 1 acció personal que podries canviar.", hints: [

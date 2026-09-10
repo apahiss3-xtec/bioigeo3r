@@ -27,8 +27,8 @@ export const sa7s2 = {
     C: [
       "Completo: la Terra té 4 capes. De fora cap a dins: 1) _____ (on vivim), 2) _____ (roca semiplàstica que flueix molt lentament), 3) _____ (líquid, genera el camp magnètic), 4) _____ (sòlid, molt calent).",
       "Completo: hi ha 3 tipus de límits de plaques. Als límits _____, les plaques s'allunyen i surt magma (ex: dorsal Atlàntica). Als límits convergents de subducció, una placa passa per sota de l'altra i es generen _____. Als límits transformants, les plaques llisquen lateralment i es generen _____.",
-      "Completo: un terratrèmol comença al _____ (punt on es trenca la roca). L'_____ és el punt de la superfície just a sobre. Les ones sísmiques que notem a la superfície son les _____ (superficials).",
-      "Completo la pista de l'enigma: el Pirineu va néixer fa 55-35 milions d'anys per la col·lisió de la placa _____ i la placa _____. Les falles que van crear el Pirineu aStill son actives, per això hi ha _____."
+      "Completo: un terratrèmol comença al _____ (punt on es trenca la roca). L'_____ és el punt de la superfície just a sobre. Les ones sísmiques que notem a la superfície són les _____ (superficials).",
+      "Completo la pista de l'enigma: el Pirineu va néixer fa 55-35 milions d'anys per la col·lisió de la placa _____ i la placa _____. Les falles que van crear el Pirineu aStill són actives, per això hi ha _____."
     ]
   },
 
@@ -67,7 +67,7 @@ export const sa7s2 = {
   exploreInstructions: [
     "Anàlisi de mapes tectònics (en grups de 3). Rebeu un mapa de les plaques tectòniques mundials i un mapa de sismicitat global (terratrèmols M>4 dels darrers 50 anys)",
     "Pas 1 (10 min): superposeu els dos mapes (o transparències). On coincideixen els terratrèmols amb els límits de plaques? Hi ha terratrèmols que NO siguin als límits? (intraplacas — nota els punts calents)",
-    "Pas 2 (8 min): identifiqueu en el mapa 3 límits divergents, 3 convergents de subducció, 3 col·lisions continentals i 2 transformants. Per a cada un, escriviu el fenomen geológic associat (dorsal, arc volcànic, cadena de muntanyes, falla)",
+    "Pas 2 (8 min): identifiqueu en el mapa 3 límits divergents, 3 convergents de subducció, 3 col·lisions continentals i 2 transformants. Per a cada un, escriviu el fenomen geològic associat (dorsal, arc volcànic, cadena de muntanyes, falla)",
     "Pas 3 (7 min): localitzeu Catalunya al mapa. Quines plaques la rodegen? A quin tipus de límit correspon la frontera Pirineus? I la Garrotxa, és en un límit de plaques actual? (Resposta: NO — és intraplaques. Per quina raó hi ha volcans, doncs?)",
     "Posada en comú: quina diferència hi ha entre els volcans de subducció (arc) i els de rift o punt calent? La Garrotxa és un rift postalpí (extensió), un mecanisme diferent de la subducció"
   ],
@@ -86,7 +86,7 @@ export const sa7s2 = {
       id: "t2",
       apartat: "2",
       heading: "==Tectònica de plaques==: la litosfera en moviment",
-      text: "La ==litosfera|g== (escorça + part sòlida del mantell superior) està dividida en unes 15 ==plaques tectòniques|b== grans i diverses de petites que es mouen sobre l'==astenòsfera|r== (mantell semiplàstic). El mecanisme de moviment és la ==convecció del mantell|g==: el material calent puja (menys dens), es desplaça lateralment i baixa en refredar-se, arrastrant les plaques. Velocitat: ==2-10 cm/any|o== (aproximadament com creixen les ungles). A escala geológica, 5 cm/any × 55 milions d'anys = 2.750 km de desplaçament → suficient per crear el Pirineu. Les proves del moviment de plaques: 1) Encaix dels continents (Wegener, 1912). 2) ==Expansió del fons oceànic|g== (dorsals). 3) Distribució de fòssils idèntics en continents separats. 4) Simetria del camp magnètic al voltant de les dorsals.",
+      text: "La ==litosfera|g== (escorça + part sòlida del mantell superior) està dividida en unes 15 ==plaques tectòniques|b== grans i diverses de petites que es mouen sobre l'==astenòsfera|r== (mantell semiplàstic). El mecanisme de moviment és la ==convecció del mantell|g==: el material calent puja (menys dens), es desplaça lateralment i baixa en refredar-se, arrastrant les plaques. Velocitat: ==2-10 cm/any|o== (aproximadament com creixen les ungles). A escala geològica, 5 cm/any × 55 milions d'anys = 2.750 km de desplaçament → suficient per crear el Pirineu. Les proves del moviment de plaques: 1) Encaix dels continents (Wegener, 1912). 2) ==Expansió del fons oceànic|g== (dorsals). 3) Distribució de fòssils idèntics en continents separats. 4) Simetria del camp magnètic al voltant de les dorsals.",
       type: "concept"
     },
     {
@@ -107,7 +107,7 @@ export const sa7s2 = {
       id: "t5",
       apartat: "3",
       heading: "Connexió ==enigma==: terratrèmols al Pirineu i volcans a la Garrotxa",
-      text: "Ara tens les dues peces per respondre l'enigma. 1) ==Terratrèmols al Pirineu|r==: el Pirineu es va formar fa 55-35 Ma per la col·lisió de la placa Ibèrica i la placa Euràsia (límit convergent continental). Les ==falles|r== que van aixecar les muntanyes aStill estan actives (la col·lisió continua a escala geológica). El terratrèmol de les Preses (1428, M≈6,5-7) i l'activitat sísmica actual de l'Alt Empordà i els Pirineus s'expliquen per la ==reactivació d'aquestes falles|r==. 2) ==Volcans de la Garrotxa|b==: NO és vulcanisme de subducció. Després de la col·lisió alpina, la litosfera de la zona va experimentar ==extensió (rift)|b==: les plaques es van separar lleugerament, permetent que el mantell pujés i generés magma basàltic que va erupcionar a la superfície. El darrer volcà actiu de la Garrotxa va erupcionar fa ≈11.500 anys — en termes geológics, ==és molt recent|o==. Conclusió: el Pirineu (col·lisió) i la Garrotxa (extensió) son processos oposats que van succeir seqüencialment en la mateixa zona.",
+      text: "Ara tens les dues peces per respondre l'enigma. 1) ==Terratrèmols al Pirineu|r==: el Pirineu es va formar fa 55-35 Ma per la col·lisió de la placa Ibèrica i la placa Euràsia (límit convergent continental). Les ==falles|r== que van aixecar les muntanyes aStill estan actives (la col·lisió continua a escala geològica). El terratrèmol de les Preses (1428, M≈6,5-7) i l'activitat sísmica actual de l'Alt Empordà i els Pirineus s'expliquen per la ==reactivació d'aquestes falles|r==. 2) ==Volcans de la Garrotxa|b==: NO és vulcanisme de subducció. Després de la col·lisió alpina, la litosfera de la zona va experimentar ==extensió (rift)|b==: les plaques es van separar lleugerament, permetent que el mantell pujés i generés magma basàltic que va erupcionar a la superfície. El darrer volcà actiu de la Garrotxa va erupcionar fa ≈11.500 anys — en termes geològics, ==és molt recent|o==. Conclusió: el Pirineu (col·lisió) i la Garrotxa (extensió) són processos oposats que van succeir seqüencialment en la mateixa zona.",
       type: "epistemic",
       badge: "🧩 Enigma — pista 2 (Pirineu + Garrotxa)"
     }
@@ -119,7 +119,10 @@ export const sa7s2 = {
     { id: "G3", apartat: "3", title: "Sismicitat i geologia de Catalunya i el Pirineu", src: "/images/sa7-g4-sismicitat-cat.svg", note: "Mapa de Catalunya: zones sísmiques (Alt Empordà, Pirineus, Ribagorça) marcades amb cercles de diferent magnitud. Falla pirinenca principal. Camp volcànic de la Garrotxa. Llegenda de tipus de límit tectònic. Epicentre del terratrèmol de les Preses (1428)." }
   ],
 
-  fitxaUrl: "/fitxes/sa7-s2-fitxa.pdf", teoriaPdfUrl: null,
+  // Sense fitxa imprimible encara: el PDF que hi havia aquí no existeix a
+  // public/fitxes/. Amb null, la web mostra «la fitxa es reparteix a classe»
+  // en comptes d'un enllaç trencat.
+  fitxaUrl: null, teoriaPdfUrl: null,
 
   fitxaGuide: {
     fitxaName: "Fitxa S2 — La Terra que tremola",
@@ -150,7 +153,6 @@ export const sa7s2 = {
   homework: {
     description: "Cerca en la premsa en línia una notícia recent (dels darrers 2 anys) sobre un terratrèmol a Espanya o Catalunya. Anota: data, magnitud, epicentre, danys. Explica breument per quina raó creus que va ocórrer allà on va ocórrer usant el que has après. Porta el retall o la captura de pantalla a S3.",
     note: "Activitat de recerca personal no delegable a IA: busca la notícia real i analitza-la tu.",
-    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (estructura de la Terra, tectònica de plaques, tipus de límits, terratrèmols)",

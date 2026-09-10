@@ -158,7 +158,6 @@ export const sa3s3 = {
   homework: {
     description: "Llegeix la introducció als medicaments (apartat TEORIA d'aquesta pàgina, S4). Omple el formulari de comprensió prèvia (Classroom). Comença a pensar en el tema de la teva campanya de comunicació (pòster o vídeo de 60 s).",
     note: "La campanya és el producte final de la SA (entrega a S5). El tema ha de ser un mite sobre salut. Exemples: 'els antibiòtics curen totes les infeccions', 'el paracetamol és inofensiu', 'les drogues 'lleugeres' no enganxen'.",
-    deadline: null
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (vacunes, immunitat de grup, 4 criteris de qualitat)",

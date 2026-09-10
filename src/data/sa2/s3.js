@@ -131,7 +131,7 @@ export const sa2s3 = {
     { id: "q2", type: "open", text: "Per quina raó la circulació humana és doble (petita + gran)? Quin avantatge té respecte una de sola?", hint: "Pensa en les pressions: els pulmons són delicats (pressió baixa) i el cos és gran (pressió alta). Es poden fer alhora amb una sola bomba?" },
     { id: "q3", type: "multiple", text: "Un esportista d'elit en altitud té l'hematòcrit (% eritròcits) elevat naturalment. Per quina raó és un avantatge?", options: ["Porta més O₂ per litre de sang als músculs", "La sang és més lleuger", "El cor batega menys vegades", "Els músculs necessiten menys ATP"], correct: 0 }
   ],
-  homework: { description: "Cap. (Opcional: vídeo cor per dins per preparar S4 amb curiositat.)", deadline: null },
+  homework: { description: "Cap. (Opcional: vídeo cor per dins per preparar S4 amb curiositat.)" },
   recoveryInstructions: [
     "Fes Part A amb paper i tisores: 100 quadradets (55 grocs, 44 vermells, 1 blanc). Observa els percentatges.",
     "Mira el diagrama de doble circulació d'aquesta pàgina",

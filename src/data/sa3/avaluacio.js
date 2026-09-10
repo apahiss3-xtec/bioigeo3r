@@ -83,7 +83,7 @@ export const sa3Avaluacio = {
         correct: 0,
         feedback: {
           correct: "Exacte. Als 4 dies, els bacteris més febles ja han mort (per això se sent millor). Però els més resistents poden seguir vius. Si para el tractament, els resistents es reproduiran i la infecció tornarà amb bacteris difícils de matar — i potencialment transmetrà bacteris resistents a d'altres.",
-          wrong: "Pensa en la selecció natural: els primers a morir amb l'antibiòtic son els bacteris més sensibles. Qui queda als 4 dies? Els més resistents. Si pares el tractament, els que queden s'adaptaran i es reproduiran. Acabar el tractament complert elimina fins i tot els més resistents."
+          wrong: "Pensa en la selecció natural: els primers a morir amb l'antibiòtic són els bacteris més sensibles. Qui queda als 4 dies? Els més resistents. Si pares el tractament, els que queden s'adaptaran i es reproduiran. Acabar el tractament complert elimina fins i tot els més resistents."
         }
       }
     ]

@@ -248,7 +248,6 @@ export const sa1s3 = {
 
   homework: {
     description: "Llegeix l'enunciat del repte final (el cas de l'Elna) i porta pensades dues coses: quin diagrama original faràs i quina experiència personal hi explicaràs.",
-    deadline: null
   },
 
   recoveryInstructions: [

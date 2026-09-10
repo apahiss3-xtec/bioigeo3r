@@ -9,6 +9,8 @@
     "title": "El mapa del curs",
     "intro": "Set situacions d'aprenentatge per entendre la vida, el cos i el planeta. Clica una zona per entrar-hi.",
     "sessionsCount": "{{count}} sessions",
+    "sessionsCount_one": "{{count}} sessió",
+    "sessionsCount_other": "{{count}} sessions",
     "comingSoon": "Pròximament",
     "open": "Entra-hi"
   },
@@ -113,11 +115,6 @@
     "gdprNote": "Les teves respostes no es guarden enlloc: només s'obren a Gmail perquè les enviïs tu."
   },
   "homework": {
-    "deadline": "Data límit",
-    "daysLeft": "Queden {{count}} dies",
-    "daysLeft_one": "Queda 1 dia",
-    "today": "Acaba avui!",
-    "overdue": "Termini passat",
     "none": "No hi ha deures nous en aquesta sessió.",
     "also": "També"
   },

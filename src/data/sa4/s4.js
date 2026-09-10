@@ -203,7 +203,7 @@ export const sa4s4 = {
     { id: "F3", apartat: "3", title: "La tercera variable", src: "/images/sa4-s4-tercera-variable.svg", note: "Rètols en LLETRA dins d'un quadrat buit, que és el sistema que es fa servir per parlar de causes: X deixar l'anticonceptiu · Y trigar a tenir un embaràs · Z l'edat, que ha canviat alhora. La fletxa de punts entre X i Y, amb un ? vermell al mig, és la conclusió que la gent dona per bona i que no està demostrada; les dues fletxes taronges són l'explicació alternativa (Z causa X i Y alhora). Només és a la fitxa de la versió A: a les altres dues versions la idea es treballa amb text, sense la figura." }
   ],
 
-  fitxaUrls: {
+  fitxaUrl: {
     A: "/fitxes/sa4-s4-fitxa-A.html",
     B: "/fitxes/sa4-s4-fitxa-B.html",
     C: "/fitxes/sa4-s4-fitxa-C.html"
@@ -249,7 +249,6 @@ export const sa4s4 = {
 
   homework: {
     description: "Acabar la fitxa informativa amb la parella i lliurar-la a Classroom. Recorda les quatre coses de la rúbrica: la resposta directa a la primera frase · què passa al cos · d'on ho heu tret · sense jutjar ningú. Per què no es pot delegar a una IA: es comença a classe sobre la plantilla, durant una vintena llarga de minuts i amb el professor voltant, de manera que el que arribi ha de ser continuació del que ell ha vist començar; i el formulari d'avui, fet a classe i sense ajuda, avalua els mateixos objectius — una fitxa impecable amb un formulari que no distingeix una barrera d'una hormona és una discrepància que es veu.",
-    deadline: "una setmana"
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina: el checklist CRITIC, la cadena de quatre baules i on talla cada família, per quina raó només la barrera protegeix d'ITS, i com es desmunta el mite",

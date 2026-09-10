@@ -125,7 +125,6 @@ export const sa2s5 = {
   homework: {
     description: "Durant 3 matins consecutius, just en llevar-te, mesura la teva FC en repòs (pols al canell, 30 seg × 2). Anota-la a la taula de la fitxa S5 secció 6. Escriu una pregunta d'investigació pròpia basada en les dades.",
     note: "OBLIGATORI per a S6. Sense dades no pots participar en la posada en comú.",
-    deadline: "3 matins consecutius"
   },
 
   recoveryInstructions: [
