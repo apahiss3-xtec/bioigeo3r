@@ -49,9 +49,8 @@
 .biome-sa2 { --biome: #8b1a1a; --biome-accent: #c0392b; } /* cos humà · carmí */
 .biome-sa3 { --biome: #2f6b5e; --biome-accent: #157f6b; } /* defenses · verd-teal */
 .biome-sa4 { --biome: #8a5fcc; --biome-accent: #8350c8; } /* reproducció · porpra */
-.biome-sa5 { --biome: #3e7c4f; --biome-accent: #357044; } /* xarxa vida · verd */
-.biome-sa6 { --biome: #b3661f; --biome-accent: #b3661f; } /* planeta · ocre */
-.biome-sa7 { --biome: #7a5c44; --biome-accent: #7a5c44; } /* terra · marró */
+.biome-sa5 { --biome: #7a5c44; --biome-accent: #7a5c44; } /* memòria de la Terra · marró */
+.biome-sa6 { --biome: #1f6f8b; --biome-accent: #0e4d63; } /* Ens enfonsem · blau delta */
 
 html {
   scroll-behavior: smooth;

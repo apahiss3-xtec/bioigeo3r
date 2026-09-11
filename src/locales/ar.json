@@ -7,12 +7,14 @@
   "home": {
     "kicker": "الأحياء والجيولوجيا · الثالث ESO · IE Temple",
     "title": "خريطة المقرر",
-    "intro": "سبع وحدات تعلّم لفهم الحياة والجسم والكوكب. اضغط على منطقة للدخول إليها.",
+    "intro": "ست وحدات تعلّم لفهم الحياة والجسم والكوكب — ومشروع للقيام بشيء حيال ذلك. انقر على منطقة للدخول.",
     "sessionsCount": "{{count}} حصص",
     "sessionsCount_one": "{{count}} حصة",
     "sessionsCount_other": "{{count}} حصص",
     "comingSoon": "قريباً",
-    "open": "ادخل"
+    "open": "ادخل",
+    "stemProject": "مشروع STEM",
+    "stemWith": "مع"
   },
   "sa": {
     "objectives": "أهداف التعلّم",

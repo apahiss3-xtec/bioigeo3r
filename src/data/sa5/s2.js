@@ -1,8 +1,8 @@
-export const sa7s2 = {
-  id: "s2", saId: "sa7",
+export const sa5s2 = {
+  id: "s2", saId: "sa5",
   title: "La Terra que tremola",
-  sessionNumber: 2, biome: "sa7", duration: "2h",
-  engageImage: "/images/sa7-s2-terratrèmol.jpg",
+  sessionNumber: 2, biome: "sa5", duration: "2h",
+  engageImage: "/images/sa5-s2-terratrèmol.jpg",
 
   engageQuestion: "El 19 de novembre de 2021, un terratrèmol de magnitud 4,2 va sacsejar l'Alt Empordà. El 2023, una sèrie sísmica va afectar els Pirineus lleidatans. Per quina raó tremola la terra a Catalunya si no som a la vora d'un límit de plaques actiu com el Japó o Califòrnia? I per quina raó la Garrotxa, just al costat, té volcans?",
   engageContext: "Sobre un mapa mundial de terratrèmols i volcans dels últims cent anys veuràs que quasi tots es concentren als límits de les plaques tectòniques. Però Catalunya també hi apareix. Per quina raó? I quina diferència hi ha entre un terratrèmol i un volcà? El basalt de la Garrotxa que vas veure és la primera pista.",
@@ -114,9 +114,9 @@ export const sa7s2 = {
   ],
 
   graphicResources: [
-    { id: "G1", apartat: "2", title: "Estructura interna de la Terra (tall)", src: "/images/sa7-g2-estructura-terra.svg", note: "Diagrama de tall circular: 4 capes concèntriques etiquetades (escorça, mantell, nucli extern, nucli intern) amb gruixos i temperatures representatives. Distinció escorça continental (gruixuda, flotant) vs oceànica (prima, densa). Astenòsfera marcada al mantell superior." },
-    { id: "G2", apartat: "3", title: "Tres tipus de límits de plaques", src: "/images/sa7-g3-limits-plaques.svg", note: "Diagrama de 3 blocs 3D: 1) Divergent: dorsal oceànica, fletxes d'allunyament, magma que puja al centre. 2) Convergent-subducció: una placa oceànica s'enfonsa, arc volcànic a sobre, fossa oceànica al fons. 3) Transformant: dues plaques llisquen lateralment, zona de falla marcada." },
-    { id: "G3", apartat: "3", title: "Sismicitat i geologia de Catalunya i el Pirineu", src: "/images/sa7-g4-sismicitat-cat.svg", note: "Mapa de Catalunya: zones sísmiques (Alt Empordà, Pirineus, Ribagorça) marcades amb cercles de diferent magnitud. Falla pirinenca principal. Camp volcànic de la Garrotxa. Llegenda de tipus de límit tectònic. Epicentre del terratrèmol de les Preses (1428)." }
+    { id: "G1", apartat: "2", title: "Estructura interna de la Terra (tall)", src: "/images/sa5-g2-estructura-terra.svg", note: "Diagrama de tall circular: 4 capes concèntriques etiquetades (escorça, mantell, nucli extern, nucli intern) amb gruixos i temperatures representatives. Distinció escorça continental (gruixuda, flotant) vs oceànica (prima, densa). Astenòsfera marcada al mantell superior." },
+    { id: "G2", apartat: "3", title: "Tres tipus de límits de plaques", src: "/images/sa5-g3-limits-plaques.svg", note: "Diagrama de 3 blocs 3D: 1) Divergent: dorsal oceànica, fletxes d'allunyament, magma que puja al centre. 2) Convergent-subducció: una placa oceànica s'enfonsa, arc volcànic a sobre, fossa oceànica al fons. 3) Transformant: dues plaques llisquen lateralment, zona de falla marcada." },
+    { id: "G3", apartat: "3", title: "Sismicitat i geologia de Catalunya i el Pirineu", src: "/images/sa5-g4-sismicitat-cat.svg", note: "Mapa de Catalunya: zones sísmiques (Alt Empordà, Pirineus, Ribagorça) marcades amb cercles de diferent magnitud. Falla pirinenca principal. Camp volcànic de la Garrotxa. Llegenda de tipus de límit tectònic. Epicentre del terratrèmol de les Preses (1428)." }
   ],
 
   // Sense fitxa imprimible encara: el PDF que hi havia aquí no existeix a

@@ -7,12 +7,14 @@
   "home": {
     "kicker": "Biología y Geología · 3º ESO · IE Temple",
     "title": "El mapa del curso",
-    "intro": "Siete situaciones de aprendizaje para entender la vida, el cuerpo y el planeta. Haz clic en una zona para entrar.",
+    "intro": "Seis situaciones de aprendizaje para entender la vida, el cuerpo y el planeta — y un proyecto para hacer algo al respecto. Haz clic en una zona para entrar.",
     "sessionsCount": "{{count}} sesiones",
     "sessionsCount_one": "{{count}} sesión",
     "sessionsCount_other": "{{count}} sesiones",
     "comingSoon": "Próximamente",
-    "open": "Entrar"
+    "open": "Entrar",
+    "stemProject": "Proyecto STEM",
+    "stemWith": "con"
   },
   "sa": {
     "objectives": "Objetivos de aprendizaje",

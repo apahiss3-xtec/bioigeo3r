@@ -1,206 +1,164 @@
-// SA5 · Sessió 1 — «Qui viu i qui menja qui?»
-// REESCRIT SENCER el 2026-09-01 des de «SA5 - Sessió 1 - SPEC» del vault.
-//
-// Per què es va reescriure (§0bis de la spec): l'`s1.js` anterior era un
-// esborrany generat abans que existís el sistema de specs. Tenia l'esquema
-// antic (sense `levelObjectives`, sense `fitxaUrls`, sense `apartatExtras`) i,
-// sobretot, descrivia una SA5 DIFERENT de la del vault: 4 sessions en lloc de
-// 3, l'enigma de les cotorres argentines en lloc del de les llúdrigues, i
-// continguts (regla del 10%, cicle del nitrogen) que el disseny 5E del vault
-// no treballa a la S1. Decisió d'Albert de l'1/09/2026: mana el vault.
-//
-// La web és GUIA, no full de respostes: aquí no hi ha cap camp d'escriptura
-// ni cap `hint` que doni la resposta que la fitxa demana omplir.
 export const sa5s1 = {
   id: "s1", saId: "sa5",
-  title: "Qui viu i qui menja qui?",
+  title: "Què t'explica la roca del terra de l'aula?",
   sessionNumber: 1, biome: "sa5", duration: "2h",
-  engageImage: "/images/sa5-s1-lludriga-riu.jpg",
+  engageImage: "/images/sa5-s1-roques.jpg",
 
-  engageQuestion: "Al riu que passa a prop de l'escola han vist llúdrigues per primera vegada en 30 anys. Una espècie que torna: algú hi guanya i algú hi perd. I la pregunta d'avui: si d'un ecosistema en traiem un sol ésser viu, passa res a la resta?",
-  engageContext: "S'obre l'enigma de la unitat i es penja el cartell a la paret. IMPORTANT: avui NO es resol — es resol a la sessió 3, quan ja tindreu les eines. Després d'escriure les idees prèvies es planteja el repte del dia: sortir al pati a fer un cens de qui hi viu de debò, i tornar a l'aula a construir la xarxa de la vida amb les mans, amb fils de llana.",
+  engageQuestion: "El terra de la nostra aula, les façanes dels edificis del barri, els monuments... tots estan fets de roca. Però per quina raó hi ha roques tan diferents? Un granit és completament diferent d'una pissarra, i totes dues ho són d'un calcari. Al final d'avui sabràs identificar qualsevol mostra de roca i explicar per quina raó és com és.",
+  engageContext: "Tindràs sis mostres de roca sense etiqueta: observa-les, toca-les i descriu-les amb adjectius. Quines has vist als edificis del barri? De què és el terra del pati? Una d'aquestes roques és volcànica, i serà la clau per entendre la Garrotxa.",
 
-  // ── OBJECTIUS D'APRENENTATGE PER VERSIÓ (A/B/C) ──────────
-  // Coincideixen LITERALMENT amb la caixa 🎯 de la fitxa de la mateixa versió
-  // (_s1_content.py: OA_A / OA_B / OA_C).
+  // NO es renderitza al web: guió del docent (logística, temps,
+  // material, revisió de deures). Tasca 2, 09/09/2026.
+  teacherNotes: "El docent presenta 6 mostres sense etiquetar: granit, calcari, pissarra, basalt, arenisca i marbre. La roca clau és el basalt (connexió amb S2).",
+
   levelObjectives: {
     A: [
-      "Estimo quina proporció de les espècies vam detectar i dic què faria canviar aquest número.",
-      "Proposo una millora del model de fils i dic explícitament què perd el model a canvi.",
-      "Separo amb criteris propis dues relacions que tenen el mateix signe (depredació i parasitisme).",
-      "Construeixo una explicació coherent d'una diferència de massa abans que me l'expliquin.",
-      "Faig una predicció sobre una espècie invasora i dic quina observació la desmentiria."
+      "Identifico qualsevol mostra de roca pel seu origen (ígnia/sedimentària/metamòrfica) usant almenys 3 criteris d'observació (textura, mida de cristalls, presència de fòssils, laminació, reacció amb HCl) i argumento per quina raó cada característica és una evidència del procés de formació.",
+      "Explico el cicle de les roques de forma completa: magma → roca ígnia → erosió → sediment → roca sedimentària → metamorfisme → roca metamòrfica → fusió → magma. Identifico en quin punt del cicle estan les roques del laboratori.",
+      "Connecto els tipus de roca amb els processos geològics de la SA: per quina raó el basalt de la Garrotxa és extrusiu i no intrusiu, i quina diferència hi ha en la mida dels cristalls.",
+      "Dissenyo un protocol d'identificació de roques desconegudes amb almenys 5 proves ordenades de menys a més destructiva. Justifique l'ordre amb criteris de metodologia científica (CE3)."
     ],
     B: [
-      "Faig un cens d'un ecosistema real i n'anoto les interaccions, no només els noms.",
-      "Classifico cinc relacions ecològiques dient qui hi guanya i qui hi perd.",
-      "Situo un ésser viu com a productor, consumidor o descomponedor i ho justifico.",
-      "Raono un efecte en cascada dos passos enllà de l'espècie que desapareix.",
-      "Reconec què no pot representar el model de fils i què no ha vist el nostre cens."
+      "Identifico les 6 mostres de roca del laboratori per les seves característiques observables i les classifico en les 3 famílies (ígnia / sedimentària / metamòrfica).",
+      "Explico el procés de formació de cada família: ígnies (solidificació del magma), sedimentàries (dipòsit + litificació de sediments), metamòrfiques (transformació per calor i pressió).",
+      "Descric les principals diferències entre roques intrusions (granit) i extrusions (basalt), i entre roques sedimentàries clàstiques (arenisca) i químiques (calcari).",
+      "Explico el cicle de les roques: com les tres famílies es transformen les unes en les altres al llarg de milions d'anys."
     ],
     C: [
-      "Sé dir qui es menja qui en un riu i al pati.",
-      "Sé que un ésser viu pot ser-hi encara que no el vegi (m'ho diu el seu rastre).",
-      "Sé distingir la competència, la depredació i el mutualisme.",
-      "Sé dir qui fabrica el menjar, qui se'l menja i qui el recicla.",
-      "Sé explicar què els passa als altres si en trec un."
+      "Completo: les tres famílies de roques són _____, _____ i _____. Cada família es forma de manera diferent: les ígnies es formen quan _____; les sedimentàries quan _____; les metamòrfiques quan _____.",
+      "Identifico en el laboratori: la roca que reacciona amb àcid és _____ (família: _____). La roca amb capes visibles és _____ (família: _____). La roca de cristalls grans i molts colors és _____ (família: _____).",
+      "Completo el cicle de les roques: magma → roca _____ → erosió → _____ → roca sedimentària → calor i pressió → roca _____.",
+      "Anoto 2 característiques que m'han ajudat a identificar una roca al laboratori: 1. _____ 2. _____."
     ]
   },
 
-  // ── BASTIMENT/REPTE PER APARTAT ──────────────────────────
   apartatExtras: {
-    "1": {
-      scaffold: "La graella de camp porta dues files ja resoltes com a exemple (una planta i un rastre) i n'has d'afegir quatre més. Després, una pregunta d'encerclar sobre la fulla mossegada.",
-      challenge: "Ajunta el teu cens amb el de l'altre grup que hagi mirat la mateixa zona i calcula quina proporció del total havíeu detectat vosaltres sols. Després digues què li passaria a aquest número si haguéssiu buscat de nit o cavat deu centímetres."
-    },
     "2": {
-      scaffold: "Els trencaments es responen numerant l'ordre en què va caure cada fil i encerclant entre dues opcions, amb la cadena simple del riu (figura F2c) a la vista.",
-      challenge: "Proposa una manera de modificar el model de fils perquè pugui representar una relació que només passa de vegades (un depredador que caça de tot i només caça la presa X quan no troba la Y) — i digues què perd el model a canvi de guanyar això."
+      scaffold: "Omple la taula d'identificació de les 3 famílies: Família / Procés de formació / 2 exemples / 1 característica clau. Ígnies: procés = ___ / exemples = ___, ___ / característica = ___. Sedimentàries: procés = ___ / exemples = ___, ___ / característica = ___. Metamòrfiques: procés = ___ / exemples = ___, ___ / característica = ___.",
+      challenge: "Investiga el concepte de 'datació radiomètrica': com podem saber l'edat d'una roca ígnia usant la desintegració radioactiva? Explica el principi del rellotge atòmic (isòtop pare → isòtop fill) i per quina raó les roques sedimentàries són molt difícils de datar directament (però els fòssils que contenen no)."
     },
     "3": {
-      scaffold: "Cada bloc comença amb imatge i càpsula «Per llegir». Es treballen tres relacions (competència, depredació, mutualisme) amb la figura F1c, i els tres papers tròfics amb banc de paraules.",
-      challenge: "La depredació i el parasitisme tenen el mateix signe (+/−): dona dos criteris que les separin i un cas de la vora del riu difícil de classificar. I proposa una explicació de per quina raó hi ha molta més massa d'algues que de truites."
-    },
-    "4": {
-      scaffold: "La xarxa del pati ve semidibuixada (figura F3): tres éssers vius ja hi són i la primera cadena de fletxes està feta. N'has d'afegir tres del vostre cens. La pregunta d'escriptura va bastida amb OBSERVO → EM PREGUNTO → CONNECTO → DEDUEIXO, i aquest cop els dos últims passos ja no porten inici de frase.",
-      challenge: "Introdueix a la vostra xarxa una espècie que menja de tot i no té depredadors, prediu quina espècie del pati desapareixeria primer i digues quina observació concreta, d'aquí a un mes, et desmentiria la predicció."
+      scaffold: "Al laboratori, respon per a cada mostra: color (clar/fosc), textura (cristal·lina/granular/làmines), pots ratllar-la amb una ungla? (sí/no), reacciona amb unes gotes d'àcid? (sí/no). Amb aquests 4 criteris, quina família creus que és? Compara amb el teu company.",
+      challenge: "La pedrera de granit de Montjuïc (Barcelona) va subministrar pedra per als edificis del Passeig de Gràcia al s. XIX, però avui ja no s'extreu. La pedra de Montjuïc és un conglomerat, no un granit. Per quina raó creus que s'anomena popularment 'granit de Montjuïc'? Quina diferència hi ha entre el conglomerat (sedimentari) i el granit (ígni intrusiu) pel que fa a la resistència i al tractament artístic?"
     }
   },
 
-  // ── APARTAT 0 · IDEES PRÈVIES ─────────────────────────────
   ideesPrevies: {
-    startPoint: "Comencem una unitat nova. Escriu i dibuixa el que penses ara — no es corregeix, i el tornaràs a mirar al final per veure com ha canviat el teu pensament.",
+    startPoint: "Avui comencem la geologia — la darrera unitat abans del projecte STEM «Ens enfonsem». A la taula teniu les mostres de roca. Sense mirar res, escriviu el que ja sabeu sobre roques i minerals — al final de la SA comparareu.",
     prompts: [
       {
         kind: "draw",
-        text: "Dibuixa qui es menja qui en un riu: posa-hi almenys quatre éssers vius i uneix-los amb fletxes.",
-        starter: null
+        text: "Dibuixa o descriu una roca que hagis vist o tocat recentment (al carrer, a la natura, als edificis). Quines característiques té? Com creus que s'ha format?",
+        starter: "La roca que recordo és... la vaig veure a... i té les característiques..."
       },
       {
         kind: "write",
-        text: "Si d'un ecosistema en desapareix un sol ésser viu, què els passa als altres?",
-        starter: null
+        text: "Quina diferència creus que hi ha entre una roca i un mineral? Escriu la teva hipòtesi abans que ho expliquem.",
+        starter: "Crec que la diferència entre roca i mineral és..."
+      },
+      {
+        kind: "write",
+        text: "Com creus que es formen les roques? D'on vénen? Escriu tot el que saps o imagines.",
+        starter: "Crec que les roques es formen quan..."
       }
     ]
   },
 
   exploreInstructions: [
-    "PRIMERA PART (20 min, al pati): cada grup té una zona assignada — sol, ombra, paviment, plantes o paret",
-    "Protocol del cens: anomenar l'ésser viu (o posar-li un codi i una foto si no en sabeu el nom), dir de quin regne és, descriure'l i anotar les interaccions que veieu (menja de? viu sobre? competeix amb?)",
-    "Mínim 5 éssers vius o rastres per grup. Els rastres compten: fulles mossegades, galeries, fongs, teranyines, excrements, plomes",
-    "Moment epistèmic al camp: dos grups a la mateixa zona heu trobat coses diferents. Hem fet un cens complet? Invisible no vol dir absent",
-    "SEGONA PART (25 min, a l'aula): cadascú rep una targeta d'espècie del riu i s'estiren fils de llana de la presa cap al depredador fins a teixir la xarxa sencera",
-    "Trencament 1: un herbicida acaba amb totes les algues i plantes de ribera alhora. Qui ha de deixar anar el fil? I qui el deixa anar després? (l'efecte cascada es nota al braç)",
-    "Trencament 2: desapareix la llúdriga, el depredador de dalt. Qui prolifera ara, i què li passa al que aquell es menja?",
-    "Addició: entra el cranc de riu americà, que menja gairebé de tot. Quins fils nous cal estirar? La xarxa queda més estable o menys?",
-    "Moment epistèmic: el fil vol dir «es menja», sempre i en tota quantitat. Quines relacions que només passen de vegades ignora el model?"
+    "Lab d'identificació de roques (en grups de 3). Rebeu 6 mostres etiquetades amb una lletra (A–F) i la fitxa d'identificació. No mireu les respostes fins al final",
+    "Passa 1 (10 min): observació visual i tàctil. Per a cada mostra anoteu: color principal, textura (cristal·lina, granular, làmines, compacta), brilla? (lluentor dels cristalls), és pesada o lleugera?",
+    "Pas 2 (8 min): duresa i àcid. Intenteu ratllar la mostra amb l'ungla (duresa <2,5), amb una clau (duresa <5,5). Poseu 2 gotes d'HCl diluït a cada mostra: reacciona? (CaCO₃ → CO₂ = calcari o marbre)",
+    "Pas 3 (7 min): classificació. Amb les dades, intenteu assignar cada mostra a una família (ígnia/sedimentària/metamòrfica) i un nom (granit, basalt, calcari, pissarra, arenisca, marbre)",
+    "Posada en comú: es confirmen les identificacions i es raona cada roca. Per quina raó el basalt té cristalls tan petits en comparació amb el granit?"
   ],
-  exploreDuration: "45 min",
-  exploreMaterials: [
-    "Fitxa de la teva versió (la graella de camp és l'apartat 1) i un llapis",
-    "Mòbil per fer fotos del que no sapigueu identificar",
-    "Targetes d'espècie — 12 al principi (una per persona o parella); la 13a, el cranc invasor, entra a la tercera prova (full imprimible M1)",
-    "Fils de llana"
-  ],
-
-  // Material físic que la sessió dona per existent.
-  sessionMaterials: [
-    { id: "M1", title: "Targetes d'espècie per a la xarxa de fils (13)", url: "/fitxes/sa5-s1-targetes-especies.html", who: "docent imprimeix, 3 fulls A4, es retallen. La 13a (cranc de riu americà) NO es reparteix al principi: entra a la tercera prova" },
-    { id: "M2", title: "Cartell de l'enigma de les llúdrigues", url: "/fitxes/sa5-s1-cartell-enigma.html", who: "docent el penja el primer dia i el despenja a la sessió 3" },
-    { id: "M3", title: "Full de sortida (versions A i B)", url: "/fitxes/sa5-s1-full-sortida.html", who: "es reparteix als últims 7 minuts" },
-    { id: "M4", title: "Full de sortida (versió C)", url: "/fitxes/sa5-s1-full-sortida-C.html", who: "es reparteix als últims 7 minuts" }
-  ],
+  exploreDuration: "25 min",
+  exploreMaterials: ["6 mostres de roca etiquetades (granit, basalt, calcari, pissarra, arenisca, marbre)", "HCl diluït al 10% (en comptagotes)", "Clau o moneda de coure (per a duresa)", "Lupa 10×", "Fitxa d'identificació de roques (per grup)"],
 
   theoryPoints: [
     {
       id: "t1",
-      apartat: "3",
-      heading: "Les ==relacions ecològiques==",
-      text: "Els éssers vius d'un ecosistema no van cadascun a la seva: es relacionen. Quan és entre individus de la ==mateixa espècie== són ==intraespecífiques==; entre espècies diferents, ==interespecífiques==. N'hi ha cinc tipus, i la manera de distingir-les és preguntar-se ==a qui li va bé i a qui li va malament==: ==competència|o== (als dos els va malament), ==depredació|r== (un menja, l'altre mor), ==parasitisme|r== (viu a sobre o a dins i no el mata de seguida), ==mutualisme|g== (tots dos hi guanyen) i ==comensalisme== (un hi guanya i a l'altre li és igual). Connexió amb «Defensors del cos»: un ==patogen== és una relació interespecífica, i la ==microbiota|g== que vau estudiar és mutualisme dins vostre.",
-      type: "concept",
-      image: "/images/sa5-s1-relacions-ecologiques.svg",
-      imageCaption: "Els signes de la figura no són decoració: són la manera de classificar. Mira primer com li va a cadascun i el nom surt sol."
+      apartat: "2",
+      heading: "Roques i minerals: les ==tres famílies== del regne inorgànic",
+      text: "Una ==roca== és un material natural sòlid format per un o més ==minerals|g==. Un ==mineral|g== és una substància inorgànica, natural, amb composició química definida i estructura cristal·lina pròpia (quars = SiO₂ sempre). La diferència clau: un mineral té sempre la mateixa composició; una roca és una barreja. El granit, per exemple, conté ==quars|b== (gris translúcid), ==feldspat|o== (rosa o blanc) i ==mica|r== (làmines negres brillants). Les roques es classifiquen en tres famílies segons el seu origen: ==ígnies== (del foc), ==sedimentàries== (de sediments) i ==metamòrfiques== (transformat per calor/pressió). Cada família és la memòria d'un procés geològic diferent.",
+      type: "concept"
     },
     {
       id: "t2",
-      apartat: "3",
-      heading: "Qui ==fabrica==, qui ==consumeix== i qui ==recicla==",
-      text: "Els ==productors|g== es fabriquen el seu propi menjar amb la llum (les plantes i les algues — és la ==fotosíntesi== de la primera unitat). Els ==consumidors== no se'l saben fabricar i se l'han de menjar ja fet (la ==respiració cel·lular== que ja coneixeu). I els ==descomponedors|g== desfan el que ha mort i el tornen a matèria mineral, ==perquè els productors el puguin reutilitzar==: no netegen el bosc, el ==reciclen==. Una ==cadena tròfica== és un camí simple; quan les cadenes es creuen, tenim una ==xarxa tròfica==, i cada esglaó és un ==nivell tròfic==.",
-      type: "concept",
-      image: "/images/sa5-s1-xarxa-riu.svg",
-      imageCaption: "Compte amb el sentit de la fletxa: va del que és menjat cap al que menja, no al revés. Vol dir «serveix d'aliment a»."
+      apartat: "2",
+      heading: "Roques ==ígnies==: solidificació del magma",
+      text: "Les roques ==ígnies== (del llatí *ignis*, foc) es formen quan el ==magma|r== —roca fosa en profunditat— es refreda i es solidifica. Si es refreda lentament ==en profunditat== (intrusiu), els cristalls tenen temps de créixer: resultat → ==granit|o==, de cristalls grans i visibles. Si erupciona a la superfície (extrusiu) i es refreda ràpidament, els cristalls no tenen temps de créixer: resultat → ==basalt|r==, de cristalls microscòpics o amorf. Un truc per recordar-ho: ==grans cristalls = refredat lent = profund|g== / ==cristalls petits o vidriós = refredat ràpid = superficial|o==. El basalt de la Garrotxa és extrusiu: va erupcionar a l'aire lliure. Connexió enigma — primera pista: la presència de basalt indica que hi ha hagut un episodi de ==vulcanisme|r==.",
+      type: "concept"
     },
     {
       id: "t3",
       apartat: "3",
-      heading: "Per quina raó la xarxa és ==fràgil==",
-      text: "Treure o afegir una espècie no afecta només els seus veïns directes: ==reorganitza tota la xarxa|o==. Això és l'==efecte cascada|r==, i és exactament el que heu sentit al braç quan els fils han començat a caure un rere l'altre. I funciona en les ==dues direccions==: una ==espècie invasora== que entra també canvia la xarxa sencera. Aquí és on torna l'enigma: el retorn de la llúdriga és ==afegir un depredador de dalt|o== — i el que això desencadena riu avall es resoldrà a la sessió 3.",
+      heading: "Roques ==sedimentàries==: la memòria del paisatge passat",
+      text: "Les roques ==sedimentàries== es formen per acumulació de ==sediments|o== (fragments d'altres roques, restes d'organismes, minerals precipitats) en medis aquàtics o eòlics. El procés de ==litificació|g== té dues fases: 1) ==compactació== (el pes dels sediments superiors pressiona els inferiors i treu l'aigua) + 2) ==cimentació== (minerals dissolts precipiten entre els grans unint-los). Les principals: ==arenisca|o== (grans de sorra cimentats; sovint es veuen a simple vista), ==calcari|b== (CaCO₃ de restes de closques i esquelets, reacciona amb HCl → efervescència), ==argil·lita== (partícules molt fines, compacte). Una característica clau: les roques sedimentàries són les úniques que poden contenir ==fòssils|g== (restes d'organismes atrapats durant la litificació). La pedrera de Montjuïc és conglomerat sedimentari, no granit.",
+      type: "concept"
+    },
+    {
+      id: "t4",
+      apartat: "3",
+      heading: "Roques ==metamòrfiques==: transformació per calor i pressió",
+      text: "Les roques ==metamòrfiques== es formen quan una roca preexistent (ígnia, sedimentària o metamòrfica) és sotmesa a alta ==temperatura|r== i/o alta ==pressió|r== sense arribar a fondre's. Això passa en profunditat o quan les plaques col·lideixen. Exemples: ==pissarra|b== (de l'argil·lita, per pressió → es cliva en làmines; molt usada per teulades al Pirineu), ==marbre|o== (del calcari, per calor → cristalls de calcita recristal·litzada; per això el marbre ja no fa efervescència amb HCl com el calcari original), ==quarsita== (de l'arenisca, molt dura). El ==grau de metamorfisme|g== indica la intensitat del procés: baix grau (pissarra) → mig grau (esquist) → alt grau (gneis). Les roques metamòrfiques del Pirineu central guarden la memòria de la col·lisió hercínica fa 300 milions d'anys.",
+      type: "concept"
+    },
+    {
+      id: "t5",
+      apartat: "3",
+      heading: "El ==cicle de les roques==: la Terra recicla els seus materials",
+      text: "Cap roca és permanent: totes es van transformant al llarg de milions d'anys en un cicle continu. El ==cicle de les roques== connecta les tres famílies: 1) ==Magma → roca ígnia==: el magma es refreda i cristal·litza. 2) ==Roca ígnia → sediment → roca sedimentària==: l'erosió (vent, pluja, glaceres) fragmenta qualsevol roca, els sediments s'acumulen i es litifiquen. 3) ==Roca sedimentària → metamòrfica==: enterrada en profunditat o en una col·lisió de plaques, la calor i la pressió la transformen. 4) ==Roca metamòrfica → magma==: si la temperatura és prou alta, es fon i torna a ser magma. Implicació clau per a l'enigma: les ==roques basàltiques|r== de la Garrotxa són ígnies extrusives recents (fa ≈11.000 anys), la qual cosa indica activitat magmàtica recent en una zona on no hi hauria d'haver volcans de subducció. Per quina raó? Ho respondrem a S2.",
       type: "epistemic",
-      badge: "🔬 Moment epistèmic"
+      badge: "🧩 Enigma — primera pista"
     }
   ],
 
   graphicResources: [
-    { id: "F0c", apartat: "1", title: "Què és un rastre (versió C)", src: "/images/sa5-s1-rastres-c.svg", note: "Tres rastres (fulla mossegada, teranyina, forat) amb el que indica cadascun. Obre la secció del cens a la fitxa C, que era l'única sense imatge. Només la versió C." },
-    { id: "F1", apartat: "3", title: "Les cinc relacions ecològiques", src: "/images/sa5-s1-relacions-ecologiques.svg", note: "Cinc files amb la notació de signes (+ hi guanya, − hi perd, 0 li és igual) i un exemple real de cadascuna. Fitxes A i B." },
-    { id: "F1c", apartat: "3", title: "Tres relacions ecològiques (versió C)", src: "/images/sa5-s1-relacions-c.svg", note: "Edició pròpia de la versió C: només competència, depredació i mutualisme, sense notació de signes i amb la definició en llenguatge planer. No es recicla la F1." },
-    { id: "F2", apartat: "3", title: "La xarxa tròfica del riu", src: "/images/sa5-s1-xarxa-riu.svg", note: "Dotze nodes numerats repartits en cinc bandes de nivell tròfic, més la banda de descomponedors amb la fletxa de retorn. Les 12 targetes d'espècie (M1) reprodueixen exactament aquesta xarxa. Fitxes A i B." },
-    { id: "F2c", apartat: "2", title: "Cadena simple del riu (versió C)", src: "/images/sa5-s1-xarxa-riu-c.svg", note: "Cinc nodes en línia: alga → insecte → peix petit → truita → llúdriga, més els fongs amb la fletxa de retorn. És la cadena que el full de sortida demana recórrer. Només la versió C." },
-    { id: "F3", apartat: "4", title: "La xarxa del pati a mig fer (versió C)", src: "/images/sa5-s1-xarxa-pati-semi.svg", note: "Bastida de l'Elaborate: herba, cargol i merla ja col·locats amb la primera cadena de fletxes feta, i tres caixes de punts per omplir amb el cens propi. Només la versió C." }
+    { id: "G1", apartat: "2", title: "Clau d'identificació de les 6 roques del laboratori", src: "/images/sa5-g1-clau-roques.svg", note: "Taula visual: mostra (foto) / família / procés / característiques diagnòstiques / ús humà. Granit: ígnia intrusiva, cristalls grans, ús en construcció. Basalt: ígnia extrusiva, cristalls petits/amorf, volcànica. Calcari: sedimentària química, efervescència amb HCl, fòssils possibles. Pissarra: metamòrfica, clivatge en làmines, baix grau. Arenisca: sedimentària clàstica, grans de sorra visibles. Marbre: metamòrfica de calcari, cristalls de calcita, no fa efervescència." },
+    { id: "G2", apartat: "3", title: "Cicle de les roques", src: "/images/sa5-g2-cicle-roques.svg", note: "Diagrama cíclic: Magma (centre) → Roca ígnia (↑ refredar-se) → Sediment (→ erosió) → Roca sedimentaria (→ litificació) → Roca metamòrfica (↓ calor+pressió) → Magma (↓ fusió). Fletxes i noms dels processos per cada transició." }
   ],
 
-  fitxaUrl: {
-    A: "/fitxes/sa5-s1-fitxa-A.html",
-    B: "/fitxes/sa5-s1-fitxa-B.html",
-    C: "/fitxes/sa5-s1-fitxa-C.html"
-  },
-  teoriaPdfUrl: null,
+  // Sense fitxa imprimible encara: el PDF que hi havia aquí no existeix a
+  // public/fitxes/. Amb null, la web mostra «la fitxa es reparteix a classe»
+  // en comptes d'un enllaç trencat.
+  fitxaUrl: null, teoriaPdfUrl: null,
 
   fitxaGuide: {
-    fitxaName: "Fitxa Sessió 1 — Qui viu i qui menja qui?",
+    fitxaName: "Fitxa S1 — Les roques expliquen la història",
     steps: [
-      { apartat: "0", title: "Idees prèvies", time: "7 min", phase: "engage", instruction: "Apartat 0: dibuixa qui es menja qui en un riu i escriu què creus que passa si en desapareix un de sol. No es corregeix: ho compararàs al final de la unitat.", hints: [] },
-      { apartat: "1", title: "El cens del pati", time: "20 min", phase: "explore", instruction: "Apartat 1: al pati, amb el teu grup i la zona que us toqui, ompliu la graella amb un mínim de cinc éssers vius o rastres. Anoteu també què hi fan, no només com es diuen.", hints: [
-        "Si no en saps el nom, no t'aturis: posa-li una lletra, fes-li una foto i descriu-lo.",
-        "Mira també a terra i sota les fulles: la meitat del que hi viu no és a l'altura dels ulls.",
-        "Un rastre és una dada tan bona com l'animal: anota'l i digues què t'indica."
+      { apartat: "0", title: "Idees prèvies sobre roques i minerals", time: "5 min", phase: "engage", instruction: "Apartat 0: respon les 3 preguntes inicials (dibuix + hipòtesis). No es corregeix ara — al final de la SA comparareu.", hints: [] },
+      { apartat: "1", title: "Lab d'identificació de roques (6 mostres)", time: "25 min", phase: "explore", instruction: "Apartat 1: omple la fitxa d'identificació de les 6 mostres (color, textura, duresa, reacció àcid, família, nom). Compara amb el grup abans de la posada en comú.", hints: [
+        "Truc: si la mostra fa efervescència (bombolles) amb HCl, és un carbonat (calcari o marbre). Si és marbre, els cristalls de calcita són visibles i la textura és granulosa; si és calcari, pot tenir fòssils.",
+        "La pissarra es cliva en làmines planes (com fulls de paper endurit). El granit té cristalls de tres colors: quars gris, feldspat rosa i mica negra brillant."
       ] },
-      { apartat: "2", title: "La xarxa de fils", time: "25 min", phase: "explore", instruction: "Apartat 2: amb la targeta d'espècie al coll, estireu els fils de la presa cap al depredador. Després responeu què passa a cada trencament i a l'addició de l'espècie invasora.", hints: [
-        "Quan et diguin de deixar anar el fil, fixa't en qui el deixa anar DESPRÉS que tu: aquesta és la cascada.",
-        "Al trencament 2 hi ha dues coses diferents a mirar: qui es queda sense menjar i qui es queda sense qui se'l menjava. No són els mateixos.",
-        "Per a la pregunta del model: pensa en una relació que depengui de la situació, no que passi sempre."
+      { apartat: "2", title: "Les tres famílies i el procés de formació", time: "20 min", phase: "explica", instruction: "Apartat 2: omple la taula de les 3 famílies (família / procés / exemples / característica clau). Respon: per quina raó el basalt té cristalls petits i el granit grans si totes dues són roques ígnies?", hints: [
+        "Clau: velocitat de refredament. Lent (en profunditat) → cristalls grans. Ràpid (a la superfície, extrusiu) → cristalls petits o textura vítria.",
+        "Ígnies = del foc (magma). Sedimentàries = de sediments (erosió + litificació). Metamòrfiques = transformades (calor + pressió)."
       ] },
-      { apartat: "3", title: "Relacions i papers tròfics", time: "20 min", phase: "explica", instruction: "Apartat 3: treballa les relacions ecològiques amb la figura F1 (o F1c si fas la versió C) i els papers tròfics amb la figura F2. El format concret canvia segons la teva versió.", hints: [
-        "Per classificar una relació, pregunta't primer com li va a cadascun dels dos, i el nom surt sol.",
-        "A la figura F2, segueix una fletxa amb el dit i llegeix-la en veu baixa: «serveix d'aliment a».",
-        "Compte amb els descomponedors: la fletxa de retorn no va a un animal, va a les plantes."
-      ] },
-      { apartat: "4", title: "La nostra xarxa del pati", time: "16 min", phase: "elabora", instruction: "Apartat 4: amb el cens de l'apartat 1, dibuixeu la xarxa del vostre pati i marqueu el paper de cadascun. Després traieu-ne un i escriviu la cascada com a mínim dos passos enllà.", hints: [
-        "És la vostra xarxa: no hi poseu res que no hàgiu vist al pati, encara que quedi més bonic.",
-        "Si un ésser viu no encaixa enlloc, deixeu-lo apart i anoteu per què: és una troballa, no un error.",
-        "«Dos passos enllà» vol dir que la conseqüència ha d'arribar a algú que no tocava directament el que heu tret."
-      ] },
-      { apartat: "5", title: "Metacognició", time: "3 min", phase: "avalua", instruction: "Apartat 5: marca el semàfor, escriu què has sentit quan has hagut de deixar anar el fil i repassa la llista d'objectius. No es recull.", hints: [] }
+      { apartat: "3", title: "Identificació de les mostres i cicle de les roques", time: "10 min", phase: "explica", instruction: "Apartat 3: corregeix les teves identificacions del lab amb la clau (G1). Emplena el diagrama del cicle de les roques (G2). Escriu la primera pista de l'enigma.", hints: [
+        "Cicle: magma → ígnia → erosió → sediment → sedimentària → calor/pressió → metamòrfica → fusió → magma.",
+        "Primera pista de l'enigma: el basalt de la Garrotxa és una roca ígnia extrusiva recent. Per quina raó hi ha basalt a la Garrotxa si no hi ha cap límit de plaques de subducció a prop?"
+      ] }
     ]
   },
 
   exitTicketType: "paper",
-  exitTicketNote: "El full de sortida va en un FULL A PART (no és dins la fitxa), es fa individualment i sense ajuda els últims 7 minuts, i es recull. Porta les mateixes tres preguntes a les tres versions: la versió C les té bastides (amb els mateixos quatre passos OBSERVO→EM PREGUNTO→CONNECTO→DEDUEIXO que la fitxa, i aquest cop els dos últims sense inici de frase) i la versió A hi afegeix una quarta pregunta.",
   exitTicketQuestions: [
-    { id: "q1", type: "open", text: "Del pati o del riu, posa un exemple de competència, un de mutualisme i un de depredació, i digues en cada cas qui hi guanya i qui hi perd.", hint: "Pensa primer com li va a cadascun dels dos i després busca el nom." },
-    { id: "q2", type: "open", text: "Si un abocament acaba amb les algues del riu (només les algues), què li acaba passant a la llúdriga? Escriu la cadena sencera, pas a pas.", hint: "La llúdriga no es menja les algues. Justament per això la pregunta té gràcia: has d'anar pas a pas." },
-    { id: "q3", type: "open", text: "El cens que heu fet al pati, és complet? Dona una raó concreta per la qual ens hem pogut deixar éssers vius.", hint: "Pensa en alguna cosa que hi era i que no es podia veure en el moment ni al lloc on vau mirar." }
+    { id: "q1", type: "open", text: "Explica la diferència entre roca ígnia intrusiva i extrusiva. Posa un exemple de cada una i explica per quina raó la mida dels cristalls és diferent.", hint: "Intrusiva (granit): refreda lentament en profunditat → cristalls grans. Extrusiva (basalt): erupciona a la superfície i refreda ràpidament → cristalls petits o amorf." },
+    { id: "q2", type: "open", text: "Quina de les 6 mostres del laboratori reacciona amb HCl? Per quina raó? És del mateix mineral la que fa efervescència que el marbre? Explica la diferència.", hint: "El calcari reacciona (CaCO₃ + HCl → CO₂). El marbre és calcari metamorfitzat: té calcita recristal·litzada i ja no fa tanta efervescència perquè el gas s'escapa més lentament. Totes dues contenen CaCO₃ però amb textures molt diferents." },
+    { id: "q3", type: "multiple", text: "Quin procés transforma una roca sedimentaria en una roca metamòrfica?", options: ["Erosió i transport per l'aigua", "Alta temperatura i/o pressió en profunditat", "Solidificació del magma", "Dipòsit de sediments i compactació"], correct: 1 }
   ],
 
   homework: {
-    description: "Aquesta nit, mira què sopes: tria dos aliments del plat i escriu de quin ésser viu venia cadascun i si aquell ésser viu era un productor o un consumidor. Es porta escrit a mà i es fa servir a la sessió següent per entrar al flux d'energia i al cicle de la matèria. (Opcional: si de camí a casa veus una relació ecològica, fes-li una foto.)",
+    description: "Fotografia 3 materials de construcció de l'entorn del teu barri (façana d'un edifici, paviment del carrer, monument, pedres d'un mur...). Per a cada un, intenta identificar de quin tipus de roca es tracta (usa la clau de la fitxa) i escriu on creus que s'ha extret. Porta les fotos o les descripcions a S2.",
+    note: "Activitat de camp no delegable a IA: requereix observació i identificació presencial de materials reals.",
   },
   recoveryInstructions: [
-    "Llegeix la teoria d'aquesta pàgina: les cinc relacions ecològiques, els tres papers tròfics i l'efecte cascada",
-    "Mira les figures F1 (relacions) i F2 (la xarxa del riu), i segueix amb el dit la cadena algues → insecte → peix petit → truita → llúdriga",
-    "Descarrega la fitxa de la teva versió. L'apartat 1 el pots fer al teu carrer, a un parc o al pati d'un bloc: el cens funciona igual en qualsevol lloc amb éssers vius",
-    "Fes l'apartat 4 amb el que hagis censat tu, i porta la feina del sopar feta",
-    "Passa pel despatx a fer el full de sortida abans de la sessió següent"
+    "Llegeix la teoria d'aquesta pàgina (minerals vs roques, les 3 famílies, cicle de les roques)",
+    "Omple la taula de les 3 famílies: família / procés / 2 exemples / 1 característica clau",
+    "Completa el diagrama del cicle de les roques (G2): etiqueta cada procés de transició",
+    "Si pots, observa un edifici del teu barri i identifica el material de construcció de la façana (quin tipus de roca o mineral és?)",
+    "Exit tiquet en paper a S2"
   ],
-  oaLinks: ["OA1", "OA2"], competencies: ["CE1", "CE4", "CE6"]
+  oaLinks: ["OA1"], competencies: ["CE1", "CE3"]
 }

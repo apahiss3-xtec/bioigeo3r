@@ -7,12 +7,14 @@
   "home": {
     "kicker": "Biologia i Geologia · 3r ESO · IE Temple",
     "title": "El mapa del curs",
-    "intro": "Set situacions d'aprenentatge per entendre la vida, el cos i el planeta. Clica una zona per entrar-hi.",
+    "intro": "Sis situacions d'aprenentatge per entendre la vida, el cos i el planeta — i un projecte per fer-hi alguna cosa. Clica una zona per entrar-hi.",
     "sessionsCount": "{{count}} sessions",
     "sessionsCount_one": "{{count}} sessió",
     "sessionsCount_other": "{{count}} sessions",
     "comingSoon": "Pròximament",
-    "open": "Entra-hi"
+    "open": "Entra-hi",
+    "stemProject": "Projecte STEM",
+    "stemWith": "amb"
   },
   "sa": {
     "objectives": "Objectius d'aprenentatge",

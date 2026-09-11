@@ -1,8 +1,8 @@
-export const sa7s4 = {
-  id: "s4", saId: "sa7",
+export const sa5s4 = {
+  id: "s4", saId: "sa5",
   title: "Per què Montserrat és com és?",
-  sessionNumber: 4, biome: "sa7", duration: "2h",
-  engageImage: "/images/sa7-s4-paisatge.jpg",
+  sessionNumber: 4, biome: "sa5", duration: "2h",
+  engageImage: "/images/sa5-s4-paisatge.jpg",
 
   engageQuestion: "Montserrat és de conglomerat erosionat. La Garrotxa és de basalt volcànic. El Delta de l'Ebre és de sediment fluvial en formació activa. El Pirineu és la cicatriu d'una col·lisió de continents. Cada paisatge de Catalunya explica una història geològica diferent. Avui llegirem el paisatge i resoldrem l'enigma.",
   engageContext: "Sis fotografies de paisatges de Catalunya —Montserrat, la Garrotxa, el Delta de l'Ebre, els Pirineus, la Costa Brava i Cardona— amb una sola pregunta: per quina raó cada lloc és com és? Tria'n una i escriu la teva hipòtesi sobre el procés geològic que l'ha format. Avui completem la resolució de l'enigma de les Preses (1428).",
@@ -16,19 +16,19 @@ export const sa7s4 = {
       "Construeixo una pàgina completa de la guia geològica amb: nom del lloc, situació geològica (quin tipus de roca predomina i com es va formar), procés geològic principal (amb dates aproximades en Ma), recurs geològic (si n'hi ha), impacte humà sobre el paisatge, i 1 repte de conservació. Argumento per quina raó el coneixement geològic és necessari per a la planificació territorial.",
       "Resolc l'enigma completament amb argumentació geològica: explico per separat el mecanisme dels terratrèmols al Pirineu (col·lisió alpina + falles actives heretades) i el mecanisme del vulcanisme de la Garrotxa (rift postalpí = extensió litosfèrica), i argumento per quina raó són dos processos oposats (convergència vs divergència) que van succeir seqüencialment a la mateixa zona.",
       "Relaciono la geologia de Catalunya amb la història humana: per quina raó el Pirineu va ser una frontera natural entre Hispania i França? Per quina raó els pobles pirinencs usen pissarra a les teulades? Per quina raó Cardona té un castell sobre un turó de sal? Per quina raó el Delta de l'Ebre s'allarga cap al mar però les platges de Tarragona s'erosionen?",
-      "Faig una síntesi de la SA: quines connexions existeixen entre SA7 i les SAs anteriors? (SA1: minerals en la cèl·lula; SA2: minerals en la sang = Fe de la hemoglobina; SA5: el cicle del N i del C connecta amb els minerals; SA6: combustibles fòssils i cicle del carboni geològic)."
+      "Faig una síntesi de la SA: quines connexions existeixen entre la geologia i la resta del curs? (SA1: minerals en la cèl·lula; SA2: minerals en la sang = Fe de l'hemoglobina; i, sobretot, cap on va: al projecte «Ens enfonsem» l'erosió, el transport i la sedimentació expliquen per què el delta de l'Ebre desapareix)."
     ],
     B: [
       "Completo la resolució de l'enigma: explico per quina raó hi ha terratrèmols al Pirineu (col·lisió alpina, falles heretades) i per quina raó la Garrotxa té volcans (rift postalpí, no subducció).",
       "Identifico el procés geològic principal que explica almenys 4 dels paisatges de Catalunya (Montserrat, Garrotxa, Delta de l'Ebre, Pirineus, Costa Brava) i el relaciono amb els sabers de la SA.",
       "Contribueixo de forma significativa a la guia geològica del grup: aporto el tipus de roca, el procés de formació i l'ús humà de l'indret que hem estudiat.",
-      "Faig almenys 2 connexions entre la geologia de la SA7 i continguts d'altres SAs del curs."
+      "Faig almenys 2 connexions entre la geologia i continguts d'altres unitats del curs, i almenys 1 amb el projecte «Ens enfonsem» que ve tot seguit."
     ],
     C: [
       "Completo la resolució de l'enigma: els terratrèmols del Pirineu es produeixen perquè fa milions d'anys les plaques ___ i ___ van col·lisionar, i les falles que van crear el Pirineu ancora són ___. Els volcans de la Garrotxa existeixen perquè la litosfera es va ___ (estirar/comprimir) creant un rift i permetent que el mantell ___.",
       "Completo per a l'indret del meu grup: el paisatge de ___ és de roques de tipus ___ (ígni/sedimentari/metamòrfic), que es van formar fa aproximadament ___ Ma per ___.",
       "Aporto almenys 1 dada o 1 il·lustració a la guia geològica del grup.",
-      "Completo 1 connexió entre SA7 i una altra SA del curs: 'A SA___ vam aprendre que ___. A SA7 hem après que ___. La connexió és que ___'."
+      "Completo 1 connexió: 'Abans vam aprendre que ___. Amb la geologia hem après que ___. La connexió és que ___'."
     ]
   },
 
@@ -44,7 +44,7 @@ export const sa7s4 = {
   },
 
   ideesPrevies: {
-    startPoint: "Avui és l'última sessió de SA7 i del curs de geologia. Observeu les 6 fotografies del paisatge de Catalunya. Quin paisatge us crida més l'atenció? Per quina raó creus que és com és? Escriu la teva hipòtesi inicial.",
+    startPoint: "Avui és l'última sessió de geologia. Tot el que heu après aquí el fareu servir al projecte «Ens enfonsem». Observeu les 6 fotografies del paisatge de Catalunya. Quin paisatge us crida més l'atenció? Per quina raó creus que és com és? Escriu la teva hipòtesi inicial.",
     prompts: [
       {
         kind: "write",
@@ -101,14 +101,14 @@ export const sa7s4 = {
       id: "t4",
       apartat: "3",
       heading: "Síntesi del curs: connexions entre geologia i vida",
-      text: "La geologia no és un tema aïllat: connecta amb tot el curs. ==SA1 (cèl·lula)==: els minerals (ferro, calci, fòsfor) són imprescindibles per a les cèl·lules. L'hemoglobina conté ==ferro|r== — un mineral geològic. ==SA2 (cos humà)==: el ==calci dels ossos|o== prové del calcari i de la cadena alimentària. L'anèmia ferropènica (enigma SA2) és un dèficit del mineral ferro. ==SA5 (ecologia)==: el ==cicle del carboni|g== té una component geològica (CO₂ atmosfèric → closques CaCO₃ → calcari → erosió → CO₂) i una component biològica (fotosíntesi ↔ respiració). ==SA6 (canvi climàtic)==: la crema de ==combustibles fòssils|r== retorna a l'atmosfera en 200 anys el carboni fixat en roques fa milions d'anys, desequilibrant el ==cicle del carboni geològic|g==. La geologia és la memòria de la Terra — i ara en saps llegir una mica.",
+      text: "La geologia no és un tema aïllat: connecta amb tot el curs. ==SA1 (cèl·lula)==: els minerals (ferro, calci, fòsfor) són imprescindibles per a les cèl·lules. L'hemoglobina conté ==ferro|r== — un mineral geològic. ==SA2 (cos humà)==: el ==calci dels ossos|o== prové del calcari i de la cadena alimentària. L'anèmia ferropènica (enigma SA2) és un dèficit del mineral ferro. ==El projecte «Ens enfonsem»==: el ==cicle del carboni|g== té una component geològica (CO₂ atmosfèric → closques CaCO₃ → calcari → erosió → CO₂) i una de biològica (fotosíntesi ↔ respiració); i la crema de ==combustibles fòssils|r== retorna a l'atmosfera en 200 anys el carboni fixat en roques fa milions d'anys, desequilibrant el ==cicle del carboni geològic|g==. L'==erosió, el transport i la sedimentació|o== que has estudiat aquí són, literalment, la raó per la qual el delta de l'Ebre s'enfonsa. La geologia és la memòria de la Terra — i ara en saps llegir una mica.",
       type: "epistemic"
     }
   ],
 
   graphicResources: [
-    { id: "G1", apartat: "2", title: "Mapa geològic simplificat de Catalunya", src: "/images/sa7-g7-mapa-geologic-cat.svg", note: "Mapa de Catalunya amb zones geológiques: Pirineu axial (granit i gneis, hercínic), Pre-pirineus (calcàries mesozoiques), Depressió central (sediments terciaris), Serralada Costanera (granits + calcàries), Delta de l'Ebre (sediments actius), Garrotxa (basalts volcànics). Llegenda de colors per edat i tipus de roca." },
-    { id: "G2", apartat: "3", title: "Resolució de l'enigma: terratrèmols i volcans de Catalunya", src: "/images/sa7-g8-enigma-resolucio.svg", note: "Diagrama de dos blocs: 1) Col·lisió alpina (55-35 Ma): plaques Ibèrica + Euràsia → Pirineu + falles actives → terratrèmols actuals. 2) Rift postalpí (11.500-100.000 anys AP): extensió litosfèrica → mantell puja → basalt → volcans de la Garrotxa. Fletxes de compressió (→←) per al Pirineu i fletxes d'extensió (←→) per a la Garrotxa." }
+    { id: "G1", apartat: "2", title: "Mapa geològic simplificat de Catalunya", src: "/images/sa5-g7-mapa-geologic-cat.svg", note: "Mapa de Catalunya amb zones geológiques: Pirineu axial (granit i gneis, hercínic), Pre-pirineus (calcàries mesozoiques), Depressió central (sediments terciaris), Serralada Costanera (granits + calcàries), Delta de l'Ebre (sediments actius), Garrotxa (basalts volcànics). Llegenda de colors per edat i tipus de roca." },
+    { id: "G2", apartat: "3", title: "Resolució de l'enigma: terratrèmols i volcans de Catalunya", src: "/images/sa5-g8-enigma-resolucio.svg", note: "Diagrama de dos blocs: 1) Col·lisió alpina (55-35 Ma): plaques Ibèrica + Euràsia → Pirineu + falles actives → terratrèmols actuals. 2) Rift postalpí (11.500-100.000 anys AP): extensió litosfèrica → mantell puja → basalt → volcans de la Garrotxa. Fletxes de compressió (→←) per al Pirineu i fletxes d'extensió (←→) per a la Garrotxa." }
   ],
 
   // Sense fitxa imprimible encara: el PDF que hi havia aquí no existeix a
@@ -135,10 +135,10 @@ export const sa7s4 = {
   },
 
   exitTicketType: "formulari",
-  exitTicketUrl: "https://forms.gle/sa7-sintesi",
+  exitTicketUrl: "https://forms.gle/sa5-sintesi",
   exitTicketQuestions: [
     { id: "q1", type: "open", text: "Explica en 4-5 frases la resolució completa de l'enigma: per quina raó hi ha terratrèmols al Pirineu i per quina raó hi ha volcans a la Garrotxa? Usa els conceptes: col·lisió, plaques, falles, rift, extensió, basalt.", hint: "Pirineu: col·lisió alpina (55-35 Ma) → falles actives → terratrèmols. Garrotxa: rift postalpí (extensió) → mantell puja → fusió parcial → basalt volcànic → erupcions (darrera fa 11.500 anys). Dos processos oposats: compressió (Pirineu) + extensió posterior (Garrotxa)." },
-    { id: "q2", type: "open", text: "Fes una síntesi de SA7 esmentant 3 connexions amb SAs anteriors del curs. Per quina raó la geologia és rellevant per entendre la biologia, l'ecologia o el canvi climàtic?", hint: "Connexions: SA2 (ferro = mineral geològic en l'hemoglobina), SA5 (cicle del carboni geològic: CaCO₃ → CO₂ atmosfèric), SA6 (combustibles fòssils = roca geològica; ciment = 8% emissions globals). La geologia proveeix els materials i l'energia que fa funcionar la vida i l'economia." },
+    { id: "q2", type: "open", text: "Fes una síntesi de la geologia esmentant 3 connexions amb altres unitats del curs. Per quina raó la geologia és rellevant per entendre la biologia, l'ecologia o el canvi climàtic?", hint: "Connexions: SA2 (ferro = mineral geològic en l'hemoglobina), el cicle del carboni geològic (CaCO₃ → CO₂ atmosfèric) i el projecte «Ens enfonsem» (combustibles fòssils = roca geològica; ciment = 8% de les emissions globals; sediments que no arriben al delta). La geologia proveeix els materials i l'energia que fa funcionar la vida i l'economia." },
     { id: "q3", type: "multiple", text: "Per quina raó el darrer volcà actiu de la Garrotxa (fa ≈11.500 anys) no és un volcà de subducció com els del Japó o els Andes?", options: ["Perquè la Garrotxa és a l'interior del continent, on no arriben les ones sísmiques", "Perquè és un volcà de rift (extensió litosfèrica postalpina), no de subducció — no hi ha fossa oceànica ni placa que s'enfonsi a prop", "Perquè és massa petit per ser un volcà de subducció — els volcans de subducció sempre són molt grans", "Perquè és un volcà extinat — els volcans actius de subducció mai s'acaben d'extingir"], correct: 1 }
   ],
 
@@ -151,7 +151,7 @@ export const sa7s4 = {
     "Completa la taula dels 6 paisatges de Catalunya (G1): roca / procés / edat",
     "Escriu la resolució de l'enigma: 3 frases sobre terratrèmols al Pirineu + 3 frases sobre volcans a la Garrotxa",
     "Respon el formulari Google de síntesi (QR o enllaç a la pàgina web de la sessió)",
-    "Llegeix la síntesi de connexions entre SA7 i les SAs anteriors (t4)"
+    "Llegeix la síntesi de connexions entre la geologia i la resta del curs (t4)"
   ],
   oaLinks: ["OA4", "OA2"], competencies: ["CE1", "CE6"]
 }

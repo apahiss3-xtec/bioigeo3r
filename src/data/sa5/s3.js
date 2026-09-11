@@ -1,8 +1,8 @@
-export const sa7s3 = {
-  id: "s3", saId: "sa7",
+export const sa5s3 = {
+  id: "s3", saId: "sa5",
   title: "S'acabarà la pedra amb què està feta l'aula?",
-  sessionNumber: 3, biome: "sa7", duration: "2h",
-  engageImage: "/images/sa7-s3-recursos.jpg",
+  sessionNumber: 3, biome: "sa5", duration: "2h",
+  engageImage: "/images/sa5-s3-recursos.jpg",
 
   engageQuestion: "Quin material és el terra de la nostra aula? Les parets? El sostre? Les cadires? Si busquem l'origen de cada material, gairebé tots venen de la Terra: pedra, sorra, argila, ferro, alumini, guix... Quant contamina produir-los? I si s'esgoten?",
   engageContext: "Fes una volta visual per l'aula: el terra, les parets de guix, el sostre de formigó, les finestres de vidre, les cadires d'acer. Tots aquests materials venen d'un mineral. Existiran sempre o s'esgotaran? Quins són renovables? I una connexió incòmoda amb la situació anterior: el ciment emet prop del 8 % del CO₂ global.",
@@ -16,7 +16,7 @@ export const sa7s3 = {
       "Explico les 3 etapes del procés de formació del carbó (etapificació: torba → lignit → hulla → antracita) i del petroli (origen biogènic, migració, trampa geològica) i argumento per quina raó són «no renovables» en l'escala de temps humana tot i que es renoven en l'escala geològica.",
       "Calculo l'impacte de CO₂ del ciment (extracció del calcari → descarbonatació: CaCO₃ → CaO + CO₂, ≈8% de les emissions globals) i el comparo amb l'impacte de l'acer i l'alumini. Argumento quin material és més «sostenible» tenint en compte el reciclatge.",
       "Avaluo l'impacte paisatgístic i ambiental d'una pedrera de calcari usant els criteris de CE6 (paisatge / biodiversitat / contaminació hídrica / rehabilitació) i proposo mesures de minimització de l'impacte.",
-      "Relaciono el cicle del carboni geològic (SA6) amb la formació de roques calcàries: el CO₂ atmosfèric fixat per organismes marins fa 100 Ma és el calcari de Cardona; quan el cremem (ciment) el retornem a l'atmosfera en qüestió de mesos."
+      "Relaciono el cicle del carboni geològic amb la formació de roques calcàries: el CO₂ atmosfèric fixat per organismes marins fa 100 Ma és el calcari de Cardona; quan el cremem (ciment) el retornem a l'atmosfera en qüestió de mesos."
     ],
     B: [
       "Distingeixo minerals de roques amb exemples: el quars és un mineral (SiO₂ sempre), el granit és una roca (barreja de quars + feldspat + mica).",
@@ -28,7 +28,7 @@ export const sa7s3 = {
       "Completo: un mineral sempre té la mateixa composició química. El quars és sempre ___. El calcari és una roca perquè conté el mineral ___  i sovint restes de ___.",
       "Completo: els combustibles fòssils (carbó, petroli, gas natural) es van formar fa ___ milions d'anys. El carbó ve de restes de ___ (plantes/animals) enterrades i compactades. El petroli ve de restes de ___ (plantes/animals) marines.",
       "Completo: 3 recursos geològics importants de Catalunya: 1. ___ (s'usa per fer ciment), 2. ___ (cobertes de les cases als Pirineus), 3. ___ (sal de potassi que s'exporta del Bages).",
-      "Completo la connexió SA6: per produir ciment cal calcinar el calcari a 1.450 °C. Això allibera ___ a l'atmosfera. El ciment és responsable del ___% de les emissions globals de CO₂."
+      "Completo la connexió amb «Ens enfonsem»: per produir ciment cal calcinar el calcari a 1.450 °C. Això allibera ___ a l'atmosfera. El ciment és responsable del ___% de les emissions globals de CO₂."
     ]
   },
 
@@ -67,7 +67,7 @@ export const sa7s3 = {
   exploreInstructions: [
     "Estudi de cas: impacte dels recursos geològics (en grups de 3-4). Cada grup rep un recurs diferent: A) calcari i ciment, B) pissarra pirinenca, C) potassa de Cardona/Sallent, D) sorra de platja per a la construcció, E) granit ornamental",
     "Pas 1 (10 min): per a cada recurs, investigueu (fitxa de referència + recerca guiada): on s'extreu a Catalunya, com es processa, on s'usa, quin és l'impacte ambiental principal (paisatgístic, contaminació, emissió de CO₂...)",
-    "Pas 2 (8 min): relacioneu el vostre recurs amb SA6 (canvi climàtic). Com contribueix a les emissions de GEH? Hi ha alternatives més sostenibles? Connexió amb el cicle del carboni geològic",
+    "Pas 2 (8 min): relacioneu el vostre recurs amb el canvi climàtic. Com contribueix a les emissions de GEH? Hi ha alternatives més sostenibles? Connexió amb el cicle del carboni geològic",
     "Pas 3 (7 min): prepareu 3 frases per presentar al grup classe: 1 curiositat del recurs, 1 dada d'impacte ambiental, 1 proposta de millora",
     "Posada en comú: cada grup presenta les 3 frases i sistematitzem que tots els recursos geològics són finits a escala humana, però uns es reciclen millor que d'altres"
   ],
@@ -86,7 +86,7 @@ export const sa7s3 = {
       id: "t2",
       apartat: "2",
       heading: "==Combustibles fòssils==: la memòria química d'éssers vius extingits",
-      text: "Els ==combustibles fòssils|r== (carbó, petroli, gas natural) són la matèria orgànica d'éssers vius que va quedar enterrada fa milions d'anys i es va transformar per pressió i calor. ==Carbó|r==: de boscos tropicals del ==Carbonífer|o== (350-300 Ma) compactats i metamorfitzats. Graus: torba (recent) → lignit → hulla → antracita (el més pur). ==Petroli i gas natural|r==: d'organismes marins (plàncton, algues) acumulats al fons marí, coberts per sediments i transformats per calor (50-150 °C) durant milions d'anys. Migra cap amunt fins a quedar atrapat en una ==trampa geològica|o== (anticlinal, falla segellada). Per quina raó són «no renovables»: es van formar en escales de 100 milions d'anys; els estem consumint en 200 anys. Connexió SA6: quan els cremem, el ==CO₂ fixat fa milions d'anys|r== retorna a l'atmosfera en qüestió de mesos, desequilibrant el ==cicle del carboni geològic|g==.",
+      text: "Els ==combustibles fòssils|r== (carbó, petroli, gas natural) són la matèria orgànica d'éssers vius que va quedar enterrada fa milions d'anys i es va transformar per pressió i calor. ==Carbó|r==: de boscos tropicals del ==Carbonífer|o== (350-300 Ma) compactats i metamorfitzats. Graus: torba (recent) → lignit → hulla → antracita (el més pur). ==Petroli i gas natural|r==: d'organismes marins (plàncton, algues) acumulats al fons marí, coberts per sediments i transformats per calor (50-150 °C) durant milions d'anys. Migra cap amunt fins a quedar atrapat en una ==trampa geològica|o== (anticlinal, falla segellada). Per quina raó són «no renovables»: es van formar en escales de 100 milions d'anys; els estem consumint en 200 anys. Connexió amb «Ens enfonsem»: quan els cremem, el ==CO₂ fixat fa milions d'anys|r== retorna a l'atmosfera en qüestió de mesos, desequilibrant el ==cicle del carboni geològic|g==.",
       type: "concept"
     },
     {
@@ -114,8 +114,8 @@ export const sa7s3 = {
   ],
 
   graphicResources: [
-    { id: "G1", apartat: "2", title: "Mapa de recursos geològics de Catalunya", src: "/images/sa7-g5-recursos-cat.svg", note: "Mapa de Catalunya amb marques per zones de recursos: calcari (Llobregat, Conca Barberà), pissarra (Pallars, Alt Urgell), potassa (Bages: Cardona, Sallent), granit (Guilleries), volcans (Garrotxa = basalt), sorra (Delta de l'Ebre). Llegenda de colors per tipus de recurs." },
-    { id: "G2", apartat: "3", title: "Impacte del ciment: cicle de vida i emissions de CO₂", src: "/images/sa7-g6-ciment-co2.svg", note: "Diagrama de cicle de vida: extracció calcari → forn de clínquer (1450°C, CaCO₃→CaO+CO₂) → ciment → formigó → construcció → enderroc → abocador/reciclatge. Punts d'emissió de CO₂ marcats. Comparació: 1 tona de ciment = ≈0,9 tones CO₂. 8% emissions globals." }
+    { id: "G1", apartat: "2", title: "Mapa de recursos geològics de Catalunya", src: "/images/sa5-g5-recursos-cat.svg", note: "Mapa de Catalunya amb marques per zones de recursos: calcari (Llobregat, Conca Barberà), pissarra (Pallars, Alt Urgell), potassa (Bages: Cardona, Sallent), granit (Guilleries), volcans (Garrotxa = basalt), sorra (Delta de l'Ebre). Llegenda de colors per tipus de recurs." },
+    { id: "G2", apartat: "3", title: "Impacte del ciment: cicle de vida i emissions de CO₂", src: "/images/sa5-g6-ciment-co2.svg", note: "Diagrama de cicle de vida: extracció calcari → forn de clínquer (1450°C, CaCO₃→CaO+CO₂) → ciment → formigó → construcció → enderroc → abocador/reciclatge. Punts d'emissió de CO₂ marcats. Comparació: 1 tona de ciment = ≈0,9 tones CO₂. 8% emissions globals." }
   ],
 
   // Sense fitxa imprimible encara: el PDF que hi havia aquí no existeix a
@@ -127,8 +127,8 @@ export const sa7s3 = {
     fitxaName: "Fitxa S3 — De les roques als recursos",
     steps: [
       { apartat: "0", title: "Materials del nostre entorn (deures S1→S2)", time: "5 min", phase: "engage", instruction: "Apartat 0: presenta les fotos dels 3 materials de construcció del barri. Anota: material identificat, tipus de roca/mineral, origen possible.", hints: [] },
-      { apartat: "1", title: "Estudi de cas: el vostre recurs geològic", time: "25 min", phase: "explore", instruction: "Apartat 1: completa la fitxa del vostre recurs (on s'extreu, com es processa, usos, impacte ambiental, connexió SA6). Prepareu les 3 frases per a la posada en comú.", hints: [
-        "Connexió SA6: el ciment és responsable del 8% de les emissions globals de CO₂. El petroli i el carbó són responsables de la major part de la resta. Tots són recursos geològics.",
+      { apartat: "1", title: "Estudi de cas: el vostre recurs geològic", time: "25 min", phase: "explore", instruction: "Apartat 1: completa la fitxa del vostre recurs (on s'extreu, com es processa, usos, impacte ambiental, connexió amb el canvi climàtic). Prepareu les 3 frases per a la posada en comú.", hints: [
+        "Connexió amb «Ens enfonsem»: el ciment és responsable del 8% de les emissions globals de CO₂. El petroli i el carbó són responsables de la major part de la resta. Tots són recursos geològics.",
         "Pregunta clau: és el recurs renovable a escala humana (100-200 anys) o cal milions d'anys per regenerar-lo?"
       ] },
       { apartat: "2", title: "Minerals, combustibles fòssils i recursos de Catalunya", time: "20 min", phase: "explica", instruction: "Apartat 2: completa la taula de minerals i resources (G1). Omple l'esquema de formació del carbó i el petroli. Per quina raó són no renovables?", hints: [
@@ -144,7 +144,7 @@ export const sa7s3 = {
 
   exitTicketType: "paper",
   exitTicketQuestions: [
-    { id: "q1", type: "open", text: "Per quina raó el ciment és un dels materials amb major impacte climàtic tot i ser un 'material de pedra'? Explica el procés químic involucrat i relaciona'l amb la connexió SA6.", hint: "Descarbonatació: CaCO₃ → CaO + CO₂ (a 1.450°C). A més, el forn necessita energia (normalment fòssil). Total: ≈0,9 kg CO₂ per kg de ciment. 8% emissions globals. Connexió SA6: CO₂ capturat fa 100 Ma es retorna a l'atmosfera." },
+    { id: "q1", type: "open", text: "Per quina raó el ciment és un dels materials amb major impacte climàtic tot i ser un 'material de pedra'? Explica el procés químic involucrat i relaciona'l amb la connexió amb el projecte «Ens enfonsem».", hint: "Descarbonatació: CaCO₃ → CaO + CO₂ (a 1.450°C). A més, el forn necessita energia (normalment fòssil). Total: ≈0,9 kg CO₂ per kg de ciment. 8% emissions globals. Connexió: el CO₂ capturat fa 100 Ma es retorna a l'atmosfera." },
     { id: "q2", type: "open", text: "Per quina raó els combustibles fòssils són 'no renovables' si la Terra els ha produït de forma natural? Explica la diferència entre l'escala de temps humana i la geològica.", hint: "Es formen en 100-300 milions d'anys per transformació de matèria orgànica enterrada. S'estan esgotant en ≈200 anys de consum industrial. La raó per la qual són 'no renovables' és que el ritme de consum supera infinitament el ritme de formació natural." },
     { id: "q3", type: "multiple", text: "Quin recurs geològic és el que extreu la mina de Sallent (Bages, Catalunya) i quin és el seu ús principal?", options: ["Carbó, per a la producció d'electricitat", "Potassa, per a la producció d'adobs agrícoles", "Calcari, per a la producció de ciment", "Granit, per a la construcció d'edificis ornamentals"], correct: 1 }
   ],
@@ -157,7 +157,7 @@ export const sa7s3 = {
     "Llegeix la teoria d'aquesta pàgina (minerals vs roques, combustibles fòssils, recursos geològics de Catalunya, impacte ambiental)",
     "Omple la taula de recursos geològics: recurs / tipus / on s'extreu / ús / és renovable?",
     "Explica en 3 frases per quina raó el ciment emet tant CO₂",
-    "Completa la connexió SA6: carbó → format fa ___ Ma de ___ → quan el cremem alliberem ___ a l'atmosfera",
+    "Completa la connexió amb «Ens enfonsem»: carbó → format fa ___ Ma de ___ → quan el cremem alliberem ___ a l'atmosfera",
     "Exit tiquet en paper a S4"
   ],
   oaLinks: ["OA3"], competencies: ["CE1", "CE6"]

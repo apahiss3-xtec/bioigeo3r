@@ -1,26 +1,39 @@
+// SA6 · Ens enfonsem — Projecte STEM (Biologia i Geologia + Tecnologia i Digitalització)
+// CREAT el 2026-09-10 des del vault («SA6 - Vista general», «SA6 - Estructura sessions»).
+//
+// Substitueix les antigues SA5 «La xarxa de la vida» i SA6 «El planeta que s'escalfa»,
+// suprimides el mateix dia. La geologia (antiga SA7) ha passat a ser SA5 i es fa ABANS
+// d'aquest projecte, perquè l'erosió, el transport i la sedimentació que s'hi estudien
+// són exactament el que explica per què el delta desapareix.
+//
+// `stem: true` fa que la portada la pinti com a casella destacada amb l'etiqueta
+// «Projecte STEM». Mentre no hi hagi cap sN.js, viu a `upcomingSAs` (marcada
+// «Pròximament»); quan es fabriqui B1, passa a `publishedSAs`.
 export const sa6 = {
   id: "sa6",
-  title: "El planeta que s'escalfa",
-  subtitle: "Quant contamina el meu esmorzar?",
+  title: "Ens enfonsem",
+  subtitle: "El delta s'enfonsa i els camions hi queden encallats. Què hi podem fer?",
   biome: "sa6",
-  color: { primary: '#B3661F', accent: '#A05518' },
-  sessions: 4,
+  color: { primary: '#1F6F8B', accent: '#0E4D63' },
+  sessions: 8,
+  stem: true,
+  partners: ["Biologia i Geologia", "Tecnologia i Digitalització"],
   portadaImage: "/images/sa6-portada.jpg",
-  description: "Descobriràs que les decisions quotidianes —el que mengem, la llum que deixem encesa, el transport que triem— tenen un impacte real en el clima del planeta. Aprendràs a calcular la petjada de carboni del teu esmorzar, a distingir les energies renovables de les fòssils, a identificar el greenwashing i a dissenyar una acció concreta de millora per a la nostra escola.",
-  product: "Proposta d'acció escolar: disseny d'una mesura concreta i viable per reduir la petjada de carboni de l'escola (menú, energia, mobilitat, residus). Avaluada per un comitè d'iguals amb rúbrica d'evidència i viabilitat.",
+  description: "Una empresa us fa un encàrrec de debò: cada hivern un temporal inunda la platja del Trabucador i hi deixa camions encallats. Us demanen dues coses. Una, un aparell que detecti que el pas està inundat i avisi abans que hi entri ningú — això ho fareu a Tecnologia. I dues, l'explicació científica de per què això passa cada any i què s'hi hauria de fer a llarg termini — això, aquí. Al final ho presentareu a qui us ho ha demanat.",
+  product: "Un prototip amb micro:bit muntat sobre una maqueta del delta, un pòster científic amb la proposta a llarg termini, i una carta de resposta a l'empresa signada per tota la classe.",
   enigmas: [
     {
       id: "enigma1",
-      title: "El bocadillo de pernil",
-      description: "Un bocadillo de pernil ibèric emet aproximadament 500 grams de CO₂ equivalent (gCO₂eq), mentre que un bocadillo de formatge fresc n'emet unes 100 grams — cinc vegades menys. Totes dues opcions tenen un pes i un valor nutritiu similars. Per quina raó la diferència d'impacte climàtic és tan gran? Al final de la SA entendràs el cicle de vida complet del pernil i sabràs per quina raó la ramaderia és una de les fonts d'emissions més importants del planeta."
+      title: "Per què el delta ja no es refà tot sol?",
+      description: "Durant sis mil anys el riu va anar portant fang i sorra, i el delta creixia. Ara el mar se'l menja i ningú el reposa. Cada hivern un temporal talla el Trabucador. Què ha canviat, i qui ho ha canviat? Ho respondràs a la tercera sessió."
     }
   ],
   objectives: [
-    { id: "OA1", text: "Canvi climàtic: causes i mecanisme", desc: "Explicar el mecanisme de l'efecte hivernacle natural i la seva amplificació per l'activitat humana, identificar els principals gasos d'efecte hivernacle (CO₂, CH₄, N₂O), relacionar les causes del canvi climàtic amb les conseqüències observables (temperatura, glaceres, nivell del mar, fenòmens extrems) i argumentar per quina raó les evidències científiques són àmpliament consensuades" },
-    { id: "OA2", text: "Fonts d'energia renovables i no renovables", desc: "Distingir les fonts d'energia renovables (solar, eòlica, hidràulica, biomassa, geotèrmica) de les no renovables (combustibles fòssils: carbó, petroli, gas natural; energia nuclear), relacionar el consum de combustibles fòssils amb les emissions de CO₂ i argumentar per quina raó la transició energètica és necessària per a la mitigació del canvi climàtic" },
-    { id: "OA3", text: "Petjada de carboni i consum responsable (CE5)", desc: "Calcular i interpretar la petjada de carboni d'activitats quotidianes (alimentació, transport, energia a la llar), identificar les accions individuals i col·lectives que redueixen les emissions, distingir entre reducció, reutilització i reciclatge i argumentar per quina raó la reducció és la mesura més efectiva de les tres R" },
-    { id: "OA4", text: "Avaluació crítica de fonts i greenwashing (CE2)", desc: "Identificar tàctiques de greenwashing en anuncis i etiquetes reals, aplicar criteris de credibilitat (autoria, evidència, transparència, consens científic) per avaluar la fiabilitat d'una font ambiental i argumentar una postura fonamentada sobre un discurs ambiental contradictori (negacionisme vs alarmisme)" }
+    { id: "OA1", text: "Qui menja qui al delta", desc: "Construir la xarxa tròfica del delta, classificar-hi les relacions ecològiques (competència, depredació, parasitisme, mutualisme, comensalisme) dient qui hi guanya i qui hi perd, i predir l'efecte d'un impacte dos passos enllà de l'espècie afectada." },
+    { id: "OA2", text: "L'energia es degrada, la matèria torna", desc: "Distingir el flux d'energia del cicle de la matèria, descriure el cicle del carboni identificant l'aiguamoll com a embornal, i estimar i reduir la petjada d'un menú propi." },
+    { id: "OA3", text: "Per què s'enfonsa un delta", desc: "Explicar la regressió del delta com un balanç entre el sediment que arriba, la subsidència i la pujada del nivell del mar, dissenyar un experiment identificant-ne les variables, i distingir correlació de causalitat en dades reals." },
+    { id: "OA4", text: "Decidir amb proves quan no hi ha bons ni dolents", desc: "Argumentar una posició sobre una controvèrsia sociocientífica real (embassaments, energia renovable i sediments) sostenint-la amb proves, i proposar una mesura dient qui hi guanya i qui hi perd." }
   ],
-  competencies: ["CE2", "CE5"],
-  flippedClassroom: false
+  competencies: ["CE1", "CE4", "CE5", "CE6"],
+  flippedClassroom: true
 }

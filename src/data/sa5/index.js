@@ -1,41 +1,26 @@
-// SA5 · La xarxa de la vida — capçalera de la unitat
-// REESCRIT el 2026-09-01 des del vault («SA5 - Vista general», «SA5 - Estructura
-// sessions», «00 - Índex»). Vegeu §0bis de «SA5 - Sessió 1 - SPEC».
-//
-// Tres canvis respecte de la versió anterior, que era un esborrany anterior al
-// sistema de specs:
-//  · sessions: 4 → 3. L'Índex del vault ho fixa des del 06/05/2026 («SA5 i SA7
-//    reduïdes a 3») i quadra el total del curs a 30 sessions. El 4 venia de
-//    `planificacio_curs_bio_3eso.md`, que ja consta desfasat.
-//  · enigma: la invasió de la cotorra argentina → el retorn de les llúdrigues
-//    al riu. És l'enigma que el disseny 5E del vault penja a la S1 i resol a
-//    la S3, i el que treballen totes les fitxes.
-//  · color: verd #3E7C4F → blau riu #2E7BA6 (paleta «aigua» del sistema IE
-//    Temple). El verd era pràcticament el mateix que el de SA3 «Defensors del
-//    cos» (#2F6B5E) i dues SAs consecutives quedaven indistingibles.
 export const sa5 = {
   id: "sa5",
-  title: "La xarxa de la vida",
-  subtitle: "Qui menja qui al nostre entorn?",
+  title: "La memòria de la Terra",
+  subtitle: "Un terratrèmol a prop nostre: per quina raó passa?",
   biome: "sa5",
-  color: { primary: '#2E7BA6', accent: '#12405C' },
-  sessions: 3,
+  color: { primary: '#7A5C44', accent: '#6B4F38' },
+  sessions: 4,
   portadaImage: "/images/sa5-portada.jpg",
-  description: "Sortireu al pati a fer un cens de qui hi viu de debò i teixireu amb fils de llana la xarxa que uneix tots els éssers vius d'un riu — per notar al braç què passa quan en cau un. Després seguireu un àtom de carboni pel seu viatge i veureu per quina raó la matèria torna i l'energia no. I al final, un cas real: quan l'equilibri es trenca, qui hi guanya i qui hi perd.",
-  product: "Investigació de l'entorn local: la xarxa tròfica d'un ecosistema proper, un desequilibri que l'amenaça i una proposta d'acció o de seguiment",
+  description: "Les roques que trepitgem cada dia guarden la memòria de milers de milions d'anys d'història de la Terra. Aprendràs a llegir aquest arxiu de pedra: per quina raó Catalunya és sísmica, per quina raó la Garrotxa té volcans sense subducció, d'on venen els minerals que usem cada dia, i com el relleu del nostre país és la cicatriu visible d'antigues col·lisions de continents.",
+  product: "Guia geològica de l'entorn: cada grup elabora una pàgina sobre un indret proper (roca predominant, procés geològic que l'ha format, recurs que s'hi extreu, impacte paisatgístic). La guia col·lectiva de la classe es publica en format digital.",
   enigmas: [
     {
       id: "enigma1",
-      title: "Han tornat les llúdrigues",
-      description: "Al riu que passa a prop de l'escola han vist llúdrigues per primera vegada en 30 anys. Una espècie que torna després de tres dècades. Algú hi guanya i algú hi perd — i no són només els peixos. Al final de la unitat sabreu qui, i per quina raó."
+      title: "El terratrèmol de les Preses (1428)",
+      description: "El 2 de febrer de 1428, un terratrèmol de magnitud estimada entre 6,5 i 7,0 va sacsejar La Garrotxa i va destruir les Preses, Puigpardines i Amer. Encara avui la zona de l'Alt Empordà i els Pirineus registra activitat sísmica periòdica. Però hi ha dues preguntes que has de respondre per separat: 1) Per quina raó es produeixen terratrèmols al Pirineu si no és un límit de plaques actiu avui? 2) Per quina raó la Garrotxa té volcans si no hi ha cap placa tectònica en subducció a prop nostre? Al final de la SA respondràs les dues preguntes amb argumentació geològica."
     }
   ],
   objectives: [
-    { id: "OA1", text: "Qui viu i qui menja qui", desc: "Fer un cens d'un ecosistema real anotant-hi les interaccions, classificar les relacions ecològiques (competència, depredació, parasitisme, mutualisme, comensalisme) dient qui hi guanya i qui hi perd, i situar cada ésser viu com a productor, consumidor o descomponedor" },
-    { id: "OA2", text: "L'efecte cascada", desc: "Raonar què li passa a una xarxa tròfica quan se'n treu o s'hi afegeix una espècie, arribant dos passos enllà de l'espècie afectada, i reconèixer les limitacions d'una observació de camp i d'un model" },
-    { id: "OA3", text: "L'energia flueix, la matèria torna", desc: "Distingir el flux d'energia (entra com a llum i es degrada a cada nivell) del cicle de la matèria (els àtoms es reciclen), i descriure el cicle del carboni relacionant-hi l'activitat humana" },
-    { id: "OA4", text: "Quan l'equilibri es trenca (CE4+CE5+CE6)", desc: "Explicar un efecte cascada real i la transformació del paisatge associada, relacionar els desequilibris dels ecosistemes amb la salut, i valorar l'impacte de diferents models d'alimentació sobre ecosistemes i biodiversitat" }
+    { id: "OA1", text: "Les roques i el cicle geològic", desc: "Identificar les tres famílies de roques (ígnies, sedimentàries, metamòrfiques) per les seves característiques observables, explicar el procés de formació de cada família i relacionar-les entre si a través del cicle de les roques. Aplicar criteris d'identificació (textura, duresa, reacció amb àcid) a mostres reals en el laboratori." },
+    { id: "OA2", text: "Tectònica de plaques i riscos geològics", desc: "Explicar el model de tectònica de plaques (estructura de la Terra, convecció del mantell, moviment de les plaques litosfériques), relacionar els tres tipus de límits de plaques (divergents, convergents, transformants) amb els fenòmens geològics associats (dorsals, subducció, terratrèmols, volcans) i interpretar mapes de distribució de riscos sísmics i volcànics." },
+    { id: "OA3", text: "Recursos geològics i impacte ambiental (CE6)", desc: "Distingir minerals de roques, identificar els principals recursos geològics i la seva aplicació industrial (ciment, combustibles fòssils, metalls), avaluar l'impacte ambiental i paisatgístic de l'extracció minera i relacionar el consum de combustibles fòssils amb el canvi climàtic (connexió amb el projecte «Ens enfonsem»)." },
+    { id: "OA4", text: "Llegir el paisatge geològic (CE6)", desc: "Interpretar les formes del relleu de Catalunya a partir dels processos geològics que les han originat (col·lisió alpina, vulcanisme de rift, erosió, sedimentació), relacionar la geologia local amb l'enigma de la SA (terratrèmols pirinencs i volcans de la Garrotxa) i argumentar com la geologia condiciona el paisatge, el territori i la vida de les persones." }
   ],
-  competencies: ["CE1", "CE4", "CE5", "CE6"],
+  competencies: ["CE1", "CE3", "CE6"],
   flippedClassroom: false
 }

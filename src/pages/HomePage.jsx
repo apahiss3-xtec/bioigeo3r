@@ -62,25 +62,77 @@ export default function HomePage() {
           </motion.div>
         ))}
 
-        {upcomingSAs.map((sa, i) => (
-          <motion.div key={sa.id} {...cardMotion(publishedSAs.length + i)}>
-            <div
-              className={`biome-${sa.biome} card h-full p-6 opacity-70`}
-              aria-label={`${sa.title} — ${t('home.comingSoon')}`}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="section-bar" style={{ background: 'var(--biome)' }}>
-                  {sa.id.toUpperCase()}
-                </span>
-                <span className="rounded-full border border-[var(--rule-strong)] px-3 py-0.5 text-xs uppercase tracking-wider text-[var(--muted)]">
-                  {t('home.comingSoon')}
-                </span>
+        {upcomingSAs.map((sa, i) => {
+          const i18n = { count: sa.sessions }
+
+          // Casella destacada del projecte STEM: ocupa les dues columnes i porta
+          // etiqueta pròpia. No és un enllaç mentre no hi hagi cap sessió feta.
+          if (sa.stem) {
+            return (
+              <motion.div
+                key={sa.id}
+                className="md:col-span-2"
+                {...cardMotion(publishedSAs.length + i)}
+              >
+                <div
+                  className={`biome-${sa.biome} card overflow-hidden border-2`}
+                  style={{ borderColor: 'var(--biome-accent)' }}
+                  aria-label={`${sa.title} — ${t('home.stemProject')} — ${t('home.comingSoon')}`}
+                >
+                  <div
+                    className="flex flex-wrap items-center gap-3 px-6 py-3"
+                    style={{ background: 'var(--biome)' }}
+                  >
+                    <span className="font-display font-bold uppercase tracking-[0.18em] text-sm text-white">
+                      ⚙︎ {t('home.stemProject')}
+                    </span>
+                    <span className="text-sm text-white/80">
+                      {sa.partners?.join(` ${t('home.stemWith')} `)}
+                    </span>
+                    <span className="ms-auto rounded-full border border-white/50 px-3 py-0.5 text-xs uppercase tracking-wider text-white/90">
+                      {t('home.comingSoon')}
+                    </span>
+                  </div>
+
+                  <div className="p-6 md:flex md:gap-8">
+                    <div className="md:flex-1">
+                      <h2 className="text-4xl mb-1">{sa.title}</h2>
+                      <p className="italic text-[var(--muted)] mb-4">{sa.subtitle}</p>
+                      <p className="text-[var(--muted)] max-w-2xl">{sa.description}</p>
+                    </div>
+                    <div className="mt-6 md:mt-0 md:w-64 shrink-0">
+                      <p className="kicker mb-2">{t('sa.product')}</p>
+                      <p className="text-sm text-[var(--muted)]">{sa.product}</p>
+                      <p className="mt-4 text-sm font-display uppercase tracking-wider text-[var(--muted)]">
+                        {t('home.sessionsCount', i18n)}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )
+          }
+
+          return (
+            <motion.div key={sa.id} {...cardMotion(publishedSAs.length + i)}>
+              <div
+                className={`biome-${sa.biome} card h-full p-6 opacity-70`}
+                aria-label={`${sa.title} — ${t('home.comingSoon')}`}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="section-bar" style={{ background: 'var(--biome)' }}>
+                    {sa.id.toUpperCase()}
+                  </span>
+                  <span className="rounded-full border border-[var(--rule-strong)] px-3 py-0.5 text-xs uppercase tracking-wider text-[var(--muted)]">
+                    {t('home.comingSoon')}
+                  </span>
+                </div>
+                <h2 className="text-2xl mb-1">{sa.title}</h2>
+                <p className="italic text-[var(--muted)]">{sa.subtitle}</p>
               </div>
-              <h2 className="text-2xl mb-1">{sa.title}</h2>
-              <p className="italic text-[var(--muted)]">{sa.subtitle}</p>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          )
+        })}
       </section>
     </div>
   )
