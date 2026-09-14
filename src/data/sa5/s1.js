@@ -2,7 +2,7 @@ export const sa5s1 = {
   id: "s1", saId: "sa5",
   title: "Què t'explica la roca del terra de l'aula?",
   sessionNumber: 1, biome: "sa5", duration: "2h",
-  engageImage: "/images/sa5-s1-roques.jpg",
+  engageImage: "/images/sa5-s1-roques.png",
 
   engageQuestion: "El terra de la nostra aula, les façanes dels edificis del barri, els monuments... tots estan fets de roca. Però per quina raó hi ha roques tan diferents? Un granit és completament diferent d'una pissarra, i totes dues ho són d'un calcari. Al final d'avui sabràs identificar qualsevol mostra de roca i explicar per quina raó és com és.",
   engageContext: "Tindràs sis mostres de roca sense etiqueta: observa-les, toca-les i descriu-les amb adjectius. Quines has vist als edificis del barri? De què és el terra del pati? Una d'aquestes roques és volcànica, i serà la clau per entendre la Garrotxa.",
@@ -72,7 +72,7 @@ export const sa5s1 = {
     "Posada en comú: es confirmen les identificacions i es raona cada roca. Per quina raó el basalt té cristalls tan petits en comparació amb el granit?"
   ],
   exploreDuration: "25 min",
-  exploreMaterials: ["6 mostres de roca etiquetades (granit, basalt, calcari, pissarra, arenisca, marbre)", "HCl diluït al 10% (en comptagotes)", "Clau o moneda de coure (per a duresa)", "Lupa 10×", "Fitxa d'identificació de roques (per grup)"],
+  exploreMaterials: ["6 mostres de roca etiquetades (granit, basalt, calcari, pissarra, arenisca, marbre)", "HCl diluït al 10% (en comptagotes)", "Clau o moneda de coure (per a duresa)", "Lupa 10×", "Fitxa d'identificació de roques (per grup)", "Ceres de 3 colors, full d'alumini i font de calor (per a la demostració del cicle)"],
 
   theoryPoints: [
     {
@@ -114,14 +114,24 @@ export const sa5s1 = {
   ],
 
   graphicResources: [
-    { id: "G1", apartat: "2", title: "Clau d'identificació de les 6 roques del laboratori", src: "/images/sa5-g1-clau-roques.svg", note: "Taula visual: mostra (foto) / família / procés / característiques diagnòstiques / ús humà. Granit: ígnia intrusiva, cristalls grans, ús en construcció. Basalt: ígnia extrusiva, cristalls petits/amorf, volcànica. Calcari: sedimentària química, efervescència amb HCl, fòssils possibles. Pissarra: metamòrfica, clivatge en làmines, baix grau. Arenisca: sedimentària clàstica, grans de sorra visibles. Marbre: metamòrfica de calcari, cristalls de calcita, no fa efervescència." },
-    { id: "G2", apartat: "3", title: "Cicle de les roques", src: "/images/sa5-g2-cicle-roques.svg", note: "Diagrama cíclic: Magma (centre) → Roca ígnia (↑ refredar-se) → Sediment (→ erosió) → Roca sedimentaria (→ litificació) → Roca metamòrfica (↓ calor+pressió) → Magma (↓ fusió). Fletxes i noms dels processos per cada transició." }
+    { id: "G1", apartat: "2", title: "Clau d'identificació de les 6 roques del laboratori", src: "/images/sa5-s1-sis-mostres.png", note: "Taula visual: mostra (foto) / família / procés / característiques diagnòstiques / ús humà. Granit: ígnia intrusiva, cristalls grans, ús en construcció. Basalt: ígnia extrusiva, cristalls petits/amorf, volcànica. Calcari: sedimentària química, efervescència amb HCl, fòssils possibles. Pissarra: metamòrfica, clivatge en làmines, baix grau. Arenisca: sedimentària clàstica, grans de sorra visibles. Marbre: metamòrfica de calcari, cristalls de calcita, no fa efervescència." },
+    { id: "G2", apartat: "3", title: "Cicle de les roques", src: "/images/sa5-s1-cicle-roques.svg", note: "Diagrama cíclic: Magma (centre) → Roca ígnia (↑ refredar-se) → Sediment (→ erosió) → Roca sedimentaria (→ litificació) → Roca metamòrfica (↓ calor+pressió) → Magma (↓ fusió). Fletxes i noms dels processos per cada transició." }
   ],
 
-  // Sense fitxa imprimible encara: el PDF que hi havia aquí no existeix a
-  // public/fitxes/. Amb null, la web mostra «la fitxa es reparteix a classe»
-  // en comptes d'un enllaç trencat.
-  fitxaUrl: null, teoriaPdfUrl: null,
+  // 14/09/2026: fitxes A/B/C reals creades i publicades (SA5-memoria-terra/
+  // S1-roques-parlen/). El full de sortida va a part, com mana el vault.
+  fitxaUrl: {
+    A: "/fitxes/sa5-s1-fitxa-A.html",
+    B: "/fitxes/sa5-s1-fitxa-B.html",
+    C: "/fitxes/sa5-s1-fitxa-C.html"
+  },
+  teoriaPdfUrl: null,
+  sessionMaterials: [
+    { id: "sortida", title: "Full de sortida (versions A i B)", url: "/fitxes/sa5-s1-full-sortida.html", who: "docent" },
+    { id: "sortidaC", title: "Full de sortida (versió C)", url: "/fitxes/sa5-s1-full-sortida-C.html", who: "docent" },
+    { id: "mostres", title: "Sis mostres de roca per grup, HCl diluït, lupa i clau de coure", who: "docent" },
+    { id: "ceres", title: "Ceres de 3 colors, full d'alumini i font de calor (demostració del cicle)", who: "docent" }
+  ],
 
   fitxaGuide: {
     fitxaName: "Fitxa S1 — Les roques expliquen la història",
@@ -135,7 +145,7 @@ export const sa5s1 = {
         "Clau: velocitat de refredament. Lent (en profunditat) → cristalls grans. Ràpid (a la superfície, extrusiu) → cristalls petits o textura vítria.",
         "Ígnies = del foc (magma). Sedimentàries = de sediments (erosió + litificació). Metamòrfiques = transformades (calor + pressió)."
       ] },
-      { apartat: "3", title: "Identificació de les mostres i cicle de les roques", time: "10 min", phase: "explica", instruction: "Apartat 3: corregeix les teves identificacions del lab amb la clau (G1). Emplena el diagrama del cicle de les roques (G2). Escriu la primera pista de l'enigma.", hints: [
+      { apartat: "3", title: "El cicle de les roques, amb la demostració de ceres", time: "15 min", phase: "elabora", instruction: "Apartat 3: mentre el professor fa el cicle amb ceres de colors, anota què representa cada pas a la natura. Després emplena el diagrama del cicle (G2) i escriu la primera pista de l'enigma.", hints: [
         "Cicle: magma → ígnia → erosió → sediment → sedimentària → calor/pressió → metamòrfica → fusió → magma.",
         "Primera pista de l'enigma: el basalt de la Garrotxa és una roca ígnia extrusiva recent. Per quina raó hi ha basalt a la Garrotxa si no hi ha cap límit de plaques de subducció a prop?"
       ] }

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La memòria de la Terra · Sessió 1 · Què t'explica la roca del terra de l'aula? — Autònom — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+
+:root {
+  /* Paleta TERRA de SA5 (els noms es mantenen del xassís heretat) */
+  --purple:#7A5C44; --purple-ink:#4A3524; --purple-light:#CDB79C; --purple-tint:#F6EFE6;
+  --ink:#22201C; --ink-2:#453D33; --muted:#8A7A66; --surface:#fffdfa; --paper:#fffdfa;
+  --rule:#E6DACA; --rule-dark:#CDB79C;
+  --orange:#c9772f; --orange-tint:#fbf0e6;
+  --teal:#3a8e88;   --teal-tint:#e6f2f1;
+  --rose:#b4506a;   --rose-tint:#faeaee;
+  --yellow:#b8860b; --yellow-tint:#fbf5e4; --yellow-ink:#6b4f00;
+  --green:#4a8e58;  --green-tint:#eaf3ec;
+  --red:#b5432f;    --red-tint:#fbefec;
+  --blue:#2b6394;   --blue-tint:#e9f0f8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Fira Sans Extra Condensed', sans-serif; background:#a4917a; color:var(--ink); font-size:13px; line-height:1.5; padding:62px 20px 40px; }
+#toolbar { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(34,26,18,.94); backdrop-filter:blur(10px); border-bottom:1px solid rgba(122,92,68,.4); height:44px; display:flex; align-items:center; gap:10px; padding:0 18px; }
+.tb-tip { font-family:'Inter',sans-serif; font-size:11px; color:rgba(230,216,198,.7); flex:1; }
+.tb-tip strong { color:#e8d9c4; }
+.tb-sep { width:1px; height:20px; background:rgba(205,183,156,.3); }
+.tb-btn { font-family:'Inter',sans-serif; font-size:12px; font-weight:600; border:none; border-radius:6px; padding:6px 13px; cursor:pointer; transition:opacity .15s; white-space:nowrap; }
+.tb-print { background:var(--purple); color:white; }
+.tb-print:hover { opacity:.85; }
+.tb-bold { background:rgba(205,183,156,.2); border:1px solid rgba(205,183,156,.4); color:#e8d9c4; font-size:14px; font-weight:900; padding:4px 11px; }
+.tb-bold:hover { background:rgba(205,183,156,.38); }
+.tb-undo { background:rgba(180,80,106,.2); border:1px solid rgba(180,80,106,.4); color:#f0a8bb; font-size:12px; opacity:.5; transition:opacity .2s; pointer-events:none; }
+.tb-undo.active { opacity:1; pointer-events:auto; }
+.tb-undo.active:hover { background:rgba(180,80,106,.35); }
+.tb-spacer { background:rgba(205,183,156,.2); border:1px solid rgba(205,183,156,.4); color:#e8d9c4; font-size:12px; }
+.tb-spacer:hover { background:rgba(205,183,156,.35); }
+.tb-desa { background:#7A5C44; color:#f6efe6; border:1px solid rgba(205,183,156,.55); }
+.tb-desa:hover { background:#8d6c50; }
+
+/* ── DOCUMENT ─────────────────────────────────────── */
+.page-wrap { width:794px; margin:0 auto; position:relative; }
+#doc { display:none; }
+
+/* ── PAGINADOR A4 REAL ─────────────────────────────── */
+#sheets { display:flex; flex-direction:column; align-items:center; gap:26px; }
+.sheet { width:794px; min-height:1123px; background:var(--paper); position:relative; box-shadow:0 4px 24px rgba(60,45,25,.2); overflow:visible; }
+.sheet-body { padding:36px 46px 18px; position:relative; overflow:visible; }
+.sheet.has-head .sheet-body { padding-top:54px; }
+.sheet-head { position:absolute; left:0; right:0; top:0; height:36px; display:none; justify-content:space-between; align-items:center; padding:0 46px; border-bottom:1.5px solid var(--purple-light); background:var(--paper); }
+.sheet.has-head .sheet-head { display:flex; }
+.sheet-head-l { font-family:'Inter',sans-serif; font-size:8.5px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--purple-ink); }
+.sheet-head-r { font-family:'Inter',sans-serif; font-size:8.5px; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); }
+.sheet-foot { position:absolute; left:0; right:0; bottom:0; height:30px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:0 46px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:600; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; border-top:.5px solid var(--rule); background:var(--paper); }
+.sheet-foot .fc { text-align:center; letter-spacing:.14em; color:var(--purple-ink); }
+.sheet-foot .fr { text-align:right; }
+.sheet-body > .header-band { margin:-36px -46px 0; }
+.sheet-body > .nivell-strip { margin:0 -46px; }
+.sheet-body > .oa-box { margin:12px 0 0; }
+
+/* ── EDITABLES ────────────────────────────────────── */
+[contenteditable] { outline:none; cursor:text; border-radius:3px; transition:background .12s, box-shadow .12s; }
+[contenteditable]:hover { background:rgba(122,92,68,.08); box-shadow:0 0 0 2px rgba(122,92,68,.28); }
+[contenteditable]:focus { background:rgba(122,92,68,.12); box-shadow:0 0 0 2.5px var(--purple); }
+.header-band [contenteditable]:hover { background:rgba(255,255,255,.15); box-shadow:0 0 0 2px rgba(255,255,255,.3); }
+.header-band [contenteditable]:focus { background:rgba(255,255,255,.2); box-shadow:0 0 0 2.5px #fff; }
+span[contenteditable] { display:inline-block; }
+.wline { display:block; width:100%; min-height:32px; background:white; outline:none; padding:4px 4px; border-bottom:1.5px solid var(--rule); word-break:break-word; cursor:text; line-height:1.7; }
+.wline:focus { border-bottom-color:var(--purple); background:rgba(122,92,68,.04); }
+.frase-completar { font-size:11px; line-height:2.4; margin:4px 0 6px; }
+.blank { display:inline-block; border-bottom:1.5px solid var(--rule-dark); vertical-align:bottom; margin:0 3px; height:1.1em; }
+.blank-s { width:60px; } .blank-m { width:100px; } .blank-l { width:140px; } .blank-xl { width:200px; }
+.nom-field { margin-left:auto; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; font-family:inherit; color:var(--ink); }
+.input-span.data-span { min-width:65px; }
+.input-span:focus { border-bottom-color:var(--purple); }
+.nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(122,92,68,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); flex-shrink:0; }
+.deletable { position:relative; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; border-radius:50%; background:#b4506a; color:white; border:none; cursor:pointer; align-items:center; justify-content:center; font-size:12px; font-weight:900; line-height:1; z-index:100; box-shadow:0 1px 4px rgba(0,0,0,.3); transition:background .1s,transform .1s; }
+.del-btn:hover { background:#943552; transform:scale(1.15); }
+.deletable:hover > .del-btn { display:flex; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+.nivell-strip .deletable { display:inline-flex; align-items:center; }
+.header-band { background:linear-gradient(135deg,#3A2A1C 0%,#7A5C44 100%); color:#fff; padding:14px 18px; display:grid; grid-template-columns:72px 1fr 178px; gap:14px; align-items:center; position:relative; overflow:hidden; }
+.header-band::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 100% at 110% 50%,rgba(255,255,255,.07) 0%,transparent 70%); pointer-events:none; }
+.header-emoji-col { display:flex; align-items:center; justify-content:center; }
+.header-emoji-box { width:62px; height:62px; border-radius:14px; background:rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center; font-size:36px; user-select:none; flex-shrink:0; }
+.header-main { min-width:0; }
+.header-sa { font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; opacity:.6; margin-bottom:4px; }
+.header-title { font-size:24px; font-weight:900; letter-spacing:-.01em; line-height:1.05; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-style:italic; font-size:13px; opacity:.75; margin-top:4px; }
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:5px; }
+.logo-box { background:rgba(255,255,255,.92); border-radius:7px; padding:5px 6px; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 1px 6px rgba(0,0,0,.18); }
+.header-meta { font-size:9.5px; opacity:.55; text-align:right; line-height:1.7; }
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.nivell-label { font-size:11px; color:var(--muted); font-style:italic; }
+.temps-badge { font-size:10px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
+.oa-box { background:linear-gradient(to right,var(--purple-tint),var(--surface)); border-left:4px solid var(--purple); padding:10px 16px; }
+.oa-title { font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:6px; }
+.oa-list { list-style:none; padding:0; margin:0; }
+.oa-list li { font-size:11px; padding:3px 0 3px 22px; position:relative; line-height:1.45; border-bottom:1px dashed var(--rule); }
+.oa-list li:last-child { border-bottom:none; }
+.oa-list li::before { content:'○'; position:absolute; left:4px; top:3px; font-size:11px; color:var(--purple-light); }
+.meta-oa-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-oa-title { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; font-size:11px; margin-bottom:4px; padding:2px 0; }
+.meta-oa-item:last-child { margin-bottom:0; }
+.meta-oa-check { width:16px; height:16px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; margin-top:1px; }
+.meta-oa-text { flex:1; line-height:1.35; }
+.section { margin-top:14px; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:10.5px; color:var(--ink-2); font-style:italic; font-family:'Crimson Pro',serif; }
+.temps { font-size:10px; color:var(--purple-ink); font-weight:700; margin-left:4px; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
+.previ-box p { font-size:13px; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-icon { font-size:24px; flex-shrink:0; }
+.connexio-text { font-size:11px; line-height:1.45; }
+.connexio-text strong { color:var(--purple-ink); }
+.hipotesi-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin-bottom:10px; }
+.hipotesi-box p { font-size:13px; font-weight:700; color:var(--purple-ink); margin-bottom:4px; }
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow-ink); margin-bottom:2px; }
+.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.55; color:var(--ink-2); }
+.data-table { width:100%; border-collapse:collapse; font-size:11px; margin-bottom:10px; }
+.data-table th { background:var(--purple-ink); color:white; padding:6px 9px; text-align:left; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table th:first-child { border-radius:5px 0 0 0; }
+.data-table th:last-child { border-radius:0 5px 0 0; }
+.data-table th small { font-size:8.5px; font-weight:400; letter-spacing:0; text-transform:none; opacity:.78; display:block; margin-top:1px; }
+.data-table td { padding:5px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table tr:nth-child(even) td { background:var(--purple-tint); }
+.icon-cell { font-size:16px; text-align:center; width:32px; }
+.fill-cell { display:block; width:100%; min-height:26px; outline:none; padding:2px 3px; word-break:break-word; cursor:text; background:white; }
+.fill-cell:focus { background:rgba(122,92,68,.08); outline:1px solid var(--purple-light); border-radius:2px; }
+.label-cell { font-size:11px; font-weight:700; color:var(--ink-2); }
+.explore-q { display:flex; gap:8px; margin-bottom:10px; align-items:flex-start; }
+.explore-qnum { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--orange); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.explore-qtext { font-size:11px; flex:1; }
+.meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+.meta-item { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-icon { font-size:18px; display:block; margin-bottom:3px; }
+.meta-label { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px; }
+.tasca-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:10px 14px; margin-top:12px; }
+.tasca-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:6px; font-size:11px; }
+.tasca-item:last-child { margin-bottom:0; }
+.tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(122,92,68,.05) 6px,rgba(122,92,68,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
+.spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+.info-box { background:white; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.info-label { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.info-box p { font-size:11px; line-height:1.55; margin-bottom:3px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0 3px; }
+.chain-chip { font-size:10.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:13px; }
+.circ-row { font-size:11px; line-height:2.4; margin-bottom:3px; }
+.circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:white; }
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
+.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.chips { display:flex; flex-wrap:wrap; gap:4px; }
+.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:white; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.fig { margin:10px 0; text-align:center; }
+.fig-frame { position:relative; display:inline-block; max-width:100%; border:1.5px solid var(--purple-light); border-radius:9px; background:var(--purple-tint); overflow:hidden; box-shadow:0 1px 6px rgba(122,92,68,.14); }
+.fig-frame img { display:block; max-width:100%; object-fit:contain; }
+.fig-ph { display:none; align-items:center; justify-content:center; min-height:118px; padding:16px 20px; font-size:10.5px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
+.fig-ph .ph-ico { font-size:26px; display:block; margin-bottom:5px; }
+.figcap { font-size:10.5px; color:var(--muted); margin-top:5px; font-style:italic; line-height:1.45; }
+.pista { font-size:11px; color:var(--ink-2); font-style:italic; line-height:1.5; margin:3px 0 4px; padding-left:3px; }
+.pista b, .pista strong { color:var(--purple-ink); font-style:normal; }
+.callout { background:#FBF3E2; border-left:5px solid #B8860B; border-radius:0 9px 9px 0; padding:9px 12px; margin:10px 0; font-size:11px; line-height:1.5; break-inside:avoid; }
+.callout b, .callout strong { color:#6b4f00; }
+.fig-row { display:flex; gap:10px; align-items:flex-start; margin:8px 0; break-inside:avoid; }
+.fig-row .fig { flex:1; min-width:0; margin:0; }
+.legend { font-size:11px; line-height:1.6; margin:4px 0 0; }
+.legend b { color:var(--purple-ink); }
+
+@media print {
+  @page { size:A4; margin:0; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html,body { background:#fff; padding:0; margin:0; }
+  #toolbar, .del-btn { display:none !important; }
+  #sheets { gap:0; display:block; }
+  .sheet { width:210mm; height:297mm; min-height:0; box-shadow:none; margin:0; page-break-after:always; break-after:page; overflow:hidden; }
+  .sheet:last-child { page-break-after:auto; break-after:auto; }
+  .header-emoji-box { background:#efe4d6 !important; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline { background:transparent; padding:0; }
+  .fill-cell { background:transparent; outline:none; }
+  .input-span { border-bottom-color:var(--rule-dark); }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .nivell-badge-small { background:transparent !important; border-color:var(--rule-dark) !important; }
+}
+
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span class="tb-tip">✎ Clica per editar · <strong>Ctrl+B</strong> negreta · <strong>×</strong> rosa elimina · <strong>Ctrl+Z</strong> desfés · <strong>Ctrl+S</strong> desa</span>
+  <div class="tb-sep"></div>
+  <button class="tb-btn tb-undo" id="btn-undo" onclick="undoDelete()">↩ Desfés</button>
+  <button class="tb-btn tb-bold" onclick="document.execCommand('bold')"><b>N</b></button>
+  <button class="tb-btn tb-spacer" onclick="insertSpacer()">＋ Espai</button>
+  <button class="tb-btn tb-desa" onclick="desaFitxa()">💾 Desa</button>
+  <button class="tb-btn tb-print" onclick="window.print()">🖨️ Imprimir / PDF</button>
+</div>
+
+<div class="page-wrap" id="doc">
+
+  <div class="header-band deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="header-emoji-col">
+      <div class="header-emoji-box" contenteditable="true">🪨</div>
+    </div>
+    <div class="header-main">
+      <div class="header-sa" contenteditable="true">La memòria de la Terra · Sessió 1 de 4</div>
+      <div class="header-title" contenteditable="true">Què t'explica la roca del terra de l'aula?</div>
+      <div class="header-subtitle" contenteditable="true">Sis pedres sense nom, tres proves i un cicle que no s'acaba mai</div>
+    </div>
+    <div class="header-right">
+      <div class="logo-box">
+        <img src="../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
+      </div>
+      <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
+    </div>
+  </div>
+
+  <div class="nivell-strip deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <span class="nivell-label deletable" contenteditable="true">Autònom<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <span class="temps-badge deletable" contenteditable="true">⏱️ Sessió de 2 h<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <div class="nom-field deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
+      &nbsp;&nbsp;Data:&nbsp;<span class="input-span data-span" contenteditable="true"></span>
+      &nbsp;<span class="nivell-badge-small" title="Versió A — Autònom / Ampliació">A</span>
+    </div>
+  </div>
+
+  <div class="oa-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="oa-title">🎯 Objectius d'aprenentatge d'avui (Nivell A)</div>
+    <ul class="oa-list">
+      <li contenteditable="true">Identifico les sis mostres i, a més, ordeno les proves d'identificació de menys a més destructiva justificant l'ordre amb criteri científic.</li>
+      <li contenteditable="true">Predic la mida dels cristalls d'una roca ígnia a partir d'on i a quina velocitat s'ha refredat, en casos que no he vist al laboratori.</li>
+      <li contenteditable="true">Distingeixo casos que les proves d'avui no resolen (calcari i marbre) i dic quina informació em faltaria.</li>
+      <li contenteditable="true">Avaluo fins on arriba el model de ceres: quines limitacions invaliden una conclusió i quines no.</li>
+    </ul>
+  </div>
+
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--purple)">0</div><div><div class="stitle" contenteditable="true">Què en saps ja?</div><div class="sdesc" contenteditable="true">Idees prèvies ⏱️ 12 min</div></div></div><div class="divider"></div><div class="previ-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><p contenteditable="true">Avui comença la <b>geologia</b>. A la taula tens sis pedres sense nom. Abans de tocar-les i abans que t'expliquem res, escriu el que ja et sembla que saps: al final de la unitat hi tornaràs.</p></div><p class="pista">💡 Dibuixa-la com te la recordis: la forma, si tenia grans, capes o colors diferents.</p><p class="pista" style="margin-bottom:2px">✏️ Una roca que hagis vist o tocat aquests dies</p><div class="deletable" style="position:relative;min-height:170px;border:1.5px solid var(--rule-dark);border-radius:8px;background:#fff;margin:2px 0 6px" contenteditable="true"><div class="del-btn" onclick="deleteEl(this)">✕</div></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">1</div><div class="explore-qtext" contenteditable="true">On era, aquesta roca, i com et sembla que s'ha format?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">2</div><div class="explore-qtext" contenteditable="true">Quina diferència creus que hi ha entre una <b>roca</b> i un <b>mineral</b>? Escriu la teva hipòtesi abans que ho expliquem.</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--orange)">1</div><div><div class="stitle" contenteditable="true">Sis pedres sense nom</div><div class="sdesc" contenteditable="true">Al laboratori ⏱️ 25 min</div></div></div><div class="divider"></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><figure class="fig"><div class="fig-frame"><img src="img/sa5-s1-sis-mostres.png" alt="Les sis mostres de roca del laboratori, numerades de l'1 al 6" style="max-height:300px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Les sis mostres de roca del laboratori, numerades de l'1 al 6</span></div></div><figcaption class="figcap" contenteditable="true">Les sis roques que tindràs a la taula. A classe cada pedra porta una lletra enganxada (A-F) posada a l'atzar: descobrir quina és cada una és, justament, la feina d'avui.</figcaption></figure><div class="legend deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><b>1</b> gra gruixut i clapejat de tres colors · <b>2</b> fosca i plena de foradets · <b>3</b> clara i tova, de vegades amb una petxina · <b>4</b> fosca, es parteix en làmines planes · <b>5</b> color sorra, s'hi veuen els grans · <b>6</b> blanca i amb aspecte de sucre</div></div><div class="info-box"><div class="info-label">🧪 Les tres proves d'avui</div><p>Abans de començar: un <b>cristall</b> és un granet de mineral amb cares planes, com un diamant petit. Com més temps ha tingut per créixer, més gros és; per això en unes roques es veuen a ull nu i en altres no.<br><br><b>Prova 1 · Mirar i tocar.</b> Color, si s'hi veuen cristalls o grans, si es parteix en làmines, si pesa molt per la mida que fa.<br><b>Prova 2 · Ratllar.</b> Prova de ratllar-la amb l'ungla; si no pots, prova-ho amb la clau de coure. Ratllar-se amb l'ungla vol dir que és molt tova; resistir la clau vol dir que és dura.<br><b>Prova 3 · Àcid.</b> Dues gotes d'<b>àcid clorhídric (HCl) diluït</b>. Si surten bombolles, la roca té <b>carbonat de calci</b> (calç): l'àcid el desfà i el gas que se'n va són les bombolles. ⚠️ L'àcid, encara que sigui diluït, no es toca amb els dits ni s'acosta a la cara: ulleres posades, el comptagotes sempre cap avall i, si en cau a la pell, aixeta i avisar el professor.</p></div><div class="word-bank"><div class="word-bank-title">📦 Banc de paraules (no cal fer-los servir tots)</div><div class="chips"><span class="chip">granit</span><span class="chip">basalt</span><span class="chip">calcari</span><span class="chip">gres</span><span class="chip">pissarra</span><span class="chip">marbre</span></div></div><p class="pista">💡 Les columnes de <b>família</b> i <b>nom</b> es completen a l'apartat 2, quan tinguis el criteri de formació.</p><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><table class="data-table"><thead><tr><th>Mostra</th><th>Color i textura<small>grans, cristalls, làmines…</small></th><th>Ungla<small>ratlla?</small></th><th>Clau<small>ratlla?</small></th><th>Àcid<small>bombolles?</small></th><th>Família</th><th>Nom</th></tr></thead><tbody><tr><td class="label-cell">A</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">B</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">C</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">D</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">E</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">F</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table></div><div class="epist-box"><div style="font-size:22px;flex-shrink:0">🔬</div><div><div class="epist-title">Moment epistèmic — com sabem el que sabem</div><div class="epist-text">Dues mostres et poden sortir del mateix color i amb la mateixa duresa, i tot i així ser roques diferents: una fa bombolles i l'altra no. Els criteris que es veuen i es toquen, basten sempre per identificar una roca? Quan creus que un geòleg necessita el microscopi o una anàlisi química?</div></div></div><div class="epist-box"><div style="font-size:22px;flex-shrink:0">🔎</div><div><div class="epist-title">Un criteri que els geòlegs es prenen seriosament</div><div class="epist-text">Una prova <b>destructiva</b> fa malbé la mostra: després ja no la pots tornar a estudiar igual. Per això, en geologia i en arqueologia, l'ordre de les proves no és indiferent.</div></div></div><p class="pista">💡 Numera-les de l'1 (primera de fer) al 5 (última) i després justifica l'ordre.</p><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><table class="data-table"><thead><tr><th>Prova</th><th>Ordre (1-5)</th><th>Per quina raó va aquí</th></tr></thead><tbody><tr><td class="label-cell">Observar amb la lupa</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Pesar la mostra a la balança</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Ratllar-la amb la clau</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Posar-hi dues gotes d'àcid</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Partir-ne un tros amb el martell</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">1</div><div class="explore-qtext" contenteditable="true">Per quina raó un geòleg no comença mai per l'última prova de la llista?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">2</div><div class="explore-qtext" contenteditable="true">Quina de les proves que has fet <b>no</b> distingeix el calcari del marbre, i quina sí? Què hauries de mirar per estar-ne segur del tot?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--teal)">2</div><div><div class="stitle" contenteditable="true">Les tres famílies</div><div class="sdesc" contenteditable="true">El procés, no l'aspecte ⏱️ 20 min</div></div></div><div class="divider"></div><div class="info-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="info-label">🔤 Vocabulari d'avui</div><div style="line-height:1.5;column-count:2;column-gap:16px"><div style="break-inside:avoid;margin-bottom:3px"><strong>magma</strong> — roca fosa de dins la Terra; quan surt a la superfície se'n diu lava</div><div style="break-inside:avoid;margin-bottom:3px"><strong>cristall</strong> — granet de mineral amb cares planes; necessita temps per créixer gros</div><div style="break-inside:avoid;margin-bottom:3px"><strong>intrusiu / extrusiu</strong> — una roca ígnia és intrusiva si ha cristal·litzat en profunditat i extrusiva si ho ha fet a la superfície</div><div style="break-inside:avoid;margin-bottom:3px"><strong>litificació</strong> — compactació + cimentació dels sediments fins a fer-ne roca</div><div style="break-inside:avoid;margin-bottom:3px"><strong>marbre</strong> — calcari sotmès a calor i pressió: manté la calç (i l'efervescència), però els cristalls queden encaixats i els fòssils desapareixen</div></div></div><div class="info-box"><div class="info-label">📖 Per llegir</div><p>Un <b>mineral</b> té sempre la mateixa composició química i la mateixa estructura interna; una <b>roca</b> és una barreja de minerals. Les tres famílies es defineixen pel procés que les ha fetes, no per l'aspecte: ígnies (magma que cristal·litza), sedimentàries (sediments compactats i cimentats) i metamòrfiques (roca transformada per calor i pressió, en estat sòlid). En una ígnia, la mida del cristall depèn del temps de refredament: un cristall necessita temps per créixer ordenadament.</p></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><figure class="fig"><div class="fig-frame"><img src="img/sa5-s1-cristalls.svg" alt="Dos trossos de roca ígnia: un amb cristalls grans i un altre amb cristalls que no es veuen" style="max-height:210px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Dos trossos de roca ígnia: un amb cristalls grans i un altre amb cristalls que no es veuen</span></div></div><figcaption class="figcap" contenteditable="true">Les dues venen de magma. L'única diferència és quant de temps van tenir per refredar-se.</figcaption></figure></div><p class="pista">💡 Respon amb el mecanisme, no només amb el nom de la roca.</p><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">3</div><div class="explore-qtext" contenteditable="true"><b>Prediu.</b> Una colada de lava que es refreda de cop dins l'aigua del mar, quins cristalls tindrà? I una bossa de magma que es queda a 5 km de profunditat durant un milió d'anys?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="epist-box"><div style="font-size:22px;flex-shrink:0">🔎</div><div><div class="epist-title">La pedra de Montjuïc</div><div class="epist-text">Molts edificis del Passeig de Gràcia estan fets amb la pedra de la muntanya de Montjuïc, que popularment se n'ha dit sempre «granit de Montjuïc». Geològicament, però, és un <b>conglomerat</b>: grans i còdols de mides diferents enganxats per un ciment natural.</div></div></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">4</div><div class="explore-qtext" contenteditable="true">A quina família pertany realment la pedra de Montjuïc i com ho reconeixeries a ull nu? Per quina raó et sembla que se li va posar el nom de «granit»?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="callout"><b>Idea clau:</b> la família d'una roca la decideix el procés que l'ha format, no el seu aspecte.</div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--red)">3</div><div><div class="stitle" contenteditable="true">Una roca es pot convertir en una altra</div><div class="sdesc" contenteditable="true">El cicle, amb ceres ⏱️ 15 min</div></div></div><div class="divider"></div><div class="info-box"><div class="info-label">🕯️ La demostració de les ceres</div><p>Farem el cicle de les roques amb <b>ceres de colors</b>, davant de tots, en 15 minuts. La cera no és roca: és un model, una cosa que es comporta una mica com allò que volem entendre i que podem fer passar de pressa. Mira cada pas i anota què creus que representa a la natura.</p></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><table class="data-table"><thead><tr><th>Pas amb la cera</th><th>Què representa a la natura</th></tr></thead><tbody><tr><td class="label-cell">1 · Ratllem les ceres de tres colors i en fem un munt d'encenalls</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">2 · Premem els encenalls amb força, en fred</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">3 · Escalfem una mica el bloc i el tornem a prémer, sense deixar que es fongui</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">4 · Fonem la cera del tot i la deixem refredar</td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">5 · Tornem a ratllar la cera ja freda</td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><figure class="fig"><div class="fig-frame"><img src="img/sa5-s1-cicle-roques.svg" alt="El cicle de les roques amb les caixes buides" style="max-height:330px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>El cicle de les roques amb les caixes buides</span></div></div><figcaption class="figcap" contenteditable="true">Completa el nom de cada roca dins la seva caixa.</figcaption></figure></div><div class="epist-box"><div style="font-size:22px;flex-shrink:0">🔎</div><div><div class="epist-title">Dues xifres per pensar</div><div class="epist-text">La cera de les espelmes fon cap als <b>60 °C</b>. El basalt no fon fins als <b>1.100 °C</b>, i una roca del cicle pot trigar <b>milions d'anys</b> a fer una sola volta.</div></div></div><p class="pista">💡 <b>5.</b> Tres propietats de les roques que el model de ceres no representa. Per a cadascuna, digues si fa caure la conclusió sobre el cicle o si no l'afecta.</p><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><table class="data-table"><thead><tr><th>Propietat que la cera no representa</th><th>Invalida la conclusió? Per quina raó</th></tr></thead><tbody><tr><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table></div><p class="pista">💡 <b>6.</b> Un mateix gra de quars pot seguir camins diferents dins del cicle. Descriu-ne dos, pas a pas, amb una estimació de durada (anys, milers, milions).</p><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><table class="data-table"><thead><tr><th>Ruta</th><th>Camí dins del cicle</th><th>Quant podria durar</th></tr></thead><tbody><tr><td class="label-cell">Ruta 1</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Ruta 2</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table></div><div class="callout">🧩 <b>Primera pista de l'enigma.</b> El basalt de la Garrotxa és una roca ígnia <b>extrusiva</b> (va cristal·litzar a la superfície) i molt <b>recent</b>: fa uns 11.000 anys. És a dir, hi va haver magma arribant a dalt de tot fa quatre dies, geològicament parlant.</div><p class="pista">💡 Encara no hem vist per quina raó puja el magma: això és la sessió següent. Aquí no se't demana la resposta, sinó les preguntes que caldria respondre per trobar-la.</p><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">7</div><div class="explore-qtext" contenteditable="true">Escriu <b>dues preguntes</b> que un geòleg hauria de respondre per saber d'on sortia aquest magma, i digues quina dada buscaries per a cadascuna.</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--purple)">4</div><div><div class="stitle" contenteditable="true">Com ha anat avui</div><div class="sdesc" contenteditable="true">Metacognició ⏱️ 3 min</div></div></div><div class="divider"></div><div class="meta-grid"><div class="meta-item"><span class="meta-icon">🚦</span><div class="meta-label">Com ho veig</div><div class="circ-row"><span class="circ-opt">🟢 ho tinc</span><span class="circ-opt">🟡 a mitges</span><span class="circ-opt">🔴 perdut/uda</span></div></div><div class="meta-item"><span class="meta-icon">💭</span><div class="meta-label">Una cosa que ara veig diferent quan miro una pedra</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="meta-oa-box deletable" style="margin-top:9px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-title">Marca el que ja sabries explicar a algú altre</div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Identifico les sis mostres i, a més, ordeno les proves d'identificació de menys a més destructiva justificant l'ordre amb criteri científic.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Predic la mida dels cristalls d'una roca ígnia a partir d'on i a quina velocitat s'ha refredat, en casos que no he vist al laboratori.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Distingeixo casos que les proves d'avui no resolen (calcari i marbre) i dic quina informació em faltaria.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Avaluo fins on arriba el model de ceres: quines limitacions invaliden una conclusió i quines no.</div></div></div></div><div class="tasca-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-title">📚 Per a la propera sessió</div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">1</div><div contenteditable="true"><b>📷 Tres pedres del teu barri.</b> Fotografia (o dibuixa, si no tens mòbil) <b>tres materials de pedra</b> del teu entorn: la façana d'un edifici, el paviment d'un carrer, un monument, el mur d'un camp... Per a cadascun, escriu de quina família creus que és i en què t'has basat.</div></div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">2</div><div contenteditable="true"><b>Porta-ho a la sessió següent.</b> Començarem mirant les vostres pedres: n'hi haurà alguna que ens ajudarà a entendre per quina raó la terra tremola al Pirineu.</div></div></div>
+</div><!-- .page-wrap -->
+
+<div id="sheets"></div>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   PAGINADOR A4 REAL (portat de les fitxes migrades de SA1).
+   FLOW = llista ordenada dels blocs de primer nivell (la font lògica).
+   Capçalera corrent a partir de la pàgina 2 + peu comú amb llicència.
+   ════════════════════════════════════════════════════════════ */
+const SA_NOM = "La memòria de la Terra", SESSIO = "Sessió 1 de 4";
+const SHEET_H = 1123, FOOT_H = 30, BODY_MAX = SHEET_H - FOOT_H - 8;
+let FLOW = [];
+
+function flattenDoc(){
+  const doc=document.getElementById('doc');
+  const content=doc.querySelector(':scope > .content');
+  if(content){
+    const foot=content.querySelector(':scope > .footer'); if(foot) foot.remove();
+    while(content.firstChild){ doc.insertBefore(content.firstChild, content); }
+    content.remove();
+  }
+  const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
+}
+function extractFlow(){
+  FLOW = Array.from(document.getElementById('doc').children);
+  FLOW.forEach(function(b){
+    if(b.classList && b.classList.contains('section')){
+      Array.prototype.forEach.call(b.children, function(k,i){ k._ord = i; });
+    }
+  });
+}
+function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
+
+function saveCaret(){
+  const a=document.activeElement;
+  if(!a||!a.isContentEditable) return null;
+  const s=getSelection(); if(!s.rangeCount) return {el:a};
+  const r=s.getRangeAt(0);
+  return {el:a, sc:r.startContainer, so:r.startOffset, ec:r.endContainer, eo:r.endOffset};
+}
+function restoreCaret(d){
+  if(!d||!d.el||!document.body.contains(d.el)) return;
+  try{ d.el.focus({preventScroll:true});
+    if(d.sc && document.body.contains(d.sc)){
+      const r=document.createRange(); r.setStart(d.sc,d.so); r.setEnd(d.ec,d.eo);
+      const s=getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+  }catch(e){}
+}
+
+function repaginate(){
+  const host=document.getElementById('sheets'); if(!host) return;
+  const caret=saveCaret();
+  var _origens=[];
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){
+    var o=cont._origin; if(o){ while(cont.firstChild){ o.appendChild(cont.firstChild); } if(_origens.indexOf(o)<0) _origens.push(o); }
+  });
+  _origens.forEach(function(o){
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.appendChild(k); });
+  });
+  FLOW = FLOW.filter(function(b){ return b; });
+  FLOW.forEach(function(b){ if(b.parentNode) b.parentNode.removeChild(b); });
+  host.innerHTML='';
+  let body=null;
+  function newSheet(){
+    const n=host.children.length;
+    const sheet=document.createElement('div'); sheet.className='sheet'+(n?' has-head':'');
+    if(n){
+      const head=document.createElement('div'); head.className='sheet-head';
+      head.innerHTML='<span class="sheet-head-l"></span><span class="sheet-head-r">Biologia i Geologia · 3r ESO</span>';
+      head.firstChild.textContent=SA_NOM+' · '+SESSIO;
+      sheet.appendChild(head);
+    }
+    body=document.createElement('div'); body.className='sheet-body';
+    const foot=document.createElement('div'); foot.className='sheet-foot';
+    foot.innerHTML='<span class="fl">IE Temple · Biologia i Geologia 3r ESO</span>'+
+                   '<span class="fc">CC BY-NC-SA 4.0</span>'+
+                   '<span class="fr foot-pg"></span>';
+    sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
+  }
+  function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn'); }); }
+  function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
+  function trySplitSection(sec){
+    if(BODY_MAX - body.scrollHeight < 150) return false;
+    body.appendChild(sec);
+    if(body.scrollHeight <= BODY_MAX) return true;
+    var moved=[];
+    while(body.scrollHeight > BODY_MAX && _contentKids(sec).length > 1){
+      var ck=_contentKids(sec); var last=ck[ck.length-1];
+      moved.unshift(last); sec.removeChild(last);
+    }
+    if(moved.length===0 || body.scrollHeight > BODY_MAX){
+      moved.forEach(function(k){ sec.appendChild(k); });
+      if(sec.parentNode) sec.parentNode.removeChild(sec);
+      return false;
+    }
+    var pending=moved;
+    while(pending.length){
+      newSheet();
+      var cont=document.createElement('div');
+      cont.className='section'; cont.setAttribute('data-cont','1'); cont._origin=sec;
+      body.appendChild(cont);
+      pending.forEach(function(k){ cont.appendChild(k); });
+      var rest=[];
+      while(body.scrollHeight > BODY_MAX && cont.children.length>1){
+        var l=cont.lastElementChild; rest.unshift(l); cont.removeChild(l);
+      }
+      pending=rest;
+    }
+    return true;
+  }
+  newSheet();
+  for(let i=0;i<FLOW.length;i++){
+    const blk=FLOW[i];
+    if(blk.classList.contains('spacer-block')){
+      blk.style.height='auto'; body.appendChild(blk);
+      const used = body.scrollHeight - blk.offsetHeight;
+      const remain = BODY_MAX - used;
+      blk.style.height = (remain>34?remain:34)+'px';
+      if(i < FLOW.length-1) newSheet();
+      continue;
+    }
+    body.appendChild(blk);
+    if(body.scrollHeight > BODY_MAX && body.children.length>1){
+      body.removeChild(blk);
+      var _ok=false;
+      if(blk.classList.contains('section')){ try{ _ok=trySplitSection(blk); }catch(e){ _ok=false; } }
+      if(!_ok){
+        newSheet();
+        var _ok2=false;
+        if(blk.classList.contains('section')){ try{ _ok2=trySplitSection(blk); }catch(e){ _ok2=false; } }
+        if(!_ok2){ body.appendChild(blk); }
+      }
+    }
+  }
+  const sheets=host.querySelectorAll('.sheet');
+  sheets.forEach(function(s,idx){ const pg=s.querySelector('.foot-pg'); if(pg) pg.textContent='Pàgina '+(idx+1)+' / '+sheets.length; });
+  restoreCaret(caret);
+}
+let _pgT=null;
+function schedulePageBreaks(){ clearTimeout(_pgT); _pgT=setTimeout(repaginate,120); }
+document.addEventListener('focusout', function(){ schedulePageBreaks(); });
+
+/* ── eliminar / desfer / espai ─────────────────────── */
+const delStack = [];
+function deleteEl(btn){
+  const el=btn.closest('.deletable'); if(!el) return;
+  const blk=topFlowBlock(el);
+  if(blk===el){ const i=FLOW.indexOf(el); delStack.push({el:el, flowIdx:i}); if(i>=0) FLOW.splice(i,1); el.remove(); }
+  else { delStack.push({el:el, parent:el.parentNode, sibling:el.nextSibling}); el.remove(); }
+  document.getElementById('btn-undo').classList.add('active');
+  repaginate();
+}
+function undoDelete(){
+  if(!delStack.length) return;
+  const d=delStack.pop();
+  if(d.parent){ d.parent.insertBefore(d.el, d.sibling); }
+  else { FLOW.splice(Math.max(0,Math.min(d.flowIdx,FLOW.length)),0,d.el); }
+  if(!delStack.length) document.getElementById('btn-undo').classList.remove('active');
+  repaginate();
+}
+document.addEventListener('keydown', function(e){
+  if(e.key==='z' && (e.ctrlKey||e.metaKey)){
+    if(document.activeElement && document.activeElement.contentEditable==='true') return;
+    e.preventDefault(); undoDelete();
+  }
+});
+let _lastClickedBlock=null;
+document.addEventListener('click', function(e){
+  const b=topFlowBlock(e.target);
+  if(b && !b.classList.contains('spacer-block')) _lastClickedBlock=b;
+});
+function insertSpacer(){
+  const sp=document.createElement('div'); sp.className='spacer-block deletable';
+  sp.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai en blanc</span>';
+  let idx=FLOW.length;
+  if(_lastClickedBlock){ const i=FLOW.indexOf(_lastClickedBlock); if(i>=0) idx=i+1; }
+  FLOW.splice(idx,0,sp);
+  delStack.push({el:sp, flowIdx:idx});
+  document.getElementById('btn-undo').classList.add('active');
+  repaginate();
+}
+function rebuildDocFromFlow(){
+  const doc=document.getElementById('doc');
+  document.querySelectorAll('.section[data-cont]').forEach(function(cont){
+    var o=cont._origin; if(o){ while(cont.firstChild){ o.appendChild(cont.firstChild); } }
+  });
+  FLOW.forEach(function(b){ if(b.classList.contains('spacer-block')) b.style.height=''; });
+  FLOW.forEach(function(b){ if(b.parentNode!==doc){ if(b.parentNode) b.parentNode.removeChild(b); doc.appendChild(b); } });
+  document.getElementById('sheets').innerHTML='';
+}
+window.addEventListener('load', function(){
+  flattenDoc(); extractFlow(); repaginate();
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ repaginate(); }); }
+  document.querySelectorAll('img').forEach(function(img){ if(!img.complete) img.addEventListener('load', schedulePageBreaks, {once:true}); });
+  setTimeout(repaginate, 400); setTimeout(repaginate, 1200);
+});
+
+/* === DESAR EDICIONS AL FITXER === */
+function _fitxaToast(msg){
+  let t=document.getElementById('fitxa-toast');
+  if(!t){t=document.createElement('div');t.id='fitxa-toast';
+    t.style.cssText='position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3A2A1C;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s';
+    document.body.appendChild(t);}
+  t.textContent=msg;t.style.opacity='1';
+  clearTimeout(t._h);t._h=setTimeout(function(){t.style.opacity='0';},2200);
+}
+async function desaFitxa(){
+  rebuildDocFromFlow();
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelectorAll('#fitxa-toast').forEach(function(n){n.remove();});
+  const _sh=clone.querySelector('#sheets'); if(_sh) _sh.innerHTML='';
+  const html='<!DOCTYPE html>\n'+clone.outerHTML;
+  const fname=(location.pathname.split('/').pop()||'fitxa.html');
+  if(window.showSaveFilePicker){
+    try{
+      const h=await window.showSaveFilePicker({suggestedName:fname,types:[{description:'Pàgina HTML',accept:{'text/html':['.html']}}]});
+      const w=await h.createWritable();await w.write(html);await w.close();
+      _fitxaToast('✓ Canvis desats al fitxer');return;
+    }catch(e){if(e.name==='AbortError')return;}
+  }
+  const blob=new Blob([html],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+  _fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');
+  extractFlow(); repaginate();
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='s'&&(e.ctrlKey||e.metaKey)){e.preventDefault();desaFitxa();}
+});
+</script>
+</body></html>
