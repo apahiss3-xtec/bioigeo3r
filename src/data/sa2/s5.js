@@ -1,6 +1,6 @@
 export const sa2s5 = {
   id: "s5", saId: "sa2",
-  title: "Per què el cor s'accelera quan corres? ★",
+  title: "Per què el cor s'accelera quan corres?",
   sessionNumber: 5, biome: "sa2", duration: "2h",
   engageImage: "/images/sa2-s5-fc-esport.jpg",
   isKeySession: true,

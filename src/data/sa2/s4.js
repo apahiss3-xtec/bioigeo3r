@@ -1,6 +1,6 @@
 export const sa2s4 = {
   id: "s4", saId: "sa2",
-  title: "Dissecció de cor 🫀",
+  title: "Un cor real a les teves mans",
   sessionNumber: 4, biome: "sa2", duration: "2h",
   engageImage: "/images/sa2-s4-disseccio.jpg",
 

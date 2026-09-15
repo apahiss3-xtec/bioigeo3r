@@ -1,6 +1,6 @@
 export const sa5s2 = {
   id: "s2", saId: "sa5",
-  title: "La Terra que tremola",
+  title: "Per què tremola la terra a Catalunya?",
   sessionNumber: 2, biome: "sa5", duration: "2h",
   engageImage: "/images/sa5-s2-terratrèmol.jpg",
 

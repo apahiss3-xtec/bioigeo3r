@@ -1,6 +1,6 @@
 export const sa3s1 = {
   id: "s1", saId: "sa3",
-  title: "L'enemic entra",
+  title: "Qui t'ha encomanat el virus?",
   sessionNumber: 1, biome: "sa3", duration: "2h",
   engageImage: "/images/sa3-s1-contagi.jpg",
 
