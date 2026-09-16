@@ -762,8 +762,17 @@ function insertSpacer(){
 }
 function rebuildDocFromFlow(){
   const doc=document.getElementById('doc');
+  var _origens2=[];
   document.querySelectorAll('.section[data-cont]').forEach(function(cont){
-    var o=cont._origin; if(o){ while(cont.firstChild){ o.appendChild(cont.firstChild); } }
+    var o=cont._origin; if(o){ while(cont.firstChild){ o.appendChild(cont.firstChild); } if(_origens2.indexOf(o)<0) _origens2.push(o); }
+  });
+  // ...i es torna l'ordre original: en desar, els fills reassemblats s'afegien
+  // al final i el desordre quedava escrit al fitxer.
+  _origens2.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
   });
   FLOW.forEach(function(b){ if(b.classList.contains('spacer-block')) b.style.height=''; });
   FLOW.forEach(function(b){ if(b.parentNode!==doc){ if(b.parentNode) b.parentNode.removeChild(b); doc.appendChild(b); } });

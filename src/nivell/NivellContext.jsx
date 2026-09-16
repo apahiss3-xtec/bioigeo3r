@@ -5,7 +5,7 @@ import { createContext, useContext, useState } from 'react'
 //   Versió A (autonomia, preguntes obertes, hipòtesis, connexions entre SAs)
 //   Versió B (per a la majoria; guiatge moderat) ← per defecte
 //   Versió C (més suport: inicis de frase, frases a completar, patró fix, imatges)
-// No s'ha de confondre amb el mode SIMPLIFICA (accessibilitat lectora) ni amb
+// No s'ha de confondre amb l'idioma d'ajuda (traducció per hover) ni amb
 // els nivells d'assoliment NA/AS/AN/AE de l'autoavaluació.
 export const NIVELLS = ['A', 'B', 'C']
 export const DEFAULT_NIVELL = 'B'
