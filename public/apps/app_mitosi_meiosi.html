@@ -60,20 +60,14 @@ header {
 .header-title { font-size: 22px; font-weight: 700; color: var(--ink); line-height: 1.1; }
 .header-right { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
 
-.lang-btn, .simplify-btn {
+.lang-btn {
   font-family: 'Fira Sans Extra Condensed', sans-serif;
   font-size: 12px; font-weight: 700; letter-spacing: .06em;
   text-transform: uppercase; cursor: pointer;
   border: none; border-radius: 9999px;
   padding: 5px 14px; transition: all .2s;
+  background: var(--purple-tint); color: var(--purple-ink);
 }
-.simplify-btn {
-  background: var(--yellow-tint); color: var(--purple-ink);
-}
-.simplify-btn:hover { background: #f9dc5c; }
-.simplify-btn.active { background: #f9dc5c; box-shadow: 0 0 0 2px var(--purple-ink); }
-
-.lang-btn { background: var(--purple-tint); color: var(--purple-ink); }
 .lang-btn:hover { background: var(--rule); }
 .lang-btn.active { background: var(--purple-deep); color: #fff; }
 
@@ -217,11 +211,6 @@ body.mode-compara .cell-canvas { grid-row: 2; align-items: flex-start; }
 .info-text {
   font-size: 16px; line-height: 1.55; color: var(--ink-2);
 }
-.info-text.simplified {
-  font-size: 17px; line-height: 1.6; color: var(--ink);
-  font-weight: 400;
-}
-
 .key-points { list-style: none; display: flex; flex-direction: column; gap: 8px; }
 .key-point {
   display: flex; align-items: flex-start; gap: 10px;
@@ -272,15 +261,17 @@ body.mode-compara .cell-canvas { grid-row: 2; align-items: flex-start; }
    text catala ni les altres traduccions. */
 .lang-ar .tr-word .tooltip-ar,
 .lang-es .tr-word .tooltip-es,
-.lang-ur .tr-word .tooltip-ur {
+.lang-ur .tr-word .tooltip-ur,
+.lang-uk .tr-word .tooltip-uk {
   display: inline; position: static; transform: none;
   margin-left: 5px; padding: 1px 8px 2px; font-size: 13px;
 }
 .lang-ar .tr-word .tooltip-ar::after,
 .lang-es .tr-word .tooltip-es::after,
-.lang-ur .tr-word .tooltip-ur::after { display: none; }
+.lang-ur .tr-word .tooltip-ur::after,
+.lang-uk .tr-word .tooltip-uk::after { display: none; }
 /* Espai perque els xips no es toquin entre linies. */
-body.lang-ar .side-info, body.lang-es .side-info, body.lang-ur .side-info {
+body.lang-ar .side-info, body.lang-es .side-info, body.lang-ur .side-info, body.lang-uk .side-info {
   line-height: 2.1;
 }
 
@@ -349,10 +340,10 @@ body.lang-ar .side-info, body.lang-es .side-info, body.lang-ur .side-info {
     <span class="header-title">Divisió cel·lular: Mitosi i Meiosi</span>
   </div>
   <div class="header-right">
-    <button class="simplify-btn" id="btnSimplify" onclick="toggleSimplify()">Simplifica</button>
     <button class="lang-btn" id="btnAr" onclick="setLang('ar')">عربي</button>
     <button class="lang-btn" id="btnEs" onclick="setLang('es')">Castellano</button>
     <button class="lang-btn" id="btnUr" onclick="setLang('ur')">اردو</button>
+    <button class="lang-btn" id="btnUk" onclick="setLang('uk')">Українська</button>
   </div>
 </header>
 
@@ -410,8 +401,7 @@ const PHASES = {
       id: 'abans-m',
       name: 'Abans de dividir-se',
       eyebrow: 'Mitosi · Pas 1 de 4',
-      description: 'La cèl·lula <span class="tr-word">creix<span class="tooltip-box tooltip-ar">ينمو</span><span class="tooltip-box tooltip-es">crece</span><span class="tooltip-box tooltip-ur">بڑھتا ہے</span></span> i fa una còpia completa del seu <span class="tr-word">material genètic<span class="tooltip-box tooltip-ar">المادة الوراثية</span><span class="tooltip-box tooltip-es">material genético</span><span class="tooltip-box tooltip-ur">جینیاتی مادہ</span></span> (<span class="tr-word">ADN<span class="tooltip-box tooltip-ar">الحمض النووي</span><span class="tooltip-box tooltip-es">ADN</span><span class="tooltip-box tooltip-ur">ڈی این اے</span></span>). Encara no s\'ha començat a dividir.',
-      simplified: 'La cèl·lula es prepara. Fa una còpia de tot el seu ADN (la informació genètica), com si fotocopiés tots els plànols d\'un edifici.',
+      description: 'La cèl·lula <span class="tr-word">creix<span class="tooltip-box tooltip-ar">ينمو</span><span class="tooltip-box tooltip-es">crece</span><span class="tooltip-box tooltip-ur">بڑھتا ہے</span><span class="tooltip-box tooltip-uk">росте</span></span> i fa una còpia completa del seu <span class="tr-word">material genètic<span class="tooltip-box tooltip-ar">المادة الوراثية</span><span class="tooltip-box tooltip-es">material genético</span><span class="tooltip-box tooltip-ur">جینیاتی مادہ</span><span class="tooltip-box tooltip-uk">генетичний матеріал</span></span> (<span class="tr-word">ADN<span class="tooltip-box tooltip-ar">الحمض النووي</span><span class="tooltip-box tooltip-es">ADN</span><span class="tooltip-box tooltip-ur">ڈی این اے</span><span class="tooltip-box tooltip-uk">ДНК</span></span>). Encara no s\'ha començat a dividir.',
       points: ['La cèl·lula creix de mida', 'Fa una còpia de tot el seu ADN', 'Encara es veu com una sola cèl·lula', 'És el pas previ a qualsevol divisió'],
       svg: drawInterfase,
       chromosomes: 'Tot el material genètic (1 còpia de cada)',
@@ -420,8 +410,7 @@ const PHASES = {
       id: 'organitza-m',
       name: 'S\'organitza al centre',
       eyebrow: 'Mitosi · Pas 2 de 4',
-      description: 'El material genètic es <span class="tr-word">condensa<span class="tooltip-box tooltip-ar">يتكثف</span><span class="tooltip-box tooltip-es">se condensa</span><span class="tooltip-box tooltip-ur">گھنا ہو جاتا ہے</span></span> i es col·loca al centre de la cèl·lula, preparat per repartir-se per igual cap a cada banda.',
-      simplified: 'Tot el material genètic es col·loca ordenadament al mig de la cèl·lula, a punt per repartir-se per igual.',
+      description: 'El material genètic es <span class="tr-word">condensa<span class="tooltip-box tooltip-ar">يتكثف</span><span class="tooltip-box tooltip-es">se condensa</span><span class="tooltip-box tooltip-ur">گھنا ہو جاتا ہے</span><span class="tooltip-box tooltip-uk">конденсується</span></span> i es col·loca al centre de la cèl·lula, preparat per repartir-se per igual cap a cada banda.',
       points: ['El material genètic es col·loca al centre', 'Es prepara per repartir-se EXACTAMENT igual', 'Cada part anirà a una banda diferent'],
       svg: drawMetafase,
       chromosomes: 'Tot el material, organitzat al centre',
@@ -430,8 +419,7 @@ const PHASES = {
       id: 'reparteix-m',
       name: 'Es reparteix cap a cada banda',
       eyebrow: 'Mitosi · Pas 3 de 4',
-      description: 'Cada còpia del material genètic <span class="tr-word">viatja<span class="tooltip-box tooltip-ar">تنتقل</span><span class="tooltip-box tooltip-es">viaja</span><span class="tooltip-box tooltip-ur">سفر کرتا ہے</span></span> cap a un costat diferent de la cèl·lula. La cèl·lula s\'allarga.',
-      simplified: 'Cada còpia del material genètic va cap a un costat. És com estirar un xiclet fins que es parteix en dos.',
+      description: 'Cada còpia del material genètic <span class="tr-word">viatja<span class="tooltip-box tooltip-ar">تنتقل</span><span class="tooltip-box tooltip-es">viaja</span><span class="tooltip-box tooltip-ur">سفر کرتا ہے</span><span class="tooltip-box tooltip-uk">подорожує</span></span> cap a un costat diferent de la cèl·lula. La cèl·lula s\'allarga.',
       points: ['Cada còpia va cap a un costat diferent', 'La cèl·lula s\'allarga', 'Les dues bandes reben EXACTAMENT el mateix material'],
       svg: drawAnafase,
       chromosomes: 'Repartit per igual a cada banda',
@@ -440,8 +428,7 @@ const PHASES = {
       id: 'resultat-m',
       name: 'Resultat: 2 cèl·lules idèntiques',
       eyebrow: 'Mitosi · Resultat final',
-      description: 'La cèl·lula es divideix en dues. El resultat són <span class="tr-word">2 cèl·lules filles<span class="tooltip-box tooltip-ar">خليتان ابنتان</span><span class="tooltip-box tooltip-es">2 células hijas</span><span class="tooltip-box tooltip-ur">2 بیٹی خلیات</span></span> amb exactament el mateix material genètic que la cèl·lula mare: són <span class="tr-word">idèntiques<span class="tooltip-box tooltip-ar">متطابقتان</span><span class="tooltip-box tooltip-es">idénticas</span><span class="tooltip-box tooltip-ur">یکساں</span></span>.',
-      simplified: 'La cèl·lula queda partida en dues. Les dues noves cèl·lules són exactament iguals entre elles i a la mare.',
+      description: 'La cèl·lula es divideix en dues. El resultat són <span class="tr-word">2 cèl·lules filles<span class="tooltip-box tooltip-ar">خليتان ابنتان</span><span class="tooltip-box tooltip-es">2 células hijas</span><span class="tooltip-box tooltip-ur">2 بیٹی خلیات</span><span class="tooltip-box tooltip-uk">2 дочірні клітини</span></span> amb exactament el mateix material genètic que la cèl·lula mare: són <span class="tr-word">idèntiques<span class="tooltip-box tooltip-ar">متطابقتان</span><span class="tooltip-box tooltip-es">idénticas</span><span class="tooltip-box tooltip-ur">یکساں</span><span class="tooltip-box tooltip-uk">ідентичні</span></span>.',
       points: ['2 cèl·lules filles amb el mateix material genètic', 'Idèntiques entre elles i a la cèl·lula mare', 'Serveix per créixer, reparar ferides i substituir cèl·lules'],
       svg: drawCitoquinesi,
       chromosomes: '2 cèl·lules, cadascuna amb tot el material',
@@ -453,8 +440,7 @@ const PHASES = {
       id: 'abans-mei',
       name: 'Abans de dividir-se',
       eyebrow: 'Meiosi · Pas 1 de 5',
-      description: 'Com a la mitosi, la cèl·lula fa una còpia del seu <span class="tr-word">ADN<span class="tooltip-box tooltip-ar">الحمض النووي</span><span class="tooltip-box tooltip-es">ADN</span><span class="tooltip-box tooltip-ur">ڈی این اے</span></span>. Però aquí hi haurà DUES divisions seguides, no només una.',
-      simplified: 'La cèl·lula fa una còpia del seu ADN, igual que abans d\'una mitosi. Però aquesta vegada es dividirà dues vegades seguides.',
+      description: 'Com a la mitosi, la cèl·lula fa una còpia del seu <span class="tr-word">ADN<span class="tooltip-box tooltip-ar">الحمض النووي</span><span class="tooltip-box tooltip-es">ADN</span><span class="tooltip-box tooltip-ur">ڈی این اے</span><span class="tooltip-box tooltip-uk">ДНК</span></span>. Però aquí hi haurà DUES divisions seguides, no només una.',
       points: ['Fa una còpia del seu ADN (només una vegada)', 'Vindran DUES divisions seguides', 'És el primer pas per fabricar cèl·lules sexuals'],
       svg: drawInterfase,
       chromosomes: 'Tot el material genètic',
@@ -463,8 +449,7 @@ const PHASES = {
       id: 'parelles-mei',
       name: 'Primera divisió: les parelles s\'ajunten',
       eyebrow: 'Meiosi · Pas 2 de 5',
-      description: 'El material genètic que ve del pare es <span class="tr-word">aparella<span class="tooltip-box tooltip-ar">يقترن</span><span class="tooltip-box tooltip-es">se empareja</span><span class="tooltip-box tooltip-ur">جوڑا بناتا ہے</span></span> amb el que ve de la mare. Sovint intercanvien petits trossos entre ells (un procés que es diu <em>crossing over</em>): per això cada cèl·lula sexual serà una mica diferent de les altres.',
-      simplified: 'El material del pare i el de la mare s\'ajunten en parelles i de vegades intercanvien trossets. Per això cada cèl·lula sexual acaba sent diferent: és la raó per la qual no ets idèntic als teus germans.',
+      description: 'El material genètic que ve del pare es <span class="tr-word">aparella<span class="tooltip-box tooltip-ar">يقترن</span><span class="tooltip-box tooltip-es">se empareja</span><span class="tooltip-box tooltip-ur">جوڑا بناتا ہے</span><span class="tooltip-box tooltip-uk">спарюється</span></span> amb el que ve de la mare. Sovint intercanvien petits trossos entre ells (un procés que es diu <em>crossing over</em>): per això cada cèl·lula sexual serà una mica diferent de les altres.',
       points: ['El material del pare i de la mare s\'ajunten en parelles', 'Poden intercanviar petits trossos (crossing over)', 'Això genera variabilitat: cada cèl·lula sexual és diferent'],
       svg: drawProfase1,
       chromosomes: 'Parelles juntes (pare + mare)',
@@ -473,8 +458,7 @@ const PHASES = {
       id: 'primera-resultat-mei',
       name: 'Resultat de la primera divisió',
       eyebrow: 'Meiosi · Pas 3 de 5',
-      description: 'La cèl·lula es divideix per primera vegada. El resultat són 2 cèl·lules, cada una amb només la <span class="tr-word">meitat<span class="tooltip-box tooltip-ar">النصف</span><span class="tooltip-box tooltip-es">mitad</span><span class="tooltip-box tooltip-ur">آدھا</span></span> del material genètic original.',
-      simplified: 'La cèl·lula es parteix en dues. Cada una es queda només amb la meitat del material genètic.',
+      description: 'La cèl·lula es divideix per primera vegada. El resultat són 2 cèl·lules, cada una amb només la <span class="tr-word">meitat<span class="tooltip-box tooltip-ar">النصف</span><span class="tooltip-box tooltip-es">mitad</span><span class="tooltip-box tooltip-ur">آدھا</span><span class="tooltip-box tooltip-uk">половина</span></span> del material genètic original.',
       points: ['2 cèl·lules amb la MEITAT del material genètic', 'Encara no han acabat: vindrà una segona divisió', 'No hi haurà cap còpia nova d\'ADN entre les dues divisions'],
       svg: drawTelofase1,
       chromosomes: 'La meitat del material (×2 cèl·lules)',
@@ -484,7 +468,6 @@ const PHASES = {
       name: 'Segona divisió: cada meitat es torna a dividir',
       eyebrow: 'Meiosi · Pas 4 de 5',
       description: 'Cadascuna de les 2 cèl·lules es torna a dividir, ara sense haver fet cap còpia nova d\'ADN. El resultat seran 4 cèl·lules en total.',
-      simplified: 'Les dues cèl·lules es tornen a dividir cadascuna en dues. Ara en tindrem 4.',
       points: ['Cada cèl·lula es torna a dividir', 'No es fa cap còpia nova d\'ADN', 'En total hi haurà 4 cèl·lules'],
       svg: drawAnafase2,
       chromosomes: 'Es reparteix de nou (×4 cèl·lules finals)',
@@ -493,8 +476,7 @@ const PHASES = {
       id: 'gametes',
       name: 'Resultat final: 4 cèl·lules sexuals',
       eyebrow: 'Meiosi · Resultat final',
-      description: 'El resultat de la meiosi són 4 <span class="tr-word">cèl·lules sexuals<span class="tooltip-box tooltip-ar">خلايا جنسية</span><span class="tooltip-box tooltip-es">células sexuales</span><span class="tooltip-box tooltip-ur">جنسی خلیات</span></span> (<span class="tr-word">espermatozoides<span class="tooltip-box tooltip-ar">الحيوانات المنوية</span><span class="tooltip-box tooltip-es">espermatozoides</span><span class="tooltip-box tooltip-ur">نطفہ</span></span> o <span class="tr-word">òvuls<span class="tooltip-box tooltip-ar">البيوض</span><span class="tooltip-box tooltip-es">óvulos</span><span class="tooltip-box tooltip-ur">بیضہ</span></span>), cada una amb la meitat del material genètic i diferent de les altres. Quan dues s\'uneixen (fecundació), es recupera la quantitat completa.',
-      simplified: 'El resultat final és 4 cèl·lules reproductores (espermatozoides o òvuls). Cada una és diferent de les altres. Quan dues s\'uneixen, la nova cèl·lula torna a tenir tot el material genètic complet.',
+      description: 'El resultat de la meiosi són 4 <span class="tr-word">cèl·lules sexuals<span class="tooltip-box tooltip-ar">خلايا جنسية</span><span class="tooltip-box tooltip-es">células sexuales</span><span class="tooltip-box tooltip-ur">جنسی خلیات</span><span class="tooltip-box tooltip-uk">статеві клітини</span></span> (<span class="tr-word">espermatozoides<span class="tooltip-box tooltip-ar">الحيوانات المنوية</span><span class="tooltip-box tooltip-es">espermatozoides</span><span class="tooltip-box tooltip-ur">نطفہ</span><span class="tooltip-box tooltip-uk">сперматозоїди</span></span> o <span class="tr-word">òvuls<span class="tooltip-box tooltip-ar">البيوض</span><span class="tooltip-box tooltip-es">óvulos</span><span class="tooltip-box tooltip-ur">بیضہ</span><span class="tooltip-box tooltip-uk">яйцеклітини</span></span>), cada una amb la meitat del material genètic i diferent de les altres. Quan dues s\'uneixen (fecundació), es recupera la quantitat completa.',
       points: ['4 cèl·lules sexuals, cada una diferent de les altres', 'Cadascuna té la meitat del material genètic', 'Fecundació: meitat + meitat = quantitat completa', 'Funció: reproducció sexual'],
       svg: drawGametes,
       chromosomes: '4 cèl·lules, cadascuna amb la meitat',
@@ -802,7 +784,6 @@ function drawGametes(scale = 1) {
 
 let mode = 'mitosi';
 let currentPhase = 0;
-let simplified = false;
 let lang = null;
 
 // ─────────────────────────────────────────────────
@@ -859,8 +840,8 @@ function renderPhase() {
   si.innerHTML = `
     <div>
       <div class="info-section-title">Descripció</div>
-      <div class="info-text${simplified ? ' simplified' : ''}" id="phaseDesc">
-        ${simplified ? ph.simplified : ph.description}
+      <div class="info-text" id="phaseDesc">
+        ${ph.description}
       </div>
     </div>
     <div>
@@ -1029,12 +1010,6 @@ function navigate(dir) {
   renderAll();
 }
 
-function toggleSimplify() {
-  simplified = !simplified;
-  document.getElementById('btnSimplify').classList.toggle('active', simplified);
-  renderPhase();
-}
-
 function setLang(l) {
   lang = lang === l ? null : l;
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
@@ -1044,7 +1019,7 @@ function setLang(l) {
 
 function applyLang() {
   const body = document.body;
-  body.classList.remove('lang-ar', 'lang-es', 'lang-ur');
+  body.classList.remove('lang-ar', 'lang-es', 'lang-ur', 'lang-uk');
   if (lang) body.classList.add('lang-' + lang);
 }
 

@@ -1,0 +1,74 @@
+/* Variant «Suport lingüístic»: pàgina de benvinguda i pàgines de paraules traduïdes. */
+.l-ar{font-family:'Noto Naskh Arabic',var(--serif);text-align:right}
+.l-ur{font-family:'Noto Nastaliq Urdu','Noto Naskh Arabic',var(--serif);text-align:right;line-height:2.05}
+.l-ber{font-family:'Noto Sans',var(--serif)}
+sup.rev{font-family:var(--disp);font-weight:700;color:var(--taronja-deep);font-size:.8em;margin-left:.3mm;vertical-align:super;line-height:0}
+
+/* Pàgina de paraules */
+.sl .sl-h h2{font-family:var(--disp);font-weight:800;font-size:25pt;line-height:.95;letter-spacing:-.015em;margin-top:3mm;text-wrap:balance}
+.sl .sl-h h2 em{font-style:normal;color:var(--lila)}
+.sl .sl-h h2.cont{font-size:20pt}
+.sl .sl-h .lede{font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:9.6pt;line-height:1.4;margin-top:2.4mm;max-width:140mm}
+.sl .flux{flex:1 1 0;min-height:0;overflow:hidden;margin-top:4mm;display:flex;flex-direction:column}
+.sl .flux > *{flex:0 0 auto}
+.sl-sec{display:flex;align-items:center;gap:2.6mm;font-family:var(--disp);font-weight:800;font-size:11pt;letter-spacing:.12em;text-transform:uppercase;color:var(--lila-deep);margin:4.4mm 0 1.6mm}
+.flux > .sl-sec:first-child{margin-top:0}
+.sl-sec .n{display:inline-grid;place-items:center;width:5.6mm;height:5.6mm;border-radius:50%;background:var(--lila);color:var(--paper);font-size:9pt;letter-spacing:0}
+.sl-row{display:grid;grid-template-columns:1.05fr 1fr 1fr 1.05fr 1fr 1fr;column-gap:2.6mm;align-items:center;padding:1mm 2mm;border-bottom:.4pt solid var(--rule-soft)}
+.sl-row .c{font-size:9.2pt;line-height:1.3;min-width:0;overflow-wrap:anywhere}
+.sl-row .l-ca{font-family:var(--disp);font-weight:700;font-size:10.4pt;color:var(--ink)}
+.sl-row .l-es,.sl-row .l-uk{font-family:var(--serif)}
+.sl-row .l-ar{font-size:11pt}
+.sl-row .l-ur{font-size:9.6pt;line-height:1.9}
+.sl-row .l-ber{font-size:8.8pt}
+.sl-cap{background:var(--lila-mist);border-radius:1.6mm 1.6mm 0 0;border-bottom:.8pt solid var(--lila)}
+.sl-cap .c{font-family:var(--disp)!important;font-weight:800!important;font-size:8pt!important;letter-spacing:.08em;color:var(--lila-deep)!important;line-height:1.6!important}
+.sl-cap .l-ar,.sl-cap .l-ur{font-family:'Noto Naskh Arabic',var(--disp)!important;font-size:9.4pt!important;letter-spacing:0}
+.sl-row:nth-child(odd):not(.sl-cap){background:var(--paper-2)}
+
+.sl-exp{background:var(--paper-2);border-radius:3mm;padding:2.4mm 4mm 2mm;margin-bottom:2mm;border-left:1.2mm solid var(--taronja)}
+.sl-exp .eq{display:flex;flex-wrap:wrap;align-items:baseline;gap:1mm 3mm}
+.sl-exp .cita{font-family:var(--disp);font-weight:700;font-size:11.4pt;color:var(--ink)}
+.sl-exp .vol{font-family:var(--serif);font-style:italic;font-size:9.4pt;color:var(--ink-soft)}
+.sl-exp .vol::before{content:'→ ';font-style:normal;color:var(--taronja-deep)}
+.sl-exp .tr{display:grid;grid-template-columns:repeat(5,1fr);gap:2.4mm;margin-top:1.6mm;padding-top:1.4mm;border-top:.4pt solid var(--rule)}
+.sl-exp .t{min-width:0}
+.sl-exp .lk{display:block;font-family:var(--disp);font-weight:700;font-size:6.4pt;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:.4mm}
+.sl-exp .c{display:block;font-size:8.8pt;line-height:1.3;overflow-wrap:anywhere}
+.sl-exp .l-es,.sl-exp .l-uk{font-family:var(--serif)}
+.sl-exp .l-ar{font-size:10pt}
+.sl-exp .l-ur{font-size:9pt;line-height:1.95}
+.sl-exp .l-ber{font-size:8.4pt}
+
+.sl-meves{margin-top:3mm;border:.8pt dashed var(--rule);border-radius:3mm;padding:2.6mm 4mm 3mm}
+.sl-meves .mh{font-family:var(--disp);font-weight:700;font-size:8pt;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute)}
+.sl-meves .ln{height:7.5mm;border-bottom:.5pt solid var(--rule)}
+
+/* Benvinguda */
+.sl-bv h2{font-family:var(--disp);font-weight:800;font-size:34pt;line-height:.92;letter-spacing:-.02em;margin-top:3mm}
+.sl-bv h2 em{font-style:normal;color:var(--lila)}
+.sl-bv .bv{margin-top:5mm;display:grid;grid-template-columns:1fr 1fr;gap:3mm 6mm}
+.sl-bv .bv-i{padding:2.6mm 0 2.4mm;border-top:.8pt solid var(--ink)}
+.sl-bv .bv-l{font-family:var(--disp);font-weight:700;font-size:7pt;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute)}
+.sl-bv .bv-i[dir=rtl] .bv-l{letter-spacing:0;font-size:9pt}
+.sl-bv .bv-t{font-family:var(--disp);font-weight:800;font-size:15pt;line-height:1.1;color:var(--lila-deep);margin:.6mm 0 1mm}
+.sl-bv .bv-i p{font-family:var(--serif);font-size:8.8pt;line-height:1.42;color:var(--ink-soft)}
+.sl-bv .l-ar .bv-t,.sl-bv .l-ar p{font-family:'Noto Naskh Arabic',var(--serif)}
+.sl-bv .l-ar p{font-size:9.6pt;line-height:1.6}
+.sl-bv .l-ur .bv-t,.sl-bv .l-ur p{font-family:'Noto Nastaliq Urdu',var(--serif)}
+.sl-bv .l-ur .bv-t{font-size:13pt;line-height:1.9}
+.sl-bv .l-ur p{font-size:8.4pt;line-height:2.1}
+.sl-bv .l-ber .bv-t,.sl-bv .l-ber p{font-family:'Noto Sans',var(--serif)}
+.sl-bv .l-ber p{font-size:8.2pt}
+.sl-bv .mq{margin-top:4mm;border:.8pt solid var(--ink);border-radius:3mm;overflow:hidden}
+.sl-bv .mq-h{background:var(--ink);color:var(--paper);padding:2mm 4mm;font-family:var(--disp);font-weight:800;font-size:9pt;letter-spacing:.14em;text-transform:uppercase}
+.sl-bv .mq-r{grid-template-columns:7mm repeat(6,1fr);padding:.8mm 3mm}
+.sl-bv .mq-r .sym{font-family:var(--disp);font-weight:800;font-size:12pt;color:var(--lila)}
+.sl-bv .mq-r .c{font-size:8pt;line-height:1.25}
+.sl-bv .mq-r .l-ca{font-size:8.6pt}
+.sl-bv .mq-r .l-ar{font-size:9pt}
+.sl-bv .mq-r .l-ur{font-size:8pt;line-height:1.8}
+.sl-bv .mq-r .l-ber{font-size:7.6pt}
+.sl-bv .nota-doc{margin-top:4mm;background:var(--taronja-soft);border-radius:3mm;padding:3mm 4mm;font-family:var(--serif);font-size:8.2pt;line-height:1.45;color:var(--ink-soft)}
+.sl-bv .nota-doc code{font-size:7.4pt}
+.sl-exp .t:has(> [dir=rtl]) .lk{text-align:right}

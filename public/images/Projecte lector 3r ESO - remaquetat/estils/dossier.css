@@ -1,0 +1,83 @@
+/* Projecte lector · extensions sobre la plantilla IE Temple (temple.css).
+   Només s'hi afegeixen components nous; els tokens i les escales són els de la plantilla. */
+
+/* Escenari de maquetació: les pàgines es mesuren fora de <doc-page> i després s'hi mouen */
+#escenari{position:absolute;left:-10000px;top:0;visibility:hidden}
+#escenari .page{width:210mm;height:297mm}
+
+.pad{display:flex;flex-direction:column}
+.runfoot span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+
+/* ── ÍNDEX (multipàgina) ─────────────────────────────────── */
+.idx .flux{flex:1 1 0;min-height:0;overflow:hidden;margin-top:6mm;display:flex;flex-direction:column}
+.idx .flux > *{flex:0 0 auto}
+.idx .blk-h{margin-top:4mm}
+.idx .flux > .blk-h:first-child{margin-top:0}
+.idx .idx-row{display:grid;grid-template-columns:9mm 1fr 40mm 10mm;align-items:baseline;padding:1.7mm 0;border-bottom:.4pt solid var(--rule-soft)}
+.idx .idx-row .c-t{font-size:9.2pt;line-height:1.25;padding-right:3mm}
+.idx .idx-row .c-t .es{font-weight:400;font-style:italic;font-size:7.4pt;color:var(--ink-mute)}
+.idx .idx-row .c-g{width:auto;white-space:nowrap}
+.idx .idx-row .c-p{width:auto}
+.idx .note{margin-top:5mm}
+.idx h2.cont{font-size:22pt;margin-top:6mm}
+
+/* ── PORTADA DE BLOC ─────────────────────────────────────── */
+.blc .blc-rn{font-family:var(--disp);font-weight:800;font-style:italic;font-size:120pt;line-height:.8;color:var(--lila);margin-top:22mm;letter-spacing:-.03em}
+.blc h2{font-family:var(--disp);font-weight:800;font-size:54pt;line-height:.9;letter-spacing:-.02em;margin-top:6mm}
+.blc .lede{font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:15pt;line-height:1.3;margin-top:4mm;max-width:140mm;text-wrap:pretty}
+.blc .blc-mat{display:flex;flex-wrap:wrap;gap:2mm;margin-top:8mm}
+.blc .blc-mat .chip{font-family:var(--serif);font-weight:700;font-size:6.6pt;letter-spacing:.16em;text-transform:uppercase;padding:1.6mm 3.2mm;border-radius:99px;background:var(--lila-soft);color:var(--lila-deep)}
+.blc .blc-list{margin-top:auto;border-top:.8pt solid var(--ink);padding-top:3mm;columns:2;column-gap:8mm}
+.blc .blc-list div{break-inside:avoid;display:flex;gap:3mm;align-items:baseline;padding:1.3mm 0;font-size:8.4pt;line-height:1.3;border-bottom:.4pt solid var(--rule-soft)}
+.blc .blc-list b{font-family:var(--disp);font-weight:700;font-size:9pt;color:var(--lila-deep);flex:0 0 6mm}
+.blc .blc-list span{flex:1}
+.blc .blc-list i{font-style:normal;font-family:var(--disp);font-weight:700;color:var(--ink-fade)}
+
+/* ── LECTURA ─────────────────────────────────────────────── */
+.rd .rdhead{flex:0 0 auto}
+.rd h2{font-size:28pt;text-wrap:balance}
+.rd .rdnum small{font-family:var(--serif);font-style:normal;font-weight:700;font-size:6.2pt;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-fade);margin-left:2mm}
+.rd .fitxa{margin-top:3mm;display:grid;grid-template-columns:17mm 1fr;gap:.9mm 3mm;font-size:7.4pt;line-height:1.35;color:var(--ink-soft)}
+.rd .fitxa dt{font-weight:700;font-size:5.8pt;letter-spacing:.16em;text-transform:uppercase;color:var(--lila-deep);padding-top:.5mm}
+.rd .fitxa dd{overflow-wrap:anywhere}
+.rd .rdcont{flex:0 0 auto;margin-top:5mm;padding-bottom:2.4mm;border-bottom:.6pt solid var(--ink);display:flex;align-items:baseline;gap:3mm}
+.rd .rdcont .rdnum{font-size:11pt}
+.rd .rdcont .ct{font-family:var(--disp);font-weight:700;font-size:11pt;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rd .rdcont .cs{font-family:var(--serif);font-weight:700;font-size:6pt;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-fade)}
+.rd .body{flex:1 1 0;min-height:0;margin-top:5mm;grid-template-rows:minmax(0,1fr)}
+.rd .txt{overflow:hidden;min-height:0}
+.rd .txt > *:first-child{margin-top:0}
+.rd .txt h3{font-family:var(--disp);font-weight:800;font-size:12.4pt;line-height:1.1;color:var(--lila-deep);text-align:left;margin:4.6mm 0 1.6mm}
+.rd .txt p.q{font-weight:600;font-style:italic;text-align:left;border-left:2pt solid var(--lila);padding-left:4mm}
+.rd .txt p.brk{text-align-last:justify}
+.rd .margin{min-height:0;overflow:hidden}
+.rd .margin > div:first-child{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.rd .margin .marques{display:flex;justify-content:space-between;font-family:var(--disp);font-weight:800;font-size:10pt;color:var(--lila-deep);padding:1.6mm 2mm;background:var(--lila-mist);border-radius:1.6mm}
+
+/* Vocabulari clau */
+.rd .vc{margin-top:5mm;background:var(--paper-2);border-radius:3mm;padding:4.2mm 5mm 3.6mm;text-align:left}
+.rd .vc .vh{font-family:var(--serif);font-weight:700;font-size:6.4pt;letter-spacing:.2em;text-transform:uppercase;color:var(--lila-deep);margin-bottom:2mm}
+.rd .vc dl{display:grid;grid-template-columns:30mm 1fr;column-gap:4mm}
+.rd .vc dt,.rd .vc dd{padding:1.5mm 0;border-top:.4pt solid var(--rule)}
+.rd .vc dt:first-of-type,.rd .vc dd:first-of-type{border-top:0}
+.rd .vc dt{font-family:var(--disp);font-weight:700;font-size:9.4pt;line-height:1.15;color:var(--ink)}
+.rd .vc dd{font-family:var(--serif);font-size:8.4pt;line-height:1.4;color:var(--ink-soft)}
+
+/* La gran pregunta */
+.rd .gp{margin-top:5mm;background:var(--lila-mist);border:.6pt solid var(--lila-soft);border-radius:3mm;padding:5mm 5.6mm;text-align:left}
+.rd .gp .eyebrow{margin-bottom:2.6mm}
+.rd .gp .gq{font-family:var(--disp);font-weight:700;font-size:15pt;line-height:1.15;letter-spacing:-.005em;color:var(--ink);text-wrap:pretty}
+.rd .gp .gl{margin-top:4mm;display:flex;flex-direction:column;gap:6.4mm}
+.rd .gp .gl .cp{font-size:7.6pt;font-style:italic;color:var(--taronja-deep);margin-bottom:-2.4mm}
+.rd .gp .gl .ln{border-bottom:.4pt solid var(--rule);height:0}
+
+/* ── COM LLEGIR · ajust ─────────────────────────────────── */
+.how .quote{margin-top:auto}
+
+/* ── REGISTRE · files automàtiques ───────────────────────── */
+.log .taula{flex:1 1 0;min-height:0;overflow:hidden}
+.log .sign{margin-top:6mm}
+
+/* ── PORTADA · imatge fixa (meta.portada) ─────────────────── */
+.cover .hero .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.cover .hero .scrim{background:linear-gradient(175deg,rgba(30,26,22,.5) 0%,rgba(30,26,22,.1) 30%,rgba(30,26,22,.08) 48%,rgba(30,26,22,.62) 100%)}
