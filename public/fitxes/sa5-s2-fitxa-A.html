@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La memòria de la Terra · Sessió 2 · Per què tremola la terra a Catalunya? — Autònom — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+
+:root {
+  /* Paleta TERRA de SA5 (els noms es mantenen del xassís heretat) */
+  --purple:#7A5C44; --purple-ink:#4A3524; --purple-light:#CDB79C; --purple-tint:#F6EFE6;
+  --ink:#22201C; --ink-2:#453D33; --muted:#8A7A66; --surface:#fffdfa; --paper:#fffdfa;
+  --rule:#E6DACA; --rule-dark:#CDB79C;
+  --orange:#c9772f; --orange-tint:#fbf0e6;
+  --teal:#3a8e88;   --teal-tint:#e6f2f1;
+  --rose:#b4506a;   --rose-tint:#faeaee;
+  --yellow:#b8860b; --yellow-tint:#fbf5e4; --yellow-ink:#6b4f00;
+  --green:#4a8e58;  --green-tint:#eaf3ec;
+  --red:#b5432f;    --red-tint:#fbefec;
+  --blue:#2b6394;   --blue-tint:#e9f0f8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Fira Sans Extra Condensed', sans-serif; background:#a4917a; color:var(--ink); font-size:13px; line-height:1.5; padding:62px 20px 40px; }
+#toolbar { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(34,26,18,.94); backdrop-filter:blur(10px); border-bottom:1px solid rgba(122,92,68,.4); height:44px; display:flex; align-items:center; gap:10px; padding:0 18px; }
+.tb-tip { font-family:'Inter',sans-serif; font-size:11px; color:rgba(230,216,198,.7); flex:1; }
+.tb-tip strong { color:#e8d9c4; }
+.tb-sep { width:1px; height:20px; background:rgba(205,183,156,.3); }
+.tb-btn { font-family:'Inter',sans-serif; font-size:12px; font-weight:600; border:none; border-radius:6px; padding:6px 13px; cursor:pointer; transition:opacity .15s; white-space:nowrap; }
+.tb-print { background:var(--purple); color:white; }
+.tb-print:hover { opacity:.85; }
+.tb-bold { background:rgba(205,183,156,.2); border:1px solid rgba(205,183,156,.4); color:#e8d9c4; font-size:14px; font-weight:900; padding:4px 11px; }
+.tb-bold:hover { background:rgba(205,183,156,.38); }
+.tb-undo { background:rgba(180,80,106,.2); border:1px solid rgba(180,80,106,.4); color:#f0a8bb; font-size:12px; opacity:.5; transition:opacity .2s; pointer-events:none; }
+.tb-undo.active { opacity:1; pointer-events:auto; }
+.tb-undo.active:hover { background:rgba(180,80,106,.35); }
+.tb-spacer { background:rgba(205,183,156,.2); border:1px solid rgba(205,183,156,.4); color:#e8d9c4; font-size:12px; }
+.tb-spacer:hover { background:rgba(205,183,156,.35); }
+.tb-desa { background:#7A5C44; color:#f6efe6; border:1px solid rgba(205,183,156,.55); }
+.tb-desa:hover { background:#8d6c50; }
+
+/* ── DOCUMENT ─────────────────────────────────────── */
+.page-wrap { width:794px; margin:0 auto; position:relative; }
+#doc { display:none; }
+
+/* ── PAGINADOR A4 REAL ─────────────────────────────── */
+#sheets { display:flex; flex-direction:column; align-items:center; gap:26px; }
+.sheet { width:794px; min-height:1123px; background:var(--paper); position:relative; box-shadow:0 4px 24px rgba(60,45,25,.2); overflow:visible; }
+.sheet-body { padding:36px 46px 18px; position:relative; overflow:visible; }
+.sheet.has-head .sheet-body { padding-top:54px; }
+.sheet-head { position:absolute; left:0; right:0; top:0; height:36px; display:none; justify-content:space-between; align-items:center; padding:0 46px; border-bottom:1.5px solid var(--purple-light); background:var(--paper); }
+.sheet.has-head .sheet-head { display:flex; }
+.sheet-head-l { font-family:'Inter',sans-serif; font-size:8.5px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--purple-ink); }
+.sheet-head-r { font-family:'Inter',sans-serif; font-size:8.5px; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); }
+.sheet-foot { position:absolute; left:0; right:0; bottom:0; height:30px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:0 46px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:600; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; border-top:.5px solid var(--rule); background:var(--paper); }
+.sheet-foot .fc { text-align:center; letter-spacing:.14em; color:var(--purple-ink); }
+.sheet-foot .fr { text-align:right; }
+.sheet-body > .header-band { margin:-36px -46px 0; }
+.sheet-body > .nivell-strip { margin:0 -46px; }
+.sheet-body > .oa-box { margin:12px 0 0; }
+
+/* ── EDITABLES ────────────────────────────────────── */
+[contenteditable] { outline:none; cursor:text; border-radius:3px; transition:background .12s, box-shadow .12s; }
+[contenteditable]:hover { background:rgba(122,92,68,.08); box-shadow:0 0 0 2px rgba(122,92,68,.28); }
+[contenteditable]:focus { background:rgba(122,92,68,.12); box-shadow:0 0 0 2.5px var(--purple); }
+.header-band [contenteditable]:hover { background:rgba(255,255,255,.15); box-shadow:0 0 0 2px rgba(255,255,255,.3); }
+.header-band [contenteditable]:focus { background:rgba(255,255,255,.2); box-shadow:0 0 0 2.5px #fff; }
+span[contenteditable] { display:inline-block; }
+.wline { display:block; width:100%; min-height:32px; background:white; outline:none; padding:4px 4px; border-bottom:1.5px solid var(--rule); word-break:break-word; cursor:text; line-height:1.7; }
+.wline:focus { border-bottom-color:var(--purple); background:rgba(122,92,68,.04); }
+.frase-completar { font-size:11px; line-height:2.4; margin:4px 0 6px; }
+.blank { display:inline-block; border-bottom:1.5px solid var(--rule-dark); vertical-align:bottom; margin:0 3px; height:1.1em; }
+.blank-s { width:60px; } .blank-m { width:100px; } .blank-l { width:140px; } .blank-xl { width:200px; }
+.nom-field { margin-left:auto; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; font-family:inherit; color:var(--ink); }
+.input-span.data-span { min-width:65px; }
+.input-span:focus { border-bottom-color:var(--purple); }
+.nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(122,92,68,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); flex-shrink:0; }
+.deletable { position:relative; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; border-radius:50%; background:#b4506a; color:white; border:none; cursor:pointer; align-items:center; justify-content:center; font-size:12px; font-weight:900; line-height:1; z-index:100; box-shadow:0 1px 4px rgba(0,0,0,.3); transition:background .1s,transform .1s; }
+.del-btn:hover { background:#943552; transform:scale(1.15); }
+.deletable:hover > .del-btn { display:flex; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+.nivell-strip .deletable { display:inline-flex; align-items:center; }
+.header-band { background:linear-gradient(135deg,#3A2A1C 0%,#7A5C44 100%); color:#fff; padding:14px 18px; display:grid; grid-template-columns:72px 1fr 178px; gap:14px; align-items:center; position:relative; overflow:hidden; }
+.header-band::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 100% at 110% 50%,rgba(255,255,255,.07) 0%,transparent 70%); pointer-events:none; }
+.header-emoji-col { display:flex; align-items:center; justify-content:center; }
+.header-emoji-box { width:62px; height:62px; border-radius:14px; background:rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center; font-size:36px; user-select:none; flex-shrink:0; }
+.header-main { min-width:0; }
+.header-sa { font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; opacity:.6; margin-bottom:4px; }
+.header-title { font-size:24px; font-weight:900; letter-spacing:-.01em; line-height:1.05; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-style:italic; font-size:13px; opacity:.75; margin-top:4px; }
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:5px; }
+.logo-box { background:rgba(255,255,255,.92); border-radius:7px; padding:5px 6px; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 1px 6px rgba(0,0,0,.18); }
+.header-meta { font-size:9.5px; opacity:.55; text-align:right; line-height:1.7; }
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.nivell-label { font-size:11px; color:var(--muted); font-style:italic; }
+.temps-badge { font-size:10px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
+.oa-box { background:linear-gradient(to right,var(--purple-tint),var(--surface)); border-left:4px solid var(--purple); padding:10px 16px; }
+.oa-title { font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:6px; }
+.oa-list { list-style:none; padding:0; margin:0; }
+.oa-list li { font-size:11px; padding:3px 0 3px 22px; position:relative; line-height:1.45; border-bottom:1px dashed var(--rule); }
+.oa-list li:last-child { border-bottom:none; }
+.oa-list li::before { content:'○'; position:absolute; left:4px; top:3px; font-size:11px; color:var(--purple-light); }
+.meta-oa-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-oa-title { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; font-size:11px; margin-bottom:4px; padding:2px 0; }
+.meta-oa-item:last-child { margin-bottom:0; }
+.meta-oa-check { width:16px; height:16px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; margin-top:1px; }
+.meta-oa-text { flex:1; line-height:1.35; }
+.section { margin-top:14px; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:10.5px; color:var(--ink-2); font-style:italic; font-family:'Crimson Pro',serif; }
+.temps { font-size:10px; color:var(--purple-ink); font-weight:700; margin-left:4px; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
+.previ-box p { font-size:13px; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-icon { font-size:24px; flex-shrink:0; }
+.connexio-text { font-size:11px; line-height:1.45; }
+.connexio-text strong { color:var(--purple-ink); }
+.hipotesi-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin-bottom:10px; }
+.hipotesi-box p { font-size:13px; font-weight:700; color:var(--purple-ink); margin-bottom:4px; }
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow-ink); margin-bottom:2px; }
+.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.55; color:var(--ink-2); }
+.data-table { width:100%; border-collapse:collapse; font-size:11px; margin-bottom:10px; }
+.data-table th { background:var(--purple-ink); color:white; padding:6px 9px; text-align:left; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table th:first-child { border-radius:5px 0 0 0; }
+.data-table th:last-child { border-radius:0 5px 0 0; }
+.data-table th small { font-size:8.5px; font-weight:400; letter-spacing:0; text-transform:none; opacity:.78; display:block; margin-top:1px; }
+.data-table td { padding:5px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table tr:nth-child(even) td { background:var(--purple-tint); }
+.icon-cell { font-size:16px; text-align:center; width:32px; }
+.fill-cell { display:block; width:100%; min-height:26px; outline:none; padding:2px 3px; word-break:break-word; cursor:text; background:white; }
+.fill-cell:focus { background:rgba(122,92,68,.08); outline:1px solid var(--purple-light); border-radius:2px; }
+.label-cell { font-size:11px; font-weight:700; color:var(--ink-2); }
+.explore-q { display:flex; gap:8px; margin-bottom:10px; align-items:flex-start; }
+.explore-qnum { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--orange); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.explore-qtext { font-size:11px; flex:1; }
+.meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+.meta-item { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-icon { font-size:18px; display:block; margin-bottom:3px; }
+.meta-label { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px; }
+.tasca-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:10px 14px; margin-top:12px; }
+.tasca-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:6px; font-size:11px; }
+.tasca-item:last-child { margin-bottom:0; }
+.tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(122,92,68,.05) 6px,rgba(122,92,68,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
+.spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+.info-box { background:white; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.info-label { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.info-box p { font-size:11px; line-height:1.55; margin-bottom:3px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0 3px; }
+.chain-chip { font-size:10.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:13px; }
+.circ-row { font-size:11px; line-height:2.4; margin-bottom:3px; }
+.circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:white; }
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
+.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.chips { display:flex; flex-wrap:wrap; gap:4px; }
+.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:white; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.fig { margin:10px 0; text-align:center; }
+.fig-frame { position:relative; display:inline-block; max-width:100%; border:1.5px solid var(--purple-light); border-radius:9px; background:var(--purple-tint); overflow:hidden; box-shadow:0 1px 6px rgba(122,92,68,.14); }
+.fig-frame img { display:block; max-width:100%; object-fit:contain; }
+.fig-ph { display:none; align-items:center; justify-content:center; min-height:118px; padding:16px 20px; font-size:10.5px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
+.fig-ph .ph-ico { font-size:26px; display:block; margin-bottom:5px; }
+.figcap { font-size:10.5px; color:var(--muted); margin-top:5px; font-style:italic; line-height:1.45; }
+.pista { font-size:11px; color:var(--ink-2); font-style:italic; line-height:1.5; margin:3px 0 4px; padding-left:3px; }
+.pista b, .pista strong { color:var(--purple-ink); font-style:normal; }
+.callout { background:#FBF3E2; border-left:5px solid #B8860B; border-radius:0 9px 9px 0; padding:9px 12px; margin:10px 0; font-size:11px; line-height:1.5; break-inside:avoid; }
+.callout b, .callout strong { color:#6b4f00; }
+.fig-row { display:flex; gap:10px; align-items:flex-start; margin:8px 0; break-inside:avoid; }
+.fig-row .fig { flex:1; min-width:0; margin:0; }
+.legend { font-size:11px; line-height:1.6; margin:4px 0 0; }
+.legend b { color:var(--purple-ink); }
+
+@media print {
+  @page { size:A4; margin:0; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html,body { background:#fff; padding:0; margin:0; }
+  #toolbar, .del-btn { display:none !important; }
+  #sheets { gap:0; display:block; }
+  .sheet { width:210mm; height:297mm; min-height:0; box-shadow:none; margin:0; page-break-after:always; break-after:page; overflow:hidden; }
+  .sheet:last-child { page-break-after:auto; break-after:auto; }
+  .header-emoji-box { background:#efe4d6 !important; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline { background:transparent; padding:0; }
+  .fill-cell { background:transparent; outline:none; }
+  .input-span { border-bottom-color:var(--rule-dark); }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .nivell-badge-small { background:transparent !important; border-color:var(--rule-dark) !important; }
+}
+
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span class="tb-tip">✎ Clica per editar · <strong>Ctrl+B</strong> negreta · <strong>×</strong> rosa elimina · <strong>Ctrl+Z</strong> desfés · <strong>Ctrl+S</strong> desa</span>
+  <div class="tb-sep"></div>
+  <button class="tb-btn tb-undo" id="btn-undo" onclick="undoDelete()">↩ Desfés</button>
+  <button class="tb-btn tb-bold" onclick="document.execCommand('bold')"><b>N</b></button>
+  <button class="tb-btn tb-spacer" onclick="insertSpacer()">＋ Espai</button>
+  <button class="tb-btn tb-desa" onclick="desaFitxa()">💾 Desa</button>
+  <button class="tb-btn tb-print" onclick="window.print()">🖨️ Imprimir / PDF</button>
+</div>
+
+<div class="page-wrap" id="doc">
+
+  <div class="header-band deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="header-emoji-col">
+      <div class="header-emoji-box" contenteditable="true">🌋</div>
+    </div>
+    <div class="header-main">
+      <div class="header-sa" contenteditable="true">La memòria de la Terra · Sessió 2 de 4</div>
+      <div class="header-title" contenteditable="true">Per què tremola la terra a Catalunya?</div>
+      <div class="header-subtitle" contenteditable="true">Dos mapes superposats, un Pirineu que empeny i uns volcans que no toquen enlloc</div>
+    </div>
+    <div class="header-right">
+      <div class="logo-box">
+        <img src="../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
+      </div>
+      <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
+    </div>
+  </div>
+
+  <div class="nivell-strip deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <span class="nivell-label deletable" contenteditable="true">Autònom<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <span class="temps-badge deletable" contenteditable="true">⏱️ Sessió de 2 h<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+    <div class="nom-field deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
+      &nbsp;&nbsp;Data:&nbsp;<span class="input-span data-span" contenteditable="true"></span>
+      &nbsp;<span class="nivell-badge-small" title="Versió A — Autònom / Ampliació">A</span>
+    </div>
+  </div>
+
+  <div class="oa-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="oa-title">🎯 Objectius d'aprenentatge d'avui (Nivell A)</div>
+    <ul class="oa-list">
+      <li contenteditable="true">Argumento com les ones sísmiques demostren que el nucli extern és líquid, i dic què NO queda demostrat amb aquesta prova.</li>
+      <li contenteditable="true">Predic quin fenomen geològic hi haurà en un límit del qual només sé quin tipus de plaques hi ha i cap a on es mouen.</li>
+      <li contenteditable="true">Explico, amb la densitat de cada tipus d'escorça, per quina raó una col·lisió continental no genera volcans d'arc.</li>
+      <li contenteditable="true">Justifico per quina raó un terratrèmol de magnitud petita pot fer més mal que un de magnitud gran.</li>
+    </ul>
+  </div>
+
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--purple)">0</div><div><div class="stitle" contenteditable="true">Què hi ha sota els teus peus?</div><div class="sdesc" contenteditable="true">Idees prèvies ⏱️ 12 min</div></div></div><div class="divider"></div><div class="previ-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><p contenteditable="true">La sessió passada vas identificar roques que podies tocar. Avui parlarem d'una cosa que <b>no</b> pots tocar: què hi ha a sota dels teus peus, a quilòmetres de fondària. Abans que t'expliquem res, escriu i dibuixa el que ja et sembla que saps.</p></div><p class="pista">💡 Dibuixa-ho com te la imaginis: quantes capes hi poses, de quin material i quina et sembla més gruixuda.</p><p class="pista" style="margin-bottom:2px">✏️ La Terra tallada per la meitat</p><div class="deletable" style="position:relative;min-height:180px;border:1.5px solid var(--rule-dark);border-radius:8px;background:#fff;margin:2px 0 6px" contenteditable="true"><div class="del-btn" onclick="deleteEl(this)">✕</div></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">1</div><div class="explore-qtext" contenteditable="true">Has notat mai un terratrèmol, aquí o en un altre país? Com va ser? Si no n'has notat mai cap, com t'imagines que deu ser?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">2</div><div class="explore-qtext" contenteditable="true">Per quina raó creus que tremola la terra? Escriu la teva hipòtesi abans que ho expliquem.</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--orange)">1</div><div><div class="stitle" contenteditable="true">Dos mapes, un patró</div><div class="sdesc" contenteditable="true">I què no diuen els mapes ⏱️ 25 min</div></div></div><div class="divider"></div><div class="info-box"><div class="info-label">🗺️ Els mapes</div><p>Al teu grup us donaran <b>dos mapes del món</b> — límits de plaques i terratrèmols de magnitud superior a 4 dels últims 50 anys, amb els volcans actius marcats amb un triangle — per superposar a contrallum. Per a les files del Pirineu i de la Garrotxa caldrà el <b>tercer mapa</b>, el de Catalunya: al mapa del món són el mateix punt. Ompliu primer la taula i només després en traieu conclusions.</p></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><table class="data-table"><thead><tr><th>Zona</th><th>Hi ha terratrèmols?</th><th>Hi ha volcans?</th><th>És a la vora d'un límit?</th><th>Què hi ha allà: muntanyes, illes, mar fondo…</th></tr></thead><tbody><tr><td class="label-cell">Japó</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Atlàntic mig</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Himàlaia</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Califòrnia</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Pirineu</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">La Garrotxa</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table></div><p class="pista">💡 Per trobar l'excepció, mira l'interior de l'Àsia i el mig del Pacífic.</p><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">1</div><div class="explore-qtext" contenteditable="true">Escriu el patró general que veus amb una sola frase, i després anota <b>una excepció</b>: un lloc amb sismes o volcans que no sigui a cap límit.</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="epist-box"><div style="font-size:22px;flex-shrink:0">🔬</div><div><div class="epist-title">Moment epistèmic — com sabem el que sabem</div><div class="epist-text">El mapa de terratrèmols es fa amb els sismògrafs que hi ha instal·lats, i no n'hi ha pas els mateixos a tot arreu: a Califòrnia n'hi ha centenars i al mig de l'oceà Índic, gairebé cap. Quan una zona del mapa surt buida, què vol dir exactament: que allà no hi ha terratrèmols, o que allà no hi ha qui els mesuri?</div></div></div><div class="epist-box"><div style="font-size:22px;flex-shrink:0">🔎</div><div><div class="epist-title">Com es fa, realment, aquest mapa</div><div class="epist-text">Un mapa de sismicitat no és una fotografia del planeta: és el recompte del que han detectat uns aparells concrets, posats on algú va decidir posar-los i pagats per algú concret. La cobertura de sismògrafs és densa al Japó, a Califòrnia i a Europa, i molt prima a l'Àfrica central i al mig dels oceans.</div></div></div><p class="pista">💡 Una frase a cada casella. La primera fila ja està feta com a exemple.</p><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><table class="data-table"><thead><tr><th>Conclusió que aquest mapa NO permet treure amb seguretat</th><th>Quina dada faltaria</th></tr></thead><tbody><tr><td>Que al mig de l'oceà Índic no hi ha terratrèmols</td><td>Quants sismògrafs hi ha instal·lats en aquella zona</td></tr><tr><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">2</div><div class="explore-qtext" contenteditable="true">Catalunya hi surt però el Pirineu no és avui el límit de cap placa. Escriu dues hipòtesis diferents que ho podrien explicar.</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--teal)">2</div><div><div class="stitle" contenteditable="true">Dins de la Terra, i per què es mou</div><div class="sdesc" contenteditable="true">Deduir el que no es pot veure ⏱️ 25 min</div></div></div><div class="divider"></div><div class="info-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="info-label">🔤 Vocabulari d'avui</div><div style="line-height:1.5;column-count:2;column-gap:16px"><div style="break-inside:avoid;margin-bottom:3px"><strong>litosfera</strong> — escorça + part sòlida del mantell superior: la capa rígida que està trencada en plaques</div><div style="break-inside:avoid;margin-bottom:3px"><strong>astenosfera</strong> — part del mantell superior on la roca sòlida flueix per deformació lenta</div><div style="break-inside:avoid;margin-bottom:3px"><strong>convecció</strong> — transport de calor per moviment del propi material: el calent puja, es refreda i baixa</div><div style="break-inside:avoid;margin-bottom:3px"><strong>ones P i S</strong> — les P són de compressió i passen per sòlids i líquids; les S són de cisalla i només per sòlids</div><div style="break-inside:avoid;margin-bottom:3px"><strong>subducció</strong> — enfonsament d'una placa sota una altra</div><div style="break-inside:avoid;margin-bottom:3px"><strong>rift</strong> — zona en extensió on la litosfera s'aprima i es trenca en blocs enfonsats</div><div style="break-inside:avoid;margin-bottom:3px"><strong>volcans d'arc</strong> — els volcans que surten damunt d'una subducció; al mapa formen un arc</div></div></div><div class="info-box"><div class="info-label">📖 Per llegir</div><p>El forat més fondo mai perforat fa 12 km i el radi de la Terra, 6.370: l'interior del planeta es coneix <b>indirectament</b>. Les ones sísmiques canvien de velocitat i es refracten cada vegada que canvia el material, i les <b>ones S no es propaguen pels líquids</b>. Després d'un sisme gran hi ha una franja de l'altre hemisferi on no arriba cap ona S: la <b>zona d'ombra</b>. D'aquí surt el model de quatre capes: escorça, mantell (amb l'astenosfera a la part de dalt), nucli extern líquid i nucli intern sòlid. La litosfera està trencada en unes 15 plaques que llisquen sobre l'astenosfera, arrossegades per la <b>convecció</b> del mantell, a 2-10 cm/any.</p></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><figure class="fig"><div class="fig-frame"><img src="img/sa5-s2-estructura-terra-muda.svg" alt="Tall de la Terra amb les quatre capes numerades de l'1 al 4" style="max-height:300px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Tall de la Terra amb les quatre capes numerades de l'1 al 4</span></div></div><figcaption class="figcap" contenteditable="true">El tall de la Terra. Cada número assenyala una capa diferent: escriu-hi el nom al costat.</figcaption></figure><div class="legend deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>A l'esquema, l'escorça està <b>molt exagerada</b>: si es dibuixés a escala real seria una ratlla tan fina que no la veuries.</div></div><div class="word-bank"><div class="word-bank-title">📦 Banc de paraules (no cal fer-los servir tots)</div><div class="chips"><span class="chip">escorça</span><span class="chip">mantell</span><span class="chip">nucli extern</span><span class="chip">nucli intern</span></div></div><p class="pista">💡 Escriu el nom de cada capa a la casella del seu número.</p><p class="pista">💡 Respon amb el raonament sencer, pas a pas, i acaba dient què queda fora de l'abast d'aquesta prova.</p><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">3</div><div class="explore-qtext" contenteditable="true">Les ones S no travessen els líquids. Explica com, només amb això, es dedueix que el nucli extern és líquid. I digues què <b>no</b> queda demostrat amb aquesta prova.</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><figure class="fig"><div class="fig-frame"><img src="img/sa5-s2-limits-plaques.svg" alt="Quatre talls del terreny: plaques que s'allunyen, una que s'enfonsa sota una altra, dues que xoquen i dues que llisquen" style="max-height:380px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Quatre talls del terreny: plaques que s'allunyen, una que s'enfonsa sota una altra, dues que xoquen i dues que llisquen</span></div></div><figcaption class="figcap" contenteditable="true">Els quatre casos que es poden donar a la vora de dues plaques. A cada panell falta el nom del fenomen que genera.</figcaption></figure><div class="legend deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>Els panells <b>1</b>, <b>2</b> i <b>3</b> són talls de perfil, com si obrissis el terreny per la meitat. El <b>4</b> està vist des de dalt, a vista d'ocell.</div></div><p class="pista">💡 Omple-ho amb el mecanisme, no només amb el nom del fenomen.</p><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><table class="data-table"><thead><tr><th>Cas</th><th>Què hi esperes trobar</th><th>Per quina raó</th></tr></thead><tbody><tr><td class="label-cell">a) Dues plaques oceàniques que s'allunyen</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">b) Una placa oceànica que s'apropa a una de continental</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">c) Dues plaques continentals que xoquen</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">d) Dues plaques que llisquen de costat</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table></div><div class="epist-box"><div style="font-size:22px;flex-shrink:0">🔎</div><div><div class="epist-title">Una xifra que ho decideix tot</div><div class="epist-text">L'escorça oceànica és de basalt i pesa uns <b>3,0 g/cm³</b>. La continental és de granit i pesa uns <b>2,7 g/cm³</b>. El mantell de sota, uns 3,3.</div></div></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">4</div><div class="explore-qtext" contenteditable="true">Amb aquestes tres densitats, explica per quina raó en una subducció sempre s'enfonsa la placa oceànica, i per quina raó una col·lisió de dues plaques continentals no genera volcans d'arc.</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="callout"><b>Idea clau:</b> qui s'enfonsa i qui s'aixeca no ho decideix la mida de la placa, sinó la densitat.</div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--red)">3</div><div><div class="stitle" contenteditable="true">Quan la roca es trenca</div><div class="sdesc" contenteditable="true">Terratrèmols i la pista 2 ⏱️ 20 min</div></div></div><div class="divider"></div><div class="info-box"><div class="info-label">📖 Per llegir</div><p>Una <b>falla</b> és una fractura de la litosfera on les plaques acumulen tensió fins que la roca cedeix de cop: el punt de ruptura és l'<b>hipocentre</b> i la vertical fins a la superfície marca l'<b>epicentre</b>. La <b>magnitud</b> (energia alliberada) és una escala logarítmica: cada punt val <b>32 vegades</b> més energia. La <b>intensitat</b> mesura els efectes en un punt concret i depèn de la distància, de la fondària i del substrat: el fang amplifica les ones molt més que la roca compacta.</p></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><figure class="fig"><div class="fig-frame"><img src="img/sa5-s2-terratremol.svg" alt="Tall del terreny amb una falla, el punt on es trenca la roca i els cercles de les ones" style="max-height:300px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Tall del terreny amb una falla, el punt on es trenca la roca i els cercles de les ones</span></div></div><figcaption class="figcap" contenteditable="true">Un terratrèmol vist per dins. Els tres números assenyalen tres coses diferents.</figcaption></figure></div><div class="word-bank"><div class="word-bank-title">📦 Banc de paraules (no cal fer-los servir tots)</div><div class="chips"><span class="chip">hipocentre</span><span class="chip">epicentre</span><span class="chip">ones sísmiques</span></div></div><p class="pista">💡 Escriu el nom a la casella de cada número.</p><p class="pista">💡 Fes el càlcul aquí i deixa'l escrit, no només el resultat.</p><p class="pista" style="margin-bottom:2px">✏️ Quantes vegades més energia allibera un M7 que un M5?</p><div class="deletable" style="position:relative;min-height:110px;border:1.5px solid var(--rule-dark);border-radius:8px;background:#fff;margin:2px 0 6px" contenteditable="true"><div class="del-btn" onclick="deleteEl(this)">✕</div></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">5</div><div class="explore-qtext" contenteditable="true">Tot i el càlcul que acabes de fer, la magnitud tota sola no diu quants edificis cauran. Per quina raó? Digues dos factors que la magnitud no recull.</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><figure class="fig"><div class="fig-frame"><img src="img/sa5-s2-pirineu-garrotxa-muda.svg" alt="Dos talls de costat: el Pirineu amb dues plaques que xoquen i la Garrotxa amb l'escorça que s'estira" style="max-height:330px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Dos talls de costat: el Pirineu amb dues plaques que xoquen i la Garrotxa amb l'escorça que s'estira</span></div></div><figcaption class="figcap" contenteditable="true">Els dos mecanismes de l'enigma, un al costat de l'altre. Passen a 60 km de distància, però no són el mateix ni van passar alhora.</figcaption></figure></div><div class="info-box"><div class="info-label">🧩 L'enigma — pista 2</div><p>El Pirineu es va aixecar per la <b>col·lisió</b> Ibèria-Euràsia (55-35 Ma): dues escorces continentals que no es poden enfonsar l'una sota l'altra i s'arruguen en encavalcaments. Les falles heretades d'aquell episodi continuen actives. La Garrotxa, en canvi, és un <b>rift postalpí</b>: acabada la compressió, la zona va passar a <b>extensió</b>, l'escorça es va aprimar, el mantell va pujar, va fondre's per descompressió i el magma basàltic va arribar a dalt. L'últim episodi eruptiu és de fa uns 11.500 anys.</p></div><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">6</div><div class="explore-qtext" contenteditable="true">Compressió i extensió són mecanismes oposats i passen a 60 km l'un de l'altre. Explica com poden conviure i en quin ordre van passar.</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="epist-box"><div style="font-size:22px;flex-shrink:0">🔎</div><div><div class="epist-title">Marie Tharp (1920-2006)</div><div class="epist-text">Als anys 50 no es deixava embarcar dones als vaixells oceanogràfics. Marie Tharp es va quedar a terra convertint en dibuix milers de sondejos de fondària de l'Atlàntic, i hi va trobar una vall contínua al bell mig: la <b>dorsal</b>, l'esquerda per on s'obre el fons oceànic. El seu company Bruce Heezen ho va qualificar de «girl talk» i li va fer refer el mapa sencer abans d'acceptar-ho. Avui és una de les proves centrals de la tectònica de plaques; ella no va signar com a coautora fins molt més tard.</div></div></div><p class="pista">💡 Dues conseqüències diferents, no la mateixa dita de dues maneres.</p><div class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-q"><div class="explore-qnum">7</div><div class="explore-qtext" contenteditable="true">Quina conseqüència té, per a la ciència mateixa, que unes dades correctes s'ignorin durant anys perquè qui les presenta no té prou consideració? Escriu-ne dues.</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--purple)">4</div><div><div class="stitle" contenteditable="true">Com ha anat avui</div><div class="sdesc" contenteditable="true">Metacognició ⏱️ 3 min</div></div></div><div class="divider"></div><div class="meta-grid"><div class="meta-item"><span class="meta-icon">🚦</span><div class="meta-label">Com ho veig</div><div class="circ-row"><span class="circ-opt">🟢 ho tinc</span><span class="circ-opt">🟡 a mitges</span><span class="circ-opt">🔴 perdut/uda</span></div></div><div class="meta-item"><span class="meta-icon">💭</span><div class="meta-label">Una cosa que ara entenc del terra que trepitjo</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="meta-oa-box deletable" style="margin-top:9px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-title">Marca el que ja sabries explicar a algú altre</div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Argumento com les ones sísmiques demostren que el nucli extern és líquid, i dic què NO queda demostrat amb aquesta prova.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Predic quin fenomen geològic hi haurà en un límit del qual només sé quin tipus de plaques hi ha i cap a on es mouen.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Explico, amb la densitat de cada tipus d'escorça, per quina raó una col·lisió continental no genera volcans d'arc.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Justifico per quina raó un terratrèmol de magnitud petita pot fer més mal que un de magnitud gran.</div></div></div></div><div class="tasca-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-title">📚 Per a la propera sessió</div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">1</div><div contenteditable="true"><b>📰 Una notícia de veritat.</b> Busca en un diari en línia una notícia dels <b>dos últims anys</b> sobre un terratrèmol a Catalunya o a Espanya. Apunta'n la <b>data</b>, <b>com de fort va ser</b> (la <b>magnitud</b>: el número que surt al diari), on va ser l'<b>epicentre</b> i si va fer mal a alguna cosa.</div></div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">2</div><div contenteditable="true"><b>I ara pensa-hi tu.</b> Amb el mapa d'avui al cap, escriu <b>dues ratlles</b> dient per quina raó et sembla que va passar allà i no en un altre lloc. Aquesta part no la pot escriure ningú per tu: a classe te la faré explicar en veu alta.</div></div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">3</div><div contenteditable="true"><b>Porta-ho a la sessió següent</b> (el retall, la captura de pantalla o copiat a mà).</div></div></div>
+</div><!-- .page-wrap -->
+
+<div id="sheets"></div>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   PAGINADOR A4 REAL (portat de les fitxes migrades de SA1).
+   FLOW = llista ordenada dels blocs de primer nivell (la font lògica).
+   Capçalera corrent a partir de la pàgina 2 + peu comú amb llicència.
+   ════════════════════════════════════════════════════════════ */
+const SA_NOM = "La memòria de la Terra", SESSIO = "Sessió 2 de 4";
+const SHEET_H = 1123, FOOT_H = 30, BODY_MAX = SHEET_H - FOOT_H - 8;
+let FLOW = [];
+
+function flattenDoc(){
+  const doc=document.getElementById('doc');
+  const content=doc.querySelector(':scope > .content');
+  if(content){
+    const foot=content.querySelector(':scope > .footer'); if(foot) foot.remove();
+    while(content.firstChild){ doc.insertBefore(content.firstChild, content); }
+    content.remove();
+  }
+  const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
+}
+function extractFlow(){
+  FLOW = Array.from(document.getElementById('doc').children);
+  FLOW.forEach(function(b){
+    if(b.classList && b.classList.contains('section')){
+      Array.prototype.forEach.call(b.children, function(k,i){ k._ord = i; });
+    }
+  });
+}
+function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
+
+function saveCaret(){
+  const a=document.activeElement;
+  if(!a||!a.isContentEditable) return null;
+  const s=getSelection(); if(!s.rangeCount) return {el:a};
+  const r=s.getRangeAt(0);
+  return {el:a, sc:r.startContainer, so:r.startOffset, ec:r.endContainer, eo:r.endOffset};
+}
+function restoreCaret(d){
+  if(!d||!d.el||!document.body.contains(d.el)) return;
+  try{ d.el.focus({preventScroll:true});
+    if(d.sc && document.body.contains(d.sc)){
+      const r=document.createRange(); r.setStart(d.sc,d.so); r.setEnd(d.ec,d.eo);
+      const s=getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+  }catch(e){}
+}
+
+function repaginate(){
+  const host=document.getElementById('sheets'); if(!host) return;
+  const caret=saveCaret();
+  var _origens=[];
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){
+    var o=cont._origin; if(o){ while(cont.firstChild){ o.appendChild(cont.firstChild); } if(_origens.indexOf(o)<0) _origens.push(o); }
+  });
+  _origens.forEach(function(o){
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.appendChild(k); });
+  });
+  FLOW = FLOW.filter(function(b){ return b; });
+  FLOW.forEach(function(b){ if(b.parentNode) b.parentNode.removeChild(b); });
+  host.innerHTML='';
+  let body=null;
+  function newSheet(){
+    const n=host.children.length;
+    const sheet=document.createElement('div'); sheet.className='sheet'+(n?' has-head':'');
+    if(n){
+      const head=document.createElement('div'); head.className='sheet-head';
+      head.innerHTML='<span class="sheet-head-l"></span><span class="sheet-head-r">Biologia i Geologia · 3r ESO</span>';
+      head.firstChild.textContent=SA_NOM+' · '+SESSIO;
+      sheet.appendChild(head);
+    }
+    body=document.createElement('div'); body.className='sheet-body';
+    const foot=document.createElement('div'); foot.className='sheet-foot';
+    foot.innerHTML='<span class="fl">IE Temple · Biologia i Geologia 3r ESO</span>'+
+                   '<span class="fc">CC BY-NC-SA 4.0</span>'+
+                   '<span class="fr foot-pg"></span>';
+    sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
+  }
+  function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn'); }); }
+  function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
+  function trySplitSection(sec){
+    if(BODY_MAX - body.scrollHeight < 150) return false;
+    body.appendChild(sec);
+    if(body.scrollHeight <= BODY_MAX) return true;
+    var moved=[];
+    while(body.scrollHeight > BODY_MAX && _contentKids(sec).length > 1){
+      var ck=_contentKids(sec); var last=ck[ck.length-1];
+      moved.unshift(last); sec.removeChild(last);
+    }
+    if(moved.length===0 || body.scrollHeight > BODY_MAX){
+      moved.forEach(function(k){ sec.appendChild(k); });
+      if(sec.parentNode) sec.parentNode.removeChild(sec);
+      return false;
+    }
+    var pending=moved;
+    while(pending.length){
+      newSheet();
+      var cont=document.createElement('div');
+      cont.className='section'; cont.setAttribute('data-cont','1'); cont._origin=sec;
+      body.appendChild(cont);
+      pending.forEach(function(k){ cont.appendChild(k); });
+      var rest=[];
+      while(body.scrollHeight > BODY_MAX && cont.children.length>1){
+        var l=cont.lastElementChild; rest.unshift(l); cont.removeChild(l);
+      }
+      pending=rest;
+    }
+    return true;
+  }
+  newSheet();
+  for(let i=0;i<FLOW.length;i++){
+    const blk=FLOW[i];
+    if(blk.classList.contains('spacer-block')){
+      blk.style.height='auto'; body.appendChild(blk);
+      const used = body.scrollHeight - blk.offsetHeight;
+      const remain = BODY_MAX - used;
+      blk.style.height = (remain>34?remain:34)+'px';
+      if(i < FLOW.length-1) newSheet();
+      continue;
+    }
+    body.appendChild(blk);
+    if(body.scrollHeight > BODY_MAX && body.children.length>1){
+      body.removeChild(blk);
+      var _ok=false;
+      if(blk.classList.contains('section')){ try{ _ok=trySplitSection(blk); }catch(e){ _ok=false; } }
+      if(!_ok){
+        newSheet();
+        var _ok2=false;
+        if(blk.classList.contains('section')){ try{ _ok2=trySplitSection(blk); }catch(e){ _ok2=false; } }
+        if(!_ok2){ body.appendChild(blk); }
+      }
+    }
+  }
+  const sheets=host.querySelectorAll('.sheet');
+  sheets.forEach(function(s,idx){ const pg=s.querySelector('.foot-pg'); if(pg) pg.textContent='Pàgina '+(idx+1)+' / '+sheets.length; });
+  restoreCaret(caret);
+}
+let _pgT=null;
+function schedulePageBreaks(){ clearTimeout(_pgT); _pgT=setTimeout(repaginate,120); }
+document.addEventListener('focusout', function(){ schedulePageBreaks(); });
+
+/* ── eliminar / desfer / espai ─────────────────────── */
+const delStack = [];
+function deleteEl(btn){
+  const el=btn.closest('.deletable'); if(!el) return;
+  const blk=topFlowBlock(el);
+  if(blk===el){ const i=FLOW.indexOf(el); delStack.push({el:el, flowIdx:i}); if(i>=0) FLOW.splice(i,1); el.remove(); }
+  else { delStack.push({el:el, parent:el.parentNode, sibling:el.nextSibling}); el.remove(); }
+  document.getElementById('btn-undo').classList.add('active');
+  repaginate();
+}
+function undoDelete(){
+  if(!delStack.length) return;
+  const d=delStack.pop();
+  if(d.parent){ d.parent.insertBefore(d.el, d.sibling); }
+  else { FLOW.splice(Math.max(0,Math.min(d.flowIdx,FLOW.length)),0,d.el); }
+  if(!delStack.length) document.getElementById('btn-undo').classList.remove('active');
+  repaginate();
+}
+document.addEventListener('keydown', function(e){
+  if(e.key==='z' && (e.ctrlKey||e.metaKey)){
+    if(document.activeElement && document.activeElement.contentEditable==='true') return;
+    e.preventDefault(); undoDelete();
+  }
+});
+let _lastClickedBlock=null;
+document.addEventListener('click', function(e){
+  const b=topFlowBlock(e.target);
+  if(b && !b.classList.contains('spacer-block')) _lastClickedBlock=b;
+});
+function insertSpacer(){
+  const sp=document.createElement('div'); sp.className='spacer-block deletable';
+  sp.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai en blanc</span>';
+  let idx=FLOW.length;
+  if(_lastClickedBlock){ const i=FLOW.indexOf(_lastClickedBlock); if(i>=0) idx=i+1; }
+  FLOW.splice(idx,0,sp);
+  delStack.push({el:sp, flowIdx:idx});
+  document.getElementById('btn-undo').classList.add('active');
+  repaginate();
+}
+function rebuildDocFromFlow(){
+  const doc=document.getElementById('doc');
+  document.querySelectorAll('.section[data-cont]').forEach(function(cont){
+    var o=cont._origin; if(o){ while(cont.firstChild){ o.appendChild(cont.firstChild); } }
+  });
+  FLOW.forEach(function(b){ if(b.classList.contains('spacer-block')) b.style.height=''; });
+  FLOW.forEach(function(b){ if(b.parentNode!==doc){ if(b.parentNode) b.parentNode.removeChild(b); doc.appendChild(b); } });
+  document.getElementById('sheets').innerHTML='';
+}
+window.addEventListener('load', function(){
+  flattenDoc(); extractFlow(); repaginate();
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ repaginate(); }); }
+  document.querySelectorAll('img').forEach(function(img){ if(!img.complete) img.addEventListener('load', schedulePageBreaks, {once:true}); });
+  setTimeout(repaginate, 400); setTimeout(repaginate, 1200);
+});
+
+/* === DESAR EDICIONS AL FITXER === */
+function _fitxaToast(msg){
+  let t=document.getElementById('fitxa-toast');
+  if(!t){t=document.createElement('div');t.id='fitxa-toast';
+    t.style.cssText='position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3A2A1C;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s';
+    document.body.appendChild(t);}
+  t.textContent=msg;t.style.opacity='1';
+  clearTimeout(t._h);t._h=setTimeout(function(){t.style.opacity='0';},2200);
+}
+async function desaFitxa(){
+  rebuildDocFromFlow();
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelectorAll('#fitxa-toast').forEach(function(n){n.remove();});
+  const _sh=clone.querySelector('#sheets'); if(_sh) _sh.innerHTML='';
+  const html='<!DOCTYPE html>\n'+clone.outerHTML;
+  const fname=(location.pathname.split('/').pop()||'fitxa.html');
+  if(window.showSaveFilePicker){
+    try{
+      const h=await window.showSaveFilePicker({suggestedName:fname,types:[{description:'Pàgina HTML',accept:{'text/html':['.html']}}]});
+      const w=await h.createWritable();await w.write(html);await w.close();
+      _fitxaToast('✓ Canvis desats al fitxer');return;
+    }catch(e){if(e.name==='AbortError')return;}
+  }
+  const blob=new Blob([html],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+  _fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');
+  extractFlow(); repaginate();
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='s'&&(e.ctrlKey||e.metaKey)){e.preventDefault();desaFitxa();}
+});
+</script>
+</body></html>

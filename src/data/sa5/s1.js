@@ -155,8 +155,8 @@ export const sa5s1 = {
   exitTicketType: "paper",
   exitTicketQuestions: [
     { id: "q1", type: "open", text: "Explica la diferència entre roca ígnia intrusiva i extrusiva. Posa un exemple de cada una i explica per quina raó la mida dels cristalls és diferent.", hint: "Intrusiva (granit): refreda lentament en profunditat → cristalls grans. Extrusiva (basalt): erupciona a la superfície i refreda ràpidament → cristalls petits o amorf." },
-    { id: "q2", type: "open", text: "Quina de les 6 mostres del laboratori reacciona amb HCl? Per quina raó? És del mateix mineral la que fa efervescència que el marbre? Explica la diferència.", hint: "El calcari reacciona (CaCO₃ + HCl → CO₂). El marbre és calcari metamorfitzat: té calcita recristal·litzada i ja no fa tanta efervescència perquè el gas s'escapa més lentament. Totes dues contenen CaCO₃ però amb textures molt diferents." },
-    { id: "q3", type: "multiple", text: "Quin procés transforma una roca sedimentaria en una roca metamòrfica?", options: ["Erosió i transport per l'aigua", "Alta temperatura i/o pressió en profunditat", "Solidificació del magma", "Dipòsit de sediments i compactació"], correct: 1 }
+    { id: "q2", type: "open", text: "Quina de les 6 mostres del laboratori reacciona amb HCl? Per quina raó? És del mateix mineral la que fa efervescència que el marbre? Explica la diferència.", hint: "El calcari reacciona (CaCO₃ + HCl → CO₂). El marbre és calcari metamorfitzat: també conté CaCO₃ i també fa efervescència. El que canvia és la textura (cristalls de calcita encaixats, com el sucre) i que hi han desaparegut els fòssils." },
+    { id: "q3", type: "multiple", text: "Quin procés transforma una roca sedimentària en una roca metamòrfica?", options: ["Erosió i transport per l'aigua", "Alta temperatura i/o pressió en profunditat", "Solidificació del magma", "Dipòsit de sediments i compactació"], correct: 1 }
   ],
 
   homework: {
