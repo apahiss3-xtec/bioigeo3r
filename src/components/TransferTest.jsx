@@ -1,17 +1,45 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import T from '../translate/T.jsx'
+import { permutacioEstable } from '../utils.js'
 
 // Test de transferència: cas pràctic amb context NOU (diferent del de la
 // prova) per comprovar que l'alumne infereix i no només recorda.
 // Dona feedback orientador per opció, sense puntuar com una nota.
-export default function TransferTest({ test }) {
+export default function TransferTest({ test, onChange }) {
   const [answers, setAnswers] = useState({})
+
+  // Ordre de presentació de cada pregunta. Es calcula un sol cop per test.
+  // Cada element és l'índex ORIGINAL de l'opció dins de `q.options`, que és
+  // el que es desa a `answers` i el que es compara amb `q.correct`: així la
+  // barreja és només visual i no cal tocar cap dada dels `avaluacio.js`.
+  const ordres = useMemo(() => {
+    const m = {}
+    for (const q of test?.questions ?? []) {
+      m[q.id] = permutacioEstable(q.id + '|' + (q.text ?? ''), q.options.length)
+    }
+    return m
+  }, [test])
 
   if (!test?.questions?.length) return null
 
   const choose = (qid, oi) =>
-    setAnswers((prev) => (prev[qid] === oi ? prev : { ...prev, [qid]: oi }))
+    setAnswers((prev) => {
+      if (prev[qid] === oi) return prev
+      const next = { ...prev, [qid]: oi }
+      // El PDF ha de portar també el resultat del test, no només la
+      // checklist: per això l'estat puja cap a SAAvaluacioPage.
+      onChange?.(
+        test.questions.map((q) => ({
+          id: q.id,
+          text: q.text,
+          chosen: next[q.id] === undefined ? null : q.options[next[q.id]],
+          correct: q.options[q.correct],
+          ok: next[q.id] === q.correct
+        }))
+      )
+      return next
+    })
 
   const answered = Object.keys(answers).length
   const correct = test.questions.filter((q) => answers[q.id] === q.correct).length
@@ -41,7 +69,8 @@ export default function TransferTest({ test }) {
               </span>
             </p>
             <div className="space-y-2">
-              {q.options.map((opt, oi) => {
+              {(ordres[q.id] ?? q.options.map((_, k) => k)).map((oi, pos) => {
+                const opt = q.options[oi]
                 let stateCls = 'border-[var(--rule)] hover:border-[var(--purple-deep)]'
                 if (isAnswered && oi === q.correct) {
                   stateCls = 'border-[#3e7c4f] bg-[rgba(62,124,79,0.14)]'
@@ -58,7 +87,7 @@ export default function TransferTest({ test }) {
                     }`}
                   >
                     <span className="font-display font-bold text-[var(--muted)]">
-                      {String.fromCharCode(97 + oi)})
+                      {String.fromCharCode(97 + pos)})
                     </span>
                     <span>
                       <T>{opt}</T>
