@@ -28,7 +28,7 @@ export const sa5s3 = {
       "Completo: un mineral sempre té la mateixa composició química. El quars és sempre ___. El calcari és una roca perquè conté el mineral ___  i sovint restes de ___.",
       "Completo: els combustibles fòssils (carbó, petroli, gas natural) es van formar fa ___ milions d'anys. El carbó ve de restes de ___ (plantes/animals) enterrades i compactades. El petroli ve de restes de ___ (plantes/animals) marines.",
       "Completo: 3 recursos geològics importants de Catalunya: 1. ___ (s'usa per fer ciment), 2. ___ (cobertes de les cases als Pirineus), 3. ___ (sal de potassi que s'exporta del Bages).",
-      "Completo la connexió amb «Ens enfonsem»: per produir ciment cal calcinar el calcari a 1.450 °C. Això allibera ___ a l'atmosfera. El ciment és responsable del ___% de les emissions globals de CO₂."
+      "Completo la connexió amb «Ens enfonsem»: per produir ciment cal calcinar el calcari a 1.450 °C. Això allibera ___ a l'atmosfera. El ciment és responsable del ___ % de les emissions globals de CO₂."
     ]
   },
 
@@ -72,14 +72,14 @@ export const sa5s3 = {
     "Posada en comú: cada grup presenta les 3 frases i sistematitzem que tots els recursos geològics són finits a escala humana, però uns es reciclen millor que d'altres"
   ],
   exploreDuration: "25 min",
-  exploreMaterials: ["Fitxes de recursos geològics (1 per grup, amb dades d'extracció, impacte i alternativas)", "Mapa de recursos geològics de Catalunya", "Projector: imatges de pedreres (oberta + restaurada), mina de potassa de Sallent"],
+  exploreMaterials: ["Fitxes de recursos geològics (1 per grup, amb dades d'extracció, impacte i alternatives)", "Mapa de recursos geològics de Catalunya", "Projector: imatges de pedreres (oberta + restaurada), mina de potassa de Sallent"],
 
   theoryPoints: [
     {
       id: "t1",
       apartat: "2",
       heading: "==Minerals== vs ==roques==: definicions exactes",
-      text: "Un ==mineral|g== és una substància sòlida inorgànica, natural, amb composició química fixa i estructura cristal·lina definida. El ==quars|b== és sempre SiO₂, el ==calcita|b== és sempre CaCO₃, el ==halita|b== (sal) és sempre NaCl. Els minerals es reconeixen per: ==duresa|o== (escala de Mohs 1-10), ==color i ratllada==, ==lluentor== (metàl·lica, vítria, nacrada), ==clivatge== (com es trenca). Una ==roca== és un material natural format per l'agregació de dos o més minerals (o restes orgàniques). El ==granit|o== conté quars + feldspat + mica. El ==calcari|b== conté calcita + possibles fòssils. La ==pissarra|r== conté mica + clorita metamorfitzades. Hi ha milers de minerals, però l'escorça terrestre és feta principalment per 8: ==feldspat== (51%), ==quars== (12%), ==piroxens|o== (11%), ==miques|o== (5%), ==anfíbols==, ==oliví==, ==calcita== i ==óxids de Fe==.",
+      text: "Un ==mineral|g== és una substància sòlida inorgànica, natural, amb composició química fixa i estructura cristal·lina definida. El ==quars|b== és sempre SiO₂, el ==calcita|b== és sempre CaCO₃, el ==halita|b== (sal) és sempre NaCl. Els minerals es reconeixen per: ==duresa|o== (escala de Mohs 1-10), ==color i ratllada==, ==lluentor== (metàl·lica, vítria, nacrada), ==clivatge== (com es trenca). Una ==roca== és un material natural format per l'agregació de dos o més minerals (o restes orgàniques). El ==granit|o== conté quars + feldspat + mica. El ==calcari|b== conté calcita + possibles fòssils. La ==pissarra|r== conté mica + clorita metamorfitzades. Hi ha milers de minerals, però l'escorça terrestre és feta principalment per 8: ==feldspat== (51%), ==quars== (12%), ==piroxens|o== (11%), ==miques|o== (5%), ==anfíbols==, ==oliví==, ==calcita== i ==òxids de ferro==.",
       type: "concept"
     },
     {
@@ -93,7 +93,7 @@ export const sa5s3 = {
       id: "t3",
       apartat: "3",
       heading: "Recursos geològics a ==Catalunya==: pedra, sal i memòria",
-      text: "Catalunya té una geologia diversa que ha proveït recursos geològics importants: 1) ==Calcari|b== (roques sedimentàries del Mesozoic): s'extreu en grans pedreres a la conca del Llobregat i la Conca de Barberà. Ús principal: ==ciment|o== (matèria primera bàsica de la construcció). La pedra de Montjuïc (conglomerat) va ser la pedra d'edificis emblemàtics de Barcelona. 2) ==Pissarra pirinenca|r==: als Pirineus (Pallars, Alt Urgell). Ús: ==teulades|o== tradicionals (molt durador, 50-100 anys). 3) ==Potassa|g== (Bages): les mines de Cardona i Sallent són de les reserves de potassi més grans d'Europa. Ús: ==adobs agrícoles|g== (exportació mundial). La muntanya de residus salins de Sallent és visible des de l'autovia. 4) ==Granit== (Guilleries, Montnegre): pedra ornamental. 5) ==Sorra de quars== (Delta de l'Ebre, platjes): vidre, microxips. L'extracció excessiva de sorra de platja n'accelera la regressió.",
+      text: "Catalunya té una geologia diversa que ha proveït recursos geològics importants: 1) ==Calcari|b== (roques sedimentàries del Mesozoic): s'extreu en grans pedreres a la conca del Llobregat i la Conca de Barberà. Ús principal: ==ciment|o== (matèria primera bàsica de la construcció). La pedra de Montjuïc (conglomerat) va ser la pedra d'edificis emblemàtics de Barcelona. 2) ==Pissarra pirinenca|r==: als Pirineus (Pallars, Alt Urgell). Ús: ==teulades|o== tradicionals (molt durador, 50-100 anys). 3) ==Potassa|g== (Bages): les mines de Cardona i Sallent són de les reserves de potassi més grans d'Europa. Ús: ==adobs agrícoles|g== (exportació mundial). La muntanya de residus salins de Sallent és visible des de l'autovia. 4) ==Granit== (Guilleries, Montnegre): pedra ornamental. 5) ==Sorra de quars== (Delta de l'Ebre, platges): vidre, microxips. L'extracció excessiva de sorra de platja n'accelera la regressió — i és el mateix mecanisme que farà recular el delta al projecte «Ens enfonsem».",
       type: "concept"
     },
     {
@@ -106,7 +106,7 @@ export const sa5s3 = {
     {
       id: "t5",
       apartat: "3",
-      heading: "Connexió ==enigma== — pista 3: la Terra com arxiu del temps",
+      heading: "Connexió ==enigma== — pista 3: la Terra com a arxiu del temps",
       text: "Les roques calcàries que avui s'extreuen a les pedreres catalanes van néixer al ==mar de Tethys|b== fa ≈100 milions d'anys (Cretaci), quan el que ara és Catalunya era un fons marí ple d'organismes amb closques de CaCO₃. Aquells organismes van fixar el ==CO₂ atmosfèric del Cretaci|r== en les seves closques, i les closques es van convertir en calcari. Quan avui cremem aquell calcari per produir ciment, retornem a l'atmosfera el CO₂ que havia estat capturat fa 100 milions d'anys — el ==cicle del carboni geològic|g==. Les roques metamòrfiques del Pirineu central (gneis, esquistos) guarden la memòria de la col·lisió ==hercínica|o== fa 300 Ma. El basalt de la Garrotxa és el resultat del ==rift postalpí|b== fa tan sols 11.500 anys. Cada roca és un arxiu del temps geològic. Per llegir-les cal saber el codi — i ara en saps prou per llegir el paisatge de Catalunya.",
       type: "epistemic",
       badge: "🧩 Enigma — pista 3 (cicle del carboni geològic)"
@@ -114,14 +114,24 @@ export const sa5s3 = {
   ],
 
   graphicResources: [
-    { id: "G1", apartat: "2", title: "Mapa de recursos geològics de Catalunya", src: "/images/sa5-g5-recursos-cat.svg", note: "Mapa de Catalunya amb marques per zones de recursos: calcari (Llobregat, Conca Barberà), pissarra (Pallars, Alt Urgell), potassa (Bages: Cardona, Sallent), granit (Guilleries), volcans (Garrotxa = basalt), sorra (Delta de l'Ebre). Llegenda de colors per tipus de recurs." },
-    { id: "G2", apartat: "3", title: "Impacte del ciment: cicle de vida i emissions de CO₂", src: "/images/sa5-g6-ciment-co2.svg", note: "Diagrama de cicle de vida: extracció calcari → forn de clínquer (1450°C, CaCO₃→CaO+CO₂) → ciment → formigó → construcció → enderroc → abocador/reciclatge. Punts d'emissió de CO₂ marcats. Comparació: 1 tona de ciment = ≈0,9 tones CO₂. 8% emissions globals." }
+    { id: "G1", apartat: "2", title: "Què converteix una roca en un jaciment", src: "/images/sa5-s3-jaciment.svg", note: "Dos blocs de terreny amb la mateixa quantitat de mineral: en un està disseminat i en l'altre concentrat. A sota, les tres condicions que s'han de complir alhora (concentració, accessibilitat, proximitat al consum). Dos dels tres requisits no són geològics: depenen del preu i de la tecnologia." },
+    { id: "G2", apartat: "2", title: "D'on surten el carbó i el petroli, i quant van trigar", src: "/images/sa5-s3-fossils-temps.svg", note: "Dues columnes de tres passes (carbó: bosc del Carbonífer → enterrament → pressió i calor; petroli: plàncton → cuita lenta → migració i trampa) i, a sota, la barra que compara els ~330 Ma de formació amb els ~200 anys de consum. La ratlla dels 200 anys va dibuixada més gruixuda del que li tocaria, i la figura ho diu." },
+    { id: "G3", apartat: "3", title: "Impacte del ciment: cicle de vida i punts d'emissió de CO₂", src: "/images/sa5-s3-ciment-co2.svg", note: "Cadena de cinc caixes (pedrera → forn de clínquer a 1.450 °C → ciment → formigó → enderroc) amb els punts d'emissió marcats. El forn en porta dos i són de naturalesa diferent: la descarbonatació de la roca (CaCO₃ → CaO + CO₂) i la crema del combustible. Per això canviar el combustible no elimina l'emissió. ≈0,9 t de CO₂ per tona de ciment; ~8 % de les emissions mundials." },
+    { id: "G4", apartat: "3", title: "Mapa de recursos geològics de Catalunya", src: "/images/sa5-s3-mapa-recursos.svg", note: "Esquema de Catalunya amb set marcadors: pissarra (Pallars, Alt Urgell), potassa (Cardona i Sallent), basalt i gredes (Garrotxa), calcari (Conca de Barberà i conca del Llobregat), granit (Guilleries i Montnegre) i sorra (delta de l'Ebre). Al fons, dues taques: la zona aixecada pel xoc del Pirineu i la zona del rift de la Garrotxa — és el que fa visible la pista 3." }
   ],
 
-  // Sense fitxa imprimible encara: el PDF que hi havia aquí no existeix a
-  // public/fitxes/. Amb null, la web mostra «la fitxa es reparteix a classe»
-  // en comptes d'un enllaç trencat.
-  fitxaUrl: null, teoriaPdfUrl: null,
+  fitxaUrl: {
+    A: "/fitxes/sa5-s3-fitxa-A.html",
+    B: "/fitxes/sa5-s3-fitxa-B.html",
+    C: "/fitxes/sa5-s3-fitxa-C.html"
+  },
+  teoriaPdfUrl: null,
+
+  sessionMaterials: [
+    { id: "m1", title: "Targetes de recurs A-E + targeta de dades de la pedrera", url: "/fitxes/sa5-s3-targetes-recursos.html", who: "1 targeta per grup (n'hi ha 5 de diferents) + la de la pedrera per a tothom" },
+    { id: "m2", title: "Full de sortida (versions A i B)", url: "/fitxes/sa5-s3-full-sortida.html", who: "docent · 2 còpies per full A4" },
+    { id: "m3", title: "Full de sortida (versió C)", url: "/fitxes/sa5-s3-full-sortida-C.html", who: "docent · 2 còpies per full A4" }
+  ],
 
   fitxaGuide: {
     fitxaName: "Fitxa S3 — De les roques als recursos",
@@ -131,7 +141,7 @@ export const sa5s3 = {
         "Connexió amb «Ens enfonsem»: el ciment és responsable del 8% de les emissions globals de CO₂. El petroli i el carbó són responsables de la major part de la resta. Tots són recursos geològics.",
         "Pregunta clau: és el recurs renovable a escala humana (100-200 anys) o cal milions d'anys per regenerar-lo?"
       ] },
-      { apartat: "2", title: "Minerals, combustibles fòssils i recursos de Catalunya", time: "20 min", phase: "explica", instruction: "Apartat 2: completa la taula de minerals i resources (G1). Omple l'esquema de formació del carbó i el petroli. Per quina raó són no renovables?", hints: [
+      { apartat: "2", title: "Minerals, combustibles fòssils i recursos de Catalunya", time: "20 min", phase: "explica", instruction: "Apartat 2: completa la taula de minerals i recursos (G1). Omple l'esquema de formació del carbó i el petroli. Per quina raó són no renovables?", hints: [
         "Mineral = composició fixa i estructura cristal·lina. Roca = barreja de minerals. Fòssil = restes d'éssers vius mineralitzades.",
         "Carbó: boscos del Carbonífer (350-300 Ma) → enterrats → compactats → carbó. Petroli: organismes marins → fons marí → calor i pressió → petroli. Tots dos: milions d'anys per formar-se, uns 200 anys per esgotar-se."
       ] },
@@ -149,9 +159,13 @@ export const sa5s3 = {
     { id: "q3", type: "multiple", text: "Quin recurs geològic és el que extreu la mina de Sallent (Bages, Catalunya) i quin és el seu ús principal?", options: ["Carbó, per a la producció d'electricitat", "Potassa, per a la producció d'adobs agrícoles", "Calcari, per a la producció de ciment", "Granit, per a la construcció d'edificis ornamentals"], correct: 1 }
   ],
 
+  // 20/09/2026: la feina de casa que hi havia («busca la petjada de carboni de 5
+  // materials i ordena'ls») és resoluble per una IA en deu segons, cosa que el
+  // CLAUDE.md del projecte prohibeix. Se substitueix per una que depèn del lloc
+  // on viu l'alumne i que, a més, és el punt de partida de la guia geològica de S4.
   homework: {
-    description: "Cerca la petjada de carboni aproximada d'un dels 5 materials de construcció més comuns (ciment, acer, alumini, vidre, fusta). Fes una llista de menor a major impacte i explica breument per quina raó la fusta és diferent dels altres. Porta la llista a S4.",
-    note: "Recerca breu documentada (2-3 fonts), no delegable a IA: analitza i interpreta tu les dades que trobes.",
+    description: "Busca un lloc del teu poble o barri on es vegi la roca despullada: un talús de carretera, un marge, una cala, un penya-segat o la llera d'un riu. Ha de ser roca de debò, no una paret construïda. Fes-ne una foto o dibuixa-la, apunta on és exactament, i escriu tres coses que hi observis (color, capes, si està trencada, si hi creix res) i una pregunta que et facis mirant-la.",
+    note: "No delegable a IA: és el teu lloc i és el que hi veus tu. A la sessió 4 serà el punt de partida de la guia geològica, i te la faré explicar en veu alta.",
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (minerals vs roques, combustibles fòssils, recursos geològics de Catalunya, impacte ambiental)",
