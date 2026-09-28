@@ -93,7 +93,7 @@ export const sa2s7 = {
         "Quin aparell aporta la glucosa? Quin aporta l'oxigen? Quins dos treuen residus, i quin residu cadascun?",
         "Si un pas de la cadena falla, els altres han de treballar més per compensar-ho. Això és el que li passa al cor del Marc."
       ] },
-      { apartat: "4", title: "L'informe de la vostra freqüència cardíaca", time: "30 min", phase: "elabora", instruction: "Apartat 4, en parelles amb rols: Rol A fa Mètode i Resultats; Rol B fa Discussió i Conclusions; la pregunta d'investigació la feu junts. S'entrega a Classroom.", hints: [
+      { apartat: "4", title: "L'informe de la vostra freqüència cardíaca", time: "25 min", phase: "elabora", instruction: "Apartat 4, en parelles amb rols: Rol A fa Mètode i Resultats; Rol B fa Discussió i Conclusions; la pregunta d'investigació la feu junts. S'entrega a Classroom.", hints: [
         "Si no tens les teves dades d'S5, fes servir el joc de reserva (la Berta) que hi ha a la mateixa fitxa i digues-ho a l'informe.",
         "Els Resultats són només dades: cap explicació. L'explicació va a la Discussió."
       ] }

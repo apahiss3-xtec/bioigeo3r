@@ -102,7 +102,7 @@ export const sa2s5 = {
         "Tria una escala que aprofiti tot l'espai: mira el teu valor més alt i el més baix abans de numerar l'eix.",
         "La forma puja ràpida i baixa lenta? Aquesta asimetria és la clau de l'enigma 1."
       ] },
-      { apartat: "3", title: "G1 — La Mercè, resolució de l'enigma 1", time: "20 min", phase: "explica", instruction: "Amb la gràfica G1, omple l'apartat 3 del full: desxifra la corba de la Mercè.", hints: [
+      { apartat: "3", title: "G1 — La Mercè, resolució de l'enigma 1", time: "15 min", phase: "explica", instruction: "Amb la gràfica G1, omple l'apartat 3 del full: desxifra la corba de la Mercè.", hints: [
         "Relaciona cada tram amb una causa: pujada (sistema simpàtic + adrenalina), pic (màxima demanda), baixada lenta (recuperació)."
       ] },
       { apartat: "4", title: "G2 — Elit vs. sedentari", time: "20 min", phase: "elabora", instruction: "En parelles, compareu les dues gràfiques a l'apartat 4 del full.", hints: [

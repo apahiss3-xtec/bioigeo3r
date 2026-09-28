@@ -107,11 +107,11 @@ export const sa2s3 = {
     fitxaName: "Fitxa S3 — La sang i la circulació",
     steps: [
       { apartat: "0", title: "Idees prèvies", time: "10 min", phase: "engage", instruction: "Omple l'apartat 0 — Idees prèvies del full: escriu tot el que creus que la sang transporta pel cos.", hints: [] },
-      { apartat: "1", title: "Les targetes de la sang", time: "25 min", phase: "explore", instruction: "Amb les 100 targetes del sobre, omple l'apartat 1 del full: compta i calcula els percentatges de cada component.", hints: [
+      { apartat: "1", title: "Les targetes de la sang", time: "15 min", phase: "explore", instruction: "Amb les 100 targetes del sobre, omple l'apartat 1 del full: compta i calcula els percentatges de cada component.", hints: [
         "100 targetes fan fàcil el percentatge: el nombre de targetes d'un color JA és el seu %.",
         "Si la sang és majoritàriament plasma groc, per què la veiem vermella? Pensa quin component li dona el color."
       ] },
-      { apartat: "2", title: "Etiqueta el cor", time: "30 min", phase: "explica", instruction: "Amb el banc de paraules, omple l'apartat 2 del full: el diagrama del cor porta 9 marcadors numerats i el banc té exactament 9 noms — cada nom s'usa una sola vegada.", hints: [
+      { apartat: "2", title: "Etiqueta el cor", time: "25 min", phase: "explica", instruction: "Amb el banc de paraules, omple l'apartat 2 del full: el diagrama del cor porta 9 marcadors numerats i el banc té exactament 9 noms — cada nom s'usa una sola vegada.", hints: [
         "Les cavitats de dalt reben (aurícules); les de baix bomben (ventricles). Dreta i esquerra no es barregen.",
         "Al dibuix, l'artèria pulmonar és blava i les venes pulmonars vermelles: artèria vol dir «surt del cor» i vena «arriba al cor», no té res a veure amb l'oxigen."
       ] },

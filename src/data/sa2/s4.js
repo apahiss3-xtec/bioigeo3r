@@ -113,7 +113,7 @@ export const sa2s4 = {
       { apartat: "3", title: "Dues bombes en un sol cor", time: "20 min", phase: "explore", instruction: "Durant la fase 4, omple l'apartat 3 del full: mesura i compara el gruix de la paret dels dos ventricles.", hints: [
         "Un ventricle bomba només als pulmons (a prop); l'altre, a tot el cos (lluny). Quin necessita més força de paret?"
       ] },
-      { apartat: "4", title: "Cas clínic — Elaborate", time: "25 min", phase: "elabora", instruction: "En parelles, trieu un cas (A o B) i resoleu-lo a l'apartat 4 del full.", hints: [
+      { apartat: "4", title: "Cas clínic — Elaborate", time: "15 min", phase: "elabora", instruction: "En parelles, trieu un cas (A o B) i resoleu-lo a l'apartat 4 del full.", hints: [
         "Connecta el problema del cas amb el que has vist disseccionant: gruix de paret, vàlvules, septe o coronàries."
       ] }
     ]

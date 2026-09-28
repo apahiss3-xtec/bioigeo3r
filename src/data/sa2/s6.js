@@ -59,20 +59,22 @@ export const sa2s6 = {
     ]
   },
 
+  // 28/09/2026: cau l'estació D (mini-investigació sobre els residus amb
+  // l'analítica del Marc). La sessió anava a 35' i el cas ja es treballa a
+  // fons a la S3, apartat 4. La fitxa i el generador també l'han perduda.
   exploreActivity: {
-    what: "4 estacions analògiques: (A) test de temps de reacció amb un regle, (B) simulació d'un arc reflex en grup, (C) targetes d'aparellar hormona-glàndula-efecte, (D) mini-investigació sobre on van els residus de les cèl·lules (urea, CO₂).",
-    who: { mode: "parelles+grup5", label: "Parelles (A, C, D) i grups de 5 (B, arc reflex)" },
-    time: 35,
+    what: "3 estacions analògiques: (A) test de temps de reacció amb un regle, (B) simulació d'un arc reflex en grup, (C) targetes d'aparellar hormona-glàndula-efecte",
+    who: { mode: "parelles+grup5", label: "Parelles (A i C) i grups de 5 (B, arc reflex)" },
+    time: 25,
     note: "Part A: compara la teva mà dominant amb la no dominant i les 5 repeticions entre elles."
   },
   exploreInstructions: [
     "Part A — Test temps reacció (parelles): regle 30 cm. A deixa caure sense avisar, B tanca la mà. Mesurar distància caiguda → convertir a temps. 5 repeticions.",
     "Per quina raó la 5a rep és més ràpida? Per quina raó la mà dominant és lleugerament més ràpida?",
     "Part B — Simulació arc reflex (grup 5): receptor (peu), nervi aferent, medul·la espinal, nervi eferent, efector. Passar una pilota en ordre. Eliminar el 'cervell' → el reflex continua. Per quina raó?",
-    "Part C — Targetes hormones (parelles): adrenalina, insulina, tiroxina, cortisol, ADH, EPO → fer coincidir hormona + glàndula + situació + efecte",
-    "Part D — El residu invisible: usant l'analítica, 'a part de CO₂, quins residus produeixen les cèl·les? Per on surten?'"
+    "Part C — Targetes hormones (parelles): adrenalina, insulina, tiroxina, cortisol, ADH, EPO → fer coincidir hormona + glàndula + situació + efecte"
   ],
-  exploreDuration: "35 min",
+  exploreDuration: "25 min",
   exploreMaterials: ["Regle 30 cm (parelles)", "Pilota o tap (arc reflex)", "Targetes hormones (impreses)"],
 
   theoryPoints: [
@@ -97,10 +99,9 @@ export const sa2s6 = {
     fitxaName: "Fitxa Sessió 6 — El sistema de control i l'equilibri intern",
     steps: [
       { apartat: "0", title: "Idees prèvies", time: "8 min", phase: "engage", instruction: "Dibuixa la teva hipòtesi (per on surten els residus líquids) i respon les tres preguntes de l'apartat 0. No es corregeix: ho compararàs al final.", hints: [] },
-      { apartat: "1", title: "Quatre estacions — com dona ordres el cos", time: "35 min", phase: "explore", instruction: "Rota per les 4 estacions i omple-les a la fitxa. A: temps de reacció amb regle (5 proves per mà, cm → ms). B: arc reflex en grup. C: taula d'hormones. D: analítica del Marc Fontana.", hints: [
+      { apartat: "1", title: "Tres estacions — com dona ordres el cos", time: "25 min", phase: "explore", instruction: "Rota per les 3 estacions i omple-les a la fitxa. A: temps de reacció amb regle (5 proves per mà, cm → ms). B: arc reflex en grup. C: taula d'hormones.", hints: [
         "Estació A: anota TOTES les distàncies sense arrodonir — la variabilitat és la dada interessant.",
-        "Estació C: llegeix primer la columna EFECTE; després decideix la glàndula i la situació.",
-        "Estació D: abans de mirar la urea del Marc, pregunta't què esperaries trobar-hi si el ronyó no filtrés."
+        "Estació C: llegeix primer la columna EFECTE; després decideix la glàndula i la situació."
       ] },
       { apartat: "2", title: "Dues vies de control: el nervi i l'hormona", time: "20 min", phase: "explica", instruction: "Omple la taula comparativa (per on viatja, quant triga, quant dura, exemple) i respon la pregunta de la Mercè.", hints: [
         "Via elèctrica pel nervi contra via química per la sang: quin recorregut és més curt?",
@@ -111,7 +112,7 @@ export const sa2s6 = {
         "Compte: aquí «sang neta» vol dir sense urea, no amb oxigen.",
         "ADH: en fabriques més quan beus molt o quan beus poc? Per quina raó?"
       ] },
-      { apartat: "4", title: "Integració i homeòstasi", time: "20 min", phase: "elabora", instruction: "Apartat 4: completa el bucle de l'ADH, tanca el cas del Marc Fontana amb dades de l'analítica i respon el moment epistèmic sobre l'EPO.", hints: [
+      { apartat: "4", title: "Integració i homeòstasi", time: "15 min", phase: "elabora", instruction: "Apartat 4: completa el bucle de l'ADH, tanca el cas del Marc Fontana amb dades de l'analítica i respon el moment epistèmic sobre l'EPO.", hints: [
         "Homeòstasi = mantenir estable el medi intern. Fixa't que l'efecte del bucle apaga la causa que l'havia engegat."
       ] }
     ]

@@ -299,8 +299,11 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Quatre estacions — com dona ordres el teu cos</div><div class="sdesc" contenteditable="true">Parelles i grups de 5 · ⏱️ 35 min · Aneu rotant: A, B, C i D</div></div></div>
+  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Tres estacions — com dona ordres el teu cos</div><div class="sdesc" contenteditable="true">Parelles i grups de 5 · ⏱️ 25 min · Aneu rotant: A, B i C</div></div></div>
   <div class="divider"></div>
+# L'estacio D (analitica del Marc) surt de la rotacio el 28/09/2026: la
+# sessio anava a 35' i el cas ja es treballa a fons a la S3 apartat 4.
+# estacio_d() es manté definida: per tornar-la a posar, afegeix-la aqui.
 
   <div class="card orange deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -319,30 +322,6 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="card-label" contenteditable="true">🃏 Estació C · Targetes: qui fabrica cada hormona i què fa (en parelles)</div>
     <p style="font-size:11px" contenteditable="true">Amb les targetes de la taula, encaixa cada hormona amb la seva glàndula, la situació en què apareix i l'efecte que provoca. Copia el resultat aquí:</p>
 <table class="data-table" style="margin-top:6px"><thead><tr><th contenteditable="true" style="text-align:left">Hormona</th><th contenteditable="true">Quina glàndula la fabrica</th><th contenteditable="true">En quina situació</th><th contenteditable="true">Quin efecte té</th></tr></thead><tbody><tr class="deletable"><td style="text-align:left;font-weight:700">Adrenalina</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Insulina</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">ADH</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">EPO</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
-  </div>
-  <div class="card mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">🧾 Estació D · El residu invisible — analítica del Marc Fontana (28 anys, corredor amb fatiga)</div>
-    <p style="font-size:10.5px;color:var(--muted);font-style:italic" contenteditable="true">Dades amb finalitat didàctica. Fixa't en les dues files noves: <strong>urea</strong> i <strong>creatinina</strong> — els residus que filtra el ronyó.</p>
-<table class="data-table analitica" style="margin-top:4px">
-<thead><tr><th contenteditable="true" style="text-align:left">Paràmetre</th><th contenteditable="true">Valor del Marc</th><th contenteditable="true">Valors normals</th><th contenteditable="true">Què mesura</th></tr></thead><tbody>
-<tr class="row-alta deletable"><td style="text-align:left;font-weight:700">Glucosa</td><td style="text-align:center;font-weight:700">88 mg/dL</td><td style="text-align:center;color:var(--muted)">70 – 100</td><td style="font-size:9.5px;color:var(--muted)">energia de les cèl·lules</td></tr>
-<tr class="row-baixa deletable"><td style="text-align:left;font-weight:700">Hemoglobina (Hb)</td><td style="text-align:center;font-weight:700">9,2 g/dL</td><td style="text-align:center;color:var(--muted)">13 – 17</td><td style="font-size:9.5px;color:var(--muted)">transporta l'O₂ → poca = anèmia</td></tr>
-<tr class="row-baixa deletable"><td style="text-align:left;font-weight:700">Ferritina</td><td style="text-align:center;font-weight:700">8 ng/mL</td><td style="text-align:center;color:var(--muted)">30 – 400</td><td style="font-size:9.5px;color:var(--muted)">reserva de ferro del cos</td></tr>
-<tr class="row-alta deletable"><td style="text-align:left;font-weight:700">Urea</td><td style="text-align:center;font-weight:700">32 mg/dL</td><td style="text-align:center;color:var(--muted)">17 – 49</td><td style="font-size:9.5px;color:var(--muted)">residu de les proteïnes — el filtra el ronyó</td></tr>
-<tr class="row-alta deletable"><td style="text-align:left;font-weight:700">Creatinina</td><td style="text-align:center;font-weight:700">0,9 mg/dL</td><td style="text-align:center;color:var(--muted)">0,7 – 1,3</td><td style="font-size:9.5px;color:var(--muted)">residu del múscul — diu si el ronyó filtra bé</td></tr>
-</tbody></table>
-<p class="pista" contenteditable="true">El color de les files només serveix per llegir-la millor: <strong>rosa = per sota del normal</strong>, <strong>verd = dins del normal</strong>. Verd NO vol dir «alerta».</p>
-    <div class="card teal mt8 deletable">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <div class="card-label" contenteditable="true">🔎 Investiga l'analítica</div>
-      <p style="font-size:11px" contenteditable="true">① Quins dos valors del Marc estan per sota del normal? Què tenen en comú?</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-      <p style="font-size:11px;margin-top:6px" contenteditable="true">② Si el ronyó d'algú deixés de filtrar, la urea i la creatinina de la seva sang pujarien o baixarien? Per quina raó?</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-      <p style="font-size:11px;margin-top:6px" contenteditable="true">③ La urea i la creatinina del Marc són <strong>normals</strong>. Què en dedueixes sobre el seu ronyó?</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    </div>
   </div>
 </div>
 
@@ -464,7 +443,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n0">4</div><div><div class="stitle" contenteditable="true">Integració: com es manté estable el medi intern</div><div class="sdesc" contenteditable="true">Síntesi · ⏱️ 20 min · Tanquem el cas del corredor</div></div></div>
+  <div class="section-header"><div class="snum n0">4</div><div><div class="stitle" contenteditable="true">Integració: com es manté estable el medi intern</div><div class="sdesc" contenteditable="true">Síntesi · ⏱️ 15 min · Tanquem el cas del corredor</div></div></div>
   <div class="divider"></div>
 
   <div class="card mt8 deletable">

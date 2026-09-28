@@ -7,7 +7,7 @@ const PHASE_LABEL = {
   engage: 'Per començar',
   explore: 'Explora',
   explica: 'La teoria',
-  elabora: 'Materials'
+  elabora: 'Elabora'
 }
 
 export default function FitxaGuide({ guide }) {

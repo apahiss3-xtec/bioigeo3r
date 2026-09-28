@@ -13,11 +13,11 @@ export const sa1s3 = {
   // Repte oral curt: el time-lapse en directe + pregunta oral, abans d'escriure les idees prèvies.
   engageChallenge: "Mirem juntes un time-lapse de 30 segons d'una cèl·lula dividint-se. En veu alta, tots alhora: per quina raó creieu que una cèl·lula es divideix?",
   engageQuestion: "Totes les teves cèl·lules tenen exactament el mateix ADN. Llavors, per quina raó una neurona i una cèl·lula de la pell són tan completament diferents?",
-  engageContext: "Veuràs una cèl·lula dividint-se en directe, en un time-lapse de trenta segons. Abans de mirar-lo, escriu-ho: per quina raó creus que una cèl·lula es divideix?",
+  engageContext: "Comencem amb un formulari curt (cinc minuts, sense mirar el text) sobre la lectura que has fet a casa. Després veuràs una cèl·lula dividint-se en directe, en un time-lapse de trenta segons. Abans de mirar-lo, escriu-ho: per quina raó creus que una cèl·lula es divideix?",
 
   // NO es renderitza al web: guió del docent (logística, temps,
   // material, revisió de deures). Tasca 2, 09/09/2026.
-  teacherNotes: "Idees prèvies individuals, 2 min. Després, time-lapse de 30 s de divisió cel·lular en directe.",
+  teacherNotes: "Engage (15 min): primer el formulari de la lectura de la Sessió 2 (versió A/B o C, 4 preguntes, uns 5 min, individual i sense mirar el text). Després, idees prèvies individuals (2 min) i time-lapse de 30 s de divisió cel·lular en directe.",
 
   // Time-lapse REAL (microscòpia, no animació) de divisió cel·lular, per mostrar en directe abans
   // de la pregunta oral. Validat per Albert (2026-06-29): la part bona del vídeo comença al 0:51.

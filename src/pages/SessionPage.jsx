@@ -13,6 +13,7 @@ import Accordion from '../components/Accordion.jsx'
 import FitxaGuide from '../components/FitxaGuide.jsx'
 import ActivityCard from '../components/ActivityCard.jsx'
 import NivellSelector from '../components/NivellSelector.jsx'
+import ReadingCard from '../components/ReadingCard.jsx'
 import { useNivell, pickLevel } from '../nivell/NivellContext.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 
@@ -28,8 +29,51 @@ const SectionTitle = ({ children }) => (
 const PHASE_LABEL = {
   engage: 'session.engage',
   explore: 'session.explore',
-  explica: 'session.explica'
+  explica: 'session.explica',
+  elabora: 'session.phaseElabora'
 }
+
+// App a pantalla dins d'un apartat (iframe). Per defecte va a l'apartat 1
+// (Explora); si la sessió defineix `appApartat`, va a aquell apartat
+// (p. ex. SA1·S2: app d'osmosi guiada pel docent a l'Explica, 28/09/2026).
+const SessionApp = ({ session }) => (
+  <div className="mb-8">
+    {session.appNote && (
+      <p className="mb-3 rounded-xl border border-[var(--rule-strong)] bg-[var(--surface)] px-5 py-3">
+        🖥️ <T>{session.appNote}</T>
+      </p>
+    )}
+    <AppFrame appSrc={session.appSrc} title={session.title} />
+  </div>
+)
+
+// Botó especial cap a un laboratori virtual (p. ex. SA1·S2: qui no ha portat
+// l'ou fa l'experiment virtual). Mateix enllaç que els botons de materials,
+// però amb un disseny propi (vora discontínua taronja) perquè es distingeixi.
+const LabVirtualCard = ({ lab }) => (
+  <div
+    className="mb-8 rounded-2xl border-2 border-dashed p-5"
+    style={{ borderColor: 'var(--orange)', background: 'var(--orange-tint, #fdf0e8)' }}
+  >
+    <p className="kicker mb-1" style={{ color: 'var(--orange)' }}>
+      {lab.icon || '🧪'} <T>{lab.kicker || 'Laboratori virtual'}</T>
+    </p>
+    {lab.text && (
+      <p className="mb-4">
+        <T>{lab.text}</T>
+      </p>
+    )}
+    <a
+      href={asset(lab.src)}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block rounded-xl px-5 py-2.5 font-display font-semibold text-white transition-opacity hover:opacity-90"
+      style={{ background: 'var(--orange)' }}
+    >
+      {lab.icon || '🧪'} <T>{lab.button}</T> ↗
+    </a>
+  </div>
+)
 
 // Capçalera d'apartat numerada (mateixa lògica que el full imprès: cercle + nº).
 // Vincula cada bloc del web amb l'apartat 0/1/2/3 de la fitxa.
@@ -351,10 +395,8 @@ export default function SessionPage() {
               </div>
             )}
 
-            {session.appSrc && (
-              <div className="mb-8">
-                <AppFrame appSrc={session.appSrc} title={session.title} />
-              </div>
+            {session.appSrc && (!session.appApartat || session.appApartat === '1') && (
+              <SessionApp session={session} />
             )}
 
             {session.exploreInstructions && (
@@ -419,6 +461,10 @@ export default function SessionPage() {
                 title={apartatMeta[num]?.title || t('session.explica')}
                 time={apartatMeta[num]?.time}
               />
+              {session.labVirtual && session.labVirtual.apartat === num && (
+                <LabVirtualCard lab={session.labVirtual} />
+              )}
+              {session.appSrc && session.appApartat === num && <SessionApp session={session} />}
               {graphicsBefore(num).length > 0 && (
                 <div className="mb-8 grid gap-6">
                   {graphicsBefore(num).map((g) => (
@@ -651,11 +697,17 @@ export default function SessionPage() {
                     <strong>{t('homework.also')}:</strong> <T>{session.homework.secondTask}</T>
                   </p>
                 )}
+                {session.homework.extraTasks?.map((task, i) => (
+                  <p key={i}>
+                    <strong>{t('homework.also')}:</strong> <T>{task}</T>
+                  </p>
+                ))}
                 {session.homework.note && (
                   <p className="italic text-[var(--orange)]">
                     ⚠️ <T>{session.homework.note}</T>
                   </p>
                 )}
+                {session.homework.reading && <ReadingCard reading={session.homework.reading} />}
               </>
             ) : (
               <p className="text-[var(--muted)]">
@@ -683,6 +735,22 @@ export default function SessionPage() {
                 </li>
               ))}
             </ol>
+            {session.recoveryLinks?.length > 0 && (
+              <div className="mt-6 flex flex-wrap gap-3">
+                {session.recoveryLinks.map((l, i) => (
+                  <a
+                    key={i}
+                    href={asset(l.url)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-xl border-2 border-dashed px-5 py-2.5 font-display font-semibold transition-opacity hover:opacity-80"
+                    style={{ borderColor: 'var(--orange)', color: 'var(--orange)' }}
+                  >
+                    {l.icon || '🧪'} <T>{l.label}</T> ↗
+                  </a>
+                ))}
+              </div>
+            )}
           </Accordion>
         </section>
 

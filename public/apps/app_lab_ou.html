@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laboratori virtual · L'ou sense closca · IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   LABORATORI VIRTUAL · L'ou sense closca — SA1 Sessió 2
+   IE Temple · Biologia i Geologia 3r ESO
+   Autocontingut. Estètica heretada d'app_osmosi.html.
+   ===================================================================== */
+:root{
+  --purple:#c084fc;--purple-ink:#5a4aa0;--purple-deep:#7B68C8;--purple-tint:#EFEAF5;
+  --ink:#1A1A2E;--ink-2:#4A3F3F;--muted:#6f6a86;
+  --surface:#fdfafb;--card:#ffffff;--rule:#EAE6F6;--rule-dark:#C8C2DD;
+  --water:#2f9fd0;--water-tint:#eaf6fb;
+  --salt:#8a8fa3;--salt-tint:#f1f2f6;
+  --vin:#d9b64a;--vin-tint:#fcf6e3;
+  --green:#3fa15a;--green-tint:#EAF4EB;
+  --red:#c2453f;--red-tint:#FBEBEB;
+  --yellow-tint:#FFF9E0;--peach-tint:#FBEEE0;--teal-tint:#EAF3F8;
+  --shadow:0 1px 2px rgba(26,26,46,.06),0 8px 24px rgba(26,26,46,.07);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Fira Sans Extra Condensed',system-ui,sans-serif;background:var(--surface);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;font-size:16px;}
+button,select,input{font-family:inherit;}
+button{cursor:pointer;}
+
+/* ---------- Capçalera ---------- */
+.topwrap{position:sticky;top:0;z-index:40;}
+.trbar{position:sticky;top:var(--hh,0px);z-index:39;}
+@media (max-width:640px){.topwrap{position:static;}.trbar{top:0;}}
+.hdr{background:var(--ink);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+.hdr-l{display:flex;flex-direction:column;line-height:1.08;}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);}
+.h-title{font-size:23px;font-weight:700;color:#fff;}
+.h-sub{font-size:13px;color:rgba(255,255,255,.55);font-style:italic;}
+.tools{display:flex;gap:6px;flex-wrap:wrap;}
+.tool{font-size:13px;font-weight:700;padding:6px 12px;border-radius:9999px;border:1.5px solid rgba(192,132,252,.45);background:transparent;color:#e6dcfb;transition:all .15s;}
+.tool:hover{border-color:var(--purple);}
+.tool.on{background:var(--purple);border-color:var(--purple);color:var(--ink);}
+
+/* Barra de traducció (a dalt) */
+.trbar{background:var(--purple-ink);color:#fff;padding:8px 20px;display:none;align-items:center;gap:12px;min-height:44px;font-size:18px;}
+body.tr-on .trbar{display:flex;}
+.trbar .tr-lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.7;}
+.trbar .tr-ca{font-weight:700;}
+.trbar .tr-arrow{opacity:.6;}
+.trbar .tr-out{font-weight:700;background:rgba(255,255,255,.14);padding:2px 12px;border-radius:9999px;}
+.trbar .tr-out[dir="rtl"]{font-size:21px;}
+.trbar .tr-none{opacity:.6;font-style:italic;font-size:14px;}
+body.tr-on .w{cursor:help;border-radius:3px;}
+body.tr-on .w:hover,body.tr-on .w.hl{background:var(--purple-tint);box-shadow:0 0 0 2px var(--purple-tint);}
+
+/* ---------- Navegació ---------- */
+.nav{background:var(--card);border-bottom:1px solid var(--rule);padding:8px 14px;display:flex;gap:6px;overflow-x:auto;}
+.nav-btn{display:flex;align-items:center;gap:7px;white-space:nowrap;font-size:14px;font-weight:600;padding:7px 14px;border-radius:9999px;border:1.5px solid var(--rule);background:transparent;color:var(--muted);transition:all .15s;}
+.nav-btn .num{display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;border-radius:50%;background:var(--rule);color:var(--muted);font-size:12px;font-weight:700;}
+.nav-btn:hover{border-color:var(--purple-deep);color:var(--purple-ink);}
+.nav-btn.done .num{background:var(--green);color:#fff;}
+.nav-btn.current{background:var(--purple-ink);border-color:var(--purple-ink);color:#fff;}
+.nav-btn.current .num{background:rgba(255,255,255,.25);color:#fff;}
+.nav-btn.locked{opacity:.45;}
+
+/* ---------- Estructura ---------- */
+.stage{flex:1;width:100%;max-width:1180px;margin:0 auto;padding:22px 18px 60px;}
+.phase{display:none;animation:fadeUp .28s ease;}
+.phase.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.phase-tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-ink);background:var(--purple-tint);padding:4px 11px;border-radius:9999px;margin-bottom:8px;}
+.phase-h{font-size:32px;font-weight:700;line-height:1.06;margin-bottom:6px;}
+.phase-lead{font-size:17px;color:var(--ink-2);line-height:1.5;max-width:66ch;margin-bottom:18px;}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);}
+.card-pad{padding:18px 20px;}
+.card-title{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:10px;}
+.lead-sm{font-size:16px;line-height:1.55;color:var(--ink-2);}
+.lead-sm + .lead-sm{margin-top:8px;}
+.grid{display:grid;gap:18px;}
+.g2{grid-template-columns:1fr 1fr;}
+@media (max-width:860px){.g2{grid-template-columns:1fr;}}
+.callout{border-radius:14px;padding:14px 18px;font-size:16px;line-height:1.5;color:var(--ink-2);}
+.callout b.t{display:block;font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:4px;}
+.c-yellow{background:var(--yellow-tint);} .c-teal{background:var(--teal-tint);} .c-purple{background:var(--purple-tint);} .c-peach{background:var(--peach-tint);} .c-green{background:var(--green-tint);}
+.btn{font-size:16px;font-weight:700;padding:10px 20px;border-radius:9999px;border:2px solid var(--purple-ink);background:var(--purple-ink);color:#fff;transition:all .15s;}
+.btn:hover{background:var(--purple-deep);border-color:var(--purple-deep);}
+.btn.ghost{background:transparent;color:var(--purple-ink);}
+.btn.ghost:hover{background:var(--purple-tint);}
+.btn:disabled{opacity:.35;cursor:not-allowed;}
+.row-end{display:flex;justify-content:flex-end;gap:10px;margin-top:18px;flex-wrap:wrap;}
+
+/* Simplifica */
+body:not(.simple) .s{display:none;}
+body.simple .f{display:none;}
+
+/* ---------- Prediccions ---------- */
+.pred-row{display:grid;grid-template-columns:200px 1fr;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--rule);}
+.pred-row:last-child{border-bottom:none;}
+@media (max-width:640px){.pred-row{grid-template-columns:1fr;}}
+.cond-name{font-size:19px;font-weight:700;display:flex;align-items:center;gap:10px;}
+.cond-dot{width:16px;height:16px;border-radius:50%;flex-shrink:0;border:2px solid rgba(26,26,46,.15);}
+.opts{display:flex;gap:8px;flex-wrap:wrap;}
+.opt{font-size:15px;font-weight:600;padding:9px 16px;border-radius:12px;border:1.5px solid var(--rule-dark);background:#fff;color:var(--ink-2);transition:all .15s;}
+.opt:hover{border-color:var(--purple-deep);}
+.opt.sel{background:var(--purple-ink);border-color:var(--purple-ink);color:#fff;}
+.opt.ok{background:var(--green-tint);border-color:var(--green);color:var(--ink);}
+.opt.ko{background:var(--red-tint);border-color:var(--red);color:var(--ink);}
+
+/* ---------- Laboratori ---------- */
+.lab{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:18px;align-items:start;}
+@media (max-width:980px){.lab{grid-template-columns:1fr;}}
+.bench{position:relative;padding:18px;background:#f6f3ee;border-radius:16px;border:1px solid var(--rule);overflow:hidden;}
+.bench::before{content:'';position:absolute;width:340px;height:260px;right:-90px;top:-110px;background:var(--purple);opacity:.14;border-radius:62% 38% 55% 45% / 50% 60% 40% 50%;pointer-events:none;}
+.bench-row{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end;justify-content:space-around;position:relative;}
+.bench-row + .bench-row{margin-top:22px;padding-top:18px;border-top:2px dashed rgba(90,74,160,.15);}
+.zone-lbl{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-ink);text-align:center;margin-top:6px;}
+.zone-sub{font-size:13px;color:var(--muted);text-align:center;font-style:italic;}
+.drop-hi{outline:3px dashed var(--purple-deep);outline-offset:4px;}
+
+/* Safata */
+.tray{position:relative;min-width:250px;min-height:120px;background:rgba(255,255,255,.55);border:3px solid #b8c2d3;border-top:none;border-radius:6px 6px 30px 30px;display:flex;align-items:flex-end;justify-content:center;padding:10px 14px 12px;}
+.tray .slot{position:relative;z-index:2;}
+.tray .liquid{position:absolute;left:0;right:0;bottom:0;height:72%;border-radius:0 0 26px 26px;background:rgba(222,190,90,.33);border-top:2px solid rgba(255,255,255,.7);pointer-events:none;z-index:3;}
+
+/* Balança */
+.balance{display:flex;flex-direction:column;align-items:center;padding:6px 16px 8px;border-radius:22px;border:2px dashed transparent;transition:border-color .15s,background .15s;}
+.balance.drop-hi{outline:none;border-color:var(--purple-deep);background:rgba(192,132,252,.12);}
+.plate-wrap{height:124px;min-width:210px;display:flex;align-items:flex-end;justify-content:center;}
+.plate{width:190px;min-height:18px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:0;position:relative;}
+.plate .slot{position:relative;z-index:2;margin-bottom:-4px;}
+.plate::after{content:'';position:absolute;bottom:-10px;left:0;right:0;height:12px;background:#c9cbd4;border-radius:50%;border:2px solid #aeb1bd;z-index:1;}
+.bal-body{margin-top:10px;width:200px;height:74px;background:#3d3f4c;border-radius:12px 12px 16px 16px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 6px 0 #2b2d38;}
+.lcd{background:#b9d3a8;color:#1f2a18;font-family:'Courier New',monospace;font-weight:700;font-size:26px;padding:6px 12px;border-radius:6px;min-width:128px;text-align:right;letter-spacing:.04em;border:2px solid #8fa87f;}
+.lcd.settling{color:#4b5a40;}
+.bal-led{width:10px;height:10px;border-radius:50%;background:#6fd36f;box-shadow:0 0 6px #6fd36f;}
+.bal-led.busy{background:#e0a92b;box-shadow:0 0 6px #e0a92b;}
+
+/* Gots */
+.glasses{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;}
+.glass-col{display:flex;flex-direction:column;align-items:center;width:150px;}
+.glass{width:128px;height:156px;border:3px solid #b8c2d3;border-top:none;border-radius:4px 4px 26px 26px;position:relative;background:rgba(255,255,255,.55);display:flex;align-items:flex-end;justify-content:center;padding-bottom:10px;}
+.glass .liquid{position:absolute;left:0;right:0;bottom:0;height:78%;border-radius:0 0 22px 22px;pointer-events:none;z-index:3;border-top:2px solid rgba(255,255,255,.7);}
+.glass.pure .liquid{background:rgba(120,190,225,.32);}
+.glass.salt .liquid{background:rgba(150,160,180,.30);}
+.glass.vin .liquid{background:rgba(222,190,90,.33);}
+.glass .slot{position:relative;z-index:2;}
+.glass .crystals{position:absolute;bottom:6px;left:18px;right:18px;height:8px;z-index:4;pointer-events:none;background-image:radial-gradient(circle,#fff 1.5px,transparent 2px);background-size:9px 7px;opacity:.9;}
+@media (max-width:640px){.glasses{gap:6px;flex-wrap:nowrap;}.glass-col{width:32%;}.glass{width:100%;max-width:104px;height:138px;}.zone-lbl{font-size:12px;}.tray{min-width:0;width:100%;}}
+.glass .tag{position:absolute;top:8px;left:50%;transform:translateX(-50%);background:#fff;border:1.5px solid var(--rule-dark);border-radius:6px;font-size:12px;font-weight:700;padding:1px 8px;white-space:nowrap;z-index:5;color:var(--ink-2);}
+
+/* Paper de cuina */
+.paper{width:190px;min-height:100px;background:repeating-linear-gradient(90deg,#fff 0 14px,#f5f3f0 14px 15px);border:2px solid #e3ddd3;border-radius:6px;display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;}
+
+/* Ous */
+.slot{display:flex;gap:8px;align-items:flex-end;justify-content:center;min-height:10px;}
+.egg{width:64px;display:flex;flex-direction:column;align-items:center;touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;position:relative;}
+.egg svg{width:56px;height:70px;transition:transform .25s ease;transform-origin:50% 100%;overflow:visible;}
+.egg .elbl{font-size:13px;font-weight:700;color:var(--purple-ink);background:#fff;border:1.5px solid var(--rule-dark);border-radius:9999px;padding:0 8px;margin-top:2px;position:relative;z-index:6;}
+.egg.sel svg{filter:drop-shadow(0 0 5px var(--purple));}
+.egg.dragging{position:fixed;z-index:999;pointer-events:none;cursor:grabbing;}
+.egg.dragging svg{transform:scale(1.12) !important;}
+.egg .drops{opacity:0;transition:opacity .3s;}
+.egg.wet .drops{opacity:1;}
+.egg.drying svg{animation:wiggle .5s ease 2;}
+@keyframes wiggle{0%,100%{rotate:0deg}25%{rotate:-8deg}75%{rotate:8deg}}
+
+/* Controls de temps */
+.timebox{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;background:#fff;border-radius:14px;padding:12px 16px;border:1px solid var(--rule);}
+.clock{font-size:28px;font-weight:700;color:var(--ink);min-width:110px;text-align:center;}
+.clock small{font-size:14px;color:var(--muted);font-weight:600;}
+.tbar{width:180px;height:8px;background:var(--rule);border-radius:9999px;overflow:hidden;}
+.tbar i{display:block;height:100%;width:0;background:var(--purple-deep);border-radius:9999px;}
+
+/* Missatge */
+.msg{margin-top:16px;border-radius:12px;padding:12px 16px;font-size:16px;line-height:1.45;background:#fff;border:1.5px solid var(--rule-dark);color:var(--ink-2);min-height:50px;position:relative;}
+.msg.good{background:var(--green-tint);border-color:#b9dcc2;}
+.msg.warn{background:var(--peach-tint);border-color:#f0cfa6;}
+
+/* Panell lateral */
+.side{display:flex;flex-direction:column;gap:14px;}
+.steps{list-style:none;}
+.steps li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed var(--rule);font-size:15.5px;line-height:1.35;color:var(--muted);}
+.steps li:last-child{border-bottom:none;}
+.steps li .n{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--rule);color:var(--muted);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;}
+.steps li.now{color:var(--ink);font-weight:600;}
+.steps li.now .n{background:var(--purple-ink);color:#fff;}
+.steps li.ok .n{background:var(--green);color:#fff;}
+.steps li.ok{color:var(--ink-2);}
+
+table.nb{width:100%;border-collapse:collapse;font-size:15px;}
+table.nb th{background:var(--purple-ink);color:#fff;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding:7px 6px;text-align:left;}
+table.nb td{padding:7px 6px;border-bottom:1px solid var(--rule);}
+table.nb tr:nth-child(even) td{background:#FAFAFC;}
+table.nb td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+td.pos{color:#2d7fae;font-weight:700;} td.neg{color:#b0473f;font-weight:700;}
+.tscroll{overflow-x:auto;}
+
+/* Diferència a la taula */
+.d-in{width:74px;font-size:15px;font-weight:700;text-align:right;border:1.5px solid var(--rule-dark);border-radius:8px;padding:3px 6px;background:#fff;color:var(--ink);}
+.d-in:focus{outline:none;border-color:var(--purple-ink);}
+.d-in.ko{border-color:var(--red);background:var(--red-tint);}
+.ins{font:inherit;font-variant-numeric:tabular-nums;background:transparent;border:none;border-bottom:1.5px dashed var(--purple-deep);color:var(--ink);padding:0;cursor:pointer;}
+.ins:hover{color:var(--purple-ink);}
+.dfb{font-size:15px;line-height:1.45;border-radius:10px;padding:0 12px;margin-top:8px;display:none;}
+.dfb.show{display:block;padding:8px 12px;}
+.dfb.ok{background:var(--green-tint);} .dfb.ko{background:var(--red-tint);}
+/* Calculadora */
+.calc-screen{background:var(--ink);border-radius:12px;padding:8px 14px;text-align:right;font-variant-numeric:tabular-nums;}
+.calc-expr{font-size:15px;color:rgba(255,255,255,.55);min-height:20px;word-break:break-all;}
+.calc-res{font-size:32px;font-weight:700;color:#fff;line-height:1.1;word-break:break-all;}
+.calc-res.neg{color:#f7b3ad;}
+.calc-note{font-size:14px;color:var(--ink-2);min-height:0;margin-top:6px;line-height:1.35;}
+.calc-note:not(:empty){background:var(--peach-tint);border-radius:8px;padding:6px 10px;}
+.calc-keys{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px;}
+.ck{font-size:20px;font-weight:700;padding:10px 0;border-radius:10px;border:1.5px solid var(--rule-dark);background:#fff;color:var(--ink);}
+.ck:hover{border-color:var(--purple-deep);}
+.ck.op{background:var(--purple-tint);color:var(--purple-ink);border-color:var(--purple-tint);}
+.ck.minus{background:var(--purple-ink);color:#fff;border-color:var(--purple-ink);}
+.ck.eq{background:var(--purple-ink);color:#fff;border-color:var(--purple-ink);}
+.ck.fn{font-size:16px;color:var(--muted);}
+.ck.w2{grid-column:span 2;}
+
+/* Resultats */
+.bars{display:flex;flex-direction:column;gap:14px;margin-top:6px;}
+.bar-row{display:grid;grid-template-columns:150px 1fr 70px;gap:10px;align-items:center;font-size:15px;}
+.bar-axis{position:relative;height:26px;background:#FAFAFC;border-radius:6px;border:1px solid var(--rule);}
+.bar-axis::before{content:'';position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;background:var(--ink);opacity:.5;}
+.bar-fill{position:absolute;top:3px;bottom:3px;border-radius:4px;}
+.bar-val{font-weight:700;text-align:right;font-variant-numeric:tabular-nums;}
+.axis-lbls{display:grid;grid-template-columns:150px 1fr 70px;gap:10px;font-size:12px;color:var(--muted);}
+.axis-lbls div:nth-child(2){display:flex;justify-content:space-between;}
+.axis-dp{display:grid;grid-template-columns:150px 1fr;gap:10px;font-size:12px;color:var(--muted);margin-top:4px;}
+.axis-dp div:nth-child(2){display:flex;justify-content:space-between;}
+@media (max-width:640px){.dp-row,.axis-dp{grid-template-columns:96px 1fr;}.bar-row,.axis-lbls{grid-template-columns:92px 1fr 58px;}}
+
+.dotplot{position:relative;margin-top:8px;}
+.dp-row{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center;height:44px;border-bottom:1px solid var(--rule);font-size:15px;}
+.dp-track{position:relative;height:100%;}
+.dp-track::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--ink);opacity:.35;}
+.dp-dot{position:absolute;top:50%;width:13px;height:13px;margin:-6.5px 0 0 -6.5px;border-radius:50%;opacity:.75;border:1.5px solid #fff;}
+.dp-dot.me{width:18px;height:18px;margin:-9px 0 0 -9px;opacity:1;border:3px solid var(--ink);}
+.dp-mean{position:absolute;top:6px;bottom:6px;width:3px;margin-left:-1.5px;background:var(--ink);}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--ink-2);margin-top:10px;}
+.legend span{display:inline-flex;align-items:center;gap:6px;}
+
+/* Qüestionari */
+.q{padding:14px 0;border-bottom:1px solid var(--rule);}
+.q:last-child{border-bottom:none;}
+.q-t{font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.35;}
+.q .opts{flex-direction:column;align-items:stretch;}
+.q .opt{text-align:left;}
+.fb{margin-top:8px;font-size:15px;line-height:1.45;border-radius:10px;padding:8px 12px;display:none;}
+.fb.show{display:block;}
+.fb.ok{background:var(--green-tint);} .fb.ko{background:var(--red-tint);}
+.score{font-size:20px;font-weight:700;color:var(--purple-ink);}
+
+.aer{font-size:18px;line-height:2.1;color:var(--ink-2);}
+.aer select{font-size:16px;font-weight:600;padding:3px 6px;border-radius:8px;border:1.5px solid var(--rule-dark);background:#fff;color:var(--purple-ink);max-width:100%;}
+.aer select.ok{border-color:var(--green);background:var(--green-tint);}
+.aer select.ko{border-color:var(--red);background:var(--red-tint);}
+.aer .lab-k{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--purple-ink);border-radius:6px;padding:1px 8px;margin-right:6px;vertical-align:middle;}
+.final-txt{background:#fff;border:1.5px solid var(--rule-dark);border-radius:12px;padding:14px 16px;font-size:17px;line-height:1.6;color:var(--ink);}
+.figure{border-radius:12px;overflow:hidden;border:1px solid var(--rule);background:#fff;}
+.figure img{display:block;width:100%;height:auto;}
+.figure figcaption{font-size:13px;color:var(--muted);padding:6px 10px;font-style:italic;}
+.nameline{display:flex;gap:10px;align-items:center;font-size:16px;margin-bottom:12px;flex-wrap:wrap;}
+.nameline input{font-size:16px;border:none;border-bottom:1.5px solid var(--rule-dark);padding:4px 6px;min-width:220px;background:transparent;}
+.nameline input:focus{outline:none;border-bottom-color:var(--purple-ink);}
+
+/* Impressió: només el resum */
+#print-area{display:none;}
+@media print{
+  body > *:not(#print-area){display:none !important;}
+  #print-area{display:block;padding:10mm;font-size:13pt;color:#000;}
+  #print-area h1{font-size:20pt;margin-bottom:4mm;}
+  #print-area table{width:100%;border-collapse:collapse;margin:4mm 0;}
+  #print-area th,#print-area td{border:1px solid #999;padding:2mm;text-align:left;}
+  #print-area th{background:#5a4aa0 !important;color:#fff !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  #print-area p{margin:2mm 0;line-height:1.5;}
+}
+</style>
+</head>
+<body>
+
+<div class="topwrap">
+<header class="hdr">
+  <div class="hdr-l">
+    <span class="kicker">La cèl·lula viva · Sessió 2</span>
+    <span class="h-title">Laboratori virtual: l'ou sense closca</span>
+    <span class="h-sub">Pesa, submergeix, espera i torna a pesar</span>
+  </div>
+  <div class="tools no-tr">
+    <button class="tool" id="bSimple">Simplifica</button>
+    <button class="tool" data-lang="ar">Ajuda en àrab</button>
+    <button class="tool" data-lang="es">Ajuda en castellà</button>
+    <button class="tool" data-lang="ur">Ajuda en urdú</button>
+    <button class="tool" data-lang="uk">Ajuda en ucraïnès</button>
+  </div>
+</header>
+
+</div>
+<div class="trbar no-tr" id="trbar">
+  <span class="tr-lbl" id="trLbl">Passa per sobre d'una paraula</span>
+  <span class="tr-ca" id="trCa"></span>
+  <span class="tr-arrow" id="trArrow"></span>
+  <span id="trOut"></span>
+</div>
+
+<nav class="nav no-tr" id="nav">
+  <button class="nav-btn current" data-go="0"><span class="num">1</span>Prediccions</button>
+  <button class="nav-btn" data-go="1"><span class="num">2</span>Laboratori</button>
+  <button class="nav-btn locked" data-go="2"><span class="num">3</span>Resultats</button>
+  <button class="nav-btn locked" data-go="3"><span class="num">4</span>Conclusions</button>
+</nav>
+
+<main class="stage" id="app">
+
+<!-- ============ FASE 1 · PREDICCIONS ============ -->
+<section class="phase active" id="ph0">
+  <span class="phase-tag">Pas 1 · Abans de començar</span>
+  <h1 class="phase-h">Què creus que passarà?</h1>
+  <p class="phase-lead f">Tenim tres ous que han passat 48 hores en vinagre. El vinagre ha desfet la closca dura i ara només els cobreix la membrana. Posarem cada ou en un got diferent i mirarem si la membrana deixa passar l'aigua.</p>
+  <p class="phase-lead s">Aquests ous no tenen closca. Només tenen la membrana. Posarem cada ou en un got diferent.</p>
+
+  <div class="grid g2">
+    <div class="card card-pad">
+      <div class="card-title">La teva predicció</div>
+      <p class="lead-sm f">Tria una resposta per a cada got. No es corregeix: és el que tu creus ara. Després ho comprovarem.</p>
+      <p class="lead-sm s">Tria una resposta per a cada got. No passa res si t'equivoques.</p>
+      <div id="predRows"></div>
+    </div>
+    <div class="side">
+      <div class="callout c-yellow">
+        <b class="t">Recorda la sessió 1</b>
+        <span class="f">La membrana és la frontera que decideix què entra i què surt de la cèl·lula. Un ou sense closca es comporta com una cèl·lula gegant: avui ho posarem a prova.</span>
+        <span class="s">La membrana és la frontera de la cèl·lula. L'ou sense closca és com una cèl·lula molt gran.</span>
+      </div>
+      <div class="callout c-teal">
+        <b class="t">Els tres gots</b>
+        <span class="f">Aigua destil·lada (aigua pura, sense sal). Aigua amb molta sal (una cullerada de sal per got). Vinagre: és el control, el got on no canviem res.</span>
+        <span class="s">Got 1: aigua pura. Got 2: aigua amb molta sal. Got 3: vinagre (control).</span>
+      </div>
+      <div class="callout c-purple">
+        <b class="t">Copia-ho a la fitxa</b>
+        <span class="f">Escriu també les teves prediccions a l'apartat 0 de la fitxa, començant per «Crec que…».</span>
+        <span class="s">Escriu les prediccions a la fitxa. Comença amb «Crec que…».</span>
+      </div>
+    </div>
+  </div>
+  <div class="row-end"><button class="btn" id="goLab" disabled>Anem al laboratori</button></div>
+</section>
+
+<!-- ============ FASE 2 · LABORATORI ============ -->
+<section class="phase" id="ph1">
+  <span class="phase-tag">Pas 2 · Laboratori</span>
+  <h1 class="phase-h">Fes l'experiment</h1>
+  <p class="phase-lead f">Arrossega els ous amb el dit o el ratolí. També pots tocar un ou i després tocar on el vols posar. Segueix la llista de passos.</p>
+  <p class="phase-lead s">Arrossega els ous. Segueix els passos.</p>
+
+  <div class="lab">
+    <div>
+      <div class="bench" id="bench">
+        <div class="bench-row">
+          <div>
+            <div class="tray" data-zone="tray"><div class="slot" id="slot-tray"></div><div class="liquid"></div></div>
+            <div class="zone-lbl">Pot amb vinagre</div>
+            <div class="zone-sub">ous sense closca (48 h)</div>
+          </div>
+          <div class="balance" data-zone="balance">
+            <div class="plate-wrap"><div class="plate"><div class="slot" id="slot-balance"></div></div></div>
+            <div class="bal-body"><span class="bal-led" id="led"></span><span class="lcd" id="lcd">0,0 g</span></div>
+            <div class="zone-lbl">Balança</div>
+          </div>
+          <div>
+            <div class="paper" data-zone="paper"><div class="slot" id="slot-paper"></div></div>
+            <div class="zone-lbl">Paper de cuina</div>
+            <div class="zone-sub">per eixugar l'ou</div>
+          </div>
+        </div>
+        <div class="bench-row">
+          <div class="glasses">
+            <div class="glass-col">
+              <div class="glass pure" data-zone="pure"><span class="tag">Got 1</span><div class="slot" id="slot-pure"></div><div class="liquid"></div></div>
+              <div class="zone-lbl">Aigua destil·lada</div><div class="zone-sub">aigua pura</div>
+            </div>
+            <div class="glass-col">
+              <div class="glass salt" data-zone="salt"><span class="tag">Got 2</span><div class="slot" id="slot-salt"></div><div class="liquid"></div><div class="crystals"></div></div>
+              <div class="zone-lbl">Aigua amb sal</div><div class="zone-sub">molta sal</div>
+            </div>
+            <div class="glass-col">
+              <div class="glass vin" data-zone="vin"><span class="tag">Got 3</span><div class="slot" id="slot-vin"></div><div class="liquid"></div></div>
+              <div class="zone-lbl">Vinagre</div><div class="zone-sub">control</div>
+            </div>
+          </div>
+        </div>
+        <div class="bench-row">
+          <div class="timebox">
+            <div class="clock" id="clock">0 <small>min</small></div>
+            <div class="tbar"><i id="tfill"></i></div>
+            <button class="btn" id="bTime" disabled>Deixa passar el temps</button>
+          </div>
+        </div>
+      </div>
+      <div class="msg" id="msg"></div>
+    </div>
+
+    <aside class="side">
+      <div class="card card-pad">
+        <div class="card-title">Passos</div>
+        <ol class="steps" id="steps"></ol>
+      </div>
+      <div class="card card-pad">
+        <div class="card-title">Quadern de laboratori</div>
+        <div class="tscroll"><table class="nb" id="nbTable"></table></div>
+        <p class="lead-sm" style="font-size:14px;margin-top:8px">
+          <span class="f">La balança anota les masses automàticament. La diferència l'has de calcular tu amb la calculadora i escriure-la a la columna «Dif.». Després copia-ho tot a la taula de l'apartat 1 de la fitxa.</span>
+          <span class="s">Calcula la diferència amb la calculadora. Escriu-la a la taula. Copia-ho a la fitxa.</span>
+        </p>
+        <div class="dfb" id="dfb"></div>
+      </div>
+      <div class="card card-pad calc" id="calc">
+        <div class="card-title">Calculadora</div>
+        <div class="callout c-yellow" style="font-size:15px;padding:10px 14px;margin-bottom:12px">
+          <b class="t">Com es calcula la diferència</b>
+          <span class="f">Sempre fem <b>massa final − massa inicial</b>. Si l'ou ha disminuït, el resultat serà un número negatiu (amb el signe −). Si l'ou ha augmentat, serà positiu.</span>
+          <span class="s"><b>Final − inicial</b>. Si l'ou pesa menys, surt un número negatiu (−).</span>
+        </div>
+        <p class="lead-sm" style="font-size:14px;margin-bottom:8px"><span class="f">Pots tocar una massa de la taula per posar-la a la calculadora.</span><span class="s">Toca un número de la taula per posar-lo aquí.</span></p>
+        <div class="calc-screen no-tr"><div class="calc-expr" id="cExpr">&nbsp;</div><div class="calc-res" id="cRes">0</div></div>
+        <div class="calc-note" id="cNote"></div>
+        <div class="calc-keys no-tr" id="cKeys"></div>
+      </div>
+      <button class="btn ghost" id="bReset">Torna a començar</button>
+    </aside>
+  </div>
+  <div class="row-end"><button class="btn" id="goRes" disabled>Mira els resultats</button></div>
+</section>
+
+<!-- ============ FASE 3 · RESULTATS ============ -->
+<section class="phase" id="ph2">
+  <span class="phase-tag">Pas 3 · Resultats</span>
+  <h1 class="phase-h">Què ha passat?</h1>
+  <p class="phase-lead f">Aquí tens les teves dades ordenades. Compara-les amb el que havies predit i mira què han obtingut altres grups.</p>
+  <p class="phase-lead s">Mira els números. Compara'ls amb la teva predicció.</p>
+
+  <div class="grid g2">
+    <div class="card card-pad">
+      <div class="card-title">Taula de resultats</div>
+      <div class="tscroll"><table class="nb" id="resTable"></table></div>
+    </div>
+    <div class="card card-pad">
+      <div class="card-title">Canvi de massa (en %)</div>
+      <p class="lead-sm f" style="font-size:14.5px">A la dreta de la línia central, l'ou ha guanyat massa. A l'esquerra, n'ha perdut.</p>
+      <p class="lead-sm s" style="font-size:14.5px">Dreta: guanya. Esquerra: perd.</p>
+      <div class="bars" id="bars"></div>
+      <div class="axis-lbls"><div></div><div><span>perd</span><span>0</span><span>guanya</span></div><div></div></div>
+    </div>
+  </div>
+
+  <div class="card card-pad" style="margin-top:18px">
+    <div class="card-title">La teva predicció i el resultat</div>
+    <div id="cmpPred"></div>
+  </div>
+
+  <div class="card card-pad" style="margin-top:18px">
+    <div class="card-title">Com es fa ciència de veritat: els altres grups</div>
+    <p class="lead-sm f">Un sol ou pot donar un resultat estrany. Mira què han obtingut 9 grups més de la classe amb el mateix experiment. Cada punt és un ou. La ratlla negra és la mitjana.</p>
+    <p class="lead-sm s">Cada punt és un ou d'un grup. El punt gran és el teu.</p>
+    <div class="row-end" style="justify-content:flex-start"><button class="btn ghost" id="bClass">Mostra els resultats de la classe</button></div>
+    <div id="classBox" style="display:none">
+      <div class="dotplot" id="dotplot"></div>
+      <div class="axis-dp"><div></div><div><span>−12 %</span><span>0</span><span>+12 %</span></div></div>
+      <div class="legend"><span><i class="cond-dot" style="background:var(--ink);border:none;width:14px;height:14px"></i>el teu ou</span><span><i style="display:inline-block;width:3px;height:16px;background:var(--ink)"></i>mitjana de la classe</span></div>
+      <div class="q" style="margin-top:10px">
+        <div class="q-t f">Per quina raó un sol ou no seria una prova fiable?</div>
+        <div class="q-t s">Per què no n'hi ha prou amb un sol ou?</div>
+        <div class="opts" id="qFiable"></div>
+        <div class="fb" id="fbFiable"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row-end"><button class="btn" id="goConc">Anem a les conclusions</button></div>
+</section>
+
+<!-- ============ FASE 4 · CONCLUSIONS ============ -->
+<section class="phase" id="ph3">
+  <span class="phase-tag">Pas 4 · Conclusions</span>
+  <h1 class="phase-h">Per què ha passat?</h1>
+  <p class="phase-lead f">Respon les preguntes. Et diran de seguida si has encertat. Després construeix la teva explicació i copia-la a la fitxa.</p>
+  <p class="phase-lead s">Respon. Després copia l'explicació a la fitxa.</p>
+
+  <div class="grid g2">
+    <div class="card card-pad">
+      <div class="card-title">Comprova què has entès</div>
+      <div id="quiz"></div>
+      <p class="score" id="score"></p>
+    </div>
+    <div class="side">
+      <figure class="figure" id="fig">
+        <img src="../images/sa1-osmosi-semipermeable.png" alt="L'aigua travessa la membrana semipermeable cap al costat amb més sal" onerror="document.getElementById('fig').style.display='none'">
+        <figcaption>L'aigua travessa la membrana cap al costat amb més sal.</figcaption>
+      </figure>
+      <div class="callout c-teal">
+        <b class="t">La regla</b>
+        <span class="f">La membrana és semipermeable: deixa passar l'aigua, però no deixa passar fàcilment la sal. L'aigua va cap al costat on hi ha més sal. Aquest moviment de l'aigua a través de la membrana es diu osmosi.</span>
+        <span class="s">L'aigua passa la membrana. La sal no. L'aigua va on hi ha més sal. Això és l'osmosi.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-pad" style="margin-top:18px">
+    <div class="card-title">La teva explicació (Afirmació · Evidència · Raonament)</div>
+    <div class="aer" id="aer"></div>
+    <div class="row-end" style="justify-content:flex-start"><button class="btn" id="bAer">Comprova l'explicació</button></div>
+    <div class="fb" id="fbAer"></div>
+  </div>
+
+  <div class="card card-pad" style="margin-top:18px;display:none" id="finalCard">
+    <div class="card-title">Copia-ho a la fitxa</div>
+    <p class="lead-sm f" style="margin-bottom:10px">Aquesta és la teva explicació completa. Copia-la a l'apartat 3 de la fitxa, al requadre AER. Si ho vols, també pots imprimir un resum per enganxar-lo a la llibreta.</p>
+    <p class="lead-sm s" style="margin-bottom:10px">Copia aquest text a la fitxa.</p>
+    <div class="final-txt" id="finalTxt"></div>
+    <div class="nameline no-tr" style="margin-top:14px"><label for="nom">Nom:</label><input id="nom" type="text" autocomplete="off"></div>
+    <div class="row-end" style="justify-content:flex-start"><button class="btn ghost" id="bPrint">Imprimeix el resum</button></div>
+  </div>
+</section>
+</main>
+
+<div id="print-area"></div>
+
+<script>
+/* =====================================================================
+   DADES I ESTAT
+   ===================================================================== */
+const COND = {
+  pure:{nom:'Aigua destil·lada', curt:'Aigua pura', color:'#2f9fd0', min:4.0, max:7.0},
+  salt:{nom:'Aigua amb molta sal', curt:'Aigua amb sal', color:'#8a8fa3', min:-9.0, max:-5.0},
+  vin: {nom:'Vinagre (control)', curt:'Vinagre', color:'#d9b64a', min:-0.3, max:1.2}
+};
+const ORDER = ['pure','salt','vin'];
+const T_TOTAL = 40; // minuts entre la primera i la segona pesada (dins la sessió: els ous esperen mentre es fa l'Explica)
+
+const rnd = (a,b)=> a + Math.random()*(b-a);
+const r1 = x => Math.round(x*10)/10;
+const fmt = (x,d=1)=> x.toFixed(d).replace('.',',');
+const sgn = (x,d=1)=> (x>0?'+':x<0?'−':'')+fmt(Math.abs(x),d);
+
+let S;
+function newState(){
+  const eggs = {};
+  ['A','B','C'].forEach(id=>{
+    eggs[id] = {id, m0:r1(rnd(80,120)), cond:null, pct:0, loc:'tray', w0:null, w1:null, wet:true, wetExtra:r1(rnd(.8,1.8)), dry:false, dIn:'', dOk:false};
+  });
+  return {phase:0, pred:{pure:null,salt:null,vin:null}, eggs, t:0, timeDone:false, running:false,
+          classData:null, quiz:{}, fiable:null, aerOk:false};
+}
+S = newState();
+
+function massNow(e){
+  if(!e.cond || S.t===0) return e.m0;
+  const k = (1-Math.exp(-S.t/55))/(1-Math.exp(-T_TOTAL/55));
+  return e.m0*(1+e.pct/100*k);
+}
+function eggByCond(c){ return Object.values(S.eggs).find(e=>e.cond===c); }
+
+/* =====================================================================
+   TRADUCCIÓ PARAULA PER PARAULA  (ca → es | ar | ur)
+   ===================================================================== */
+const DIC = {
+ 'ou':['huevo','بيضة','انڈا','яйце'],'ous':['huevos','بيض','انڈے','яйця'],
+ 'closca':['cáscara','قشرة','چھلکا','шкаралупа'],
+ 'membrana':['membrana','غشاء','جھلی','мембрана'],
+ 'semipermeable':['semipermeable','شبه منفذ','نیم نفوذ پذیر','напівпроникна'],
+ 'osmosi':['ósmosis','التناضح','اوسموسس (پانی کا گزرنا)','осмос'],
+ 'aigua':['agua','ماء','پانی','вода'],'aigües':['aguas','مياه','پانی','води'],
+ 'destil·lada':['destilada','مقطَّر','کشید شدہ','дистильована'],
+ 'pura':['pura','نقي','خالص','чиста'],'pur':['puro','نقي','خالص','чистий'],
+ 'sal':['sal','ملح','نمک','сіль'],'salada':['salada','مالح','نمکین','солона'],
+ 'vinagre':['vinagre','خلّ','سرکہ','оцет'],
+ 'got':['vaso','كوب','گلاس','склянка'],'gots':['vasos','أكواب','گلاس','склянки'],
+ 'balança':['balanza','ميزان','ترازو','ваги'],
+ 'massa':['masa','كتلة','کمیت (وزن)','маса'],'pes':['peso','وزن','وزن','вага'],
+ 'pesa':['pesa','زِن','تولو','зваж'],'pesar':['pesar','يزن','تولنا','зважити'],'pesada':['pesada','وزنة','تول','зважування'],
+ 'grams':['gramos','غرامات','گرام','грами'],'g':['gramos','غرام','گرام','грам'],
+ 'inicial':['inicial','أوّلي','ابتدائی','початкова'],'final':['final','نهائي','آخری','кінцева'],
+ 'diferència':['diferencia','فرق','فرق','різниця'],
+ 'guanya':['gana','يزيد','بڑھتا ہے','збільшує / набирає'],'guanyarà':['ganará','سيزيد','بڑھے گا','набере'],'guanyat':['ganado','زاد','بڑھ گیا','набрав'],
+ 'perd':['pierde','يفقد','کھوتا ہے','втрачає'],'perdrà':['perderá','سيفقد','کھوئے گا','втратить'],'perdut':['perdido','فقد','کھو دیا','втратив'],
+ 'quedarà':['quedará','سيبقى','رہے گا','залишиться'],'igual':['igual','نفسه','برابر','однаковий / так само'],
+ 'predicció':['predicción','توقّع','پیش گوئی','прогноз'],'prediccions':['predicciones','توقّعات','پیش گوئیاں','прогнози'],
+ 'creus':['crees','تظنّ','تم سمجھتے ہو','ти думаєш'],'crec':['creo','أظنّ','میں سمجھتا ہوں','я думаю'],
+ 'passarà':['pasará','سيحدث','ہوگا','станеться'],'passat':['pasado','حدث','ہوا','сталося / минуло'],'passa':['pasa','يحدث / يمرّ','ہوتا ہے / گزرتا ہے','відбувається / проходить'],
+ 'passar':['pasar','يمرّ','گزرنا','проходити'],
+ 'temps':['tiempo','وقت','وقت','час'],'minuts':['minutos','دقائق','منٹ','хвилини'],'min':['minutos','دقائق','منٹ','хвилини'],
+ 'hores':['horas','ساعات','گھنٹے','години'],
+ 'eixuga':['seca','جفِّف','خشک کرو','витри'],'eixugar':['secar','تجفيف','خشک کرنا','витерти'],'eixugat':['secado','مجفَّف','خشک کیا','витертий'],
+ 'paper':['papel','ورق','کاغذ','папір'],'cuina':['cocina','مطبخ','باورچی خانہ','кухня'],
+ 'arrossega':['arrastra','اسحب','گھسیٹو','перетягни'],'posa':['pon','ضع','رکھو','поклади'],'posarem':['pondremos','سنضع','ہم رکھیں گے','ми покладемо'],
+ 'treu':['saca','أخرِج','نکالو','вийми'],'toca':['toca','المس','چھوؤ','торкнися'],'tocar':['tocar','لمس','چھونا','торкатися'],
+ 'cada':['cada','كلّ','ہر','кожен'],'dins':['dentro','داخل','اندر','всередині'],'fora':['fuera','خارج','باہر','зовні'],
+ 'entra':['entra','يدخل','اندر جاتا ہے','входить'],'surt':['sale','يخرج','باہر نکلتا ہے','виходить'],
+ 'més':['más','أكثر','زیادہ','більше'],'menys':['menos','أقل','کم','менше'],
+ 'gran':['grande','كبير','بڑا','великий'],'petit':['pequeño','صغير','چھوٹا','малий'],
+ 'arrugat':['arrugado','متجعِّد','جھری دار','зморщений'],'inflat':['hinchado','منتفخ','پھولا ہوا','набряклий'],
+ 'tou':['blando','طريّ','نرم','м’який'],'ferm':['firme','متماسك','سخت','твердий / пружний'],
+ 'control':['control','مجموعة المقارنة','کنٹرول (موازنہ)','контроль (для порівняння)'],
+ 'resultat':['resultado','نتيجة','نتیجہ','результат'],'resultats':['resultados','نتائج','نتائج','результати'],
+ 'conclusions':['conclusiones','استنتاجات','نتائج اخذ کرنا','висновки'],
+ 'laboratori':['laboratorio','مختبر','تجربہ گاہ','лабораторія'],'experiment':['experimento','تجربة','تجربہ','експеримент'],
+ 'cèl·lula':['célula','خلية','خلیہ','клітина'],'cèl·lules':['células','خلايا','خلیے','клітини'],
+ 'frontera':['frontera','حدود','سرحد','межа'],'deixa':['deja','يسمح / اترك','جانے دیتا ہے','пропускає / дозволяє'],
+ 'equilibri':['equilibrio','توازن','توازن','рівновага'],'costat':['lado','جانب','طرف','бік'],
+ 'moll':['mojado','مبلَّل','گیلا','мокрий'],'gotes':['gotas','قطرات','قطرے','краплі'],
+ 'fiable':['fiable','موثوق','قابلِ اعتماد','надійний'],'prova':['prueba','دليل','ثبوت','доказ'],
+ 'grup':['grupo','مجموعة','گروپ','група'],'grups':['grupos','مجموعات','گروپ','групи'],'classe':['clase','صفّ','جماعت','клас'],
+ 'mitjana':['media','المتوسّط','اوسط','середнє'],
+ 'què':['qué','ماذا','کیا','що'],'per':['por / para','لـ / من أجل','کے لیے','для / через'],'perquè':['porque','لأنّ','کیونکہ','тому що'],
+ 'i':['y','و','اور','і'],'o':['o','أو','یا','або'],'amb':['con','مع','کے ساتھ','з'],'sense':['sin','بدون','بغیر','без'],
+ 'de':['de','من','کا / سے','з / від'],'del':['del','من الـ','کا','від'],'en':['en','في','میں','в'],'a':['a','إلى','کو / میں','до / в'],
+ 'el':['el','الـ','(حرفِ تعریف)','(артикль)'],'la':['la','الـ','(حرفِ تعریف)','(артикль)'],'els':['los','الـ','(حرفِ تعریف)','(артикль)'],'les':['las','الـ','(حرفِ تعریف)','(артикль)'],'l':['el / la','الـ','(حرفِ تعریف)','(артикль)'],
+ 'un':['un','واحد','ایک','один'],'una':['una','واحدة','ایک','одна'],
+ 'no':['no','لا','نہیں','ні / не'],'és':['es','هو / هي','ہے','є'],'són':['son','هم','ہیں','є'],'ha':['ha','(فعل مساعد)','(مددگار فعل)','(допоміжне дієслово)'],'han':['han','(فعل مساعد)','(مددگار فعل)','(допоміжне дієслово)'],
+ 'que':['que','أنّ / الذي','کہ / جو','що / який'],'on':['donde','حيث','جہاں','де'],'si':['si','إذا','اگر','якщо'],
+ 'primer':['primero','أوّلاً','پہلے','спочатку'],'després':['después','بعد','بعد میں','потім'],'abans':['antes','قبل','پہلے','раніше / до'],'ara':['ahora','الآن','اب','зараз'],
+ 'escriu':['escribe','اكتب','لکھو','напиши'],'tria':['elige','اختر','چنو','обери'],'comprova':['comprueba','تحقَّق','جانچو','перевір'],
+ 'observa':['observa','لاحظ','دیکھو','спостерігай'],'mira':['mira','انظر','دیکھو','подивись'],'copia':['copia','انسخ','نقل کرو','перепиши'],'segueix':['sigue','اتبع','پیروی کرو','дотримуйся'],
+ 'fitxa':['ficha','ورقة العمل','ورک شیٹ','робочий аркуш'],'següent':['siguiente','التالي','اگلا','наступний'],
+ 'pas':['paso','خطوة','قدم','крок'],'passos':['pasos','خطوات','قدم','кроки'],
+ 'torna':['vuelve','أعِد','دوبارہ','поверни / знову'],'començar':['empezar','البدء','شروع کرنا','почати'],
+ 'forma':['forma','شكل','شکل','форма'],'mida':['tamaño','حجم','سائز','розмір'],
+ 'moviment':['movimiento','حركة','حرکت','рух'],'mou':['mueve','يتحرّك','حرکت کرتا ہے','рухається'],'travessa':['atraviesa','يعبر','پار کرتا ہے','проходить крізь'],
+ 'molta':['mucha','كثير','بہت','багато'],'molt':['mucho / muy','كثير / جدًّا','بہت','дуже / багато'],'poca':['poca','قليل','تھوڑا','мало'],
+ 'cullerada':['cucharada','ملعقة','چمچ','столова ложка'],
+ 'dades':['datos','بيانات','ڈیٹا','дані'],'taula':['tabla','جدول','جدول','таблиця'],'canvi':['cambio','تغيُّر','تبدیلی','зміна'],
+ 'explicació':['explicación','شرح','وضاحت','пояснення'],'explica':['explica','اشرح','وضاحت کرو','поясни'],
+ 'afirmació':['afirmación','ادّعاء','دعویٰ','твердження'],'evidència':['evidencia','دليل','ثبوت','доказ'],'raonament':['razonamiento','تعليل','دلیل','міркування'],
+ 'correcte':['correcto','صحيح','درست','правильно'],'resposta':['respuesta','جواب','جواب','відповідь'],'respon':['responde','أجب','جواب دو','відповідай'],
+ 'nom':['nombre','اسم','نام','ім’я'],'dit':['dedo','إصبع','انگلی','палець'],'ratolí':['ratón','الفأرة','ماؤس','мишка'],
+ 'vol':['quiere','يريد','چاہتا ہے','хоче'],'vols':['quieres','تريد','تم چاہتے ہو','хочеш'],
+ 'hi':['(allí)','هناك','وہاں','там'],'ho':['lo','ذلك','اسے','це'],'se':['se','(ضمير)','(ضمیر)','(зворотний займенник)'],'es':['se','(ضمير)','(ضمیر)','(зворотний займенник)'],
+ 'teva':['tu','ـك','تمہارا','твоя'],'teu':['tu','ـك','تمہارا','твій'],'tu':['tú','أنت','تم','ти'],
+ 'altres':['otros','آخرون','دوسرے','інші'],'mateix':['mismo','نفس','وہی','той самий'],
+ 'estrany':['extraño','غريب','عجیب','дивний'],'punt':['punto','نقطة','نقطہ','точка'],'dreta':['derecha','يمين','دائیں','праворуч'],'esquerra':['izquierda','يسار','بائیں','ліворуч'],
+ 'aquí':['aquí','هنا','یہاں','тут'],'tens':['tienes','لديك','تمہارے پاس ہے','ти маєш'],'tenim':['tenemos','لدينا','ہمارے پاس ہے','ми маємо'],
+ 'recorda':['recuerda','تذكَّر','یاد رکھو','пам’ятай'],'sessió':['sesión','حصّة','سیشن','заняття'],
+ 'decideix':['decide','يقرِّر','فیصلہ کرتا ہے','вирішує'],'es diu':['se llama','يُسمّى','کہلاتا ہے','називається'],'diu':['dice / se llama','يقول / يُسمّى','کہتا ہے','каже / називається'],
+ 'desfet':['deshecho','أذاب','گھول دیا','розчинив'],'cobreix':['cubre','يغطّي','ڈھانپتا ہے','покриває'],'només':['solo','فقط','صرف','тільки'],
+ 'dur':['duro','صلب','سخت','твердий'],'viva':['viva','حيّة','زندہ','жива'],'viu':['vivo','حيّ','زندہ','живий'],
+ 'dissolt':['disuelto','مذاب','گھلا ہوا','розчинений'],'concentració':['concentración','تركيز','ارتکاز','концентрація'],
+ 'augmenta':['aumenta','يزداد','بڑھتا ہے','збільшується'],'disminueix':['disminuye','ينقص','کم ہوتا ہے','зменшується'],
+ 'error':['error','خطأ','غلطی','помилка'],'errors':['errores','أخطاء','غلطیاں','помилки'],'repeteix':['se repite','يتكرّر','دہراتا ہے','повторюється'],
+ 'balances':['balanzas','موازين','ترازو','ваги'],'diferent':['diferente','مختلف','مختلف','різний'],'diferents':['diferentes','مختلفة','مختلف','різні'],
+ 'regla':['regla','قاعدة','اصول','правило'],'totes':['todas','كلّ','سب','всі'],'tots':['todos','كلّ','سب','всі'],
+ 'ja':['ya','بالفعل','پہلے ہی','вже'],'encara':['todavía','ما زال','ابھی تک','ще'],'també':['también','أيضًا','بھی','також'],
+ 'bé':['bien','جيّد','ٹھیک','добре'],'molt bé':['muy bien','جيّد جدًّا','بہت اچھا','дуже добре'],
+ 'imprimeix':['imprime','اطبع','پرنٹ کرو','надрукуй'],'resum':['resumen','ملخّص','خلاصہ','підсумок'],
+ 'simplifica':['simplifica','بسِّط','آسان کرو','спрости'],'ajuda':['ayuda','مساعدة','مدد','допомога'],
+ 'estona':['rato','مدّة قصيرة','تھوڑی دیر','деякий час'],'espera':['espera','انتظر','انتظار کرو','чекай'],'deixa passar':['deja pasar','يسمح بالمرور','گزرنے دیتا ہے','пропускає'],
+ 'fàcilment':['fácilmente','بسهولة','آسانی سے','легко'],'quantitat':['cantidad','كمّية','مقدار','кількість'],
+ 'tant':['tanto','كثيرًا','اتنا','стільки'],'gairebé':['casi','تقريبًا','تقریباً','майже'],'llis':['liso','أملس','ہموار','гладкий'],
+ 'omple':['llena','املأ','بھرو','заповни'],'buit':['vacío','فارغ','خالی','порожній'],'ple':['lleno','ممتلئ','بھرا ہوا','повний'],
+ 'pes.':['peso','وزن','وزن','вага']
+};
+const LANG_IDX = {es:0, ar:1, ur:2, uk:3};
+const LANG_NAME = {es:'castellà', ar:'àrab', ur:'urdú', uk:'ucraïnès'};
+let LANG = null;
+
+function lookup(raw){
+  let w = raw.toLowerCase().replace(/[«»"“”()¿?¡!.,;:…—–\-]/g,'').replace(/’/g,"'");
+  if(!w) return null;
+  if(DIC[w]) return {k:w, t:DIC[w]};
+  // l'ou, d'aigua, s'arruga...
+  const m = w.match(/^([ldsmnt])'(.+)$/);
+  if(m){ if(DIC[m[2]]) return {k:m[2], t:DIC[m[2]]}; }
+  const m2 = w.match(/^(.+)'(ls|l|n|s|m|t|hi|ho)$/); // pesa'l, compara'ls
+  if(m2 && DIC[m2[1]]) return {k:m2[1], t:DIC[m2[1]]};
+  if(w.endsWith('s') && DIC[w.slice(0,-1)]) return {k:w.slice(0,-1), t:DIC[w.slice(0,-1)]};
+  return null;
+}
+
+function wrapWords(root){
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode(n){
+      if(!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      const p = n.parentElement;
+      if(!p || p.closest('.no-tr,script,style,select,option,input,textarea,.w,.lcd,svg')) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }});
+  const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(n=>{
+    const frag = document.createDocumentFragment();
+    n.nodeValue.split(/(\s+)/).forEach(tok=>{
+      if(!tok) return;
+      if(/^\s+$/.test(tok) || /^[\d.,:+−%()✓—-]+$/.test(tok)){ frag.appendChild(document.createTextNode(tok)); return; }
+      const sp = document.createElement('span'); sp.className='w'; sp.textContent=tok; frag.appendChild(sp);
+    });
+    n.parentNode.replaceChild(frag, n);
+  });
+}
+
+function showTr(el){
+  if(!LANG) return;
+  document.querySelectorAll('.w.hl').forEach(x=>x.classList.remove('hl'));
+  el.classList.add('hl');
+  const raw = el.textContent;
+  const hit = lookup(raw);
+  document.getElementById('trLbl').textContent = 'Ajuda en '+LANG_NAME[LANG];
+  document.getElementById('trCa').textContent = raw.replace(/[«»"“”()¿?¡!.,;:…]/g,'');
+  document.getElementById('trArrow').textContent = '→';
+  const out = document.getElementById('trOut');
+  if(hit){
+    out.className='tr-out'; out.textContent = hit.t[LANG_IDX[LANG]];
+    out.setAttribute('dir', (LANG==='es'||LANG==='uk')?'ltr':'rtl');
+    out.setAttribute('lang', LANG);
+  } else {
+    out.className='tr-none'; out.removeAttribute('dir'); out.textContent='Aquesta paraula no és al diccionari.';
+  }
+}
+document.addEventListener('pointerover', e=>{ const w=e.target.closest && e.target.closest('.w'); if(w) showTr(w); });
+document.addEventListener('click', e=>{ const w=e.target.closest && e.target.closest('.w'); if(w && LANG) showTr(w); }, true);
+
+document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{
+  const l=b.dataset.lang;
+  LANG = (LANG===l)?null:l;
+  document.querySelectorAll('[data-lang]').forEach(x=>x.classList.toggle('on', x.dataset.lang===LANG));
+  document.body.classList.toggle('tr-on', !!LANG);
+  document.getElementById('trLbl').textContent = LANG ? 'Ajuda en '+LANG_NAME[LANG]+' · passa per sobre d\'una paraula' : '';
+  ['trCa','trArrow','trOut'].forEach(id=>document.getElementById(id).textContent='');
+}));
+document.getElementById('bSimple').addEventListener('click',e=>{
+  document.body.classList.toggle('simple');
+  e.currentTarget.classList.toggle('on');
+});
+
+/* =====================================================================
+   NAVEGACIÓ
+   ===================================================================== */
+function weighDone(){ return Object.values(S.eggs).every(e=>e.w1!==null); }
+function labDone(){ return Object.values(S.eggs).every(e=>e.dOk); }
+function goPhase(i){
+  if(i>=2 && !labDone()){ setMsg('warn', 'Primer has d\'acabar l\'experiment: cal pesar els tres ous al final i calcular la diferència de cada un.','Acaba l\'experiment primer.'); goPhase(1); return; }
+  S.phase=i;
+  document.querySelectorAll('.phase').forEach((p,k)=>p.classList.toggle('active',k===i));
+  document.querySelectorAll('.nav-btn').forEach((b,k)=>{
+    b.classList.toggle('current',k===i);
+    b.classList.toggle('locked', k>=2 && !labDone());
+  });
+  if(i===2) renderResults();
+  if(i===3) renderConclusions();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.nav-btn').forEach(b=>b.addEventListener('click',()=>goPhase(+b.dataset.go)));
+function markDone(i){ document.querySelectorAll('.nav-btn')[i].classList.add('done'); }
+
+/* =====================================================================
+   FASE 1 · PREDICCIONS
+   ===================================================================== */
+const PRED_OPTS = [['guanya','Guanyarà massa'],['perd','Perdrà massa'],['igual','Quedarà igual']];
+function renderPred(){
+  const box = document.getElementById('predRows'); box.innerHTML='';
+  ORDER.forEach(c=>{
+    const row = document.createElement('div'); row.className='pred-row';
+    row.innerHTML = `<div class="cond-name"><span class="cond-dot" style="background:${COND[c].color}"></span>${COND[c].nom}</div><div class="opts"></div>`;
+    const opts = row.querySelector('.opts');
+    PRED_OPTS.forEach(([v,t])=>{
+      const b=document.createElement('button'); b.className='opt'+(S.pred[c]===v?' sel':''); b.textContent=t;
+      b.onclick=()=>{ S.pred[c]=v; renderPred(); };
+      opts.appendChild(b);
+    });
+    box.appendChild(row);
+  });
+  wrapWords(box);
+  const ok = ORDER.every(c=>S.pred[c]);
+  document.getElementById('goLab').disabled = !ok;
+}
+document.getElementById('goLab').onclick=()=>{ markDone(0); goPhase(1); };
+
+/* =====================================================================
+   FASE 2 · LABORATORI
+   ===================================================================== */
+function eggSVG(){
+  return `<svg viewBox="0 0 60 76" aria-hidden="true">
+    <path class="shell" d="M30 3 C47 3 57 29 57 46 C57 63 45 73 30 73 C15 73 3 63 3 46 C3 29 13 3 30 3 Z" fill="#f5ead0" fill-opacity=".92" stroke="#d6c38f" stroke-width="2"/>
+    <circle cx="30" cy="47" r="14" fill="#f0b545" fill-opacity=".7"/>
+    <ellipse cx="21" cy="24" rx="5" ry="9" fill="#fff" fill-opacity=".7"/>
+    <g class="wr" stroke="#c9b07a" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0">
+      <path d="M12 38 q4 -4 8 0 t8 0"/><path d="M34 60 q4 -4 8 0 t8 0"/><path d="M14 58 q3 -3 6 0"/><path d="M38 30 q3 -3 6 0 t6 0"/>
+    </g>
+    <g class="drops" fill="#7cc3e6"><circle cx="8" cy="64" r="2.4"/><circle cx="52" cy="60" r="2"/><circle cx="30" cy="76" r="2.2"/></g>
+  </svg><span class="elbl">Ou ${'X'}</span>`;
+}
+const eggEls = {};
+function buildEggs(){
+  Object.values(S.eggs).forEach(e=>{
+    const d=document.createElement('div'); d.className='egg no-tr'; d.dataset.egg=e.id;
+    d.innerHTML = eggSVG().replace('Ou X','Ou '+e.id);
+    attachDrag(d);
+    eggEls[e.id]=d;
+  });
+}
+function updateEggLook(e){
+  const d=eggEls[e.id]; if(!d) return;
+  const ratio = massNow(e)/e.m0;
+  // exagerem visualment (el canvi real de mida és petit)
+  const sx = 1 + (ratio-1)*3.2, sy = 1 + (ratio-1)*(ratio<1?3.6:3.2);
+  if(!d.classList.contains('dragging')) d.querySelector('svg').style.transform = `scale(${sx.toFixed(3)},${sy.toFixed(3)})`;
+  const wr = d.querySelector('.wr'); wr.setAttribute('opacity', ratio<1 ? Math.min(1,(1-ratio)*14).toFixed(2) : 0);
+  d.classList.toggle('wet', e.wet);
+}
+function placeEggs(){
+  Object.values(S.eggs).forEach(e=>{
+    document.getElementById('slot-'+e.loc).appendChild(eggEls[e.id]);
+    updateEggLook(e);
+  });
+}
+
+/* ---------- Balança ---------- */
+let lcdTimer=null;
+function balanceReading(e){ return massNow(e) + (e.wet?e.wetExtra:0); }
+function showLCD(val, cb){
+  const lcd=document.getElementById('lcd'), led=document.getElementById('led');
+  clearInterval(lcdTimer);
+  if(val===null){ lcd.textContent='0,0 g'; lcd.classList.remove('settling'); led.classList.remove('busy'); return; }
+  let n=0; lcd.classList.add('settling'); led.classList.add('busy');
+  lcdTimer=setInterval(()=>{
+    n++;
+    const noise = (12-n)*rnd(-.35,.35);
+    lcd.textContent = fmt(Math.max(0,val+noise))+' g';
+    if(n>=12){ clearInterval(lcdTimer); lcd.textContent=fmt(r1(val))+' g'; lcd.classList.remove('settling'); led.classList.remove('busy'); cb && cb(r1(val)); }
+  },75);
+}
+
+/* ---------- Missatges ---------- */
+function setMsg(kind, full, simple){
+  const m=document.getElementById('msg');
+  m.className='msg'+(kind?' '+kind:'');
+  m.innerHTML = `<span class="f">${full}</span><span class="s">${simple||full}</span>`;
+  wrapWords(m);
+}
+
+/* ---------- Moviments ---------- */
+function eggOnBalance(){ return Object.values(S.eggs).find(e=>e.loc==='balance'); }
+
+function tryMove(id, zone){
+  const e=S.eggs[id];
+  if(S.running){ setMsg('warn','Espera que acabi de passar el temps.','Espera.'); return false; }
+  if(zone===e.loc) return false;
+
+  if(zone==='balance'){
+    const other=eggOnBalance();
+    if(other){ // l'ou que hi havia torna al seu lloc
+      other.loc = 'paper';
+    }
+    e.loc='balance'; placeEggs(); refresh();
+    const val=balanceReading(e);
+    showLCD(val, v=>weighed(e,v));
+    return true;
+  }
+  if(zone==='tray'){
+    if(S.timeDone){
+      if(e.w1===null){ setMsg('warn','Abans de guardar l\'ou, eixuga\'l i pesa\'l per saber la massa final.','Primer eixuga\'l i pesa\'l.'); return false; }
+      leaveBalance(e); e.loc='tray'; e.wet=true; placeEggs();
+      setMsg('good',`L'ou ${id} torna al pot de vinagre original.`,`L'ou ${id} torna al vinagre.`); refresh(); return true;
+    }
+    leaveBalance(e); e.cond=null; e.loc='tray'; e.wet=true; placeEggs(); refresh(); return true;
+  }
+  if(zone==='paper'){
+    leaveBalance(e); e.loc='paper'; placeEggs();
+    if(e.wet){
+      const d=eggEls[id]; d.classList.add('drying');
+      setMsg('','Eixugant l\'ou amb el paper…','Eixugant…');
+      setTimeout(()=>{ e.wet=false; d.classList.remove('drying'); updateEggLook(e);
+        if(e.loc==='paper') setMsg('good',`L'ou ${id} ja està eixut. Ara porta'l a la balança.`,`Ara porta l'ou ${id} a la balança.`); refresh(); },1100);
+    }
+    refresh(); return true;
+  }
+  // gots
+  if(ORDER.includes(zone)){
+    if(S.timeDone){
+      if(e.w1===null){ setMsg('warn','Primer cal eixugar l\'ou i pesar-lo per saber la massa final.','Primer eixuga\'l i pesa\'l.'); return false; }
+      if(zone!==e.cond){ setMsg('warn',`L'ou ${id} només pot tornar al seu got (${COND[e.cond].curt.toLowerCase()}) o al pot de vinagre original.`,`Torna'l al seu got o al vinagre.`); return false; }
+      leaveBalance(e); e.loc=zone; e.wet=true; placeEggs();
+      setMsg('good',`L'ou ${id} torna al got on era.`,`L'ou ${id} torna al seu got.`); refresh(); return true;
+    }
+    if(e.w0===null){ setMsg('warn',`Abans de posar l'ou ${id} al got l'has de pesar. Si no saps la massa inicial, no podràs saber si ha canviat.`,`Primer pesa l'ou ${id}.`); return false; }
+    const occ = eggByCond(zone);
+    if(occ && occ.id!==id){ setMsg('warn',`Al got ${ORDER.indexOf(zone)+1} ja hi ha l'ou ${occ.id}. Posa només un ou a cada got.`,'Només un ou a cada got.'); return false; }
+    leaveBalance(e);
+    if(e.cond && e.cond!==zone){ e.cond=null; }
+    e.cond=zone; e.loc=zone;
+    e.pct = rnd(COND[zone].min, COND[zone].max);
+    e.wetExtra = rnd(.8,1.8); e.wet=true;
+    placeEggs();
+    setMsg('good',`Molt bé: l'ou ${id} és dins el got de ${COND[zone].curt.toLowerCase()}.`,`L'ou ${id} és al got.`);
+    refresh(); return true;
+  }
+  return false;
+}
+function leaveBalance(e){ if(e.loc==='balance'){ showLCD(null); } }
+
+function weighed(e,v){
+  if(e.loc!=='balance') return;
+  if(!e.cond){
+    if(e.w0===null && e.wet){
+      setMsg('warn',`Compte: l'ou ${e.id} està moll de vinagre! La balança marca ${fmt(v)} g, però les gotes també pesen. Eixuga'l amb el paper de cuina i torna'l a pesar. Aquesta dada no l'anotem.`,`L'ou està moll. Eixuga'l i torna a pesar.`);
+    } else if(e.w0===null){ e.w0=v; e.m0=v;
+      setMsg('good',`Massa inicial de l'ou ${e.id}: ${fmt(v)} g. Està anotada al quadern. Ara posa l'ou dins un got.`,`L'ou ${e.id} pesa ${fmt(v)} g. Ara posa'l en un got.`);
+    } else setMsg('','Aquest ou ja està pesat. Posa\'l dins un got.','Ja està pesat. Posa\'l en un got.');
+  } else if(S.timeDone){
+    if(e.wet){
+      setMsg('warn',`Compte: l'ou ${e.id} està moll! La balança marca ${fmt(v)} g, però les gotes d'aigua de fora també pesen. Eixuga'l amb el paper de cuina i torna'l a pesar. Aquesta dada no l'anotem.`,`L'ou està moll. Les gotes també pesen. Eixuga'l i torna a pesar.`);
+    } else if(e.w1===null){
+      e.w1=v;
+      setMsg('good',`Massa final de l'ou ${e.id}: ${fmt(v)} g. Anotada! Ara pots tornar-lo al got on era o al pot de vinagre.`,`Massa final: ${fmt(v)} g.`);
+      if(weighDone()){ setTimeout(()=>setMsg('good','Has pesat els tres ous. Ara calcula la diferència de cada ou amb la calculadora (massa final − massa inicial) i escriu-la a la columna «Dif.» del quadern.','Ara calcula: final − inicial. Escriu-ho a la taula.'),1400); }
+    } else setMsg('','Aquest ou ja té la massa final anotada.','Ja està pesat.');
+  } else {
+    setMsg('warn','Aquest ou ha de tornar al seu got.','Torna l\'ou al got.');
+  }
+  refresh();
+}
+
+/* ---------- Temps ---------- */
+document.getElementById('bTime').onclick=()=>{
+  if(S.running||S.timeDone) return;
+  S.running=true; refresh();
+  setMsg('','El temps passa… Observa què li passa a cada ou.','Mira els ous.');
+  const t0=performance.now(), dur=7000;
+  (function step(now){
+    const p=Math.min(1,(now-t0)/dur);
+    S.t = T_TOTAL*p;
+    document.getElementById('clock').innerHTML=`${Math.round(S.t)} <small>min</small>`;
+    document.getElementById('tfill').style.width=(p*100)+'%';
+    Object.values(S.eggs).forEach(updateEggLook);
+    if(p<1) requestAnimationFrame(step);
+    else{
+      S.running=false; S.timeDone=true;
+      Object.values(S.eggs).forEach(e=>{ if(e.cond) e.wet=true; });
+      setMsg('good',`Han passat ${T_TOTAL} minuts. Treu cada ou del got, eixuga'l amb el paper de cuina i pesa'l.`,'Treu els ous. Eixuga\'ls. Pesa\'ls.');
+      refresh();
+    }
+  })(performance.now());
+};
+
+/* ---------- Passos i quadern ---------- */
+function refresh(){
+  const E=Object.values(S.eggs);
+  const allW0=E.every(e=>e.w0!==null), allIn=E.every(e=>e.cond && ORDER.includes(e.loc));
+  const allCond=E.every(e=>e.cond);
+  const steps=[
+    [allW0,'Treu cada ou del pot de vinagre, eixuga\'l i pesa\'l','Treu, eixuga i pesa els 3 ous'],
+    [allCond,'Posa cada ou dins un got diferent','Posa cada ou en un got'],
+    [S.timeDone,`Deixa passar el temps (${T_TOTAL} minuts)`,'Espera'],
+    [E.every(e=>e.w1!==null||(!e.wet&&e.loc==='paper')),'Treu cada ou i eixuga\'l amb el paper','Eixuga els ous'],
+    [weighDone(),'Torna a pesar cada ou','Pesa els ous una altra vegada'],
+    [labDone(),'Calcula la diferència de cada ou: massa final − massa inicial','Calcula: final − inicial']
+  ];
+  const firstOpen = steps.findIndex(s=>!s[0]);
+  const ol=document.getElementById('steps'); ol.innerHTML='';
+  steps.forEach((s,i)=>{
+    const li=document.createElement('li'); li.className= s[0]?'ok':(i===firstOpen?'now':'');
+    li.innerHTML=`<span class="n">${s[0]?'✓':i+1}</span><span><span class="f">${s[1]}</span><span class="s">${s[2]}</span></span>`;
+    ol.appendChild(li);
+  });
+  wrapWords(ol);
+
+  const tb=document.getElementById('nbTable');
+  let h=`<tr><th>Ou</th><th>Got</th><th>Inicial</th><th>Final</th><th>Dif.</th></tr>`;
+  E.forEach(e=>{
+    const m = v => v!==null ? `<button class="ins" data-v="${v}" title="Posa-ho a la calculadora">${fmt(v)}</button> g` : '—';
+    let dcell='—', dcls='';
+    if(e.dOk){ const d=r1(e.w1-e.w0); dcls=d>0?'pos':d<0?'neg':''; dcell=sgn(d)+' g ✓'; }
+    else if(e.w1!==null){ dcell=`<input class="d-in no-tr${e.dBad?' ko':''}" data-egg="${e.id}" inputmode="text" autocomplete="off" placeholder="?" value="${e.dIn}">`; }
+    h+=`<tr><td><b>${e.id}</b></td><td>${e.cond?COND[e.cond].curt:'—'}</td><td class="num">${m(e.w0)}</td><td class="num">${m(e.w1)}</td><td class="num ${dcls}">${dcell}</td></tr>`;
+  });
+  tb.innerHTML=h; wrapWords(tb);
+
+  document.getElementById('bTime').disabled = !(allIn && !S.timeDone) || S.running;
+  document.getElementById('goRes').disabled = !labDone();
+  if(labDone()) markDone(1);
+  document.querySelectorAll('.nav-btn').forEach((b,k)=>{ if(k>=2) b.classList.toggle('locked',!labDone()); });
+}
+
+
+/* ---------- Diferència escrita per l'alumne ---------- */
+function parseNum(t){
+  t=String(t).trim().replace(/\s*g$/i,'').replace(/[−–—]/g,'-').replace(/\s/g,'').replace(',','.');
+  if(!/^[+-]?\d+(\.\d+)?$/.test(t)) return NaN;
+  return parseFloat(t);
+}
+function dfb(kind, full, simple){
+  const b=document.getElementById('dfb');
+  if(!kind){ b.className='dfb'; b.innerHTML=''; return; }
+  b.className='dfb show '+kind;
+  b.innerHTML=`<span class="f">${full}</span><span class="s">${simple||full}</span>`;
+  wrapWords(b);
+}
+function checkDiff(inp){
+  const e=S.eggs[inp.dataset.egg]; e.dIn=inp.value;
+  if(!inp.value.trim()){ return; }
+  const v=parseNum(inp.value), ok=r1(e.w1-e.w0);
+  if(isNaN(v)){ e.dBad=true; dfb('ko','Escriu només un número, per exemple −6,9 o 4,5.','Escriu un número.'); refresh(); return; }
+  if(Math.abs(v-ok)<0.051){
+    e.dOk=true; e.dBad=false;
+    dfb('ok', ok<0
+      ? `Correcte: l'ou ${e.id} ha perdut massa, per això la diferència és negativa (${sgn(ok)} g).`
+      : `Correcte: l'ou ${e.id} ha guanyat massa, per això la diferència és positiva (${sgn(ok)} g).`,
+      `Correcte: ${sgn(ok)} g.`);
+    if(labDone()) setMsg('good','Has calculat totes les diferències. Ja pots anar a veure els resultats.','Fet! Mira els resultats.');
+  } else if(Math.abs(v+ok)<0.051 && ok!==0){
+    e.dBad=true;
+    dfb('ko', `Has fet la resta al revés. La diferència sempre és massa final − massa inicial: ${fmt(e.w1)} − ${fmt(e.w0)}. ${ok<0?'Com que l\'ou ha disminuït, el resultat ha de ser negatiu.':'Com que l\'ou ha augmentat, el resultat ha de ser positiu.'}`,
+      `Al revés! Fes final − inicial.`);
+  } else {
+    e.dBad=true;
+    dfb('ko', `Aquest número no és correcte. Torna-ho a calcular: massa final − massa inicial de l'ou ${e.id}.`, 'No és correcte. Fes final − inicial.');
+  }
+  refresh();
+}
+const nbT=document.getElementById('nbTable');
+nbT.addEventListener('change',ev=>{ if(ev.target.classList.contains('d-in')) checkDiff(ev.target); });
+nbT.addEventListener('keydown',ev=>{ if(ev.key==='Enter' && ev.target.classList.contains('d-in')){ ev.preventDefault(); ev.target.blur(); } });
+nbT.addEventListener('input',ev=>{ if(ev.target.classList.contains('d-in')) S.eggs[ev.target.dataset.egg].dIn=ev.target.value; });
+nbT.addEventListener('click',ev=>{ const b=ev.target.closest('.ins'); if(b) calcInsert(b.dataset.v); });
+
+/* ---------- Calculadora (admet negatius) ---------- */
+let CX='', CDone=false;
+const OPS='+-*/';
+const SHOW = t => t.replace(/\./g,',').replace(/([0-9,])\*/g,'$1 × ').replace(/([0-9,])\//g,'$1 ÷ ')
+                   .replace(/([0-9,])\+/g,'$1 + ').replace(/([0-9,])-/g,'$1 − ').replace(/-/g,'−');
+function tokenize(t){
+  const out=[]; let i=0;
+  while(i<t.length){
+    const c=t[i];
+    const unary = c==='-' && (out.length===0 || typeof out[out.length-1]==='string');
+    if(/[0-9.]/.test(c) || unary){
+      let j=i+1; while(j<t.length && /[0-9.]/.test(t[j])) j++;
+      const n=parseFloat(t.slice(i,j)); if(isNaN(n)) return null;
+      out.push(n); i=j;
+    } else if(OPS.includes(c)){ out.push(c); i++; }
+    else return null;
+  }
+  return out;
+}
+function evaluate(t){
+  const tk=tokenize(t); if(!tk || !tk.length || typeof tk[tk.length-1]==='string') return null;
+  const a=[tk[0]];
+  for(let i=1;i<tk.length;i+=2){
+    const op=tk[i], n=tk[i+1];
+    if(typeof n!=='number') return null;
+    if(op==='*') a[a.length-1]*=n;
+    else if(op==='/'){ if(n===0) return null; a[a.length-1]/=n; }
+    else a.push(op, n);
+  }
+  let r=a[0]; for(let i=1;i<a.length;i+=2) r = a[i]==='+' ? r+a[i+1] : r-a[i+1];
+  return Math.round(r*100)/100;
+}
+function calcShow(res){
+  document.getElementById('cExpr').innerHTML = CDone ? SHOW(CX)+' =' : '&nbsp;';
+  const r=document.getElementById('cRes');
+  const txt = res!==undefined ? res : (CX ? SHOW(CX) : '0');
+  r.textContent = txt; r.classList.toggle('neg', res!==undefined && String(res).startsWith('−'));
+}
+function lastNum(){ const m=CX.match(/-?[0-9.]*$/); return m?m[0]:''; }
+function calcInsert(v){
+  if(CDone){ CX=''; CDone=false; document.getElementById('cNote').textContent=''; }
+  const last=CX.slice(-1);
+  if(CX && /[0-9.]/.test(last)) return; // ja hi ha un número: primer cal un operador
+  CX += String(v); calcShow();
+}
+function calcKey(k){
+  const note=document.getElementById('cNote');
+  if(k==='C'){ CX=''; CDone=false; note.textContent=''; calcShow(); return; }
+  if(CDone && k!=='='){
+    if(/[0-9,]/.test(k)){ CX=''; }
+    else if(k==='±' || OPS.includes(k)){ const r=evaluate(CX); CX = r===null?'':String(r); }
+    CDone=false; note.textContent='';
+  }
+  if(k==='⌫'){ CX=CX.slice(0,-1); calcShow(); return; }
+  if(/[0-9]/.test(k)){ CX+=k; calcShow(); return; }
+  if(k===','){ const n=lastNum(); if(!n.includes('.')) CX += (n===''||n==='-')?'0.':'.'; calcShow(); return; }
+  if(k==='±'){
+    const m=CX.match(/(^|[+\-*/])(-?)([0-9.]*)$/);
+    if(m){ const pre=CX.slice(0, CX.length-m[0].length)+m[1]; CX = pre + (m[2]?'':'-') + m[3]; }
+    calcShow(); return;
+  }
+  if(OPS.includes(k)){
+    const last=CX.slice(-1);
+    if(CX===''){ if(k==='-') CX='-'; calcShow(); return; }
+    if(OPS.includes(last)){
+      if(k==='-' && last!=='-') CX+='-';            // número negatiu després d'un operador
+      else if(CX.length>1) CX=CX.slice(0,-1)+k;
+    } else CX+=k;
+    calcShow(); return;
+  }
+  if(k==='='){
+    const r=evaluate(CX);
+    if(r===null){ calcShow('Error'); note.textContent='Revisa l\'operació: falta algun número o hi ha un signe de més.'; wrapWords(note); return; }
+    CDone=true;
+    const shown=(r<0?'−':'')+String(Math.abs(r)).replace('.',',');
+    calcShow(shown);
+    note.innerHTML = r<0
+      ? '<span class="f">Resultat negatiu. Si has fet massa final − massa inicial, vol dir que l\'ou ha perdut massa.</span><span class="s">Negatiu: l\'ou ha perdut massa.</span>'
+      : '';
+    wrapWords(note);
+  }
+}
+(function buildCalc(){
+  const keys=[['C','fn'],['⌫','fn'],['±','fn'],['/','op','÷'],
+              ['7'],['8'],['9'],['*','op','×'],
+              ['4'],['5'],['6'],['-','minus','−'],
+              ['1'],['2'],['3'],['+','op','+'],
+              ['0','w2'],[','],['=','eq']];
+  const box=document.getElementById('cKeys');
+  keys.forEach(([k,cls,lbl])=>{
+    const b=document.createElement('button'); b.className='ck '+(cls||''); b.textContent=lbl||k;
+    b.setAttribute('aria-label', k==='±'?'canvia el signe':k==='⌫'?'esborra':k==='C'?'esborra-ho tot':(lbl||k));
+    b.onclick=()=>calcKey(k); box.appendChild(b);
+  });
+  calcShow();
+})();
+
+document.getElementById('goRes').onclick=()=>goPhase(2);
+document.getElementById('bReset').onclick=()=>{
+  const pred=S.pred; S=newState(); S.pred=pred;
+  document.getElementById('clock').innerHTML='0 <small>min</small>';
+  document.getElementById('tfill').style.width='0';
+  document.getElementById('classBox').style.display='none';
+  document.getElementById('finalCard').style.display='none';
+  document.getElementById('fbAer').className='fb';
+  document.querySelectorAll('.nav-btn').forEach((b,k)=>{ if(k>=1) b.classList.remove('done'); });
+  showLCD(null); placeEggs(); refresh(); dfb(null); CX=''; CDone=false; document.getElementById('cNote').textContent=''; calcShow();
+  setMsg('','Tornem a començar amb ous nous. Treu el primer ou del pot de vinagre i eixuga\'l.','Porta un ou al paper de cuina.');
+};
+
+/* ---------- Arrossegar (ratolí i tàctil) + tocar-i-tocar ---------- */
+let selected=null;
+function attachDrag(el){
+  el.addEventListener('pointerdown',ev=>{
+    if(S.running) return;
+    ev.preventDefault();
+    const id=el.dataset.egg, sx=ev.clientX, sy=ev.clientY;
+    let dragging=false, hi=null;
+    const rect=el.getBoundingClientRect();
+    const offX=sx-rect.left, offY=sy-rect.top;
+    const move=e=>{
+      if(!dragging && Math.hypot(e.clientX-sx,e.clientY-sy)>6){
+        dragging=true; el.classList.add('dragging'); el.style.width=rect.width+'px';
+        document.body.appendChild(el);
+      }
+      if(dragging){
+        el.style.left=(e.clientX-offX)+'px'; el.style.top=(e.clientY-offY)+'px';
+        const z=zoneAt(e.clientX,e.clientY);
+        if(hi!==z){ hi&&hi.classList.remove('drop-hi'); hi=z; hi&&hi.classList.add('drop-hi'); }
+      }
+    };
+    const up=e=>{
+      window.removeEventListener('pointermove',move); window.removeEventListener('pointerup',up); window.removeEventListener('pointercancel',up);
+      hi&&hi.classList.remove('drop-hi');
+      if(dragging){
+        el.classList.remove('dragging'); el.style.left=el.style.top=el.style.width='';
+        const z=zoneAt(e.clientX,e.clientY);
+        const moved = z ? tryMove(id, z.dataset.zone) : false;
+        if(!moved) placeEggs();
+        clearSel();
+      } else {
+        // tocar-i-tocar
+        if(selected===id){ clearSel(); }
+        else { clearSel(); selected=id; el.classList.add('sel');
+          setMsg('',`Has triat l'ou ${id}. Ara toca on el vols posar.`,`Toca on vols posar l'ou ${id}.`); }
+      }
+    };
+    window.addEventListener('pointermove',move); window.addEventListener('pointerup',up); window.addEventListener('pointercancel',up);
+  });
+}
+function zoneAt(x,y){
+  const els=document.elementsFromPoint(x,y);
+  for(const e of els){ const z=e.closest&&e.closest('[data-zone]'); if(z) return z; }
+  return null;
+}
+function clearSel(){ selected=null; document.querySelectorAll('.egg.sel').forEach(x=>x.classList.remove('sel')); }
+document.querySelectorAll('[data-zone]').forEach(z=>z.addEventListener('click',ev=>{
+  if(!selected || ev.target.closest('.egg')) return;
+  const id=selected; clearSel(); tryMove(id, z.dataset.zone);
+}));
+
+/* =====================================================================
+   FASE 3 · RESULTATS
+   ===================================================================== */
+function pctOf(e){ return (e.w1-e.w0)/e.w0*100; }
+function obsOf(c,p){
+  if(c==='pure') return p>1.5?'Més gran, llis i ferm (inflat)':'Gairebé igual';
+  if(c==='salt') return p<-1.5?'Més petit, arrugat i tou':'Gairebé igual';
+  return Math.abs(p)<1.5?'Gairebé igual':(p>0?'Una mica més gran':'Una mica més petit');
+}
+function renderResults(){
+  markDone(1);
+  const tb=document.getElementById('resTable');
+  let h=`<tr><th>Condició</th><th>Inicial</th><th>Final</th><th>Dif.</th><th>Què s'observa</th></tr>`;
+  ORDER.forEach(c=>{ const e=eggByCond(c), d=e.w1-e.w0;
+    h+=`<tr><td><b>${COND[c].nom}</b></td><td class="num">${fmt(e.w0)} g</td><td class="num">${fmt(e.w1)} g</td><td class="num ${d>0?'pos':'neg'}">${sgn(d)} g</td><td>${obsOf(c,pctOf(e))}</td></tr>`; });
+  tb.innerHTML=h; wrapWords(tb);
+
+  const bars=document.getElementById('bars'); bars.innerHTML='';
+  const MAX=12;
+  ORDER.forEach(c=>{ const p=pctOf(eggByCond(c));
+    const w=Math.min(50,Math.abs(p)/MAX*50);
+    const row=document.createElement('div'); row.className='bar-row';
+    row.innerHTML=`<div>${COND[c].curt}</div><div class="bar-axis"><div class="bar-fill" style="background:${COND[c].color};${p>=0?`left:50%;width:${w}%`:`left:${50-w}%;width:${w}%`}"></div></div><div class="bar-val">${sgn(p)} %</div>`;
+    bars.appendChild(row); });
+  wrapWords(bars);
+
+  const cmp=document.getElementById('cmpPred'); cmp.innerHTML='';
+  const TXT={guanya:'guanyaria massa',perd:'perdria massa',igual:'quedaria igual'};
+  ORDER.forEach(c=>{ const p=pctOf(eggByCond(c));
+    const real = p>1.5?'guanya':p<-1.5?'perd':'igual';
+    const ok = S.pred[c]===real;
+    const d=document.createElement('div'); d.className='callout '+(ok||!S.pred[c]?'c-green':'c-peach'); d.style.marginBottom='10px';
+    d.innerHTML=`<b class="t">${COND[c].nom}</b>${S.pred[c]?'Havies predit que '+TXT[S.pred[c]]+'.':'No havies fet cap predicció.'} Resultat: ${real==='guanya'?'ha guanyat':real==='perd'?'ha perdut':'gairebé no ha canviat'}${real==='igual'?'':' '+fmt(Math.abs(eggByCond(c).w1-eggByCond(c).w0))+' g'}. ${!S.pred[c]?'':ok?'Has encertat.':'No ha passat el que esperaves: pensa per què a les conclusions.'}`;
+    cmp.appendChild(d); });
+  wrapWords(cmp);
+  renderFiable();
+}
+
+document.getElementById('bClass').onclick=()=>{
+  if(!S.classData){
+    const groups=[]; const bad=Math.floor(rnd(0,9));
+    for(let g=0;g<9;g++){
+      const row={};
+      ORDER.forEach(c=>{ row[c]=rnd(COND[c].min,COND[c].max)+rnd(-1,1); });
+      if(g===bad) row.pure=rnd(.3,1.2); // ou amb la membrana trencada
+      groups.push(row);
+    }
+    S.classData=groups;
+  }
+  document.getElementById('classBox').style.display='block';
+  const dp=document.getElementById('dotplot'); dp.innerHTML='';
+  const X=p=> 50 + Math.max(-12,Math.min(12,p))/12*50;
+  ORDER.forEach(c=>{
+    const vals=S.classData.map(r=>r[c]); const mine=pctOf(eggByCond(c));
+    const all=[...vals,mine]; const mean=all.reduce((a,b)=>a+b,0)/all.length;
+    const row=document.createElement('div'); row.className='dp-row';
+    let dots=vals.map(v=>`<span class="dp-dot" style="left:${X(v)}%;background:${COND[c].color}"></span>`).join('');
+    dots+=`<span class="dp-mean" style="left:${X(mean)}%"></span><span class="dp-dot me" style="left:${X(mine)}%;background:${COND[c].color}"></span>`;
+    row.innerHTML=`<div>${COND[c].curt}<br><small style="color:var(--muted)">mitjana ${sgn(mean)} %</small></div><div class="dp-track">${dots}</div>`;
+    dp.appendChild(row);
+  });
+  wrapWords(dp);
+  const cb=document.getElementById('classBox'); if(!cb.dataset.wrapped){ wrapWords(cb); cb.dataset.wrapped=1; }
+};
+
+const FIABLE=[
+  ['Perquè cada ou és una mica diferent i hi pot haver errors. Amb molts ous veiem si el resultat es repeteix.',true],
+  ['Perquè els ous petits no fan osmosi.',false],
+  ['Perquè les balances sempre s\'equivoquen molt.',false]
+];
+function renderFiable(){
+  const box=document.getElementById('qFiable'); box.innerHTML='';
+  FIABLE.forEach(([t,ok],i)=>{
+    const b=document.createElement('button'); b.className='opt'+(S.fiable===i?(ok?' ok':' ko'):''); b.textContent=t;
+    b.onclick=()=>{ S.fiable=i; renderFiable();
+      const fb=document.getElementById('fbFiable');
+      fb.className='fb show '+(ok?'ok':'ko');
+      fb.innerHTML= ok
+        ? '<span class="f">Correcte. Mira el got d\'aigua pura: hi ha un grup amb un resultat molt diferent (potser la membrana es va trencar). Si només tinguéssim aquell ou, arribaríem a una conclusió equivocada. Per això els científics repeteixen els experiments moltes vegades.</span><span class="s">Correcte. Un ou pot fallar. Amb molts ous estem més segurs.</span>'
+        : '<span class="f">No és això. Pensa: tots els grups han fet el mateix, però els números no són idèntics. Per què?</span><span class="s">No. Mira: els números dels grups són diferents. Per què?</span>';
+      wrapWords(fb);
+    };
+    box.appendChild(b);
+  });
+  wrapWords(box);
+}
+document.getElementById('goConc').onclick=()=>{ markDone(2); goPhase(3); };
+
+/* =====================================================================
+   FASE 4 · CONCLUSIONS
+   ===================================================================== */
+const QUIZ=[
+  {f:'Per què l\'ou en aigua destil·lada ha guanyat massa?', s:'Per què l\'ou en aigua pura pesa més?',
+   o:[['Perquè ha entrat aigua dins l\'ou: a dins hi ha més substàncies dissoltes que a fora.',1],['Perquè ha entrat sal dins l\'ou.',0],['Perquè l\'ou ha crescut com un ésser viu.',0]],
+   ok:'Exacte. L\'aigua ha entrat per osmosi cap a dins, on hi ha més substàncies dissoltes.', ko:'Recorda la regla: l\'aigua va cap al costat on hi ha més substàncies dissoltes (més sal). On n\'hi ha més, dins o fora de l\'ou?'},
+  {f:'A l\'ou en aigua amb molta sal, cap on s\'ha mogut l\'aigua?', s:'Aigua amb sal: cap on va l\'aigua?',
+   o:[['De dins de l\'ou cap a fora.',1],['De fora cap a dins de l\'ou.',0],['No s\'ha mogut gens.',0]],
+   ok:'Correcte. Fora hi ha més sal, i l\'aigua surt de l\'ou: per això s\'arruga i perd massa.', ko:'Mira la taula: l\'ou ha perdut massa. Si perd massa, l\'aigua entra o surt?'},
+  {f:'Per què diem que la membrana és semipermeable?', s:'Què vol dir semipermeable?',
+   o:[['Perquè deixa passar l\'aigua però no deixa passar fàcilment la sal.',1],['Perquè no deixa passar res.',0],['Perquè deixa passar tot igual.',0]],
+   ok:'Molt bé. «Semi» vol dir «mig»: deixa passar unes coses i altres no.', ko:'«Semi» vol dir «mig». Deixa passar algunes coses i altres no. Quina passa i quina no?'},
+  {f:'Per a què serveix el got de vinagre?', s:'Per què posem un got amb vinagre?',
+   o:[['És el control: l\'ou ja estava en vinagre, i així veiem què passa si no canviem el medi.',1],['Per desfer una altra vegada la closca.',0],['Perquè l\'ou pesi més.',0]],
+   ok:'Correcte. Sense control no sabríem si els canvis són per l\'aigua i la sal o per qualsevol altra cosa.', ko:'L\'ou ja havia estat 48 hores en vinagre. Si el deixem en vinagre, canviem alguna cosa? Per a què ens serveix comparar?'}
+];
+function renderConclusions(){
+  const box=document.getElementById('quiz'); box.innerHTML='';
+  QUIZ.forEach((q,qi)=>{
+    const d=document.createElement('div'); d.className='q';
+    d.innerHTML=`<div class="q-t"><span class="f">${qi+1}. ${q.f}</span><span class="s">${qi+1}. ${q.s}</span></div><div class="opts"></div><div class="fb"></div>`;
+    const opts=d.querySelector('.opts'), fb=d.querySelector('.fb');
+    q.o.forEach(([t,ok],oi)=>{
+      const b=document.createElement('button'); const ans=S.quiz[qi];
+      b.className='opt'+(ans===oi?(ok?' ok':' ko'):''); b.textContent=t;
+      b.onclick=()=>{ S.quiz[qi]=oi; renderConclusions(); };
+      opts.appendChild(b);
+    });
+    if(S.quiz[qi]!==undefined){ const good=q.o[S.quiz[qi]][1]; fb.className='fb show '+(good?'ok':'ko'); fb.textContent=good?q.ok:q.ko; }
+    box.appendChild(d);
+  });
+  wrapWords(box);
+  const answered=Object.keys(S.quiz).length;
+  const right=Object.entries(S.quiz).filter(([qi,oi])=>QUIZ[qi].o[oi][1]).length;
+  document.getElementById('score').textContent = answered===QUIZ.length ? `Encerts: ${right} de ${QUIZ.length}` : '';
+  renderAER();
+}
+
+const AER_SEL={
+  a1:{opts:['—','guanyat','perdut'], ok:'guanyat'},
+  a2:{opts:['—','guanyat','perdut'], ok:'perdut'},
+  r1:{opts:['—','osmosi','digestió','evaporació'], ok:'osmosi'},
+  r2:{opts:['—','semipermeable','impermeable'], ok:'semipermeable'},
+  r3:{opts:['—','més','menys'], ok:'més'},
+  r4:{opts:['—','entra','surt'], ok:'entra'},
+  r5:{opts:['—','entra','surt'], ok:'surt'}
+};
+let aerVals={};
+function sel(k){ const v=aerVals[k]||'—'; return `<select data-k="${k}">${AER_SEL[k].opts.map(o=>`<option${o===v?' selected':''}>${o}</option>`).join('')}</select>`; }
+function renderAER(){
+  const p=eggByCond('pure'), s=eggByCond('salt'), v=eggByCond('vin');
+  const box=document.getElementById('aer');
+  box.innerHTML=`
+   <p><span class="lab-k">Afirmació</span>L'ou en aigua destil·lada ha ${sel('a1')} massa i l'ou en aigua amb sal n'ha ${sel('a2')}.</p>
+   <p><span class="lab-k">Evidència</span>L'ou en aigua pura ha passat de ${fmt(p.w0)} g a ${fmt(p.w1)} g (${sgn(p.w1-p.w0)} g). L'ou en aigua amb sal ha passat de ${fmt(s.w0)} g a ${fmt(s.w1)} g (${sgn(s.w1-s.w0)} g). L'ou en vinagre gairebé no ha canviat (${sgn(v.w1-v.w0)} g).</p>
+   <p><span class="lab-k">Raonament</span>Això passa per ${sel('r1')}: la membrana és ${sel('r2')} i l'aigua va cap al costat on hi ha ${sel('r3')} sal. En aigua pura, l'aigua ${sel('r4')} a l'ou; en aigua amb sal, l'aigua ${sel('r5')} de l'ou.</p>`;
+  box.querySelectorAll('select').forEach(s=>s.onchange=()=>{ aerVals[s.dataset.k]=s.value; s.classList.remove('ok','ko'); });
+  wrapWords(box);
+}
+document.getElementById('bAer').onclick=()=>{
+  let bad=0, empty=0;
+  document.querySelectorAll('#aer select').forEach(s=>{
+    const k=s.dataset.k; s.classList.remove('ok','ko');
+    if(s.value==='—'){ empty++; return; }
+    const ok=s.value===AER_SEL[k].ok; s.classList.add(ok?'ok':'ko'); if(!ok) bad++;
+  });
+  const fb=document.getElementById('fbAer');
+  if(empty){ fb.className='fb show ko'; fb.textContent='Encara falten espais per triar.'; }
+  else if(bad){ fb.className='fb show ko'; fb.textContent=`Hi ha ${bad} ${bad===1?'espai':'espais'} en vermell. Mira les dades de la taula i la regla, i torna-ho a provar.`; }
+  else { fb.className='fb show ok'; fb.textContent='Perfecte! La teva explicació és correcta.'; S.aerOk=true; showFinal(); markDone(3); }
+  wrapWords(fb);
+};
+function finalText(){
+  const p=eggByCond('pure'), s=eggByCond('salt'), v=eggByCond('vin');
+  return `L'ou en aigua destil·lada ha guanyat massa i l'ou en aigua amb sal n'ha perdut. L'ou en aigua pura ha passat de ${fmt(p.w0)} g a ${fmt(p.w1)} g (${sgn(p.w1-p.w0)} g), l'ou en aigua amb sal ha passat de ${fmt(s.w0)} g a ${fmt(s.w1)} g (${sgn(s.w1-s.w0)} g) i l'ou en vinagre, el control, gairebé no ha canviat (${sgn(v.w1-v.w0)} g). Això passa per osmosi: la membrana és semipermeable i l'aigua va cap al costat on hi ha més sal. En aigua pura, l'aigua entra a l'ou; en aigua amb sal, l'aigua surt de l'ou.`;
+}
+function showFinal(){
+  const c=document.getElementById('finalCard'); c.style.display='block';
+  const t=document.getElementById('finalTxt'); t.textContent=finalText(); wrapWords(t);
+  if(!c.dataset.wrapped){ wrapWords(c); c.dataset.wrapped=1; }
+}
+document.getElementById('bPrint').onclick=()=>{
+  const nom=document.getElementById('nom').value.trim();
+  const TXT={guanya:'Guanyarà massa',perd:'Perdrà massa',igual:'Quedarà igual'};
+  let rows=ORDER.map(c=>{ const e=eggByCond(c), d=e.w1-e.w0;
+    return `<tr><td>${COND[c].nom}</td><td>${TXT[S.pred[c]]||'—'}</td><td>${fmt(e.w0)} g</td><td>${fmt(e.w1)} g</td><td>${sgn(d)} g</td><td>${obsOf(c,pctOf(e))}</td></tr>`; }).join('');
+  document.getElementById('print-area').innerHTML=`
+    <h1>Laboratori virtual · L'ou sense closca</h1>
+    <p><b>Nom:</b> ${nom||'______________________________'} &nbsp;&nbsp; <b>Data:</b> ${new Date().toLocaleDateString('ca-ES')}</p>
+    <table><tr><th>Condició</th><th>Predicció</th><th>Massa inicial</th><th>Massa final</th><th>Diferència</th><th>Què s'observa</th></tr>${rows}</table>
+    <p><b>Explicació (AER):</b> ${finalText()}</p>
+    <p><b>Encerts al qüestionari:</b> ${Object.entries(S.quiz).filter(([qi,oi])=>QUIZ[qi].o[oi][1]).length} de ${QUIZ.length}</p>
+    <p style="font-size:10pt;color:#555">Experiment fet de manera virtual · Biologia i Geologia 3r ESO · IE Temple</p>`;
+  window.print();
+};
+
+/* =====================================================================
+   INICI
+   ===================================================================== */
+function setHH(){ document.documentElement.style.setProperty('--hh', document.querySelector('.hdr').offsetHeight+'px'); }
+setHH(); window.addEventListener('resize',setHH);
+buildEggs(); placeEggs(); renderPred(); refresh();
+setMsg('','Comença pel pas 1: treu l\'ou A del pot de vinagre i eixuga\'l amb el paper de cuina.','Porta l\'ou A al paper de cuina.');
+wrapWords(document.getElementById('app'));
+</script>
+</body>
+</html>
