@@ -7,7 +7,7 @@ export const sa1s2 = {
   sessionNumber: 2,
   biome: "sa1",
   duration: "2h",
-  engageImage: "/images/sa1-s2-osmosi.png",
+  engageImage: "/images/sa1-ou-sense-closca.png",
 
   // Repte oral curt abans d'escriure: la mateixa predicció, en veu alta i tots alhora.
   engageChallenge: "Mà alçada, sense pensar-ho gaire: qui creu que el vostre ou s'inflarà si el poso en aigua pura? I qui creu que s'encongirà en aigua amb molta sal? Ara escriviu-ho.",
@@ -114,8 +114,9 @@ export const sa1s2 = {
   appNote: "Fem l'app d'osmosi tots junts, guiada pel professorat, mentre els ous esperen als gots. Abans de cada pas, digues cap on creus que anirà l'aigua.",
 
   // Laboratori virtual per a qui no ha portat l'ou (o ha faltat a classe).
+  // A l'Explora (apartat 1): és quan es fa l'experiment.
   labVirtual: {
-    apartat: "3",
+    apartat: "1",
     src: "/apps/app_lab_ou.html",
     icon: "🥚",
     kicker: "Laboratori virtual",
@@ -194,7 +195,6 @@ export const sa1s2 = {
   graphicResources: [
     { id: "Fig.1", apartat: "2", title: "Membrana semipermeable: l'aigua busca l'equilibri", src: "/images/sa1-osmosi-semipermeable.png", note: "L'aigua travessa la membrana cap on hi ha més sal, fins a igualar les concentracions. La sal (massa grossa) no pot passar." },
     { id: "Fig.2", apartat: "2", title: "Resposta de la cèl·lula segons el medi", src: "/images/sa1-osmosi-tres-estats.png", note: "Hipotònic (s'infla), isotònic (equilibri) i hipertònic (s'encongeix). Igual que el teu ou en aigua pura o en aigua molt salada." },
-    { id: "Fig.3", apartat: "1", before: true, title: "L'experiment de l'ou sense closca", src: "/images/sa1-ou-sense-closca.png", note: "El vinagre dissol la closca i deixa la membrana a la vista: el model amb què veuràs l'osmosi a ull nu." },
     { id: "Fig.4", apartat: "4", title: "Transferència: la planta regada amb massa adob", src: "/images/sa1-planta-marcida-sal.png", note: "Sòl molt salat (hipertònic) → l'aigua surt de les arrels → la planta es marceix. El mateix que l'ou en aigua molt salada." },
     { id: "Fig.5", apartat: "4", title: "Transferència: el sèrum fisiològic", src: "/images/sa1-serum-fisiologic.png", note: "És «fisiològic» perquè és isotònic (0,9 % de sal): té la mateixa concentració que les cèl·lules i no les fa inflar ni encongir." },
     { id: "Fig.6", apartat: "4", title: "Transferència: la diàlisi renal", src: "/images/sa1-dialisi-renal.png", note: "Una membrana semipermeable filtra els residus (urea) de la sang. Osmosi i difusió aplicades a la medicina." }

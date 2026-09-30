@@ -405,6 +405,10 @@ export default function SessionPage() {
               </div>
             )}
 
+            {session.labVirtual && session.labVirtual.apartat === '1' && (
+              <LabVirtualCard lab={session.labVirtual} />
+            )}
+
             {session.appSrc && (!session.appApartat || session.appApartat === '1') && (
               <SessionApp session={session} />
             )}
