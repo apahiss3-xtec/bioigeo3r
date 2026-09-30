@@ -1,6 +1,6 @@
 export const sa2s2 = {
   id: "s2", saId: "sa2",
-  title: "Nou metres de tub dins teu: què hi passa?",
+  title: "El Sistema Digestiu",
   sessionNumber: 2, biome: "sa2", duration: "2h",
   engageImage: "/images/sa2-s2-digestiu.jpg",
 

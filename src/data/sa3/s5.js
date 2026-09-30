@@ -1,6 +1,6 @@
 export const sa3s5 = {
   id: "s5", saId: "sa3",
-  title: "Per què costa tant deixar-ho, si només és voluntat?",
+  title: "Drogues, addicció i síntesi",
   sessionNumber: 5, biome: "sa3", duration: "2h",
   engageImage: "/images/sa3-s5-drogues.jpg",
   isFinalSession: true,

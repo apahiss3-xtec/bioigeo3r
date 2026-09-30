@@ -1,6 +1,6 @@
 export const sa3s2 = {
   id: "s2", saId: "sa3",
-  title: "Per què la varicel·la no torna mai?",
+  title: "Les defenses del cos",
   sessionNumber: 2, biome: "sa3", duration: "2h",
   engageImage: "/images/sa3-s2-immunitat.jpg",
 

@@ -22,7 +22,7 @@
 //    més amunt.
 export const sa4s1 = {
   id: "s1", saId: "sa4",
-  title: "Som animals?",
+  title: "Qui som? El lloc de l'ésser humà",
   sessionNumber: 1, biome: "sa4", duration: "2h",
   engageImage: "/images/sa4-s1-arbre-vida.jpg",
 

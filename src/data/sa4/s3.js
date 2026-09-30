@@ -33,7 +33,7 @@
 //   · Les `hints` orienten el mètode; cap no conté cap resposta.
 export const sa4s3 = {
   id: "s3", saId: "sa4",
-  title: "Què pot dir la ciència sobre tu, i què no?",
+  title: "Sexualitat, identitat i una pregunta delicada",
   sessionNumber: 3, biome: "sa4", duration: "2h",
   engageImage: "/images/sa4-s3-cercle-dialeg.jpg",
 

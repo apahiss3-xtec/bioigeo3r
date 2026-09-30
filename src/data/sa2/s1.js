@@ -1,6 +1,6 @@
 export const sa2s1 = {
   id: "s1", saId: "sa2",
-  title: "Quin combustible fa servir el teu cos?",
+  title: "Nutrients: el combustible del cos",
   sessionNumber: 1, biome: "sa2", duration: "2h",
   engageImage: "/images/sa2-s1-nutrients.jpg",
 

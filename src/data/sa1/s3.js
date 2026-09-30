@@ -1,7 +1,7 @@
 export const sa1s3 = {
   id: "s3",
   saId: "sa1",
-  title: "Si totes tenen el mateix ADN, per què són tan diferents?",
+  title: "Mateix ADN, cèl·lules diferents",
   // El text informatiu que abans anava dins el títol: el títol és el ganxo,
   // el que cal explicar viu al Repte inicial (tasca 1, 09/09/2026).
   repteInicial: "Totes les teves cèl·lules porten el mateix manual d'instruccions, i tot i això n'hi ha que fan de pell, d'altres de nervi i d'altres de sang. Avui esbrinaràs com pot ser, i per què el teu cos ha de fabricar cèl·lules noves cada dia.",

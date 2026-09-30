@@ -1,6 +1,6 @@
 export const sa3s4 = {
   id: "s4", saId: "sa3",
-  title: "Per què un antibiòtic no et cura la grip?",
+  title: "Medicaments: com actuen",
   sessionNumber: 4, biome: "sa3", duration: "2h",
   engageImage: "/images/sa3-s4-farmacs.jpg",
 

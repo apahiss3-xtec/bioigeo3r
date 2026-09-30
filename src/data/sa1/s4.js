@@ -1,7 +1,7 @@
 export const sa1s4 = {
   id: "s4",
   saId: "sa1",
-  title: "Series capaç d'explicar la cèl·lula en un sol pòster?",
+  title: "La cèl·lula en acció",
   // El text informatiu que abans anava dins el títol: el títol és el ganxo,
   // el que cal explicar viu al Repte inicial (tasca 1, 09/09/2026).
   repteInicial: "Tot el que has après de la cèl·lula ha de cabre en un pòster que s'entengui a la primera. És el repte final de la SA: no es tracta de copiar apunts, sinó de decidir què és imprescindible i com fer-ho entendre.",

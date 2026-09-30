@@ -26,7 +26,7 @@
 
 export const sa4s4 = {
   id: "s4", saId: "sa4",
-  title: "Com decideixes sobre el teu cos sense por ni vídeos?",
+  title: "Decisions informades",
   sessionNumber: 4, biome: "sa4", duration: "2h",
   engageImage: "/images/sa4-s4-video-viral.jpg",
   isFinalSession: true,

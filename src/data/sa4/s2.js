@@ -22,7 +22,7 @@
 //     la fitxa que l'alumne es queda i té damunt la taula.
 export const sa4s2 = {
   id: "s2", saId: "sa4",
-  title: "Per què els gàmetes en porten la meitat?",
+  title: "Com funcionem? La biologia de la reproducció",
   sessionNumber: 2, biome: "sa4", duration: "2h",
   engageImage: "/images/sa4-s2-generacions.jpg",
 

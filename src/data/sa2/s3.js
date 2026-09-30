@@ -1,6 +1,6 @@
 export const sa2s3 = {
   id: "s3", saId: "sa2",
-  title: "Per què veiem vermella una sang que és mig groga?",
+  title: "El Sistema Circulatori i la Sang",
   sessionNumber: 3, biome: "sa2", duration: "2h",
   engageImage: "/images/sa2-s3-circulatori.jpg",
 
