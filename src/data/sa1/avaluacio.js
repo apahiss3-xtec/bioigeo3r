@@ -1,91 +1,176 @@
 // Material d'autoavaluació de SA1: checklist d'estudi (el que cal saber
 // abans de la prova) + test de transferència amb un context NOU
-// (diferent del cas "Abissàlia" de la prova escrita), per comprovar si
+// (diferent del cas de la prova escrita), per comprovar si
 // l'alumne pot inferir i no només recordar.
 export const sa1Avaluacio = {
-  // Assaig de prova escrita. Les preguntes son del mateix tipus i del mateix
-  // nivell que les de la prova individual de SA1 (cas-fil «Abissalia»,
-  // solucionari a SA1-celula/S4-poster/solucionari_prova_escrita.md): mateixos
-  // blocs, mateixa exigencia de redaccio. Els models AS/AE estan calcats dels
-  // descriptors de la conversio d'assoliments del solucionari.
+  // Assaig de prova escrita (reescrit 29/09/2026). Entrena les MATEIXES
+  // habilitats i el mateix nivell que cada bloc de la prova de SA1, però amb
+  // un cas nou (la hidra d'aigua dolça) i preguntes noves: cap pregunta ni
+  // cas de la prova es copia. Taula OA → habilitat a ESTAT.md (29/09/2026).
+  // Comprovació: python scripts-avaluacio/audita_autoavaluacio.py sa1
   escrita: {
     intro:
-      "Aquestes quatre preguntes són del mateix tipus que les de la prova. Agafa un full, escriu cada resposta SENCERA a mà i sense apunts, i només després obre la solució. Fixa't que la diferència entre AS i AE gairebé mai no és saber més paraules: és explicar el PER QUÈ i lligar les idees entre elles.",
-    minutes: 25,
+      "Aquestes preguntes entrenen les mateixes habilitats que la prova, però amb un cas nou: la prova NO serà igual, i per això no val memoritzar respostes. Agafa un full, escriu cada resposta SENCERA a mà i sense apunts, i només després obre la solució. La diferència entre AS i AE gairebé mai no és saber més paraules: és explicar el PER QUÈ, fer servir les dades i lligar les idees entre elles.",
+    minutes: 35,
     questions: [
       {
         id: 'w1',
         oa: 'OA1',
-        source: 'Bloc 2 de la prova · Energia i respiració',
-        minutes: 6,
-        text: "Una cèl·lula de la cua d'un microorganisme té moltíssims més mitocondris que una cèl·lula del seu cos. Explica quina de les dues consumeix més oxigen i per quina raó.",
+        source: "Entrena el bloc 1 de la prova · Estructures de la cèl·lula i unitat de vida",
+        minutes: 5,
+        text: "La hidra és un animal minúscul d'aigua dolça que viu enganxat a les plantes de les basses. Mentre n'observeu cèl·lules al microscopi, en Biel diu: «Si traiem el nucli d'una cèl·lula d'hidra i el deixem sol en una gota d'aigua, seguirà viu, perquè és on hi ha l'ADN». Té raó? Justifica-ho parlant de la funció de la membrana, el nucli i el mitocondri.",
         model: {
-          as: "La de la cua. Té més mitocondris, i els mitocondris són els orgànuls que fan la respiració cel·lular, que necessita oxigen.",
-          ae: "La de la cua. La cua es mou constantment i moure's costa energia; l'energia s'obté al mitocondri fent la respiració cel·lular, que consumeix aliment (glucosa) i oxigen i en treu energia, CO₂ i aigua. Per això una cèl·lula que necessita molta energia té molts mitocondris i consumeix molt més oxigen: el nombre d'orgànuls no és casual, s'ajusta a la funció que fa la cèl·lula."
+          as: "No té raó. El nucli guarda l'ADN, però sol no pot viure: li falta la membrana, que controla què entra i què surt, i el mitocondri, que fa l'energia. Només la cèl·lula sencera està viva.",
+          ae: "No té raó. El nucli té les instruccions (l'ADN), però les instruccions soles no fan res: sense membrana no hi ha cap frontera que deixi entrar l'aliment i l'oxigen i en tregui els residus, i sense mitocondris no hi ha respiració cel·lular ni, per tant, energia. Una cosa viva s'ha de nodrir, relacionar-se amb el medi i reproduir-se, i això només ho aconsegueixen totes les parts treballant juntes. Per això la unitat més petita que està viva és la cèl·lula sencera, no cap de les seves parts, per important que sigui."
         },
-        aeWhy: "L'AS diu QUÈ passa; l'AE tanca la cadena sencera funció → energia → mitocondri → oxigen, i n'extreu una idea general (l'estructura de la cèl·lula s'ajusta a la seva funció).",
+        aeWhy: "L'AS anomena les funcions; l'AE les fa servir per ARGUMENTAR: mostra què fallaria sense cada part i ho lliga amb les funcions vitals. Tanca la porta a l'error típic de pensar que «on hi ha l'ADN, hi ha vida».",
         must: [
-          "Has dit clarament quina de les dues cèl·lules és.",
-          "Has anomenat la respiració cel·lular, no només «els mitocondris fan energia».",
-          "Has relacionat el nombre de mitocondris amb la FUNCIÓ de la cèl·lula (moure's).",
-          "Has dit que l'oxigen és el que es consumeix, no el que es produeix."
+          "Has respost clarament que no té raó.",
+          "Has dit la funció de la membrana, la del nucli i la del mitocondri (les tres).",
+          "Has explicat què li faltaria al nucli sol per poder viure.",
+          "Has conclòs que la unitat de vida és la cèl·lula sencera."
         ]
       },
       {
         id: 'w2',
         oa: 'OA2',
-        source: 'Bloc 2 de la prova · Autòtrof o heteròtrof',
-        minutes: 5,
-        text: "L'organisme viu a 2.000 m de fondària. Pot ser autòtrof? Respon sí o no i justifica-ho.",
+        source: "Entrena el bloc 2 de la prova · Interpretar dades de mitocondris i energia",
+        minutes: 6,
+        text: "Uns biòlegs han comptat els mitocondris de dos tipus de cèl·lules d'hidra. Cèl·lules dels tentacles (atrapen preses i es contrauen sense parar): unes 800 per cèl·lula. Cèl·lules del peu (enganxen la hidra a la planta i gairebé no es mouen): unes 90 per cèl·lula. A l'agost, l'aigua de la bassa s'escalfa i porta molt poc oxigen. Prediu quines cèl·lules deixaran de funcionar primer i justifica-ho amb les dades.",
         model: {
-          as: "No. A 2.000 m no hi arriba la llum i per fer la fotosíntesi cal llum, així que ha de ser heteròtrof.",
-          ae: "No pot ser autòtrof fotosintètic. La fotosíntesi necessita llum solar i a 2.000 m de fondària no n'hi arriba gens, de manera que ha d'obtenir la matèria i l'energia menjant restes o altres éssers vius: és heteròtrof. (Matís: al fons marí hi ha bacteris que fabriquen matèria orgànica a partir de compostos químics i no de llum, així que «autòtrof» no equival exactament a «fa fotosíntesi».)"
+          as: "Les dels tentacles. Tenen molts més mitocondris perquè gasten més energia, i els mitocondris necessiten oxigen per fer la respiració cel·lular. Si en falta, seran les primeres a quedar-se sense energia.",
+          ae: "Les dels tentacles. Tenen gairebé nou vegades més mitocondris (800 davant de 90) perquè es contrauen constantment i això demana molta energia. Aquesta energia surt de la respiració cel·lular, que es fa al mitocondri i consumeix glucosa i oxigen (glucosa + oxigen → energia + CO₂ + aigua). Com més respiració fa una cèl·lula, més oxigen gasta; per això, quan l'aigua en porta poc, les primeres que no poden cobrir la seva despesa són les que més en necessitaven. Tenir més mitocondris no les protegeix: sense oxigen, els mitocondris no poden treballar."
         },
-        aeWhy: "L'AE no es limita a aplicar la regla: distingeix «autòtrof» de «fotosintètic» i reconeix que el cas té un matís. Això és exactament el que la prova valora com a raonament propi.",
+        aeWhy: "L'AE fa servir les xifres de la taula, escriu què entra i què surt de la respiració i desmunta l'error típic de pensar que «més mitocondris = cèl·lula més forta».",
         must: [
-          "Has respost sí o no de forma explícita.",
-          "Has dit que la fotosíntesi necessita llum.",
-          "Has connectat la fondària amb l'absència de llum.",
-          "Has dit quin tipus de nutrició tindrà, doncs (heteròtrofa)."
+          "Has triat un tipus de cèl·lula de forma explícita.",
+          "Has citat les dades (800 i 90) per justificar-ho.",
+          "Has dit que la respiració cel·lular es fa al mitocondri i consumeix oxigen.",
+          "Has lligat la predicció amb la falta d'oxigen a l'aigua."
         ]
       },
       {
         id: 'w3',
-        oa: 'OA3',
-        source: 'Bloc 3 de la prova · Membrana i osmosi',
-        minutes: 7,
-        text: "Un pagès posa massa adob a l'hort i al cap de dos dies les plantes es marceixen, tot i que ha regat. Explica què ha passat a les cèl·lules de l'arrel.",
+        oa: 'OA2',
+        source: "Entrena el bloc 2 de la prova · Autòtrof o heteròtrof segons la llum",
+        minutes: 6,
+        text: "Hi ha una hidra verda que porta algues vives dins de les seves cèl·lules, i una hidra marró que no en porta. Deixem dues setmanes sense menjar una hidra de cada: primer dins d'un armari fosc, i en un altre experiment al costat d'una finestra. Prediu quina aguantarà més en cada cas i justifica-ho. La hidra verda és autòtrofa?",
         model: {
-          as: "Amb tant adob, a fora hi ha més sals que dins de les cèl·lules de l'arrel. Per osmosi l'aigua surt de les cèl·lules cap al terra i la planta es marceix.",
-          ae: "L'adob és sal: en posar-ne massa, el terra queda més concentrat en sals que l'interior de les cèl·lules de l'arrel. La membrana és semipermeable —deixa passar l'aigua però controla la resta de substàncies— i per osmosi l'aigua va sempre cap al medi més concentrat, és a dir, cap a fora. Les cèl·lules perden aigua, es deshidraten i la planta es marceix. Per això regar més no ho arregla: mentre el terra segueixi més salat que la cèl·lula, l'aigua continuarà sortint; el que cal és diluir o rentar l'excés de sal."
+          as: "A la finestra aguanta més la verda, perquè les algues fan fotosíntesi i li passen aliment. A l'armari fosc aguanten igual, perquè sense llum les algues no poden fer fotosíntesi. La hidra no és autòtrofa, ho són les algues.",
+          ae: "A la finestra aguanta més la verda: les algues fan fotosíntesi amb la llum, fabriquen matèria orgànica i en comparteixen una part amb la hidra. A l'armari fosc aquest avantatge desapareix, perquè la fotosíntesi necessita llum; fins i tot les algues han de respirar i gastar reserves, així que la verda no aguantarà més que la marró. La hidra verda NO és autòtrofa: és un animal heteròtrof que caça i menja preses. Les autòtrofes són les algues que viuen a dins. El color verd no fa autòtrof ningú; el que compta és si hi ha fotosíntesi, i per a això cal llum."
         },
-        aeWhy: "L'AE explica la propietat de la membrana que ho fa possible i respon la part del cas que l'AS deixa penjada: per quina raó regar no ho soluciona.",
+        aeWhy: "L'AE separa qui és autòtrof (les algues) de qui no ho és (la hidra) i explica per què a la foscor l'avantatge desapareix. Tanca la porta a l'error típic «és verda, doncs és autòtrofa».",
         must: [
-          "Has anomenat l'osmosi.",
-          "Has dit en quina direcció va l'aigua i per què (cap al medi amb més sal).",
-          "Has parlat de la membrana com a semipermeable.",
-          "Has explicat per què regar més no salva la planta."
+          "Has fet una predicció per a cada experiment (armari i finestra).",
+          "Has dit que la fotosíntesi necessita llum.",
+          "Has dit que la hidra és heteròtrofa i que les autòtrofes són les algues.",
+          "Has justificat per què a la foscor la verda no té avantatge."
         ]
       },
       {
         id: 'w4',
-        oa: 'OA4',
-        source: 'Bloc 4 de la prova · Divisió i diferenciació',
-        minutes: 7,
-        text: "Totes les teves cèl·lules tenen exactament el mateix ADN. Com pot ser, doncs, que una neurona i una cèl·lula de la pell siguin tan diferents?",
+        oa: 'OA3',
+        source: "Entrena el bloc 3 de la prova · Interpretar una taula de masses i transferir l'osmosi",
+        minutes: 8,
+        text: "A la bassa no hi ha patates, però al laboratori sí. Tallem tres daus de patata de 20,0 g i deixem cadascun una hora en un medi diferent. Aigua destil·lada: 23,1 g. Aigua amb una culleradeta de sucre: 20,1 g. Xarop molt ensucrat: 15,4 g. a) Cap on s'ha mogut l'aigua en cada got? b) Quin mecanisme ho explica i quin paper hi fa la membrana? c) Quan tires sucre sobre unes maduixes tallades, al cap de mitja hora són al plat banyades de suc. Explica-ho amb el mateix mecanisme.",
         model: {
-          as: "Perquè cada cèl·lula fa servir només una part dels gens. Encara que tinguin el mateix ADN, no expressen els mateixos gens i per això són diferents.",
-          ae: "Perquè l'ADN és el manual sencer, però cada cèl·lula només en llegeix els capítols que li toquen: això és la diferenciació cel·lular. Amb el mateix ADN, la neurona expressa els gens que fabriquen proteïnes per transmetre senyals i la cèl·lula de la pell expressa els que fabriquen proteïnes de protecció. Gens diferents expressats → proteïnes diferents → forma i funció diferents. L'ADN no canvia; el que canvia és quina part se'n fa servir."
+          as: "a) A l'aigua destil·lada ha entrat aigua a la patata; amb una mica de sucre gairebé no ha canviat; al xarop n'ha sortit. b) És l'osmosi: l'aigua travessa la membrana i va cap on hi ha més sucre. c) El sucre de fora fa que l'aigua surti de les cèl·lules de la maduixa, i aquesta aigua és el suc.",
+          ae: "a) Destil·lada: +3,1 g, ha entrat aigua perquè la patata estava més concentrada que el medi. Poc sucre: +0,1 g, el medi té una concentració gairebé igual a la de la patata i l'aigua entra i surt en la mateixa quantitat. Xarop: −4,6 g, ha sortit aigua cap al medi, que estava molt més concentrat. b) És l'osmosi: la membrana és semipermeable, deixa passar l'aigua però gairebé no el sucre, i l'aigua es mou cap al costat més concentrat. Els canvis de massa són aigua, no sucre: si el sucre entrés, el dau del xarop hauria guanyat massa, i n'ha perdut. c) El sucre que tires es dissol en la humitat de la superfície i hi forma un medi molt concentrat. Per osmosi, l'aigua de les cèl·lules de la maduixa en surt: el suc és aquesta aigua. Per això les maduixes queden més toves: les cèl·lules han perdut aigua."
         },
-        aeWhy: "L'AE posa la cadena completa (gens expressats → proteïnes → forma i funció), fa servir el terme «diferenciació» i deixa clar que l'ADN NO canvia, que és l'error més freqüent en aquesta pregunta.",
+        aeWhy: "L'AE calcula els canvis, fa servir el cas «poc sucre» per veure que hi ha equilibri, explica per què la membrana deixa passar l'aigua i no el sucre i descarta amb les dades l'error típic «el sucre entra a la patata».",
         must: [
-          "Has dit que l'ADN és el mateix i que NO canvia.",
-          "Has parlat de gens que s'expressen o es fan servir (no de gens que es perden).",
-          "Has anomenat la diferenciació cel·lular.",
-          "Has arribat fins a les proteïnes, no t'has quedat als gens."
+          "Has dit cap on va l'aigua en els tres gots, fent servir les masses.",
+          "Has anomenat l'osmosi i has dit que la membrana és semipermeable.",
+          "Has dit que l'aigua va cap al medi MÉS concentrat.",
+          "Has aplicat el mateix mecanisme a les maduixes (l'aigua surt de les cèl·lules)."
+        ]
+      },
+      {
+        id: 'w5',
+        oa: 'OA4',
+        source: "Entrena el bloc 4 de la prova · Mitosi, meiosi i divisió sense control",
+        minutes: 6,
+        text: "A l'estiu, a la hidra li surt pel costat una petita hidra (un brot) que creix i es desenganxa: és idèntica a la mare. A la tardor, en canvi, fabrica òvuls i espermatozoides. a) Quina divisió cel·lular forma el brot i per què la filla és idèntica? b) Per què els gàmetes han de tenir la meitat del material genètic? c) Si les cèl·lules del costat es dividissin sense parar i sense formar cap hidra ordenada, a quina malaltia humana s'assemblaria?",
+        model: {
+          as: "a) La mitosi, que fa cèl·lules iguals; per això la filla és igual que la mare. b) Perquè quan s'uneixen un òvul i un espermatozoide es torna a tenir el material genètic complet. c) Al càncer.",
+          ae: "a) La mitosi: abans de dividir-se, la cèl·lula copia tot el seu ADN i cada cèl·lula filla se n'emporta una còpia completa i idèntica. Com que el brot es fa només amb mitosis, té exactament el mateix ADN que la mare: és un clon. b) Els gàmetes es fan per meiosi i porten la meitat del material genètic. Quan un òvul i un espermatozoide s'uneixen, les dues meitats sumen el nombre complet; si no es reduís a la meitat, cada generació doblaria el material genètic. A més, les filles que surten de gàmetes barregen el material de dos progenitors i no són idèntiques. c) Al càncer: cèl·lules que han perdut el control de la mitosi i es divideixen sense parar fins a formar un tumor. La divisió en si és normal; el que falla és el control."
+        },
+        aeWhy: "L'AE explica el mecanisme (còpia de l'ADN abans de dividir-se), diu què passaria sense la reducció a la meitat i precisa que en el càncer no falla la mitosi sinó el seu CONTROL, que és on s'equivoca molta gent.",
+        must: [
+          "Has dit mitosi per al brot i meiosi per als gàmetes.",
+          "Has explicat per què el brot és idèntic (còpia de tot l'ADN).",
+          "Has explicat què passa amb el material genètic en la fecundació.",
+          "Has definit el càncer com a divisió cel·lular sense control."
+        ]
+      },
+      {
+        id: 'w6',
+        oa: 'OA4',
+        source: "Entrena el bloc 5 de la prova · Com canvia el coneixement científic",
+        minutes: 4,
+        text: "L'any 1744, el naturalista Abraham Trembley va tallar hidres a trossos i va veure que cada tros refeia una hidra sencera. Molts savis no s'ho van creure: pensaven que un animal no podia fer una cosa així. Altres naturalistes van repetir l'experiment i els va sortir el mateix. Avui sabem que ho fan unes cèl·lules capaces de dividir-se i convertir-se en qualsevol tipus de cèl·lula. Què en pots deduir sobre la manera com avança el coneixement científic?",
+        model: {
+          as: "Que la ciència canvia quan hi ha proves noves. Al principi no s'ho creien, però altres ho van repetir, els va sortir igual i ho van acabar acceptant.",
+          ae: "Que el coneixement científic és provisional: s'accepta la idea que millor explica les proves que hi ha en aquell moment. Una idea nova, per estranya que sembli, no s'accepta per qui la diu sinó perquè altres poden repetir l'experiment i obtenir el mateix resultat. El dubte dels primers savis no era un error: forma part del mètode, que demana proves abans de canviar d'idea. I l'explicació ha seguit creixent: segles després s'hi han afegit les cèl·lules que es divideixen i es diferencien. Que la ciència canviï no la fa menys fiable; és justament el que la fa fiable."
+        },
+        aeWhy: "L'AE diu què fa que una idea s'accepti (repetir l'experiment, no l'autoritat), valora el dubte com a part del mètode i tanca la porta a l'error típic «si la ciència canvia, no és de fiar».",
+        must: [
+          "Has dit que el coneixement científic canvia quan hi ha proves noves.",
+          "Has explicat el paper de repetir l'experiment.",
+          "Has fet servir el cas de la hidra, no una frase general sense exemple."
         ]
       }
     ]
+  },
+
+  // Versió fàcil de l'autoavaluació (nivell C · pilot 29/09/2026). Criteris:
+  // vault «Nivell C - Criteris fitxes» — frases curtes, imatge + «Per llegir»
+  // abans de cada pregunta, opcions TOTES plausibles, cap escriptura llarga.
+  // Treballa els objectius C de les sessions (sN.js, levelObjectives.C): la
+  // C no toca l'OA2 (tipus cel·lulars). Esquema: SAAvaluacioPage + AutoavaluacioC.jsx.
+  c: {
+    checklist: [
+      { id: 'c1', oa: 'OA1', icon: '🍎', text: "Sé què necessita una cèl·lula per viure: aliment i oxigen." },
+      { id: 'c2', oa: 'OA1', icon: '🔬', text: "Sé 3 parts de la cèl·lula: membrana, nucli i mitocondri." },
+      { id: 'c3', oa: 'OA3', icon: '💧', text: "Sé cap on va l'aigua en l'osmosi: cap on hi ha més sal." },
+      { id: 'c4', oa: 'OA4', icon: '🩹', text: "Sé per què el cos fa cèl·lules noves: per créixer i curar ferides." }
+    ],
+    preguntes: [
+      {
+        id: 'p1', oa: 'OA1',
+        img: '/images/sa1-cel-3-parts.png',
+        alt: "Cèl·lula amb tres parts numerades: 1 la membrana, 2 el nucli, 3 el mitocondri.",
+        llegir: "1 = membrana: tanca la cèl·lula. 2 = nucli: guarda les instruccions. 3 = mitocondri: crema el menjar amb oxigen i fa energia.",
+        text: "Una cèl·lula de múscul 💪 treballa molt i gasta molta energia. Què tindrà més?",
+        options: ["Més mitocondris (3)", "Un nucli més gran (2)"],
+        correct: 0
+      },
+      {
+        id: 'p2', oa: 'OA3',
+        img: '/images/sa1-planta-marcida-sal.png',
+        alt: "Planta marcida en un test amb molts cristalls de sal a la terra.",
+        llegir: "Osmosi: l'aigua travessa la membrana i va cap on hi ha més sal 🧂.",
+        text: "Una onada de mar ha mullat la terra de l'hort 🌊. Cap on va l'aigua de l'arrel?",
+        options: ["Surt de l'arrel cap a la terra", "Entra de la terra cap a l'arrel"],
+        correct: 0
+      },
+      {
+        id: 'p3', oa: 'OA4',
+        img: '/images/sa1-ferida.png',
+        alt: "Una ferida petita a la pell de la mà.",
+        llegir: "Mitosi: 1 cèl·lula fa 2 cèl·lules iguals. Meiosi: fa òvuls i espermatozoides, amb la meitat de l'ADN.",
+        text: "Per tancar aquesta ferida 🩹, quina divisió fa la pell?",
+        options: ["Mitosi: 2 cèl·lules iguals", "Meiosi: cèl·lules amb la meitat"],
+        correct: 0
+      }
+    ],
+    completar: {
+      id: 'k1', oa: 'OA1',
+      llegir: "La cèl·lula fa energia com un foc petit 🔥: necessita menjar i oxigen.",
+      frase: "Al {0} es crema el menjar amb l'{1} per fer energia.",
+      respostes: ['mitocondri', 'oxigen'],
+      banc: ['nucli', 'oxigen', 'mitocondri', 'aigua']
+    }
   },
 
   checklist: [
@@ -142,17 +227,17 @@ export const sa1Avaluacio = {
       {
         id: 't3',
         oa: 'OA3',
-        text: "Si reguéssim una drosera amb aigua de mar, què li passaria a les cèl·lules de les arrels?",
+        text: "Deixem una fulla de drosera una hora dins d'aigua destil·lada, sense cap sal ni sucre. Què els passa a les seves cèl·lules?",
         options: [
-          "Guanyarien aigua i s'inflarien, perquè fora hi hauria més aigua disponible",
-          "No els passaria res, perquè la membrana no deixa passar l'aigua en cap sentit",
-          "Absorbirien la sal i la farien servir com a nutrient per créixer més",
-          "Perdrien aigua cap al medi salat i la planta es marciria"
+          "Guanyen aigua i s'inflen, però la paret cel·lular evita que esclatin",
+          "Perden aigua i s'encongeixen, perquè a fora no hi ha cap nutrient",
+          "Esclaten totes, perquè l'aigua entra sense parar fins a trencar la membrana",
+          "No canvien, perquè la membrana només deixa passar l'aigua quan hi ha sal"
         ],
-        correct: 3,
+        correct: 0,
         feedback: {
-          correct: "Correcte. El medi salat està molt més concentrat, així que per osmosi l'aigua surt de les cèl·lules de l'arrel: el mateix que vas veure amb l'ou en aigua molt salada.",
-          wrong: "Recorda l'ou en aigua molt salada. Per osmosi l'aigua va del medi menys concentrat cap al més concentrat: on és aquí el més concentrat?"
+          correct: "Correcte. L'interior de la cèl·lula és més concentrat que l'aigua destil·lada, així que per osmosi hi entra aigua; la paret de les cèl·lules vegetals aguanta la pressió i les manté turgents.",
+          wrong: "Per osmosi l'aigua va cap al medi més concentrat. Aquí, què és més concentrat: l'aigua destil·lada o l'interior de la cèl·lula? I què té la cèl·lula vegetal que no té l'animal?"
         }
       },
       {
