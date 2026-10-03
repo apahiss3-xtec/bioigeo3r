@@ -261,7 +261,7 @@ export const sa1s1 = {
     "Explora l'app interactiva de la cèl·lula: clica el mitocondri, la membrana i el nucli i llegeix les seves funcions",
     "Descarrega i omple la fitxa S1 (apartat ELABORA)",
     "Posa un ou en vinagre (48 hores) per poder fer l'experiment de S2 — imprescindible",
-    "L'exit tiquet en paper el trobaràs a classe a S2, o fes-lo online aquí (apartat EXIT TIQUET)"
+    "L'exit tiquet en paper el trobaràs a classe a S2, o fes-lo online a l'acordió de sota"
   ],
 
   // ── COMPETÈNCIES I OBJECTIUS ─────────────────────────────

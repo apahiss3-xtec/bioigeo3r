@@ -139,7 +139,7 @@ export const sa2s2 = {
     "Segueix la guia de la simulació (descàrrega aquí — © Fátima Miró, citat)",
     "Mira l'animació del sistema digestiu d'aquesta pàgina",
     "Omple la fitxa S2 seccions 1–3",
-    "Exit tiquet online aquí"
+    "Fes l'exit tiquet online a l'acordió de sota"
   ],
   oaLinks: ["OA1"], competencies: ["CE1", "CE2", "CE4"]
 }

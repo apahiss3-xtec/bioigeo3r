@@ -301,9 +301,6 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Tres estacions — com dona ordres el teu cos</div><div class="sdesc" contenteditable="true">Parelles i grups de 5 · ⏱️ 25 min · Aneu rotant: A, B i C</div></div></div>
   <div class="divider"></div>
-# L'estacio D (analitica del Marc) surt de la rotacio el 28/09/2026: la
-# sessio anava a 35' i el cas ja es treballa a fons a la S3 apartat 4.
-# estacio_d() es manté definida: per tornar-la a posar, afegeix-la aqui.
 
   <div class="card orange deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -553,7 +550,6 @@ function restoreCaret(d){
 function repaginate(){
   const host=document.getElementById('sheets'); if(!host) return;
   const caret=saveCaret();
-  FLOW = FLOW.filter(b=>b);
   // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
   var _origens=[];
   host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
@@ -574,6 +570,7 @@ function repaginate(){
     foot.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span class="foot-pg"></span>';
     sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
   }
+  FLOW = FLOW.filter(b=>b);
   function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn') && !c.classList.contains('move-ctrl'); }); }
   function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
   function trySplitSection(sec){

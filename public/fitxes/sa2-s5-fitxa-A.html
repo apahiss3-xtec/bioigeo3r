@@ -239,6 +239,15 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   .input-span:empty::before { display:none; }
   .header-emoji-box { background:#ede8f8; }
 }
+
+/* revisió A 02/10/2026 — metacognició compacta: objectius a 2 columnes */
+.meta-oa-box{display:grid;grid-template-columns:1fr 1fr;column-gap:16px;row-gap:2px;padding:8px 12px 8px;margin-top:8px}
+.meta-oa-box > *:not(.meta-oa-item){grid-column:1 / -1}
+.meta-oa-box .meta-oa-title{margin-bottom:4px}
+.meta-oa-box .meta-oa-item{margin-bottom:2px}
+.meta-oa-box .meta-oa-text{font-size:10px;line-height:1.3}
+.meta-oa-box .meta-open{margin-top:4px;padding-top:4px}
+.g1-wrap > svg,.g2-wrap > svg{width:84%!important;margin:0 auto}
 </style>
 </head>
 <body>
@@ -288,7 +297,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <li contenteditable="true">Analitzo críticament la nostra mesura de FC com a investigació científica (mostra, condicions, variabilitat).</li>
     <li contenteditable="true">Construeixo la cadena causal completa: esforç → més ATP → més O₂ → el cor i els pulmons s'acceleren.</li>
     <li contenteditable="true">Interpreto i comparo gràfiques de FC (G1 i G2) i en redacto conclusions argumentades.</li>
-    <li contenteditable="true">Predic i dibuixo la gràfica de FC d'una persona amb anèmia i ho justifico amb l'hemoglobina.</li>
+    <li contenteditable="true">Predic com respondrà al mateix esforç el cor d'una persona amb anèmia i ho justifico amb l'hemoglobina.</li>
   </ul>
 </div>
 
@@ -304,7 +313,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="previ-grid">
     <div class="previ-box">
       <p contenteditable="true"><strong>Per quina raó creus que augmenta la freqüència cardíaca quan fas exercici?</strong> Escriu la teva hipòtesi ara.</p>
-      <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+      <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     </div>
     <div class="draw-box">
       <div class="card-label" contenteditable="true">🔢 Les teves estimacions (abans de mesurar res)</div>
@@ -318,12 +327,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">📌 Els dos enigmes que pengen a la paret des de la Sessió 1</div>
     <p style="font-size:11px;margin-top:3px" contenteditable="true"><strong>Enigma 1 — la Mercè.</strong> La Mercè té 14 anys i corre 10 km. En creuar la meta, el cor li va a 185 bat/min. En mig minut ja n'ha baixat 15… però encara triga un quart d'hora a tornar a la normalitat. <em>Per quina raó puja de pressa i baixa a poc a poc?</em></p>
-    <p style="font-size:11px;margin-top:4px" contenteditable="true"><strong>Enigma 2 — el Marc Fontana.</strong> El Marc té 14 anys i s'ofega pujant les escales de l'institut. A l'analítica li surt l'hemoglobina a <strong>9,2 g/dL</strong> (en un noi de la seva edat, el normal és <strong>13–16 g/dL</strong>). <em>Per quina raó, fent el mateix esforç que tu, ell arriba abans al límit?</em></p>
-  </div>
-  <div class="connexio-box mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="connexio-icon">🔗</div>
-    <div class="connexio-text" contenteditable="true"><strong>Connexió amb la Sessió 4 (el cor per dins):</strong> vas tenir el cor a les mans i vas veure que el <strong>ventricle esquerre</strong> és el múscul que empeny la sang a tot el cos. Avui mesuraràs com aquest múscul canvia de ritme segons el que el cos necessita — i resoldrem els <strong>dos enigmes</strong> que pengen a la paret des de la Sessió 1.</div>
+    <p style="font-size:11px;margin-top:4px" contenteditable="true"><strong>Enigma 2 — el Marc Fontana.</strong> El Marc té 28 anys, corre per afició i últimament s'ofega pujant les escales de casa. A l'analítica li surt l'hemoglobina a <strong>9,2 g/dL</strong> (en un home adult, el normal és <strong>13,5–17,5 g/dL</strong>). <em>Per quina raó, fent el mateix esforç que tu, ell arriba abans al límit?</em></p>
   </div>
 </div>
 
@@ -378,10 +382,10 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="card-label" contenteditable="true">🔗 Reconstrueix la cadena causal (no te la donem feta)</div>
     <p style="font-size:11px" contenteditable="true">Aquests són els <strong>extrems</strong> de la cadena. Escriu tu les baules que falten al mig, en ordre, i explica a sota <strong>qui dona l'ordre</strong> al cor (pensa qui controla els òrgans sense que tu hi pensis):</p>
     <div class="chain" style="margin:6px 0"><span class="chain-chip">🏃 El múscul treballa</span><span class="chain-arrow">→</span><span class="chain-chip" style="border-style:dashed;background:#fff;color:var(--muted)">?</span><span class="chain-arrow">→</span><span class="chain-chip" style="border-style:dashed;background:#fff;color:var(--muted)">?</span><span class="chain-arrow">→</span><span class="chain-chip" style="border-style:dashed;background:#fff;color:var(--muted)">?</span><span class="chain-arrow">→</span><span class="chain-chip">❤️ El cor batega més ràpid</span></div>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:6px" contenteditable="true">La FC puja en pocs segons, abans que al múscul li falti gens d'O₂. Què et diu això sobre <em>qui</em> dispara la resposta?</p>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <div style="background:#eaf4ec;border-left:3px solid var(--green);border-radius:6px;padding:6px 9px;margin-top:8px;font-size:10.5px;line-height:1.4" contenteditable="true">✅ <strong>Ara comprova-ho.</strong> Qui dispara la resposta és el <strong>sistema nerviós simpàtic</strong> (la part dels nervis que accelera el cos sense que hi pensis) amb l'ajuda de l'<strong>adrenalina</strong>. Si al teu escrit hi has posat una anticipació —el cos s'accelera <em>abans</em> de necessitar-ho, no <em>perquè</em> ja ho necessiti— ho tenies. La Sessió 6 va d'això.</div>
+    
   </div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -402,17 +406,17 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <p contenteditable="true">La sang no fabrica l'O₂: el recull. Ho fa als <strong>alvèols</strong>, on la paret és tan prima que l'O₂ hi passa a la sang i el CO₂ fa el camí contrari. Per això l'esforç accelera <em>dos</em> sistemes alhora, el cor i la respiració.</p>
     <figure class="deletable" style="position:relative;margin:6px auto;text-align:center;max-width:330px">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <img src="s5_respiratori_alveols.png" alt="De la boca als alveols: on passa l'oxigen a la sang" style="max-height:250px;max-width:100%;border:1px solid var(--rule);border-radius:10px;background:#fff" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <img src="s5_respiratori_alveols.png" alt="De la boca als alveols: on passa l'oxigen a la sang" style="max-height:115px;max-width:100%;border:1px solid var(--rule);border-radius:10px;background:#fff" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <div style="display:none;padding:24px;border:1px dashed #bbb;border-radius:10px;color:#888;font-size:11px">🖼️ Aparell respiratori i alvèols</div>
       <figcaption contenteditable="true" style="font-size:10px;color:var(--muted);margin-top:4px;line-height:1.4">Figura. El camí de l'aire: tràquea → bronquis → bronquíols → <strong>alvèols</strong>. A la dreta, un alvèol enganxat a un capil·lar: la sang hi arriba <strong>lila</strong> (sense O₂) i en surt <strong>vermella</strong> (amb O₂).</figcaption>
-    </figure><p style="font-size:11px;margin-top:4px" contenteditable="true">① La paret d'un alvèol té el gruix d'<strong>una sola cèl·lula</strong>, i els dos pulmons en tenen uns <strong>300 milions</strong>. Explica com aquestes dues dades resolen el mateix problema.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="font-size:11px;margin-top:4px" contenteditable="true">② Corrent pots multiplicar per 4 la sang que el cor mou cada minut, però la superfície dels teus alvèols no canvia gens. Quin dels dos sistemes marca, doncs, el teu límit? Argumenta-ho.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    </figure><p style="font-size:11px;margin-top:4px" contenteditable="true">La paret d'un alvèol té el gruix d'<strong>una sola cèl·lula</strong>. Corrent pots multiplicar per 4 la sang que el cor mou cada minut, però la superfície dels teus alvèols no canvia gens. Quin dels dos sistemes marca, doncs, el teu límit? Argumenta-ho.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
   <div class="epist-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div style="font-size:22px;flex-shrink:0">🔬</div>
     <div style="flex:1">
       <div class="epist-title" contenteditable="true">Moment epistèmic — Som científics de debò?</div>
-      <div class="epist-text" contenteditable="true">Es podrien publicar en una revista científica les nostres dades? Identifica almenys <strong>tres problemes</strong> del nostre experiment (mostra, condicions, variabilitat, expectativa…) i proposa com en milloraries el disseny.</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+      <div class="epist-text" contenteditable="true">Es podrien publicar en una revista científica les nostres dades? Identifica almenys <strong>tres problemes</strong> del nostre experiment (mostra, condicions, variabilitat, expectativa…) i proposa com en milloraries el disseny.</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     </div>
   </div>
 </div>
@@ -532,9 +536,9 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   </div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">📝 Informe breu (≈100 paraules)</div>
+    <div class="card-label" contenteditable="true">📝 Informe breu (≈50 paraules)</div>
     <p style="font-size:11px" contenteditable="true">Redacta una descripció científica de la gràfica de la Mercè: valor inicial, escalfament, pic, fase estable, final de cursa i recuperació. Tanca amb una frase causal (<em>la FC canvia perquè…</em>).</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
 </div>
 
@@ -604,11 +608,6 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <text x="12" y="85.0" font-size="8.5" fill="#555" text-anchor="middle" font-weight="700" transform="rotate(-90,12,85.0)">FC (bat/min)</text>
   </svg>
   </div>
-  <div class="info-box deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="info-label" contenteditable="true">📖 Per llegir — Què li passa a un cor entrenat</div>
-    <p contenteditable="true">Entrenar fa el ventricle esquerre més gran i més fort. Per això, amb <strong>un sol batec</strong>, un cor entrenat expulsa molta més sang que un cor sedentari. Si cada batec ret més, en calen menys per moure la mateixa sang: la FC en repòs baixa, i en acabar l'esforç el cor neteja abans el CO₂ i el lactat dels músculs.</p>
-  </div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">① Qui arriba abans al seu punt més alt, i qui és l'únic que supera el llindar dels 170? Digues en quin minut passa cada cosa.</div>
@@ -616,92 +615,33 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   </div>
   <div class="card rose mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">② Per quina raó l'esportista es recupera molt més ràpid? Argumenta-ho amb el CO₂, l'àcid làctic i l'eficiència del cor entrenat.</div>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-  </div>
-  <div class="card teal mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">③ Quin dels dos perfils s'assembla més a la teva gràfica de l'apartat 2? Formula una hipòtesi de per quina raó.</div>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <div class="card-label" contenteditable="true">② Entrenar fa el ventricle esquerre més gran: cada batec empeny més sang. La sang que el cor mou per minut és <strong>Q = volum de cada batec × FC</strong>. En repòs, el sedentari empeny 70 mL a 78 bat/min; l'esportista, 110 mL. Calcula a quina FC ha de bategar l'esportista per moure la mateixa sang, i dedueix per què es recupera tan de pressa (pensa en el CO₂ i l'àcid làctic).</div>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
   <div class="card mt8 deletable" style="border-color:var(--art);background:var(--rose-tint)">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">🩸 Connexió amb l'enigma 2 — quina gràfica tindria el Marc Fontana?</div>
-    <p style="font-size:11px" contenteditable="true">El <strong>Marc Fontana</strong>, 14 anys, té l'hemoglobina a <strong>9,2 g/dL</strong> (el valor normal en un noi de la seva edat és <strong>13–16 g/dL</strong>). Fa exactament el mateix exercici que els dos perfils de G2. <strong>Esbossa</strong> com creus que seria la seva corba (repòs, pujada, pic, recuperació):</p>
-    <p style="font-size:9px;color:var(--muted);font-style:italic;margin:2px 0" contenteditable="true">Al requadre de sota, dibuixa la corba del Marc.</p>
-    <div class="draw-area"></div>
-    <p style="font-size:11px;font-weight:700;margin-top:6px" contenteditable="true">Justifica el teu dibuix amb la cadena hemoglobina → O₂ → múscul → FC:</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <div class="card-label" contenteditable="true">🔮 Enigma 2 — prediu abans de veure'n les dades</div>
+    <p style="font-size:11px" contenteditable="true">El <strong>Marc Fontana</strong> té l'hemoglobina a <strong>9,2 g/dL</strong> (normal en un home adult: <strong>13,5–17,5 g/dL</strong>). Prediu com serà la seva <strong>FC en repòs</strong> comparada amb la d'una persona sana, i si arribarà al seu llindar d'esforç <strong>abans o després</strong> que el sedentari de G2. Justifica-ho amb la cadena hemoglobina → O₂ → múscul → FC. A la sessió 7 ho comprovaràs.</p>
+    <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
 </div>
-<div class="section deletable">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n4" style="background:var(--yellow)">★</div><div><div class="stitle" contenteditable="true">Ampliació — el cor com a bomba, amb números</div><div class="sdesc" contenteditable="true">Individual · si acabes abans · Aquí no hi ha cap caixa que et doni la resposta</div></div></div>
-  <div class="divider"></div>
-
-  <div class="card deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">① La despesa cardíaca — per quina raó pujar la FC no és l'única sortida</div>
-    <p style="font-size:11px" contenteditable="true">La sang que el cor mou cada minut es diu <strong>despesa cardíaca</strong>, i es calcula així: <strong>Q = volum de cada batec × FC</strong>. Fes servir aquestes dades reals:</p>
-    <table class="data-table" style="margin-top:4px;font-size:10.5px">
-      <thead><tr><th></th><th>En repòs</th><th>A l'esforç màxim</th></tr></thead>
-      <tbody>
-        <tr><td style="font-weight:700">Sedentari · volum per batec</td><td>70 mL</td><td>100 mL</td></tr>
-        <tr><td style="font-weight:700">Sedentari · FC</td><td>78 bat/min</td><td>182 bat/min</td></tr>
-        <tr><td style="font-weight:700">Esportista · volum per batec</td><td>110 mL</td><td>170 mL</td></tr>
-        <tr><td style="font-weight:700">Esportista · FC</td><td>45 bat/min</td><td>150 bat/min</td></tr>
-      </tbody>
-    </table>
-    <p style="font-size:11px;margin-top:5px" contenteditable="true">Calcula les quatre Q (en L/min) i escriu-les. Després respon: <strong>en repòs</strong>, els dos mouen gairebé la mateixa sang tot i tenir FC molt diferents. Com pot ser?</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:5px" contenteditable="true">A l'esforç màxim l'esportista té la FC <em>més baixa</em> i, tot i així, mou més sang. Quina de les dues variables de la fórmula ha entrenat, doncs?</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-  </div>
-
-  <div class="card rose mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">② Contrafactual — per quina raó el cor no pot anar tan ràpid com vulgui</div>
-    <p style="font-size:11px" contenteditable="true">Algú proposa: «si el problema és portar més O₂, que el cor vagi a 300 bat/min i llestos». El ventricle necessita un temps mínim per <strong>omplir-se</strong> entre batec i batec. Explica per quina raó, passat cert punt, <strong>pujar la FC fa baixar</strong> la sang que arriba als músculs.</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-  </div>
-
-  <div class="card mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">③ El cas del Marc, amb números</div>
-    <p style="font-size:11px" contenteditable="true">El Marc té l'hemoglobina a <strong>9,2 g/dL</strong> quan hauria de tenir-ne <strong>14</strong>. Suposa que cada gram d'hemoglobina transporta la mateixa quantitat d'O₂. Quin <strong>percentatge</strong> de l'O₂ normal li arriba a cada litre de sang? I quant hauria de multiplicar la seva despesa cardíaca per compensar-ho exactament?</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:5px" contenteditable="true">Amb aquest resultat, explica per quina raó el Marc entra a zona anaeròbica pujant unes escales que a tu no et costen gens.</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-  </div>
-
-  <div class="card teal mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">④ Disseny — com ho mesuraries de debò</div>
-    <p style="font-size:11px" contenteditable="true">Vols comprovar si <strong>dormir poc puja la FC en repòs</strong>. Dissenya la mesura indicant: <strong>variable independent</strong>, <strong>variable dependent</strong>, què mantindries <strong>constant</strong>, quantes <strong>rèpliques</strong> faries — i, sobretot, <strong>quin resultat et faria dir que la teva hipòtesi és falsa</strong>.</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-  </div>
-</div>
-
 <div class="meta-oa-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="meta-oa-title" contenteditable="true">🎯 Posada en comú i metacognició · ⏱️ 10 min — Torna als objectius del principi i marca el que has après avui:</div>
-<div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Analitzo críticament la nostra mesura de FC com a investigació científica (mostra, condicions, variabilitat).</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Construeixo la cadena causal completa: esforç → més ATP → més O₂ → el cor i els pulmons s'acceleren.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Interpreto i comparo gràfiques de FC (G1 i G2) i en redacto conclusions argumentades.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Predic i dibuixo la gràfica de FC d'una persona amb anèmia i ho justifico amb l'hemoglobina.</div></div>
+  <div class="meta-oa-title" contenteditable="true">🎯 Què he après avui? Marca els objectius que ja domines:</div>
+<div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Analitzo críticament la nostra mesura de FC com a investigació científica (mostra, condicions, variabilitat).</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Construeixo la cadena causal completa: esforç → més ATP → més O₂ → el cor i els pulmons s'acceleren.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Interpreto i comparo gràfiques de FC (G1 i G2) i en redacto conclusions argumentades.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Predic com respondrà al mateix esforç el cor d'una persona amb anèmia i ho justifico amb l'hemoglobina.</div></div>
   <div class="meta-open">
     <div class="meta-open-label" contenteditable="true">🪞 La meva hipòtesi inicial (apartat 0) era encertada? En què m'equivocava?</div>
-<div class="wline" contenteditable="true"></div>
-    <div class="meta-open-label" style="margin-top:6px" contenteditable="true">❓ Encara em pregunto…</div>
-<div class="wline" contenteditable="true"></div>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
 </div>
 
 <div class="tasca-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="card-label" contenteditable="true">📚 Tasca per a casa — els propers 3 matins (prepara la Sessió 6)</div>
-  <p style="font-size:12px;font-weight:700;color:var(--purple-ink)" contenteditable="true">Just en llevar-te (abans d'esmorzar i sense moure't gaire), mesura la teva FC en repòs: compta els batecs durant 30 segons i multiplica × 2 (a casa comptem el doble d'estona que a classe perquè, en repòs, com més estona comptes més fiable surt la mesura). Apunta-ho aquí:</p>
+  <p style="font-size:12px;font-weight:700;color:var(--purple-ink)" contenteditable="true">Just en llevar-te (abans d'esmorzar i sense moure't gaire), mesura la teva FC en repòs: compta els batecs durant 30 segons i multiplica × 2 (en repòs, comptar més estona fa la mesura més fiable). Apunta-ho aquí:</p>
 <table class="data-table" style="margin-top:6px"><thead><tr><th contenteditable="true">Matí</th><th contenteditable="true">Data</th><th contenteditable="true">Hora de llevar-te</th><th contenteditable="true">FC en repòs (bat/min)</th><th contenteditable="true">Notes (mal dormit, malalt/a…)</th></tr></thead><tbody><tr class="deletable"><td style="font-weight:700">Matí 1</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Matí 2</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Matí 3</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
-  <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:8px" contenteditable="true">A partir de les teves dades, formula una pregunta d'investigació pròpia:</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:6px" contenteditable="true">Hipòtesi: quina variable (son, estrès, sopar, hora…) podria afectar la teva FC en repòs, i en quin sentit?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-  <p class="small mt8" contenteditable="true">⚠️ <strong>Porta aquesta fitxa a la Sessió 6.</strong> Posarem en comú les dades de tota la classe. ⏱️ 2 min cada matí · No es pot fer amb IA: les pulsacions són teves.</p>
+  <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:6px" contenteditable="true">Hipòtesi: quina variable (son, estrès, sopar, hora…) podria afectar la teva FC en repòs, i en quin sentit?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+  <p class="small mt8" contenteditable="true">⚠️ <strong>Porta aquesta fitxa a la Sessió 6.</strong> No es pot fer amb IA: les pulsacions són teves.</p>
 </div>
 
 <div class="footer deletable">
@@ -768,6 +708,16 @@ function restoreCaret(d){
 function repaginate(){
   const host=document.getElementById('sheets'); if(!host) return;
   const caret=saveCaret();
+  // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
+  var _origens=[];
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
+  // ...i es torna l'ordre original: els fills reassemblats s'afegien al final.
+  _origens.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
+  });
   FLOW = FLOW.filter(b=>b);
   FLOW.forEach(b=>{ if(b.parentNode) b.parentNode.removeChild(b); });
   host.innerHTML='';
@@ -779,16 +729,6 @@ function repaginate(){
     foot.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span class="foot-pg"></span>';
     sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
   }
-  // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
-  var _origens=[];
-  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
-  // ...i es torna l'ordre original: els fills reassemblats s'afegien al final.
-  _origens.forEach(function(o){
-    var mc=o.querySelector(':scope > .move-ctrl');
-    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
-    kids.sort(function(a,b){ return a._ord - b._ord; });
-    kids.forEach(function(k){ o.insertBefore(k, mc); });
-  });
   function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn') && !c.classList.contains('move-ctrl'); }); }
   function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
   function trySplitSection(sec){

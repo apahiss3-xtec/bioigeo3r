@@ -123,7 +123,7 @@ export const sa3s5 = {
     ]
   },
 
-  exitTicketType: "web",
+  exitTicketType: "paper",
   exitTicketQuestions: [
     { id: "q1", type: "open", text: "Resol l'enigma A: per quina raó la Martina (no vacunada) i la seva àvia (vacunada) van escapar de la grip de novembre? Dona almenys 2 explicacions fonamentades per a la Martina.", hint: "Per a la Martina hi ha dos camins possibles i tots dos són compatibles: un depèn del SEU cos i l'altre de la gent del SEU VOLTANT. Per a l'àvia n'hi ha prou amb el mecanisme de la Sessió 3." },
     { id: "q2", type: "open", text: "L'article de Wakefield afirmava que les vacunes causen autisme. Per quina raó la revista científica el va retirar? Cita almenys 2 raons concretes.", hint: "Repassa els 4 criteris de qualitat de la Sessió 3 i mira quins incompleix l'article. La caixa «Dades per a l'Enigma B» de la teva fitxa té els números." },

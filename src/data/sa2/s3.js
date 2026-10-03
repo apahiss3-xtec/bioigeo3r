@@ -125,7 +125,7 @@ export const sa2s3 = {
     ]
   },
 
-  exitTicketType: "web",
+  exitTicketType: "paper",
   exitTicketQuestions: [
     { id: "q1", type: "open", text: "Explica la cadena causal: ferro baix → ? → ? → ? → corredor es fatiga molt aviat.", hint: "Cada fletxa és una conseqüència. Ferro → hemoglobina → O₂ que arriba al múscul → energia disponible. Omple els passos." },
     { id: "q2", type: "open", text: "Per quina raó la circulació humana és doble (petita + gran)? Quin avantatge té respecte una de sola?", hint: "Pensa en les pressions: els pulmons són delicats (pressió baixa) i el cos és gran (pressió alta). Es poden fer alhora amb una sola bomba?" },
@@ -136,7 +136,7 @@ export const sa2s3 = {
     "Fes Part A amb paper i tisores: 100 quadradets (55 grocs, 44 vermells, 1 blanc). Observa els percentatges.",
     "Mira el diagrama de doble circulació d'aquesta pàgina",
     "Llegeix la teoria (apartat EXPLICA)",
-    "Omple la fitxa S3 i fes el formulari online aquí"
+    "Omple la fitxa S3 i fes l'exit tiquet online a l'acordió de sota"
   ],
   oaLinks: ["OA2"], competencies: ["CE1", "CE2", "CE4"]
 }

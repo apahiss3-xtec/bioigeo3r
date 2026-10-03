@@ -132,7 +132,7 @@ export const sa2s5 = {
     "Llegeix la teoria d'aquesta pàgina",
     "Analitza les gràfiques G1 i G2 (a la secció EXPLICA) i respon les preguntes de la fitxa",
     "La feina a casa de FC en repòs 3 matins és IGUALMENT OBLIGATÒRIA — necessites les dades per a S6",
-    "Exit tiquet online aquí"
+    "Fes l'exit tiquet online a l'acordió de sota"
   ],
   oaLinks: ["OA3"], competencies: ["CE1", "CE4"]
 }

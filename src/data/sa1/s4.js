@@ -45,7 +45,7 @@ export const sa1s4 = {
   fitxaUrl: "/fitxes/sa1-s4-enunciat-poster.html",
   teoriaPdfUrl: "/teoria/sa1-s4-teoria.pdf",
 
-  exitTicketType: "web",
+  exitTicketType: "paper",
   exitTicketQuestions: [
     {
       id: "q1",

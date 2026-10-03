@@ -347,7 +347,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">📌 Els dos enigmes que pengen a la paret des de la Sessió 1</div>
     <p style="font-size:13.5px;margin-top:3px" contenteditable="true"><strong>Enigma 1 — la Mercè.</strong> La Mercè té 14 anys i corre 10 km. En creuar la meta, el cor li va a 185 bat/min. En mig minut ja n'ha baixat 15… però encara triga un quart d'hora a tornar a la normalitat. <em>Per quina raó puja de pressa i baixa a poc a poc?</em></p>
-    <p style="font-size:13.5px;margin-top:4px" contenteditable="true"><strong>Enigma 2 — el Marc Fontana.</strong> El Marc té 14 anys i s'ofega pujant les escales de l'institut. A l'analítica li surt l'hemoglobina a <strong>9,2 g/dL</strong> (en un noi de la seva edat, el normal és <strong>13–16 g/dL</strong>). <em>Per quina raó, fent el mateix esforç que tu, ell arriba abans al límit?</em></p>
+    <p style="font-size:13.5px;margin-top:4px" contenteditable="true"><strong>Enigma 2 — el Marc Fontana.</strong> El Marc té 28 anys, corre per afició i últimament s'ofega pujant les escales de casa. A l'analítica li surt l'hemoglobina a <strong>9,2 g/dL</strong> (en un home adult, el normal és <strong>13,5–17,5 g/dL</strong>). <em>Per quina raó, fent el mateix esforç que tu, ell arriba abans al límit?</em></p>
   </div>
   <div class="connexio-box mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -778,6 +778,16 @@ function restoreCaret(d){
 function repaginate(){
   const host=document.getElementById('sheets'); if(!host) return;
   const caret=saveCaret();
+  // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
+  var _origens=[];
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
+  // ...i es torna l'ordre original: els fills reassemblats s'afegien al final.
+  _origens.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
+  });
   FLOW = FLOW.filter(b=>b);
   FLOW.forEach(b=>{ if(b.parentNode) b.parentNode.removeChild(b); });
   host.innerHTML='';
@@ -789,16 +799,6 @@ function repaginate(){
     foot.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span class="foot-pg"></span>';
     sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
   }
-  // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
-  var _origens=[];
-  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
-  // ...i es torna l'ordre original: els fills reassemblats s'afegien al final.
-  _origens.forEach(function(o){
-    var mc=o.querySelector(':scope > .move-ctrl');
-    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
-    kids.sort(function(a,b){ return a._ord - b._ord; });
-    kids.forEach(function(k){ o.insertBefore(k, mc); });
-  });
   function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn') && !c.classList.contains('move-ctrl'); }); }
   function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
   function trySplitSection(sec){

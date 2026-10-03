@@ -625,32 +625,13 @@ export default function SessionPage() {
               Google que es respon A CLASSE. Es comporta com 'paper' (no es publiquen
               les preguntes aqui), pero la nota que es mostra no diu «en paper», que
               seria fals. */}
-          {session.exitTicketType === 'paper' || session.exitTicketType === 'form' ? (
-            <div className="space-y-4">
-              <p className="card px-5 py-4">
-                ✏️ {t(session.exitTicketType === 'form'
-                  ? 'session.exitFormNote'
-                  : 'session.exitPaperNote')}
-              </p>
-              {/* exitTicketConfidential (27/08): quan el full de sortida es SUMATIU i es fa
-                  sense ajuda, publicar-ne les preguntes en aquest acordio les deixa
-                  consultables abans de la sessio. En aquest cas no es renderitza el
-                  formulari: qui hagi faltat el fa presencialment. */}
-              {session.exitTicketConfidential ? (
-                <p className="card px-5 py-4 italic text-[var(--muted)]">
-                  🔒 <T>{session.exitTicketConfidentialNote}</T>
-                </p>
-              ) : (
-                <Accordion title={`🏠 ${t('session.exitAbsentAccordion')}`}>
-                  <ExitTicketForm session={session} />
-                </Accordion>
-              )}
-            </div>
-          ) : (
-            <div className="card p-6">
-              <ExitTicketForm session={session} />
-            </div>
-          )}
+          {/* A classe l'exit tiquet es fa SEMPRE en paper (B/C). El formulari online
+              viu nomes a la seccio 7 «Has faltat a classe?». */}
+          <p className="card px-5 py-4">
+            ✏️ {t(session.exitTicketType === 'form'
+              ? 'session.exitFormNote'
+              : 'session.exitPaperNote')}
+          </p>
         </section>
 
         {/* Estructura informe (SA2 S7) */}
@@ -763,6 +744,21 @@ export default function SessionPage() {
                     {l.icon || '🧪'} <T>{l.label}</T> ↗
                   </a>
                 ))}
+              </div>
+            )}
+            {/* exitTicketConfidential (27/08): si el full de sortida es SUMATIU, no se'n
+                publiquen les preguntes; qui hagi faltat el fa presencialment. */}
+            {session.exitTicketQuestions?.length > 0 && (
+              <div className="mt-6">
+                {session.exitTicketConfidential ? (
+                  <p className="card px-5 py-4 italic text-[var(--muted)]">
+                    🔒 <T>{session.exitTicketConfidentialNote}</T>
+                  </p>
+                ) : (
+                  <Accordion title={t('session.exitOnlineAccordion')}>
+                    <ExitTicketForm session={session} />
+                  </Accordion>
+                )}
               </div>
             )}
           </Accordion>

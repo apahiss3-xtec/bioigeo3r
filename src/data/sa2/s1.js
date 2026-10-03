@@ -139,7 +139,7 @@ export const sa2s1 = {
     "Fes el test de lugol a casa: iode antisèptic marró + pa, patata, poma, ametlla",
     "Omple la fitxa S1 seccions 0–2",
     "Prepara igualment els 3 productes fotografiats — es defensarà oralment a S2",
-    "Exit tiquet en paper a S2 o online aquí"
+    "Exit tiquet en paper a S2 o fes-lo online a l'acordió de sota"
   ],
   oaLinks: ["OA1"], competencies: ["CE1", "CE2", "CE3"]
 }

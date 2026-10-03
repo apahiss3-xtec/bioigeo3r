@@ -163,7 +163,7 @@ export const sa3s3 = {
     "Llegeix la teoria d'aquesta pàgina (vacunes, immunitat de grup, 4 criteris de qualitat)",
     "Aplica els 4 criteris a 1 afirmació sobre salut que trobis a les xarxes (qualsevol)",
     "Omple la fitxa S3 apartats 0–3",
-    "Exit tiquet online aquí"
+    "Fes l'exit tiquet online a l'acordió de sota"
   ],
   oaLinks: ["OA2", "OA3"], competencies: ["CE2", "CE5"]
 }

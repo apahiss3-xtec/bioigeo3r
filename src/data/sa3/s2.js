@@ -157,7 +157,7 @@ export const sa3s2 = {
     "Llegeix la teoria d'aquesta pàgina (immunitat innata, adaptativa, antigen-anticòs, memòria)",
     "Fes el diagrama de flux: virus entra → primer actua ___ (hores) → després actua ___ (dies) → queden cèl·lules de ___",
     "Omple la fitxa S2 apartats 0–3",
-    "Exit tiquet online aquí"
+    "Fes l'exit tiquet online a l'acordió de sota"
   ],
   oaLinks: ["OA2"], competencies: ["CE2", "CE5"]
 }

@@ -108,7 +108,7 @@ export const sa3s4 = {
     ]
   },
 
-  exitTicketType: "web",
+  exitTicketType: "paper",
   exitTicketQuestions: [
     { id: "q1", type: "open", text: "Tria un fàrmac (ibuprofèn, paracetamol o un antisèptic) i explica en 2-3 frases on actua i què atura dins el cos.", hint: "Ibuprofèn → bloqueja COX → menys prostaglandines → menys dolor i inflamació. Antisèptic → actua a la pell, mata microbis per contacte." },
     { id: "q2", type: "open", text: "En Pau té mal de coll víric i es pren un antibiòtic que li va sobrar. Dona dues raons per les quals és una mala decisió.", hint: "(1) L'antibiòtic no té diana en un virus — no el matarà. (2) Contribueix a les resistències bacterianes si en queden bacteris exposats sense necessitat." },
@@ -124,7 +124,7 @@ export const sa3s4 = {
     "Llegeix la teoria d'aquesta pàgina (famílies de fàrmacs, mecanisme COX, automedicació, placebo)",
     "Omple la taula de famílies de fàrmacs (analgèsic / antitèrmic / antisèptic / antiinflamatori)",
     "Explica per quina raó un antibiòtic no serveix per a un virus i per quina raó cal un grup placebo per validar un fàrmac",
-    "Exit tiquet online aquí"
+    "Fes l'exit tiquet online a l'acordió de sota"
   ],
   oaLinks: ["OA4"], competencies: ["CE2"]
 }

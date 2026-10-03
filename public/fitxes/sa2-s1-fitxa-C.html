@@ -495,7 +495,6 @@ function restoreCaret(d){
 function repaginate(){
   const host=document.getElementById('sheets'); if(!host) return;
   const caret=saveCaret();
-  FLOW = FLOW.filter(b=>b);
   // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
   var _origens=[];
   host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
@@ -516,6 +515,7 @@ function repaginate(){
     foot.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span class="foot-pg"></span>';
     sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
   }
+  FLOW = FLOW.filter(b=>b);
   function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn') && !c.classList.contains('move-ctrl'); }); }
   function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
   function trySplitSection(sec){

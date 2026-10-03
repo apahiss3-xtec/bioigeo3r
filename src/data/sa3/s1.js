@@ -154,7 +154,7 @@ export const sa3s1 = {
     "Llegeix la teoria d'aquesta pàgina (bacteris vs virus, R₀, febre)",
     "Fes el joc de rols simplificat: llança un dau — si treu 1 o 2, ets 'infectat'. Conta quantes persones fictícies contagiaries en R₀=2.5",
     "Omple la fitxa S1 apartats 0–3",
-    "Exit tiquet en paper a S2 o online aquí"
+    "Exit tiquet en paper a S2 o fes-lo online a l'acordió de sota"
   ],
   oaLinks: ["OA1"], competencies: ["CE2", "CE5"]
 }

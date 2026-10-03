@@ -312,7 +312,7 @@ export const sa1s2 = {
     "Fes l'app d'osmosi de l'apartat 2 d'aquesta pàgina i omple l'apartat 2 de la fitxa.",
     "Omple els apartats 3 i 4 de la fitxa: l'explicació AER amb les teves dades i els casos reals.",
     "Si ho vols veure amb un ou de veritat: deixa un ou 48 h en vinagre i després posa'n un en aigua pura i un altre en aigua amb molta sal. Pesa'ls abans i al cap d'una hora.",
-    "L'exit tiquet en paper el trobaràs a la Sessió 3, o fes-lo online aquí."
+    "L'exit tiquet en paper el trobaràs a la Sessió 3, o fes-lo online a l'acordió de sota."
   ],
   recoveryLinks: [
     { label: "Fes l'experiment virtual de l'ou", url: "/apps/app_lab_ou.html", icon: "🥚" }

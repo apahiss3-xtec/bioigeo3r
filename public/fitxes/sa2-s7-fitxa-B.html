@@ -289,11 +289,11 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🩸 L'analítica d'en Marc Fontana (enigma 2)</div>
-    <p style="font-size:11px" contenteditable="true"><strong>Qui és:</strong> en Marc Fontana té <strong>20 anys</strong>, s'entrena cada dia i té una <strong>FC en repòs de 82 bat/min</strong> (abans no era així: fa un any la tenia a 58).</p>
+    <p style="font-size:11px" contenteditable="true"><strong>Qui és:</strong> en Marc Fontana té <strong>28 anys</strong>, s'entrena cada dia i té una <strong>FC en repòs de 82 bat/min</strong> (abans no era així: fa un any la tenia a 58).</p>
     <table class="data-table" style="margin-top:4px"><thead><tr>
       <th contenteditable="true">Valor</th><th contenteditable="true">El Marc</th>
       <th contenteditable="true">Normal</th><th contenteditable="true">Com està</th></tr></thead>
-    <tbody><tr class="deletable"><td style="text-align:left;font-weight:700">Hemoglobina</td><td style="text-align:center">9,2 g/dL</td><td style="text-align:center">13,0 – 16,5</td><td style="text-align:center;color:#c0474a;font-weight:800">baixa</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Ferritina (reserva de ferro)</td><td style="text-align:center">8 ng/mL</td><td style="text-align:center">30 – 300</td><td style="text-align:center;color:#c0474a;font-weight:800">baixa</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Eritròcits</td><td style="text-align:center">4,1 milions/µL</td><td style="text-align:center">4,5 – 5,9</td><td style="text-align:center;color:#c0474a;font-weight:800">una mica baixa</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Urea</td><td style="text-align:center">32 mg/dL</td><td style="text-align:center">17 – 49</td><td style="text-align:center;color:#4a9e5c;font-weight:800">normal</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Creatinina</td><td style="text-align:center">0,9 mg/dL</td><td style="text-align:center">0,7 – 1,3</td><td style="text-align:center;color:#4a9e5c;font-weight:800">normal</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Leucòcits</td><td style="text-align:center">6.200 /µL</td><td style="text-align:center">4.000 – 10.000</td><td style="text-align:center;color:#4a9e5c;font-weight:800">normal</td></tr></tbody></table>
+    <tbody><tr class="deletable"><td style="text-align:left;font-weight:700">Hemoglobina</td><td style="text-align:center">9,2 g/dL</td><td style="text-align:center">13,5 – 17,5</td><td style="text-align:center;color:#c0474a;font-weight:800">baixa</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Ferritina (reserva de ferro)</td><td style="text-align:center">8 ng/mL</td><td style="text-align:center">30 – 300</td><td style="text-align:center;color:#c0474a;font-weight:800">baixa</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Eritròcits</td><td style="text-align:center">4,1 milions/µL</td><td style="text-align:center">4,5 – 5,9</td><td style="text-align:center;color:#c0474a;font-weight:800">una mica baixa</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Urea</td><td style="text-align:center">32 mg/dL</td><td style="text-align:center">17 – 49</td><td style="text-align:center;color:#4a9e5c;font-weight:800">normal</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Creatinina</td><td style="text-align:center">0,9 mg/dL</td><td style="text-align:center">0,7 – 1,3</td><td style="text-align:center;color:#4a9e5c;font-weight:800">normal</td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Leucòcits</td><td style="text-align:center">6.200 /µL</td><td style="text-align:center">4.000 – 10.000</td><td style="text-align:center;color:#4a9e5c;font-weight:800">normal</td></tr></tbody></table>
     <p class="pista" contenteditable="true">🎨 Vermell = fora del normal · verd = dins del normal. Fixa-t'hi: els residus que filtra el ronyó (urea i creatinina) són <strong>normals</strong>.</p>
   </div>
   <div class="connexio-box mt8 deletable">
@@ -574,7 +574,6 @@ function restoreCaret(d){
 function repaginate(){
   const host=document.getElementById('sheets'); if(!host) return;
   const caret=saveCaret();
-  FLOW = FLOW.filter(b=>b);
   // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
   var _origens=[];
   host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
@@ -595,6 +594,7 @@ function repaginate(){
     foot.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span class="foot-pg"></span>';
     sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
   }
+  FLOW = FLOW.filter(b=>b);
   function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn') && !c.classList.contains('move-ctrl'); }); }
   function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
   function trySplitSection(sec){

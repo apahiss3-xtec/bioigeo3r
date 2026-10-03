@@ -255,7 +255,7 @@ export const sa1s3 = {
     "Explora l'app de mitosi i meiosi: avança els passos i comprèn per a quina raó cada divisió existeix",
     "Llegeix la teoria d'aquesta pàgina, especialment la diferència entre mitosi i meiosi",
     "Omple la fitxa S3 (descàrrega a ELABORA)",
-    "L'exit tiquet en paper el reparteix el professor a la Sessió 3, o fes-lo online aquí"
+    "L'exit tiquet en paper el reparteix el professor a la Sessió 3, o fes-lo online a l'acordió de sota"
   ],
 
   oaLinks: ["OA4"],

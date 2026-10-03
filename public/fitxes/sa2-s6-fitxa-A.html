@@ -194,6 +194,18 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   .input-span:empty::before { display:none; }
   .header-emoji-box { background:#ede8f8; }
 }
+
+/* revisió A 02/10/2026 — metacognició compacta: objectius a 2 columnes */
+.meta-oa-box{display:grid;grid-template-columns:1fr 1fr;column-gap:16px;row-gap:2px;padding:8px 12px 8px;margin-top:8px}
+.meta-oa-box > *:not(.meta-oa-item){grid-column:1 / -1}
+.meta-oa-box .meta-oa-title{margin-bottom:4px}
+.meta-oa-box .meta-oa-item{margin-bottom:2px}
+.meta-oa-box .meta-oa-text{font-size:10px;line-height:1.3}
+.meta-oa-box .meta-open{margin-top:4px;padding-top:4px}
+/* revisió A 02/10/2026 — estalvi de paper */
+.g1-wrap{margin:0}
+.g1-wrap + .card{margin-top:0}
+.draw-area{min-height:180px}
 </style>
 </head>
 <body>
@@ -247,33 +259,6 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
 <div class="content">
 
-<div class="word-bank deletable" style="margin-top:10px">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="word-bank-title" contenteditable="true">📖 Vocabulari clau d'avui</div>
-  <div class="chips">
-    <span class="chip" contenteditable="true">nervi = «cable» que porta senyals elèctrics molt de pressa</span>
-    <span class="chip" contenteditable="true">reflex = resposta automàtica i molt ràpida, sense pensar-hi</span>
-    <span class="chip" contenteditable="true">hormona = missatger químic que viatja per la sang: triga més, però l'efecte dura molt</span>
-    <span class="chip" contenteditable="true">glàndula = òrgan que fabrica una hormona i l'aboca a la sang</span>
-    <span class="chip" contenteditable="true">adrenalina = hormona de l'alerta: puja la freqüència cardíaca i frena la digestió</span>
-    <span class="chip" contenteditable="true">excreció = treure del cos els residus que sobren</span>
-    <span class="chip" contenteditable="true">ronyó = òrgan que filtra la sang i fabrica l'orina</span>
-    <span class="chip" contenteditable="true">urea = residu que ve de les proteïnes</span>
-    <span class="chip" contenteditable="true">creatinina = residu del múscul (diu si el ronyó filtra bé)</span>
-    <span class="chip" contenteditable="true">orina = líquid amb els residus que surt del cos</span>
-    <span class="chip" contenteditable="true">urèter = tub que va del ronyó a la bufeta</span>
-    <span class="chip" contenteditable="true">bufeta = bossa on s'acumula l'orina fins que vas al lavabo</span>
-    <span class="chip" contenteditable="true">medi intern = la sang i el líquid que envolta les cèl·lules</span>
-    <span class="chip" contenteditable="true">homeòstasi = mantenir estable el medi intern</span>
-    <span class="chip" contenteditable="true">ADH = hormona que mana al ronyó retenir aigua</span>
-    <span class="chip" contenteditable="true">EPO = hormona del ronyó que mana fabricar eritròcits</span>
-    <span class="chip" contenteditable="true">eritròcits = glòbuls vermells de la sang</span>
-    <span class="chip" contenteditable="true">anèmia = tenir pocs eritròcits o poca hemoglobina</span>
-    <span class="chip" contenteditable="true">nefrona = el filtre microscòpic del ronyó (n'hi ha un milió a cada ronyó)</span>
-  </div>
-</div>
-
-
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Idees prèvies — qui mana al cos i on van els residus</div><div class="sdesc" contenteditable="true">Individual · ⏱️ 8 min · No es corregeix ara: ho compararàs al final</div></div></div>
@@ -288,9 +273,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     <p style="margin-top:6px" contenteditable="true"><strong>②</strong> La teva orina té sempre el mateix color? Per quina raó creus que alguns dies és molt clara i d'altres molt fosca?</p>
     <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <p style="margin-top:6px" contenteditable="true"><strong>③</strong> El CO₂ ja saps per on surt: pels pulmons. Però les teves cèl·lules també fabriquen residus líquids (urea, sals, excés d'aigua). <strong>Per on creus que surten del cos?</strong></p>
-    <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-  </div>
+    </div>
   <div class="connexio-box mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="connexio-icon">🔗</div>
@@ -302,21 +285,18 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Tres estacions — com dona ordres el teu cos</div><div class="sdesc" contenteditable="true">Parelles i grups de 5 · ⏱️ 25 min · Aneu rotant: A, B i C</div></div></div>
   <div class="divider"></div>
-# L'estacio D (analitica del Marc) surt de la rotacio el 28/09/2026: la
-# sessio anava a 35' i el cas ja es treballa a fons a la S3 apartat 4.
-# estacio_d() es manté definida: per tornar-la a posar, afegeix-la aqui.
 
   <div class="card orange deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">⏱️ Estació A · Quant triga una ordre a fer el viatge? (en parelles, regle de 30 cm)</div>
     <p style="font-size:11px" contenteditable="true">Qui fa de parella subjecta el regle pel 30 i el deixa caure <strong>sense avisar</strong>. Tu tanques la mà tan de pressa com puguis. Anota <strong>en quin número</strong> l'has agafat: aquells centímetres són el temps que ha trigat el senyal a anar de l'ull al cervell i del cervell als dits.</p>
-<table class="data-table" style="margin-top:4px"><thead><tr><th contenteditable="true">Distància caiguda</th><th contenteditable="true">5 cm</th><th contenteditable="true">10 cm</th><th contenteditable="true">15 cm</th><th contenteditable="true">20 cm</th><th contenteditable="true">25 cm</th><th contenteditable="true">30 cm</th></tr></thead><tbody><tr><td style="font-weight:700;text-align:left">Temps de reacció</td><td style="text-align:center">101 ms</td><td style="text-align:center">143 ms</td><td style="text-align:center">175 ms</td><td style="text-align:center">202 ms</td><td style="text-align:center">226 ms</td><td style="text-align:center">247 ms</td></tr></tbody></table><p class="pista" contenteditable="true">Fes servir la taula de dalt per passar els cm a mil·lisegons. Si el teu valor queda entremig, tria el més proper.</p><table class="data-table" style="margin-top:6px"><thead><tr><th contenteditable="true"></th><th contenteditable="true">Mà dominant · cm</th><th contenteditable="true">Mà dominant · ms</th><th contenteditable="true">L'altra mà · cm</th><th contenteditable="true">L'altra mà · ms</th></tr></thead><tbody><tr class="deletable"><td style="font-weight:700">Prova 1</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Prova 2</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Prova 3</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Prova 4</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Prova 5</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:8px" contenteditable="true">★ Critica la teva pròpia mesura:</p><p style="font-size:11px" contenteditable="true">Variable independent: ______ · Variable dependent: ______ · Què has mantingut constant (control): ______ · Rèpliques: ______</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="font-size:11px;margin-top:6px" contenteditable="true">Quin resultat concret <strong>refutaria</strong> la hipòtesi «la mà dominant reacciona més de pressa»? I amb 5 rèpliques per mà, series capaç de distingir una diferència de 10 ms? Justifica-ho.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+<table class="data-table" style="margin-top:4px"><thead><tr><th contenteditable="true">Distància caiguda</th><th contenteditable="true">5 cm</th><th contenteditable="true">10 cm</th><th contenteditable="true">15 cm</th><th contenteditable="true">20 cm</th><th contenteditable="true">25 cm</th><th contenteditable="true">30 cm</th></tr></thead><tbody><tr><td style="font-weight:700;text-align:left">Temps de reacció</td><td style="text-align:center">101 ms</td><td style="text-align:center">143 ms</td><td style="text-align:center">175 ms</td><td style="text-align:center">202 ms</td><td style="text-align:center">226 ms</td><td style="text-align:center">247 ms</td></tr></tbody></table><p class="pista" contenteditable="true">Fes servir la taula de dalt per passar els cm a mil·lisegons. Si el teu valor queda entremig, tria el més proper.</p><table class="data-table" style="margin-top:6px"><thead><tr><th contenteditable="true"></th><th contenteditable="true">Mà dominant · cm</th><th contenteditable="true">Mà dominant · ms</th><th contenteditable="true">L'altra mà · cm</th><th contenteditable="true">L'altra mà · ms</th></tr></thead><tbody><tr class="deletable"><td style="font-weight:700">Prova 1</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Prova 2</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Prova 3</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:8px" contenteditable="true">★ Critica la teva pròpia mesura:</p><p style="font-size:11px" contenteditable="true">Variable independent: ______ · Variable dependent: ______ · Què has mantingut constant (control): ______ · Rèpliques: ______</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="font-size:11px;margin-top:6px" contenteditable="true">Quin resultat concret <strong>refutaria</strong> la hipòtesi «la mà dominant reacciona més de pressa»? I amb 3 rèpliques per mà, series capaç de distingir una diferència de 10 ms? Justifica-ho.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
   <div class="card teal mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🦶 Estació B · L'arc reflex en directe (grups de 5, amb una pilota)</div>
     <p style="font-size:11px" contenteditable="true">Cada persona del grup fa un paper i es passa la pilota en l'ordre correcte: <strong>receptor</strong> (la pell del peu) · <strong>nervi que puja</strong> · <strong>medul·la espinal</strong> · <strong>nervi que baixa</strong> · <strong>efector</strong> (el múscul que retira el peu).</p>
-<p style="font-size:11px" contenteditable="true">Feu la simulació i cronometreu-la amb i sense la persona que fa de «cervell». Després responeu: si el reflex no passa pel cervell, per quina raó <em>sí</em> que te n'adones, encara que sigui una mica més tard? Quin avantatge evolutiu té separar les dues coses?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+<p style="font-size:11px" contenteditable="true">Feu la simulació i cronometreu-la amb i sense la persona que fa de «cervell». Després responeu: si el reflex no passa pel cervell, per quina raó <em>sí</em> que te n'adones, encara que sigui una mica més tard? Quin avantatge evolutiu té separar les dues coses?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -338,8 +318,8 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   </div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">📊 Compara les dues vies</div>
-<table class="data-table" style="margin-top:6px"><thead><tr><th contenteditable="true"></th><th contenteditable="true">Via NERVIOSA</th><th contenteditable="true">Via HORMONAL</th></tr></thead><tbody><tr class="deletable"><td style="text-align:left;font-weight:700">Per on viatja l'ordre</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Quant triga a arribar</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Quanta estona dura l'efecte</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="text-align:left;font-weight:700">Un exemple d'aquesta sessió</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p style="font-size:11px;margin-top:8px" contenteditable="true">La freqüència cardíaca de la Mercè ja pujava <strong>abans</strong> d'arrencar. Argumenta-ho amb el nervi simpàtic i l'anticipació, i explica per quina raó l'adrenalina <em>no</em> pot ser la causa de l'inici (fixa't en els temps de la teva taula).</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:6px" contenteditable="true">★ Si les dues vies fan el mateix (accelerar el cor), per quina raó el cos en manté dues? Defensa que <strong>no són redundants</strong> amb un argument de velocitat i un de durada. Després imagina un cos que només tingués la via hormonal: què li passaria en una situació de perill sobtat?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <div class="card-label" contenteditable="true">📊 Rapidesa o durada?</div>
+<p style="font-size:11px" contenteditable="true">La freqüència cardíaca de la Mercè ja pujava <strong>abans</strong> d'arrencar. Argumenta-ho amb el nervi simpàtic i l'anticipació, i explica per quina raó l'adrenalina <em>no</em> pot ser la causa de l'inici (fixa't en els temps de la teva taula).</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:6px" contenteditable="true">★ Prediu: un cos que només tingués la via hormonal, què li passaria si un cotxe se li tirés a sobre? I un que només tingués la nerviosa, durant una cursa de dues hores? Fes servir els temps de la teva taula.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
 </div>
 
@@ -347,11 +327,13 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="section-header"><div class="snum n3">3</div><div><div class="stitle" contenteditable="true">El sistema excretor: el ronyó et manté net per dins</div><div class="sdesc" contenteditable="true">Explicació + treball individual · ⏱️ 30 min · De la sang amb residus a l'orina</div></div></div>
   <div class="divider"></div>
-  <div class="g1-wrap deletable" style="border-color:var(--rule)">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="deletable" style="display:grid;grid-template-columns:52% 1fr;gap:10px;align-items:start;margin-top:8px">
+<div class="del-btn" onclick="deleteEl(this)">✕</div>
+<div class="g1-wrap" style="border-color:var(--rule)">
+    
     <div class="milimetrat-title" style="background:#8a5a4a"><span contenteditable="true">El ronyó com a filtre de la sang</span><span style="font-size:9px;opacity:.8" contenteditable="true">esquema didàctic</span></div>
     <img src="../imatges-cientifiques/s6_ronyo_marcadors.png" alt="Esquema del ronyó amb cinc marcadors numerats: sang que entra amb residus, ronyó, sang filtrada que surt, urèter i bufeta"
-   style="max-height:600px;width:auto;max-width:100%;display:block;margin:0 auto"
+   style="max-height:330px;width:auto;max-width:100%;display:block;margin:0 auto"
    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
 <div class="img-marcador" style="display:none">
   <div class="img-marcador-in">
@@ -361,9 +343,8 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   </div>
 </div>
   </div>
-
-  <div class="card mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+<div class="card ">
+    
     <div class="card-label" contenteditable="true">🔢 Llegenda del dibuix</div>
     <p style="font-size:11px;line-height:1.7" contenteditable="true">
       <strong>①</strong> sang que ARRIBA, amb residus (els puntets foscos són la urea) &nbsp;·&nbsp;
@@ -375,6 +356,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <p class="pista" contenteditable="true">⚠️ Compte amb la paraula «neta»: aquí vol dir <em>sense urea</em>, no <em>amb oxigen</em>. A les sessions del cor, «sang bruta» volia dir sang sense oxigen — no és el mateix. Al dibuix les dues canonades són vermelles justament per això.</p>
     <p class="pista" contenteditable="true">Al dibuix n'hi ha un, però en tens <strong>dos</strong>, un a cada costat de la columna.</p>
   </div>
+</div>
   <div class="info-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="info-label" contenteditable="true">📖 Per llegir — De la cèl·lula a l'orina</div>
@@ -386,11 +368,13 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <p style="font-size:11px" contenteditable="true">Els teus ronyons filtren <strong>180 L</strong> de líquid al dia i en retornen a la sang <strong>178,5 L</strong>. Un colador s'hauria estalviat aquesta segona feina: hauria deixat passar només allò prou petit i prou.</p>
   </div>
 
-  <div class="g1-wrap mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="deletable" style="display:grid;grid-template-columns:52% 1fr;gap:10px;align-items:start;margin-top:8px">
+<div class="del-btn" onclick="deleteEl(this)">✕</div>
+<div class="g1-wrap">
+    
     <div class="milimetrat-title" style="background:#8a5a4a"><span contenteditable="true">Dins del ronyó: una nefrona</span><span style="font-size:9px;opacity:.8" contenteditable="true">esquema didàctic</span></div>
     <img src="../imatges-cientifiques/s6_nefrona_A.png" alt="Esquema d'una nefrona amb cinc marcadors numerats: cabdell de capil·lars, càpsula, tub de la nefrona, vas sanguini que envolta el tub i tub col·lector"
-   style="width:100%;display:block"
+   style="max-height:330px;width:auto;max-width:100%;display:block;margin:0 auto"
    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
 <div class="img-marcador" style="display:none">
   <div class="img-marcador-in">
@@ -400,9 +384,8 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   </div>
 </div>
   </div>
-
-  <div class="card mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+<div class="card ">
+    
     <div class="card-label" contenteditable="true">🔢 Llegenda de la nefrona</div>
     <p style="font-size:11px;line-height:1.7" contenteditable="true">
       <strong>①</strong> cabdell de capil·lars (aquí la pressió de la sang empeny el líquid cap a fora) &nbsp;·&nbsp;
@@ -411,75 +394,52 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
       <strong>④</strong> vas sanguini que envolta el tub (per aquí torna a la sang el que es recupera) &nbsp;·&nbsp;
       <strong>⑤</strong> tub col·lector, cap a l'urèter
     </p>
-    <p class="pista" contenteditable="true">Al dibuix, el <strong>vermell</strong> és sang i el <strong>groc clar</strong> és el tub de la nefrona. Cada ronyó en té aproximadament un milió, de nefrones: el dibuix n'ensenya una de sola, molt ampliada.</p>
+    <p class="pista" contenteditable="true">Al dibuix, el <strong>vermell</strong> és sang i el <strong>groc clar</strong> és el tub de la nefrona. N'hi ha un milió per ronyó; aquí en veus una, ampliada.</p>
     <p style="font-size:11px;margin-top:6px" contenteditable="true">① Els dos moments no passen al mateix lloc. Escriu <strong>a quin número</strong> passa la <strong>filtració</strong> i <strong>a quin número</strong> passa la <strong>reabsorció</strong>, i com ho has decidit.</p>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
+</div>
 
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">✍️ Per quina raó dos temps i no un?</div>
     <p style="font-size:11px" contenteditable="true">② Argumenta per quina raó, tot i el cost, «filtrar-ho gairebé tot i després recuperar» és millor sistema que «filtrar només el que sobra». Pensa què hauria de saber fer el filtre del número ① per triar la urea i deixar la glucosa, si totes dues són molècules petites.</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:6px" contenteditable="true">③ Contrafactual: en algunes malalties apareixen <strong>proteïnes a l'orina</strong>. Sabent que les proteïnes són massa grosses per travessar el filtre sa, quina part del ronyó dedueixes que s'ha espatllat: la que filtra o la que reabsorbeix? Digues també <strong>a quin número</strong> del dibuix seria l'avaria.</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-  </div>
-  <div class="info-box deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="info-label" contenteditable="true">📖 Per llegir — Dues portes de sortida</div>
-    <p contenteditable="true">L'<strong>excreció</strong> està <strong>repartida</strong>: els <strong>pulmons</strong> expulsen el residu gasós, el <strong>CO₂</strong> (que ve directament de la respiració cel·lular: glucosa + O₂ → CO₂ + H₂O + ATP); el <strong>ronyó</strong> expulsa els residus líquids: <strong>urea</strong>, <strong>sals</strong> i excés d'<strong>aigua</strong>. Tots dos, junts, mantenen estable la composició de la sang.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
   <div class="card rose mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">Connecta els sistemes — l'homeòstasi</div>
-    <p style="font-size:11px" contenteditable="true">Escriu la reacció de la respiració cel·lular i marca, sobre la mateixa reacció, quin producte surt per cada porta d'excreció:</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <p style="font-size:11px;margin-top:6px" contenteditable="true">Argumenta com pulmons i ronyó constitueixen <strong>un sol</strong> sistema d'eliminació i no dos d'independents. Ajuda't d'aquest fet: quan fas un esforç molt intens la sang s'acidifica, i tots dos òrgans hi intervenen — el pulmó en segons, el ronyó en hores. Quin sistema de control de l'apartat 2 t'hi recorda?</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">L'excreció té <strong>dues portes</strong>: els pulmons treuen el <strong>CO₂</strong>; el ronyó, la <strong>urea</strong>, les sals i l'excés d'aigua. Argumenta com pulmons i ronyó constitueixen <strong>un sol</strong> sistema d'eliminació i no dos d'independents. Ajuda't d'aquest fet: quan fas un esforç molt intens la sang s'acidifica, i tots dos òrgans hi intervenen — el pulmó en segons, el ronyó en hores. Quin sistema de control de l'apartat 2 t'hi recorda?</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
-  <div class="g1-wrap mt8 deletable">
+  <div class="card mt8 deletable" style="display:grid;grid-template-columns:46% 1fr;gap:12px;align-items:center">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="milimetrat-title" style="background:#6b5a8a"><span contenteditable="true">Les hormones missatgeres del ronyó</span><span style="font-size:9px;opacity:.8" contenteditable="true">esquema didàctic</span></div>
-    <img src="../imatges-cientifiques/s6_hormones_etiquetada.png" alt="Les dues hormones del ronyó: l'ADH fa que l'aigua torni a la sang i l'EPO fa que dins de l'os es fabriquin glòbuls vermells nous"
-   style="width:100%;display:block"
-   onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-<div class="img-marcador" style="display:none">
-  <div class="img-marcador-in">
-    <div style="font-size:24px">🧪</div>
-    <div style="font-weight:900;color:var(--purple-ink);font-size:12px;margin-top:2px">Imatge pendent · s6_hormones_etiquetada.png</div>
-    <div style="font-size:10px;color:var(--muted);margin-top:2px">ADH i EPO com a missatgers del ronyó · cervell · ADH · ronyó · retenir aigua · EPO · medul·la òssia · eritròcits</div>
-  </div>
-</div>
-  </div>
-
-  <div class="card mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">🔢 Com llegir el dibuix</div>
-    <p style="font-size:11px;line-height:1.7" contenteditable="true">
-      <strong>Esquerra (ADH):</strong> el cervell envia el senyal de l'ADH al ronyó → el ronyó <strong>no deixa marxar</strong> l'aigua i la torna a la sang (fletxa blava) → surt poca orina.<br>
-      <strong>Dreta (EPO):</strong> el ronyó envia el senyal de l'EPO a l'interior de l'os — la <strong>medul·la òssia</strong> — → allà es fabriquen <strong>eritròcits</strong> (glòbuls vermells) nous → van a la sang.
-    </p>
+    <img src="../imatges-cientifiques/s6_hormones_etiquetada.png" alt="Les dues hormones del ronyó: l'ADH fa que l'aigua torni a la sang i l'EPO fa que dins de l'os es fabriquin glòbuls vermells nous" style="max-height:180px;width:auto;max-width:100%;display:block;margin:0 auto;border-radius:6px" onerror="this.style.display='none'">
+    <div>
+      <div class="card-label" contenteditable="true">🧪 Les hormones missatgeres del ronyó</div>
+      <p style="font-size:11px;line-height:1.55" contenteditable="true"><strong>ADH (esquerra):</strong> la fabrica el cervell i arriba al ronyó per la sang → el ronyó <strong>no deixa marxar</strong> l'aigua i la torna a la sang → surt poca orina.<br><strong>EPO (dreta):</strong> la fabrica el ronyó i arriba a l'interior de l'os — la <strong>medul·la òssia</strong> → allà es fabriquen <strong>eritròcits</strong> nous → van a la sang.</p>
+    </div>
   </div>
   <div class="info-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="info-label" contenteditable="true">📖 Per llegir — Per quina raó l'orina canvia de color</div>
-    <p contenteditable="true">El ronyó no treballa sol: rep ordres hormonals. Quan falta aigua al cos, una glàndula del cervell (la <strong>hipòfisi</strong>) allibera l'<strong>ADH</strong>, que fa que el ronyó <strong>retingui aigua</strong> i concentri l'orina (poca i fosca). Quan en sobra, baixa l'ADH i fas molta orina clara. Fixa't que és una <strong>hormona</strong>: viatja per la sang i l'efecte dura estona, exactament com dèiem a l'apartat 2. Així el ronyó ajusta l'aigua del cos minut a minut: torna a ser <strong>homeòstasi</strong>.</p>
+    <p contenteditable="true">El ronyó no treballa sol: rep ordres hormonals. Quan falta aigua al cos, una glàndula del cervell (la <strong>hipòfisi</strong>) allibera l'<strong>ADH</strong>, que fa que el ronyó <strong>retingui aigua</strong> i concentri l'orina (poca i fosca). Quan en sobra, baixa l'ADH i fas molta orina clara. És una <strong>hormona</strong>: viatja per la sang i el seu efecte dura (apartat 2).</p>
   </div>
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">💧 El bucle de l'ADH</div>
-    <p style="font-size:11px" contenteditable="true">Has fet 90 minuts d'esport sense beure. Escriu la cadena sencera: què detecta el cos → qui allibera l'ADH → què fa el ronyó → com queda l'orina → què li passa aleshores a l'aigua de la sang. Acaba amb la paraula <em>homeòstasi</em>.</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:6px" contenteditable="true">★ Fixa't que el <strong>final</strong> de la cadena (l'aigua de la sang torna a la normalitat) fa que el <strong>principi</strong> s'aturi: si ja hi ha prou aigua, deixa de caldre ADH. Aquest tipus de bucle té nom. Dibuixa'l com un cercle amb 4 caselles i explica per quina raó, sense aquest retorn, el sistema es descontrolaria.</p>
-    <div class="draw-area" style="min-height:150px"></div>
-  </div>
+    <div class="card-label" contenteditable="true">💧 Sense ADH</div>
+    <p style="font-size:11px" contenteditable="true">🔮 <strong>Prediu:</strong> una lesió a la hipòfisi fa que una persona deixi de fabricar ADH. Com serà la seva orina? I la seva set? Encadena-ho fins a l'aigua de la sang i digues què li passa a l'homeòstasi.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+      </div>
   <div class="card rose mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🩸 El gir inesperat: ronyó, EPO i anèmia</div>
-    <p style="font-size:11px" contenteditable="true">Construeix la cadena <em>EPO → eritròcits → hemoglobina → O₂ per litre de sang → rendiment</em> i argumenta per quina raó una malaltia renal pot causar anèmia i fatiga encara que la dieta tingui prou ferro. Torna a la Núria de l'estació D: quin dels dos mecanismes d'anèmia hi esperaries?</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">La Núria té la <strong>creatinina a 3,4 mg/dL</strong> (el ronyó filtra malament) i la <strong>ferritina normal</strong>, però està anèmica i cansada. Construeix la cadena <em>EPO → eritròcits → hemoglobina → O₂ per litre de sang → rendiment</em> i argumenta per quina raó donar-li ferro <strong>no</strong> la curaria.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:6px" contenteditable="true">★ Un tractament real de la insuficiència renal és injectar EPO. Un altre és la <strong>diàlisi</strong>, una màquina que filtra la sang cada dos o tres dies. Digues quina de les dues funcions del ronyó substitueix cadascun dels dos tractaments — i per quina raó cap dels dos, sol, és suficient.</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
 </div>
 
@@ -491,39 +451,35 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">🔁 Retroacció negativa: el senyal que s'apaga sol</div>
-    <p style="font-size:11px" contenteditable="true">El bucle de l'ADH té una propietat notable: el seu <strong>efecte</strong> elimina la <strong>causa</strong> que l'havia posat en marxa. Escriu el bucle complet i digues quin element fa de «sensor», quin de «centre de control» i quin d'«efector».</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">Torna a la cadena de l'ADH de l'apartat 3: el seu <strong>efecte</strong> (l'aigua de la sang es recupera) apaga la <strong>causa</strong> que l'havia posat en marxa. Sense reescriure-la, digues quin element fa de «sensor», quin de «centre de control» i quin d'«efector», i què passaria si el senyal no s'apagués.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:6px" contenteditable="true">★ Imagina un bucle en què l'efecte, en lloc d'apagar la causa, la reforcés. Descriu què li passaria al cos i digues per quina raó gairebé tots els mecanismes d'homeòstasi són del primer tipus i no del segon.</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
   <div class="card teal mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label" contenteditable="true">🕵️ Tanquem els dos casos</div>
-    <p style="font-size:11px" contenteditable="true">① El problema del Marc, és del ronyó o del ferro? Justifica-ho citant <strong>dues dades</strong> i digues quins valors hauries esperat si hagués estat el ronyó.</p>
+    <div class="card-label" contenteditable="true">🕵️ Tanquem el cas del Marc</div>
+    <p style="font-size:11px" contenteditable="true">El problema del Marc, és del ronyó o del ferro? Compara la seva analítica (sessió 3) amb la de la Núria. Justifica-ho citant <strong>dues dades</strong> i digues quins valors hauries esperat si hagués estat el ronyó.</p>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <p style="font-size:11px;margin-top:6px" contenteditable="true">② La Núria té la creatinina a 3,4 mg/dL i la ferritina normal. Explica per quina via arriba a estar anèmica i argumenta per quina raó donar-li ferro no la curaria.</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-  </div>
+    </div>
   <div class="epist-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div style="font-size:22px;flex-shrink:0">🔬</div>
     <div style="flex:1">
       <div class="epist-title" contenteditable="true">Moment epistèmic — On és el límit entre entrenar-se i dopar-se?</div>
-      <div class="epist-text" contenteditable="true">Injectar-se EPO va portar l'hematòcrit d'alguns ciclistes del <strong>43&nbsp;%</strong> al <strong>56&nbsp;%</strong>. Però <em>entrenar-se en altitud</em> fa exactament el mateix: el ronyó detecta poc O₂ i fabrica més EPO pel seu compte. El resultat fisiològic és el mateix; la substància, també — la fabrica el teu propi cos. Argumenta on situaries la frontera entre les dues coses i amb quin criteri (no val «una és natural»: l'EPO ho és en tots dos casos). Afegeix-hi el risc: quin problema circulatori pot causar una sang amb un 56&nbsp;% d'eritròcits?</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+      <div class="epist-text" contenteditable="true">Injectar-se EPO va portar l'hematòcrit d'alguns ciclistes del <strong>43&nbsp;%</strong> al <strong>56&nbsp;%</strong>. Però <em>entrenar-se en altitud</em> fa exactament el mateix: el ronyó detecta poc O₂ i fabrica més EPO pel seu compte. El resultat fisiològic és el mateix; la substància, també — la fabrica el teu propi cos. Argumenta on situaries la frontera entre les dues coses i amb quin criteri (no val «una és natural»: l'EPO ho és en tots dos casos). Afegeix-hi el risc: quin problema circulatori pot causar una sang amb un 56&nbsp;% d'eritròcits?</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     </div>
   </div>
 </div>
 
 <div class="meta-oa-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="meta-oa-title" contenteditable="true">🎯 Torna als objectius del principi — Marca el que has après avui:</div>
+  <div class="meta-oa-title" contenteditable="true">🎯 Què he après avui? Marca els objectius que ja domines:</div>
 <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Argumento per quina raó la via nerviosa i la via hormonal no són redundants sinó complementàries (velocitat contra durada).</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Critico la mesura del temps de reacció identificant variable independent, dependent, control i rèpliques, i dic quin resultat refutaria la meva hipòtesi.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Explico el ronyó com a filtre selectiu (filtració + reabsorció) i argumento què li passaria al medi intern si deixés de filtrar.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Integro pulmons i ronyó com un sistema coordinat d'eliminació i ho lligo a la respiració cel·lular (unitat de la cèl·lula, SA1).</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Comparo DUES analítiques diferents i argumento amb dades per quina raó el problema del Marc Fontana és el ferro i no el ronyó.</div></div>
   <div class="meta-open">
     <div class="meta-open-label" contenteditable="true">🪞 La meva hipòtesi inicial (apartat 0) era encertada? En què m'equivocava?</div>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    <div class="meta-open-label" style="margin-top:6px" contenteditable="true">❓ Encara em pregunto…</div>
-<div class="wline" contenteditable="true"></div>
-  </div>
+    </div>
   <p class="small" contenteditable="true">Després d'això et donaré el <strong>full de sortida</strong> (8 min): és l'únic full que recullo avui.</p>
 </div>
 
@@ -531,10 +487,9 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="card-label" contenteditable="true">📚 Tasca per a casa — el teu ronyó en acció (1 dia)</div>
   <p style="font-size:12px;font-weight:700;color:var(--purple-ink)" contenteditable="true">Durant un dia, observa la relació entre el que beus i la teva orina. Apunta-ho aquí:</p>
-<table class="data-table" style="margin-top:6px"><thead><tr><th contenteditable="true">Moment del dia</th><th contenteditable="true">Quants gots d'aigua he begut des de l'anterior</th><th contenteditable="true">Color de l'orina (clara / mitjana / fosca)</th></tr></thead><tbody><tr class="deletable"><td style="font-weight:700">Al llevar-te</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Migdia</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Tarda</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700">Abans de dormir</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
-  <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:8px" contenteditable="true">Quina conclusió en treus sobre com el teu ronyó regula l'aigua del cos?</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:6px" contenteditable="true">Relaciona les teves dades amb l'ADH: en quins moments creus que en tenies més a la sang? I una crítica a la teva pròpia mesura: què més, a part de l'aigua que beus, pot fer variar el color de l'orina i confondre't?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-  <p class="small mt8" contenteditable="true">⚠️ <strong>Porta aquesta fitxa a la Sessió 7</strong> — i <strong>no t'oblidis les dades de freqüència cardíaca en repòs dels 3 matins</strong> que vas mesurar la sessió passada: les necessitaràs. ⏱️ 1 min cada cop · No es pot fer amb IA: són observacions teves del teu propi cos.</p>
+<table class="data-table" style="margin-top:6px"><thead><tr><th contenteditable="true"></th><th contenteditable="true">Al llevar-te</th><th contenteditable="true">Migdia</th><th contenteditable="true">Tarda</th><th contenteditable="true">Abans de dormir</th></tr></thead><tbody><tr class="deletable"><td style="font-weight:700;text-align:left">Gots d'aigua des de l'anterior</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="font-weight:700;text-align:left">Color de l'orina (clara / mitjana / fosca)</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
+  <p style="font-size:11px;font-weight:700;color:var(--purple-ink);margin-top:6px" contenteditable="true">Relaciona les teves dades amb l'ADH: en quins moments creus que en tenies més a la sang? I una crítica a la teva pròpia mesura: què més, a part de l'aigua que beus, pot fer variar el color de l'orina i confondre't?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+  <p class="small mt8" contenteditable="true">⚠️ <strong>Porta a la Sessió 7</strong> aquesta fitxa i les teves 3 FC en repòs de la sessió passada. No es pot fer amb IA: són dades del teu cos.</p>
 </div>
 
 <div class="footer deletable">
@@ -596,7 +551,6 @@ function restoreCaret(d){
 function repaginate(){
   const host=document.getElementById('sheets'); if(!host) return;
   const caret=saveCaret();
-  FLOW = FLOW.filter(b=>b);
   // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
   var _origens=[];
   host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
@@ -617,6 +571,7 @@ function repaginate(){
     foot.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span class="foot-pg"></span>';
     sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
   }
+  FLOW = FLOW.filter(b=>b);
   function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn') && !c.classList.contains('move-ctrl'); }); }
   function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
   function trySplitSection(sec){

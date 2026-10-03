@@ -129,7 +129,7 @@ export const sa2s4 = {
   recoveryInstructions: [
     "Mira el vídeo de dissecció de cor de porc (link a la secció EXPLICA, ~15 min)",
     "Omple la fitxa S4 seccions 1–4 basant-te en el vídeo",
-    "Exit tiquet en paper a S5 o online aquí"
+    "Exit tiquet en paper a S5 o fes-lo online a l'acordió de sota"
   ],
   oaLinks: ["OA2"], competencies: ["CE1", "CE2", "CE4"]
 }
