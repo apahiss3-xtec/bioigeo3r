@@ -103,9 +103,15 @@ export const sa2s3 = {
 
   fitxaUrl: { A: "/fitxes/sa2-s3-fitxa-A.html", B: "/fitxes/sa2-s3-fitxa-B.html", C: "/fitxes/sa2-s3-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s3-teoria.pdf",
 
+  sessionMaterials: [
+    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s3-exit-ticket.html", who: "docent" },
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s3-exit-ticket-C.html", who: "docent" }
+  ],
+
   fitxaGuide: {
     fitxaName: "Fitxa S3 — La sang i la circulació",
     steps: [
+      { apartat: "—", title: "Formulari de comprensió de la lectura", time: "5 min", phase: "engage", instruction: "Abans de començar la fitxa, fes el formulari de comprensió (Google Forms) de la lectura de la sessió 3 que havies de llegir a casa.", hints: [] },
       { apartat: "0", title: "Idees prèvies", time: "10 min", phase: "engage", instruction: "Omple l'apartat 0 — Idees prèvies del full: escriu tot el que creus que la sang transporta pel cos.", hints: [] },
       { apartat: "1", title: "Les targetes de la sang", time: "15 min", phase: "explore", instruction: "Amb les 100 targetes del sobre, omple l'apartat 1 del full: compta i calcula els percentatges de cada component.", hints: [
         "100 targetes fan fàcil el percentatge: el nombre de targetes d'un color JA és el seu %.",
@@ -131,7 +137,13 @@ export const sa2s3 = {
     { id: "q2", type: "open", text: "Per quina raó la circulació humana és doble (petita + gran)? Quin avantatge té respecte una de sola?", hint: "Pensa en les pressions: els pulmons són delicats (pressió baixa) i el cos és gran (pressió alta). Es poden fer alhora amb una sola bomba?" },
     { id: "q3", type: "multiple", text: "Un esportista d'elit en altitud té l'hematòcrit (% eritròcits) elevat naturalment. Per quina raó és un avantatge?", options: ["Porta més O₂ per litre de sang als músculs", "La sang és més lleuger", "El cor batega menys vegades", "Els músculs necessiten menys ATP"], correct: 0 }
   ],
-  homework: { description: "Cap. (Opcional: vídeo cor per dins per preparar S4 amb curiositat.)" },
+  homework: {
+    readingNext: {
+      session: 4,
+      text: "Llegeix la lectura de la Sessió 4. A l'inici de la propera sessió faràs el formulari de comprensió (Google Forms).",
+      pdfUrl: "/lectures/sa2-s4-lectura.pdf",
+      easyUrl: "/lectures/sa2-s4-lectura-FACIL.pdf",
+    }, description: "Prepara la Sessió 4: mesura el teu pols en repòs (sense haver fet exercici l'última hora). Posa els dits índex i mig al coll o al canell, compta les pulsacions durant 30 segons i multiplica per 2. Anota el resultat a la fitxa i porta'l a la Sessió 4. Són 2 minuts; necessites un rellotge i els teus propis dits. No es pot fer amb IA." },
   recoveryInstructions: [
     "Fes Part A amb paper i tisores: 100 quadradets (55 grocs, 44 vermells, 1 blanc). Observa els percentatges.",
     "Mira el diagrama de doble circulació d'aquesta pàgina",

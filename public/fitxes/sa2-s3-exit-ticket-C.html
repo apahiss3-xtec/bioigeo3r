@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exit Ticket · SA2 · Sessió 3 · El sistema circulatori i la sang</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#7B68C8; --purple-ink:#4a3b8c; --purple-light:#c5b8f0; --purple-tint:#f0edfb;
+  --ink:#1A1428; --ink-2:#3a3050; --muted:#7a7090; --surface:#fdfcff;
+  --rule:#e8e2f6; --rule-dark:#c8bfe8;
+  --art:#c0474a; --ven:#6b7ab5;
+  --orange:#e8834a; --orange-tint:#fdf0e8;
+  --teal:#3a9e8c; --teal-tint:#e6f4f1;
+  --yellow:#c8960a; --yellow-ink:#7a5800; --yellow-tint:#fdf7e2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Fira Sans Extra Condensed',sans-serif;background:#b0a8c8;color:var(--ink);font-size:13px;line-height:1.5;padding:52px 20px 60px;}
+#toolbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(20,15,40,.93);backdrop-filter:blur(10px);border-bottom:1px solid rgba(123,104,200,.35);height:44px;display:flex;align-items:center;gap:10px;padding:0 18px;}
+.tb-tip{font-family:'Inter',sans-serif;font-size:11px;color:rgba(190,180,230,.65);flex:1;}
+.tb-tip strong{color:#b8aef0;}
+.tb-sep{width:1px;height:20px;background:rgba(123,104,200,.3);}
+.tb-btn{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;border:none;border-radius:6px;padding:6px 13px;cursor:pointer;transition:opacity .15s;white-space:nowrap;}
+.tb-print{background:var(--purple);color:white;}
+.tb-print:hover{opacity:.85;}
+.tb-bold{background:rgba(123,104,200,.2);border:1px solid rgba(123,104,200,.4);color:#c5b8f0;font-size:14px;font-weight:900;padding:4px 11px;}
+.tb-undo{background:rgba(212,74,108,.2);border:1px solid rgba(212,74,108,.4);color:#f0a0b8;font-size:12px;opacity:.5;pointer-events:none;}
+.tb-undo.active{opacity:1;pointer-events:auto;}
+.tb-desa{background:rgba(58,158,140,.25);border:1px solid rgba(58,158,140,.5);color:#9fe0d2;font-size:12px;}
+.page-wrap{width:794px;min-height:1123px;margin:0 auto;background:var(--surface);box-shadow:0 2px 30px rgba(0,0,0,.22);position:relative;}
+.page-break-line{position:absolute;left:0;right:0;border-top:2px dashed #9080bc;pointer-events:none;z-index:10;}
+.page-break-label{position:absolute;right:10px;top:-11px;background:#9080bc;color:white;font-family:'Inter',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:1px 8px;border-radius:9999px;}
+[contenteditable]{outline:none;cursor:text;border-radius:3px;transition:background .12s,box-shadow .12s;}
+[contenteditable]:hover{background:rgba(123,104,200,.08);box-shadow:0 0 0 2px rgba(123,104,200,.3);}
+[contenteditable]:focus{background:rgba(123,104,200,.12);box-shadow:0 0 0 2.5px var(--purple);}
+span[contenteditable]{display:inline-block;}
+.wline{display:block;width:100%;min-height:26px;background:white;outline:none;padding:2px 3px;border-bottom:1.5px solid #C8C2DD;word-break:break-word;cursor:text;line-height:1.45;}
+.wline:focus{border-bottom-color:var(--purple);background:rgba(123,104,200,.04);}
+.input-span{display:inline-block;min-width:110px;border-bottom:1.5px solid var(--rule-dark);font-size:12px;padding:1px 3px;outline:none;vertical-align:bottom;min-height:16px;font-family:'Fira Sans Extra Condensed',sans-serif;color:var(--ink);}
+.input-span.data-span{min-width:66px;}
+.input-span:focus{border-bottom-color:var(--purple);}
+.deletable{position:relative;}
+.del-btn{display:none;position:absolute;top:-8px;right:-8px;width:18px;height:18px;border-radius:50%;background:#d44a6c;color:white;border:none;cursor:pointer;align-items:center;justify-content:center;font-size:12px;font-weight:900;line-height:1;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.3);}
+.del-btn:hover{background:#b83054;transform:scale(1.15);}
+.deletable:hover>.del-btn{display:flex;}
+.deletable:has(.deletable:hover)>.del-btn{display:none;}
+.content{padding:7px 16px;}
+.exit-frame{display:flex;border:2.5px solid #5a4aa0;border-radius:10px;overflow:hidden;}
+.eh-stub{flex:0 0 27px;background:linear-gradient(160deg,#3a2d6e,#5a4aa0);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:8px 0;}
+.eh-stub .stub-ic{font-size:13px;}
+.eh-stub .stub-txt{writing-mode:vertical-rl;transform:rotate(180deg);font-size:8.5px;font-weight:900;letter-spacing:.24em;text-transform:uppercase;font-family:'Inter',sans-serif;}
+.eh-stub .stub-min{writing-mode:vertical-rl;transform:rotate(180deg);font-size:7px;font-weight:700;letter-spacing:.08em;opacity:.7;font-family:'Inter',sans-serif;text-transform:uppercase;}
+.eh-main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.eh-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;padding:5px 12px 4px;}
+.eh-top .t-title{font-size:16px;font-weight:900;color:var(--purple-ink);line-height:1.02;}
+.eh-top .t-sa{font-size:7.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.eh-top .t-note{margin-left:auto;font-family:'Crimson Pro',serif;font-style:italic;font-size:9px;color:var(--muted);}
+.id-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;background:#fff;border-top:1.5px solid var(--rule-dark);border-bottom:1.5px solid var(--rule-dark);padding:3px 12px;font-size:10.5px;color:var(--ink-2);}
+.id-bar .lbl{font-weight:700;color:var(--purple-ink);}
+.id-bar .input-span{flex:1;min-width:80px;}
+.id-bar .input-span.data-span{flex:0 0 64px;min-width:64px;}
+.id-bar .aval{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:8.5px;color:var(--muted);font-style:italic;}
+.scale-mini{font-family:'Inter',sans-serif;font-size:8px;font-weight:600;color:var(--purple-ink);background:var(--purple-tint);border:1px solid var(--purple-light);border-radius:5px;padding:2px 6px;letter-spacing:.03em;}
+.exit-body{padding:6px 12px 7px;}
+.voc-box{background:var(--teal-tint);border:1.5px solid var(--teal);border-radius:8px;padding:4px 9px;margin-bottom:6px;display:flex;gap:9px;align-items:stretch;}
+.voc-keys{flex:0 0 auto;display:flex;flex-direction:column;gap:3px;border-right:1px dashed var(--teal);padding-right:9px;}
+.vk-title,.vd-title{font-size:7px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#2c7768;font-family:'Inter',sans-serif;margin-bottom:1px;}
+.chip{font-size:9.5px;font-weight:700;color:#235e52;background:#fff;border:1px solid var(--teal);border-radius:9999px;padding:0 8px;text-align:center;}
+.voc-defs{flex:1;min-width:0;}
+.voc{display:grid;grid-template-columns:auto 1fr;gap:1px 7px;}
+.voc dt{font-size:9.5px;font-weight:700;color:#235e52;white-space:nowrap;}
+.voc dd{font-size:9px;color:var(--ink-2);line-height:1.2;}
+.q{margin-bottom:5px;}
+.q-head{display:flex;gap:7px;align-items:flex-start;margin-bottom:2px;}
+.q-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--purple);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.q-num.star{background:var(--yellow);}
+.q-text{font-size:11px;line-height:1.35;flex:1;}
+.q-text strong{color:var(--purple-ink);}
+.q-tag{display:inline-block;font-family:'Inter',sans-serif;font-size:7.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--rule-dark);border-radius:4px;padding:0 5px;vertical-align:middle;margin-left:4px;}
+.q-tag.real{color:var(--orange);border-color:var(--orange);}
+.q-tag.repte{color:var(--yellow-ink);border-color:var(--yellow);}
+.q-hint{font-size:9px;color:var(--muted);font-style:italic;margin:0 0 2px 27px;line-height:1.3;}
+.mini3{display:grid;grid-template-columns:128px 1fr;gap:4px 8px;align-items:center;margin-left:27px;}
+.mini3 .lab{font-size:10px;font-weight:700;color:var(--ink-2);}
+.mini-line{min-height:24px;border-bottom:1.5px solid #C8C2DD;background:white;outline:none;padding:1px 2px;line-height:1.35;}
+.mini-line:focus{border-bottom-color:var(--purple);background:rgba(123,104,200,.04);}
+.cut-line{display:flex;align-items:center;justify-content:center;gap:10px;margin:7px 0;}
+.cut-line::before,.cut-line::after{content:"";flex:1;border-top:2px dashed #b0a4d8;}
+.cut-line span{font-family:'Inter',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+.page-footer-bar{position:absolute;left:0;right:0;height:20px;display:none;justify-content:space-between;align-items:center;padding:0 24px;font-family:'Inter',sans-serif;font-size:7.5px;font-weight:500;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;border-top:.5px solid var(--rule);background:var(--surface);pointer-events:none;z-index:8;}
+.spacer-block{position:relative;height:36px;margin:4px 0;border-radius:6px;border:1.5px dashed var(--purple-light);background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px);display:flex;align-items:center;justify-content:center;}
+.spacer-label{font-family:'Inter',sans-serif;font-size:9px;color:var(--purple-light);letter-spacing:.12em;text-transform:uppercase;user-select:none;pointer-events:none;}
+@media print{
+  @page{size:A4;margin:10mm 12mm;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{background:white;padding:0;}
+  #toolbar,.page-break-line,.del-btn{display:none!important;}
+  .page-footer-bar{display:none!important;}
+  .page-wrap{box-shadow:none;width:100%;min-height:0;}
+  [contenteditable]:hover,[contenteditable]:focus{background:transparent!important;box-shadow:none!important;}
+  .wline,.mini-line{background:transparent;}
+  .spacer-block{background:transparent!important;border:none!important;}
+  .spacer-label{display:none!important;}
+}
+
+.crit-bar{display:flex;align-items:baseline;gap:6px;padding:2px 12px;background:#fff;border-bottom:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:8px;color:var(--muted);line-height:1.35;}
+.crit-bar b{font-size:9px;color:var(--purple-ink);letter-spacing:.02em;}
+.crit-bar .ck{font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;}
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span class="tb-tip">✎ Edita el tiquet de dalt · es copia sol a baix · <strong>Ctrl+B</strong> negreta · <strong>×</strong> elimina · <strong>Ctrl+S</strong> desa</span>
+  <div class="tb-sep"></div>
+  <button class="tb-btn tb-undo" id="btn-undo" onclick="undoDelete()">↩ Desfer</button>
+  <button class="tb-btn tb-bold" onclick="document.execCommand('bold')"><b>N</b></button>
+  <button class="tb-btn tb-print" onclick="window.print()">🖨️ Imprimir / PDF</button>
+  <button class="tb-btn tb-desa" onclick="desaFitxa()" title="Desa (Ctrl+S)">💾 Desa</button>
+</div>
+
+<div class="page-wrap" id="doc">
+  <div class="content">
+
+    <!-- ════ TIQUET MESTRE (l'editable) ════ -->
+    <div class="exit-frame deletable" id="ticket-master">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+
+      <div class="eh-stub">
+        <span class="stub-ic">🎟️</span>
+        <span class="stub-txt">Exit Ticket</span>
+        <span class="stub-min">individual · versió C</span>
+      </div>
+
+      <div class="eh-main">
+
+        <div class="eh-top">
+          <span class="t-title" contenteditable="true">La sang en moviment</span>
+          <span class="t-sa" contenteditable="true">SA2 · Sessió 3 de 7 · El sistema circulatori i la sang</span>
+          <span class="t-note" contenteditable="true">l'únic full que recullo</span>
+        </div>
+
+        <div class="id-bar deletable">
+          <div class="del-btn" onclick="deleteEl(this)">✕</div>
+          <span class="lbl">Nom:</span><span class="input-span" contenteditable="true"></span>
+          <span class="lbl">Data:</span><span class="input-span data-span" contenteditable="true"></span>
+          <span class="aval">avaluació: <span class="scale-mini">NA · AS · AN · AE</span></span>
+        </div>
+
+        <div class="crit-bar"><span class="ck">📐 Criteri avaluat</span><b contenteditable="true">1.1</b></div>
+
+        <div class="exit-body">
+
+          <!-- ── DUA: paraules clau (costat) + definicions en CATALÀ ── -->
+          <div class="voc-box deletable">
+            <div class="del-btn" onclick="deleteEl(this)">✕</div>
+            <div class="voc-keys">
+              <span class="vk-title">🧰 Paraules</span>
+              <span class="chip">hemoglobina</span>
+              <span class="chip">ferro</span>
+              <span class="chip">eritròcit</span>
+              <span class="chip">anèmia</span>
+            </div>
+            <div class="voc-defs">
+              <span class="vd-title">Què volen dir</span>
+              <dl class="voc">
+                <dt>eritròcit</dt><dd>glòbul vermell; cèl·lula de la sang que porta l'oxigen.</dd>
+                <dt>hemoglobina</dt><dd>proteïna de l'eritròcit que agafa l'oxigen; necessita ferro.</dd>
+                <dt>anèmia</dt><dd>falta de ferro o d'hemoglobina → arriba menys O₂ als músculs.</dd><dt>plasma</dt><dd>la part líquida i groguenca de la sang.</dd><dt>circulació gran</dt><dd>la que va del cor a tot el cos i torna.</dd><dt>circulació petita</dt><dd>la que va del cor als pulmons i torna.</dd>
+              </dl>
+            </div>
+          </div>
+
+          <!-- P4 (C): cas del Marc, cadena ordenada -->
+          <div class="q deletable" style="margin-bottom:2px">
+            <div class="del-btn" onclick="deleteEl(this)">✕</div>
+            <div class="q-head"><div class="q-num">1</div><div class="q-text"><span>El <strong>Marc</strong> té el ferro baix i es cansa a mig camí de la cursa. Posa els números <strong>1, 2, 3, 4</strong> per ordenar què li passa.</span><span class="q-tag real">vida real</span></div></div>
+            <div style="display:flex;flex-direction:column;gap:4px;margin-top:5px;font-size:11px">
+              <div><span class="mini-line" contenteditable="true" style="display:inline-block;width:34px;vertical-align:middle"></span> Els músculs reben poc oxigen i es cansen de seguida.</div>
+              <div><span class="mini-line" contenteditable="true" style="display:inline-block;width:34px;vertical-align:middle"></span> El Marc té poc ferro a la sang.</div>
+              <div><span class="mini-line" contenteditable="true" style="display:inline-block;width:34px;vertical-align:middle"></span> Els eritròcits porten menys oxigen del normal.</div>
+              <div><span class="mini-line" contenteditable="true" style="display:inline-block;width:34px;vertical-align:middle"></span> Es fabrica poca hemoglobina.</div>
+            </div>
+          </div>
+
+        </div><!-- .exit-body -->
+      </div><!-- .eh-main -->
+    </div><!-- #ticket-master -->
+
+    <!-- ════ LÍNIA DE RETALL ════ -->
+    <div class="cut-line"><span>✂ retalla per aquí — un tiquet per a cada alumne</span></div>
+
+    <!-- ════ CÒPIA (es genera sola, idèntica al mestre) ════ -->
+    <div class="exit-frame" id="ticket-copy" aria-hidden="true"></div>
+
+  </div><!-- .content -->
+</div><!-- .page-wrap -->
+
+<script>
+const delStack=[];
+function deleteEl(btn){const t=btn.closest('.deletable');if(!t)return;const p=t.parentNode,s=t.nextSibling;t.remove();delStack.push({el:t,parent:p,sibling:s});document.getElementById('btn-undo').classList.add('active');schedulePageBreaks();setTimeout(syncCopy,0);}
+function undoDelete(){if(!delStack.length)return;const{el,parent,sibling}=delStack.pop();parent.insertBefore(el,sibling);if(!delStack.length)document.getElementById('btn-undo').classList.remove('active');updatePageBreaks();setTimeout(syncCopy,0);}
+document.addEventListener('keydown',e=>{if(e.key==='z'&&(e.ctrlKey||e.metaKey)){if(document.activeElement&&document.activeElement.contentEditable==='true')return;e.preventDefault();undoDelete();}});
+
+const PAGE_H=1047;let _pbTimer=null;
+const PB_OPTS={childList:true,subtree:true,characterData:true,attributes:false};
+function updatePageBreaks(){pbObserver.disconnect();const doc=document.getElementById('doc');
+  doc.querySelectorAll('.page-break-line').forEach(n=>n.remove());
+  doc.querySelectorAll('.page-footer-bar').forEach(n=>n.remove());
+  const total=doc.scrollHeight;
+  for(let p=1;p*PAGE_H<total;p++){const line=document.createElement('div');line.className='page-break-line';line.style.top=(p*PAGE_H)+'px';const label=document.createElement('div');label.className='page-break-label';label.textContent='límit A4';line.appendChild(label);doc.appendChild(line);}
+  pbObserver.observe(document.getElementById('doc'),PB_OPTS);}
+function schedulePageBreaks(){clearTimeout(_pbTimer);_pbTimer=setTimeout(updatePageBreaks,350);}
+const pbObserver=new MutationObserver(schedulePageBreaks);
+
+/* ── Còpia automàtica del tiquet mestre (per retallar) ── */
+function syncCopy(){const m=document.getElementById('ticket-master'),c=document.getElementById('ticket-copy');if(!m||!c)return;pbObserver.disconnect();c.innerHTML=m.innerHTML;c.querySelectorAll('[contenteditable]').forEach(n=>n.setAttribute('contenteditable','false'));c.querySelectorAll('.del-btn').forEach(n=>n.remove());c.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));pbObserver.observe(document.getElementById('doc'),PB_OPTS);schedulePageBreaks();}
+let _syncT=null;
+document.addEventListener('input',e=>{if(e.target.closest&&e.target.closest('#ticket-master')){clearTimeout(_syncT);_syncT=setTimeout(syncCopy,300);}});
+window.addEventListener('load',()=>{updatePageBreaks();setTimeout(syncCopy,60);});
+pbObserver.observe(document.getElementById('doc'),PB_OPTS);
+
+function _fitxaToast(msg){let t=document.getElementById('fitxa-toast');if(!t){t=document.createElement('div');t.id='fitxa-toast';t.style.cssText='position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3a2d6e;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s';document.body.appendChild(t);}t.textContent=msg;t.style.opacity='1';clearTimeout(t._h);t._h=setTimeout(()=>t.style.opacity='0',2200);}
+async function desaFitxa(){const clone=document.documentElement.cloneNode(true);clone.querySelectorAll('.page-break-line,.page-footer-bar,#fitxa-toast').forEach(n=>n.remove());const cp=clone.querySelector('#ticket-copy');if(cp)cp.innerHTML='';const html='<!DOCTYPE html>\n'+clone.outerHTML;const fname=(location.pathname.split('/').pop()||'exit_ticket.html');if(window.showSaveFilePicker){try{const h=await window.showSaveFilePicker({suggestedName:fname,types:[{description:'Pàgina HTML',accept:{'text/html':['.html']}}]});const w=await h.createWritable();await w.write(html);await w.close();_fitxaToast('✓ Canvis desats al fitxer');return;}catch(e){if(e.name==='AbortError')return;}}const blob=new Blob([html],{type:'text/html'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);_fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');}
+document.addEventListener('keydown',e=>{if(e.key==='s'&&(e.ctrlKey||e.metaKey)){e.preventDefault();desaFitxa();}});
+</script>
+</body>
+</html>

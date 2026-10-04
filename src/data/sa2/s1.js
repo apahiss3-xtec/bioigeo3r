@@ -108,6 +108,11 @@ export const sa2s1 = {
 
   fitxaUrl: { A: "/fitxes/sa2-s1-fitxa-A.html", B: "/fitxes/sa2-s1-fitxa-B.html", C: "/fitxes/sa2-s1-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s1-teoria.pdf",
 
+  sessionMaterials: [
+    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s1-exit-ticket.html", who: "docent" },
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s1-exit-ticket-C.html", who: "docent" }
+  ],
+
   fitxaGuide: {
     fitxaName: "Fitxa S1 — Nutrients",
     steps: [
@@ -131,6 +136,11 @@ export const sa2s1 = {
   ],
 
   homework: {
+    readingNext: {
+      session: 2,
+      text: "Llegeix la lectura de la Sessió 2. A l'inici de la propera sessió faràs el formulari de comprensió (Google Forms).",
+      pdfUrl: "/lectures/sa2-s2-lectura.pdf",
+    },
     description: "Fotografiar els 3 productes que realment menges (no els que creus que hauries de menjar). Classifica'ls per nutrient dominant i anota si és ultraprocessat. Es defensarà oralment a S2.",
     note: "No realitzable amb IA si cal explicar-ho en veu alta.",
   },

@@ -90,9 +90,15 @@ export const sa2s5 = {
 
   fitxaUrl: { A: "/fitxes/sa2-s5-fitxa-A.html", B: "/fitxes/sa2-s5-fitxa-B.html", C: "/fitxes/sa2-s5-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s5-teoria.pdf",
 
+  sessionMaterials: [
+    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s5-exit-ticket.html", who: "docent" },
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s5-exit-ticket-C.html", who: "docent" }
+  ],
+
   fitxaGuide: {
     fitxaName: "Fitxa S5 — Freqüència cardíaca",
     steps: [
+      { apartat: "—", title: "Formulari de comprensió de la lectura", time: "5 min", phase: "engage", instruction: "Abans de començar la fitxa, fes el formulari de comprensió (Google Forms) de la lectura de la sessió 5 que havies de llegir a casa.", hints: [] },
       { apartat: "0", title: "Idees prèvies — els dos enigmes", time: "10 min", phase: "engage", instruction: "Omple l'apartat 0 del full: per què creus que la FC puja amb l'exercici? No es corregeix ara; ho compararàs al final.", hints: [] },
       { apartat: "1", title: "Mesura la teva FC — l'experiment", time: "35 min", phase: "explore", instruction: "Durant l'experiment, omple la taula de l'apartat 1 del full: FC en repòs, després de l'esforç i durant la recuperació.", hints: [
         "Mesura el pols 30 segons i multiplica per 2 per tenir batecs/minut.",
@@ -123,8 +129,14 @@ export const sa2s5 = {
   ],
 
   homework: {
-    description: "Durant 3 matins consecutius, just en llevar-te, mesura la teva FC en repòs (pols al canell, 30 seg × 2). Anota-la a la taula de la fitxa S5 secció 6. Escriu una pregunta d'investigació pròpia basada en les dades.",
-    note: "OBLIGATORI per a S6. Sense dades no pots participar en la posada en comú.",
+    readingNext: {
+      session: 6,
+      text: "Llegeix la lectura de la Sessió 6. A l'inici de la propera sessió faràs el formulari de comprensió (Google Forms).",
+      pdfUrl: "/lectures/sa2-s6-lectura.pdf",
+      easyUrl: "/lectures/sa2-s6-lectura-FACIL.pdf",
+    },
+    description: "Tasca per a casa — els propers 3 matins (prepara la Sessió 6). Just en llevar-te (abans d'esmorzar i sense moure't gaire), mesura la teva FC en repòs: compta els batecs durant 30 segons i multiplica × 2 (a casa comptem el doble d'estona que a classe perquè, en repòs, com més estona comptes més fiable surt la mesura). Apunta-ho a la taula de la fitxa. A partir de les teves dades, formula una pregunta d'investigació pròpia. Són 2 min cada matí; no es pot fer amb IA: les pulsacions són teves.",
+    note: "Porta la fitxa a la Sessió 6: posarem en comú les dades de tota la classe. Sense dades no pots participar-hi.",
   },
 
   recoveryInstructions: [

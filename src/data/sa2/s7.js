@@ -74,9 +74,15 @@ export const sa2s7 = {
   // per a A i B, tot i que la fitxaGuide hi enviava l'alumnat).
   fitxaUrl: { A: "/fitxes/sa2-s7-fitxa-A.html", B: "/fitxes/sa2-s7-fitxa-B.html", C: "/fitxes/sa2-s7-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s7-teoria.pdf",
 
+  sessionMaterials: [
+    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s7-exit-ticket.html", who: "docent" },
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s7-exit-ticket-C.html", who: "docent" }
+  ],
+
   fitxaGuide: {
     fitxaName: "Fitxa Sessió 7 — Síntesi de la unitat",
     steps: [
+      { apartat: "—", title: "Formulari de comprensió de la lectura", time: "5 min", phase: "engage", instruction: "Abans de començar la fitxa, fes el formulari de comprensió (Google Forms) de la lectura de la sessió 7 que havies de llegir a casa.", hints: [] },
       { apartat: "0", title: "Els dos enigmes, resolts", time: "12 min", phase: "engage", instruction: "Apartat 0: escriu la cadena del Marc i per quina raó la gràfica de la Mercè és asimètrica. Fes-ho ABANS de la posada en comú.", hints: [
         "A l'enigma 1 hi ha DUES coses que expliquen la baixada lenta: les hormones que s'han d'anar normalitzant i el lactat que s'ha de netejar.",
         "A l'enigma 2, comença pel ferro i no et saltis cap baula fins a la fatiga."

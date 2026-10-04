@@ -89,7 +89,6 @@ const ApartatHeader = ({ num, phase, title, time }) => (
       <p className="kicker" style={{ color: 'var(--biome-accent)' }}>
         {t('session.apartat')} {num}
         {PHASE_LABEL[phase] && <> · {t(PHASE_LABEL[phase])}</>}
-        {time && <> · ⏱ {time}</>}
       </p>
       <h2 className="text-2xl md:text-3xl leading-tight">
         <T>{title}</T>
@@ -209,7 +208,7 @@ export default function SessionPage() {
         <div className="absolute bottom-0 inset-x-0">
           <div className="mx-auto max-w-4xl px-4 pb-6">
             <p className="kicker" style={{ color: 'var(--biome-accent)' }}>
-              {sa.id.toUpperCase()} · {t('sa.session')} {session.sessionNumber} · {session.duration}
+              {sa.id.toUpperCase()} · {t('sa.session')} {session.sessionNumber}
               {session.isFinalSession && <> · 🏁 {t('sa.finalSession')}</>}
               {session.isKeySession && <> · ★ {t('sa.keySession')}</>}
             </p>
@@ -415,11 +414,6 @@ export default function SessionPage() {
 
             {session.exploreInstructions && (
               <div className="card p-6">
-                {!apartatMeta['1'] && session.exploreDuration && (
-                  <div className="mb-5 text-sm text-[var(--muted)]">
-                    ⏱ <strong>{t('session.duration')}:</strong> {session.exploreDuration}
-                  </div>
-                )}
                 <ol className="space-y-4">
                   {session.exploreInstructions.map((step, i) => (
                     <li key={i} className="flex gap-4">
@@ -710,6 +704,17 @@ export default function SessionPage() {
                   ? session.homework.description + ' ' + (session.homework.note || '')
                   : t('homework.none')}
               </p>
+            )}
+            {session.homework?.readingNext && (
+              <div className="mt-4 rounded-xl border border-[var(--border)] p-4">
+                <p className="font-semibold">📖 <T>{session.homework.readingNext.text}</T></p>
+                <p className="mt-2 flex flex-wrap gap-3">
+                  <a className="underline" href={session.homework.readingNext.pdfUrl} target="_blank" rel="noreferrer">Lectura (PDF)</a>
+                  {session.homework.readingNext.easyUrl && (
+                    <a className="underline" href={session.homework.readingNext.easyUrl} target="_blank" rel="noreferrer">Lectura versió fàcil (PDF)</a>
+                  )}
+                </p>
+              </div>
             )}
           </div>
         </section>

@@ -1,14 +1,12 @@
 import T from '../translate/T.jsx'
-import Timer from './Timer.jsx'
 import WhoBadge from './WhoBadge.jsx'
 import { t } from '../t.js'
 
 // Instruccions senzilles d'una activitat d'aula: QUÈ farem, QUI ho fa
-// (individual / parelles / grups / tota la classe) i el TEMPS, amb un
-// temporitzador fixable per fer servir en directe a classe.
+// (individual / parelles / grups / tota la classe). El temps NO es mostra.
 export default function ActivityCard({ activity }) {
   if (!activity) return null
-  const { what, who, time, note } = activity
+  const { what, who, note } = activity
 
   return (
     <div className="card p-6">
@@ -32,16 +30,6 @@ export default function ActivityCard({ activity }) {
               👥 {t('activity.who')}
             </p>
             <WhoBadge who={who} />
-          </div>
-        )}
-
-        {/* TEMPS */}
-        {time != null && (
-          <div>
-            <p className="kicker mb-2" style={{ color: 'var(--biome-accent)' }}>
-              ⏱ {t('activity.time')}
-            </p>
-            <Timer minutes={time} />
           </div>
         )}
       </div>

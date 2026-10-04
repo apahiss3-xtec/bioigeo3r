@@ -103,25 +103,35 @@ export const sa2s2 = {
 
   fitxaUrl: { A: "/fitxes/sa2-s2-fitxa-A.html", B: "/fitxes/sa2-s2-fitxa-B.html", C: "/fitxes/sa2-s2-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s2-teoria.pdf",
 
+  sessionMaterials: [
+    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s2-exit-ticket.html", who: "docent" },
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s2-exit-ticket-C.html", who: "docent" }
+  ],
+
   fitxaGuide: {
     fitxaName: "Fitxa S2 — El sistema digestiu",
     steps: [
-      { apartat: "0", title: "Idees prèvies", time: "5 min", phase: "engage", instruction: "Omple l'apartat 0 — Idees prèvies del full: escriu les parts del sistema digestiu que recordes i l'ordre per on passa el menjar.", hints: [] },
-      { apartat: "1", title: "Posa nom al sistema digestiu", time: "10 min", phase: "explore", instruction: "Amb el banc de paraules, omple l'apartat 1 del full: nom i funció de cada òrgan numerat al diagrama.", hints: [
+      { apartat: "—", title: "Formulari de comprensió de la lectura", time: "5 min", phase: "engage", instruction: "Abans de començar la fitxa, fes el formulari de comprensió (Google Forms) de la lectura de la sessió 2 que havies de llegir a casa.", hints: [] },
+      { apartat: "0", title: "Idees prèvies", time: "10 min", phase: "engage", instruction: "Omple l'apartat 0 — Idees prèvies del full: escriu les parts del sistema digestiu que recordes i l'ordre per on passa el menjar.", hints: [] },
+      { apartat: "1", title: "Posa nom al sistema digestiu", time: "20 min", phase: "explore", instruction: "Amb el banc de paraules, omple l'apartat 1 del full: nom i funció de cada òrgan numerat al diagrama.", hints: [
         "Segueix el recorregut del menjar de dalt a baix: boca, esòfag, estómac, intestins.",
         "Per a la funció pensa què hi PASSA al menjar a cada òrgan, no només com es diu."
       ] },
-      { apartat: "2", title: "L'ovillo de llana — longitud real", time: "10 min", phase: "explore", instruction: "Completa la taula d'escala 1:100 de l'apartat 2 del full (cada metre real = 1 cm a l'ovillo).", hints: [
+      { apartat: "2", title: "L'ovillo de llana — longitud real", time: "15 min", phase: "explore", instruction: "Completa la taula d'escala 1:100 de l'apartat 2 del full (cada metre real = 1 cm a l'ovillo).", hints: [
         "Escala 1:100 vol dir dividir per 100. 6 metres reals → quants centímetres a l'ovillo?"
       ] },
-      { apartat: "3", title: "Simulació de la digestió pas a pas", time: "—", phase: "explica", instruction: "Mentre observes la simulació de taula, completa les columnes buides de l'apartat 3 del full.", hints: [
+      { apartat: "3", title: "Simulació de la digestió pas a pas", time: "30 min", phase: "explica", instruction: "Mentre observes la simulació de taula, completa les columnes buides de l'apartat 3 del full.", hints: [
         "Per a cada fase, relaciona la substància simulada amb la real (vinagre = àcid de l'estómac, sabó groc = bilis...).",
         "Pregunta't a cada pas: per què cal aquest pas? Què no funcionaria si te'l saltessis?"
       ] },
-      { apartat: "4", title: "La microbiota intestinal", time: "—", phase: "explica", instruction: "Omple l'apartat 4 del full sobre els bacteris beneficiosos de l'intestí.", hints: [
+      { apartat: "🔗", title: "Del budell al mitocondri", time: "15 min", phase: "elabora", instruction: "Completa el recorregut d'una molècula de glucosa del pa, des que travessa la paret de l'intestí prim fins que s'hi obté energia, i respon la pregunta competencial de la Mercè.", hints: [
+        "Segueix la glucosa: intestí prim → capil·lar de la vellositat → sang → cèl·lula del múscul.",
+        "A la cèl·lula, glucosa + O₂ → CO₂ + H₂O + ATP (SA1). Quin pas falla si la Mercè no ha dinat?"
+      ] },
+      { apartat: "4", title: "La microbiota intestinal", time: "10 min", phase: "explica", instruction: "Omple l'apartat 4 del full sobre els bacteris beneficiosos de l'intestí.", hints: [
         "Pensa per què prendre antibiòtics molt sovint pot causar problemes digestius."
       ] },
-      { apartat: "5", title: "L'escala de Bristol", time: "—", phase: "elabora", instruction: "A l'apartat 5 del full, relaciona cada tipus amb la dieta o la salut.", hints: [
+      { apartat: "5", title: "L'escala de Bristol", time: "10 min", phase: "elabora", instruction: "A l'apartat 5 del full, relaciona cada tipus amb la dieta o la salut.", hints: [
         "Connecta-ho amb l'aigua: l'intestí gros n'absorbeix. Massa o massa poca, com afecta el resultat?"
       ] }
     ]
@@ -133,7 +143,13 @@ export const sa2s2 = {
     { id: "q2", type: "open", text: "Per quina raó no és bon moment per menjar just abans de córrer? Connecta-ho amb el que has après avui.", hint: "Durant l'esforç la sang va als músculs. Si has de digerir alhora, dos òrgans es disputen el mateix recurs: quin?" },
     { id: "q3", type: "multiple", text: "Quin és el paper del bicarbonat que secreta el pàncrees?", options: ["Neutralitzar el quimo àcid per permetre que els enzims intestinals funcionin", "Afegir acidesa per destruir bacteris", "Absorbir greixos", "Produir glucosa"], correct: 0 }
   ],
-  homework: { description: "Cap." },
+  homework: {
+    readingNext: {
+      session: 3,
+      text: "Llegeix la lectura de la Sessió 3. A l'inici de la propera sessió faràs el formulari de comprensió (Google Forms).",
+      pdfUrl: "/lectures/sa2-s3-lectura.pdf",
+      easyUrl: "/lectures/sa2-s3-lectura-FACIL.pdf",
+    }, description: "Tasca per a casa (opcional) — Prepara la Sessió 3: observa la teva femta i memoritza a quin tipus de l'escala de Bristol s'assembla (no cal escriure-ho). A classe ho respondràs de manera anònima. És una observació personal: no es pot fer amb cap IA." },
   recoveryInstructions: [
     "Pots fer la simulació a casa (és divertida): necessites bol, pa, plàtan, vinagre, bicarbonat, mitja de niló, drap vell",
     "Segueix la guia de la simulació (descàrrega aquí — © Fátima Miró, citat)",

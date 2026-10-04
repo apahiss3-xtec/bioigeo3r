@@ -95,9 +95,15 @@ export const sa2s6 = {
 
   fitxaUrl: { A: "/fitxes/sa2-s6-fitxa-A.html", B: "/fitxes/sa2-s6-fitxa-B.html", C: "/fitxes/sa2-s6-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s6-teoria.pdf",
 
+  sessionMaterials: [
+    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s6-exit-ticket.html", who: "docent" },
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s6-exit-ticket-C.html", who: "docent" }
+  ],
+
   fitxaGuide: {
     fitxaName: "Fitxa Sessió 6 — El sistema de control i l'equilibri intern",
     steps: [
+      { apartat: "—", title: "Formulari de comprensió de la lectura", time: "5 min", phase: "engage", instruction: "Abans de començar la fitxa, fes el formulari de comprensió (Google Forms) de la lectura de la sessió 6 que havies de llegir a casa.", hints: [] },
       { apartat: "0", title: "Idees prèvies", time: "8 min", phase: "engage", instruction: "Dibuixa la teva hipòtesi (per on surten els residus líquids) i respon les tres preguntes de l'apartat 0. No es corregeix: ho compararàs al final.", hints: [] },
       { apartat: "1", title: "Tres estacions — com dona ordres el cos", time: "25 min", phase: "explore", instruction: "Rota per les 3 estacions i omple-les a la fitxa. A: temps de reacció amb regle (5 proves per mà, cm → ms). B: arc reflex en grup. C: taula d'hormones.", hints: [
         "Estació A: anota TOTES les distàncies sense arrodonir — la variabilitat és la dada interessant.",
@@ -123,7 +129,13 @@ export const sa2s6 = {
     { id: "q2", type: "open", text: "Per quina raó l'adrenalina inhibeix la digestió durant l'exercici físic intens? Usa el concepte de 'prioritat de recursos'.", hint: "El cos no pot donar molta sang als músculs i a l'intestí alhora. Si està fugint o competint, quin dels dos prioritza?" },
     { id: "q3", type: "open", text: "Per quina raó l'orina és més fosca quan beus poca aigua? Connecta-ho amb l'ADH i el ronyó.", hint: "Quan en falta, l'ADH ordena al ronyó retenir aigua. Si retens aigua, l'orina queda més diluïda o més concentrada?" }
   ],
-  homework: { description: "Durant un dia, anota a la fitxa quants gots d'aigua beus i de quin color és la teva orina (4 moments). A més, NO t'oblidis les dades de FC en repòs dels 3 matins de la sessió passada: són NECESSÀRIES per a la Sessió 7." },
+  homework: {
+    readingNext: {
+      session: 7,
+      text: "Llegeix la lectura de la Sessió 7. A l'inici de la propera sessió faràs el formulari de comprensió (Google Forms).",
+      pdfUrl: "/lectures/sa2-s7-lectura.pdf",
+      easyUrl: "/lectures/sa2-s7-lectura-FACIL.pdf",
+    }, description: "Durant un dia, anota a la fitxa quants gots d'aigua beus i de quin color és la teva orina (4 moments). A més, NO t'oblidis les dades de FC en repòs dels 3 matins de la sessió passada: són NECESSÀRIES per a la Sessió 7." },
   recoveryInstructions: [
     "Fes el test de temps de reacció a casa: que algú et deixi caure un regle de 30 cm sense avisar; anota on l'agafes, 5 vegades amb cada mà",
     "Llegeix la teoria d'aquesta pàgina (les dues vies de control + el sistema excretor)",

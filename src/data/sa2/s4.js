@@ -100,9 +100,15 @@ export const sa2s4 = {
 
   fitxaUrl: { A: "/fitxes/sa2-s4-fitxa-A.html", B: "/fitxes/sa2-s4-fitxa-B.html", C: "/fitxes/sa2-s4-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s4-teoria.pdf",
 
+  sessionMaterials: [
+    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s4-exit-ticket.html", who: "docent" },
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s4-exit-ticket-C.html", who: "docent" }
+  ],
+
   fitxaGuide: {
     fitxaName: "Fitxa S4 — Dissecció de cor",
     steps: [
+      { apartat: "—", title: "Formulari de comprensió de la lectura", time: "5 min", phase: "engage", instruction: "Abans de començar la fitxa, fes el formulari de comprensió (Google Forms) de la lectura de la sessió 4 que havies de llegir a casa.", hints: [] },
       { apartat: "0", title: "Predicció — abans de veure el cor real", time: "8 min", phase: "engage", instruction: "Omple l'apartat 0 del full: dibuixa el cor per dins tal com te l'imagines. La compararàs amb el cor real al final.", hints: [] },
       { apartat: "1", title: "Observació exterior del cor", time: "15 min", phase: "explore", instruction: "Durant la fase 1, omple l'apartat 1 del full: vasos superficials i artèries coronàries.", hints: [
         "Per què hi ha vasos AL VOLTANT del cor? El múscul cardíac també necessita la seva pròpia sang."
@@ -125,7 +131,13 @@ export const sa2s4 = {
     { id: "q2", type: "open", text: "Si el septe interventricular tingués un forat (comunicació interventricular), cap a quin costat passaria la sang pel forat i quina part del cor hauria de moure més sang del que li toca? Digues també què NO canviaria.", hint: "Un dels dos ventricles empeny molt més fort que l'altre, i la sang sempre va del lloc amb més pressió al lloc amb menys. Pensa què implica això per a la sang que surt cap al cos." },
     { id: "q3", type: "open", text: "Marc Fontana té anèmia. Usa el que has vist avui per explicar per quina raó el seu cor ha de treballar més dur.", hint: "Si cada litre de sang porta menys O₂ (poca hemoglobina), com pot el cor fer arribar el mateix O₂ als músculs? Què ha d'augmentar?" }
   ],
-  homework: { description: "Mesura't el pols en repòs (15 s × 4) i porta la xifra apuntada a la fitxa per a la Sessió 5. Versió A: pren-te'l també just després de pujar tres pisos i porta les dues xifres." },
+  homework: {
+    readingNext: {
+      session: 5,
+      text: "Llegeix la lectura de la Sessió 5. A l'inici de la propera sessió faràs el formulari de comprensió (Google Forms).",
+      pdfUrl: "/lectures/sa2-s5-lectura.pdf",
+      easyUrl: "/lectures/sa2-s5-lectura-FACIL.pdf",
+    }, description: "Cap." },
   recoveryInstructions: [
     "Mira el vídeo de dissecció de cor de porc (link a la secció EXPLICA, ~15 min)",
     "Omple la fitxa S4 seccions 1–4 basant-te en el vídeo",
