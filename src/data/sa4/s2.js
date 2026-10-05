@@ -143,6 +143,9 @@ export const sa4s2 = {
     }
   ],
 
+  appSrc: "/apps/app_cicle_menstrual.html",
+  appApartat: "3",
+  appNote: "Fes-ho DESPRÉS d'haver resolt l'enigma de la Laia a la fitxa. Tria una durada del cicle (26-32 dies), escriu quin dia creus que ovula i comprova-ho: veuràs com pugen i baixen la FSH, la LH, els estrògens i la progesterona. Repte: encerta tres durades i escriu la regla.",
   graphicResources: [
     { id: "F1", apartat: "2", title: "Aparell reproductor femení (esquema)", src: "/images/sa4-s2-aparell-femeni.svg", note: "Tall esquemàtic amb marcadors numerats ①-⑤. Cap paraula dins la imatge: les etiquetes en català són la llegenda numerada de la fitxa. Mateix codi F1 a les tres versions." },
     { id: "F2", apartat: "2", title: "Aparell reproductor masculí (esquema)", src: "/images/sa4-s2-aparell-masculi.svg", note: "Tall esquemàtic amb marcadors numerats ①-④, amb el mateix criteri que F1." },
@@ -156,7 +159,7 @@ export const sa4s2 = {
     B: "/fitxes/sa4-s2-fitxa-B.html",
     C: "/fitxes/sa4-s2-fitxa-C.html"
   },
-  teoriaPdfUrl: null,
+  teoriaPdfUrl: "/teoria/sa4-s2-teoria.pdf",
 
   fitxaGuide: {
     fitxaName: "Fitxa Sessió 2 — Com funcionem?",
@@ -172,11 +175,12 @@ export const sa4s2 = {
         "A la figura F4, l'eix de sota són els dies i la línia lila és el GRUIX de la paret: com més amunt arriba, més gruixuda és.",
         "La zona ombrejada del principi de F4 i la baixada de la línia són la mateixa cosa vista de dues maneres. Pregunta't què està passant allà."
       ] },
-      { apartat: "3", title: "Prediccions: combinacions i el cas de la Laia", time: "18 min", phase: "elabora", instruction: "Apartat 3: resol l'enigma de la Laia escrivint el CÀLCUL, no només el resultat. Si la teva fitxa és la versió B, abans hi trobaràs les combinacions de gàmetes; si és la versió A, les combinacions ja les has fet a l'apartat 1; si és la versió C, l'apartat 3 és només l'enigma.", hints: [
+      { apartat: "3", title: "Prediccions: combinacions i el cas de la Laia", time: "18 min", phase: "elabora", instruction: "Apartat 3: resol l'enigma de la Laia escrivint el CÀLCUL, no només el resultat. Si la teva fitxa és la versió B, abans hi trobaràs les combinacions de gàmetes; si és la versió A, les combinacions ja les has fet a l'apartat 1; si és la versió C, l'apartat 3 és només l'enigma. Quan l'hagis resolt (no abans), comprova el teu mètode amb l'app del cicle: prediu l'ovulació en tres durades diferents i escriu quina fase s'allarga quan el cicle és més llarg.", hints: [
         "Per a les combinacions, comença pel cas més petit (1 parell) i ves afegint-ne un: mira què li passa al número cada vegada.",
         "Per a la Laia: rellegeix la frase del cicle que diu des d'on es compten els 14 dies. No es compten cap endavant.",
         "Comprova la teva resposta amb el cas del dibuix: si el cicle dura 28 dies, el teu mètode ha de donar el dia 14."
       ] },
+      { apartat: "—", title: "Full de sortida", time: "7 min", phase: "avalua", instruction: "Full de sortida: un full A PART de la fitxa, individual, sense ajuda i sense mirar la fitxa. Es recull.", hints: [] },
       { apartat: "4", title: "Metacognició", time: "3 min", phase: "avalua", instruction: "Apartat 4: marca el semàfor, completa la frase «ara la meiosi de la primera unitat té sentit perquè…» i repassa la llista d'objectius.", hints: [] }
     ]
   },

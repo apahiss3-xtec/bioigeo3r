@@ -2,7 +2,7 @@ import { asset } from '../utils.js'
 import AppPlaceholder from './AppPlaceholder.jsx'
 
 // Apps HTML que existeixen a public/apps/
-const AVAILABLE_APPS = ['app_celula.html', 'app_mitosi_meiosi.html', 'app_osmosi.html', 'app_lab_ou.html']
+const AVAILABLE_APPS = ['app_celula.html', 'app_mitosi_meiosi.html', 'app_osmosi.html', 'app_lab_ou.html', 'app_immunitat_grup.html', 'app_sistema_circulatori.html', 'app_cicle_menstrual.html']
 
 export default function AppFrame({ appSrc, title }) {
   if (!appSrc) return null

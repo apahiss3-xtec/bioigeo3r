@@ -133,7 +133,8 @@ export const sa4s4 = {
     { id: "M4", title: "Rúbrica del producte final", url: "/fitxes/sa4-s4-rubrica-producte.html", who: "la té l'alumnat AL DAVANT des del primer minut de l'apartat 3, no en acabar" },
     { id: "M5", title: "Les tres preguntes de la bústia, transcrites a màquina", url: null, who: "docent. Es transcriuen i es reformulen en tercera persona fora de classe; mai el paper original. Són les MATEIXES per a tota la classe" },
     { id: "M6", title: "Vídeo viral (o la seva transcripció impresa)", url: null, who: "docent. Es projecta un sol cop i no es deixa enllaçat enlloc: l'objecte d'estudi és l'afirmació, no el canal" },
-    { id: "M7", title: "Formulari Google de la unitat", url: null, who: "docent. L'enllaç es comparteix JUST en el moment de respondre'l, els últims 10 minuts" }
+    { id: "M7", title: "Formulari Google de la unitat", url: null, who: "docent. L'enllaç es comparteix JUST en el moment de respondre'l, els últims 10 minuts" },
+    { id: "M8", title: "Full de sortida en paper (versions B i C) — mateixes preguntes que el formulari", url: null, who: "NOMÉS docent, per a qui no pot fer el formulari en línia. NO es publica a la web: portaria les preguntes sumatives. Fonts: SA4-creixer-reproduir/S4-decisions-informades/full_sortida_s4_VISUAL.html (A/B) i full_sortida_s4_C_VISUAL.html (C)" }
   ],
 
   theoryPoints: [
@@ -208,7 +209,7 @@ export const sa4s4 = {
     B: "/fitxes/sa4-s4-fitxa-B.html",
     C: "/fitxes/sa4-s4-fitxa-C.html"
   },
-  teoriaPdfUrl: null,
+  teoriaPdfUrl: "/teoria/sa4-s4-teoria.pdf",
 
   fitxaGuide: {
     fitxaName: "Fitxa Sessió 4 — Decisions informades",
@@ -230,18 +231,43 @@ export const sa4s4 = {
         "«Què passa al cos» vol dir el mecanisme, no el consell. «Cal fer servir preservatiu» no és un mecanisme; «el preservatiu atura els fluids, i és pels fluids que passen els patògens» sí que ho és.",
         "Rellegiu-ho buscant els «s'hauria de» i els «està malament»: cada un d'aquests es pot reescriure com un «passa això, i per aquesta raó»."
       ] },
+      { apartat: "—", title: "Formulari de la unitat", time: "10 min", phase: "avalua", instruction: "Formulari de la unitat: el respons tot sol/a, aquí a classe i sense mirar la fitxa. El professor comparteix l'enllaç just en aquest moment. Aquí no s'hi pregunta res sobre tu.", hints: [] },
       { apartat: "4", title: "Metacognició de final d'unitat", time: "3 min", phase: "avalua", instruction: "Apartat 4: marca el semàfor, completa la frase sobre què t'ha canviat el que pensaves en aquestes quatre sessions i repassa la llista d'objectius. Això és a la fitxa que et quedes tu: no es puntua. Si et queda una pregunta, la pots deixar a la bústia en un paper a part, sense nom.", hints: [] }
     ]
   },
 
   exitTicketType: "form",
-  exitTicketNote: "L'avaluació d'aquesta sessió és el formulari de tota la unitat: quatre preguntes que es corregeixen soles i una d'oberta que llegeix el professor. Es respon els últims 10 minuts, aquí a classe, tot sol/a i sense mirar la fitxa. Aquí tampoc no s'hi pregunta res sobre tu: la pregunta oberta demana què li diries a una altra persona.",
+  exitTicketNote: "L'avaluació d'aquesta sessió és el formulari de tota la unitat: quatre preguntes que es corregeixen soles i una d'oberta que llegeix el professor. Es respon els últims 10 minuts, aquí a classe, tot sol/a i sense mirar la fitxa. Aquí tampoc no s'hi pregunta res sobre tu: la pregunta oberta demana què li diries a una altra persona. Criteri avaluat: 1.2 (preguntes 1-2), 2.2 (3-4) i 5.3 (5).",
   exitTicketConfidential: true,
   exitTicketConfidentialNote: "Aquest formulari compta per a la nota i es fa a classe sense ajuda, i per això les preguntes no es publiquen aquí. Si has faltat, passa pel despatx a fer-lo.",
 
   // NOTA DEL DOCENT — no es renderitza a la vista de l'alumnat.
-  teacherNote: "El formulari (script_formulari_google_sa4.js) és el checkpoint sumatiu de tota SA4: no hi ha prova escrita. Q1-Q2 avaluen OA-S4.1 (CE1·1.2), Q3-Q4 avaluen OA-S4.2 (CE2·2.2) i la Q5 oberta avalua OA-S4.3 (CE5·5.3). L'enllaç es comparteix JUST en el moment de respondre'l. La Q5 és la que contrasta el criteri «rigor científic» de la rúbrica del producte: si una fitxa impecable conviu amb una Q5 que no distingeix una barrera d'una hormona, la discrepància és el senyal. El solucionari per nivells d'assoliment és al peu del mateix script, que NO es publica.",
-  exitTicketQuestions: [],
+  teacherNote: "El formulari (script_formulari_google_sa4.js) és el checkpoint sumatiu de tota SA4 (la prova escrita de la unitat és a part). Q1-Q2 avaluen OA-S4.1 (CE1·1.2), Q3-Q4 avaluen OA-S4.2 (CE2·2.2) i la Q5 oberta avalua OA-S4.3 (CE5·5.3). L'enllaç es comparteix JUST en el moment de respondre'l. La Q5 és la que contrasta el criteri «rigor científic» de la rúbrica del producte: si una fitxa impecable conviu amb una Q5 que no distingeix una barrera d'una hormona, la discrepància és el senyal. El solucionari per nivells d'assoliment és al peu del mateix script, que NO es publica.",
+  exitTicketQuestions: [
+    // Mateixes preguntes que script_formulari_google_sa4.js (sense la Q6, personal, que es queda NOMÉS al Form).
+    // Sense `correct`: el formulari és sumatiu i el solucionari no va al paquet web.
+    { id: "q1", type: "multiple", text: "El pegat transdèrmic s'enganxa a la pell i es canvia un cop per setmana. En quina part de la cadena actua? (La cadena: ① el cervell dona l'ordre d'ovular → ② surt l'òvul → ③ els gàmetes es troben → ④ l'embrió s'implanta.)", options: [
+      "A la ①: el que passa a la pell arriba a la sang, i fa que no arribi l'ordre d'ovular",
+      "A la ③: fa de barrera i impedeix que els gàmetes es trobin a la trompa",
+      "A la ④: deixa la paret de l'úter de manera que l'embrió no s'hi pot implantar",
+      "No actua a cap baula: només serveix per saber quins dies són fèrtils" ] },
+    { id: "q2", type: "multiple", text: "El preservatiu protegeix d'ITS i la píndola no. Quina frase ho explica MILLOR?", options: [
+      "El preservatiu atura els fluids, i és pels fluids que passen els patògens; la píndola actua sobre el cicle i no impedeix que els fluids es trobin",
+      "El preservatiu és més eficaç que la píndola contra l'embaràs, i per això també protegeix més",
+      "La píndola només actua a l'ovari, i les ITS entren per un altre òrgan del cos",
+      "El preservatiu conté una substància que mata els patògens en contacte" ] },
+    { id: "q3", type: "multiple", text: "Un vídeo nou diu: «beure molta aigua en dejú neteja les toxines del cos». Quina d'aquestes quatre respostes desmunta MILLOR l'afirmació?", options: [
+      "No diu quines toxines són ni com sortirien del cos, i no aporta cap dada: fa una afirmació general sense proposar cap mecanisme",
+      "Qui ho diu no és metge, i per tant el que diu no pot ser cert",
+      "Ho diu en un vídeo curt d'una xarxa social, i les xarxes socials no són fiables",
+      "Jo bec molta aigua i no he notat res, així que no funciona" ] },
+    { id: "q4", type: "multiple", text: "Es vol saber si un tipus de crema fa marxar l'acne. Quin d'aquests resultats seria una PROVA, i no una anècdota?", options: [
+      "1.200 persones van fer servir la crema durant tres mesos i es van comparar amb 1.200 més que no en van fer servir",
+      "1.200 persones van fer servir la crema durant tres mesos i a la meitat els va millorar la pell",
+      "Tres persones de la classe la van provar i totes tres van dir que els havia anat molt bé",
+      "Cap dels tres: la pell de cada persona és diferent i això no es pot comprovar mai" ] },
+    { id: "q5", type: "open", text: "Una persona et diu: «jo prenc la píndola cada dia i no me n'oblido mai, així que no cal preservatiu». Què li respondries? Digues el MOTIU BIOLÒGIC, no només que no.", hint: "Si no saps com començar, respon tres coses, una línia cadascuna: (1) en quin punt de la cadena actua la píndola i què evita; (2) què NO atura la píndola, i per quina raó això importa aquí; (3) quina opció cobreix les dues coses alhora. No cal jutjar ningú, i no cal que sigui llarg." }
+  ],
 
   deliverables: [
     { name: "Fitxa informativa de la parella (les tres preguntes de la bústia)", note: "Producte final de la unitat. Es comença a classe sobre la plantilla impresa i es lliura a Classroom en una setmana. S'avalua amb la rúbrica: rigor científic · claredat · ús de fonts · to i respecte. Cada criteri es mira per separat." }

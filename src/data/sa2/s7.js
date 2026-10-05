@@ -60,8 +60,8 @@ export const sa2s7 = {
 
   theoryPoints: [
     { id: "t1", apartat: "2", heading: "El cicle complet: entrada → ús → eliminació", text: "==Glucosa|o== (digestiu) + ==O₂|b== (respiratori) → ==ATP|g== al ==mitocondri muscular== (connexió SA1), i d'aquesta reacció en surten ==CO₂|r== i ==aigua|b==, que marxen pels ==pulmons|b==. La ==urea|o== ve d'una altra banda: de les ==proteïnes|o== que sobren, i surt pel ==ronyó|g== amb les sals. Quatre aparells, una sola feina: la ==nutrició==.", type: "synthesis", video: "/animacions/sa2-s7-t1.mp4" },
-    { id: "t2", apartat: "2", heading: "Resolució enigma 1 — Gràfica Mercè", text: "Puja ràpid: ==SN simpàtic|b== (ms) + ==adrenalina|o== (30 seg) activen. ==Pic==: màxima demanda d'==ATP|g== dels músculs. ==Recuperació lenta|r==: normalitzar hormones, netejar ==lactat|r==, tornar al ==parasimpàtic==. Asimetria: baixar és sempre ==més lent que pujar|r==.", type: "synthesis", badge: "✅ Enigma 1 — resolt", video: "/animacions/sa2-s7-t2.mp4" },
-    { id: "t3", apartat: "3", heading: "Resolució enigma 2 — Analítica Marc", text: "==Ferro baix|r== → menys ==hemoglobina|r== → ==eritròcits petits|r== → cada litre de sang porta molt menys ==O₂|b== → cor compensa amb ==FC alta|r== → els músculs es queden ==sense prou oxigen|r== → ==fatiga precoç|r==. La ==creatinina i urea normals|g== → el ronyó va bé, el problema és el ==ferro|r==.", type: "synthesis", badge: "✅ Enigma 2 — resolt", video: "/animacions/sa2-s7-t3.mp4" }
+    { id: "t2", apartat: "2", heading: "Resolució enigma 1 — Gràfica Mercè", text: "Puja ràpid: ==SN simpàtic|b== (ms) + ==adrenalina|o== (30 seg) activen. ==Pic==: màxima demanda d'==ATP|g== dels músculs. ==Recuperació lenta|r==: normalitzar hormones, netejar ==lactat|r==, tornar al ==parasimpàtic==. Asimetria: baixar és sempre ==més lent que pujar|r==.", type: "synthesis", badge: "✅ Enigma 1 — resolt" },
+    { id: "t3", apartat: "3", heading: "Resolució enigma 2 — Analítica Marc", text: "==Ferro baix|r== → menys ==hemoglobina|r== → ==eritròcits petits|r== → cada litre de sang porta molt menys ==O₂|b== → cor compensa amb ==FC alta|r== → els músculs es queden ==sense prou oxigen|r== → ==fatiga precoç|r==. La ==creatinina i urea normals|g== → el ronyó va bé, el problema és el ==ferro|r==.", type: "synthesis", badge: "✅ Enigma 2 — resolt" }
   ],
 
   graphicResources: [
@@ -158,5 +158,5 @@ export const sa2s7 = {
   // CE5: la pregunta 4 del full de sortida (a les TRES versions)
   // demana valorar una recomanació de salut a partir de la fisiologia, que és
   // literalment el que descriu el criteri 5.3.
-  oaLinks: ["OA1", "OA2", "OA3", "OA4", "OA5"], competencies: ["CE1", "CE2", "CE4", "CE5"]
+  oaLinks: ["OA1", "OA2", "OA3", "OA4"], competencies: ["CE1", "CE2", "CE4", "CE5"]
 }

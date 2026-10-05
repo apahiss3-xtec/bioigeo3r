@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ca"><head><meta charset="utf-8">
+<title>Full de sortida - Sessió 3 - Defensors del cos</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Fira+Sans+Extra+Condensed:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--green:#2F6B5E;--ink:#173328;--light:#84BBA8;--tint:#EAF4F0;--rule:#CBD9D4;--amber:#D98B34;}
+*{box-sizing:border-box;}
+body{margin:0;background:#EEF2F0;font-family:"Fira Sans Extra Condensed","Fira Sans Condensed",
+  "Arial Narrow",Arial,sans-serif;color:var(--ink);}
+.page{width:210mm;min-height:297mm;margin:12px auto;background:#fff;padding:13mm 14mm;
+  box-shadow:0 2px 10px rgba(0,0,0,.14);}
+.head{display:flex;align-items:center;gap:11px;border-bottom:3px solid var(--green);
+  padding-bottom:8px;margin-bottom:10px;}
+.head .tick{font-size:30px;line-height:1;}
+.head h1{margin:0;font-size:20px;letter-spacing:.01em;color:var(--green);text-transform:uppercase;}
+.head .sub{font-size:13.5px;color:#5C6E68;margin-top:1px;}
+.badge{margin-left:auto;border:2px solid var(--green);color:var(--green);border-radius:20px;
+  padding:3px 12px;font-size:13.5px;font-weight:800;white-space:nowrap;}
+.ident{display:flex;gap:14px;font-size:13.5px;margin-bottom:6px;}
+.ident>div{flex:1;border-bottom:1.6px solid var(--ink);padding-bottom:2px;}
+.crit-bar{display:flex;align-items:baseline;gap:8px;font-size:11px;color:#5C6E68;margin-bottom:9px;}
+.crit-bar .ck{font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;}
+.crit-bar b{font-size:13.5px;color:var(--green);}
+.crit-bar .esc{margin-left:auto;letter-spacing:.06em;}
+.avis{background:#FBEEF0;border-left:4px solid #C05A6B;padding:7px 10px;font-size:13.5px;
+  line-height:1.5;border-radius:0 7px 7px 0;margin-bottom:12px;}
+.q{margin-bottom:13px;break-inside:avoid;}
+.qh{display:flex;gap:7px;align-items:flex-start;margin-bottom:4px;}
+.qn{background:var(--green);color:#fff;border-radius:50%;width:21px;height:21px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;}
+.qt{font-size:14.5px;line-height:1.5;}
+.wl{border-bottom:1.5px solid var(--rule);height:23px;}
+.pista{font-size:13.5px;color:#5C6E68;background:var(--tint);border-radius:6px;
+  padding:4px 8px;margin:3px 0 5px;line-height:1.5;}
+.bastida{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--green);margin:6px 0 1px;}
+.bank{background:var(--tint);border:1.4px dashed var(--light);border-radius:8px;padding:6px 9px;
+  margin:4px 0 6px;}
+.bank .t{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--green);margin-bottom:3px;}
+.chip{display:inline-block;background:#fff;border:1.3px solid var(--light);border-radius:13px;
+  padding:1px 9px;font-size:13.5px;margin:2px 3px 2px 0;}
+.opt{display:inline-block;border:1.4px solid var(--green);border-radius:13px;
+  padding:0 9px;font-size:13.5px;margin:2px 4px 2px 0;font-weight:600;}
+table.dades{border-collapse:collapse;margin:4px 0 6px 28px;font-size:13.5px;}
+table.dades th,table.dades td{border:1.3px solid var(--light);padding:2px 12px;text-align:center;}
+table.dades th{background:var(--tint);font-weight:800;}
+.foot{margin-top:14px;padding-top:6px;border-top:1.6px solid var(--rule);display:flex;
+  justify-content:space-between;font-size:11px;color:#7A8A85;}
+.noprint{text-align:center;margin:10px;}
+.noprint button{font:inherit;font-size:14.5px;padding:7px 16px;border:0;border-radius:7px;
+  background:var(--green);color:#fff;cursor:pointer;}
+@media print{body{background:#fff;}.page{margin:0;box-shadow:none;}
+  .noprint{display:none;}@page{size:A4;margin:0;}}
+
+/* ══════════════════════════════════════════════════════════════
+   LLEGIBILITAT-C v1 — llegibilitat de la Versió C (dislèxia). 09/09/2026.
+   Cos en 'Fira Sans Condensed' (mateixa família que l'Extra Condensed
+   de la casa, però amb lletres més obertes i distingibles), interlineat
+   ample i separació de paraules. Titulars, capçalera i peu no es toquen.
+   ══════════════════════════════════════════════════════════════ */
+.sheet-body,#doc{font-family:'Fira Sans Condensed','Fira Sans Extra Condensed',sans-serif;
+  line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
+.sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
+.sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
+</style></head><body>
+<div class="noprint"><button onclick="window.print()">&#128438; Imprimir / PDF (A4)</button></div>
+<div class="page">
+  <div class="head">
+    <span class="tick">&#127903;&#65039;</span>
+    <div><h1>Full de sortida &middot; Sessi&oacute; 3</h1>
+      <div class="sub">Defensors del cos &middot; Vacunes: ciència o mite? &middot; Immunitat de grup i fonts</div></div>
+    <span class="badge">Nivell C</span>
+  </div>
+  <div class="ident"><div>Nom i cognoms:</div><div style="max-width:34%">Data:</div></div>
+  <div class="crit-bar"><span class="ck">&#128208; Criteri avaluat</span><b>2.2</b>
+    <span class="esc">avaluaci&oacute;: NA &middot; AS &middot; AN &middot; AE</span></div>
+  <div class="avis"><strong>Es fa sol i sense ajuda, i es recull.</strong> Aquestes tres preguntes mostren el que has après avui. La fitxa de la sessió te la quedes tu; aquest full l'entregues.</div>
+  <div class="bank"><div class="t">&#128230; Paraules que et poden servir</div><span class="chip">antigen</span><span class="chip">memòria</span><span class="chip">resposta ràpida</span><span class="chip">immunitat de grup</span><span class="chip">llindar</span><span class="chip">R₀</span><span class="chip">mostra</span><span class="chip">conflicte d&rsquo;interès</span><span class="chip">revisió per parells</span><span class="chip">replicació</span></div><div class="q"><div class="qh"><div class="qn">1</div><div class="qt"><strong>Cas.</strong> Un v&iacute;deo diu: &laquo;les vacunes no serveixen, el cos ja es defensa sol&raquo;. Explica per qu&egrave; &eacute;s fals.</div></div><div class="bastida">&#128137; La vacuna introdueix&hellip; (sense causar la malaltia)</div><div class="wl"></div><div class="bastida">&#129504; El cos crea&hellip;</div><div class="wl"></div><div class="bastida">&#9889; Si arriba el patogen real, la resposta &eacute;s&hellip;</div><div class="wl"></div></div><div class="q"><div class="qh"><div class="qn">2</div><div class="qt"><strong>Cas.</strong> Xarampi&oacute; amb R&#8320; = 12. La ciutat t&eacute; el 90&nbsp;% vacunat. Est&agrave; protegida?</div></div><div class="bastida">&#128290; Llindar = 1 &minus; 1/12 = 1 &minus; &hellip; = &hellip;&nbsp;%</div><div class="wl"></div><div style="margin:3px 0 2px 28px"><span class="opt">S&iacute;, est&agrave; protegida</span><span class="opt">No, no est&agrave; protegida</span></div><div class="bastida">&#128161; Ho s&eacute; perqu&egrave; 90&nbsp;% &eacute;s&hellip; (m&eacute;s / menys) que el llindar.</div><div class="wl"></div></div><div class="q"><div class="qh"><div class="qn">3</div><div class="qt"><strong>Cas.</strong> &laquo;Un estudi amb 15 persones demostra que el suc X cura la grip.&raquo; L'autor ven el suc. Hi confiaries?</div></div><div style="margin:3px 0 2px 28px"><span class="opt">S&iacute;, hi confio</span><span class="opt">No, no hi confio</span></div><div class="bastida">&#128101; La mostra &eacute;s&hellip; (gran / petita) perqu&egrave;&hellip;</div><div class="wl"></div><div class="bastida">&#128176; Hi ha conflicte d'inter&egrave;s perqu&egrave;&hellip;</div><div class="wl"></div></div>
+  <div class="foot"><span>Defensors del cos &middot; Sessi&oacute; 3 &middot; IE Temple</span>
+    <span>CC BY-NC &middot; Albert Pahissa</span></div>
+</div>
+</body></html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SA3 · S2 · Les defenses del cos — Versió B</title>
+<title>SA3 · S2 · Les defenses del cos — Nivell B</title>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -220,7 +220,7 @@ span[contenteditable] { display:inline-block; }
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
       &nbsp;&nbsp;Data:&nbsp;<span class="input-span data-span" contenteditable="true"></span>
-      &nbsp;<span class="nivell-badge-small" title="Versió B">B</span>
+      &nbsp;<span class="nivell-badge-small" title="Versió B — Estàndard">B</span>
     </div>
   </div>
 
@@ -375,30 +375,7 @@ span[contenteditable] { display:inline-block; }
         </div>
       </div>
     </div>
-    <div class="section deletable" style="margin-top:16px">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <div class="exit-box">
-        <div class="exit-title">🎟️ Exit Ticket — Sessió 2</div>
-        <div class="deletable" style="margin-top:8px">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <div class="exit-q" contenteditable="true"><strong>1.</strong> Digues <strong>una paraula clau</strong> de la resposta innata i una de l'adaptativa, i explica la diferència principal entre les dues.</div>
-          <div class="wline" contenteditable="true"></div>
-          <div class="wline" contenteditable="true"></div>
-        </div>
-        <div class="deletable" style="margin-top:8px">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <div class="exit-q" contenteditable="true"><strong>2.</strong> Per quina raó el model de plastilina il·lustra l'<strong>especificitat</strong> dels anticossos?</div>
-          <div class="wline" contenteditable="true"></div>
-          <div class="wline" contenteditable="true"></div>
-        </div>
-        <div class="deletable" style="margin-top:8px">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <div class="exit-q" contenteditable="true"><strong>3.</strong> <em>(Competencial)</em> Quan eres petit/a et van posar una vacuna. Per quina raó encara et pot protegir anys després?</div>
-          <div class="wline" contenteditable="true"></div>
-          <div class="wline" contenteditable="true"></div>
-        </div>
-      </div>
-    </div>
+    <div class="section deletable" style="margin-top:16px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">🎟️</div><div class="connexio-text" contenteditable="true"><strong>Full de sortida.</strong> El professor et donarà un <strong>full a part</strong> amb 3 preguntes sobre el que has treballat avui. Es fa <strong>individualment i sense ajuda</strong>, i <strong>es recull</strong>. Aquesta fitxa te la quedes tu per estudiar.</div></div></div>
     <div class="section deletable" style="margin-top:14px">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <p style="font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:6px">🧠 Metacognició</p>
@@ -496,7 +473,8 @@ function updatePageBreaks() {
   const doc = document.getElementById('doc');
   if (!doc) return;
   doc.querySelectorAll('.page-break-line,.page-footer-bar').forEach(e=>e.remove());
-  for (let i=1; i<8; i++) {
+  const _nPg = Math.max(1, Math.ceil(doc.scrollHeight / PAGE_H)); /* només els fulls que calen */
+  for (let i=1; i<=_nPg; i++) {
     const y = i*PAGE_H;
     const line = document.createElement('div');
     line.className='page-break-line';

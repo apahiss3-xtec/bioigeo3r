@@ -181,7 +181,7 @@ export const sa4s3 = {
     B: "/fitxes/sa4-s3-fitxa-B.html",
     C: "/fitxes/sa4-s3-fitxa-C.html"
   },
-  teoriaPdfUrl: null,
+  teoriaPdfUrl: "/teoria/sa4-s3-teoria.pdf",
 
   fitxaGuide: {
     fitxaName: "Fitxa Sessió 3 — Sexualitat, identitat i una pregunta delicada",
@@ -202,6 +202,7 @@ export const sa4s3 = {
         "Alguna frase sona a opinió i en canvi es pot contrastar amb dades. Abans de decidir, mira si la frase parla d'alguna cosa que algú hagi pogut comptar o mesurar.",
         "Alguna frase barreja dues coses: una part es pot descriure i l'altra no. Prova de partir-la per la meitat."
       ] },
+      { apartat: "—", title: "Full de sortida", time: "7 min", phase: "avalua", instruction: "Full de sortida: un full A PART de la fitxa, individual, sense ajuda i sense mirar la fitxa. Es recull.", hints: [] },
       { apartat: "4", title: "Metacognició", time: "3 min", phase: "avalua", instruction: "Apartat 4: marca el semàfor, completa la frase «avui he entès que la ciència no pot…» i repassa la llista d'objectius. Això és a la fitxa que et quedes tu: no es puntua. Si et queda una pregunta, la pots deixar a la bústia en un paper a part, sense nom.", hints: [] }
     ]
   },

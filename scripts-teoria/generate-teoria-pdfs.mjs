@@ -1,4 +1,4 @@
-// Generador de PDFs de teoria (SA1 i SA2) — IE Temple
+// Generador de PDFs de teoria (SA1–SA4) — IE Temple
 // Llegeix directament les dades de sessió (theoryPoints/graphicResources) i genera
 // un PDF compacte i visual per a cada sessió, amb Playwright (Chromium headless).
 import { chromium } from 'playwright-core'
@@ -12,9 +12,10 @@ const publicDir = path.join(webRoot, 'public')
 const outDir = path.join(publicDir, 'teoria')
 fs.mkdirSync(outDir, { recursive: true })
 
-const SA_LABEL = { sa1: 'La cèl·lula', sa2: 'El cos humà' }
-const SA_ACCENT = { sa1: '#7c3aed', sa2: '#c0392b' }
-const SA_ACCENT_SOFT = { sa1: 'rgba(124,58,237,0.08)', sa2: 'rgba(192,57,43,0.08)' }
+const SA_LABEL = { sa1: 'La cèl·lula', sa2: 'El cos humà', sa3: 'Defensors del cos', sa4: 'Créixer i reproduir-se' }
+// Accent = color.accent de data/saN/index.js
+const SA_ACCENT = { sa1: '#7c3aed', sa2: '#c0392b', sa3: '#157f6b', sa4: '#8350c8' }
+const SA_ACCENT_SOFT = { sa1: 'rgba(124,58,237,0.08)', sa2: 'rgba(192,57,43,0.08)', sa3: 'rgba(21,127,107,0.08)', sa4: 'rgba(131,80,200,0.08)' }
 
 const HL_COLORS = {
   a: null, // es resol per SA
@@ -48,7 +49,7 @@ function hexToRgba (hex, alpha) {
 // Replica la sintaxi ==paraula== / ==paraula|x== de src/translate/T.jsx
 function renderHighlighted (text, accentHex) {
   if (!text) return ''
-  const escaped = escapeHtml(text)
+  const escaped = escapeHtml(text).replace(/&lt;em&gt;(.*?)&lt;\/em&gt;/g, '<em>$1</em>')
   const HL_RE = /==(.+?)==/g
   let out = ''
   let last = 0
@@ -128,7 +129,8 @@ function buildHtml (session) {
   const accentSoft = SA_ACCENT_SOFT[session.saId]
   const saLabel = SA_LABEL[session.saId]
   const theoryPoints = session.theoryPoints || []
-  const graphicResources = session.graphicResources || []
+  // Les figures «versió C» són bastides de fitxa, no teoria: fora del PDF
+  const graphicResources = (session.graphicResources || []).filter((r) => !/versió C/i.test(r.title || ''))
 
   const groups = new Map()
   const addToGroup = (apartat, html) => {
@@ -155,7 +157,7 @@ function buildHtml (session) {
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Quicksand:wght@400;500;600;700&display=swap');
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: #fdfafb; color: #4a3f3f; font-family: 'Quicksand', sans-serif; }
+  html, body { margin: 0; padding: 0; background: #fff; color: #4a3f3f; font-family: 'Quicksand', sans-serif; }
   body { font-size: 10px; line-height: 1.42; }
 
   .hero {
@@ -303,11 +305,12 @@ function buildHtml (session) {
 </html>`
 }
 
-const SESSIONS = [
-  { saId: 'sa1', id: 's1' }, { saId: 'sa1', id: 's2' }, { saId: 'sa1', id: 's3' }, { saId: 'sa1', id: 's4' },
-  { saId: 'sa2', id: 's1' }, { saId: 'sa2', id: 's2' }, { saId: 'sa2', id: 's3' }, { saId: 'sa2', id: 's4' },
-  { saId: 'sa2', id: 's5' }, { saId: 'sa2', id: 's6' }, { saId: 'sa2', id: 's7' }
-]
+const SA_SESSIONS = { sa1: 4, sa2: 7, sa3: 5, sa4: 4 }
+// Ús: node generate-teoria-pdfs.mjs [sa3 sa4 ...]  (sense arguments: totes)
+const only = process.argv.slice(2)
+const SESSIONS = Object.entries(SA_SESSIONS)
+  .filter(([saId]) => !only.length || only.includes(saId))
+  .flatMap(([saId, n]) => Array.from({ length: n }, (_, i) => ({ saId, id: `s${i + 1}` })))
 
 async function main () {
   const browser = await chromium.launch()

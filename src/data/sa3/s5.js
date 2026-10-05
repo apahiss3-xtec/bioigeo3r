@@ -10,7 +10,7 @@ export const sa3s5 = {
 
   // NO es renderitza al web: guió del docent (logística, temps,
   // material, revisió de deures). Tasca 2, 09/09/2026.
-  teacherNotes: "Revisió del formulari de comprensió prèvia (deures de S4). Estructura: classificació de substàncies → sinapsi i droga → mapa de síntesi de tota la unitat → campanya.",
+  teacherNotes: "Posada en comú de la reflexió sobre la dependència (deures de S4). Estructura: classificació de substàncies → sinapsi i droga → mapa de síntesi de tota la unitat → campanya.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {
@@ -26,7 +26,7 @@ export const sa3s5 = {
       "Explico que les drogues fan arribar molta més dopamina als receptors, per camins diferents segons quina sigui.",
       "Explico l'addicció com un canvi físic del cervell (tolerància, abstinència), no com a debilitat moral.",
       "Connecto els conceptes de la unitat en un mapa (patogen → defenses → vacuna → fàrmac → droga) i resolc els dos enigmes.",
-      "Dissenyo una campanya de comunicació científica aplicant els 4 criteris de qualitat d'una font."
+      "Dissenyo una campanya de comunicació científica aplicant els 6 criteris de qualitat d'una font."
     ],
     C: [
       "Sé que les drogues actuen com a neurotransmissors i inunden els receptors de dopamina.",
@@ -81,6 +81,13 @@ export const sa3s5 = {
       type: "concept"
     },
     {
+      id: "t5",
+      apartat: "2",
+      heading: "Tres famílies de ==drogues== segons com actuen",
+      text: "==Depressores|b==: alenteixen el sistema nerviós (alcohol, benzodiazepines). ==Estimulants|o==: l'acceleren (cocaïna, amfetamines, cafeïna). ==Al·lucinògenes|p==: alteren la percepció de la realitat (LSD, psilocibina). La classificació agrupa per l'==efecte sobre el sistema nerviós|g==, no per la legalitat: l'alcohol i la cafeïna hi són, tot i ser legals. Cada droga pot tenir ==més d'un efecte|o== i el seu risc depèn de la dosi i de la persona.",
+      type: "concept"
+    },
+    {
       id: "t4",
       apartat: "3",
       heading: "Síntesi SA3: de la ==infecció== a la ==decisió==",
@@ -97,7 +104,7 @@ export const sa3s5 = {
     { name: "Full de sortida — versió C (amb bastida)", url: "/fitxes/sa3-s5-full-sortida-C.html" }
   ],
 
-  fitxaUrl: { A: "/fitxes/sa3-s5-fitxa-A.html", B: "/fitxes/sa3-s5-fitxa-B.html", C: "/fitxes/sa3-s5-fitxa-C.html" }, teoriaPdfUrl: null,
+  fitxaUrl: { A: "/fitxes/sa3-s5-fitxa-A.html", B: "/fitxes/sa3-s5-fitxa-B.html", C: "/fitxes/sa3-s5-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa3-s5-teoria.pdf",
 
   fitxaGuide: {
     fitxaName: "Fitxa Sessió 5 — Drogues, addicció i síntesi",
@@ -114,10 +121,10 @@ export const sa3s5 = {
       ] },
       { apartat: "3", title: "Mapa de síntesi i els dos enigmes", time: "15 min", phase: "explica", instruction: "Apartat 3: dibuixa el mapa conceptual connectant com a mínim 6 conceptes de la unitat i escriu la resolució dels dos enigmes de la paret.", hints: [
         "Enigma A (Martina): hi ha dues explicacions possibles i totes dues poden ser certes alhora. Una depèn del seu cos; l'altra, de la gent del seu voltant.",
-        "Enigma B (article Wakefield): aplica-hi els 4 criteris de qualitat de la Sessió 3, un per un, i mira quins incompleix. Les dades són a la teva fitxa."
+        "Enigma B (article Wakefield): aplica-hi els 6 criteris per avaluar una font de la Sessió 3, un per un, i mira quins incompleix. Les dades són a la teva fitxa."
       ] },
       { apartat: "4", title: "La campanya de comunicació científica", time: "25 min", phase: "elabora", instruction: "Apartat 4, en grup: planifiqueu la campanya que desmunta un mite sobre la salut. Ompliu el guió de 4 apartats, decidiu l'audiència i el canal, i repartiu-vos la feina. L'acabareu a casa.", hints: [
-        "El mite ha de fallar almenys un dels 4 criteris de qualitat de la Sessió 3: revisió per parells, mida de la mostra, conflicte d'interès, replicació.",
+        "El mite ha de fallar almenys un dels 6 criteris de la Sessió 3: autor/a, on es publica, estudis verificables, mida de la mostra, conflicte d'interès, titular i contingut.",
         "Llegiu la rúbrica de la campanya ABANS de començar: us diu exactament què es valora."
       ] }
     ]
@@ -126,20 +133,20 @@ export const sa3s5 = {
   exitTicketType: "paper",
   exitTicketQuestions: [
     { id: "q1", type: "open", text: "Resol l'enigma A: per quina raó la Martina (no vacunada) i la seva àvia (vacunada) van escapar de la grip de novembre? Dona almenys 2 explicacions fonamentades per a la Martina.", hint: "Per a la Martina hi ha dos camins possibles i tots dos són compatibles: un depèn del SEU cos i l'altre de la gent del SEU VOLTANT. Per a l'àvia n'hi ha prou amb el mecanisme de la Sessió 3." },
-    { id: "q2", type: "open", text: "L'article de Wakefield afirmava que les vacunes causen autisme. Per quina raó la revista científica el va retirar? Cita almenys 2 raons concretes.", hint: "Repassa els 4 criteris de qualitat de la Sessió 3 i mira quins incompleix l'article. La caixa «Dades per a l'Enigma B» de la teva fitxa té els números." },
+    { id: "q2", type: "open", text: "L'article de Wakefield afirmava que les vacunes causen autisme. Per quina raó la revista científica el va retirar? Cita almenys 2 raons concretes.", hint: "Repassa els 6 criteris de la Sessió 3 i mira quins incompleix l'article. La caixa «Dades per a l'Enigma B» de la teva fitxa té els números." },
     { id: "q3", type: "open", text: "Per quina raó l'addicció NO és «només qüestió de voluntat»? Usa les paraules dopamina i receptors.", hint: "Comença pel que passa als receptors quan la droga hi arriba, i segueix amb el que fa el cervell si això es repeteix cada dia. La figura dels quatre quadres de l'apartat 2 explica tota la cadena." }
   ],
   exitTicketNote: "Avaluació sumativa CE1 + CE2 + CE5 (resolució dels dos enigmes de la unitat). Individual, sense ajuda, i es recull. Es pot respondre a l'ordinador o en paper: el full imprès porta les mateixes tres preguntes. /fitxes/sa3-s5-full-sortida.html (versions A i B) i /fitxes/sa3-s5-full-sortida-C.html (versió C, amb bastida).",
 
   deliverables: [
-    { name: "Campanya de comunicació científica (cartell o vídeo de 60 s)", note: "Es comença a classe a l'apartat 4 i s'acaba a casa. Entrega a Classroom, termini 1 setmana. Desmunta un mite sobre salut aplicant els 4 criteris de qualitat. Rúbrica: /fitxes/sa3-s5-rubrica-campanya.html" }
+    { name: "Campanya de comunicació científica (cartell o vídeo de 60 s)", note: "Es comença a classe a l'apartat 4 i s'acaba a casa. Entrega a Classroom, termini 1 setmana. Desmunta un mite sobre salut aplicant els 6 criteris de qualitat. Rúbrica: /fitxes/sa3-s5-rubrica-campanya.html" }
   ],
 
   campanyaStructure: {
     title: "Campanya: estructura mínima",
     sections: [
       "1. L'afirmació que desmuntes (cita la font original)",
-      "2. Per quina raó és un mite: aplica els 4 criteris de qualitat a la font original",
+      "2. Per quina raó és un mite: aplica els 6 criteris de qualitat a la font original",
       "3. L'evidència real: cita almenys 1 estudi científic vàlid",
       "4. Missatge final: clar, breu i dirigit al públic objectiu (companys de classe)"
     ]
@@ -153,5 +160,5 @@ export const sa3s5 = {
     "Escriu la resolució dels dos enigmes (Martina + article Wakefield) amb les cadenes causals",
     "Prepara la campanya de comunicació científica amb el guió de 4 apartats i entrega-la a Classroom (cartell o vídeo de 60 s), seguint la rúbrica"
   ],
-  oaLinks: ["OA4"], competencies: ["CE1", "CE2", "CE5"]
+  oaLinks: ["OA3"], competencies: ["CE1", "CE2", "CE5"]
 }

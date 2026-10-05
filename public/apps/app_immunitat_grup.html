@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immunitat de grup · IE Temple · 3r ESO</title>
+<style>
+:root{
+  --purple:#c084fc;--purple-ink:#5a4aa0;--purple-deep:#7B68C8;
+  --ink:#1A1A2E;--ink-2:#4A3F3F;--muted:#666666;
+  --surface:#fdfafb;--card:#ffffff;--rule:#EAE6F6;--rule-dark:#C8C2DD;
+  --purple-tint:#EFEAF5;--yellow-tint:#FFF9E0;--green:#3fa15a;--green-tint:#EAF4EB;
+  --red:#d64550;--red-tint:#fbecec;
+  --blue:#2f6fb0;--blue-soft:#c7dcef;--blue-tint:#e9f1f9;
+  --amber:#e0a92b;--amber-soft:#f3dfae;
+  --shadow:0 1px 2px rgba(26,26,46,.06),0 8px 24px rgba(26,26,46,.07);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Fira Sans Extra Condensed','Arial Narrow','Segoe UI',sans-serif;background:var(--surface);color:var(--ink-2);min-height:100vh;}
+button{font-family:inherit;cursor:pointer;}
+header{background:var(--purple-ink);padding:12px 24px;}
+.eyebrow{font-size:11px;font-weight:700;color:var(--purple);letter-spacing:.1em;text-transform:uppercase;}
+.htitle{font-size:22px;font-weight:700;color:#fff;line-height:1.1;}
+.hsub{font-size:13px;color:#e4defa;margin-top:2px;}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 20px 40px;}
+.intro h1{font-size:24px;color:var(--ink);line-height:1.15;}
+.intro p{font-size:15.5px;line-height:1.45;margin-top:6px;}
+.mission{margin-top:10px;background:var(--yellow-tint);border-left:4px solid var(--amber);padding:9px 12px;border-radius:8px;font-size:15px;font-weight:600;color:var(--ink);}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;margin-top:16px;align-items:start;}
+.stage,.panel,.quiz{background:var(--card);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);}
+.stage{padding:16px;}
+.panel{padding:16px;position:sticky;top:12px;}
+.controls{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;}
+.ctrl{display:flex;flex-direction:column;gap:5px;}
+.ctrl label{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-ink);}
+.ctrl.slider{flex:1;min-width:200px;}
+.slider-row{display:flex;align-items:center;gap:10px;}
+input[type=range]{flex:1;accent-color:var(--blue);height:24px;}
+.pct{font-size:22px;font-weight:700;color:var(--blue);min-width:56px;text-align:right;}
+.seg{display:inline-flex;border:1.5px solid var(--purple-deep);border-radius:10px;overflow:hidden;}
+.seg button{border:none;background:#fff;color:var(--purple-ink);font-size:14px;font-weight:700;padding:8px 12px;}
+.seg button.on{background:var(--purple-deep);color:#fff;}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.btn{display:inline-flex;align-items:center;gap:7px;border:none;background:var(--purple-deep);color:#fff;font-size:15px;font-weight:700;padding:9px 16px;border-radius:10px;transition:filter .15s,transform .1s;}
+.btn:hover{filter:brightness(1.08);}
+.btn:active{transform:translateY(1px);}
+.btn.red{background:var(--red);}
+.btn.ghost{background:transparent;color:var(--purple-ink);border:1.5px solid var(--purple-deep);}
+.btn:disabled{opacity:.4;cursor:not-allowed;}
+.pop{margin-top:14px;display:grid;grid-template-columns:repeat(20,1fr);gap:3px;max-width:560px;}
+.p{aspect-ratio:1;border-radius:50%;background:#fff;border:1.5px solid var(--rule-dark);transition:background .25s,border-color .25s,transform .25s;}
+.p.v{background:var(--blue);border-color:var(--blue);}
+.p.i{background:var(--red);border-color:var(--red);transform:scale(1.18);box-shadow:0 0 0 2px var(--red-tint);}
+.p.r{background:var(--amber-soft);border-color:var(--amber);}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;font-size:14px;}
+.legend span{display:inline-flex;align-items:center;gap:6px;}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:50%;border:1.5px solid var(--rule-dark);background:#fff;}
+.legend i.v{background:var(--blue);border-color:var(--blue);}
+.legend i.i{background:var(--red);border-color:var(--red);}
+.legend i.r{background:var(--amber-soft);border-color:var(--amber);}
+.note{font-size:13px;color:var(--muted);margin-top:10px;line-height:1.4;}
+.panel h2{font-size:14px;color:var(--purple-ink);text-transform:uppercase;letter-spacing:.06em;}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+.stat{background:var(--purple-tint);border-radius:10px;padding:8px 10px;}
+.stat b{display:block;font-size:24px;color:var(--ink);line-height:1.1;}
+.stat small{font-size:12.5px;color:var(--ink-2);}
+.stat.red{background:var(--red-tint);}
+.stat.red b{color:var(--red);}
+.stat.green{background:var(--green-tint);}
+.stat.green b{color:var(--green);}
+.msg{margin-top:12px;font-size:15px;line-height:1.45;padding:10px 12px;border-radius:10px;background:var(--blue-tint);color:var(--ink);min-height:48px;}
+.msg.bad{background:var(--red-tint);}
+.msg.good{background:var(--green-tint);}
+.multi{margin-top:12px;font-size:14.5px;line-height:1.45;}
+.bar{height:12px;background:var(--rule);border-radius:6px;overflow:hidden;margin-top:6px;}
+.bar div{height:100%;background:var(--red);width:0;transition:width .4s;}
+.repte{margin-top:16px;border-top:1px dashed var(--rule-dark);padding-top:14px;}
+.repte p{font-size:15px;line-height:1.45;color:var(--ink);}
+.repte .row{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap;}
+.repte input{font-family:inherit;font-size:18px;width:80px;padding:6px 8px;border:1.5px solid var(--purple-deep);border-radius:8px;}
+.quiz{padding:18px 20px;margin-top:18px;}
+.quiz h2{font-size:18px;color:var(--purple-ink);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em;}
+.quiz .q{margin-top:14px;}
+.quiz .q p{font-size:15.5px;font-weight:600;color:var(--ink);margin-bottom:8px;}
+.opt{display:block;width:100%;text-align:left;border:1.5px solid var(--rule-dark);background:#fff;border-radius:10px;padding:9px 12px;font-size:15px;color:var(--ink-2);margin-top:6px;}
+.opt:hover{border-color:var(--purple-deep);}
+.opt.correct{background:var(--green-tint);border-color:var(--green);color:var(--ink);}
+.opt.wrong{background:var(--red-tint);border-color:var(--red);}
+.opt.dim{opacity:.55;}
+.fb{font-size:14.5px;margin-top:8px;line-height:1.45;display:none;}
+.fb.show{display:block;}
+@media (max-width:900px){
+  .grid{grid-template-columns:1fr;}
+  .panel{position:static;}
+}
+@media (max-width:480px){
+  header{padding:10px 16px;}
+  .wrap{padding:14px 16px 32px;}
+  .intro h1{font-size:21px;}
+  .pop{gap:2px;}
+  .stage{padding:12px;}
+  .controls{flex-direction:column;align-items:stretch;}
+  .seg{display:flex;}
+  .seg button{flex:1;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Biologia i Geologia · 3r ESO · IE Temple</div>
+  <div class="htitle">Immunitat de grup</div>
+  <div class="hsub">SA3 · Sessió 3 · Les vacunes</div>
+</header>
+
+<div class="wrap">
+  <div class="intro">
+    <h1>Pot una persona sense vacunar estar protegida?</h1>
+    <p>Aquí tens un poble de 400 persones. Tria quantes estan vacunades i quina malaltia arriba. Després introdueix un cas i mira, ronda a ronda, fins on arriba el contagi.</p>
+    <div class="mission">🎯 Missió: troba el percentatge mínim de vacunats que protegeix les persones no vacunades del xarampió.</div>
+  </div>
+
+  <div class="grid">
+    <div class="stage">
+      <div class="controls">
+        <div class="ctrl slider">
+          <label for="vac">Persones vacunades</label>
+          <div class="slider-row">
+            <input type="range" id="vac" min="0" max="100" step="1" value="50" aria-describedby="vacOut">
+            <span class="pct" id="vacOut">50 %</span>
+          </div>
+        </div>
+        <div class="ctrl">
+          <label>Malaltia</label>
+          <div class="seg" role="group" aria-label="Malaltia">
+            <button type="button" class="on" data-r0="2.5">Grip · R₀ 2,5</button>
+            <button type="button" data-r0="15">Xarampió · R₀ 15</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="btns">
+        <button class="btn red" id="bCas">🦠 Introdueix un cas</button>
+        <button class="btn ghost" id="bReset">↺ Nou poble</button>
+        <button class="btn ghost" id="bMulti">🔁 Simula 100 brots</button>
+      </div>
+
+      <div class="pop" id="pop" aria-label="Població de 400 persones"></div>
+
+      <div class="legend">
+        <span><i></i> No vacunada</span>
+        <span><i class="v"></i> Vacunada</span>
+        <span><i class="i"></i> Contagiosa ara</span>
+        <span><i class="r"></i> Ja l'ha passat</span>
+      </div>
+      <p class="note">Model simplificat: la vacuna protegeix del tot, la gent es troba a l'atzar, el primer cas és un visitant de fora i cada persona contagiosa té, de mitjana, tants contactes de risc com indica el R₀. Cada brot és diferent perquè hi intervé l'atzar: repeteix-lo diverses vegades abans de treure conclusions.</p>
+    </div>
+
+    <aside class="panel">
+      <h2>Comptador</h2>
+      <div class="stats">
+        <div class="stat"><b id="sRonda">0</b><small>ronda</small></div>
+        <div class="stat red"><b id="sAra">0</b><small>contagioses ara</small></div>
+        <div class="stat red"><b id="sTotal">0</b><small>infectades en total</small></div>
+        <div class="stat green"><b id="sProt">0</b><small>no vacunades que s'han salvat</small></div>
+      </div>
+      <div class="msg" id="msg">Tria el % de vacunats i la malaltia, i prem «Introdueix un cas».</div>
+      <div class="multi" id="multi"></div>
+
+      <div class="repte">
+        <h2>Repte final</h2>
+        <p>Amb el <b>xarampió</b>, quin és el % mínim de vacunats a partir del qual els brots s'apaguen sols i les persones no vacunades queden protegides?</p>
+        <div class="row">
+          <input type="number" id="rIn" min="0" max="100" inputmode="numeric" aria-label="Percentatge mínim"> <span>%</span>
+          <button class="btn" id="rBtn">Comprova</button>
+        </div>
+        <div class="fb" id="rFb"></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="quiz" id="quiz">
+    <h2>Comprova-ho</h2>
+  </div>
+</div>
+
+<script>
+(function(){
+  const N = 400;
+  const pop = document.getElementById('pop');
+  const cells = [];
+  for (let k = 0; k < N; k++) { const d = document.createElement('div'); d.className = 'p'; pop.appendChild(d); cells.push(d); }
+
+  let state = new Array(N).fill('s');   // s: no vacunada · v: vacunada · i: contagiosa · r: ja l'ha passat
+  let R0 = 2.5, pct = 50, running = false, timer = null, ronda = 0, total = 0;
+
+  const $ = id => document.getElementById(id);
+  const vac = $('vac'), vacOut = $('vacOut'), msg = $('msg');
+
+  function shuffle(a){ for (let k = a.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [a[k], a[j]] = [a[j], a[k]]; } return a; }
+
+  function vaccinate(st){
+    const idx = shuffle([...Array(N).keys()]);
+    const nv = Math.round(N * pct / 100);
+    for (let k = 0; k < N; k++) st[idx[k]] = k < nv ? 'v' : 's';
+    return st;
+  }
+
+  // Nombre de contactes de risc: de mitjana R0 (2,5 → 2 o 3; 15 → 15)
+  function contactes(){ const f = Math.floor(R0); return f + (Math.random() < R0 - f ? 1 : 0); }
+
+  // Una generació: cada persona contagiosa contacta gent a l'atzar; les no vacunades sanes s'infecten.
+  // Retorna les persones noves contagiades. Les contagioses passen a «ja l'ha passat».
+  function contagia(st, fonts){
+    const nous = [];
+    fonts.forEach(k => {
+      const c = contactes();
+      for (let n = 0; n < c; n++) { const j = Math.floor(Math.random() * N); if (st[j] === 's') { st[j] = 'i'; nous.push(j); } }
+      if (k >= 0) st[k] = 'r';
+    });
+    return nous;
+  }
+
+  let actius = [];   // persones contagioses d'aquesta ronda (-1 = el visitant de fora)
+
+  function draw(){
+    for (let k = 0; k < N; k++) cells[k].className = 'p' + (state[k] === 's' ? '' : ' ' + state[k]);
+    const nNoVac = state.filter(x => x !== 'v').length;
+    $('sRonda').textContent = ronda;
+    $('sAra').textContent = actius.filter(k => k >= 0).length;
+    $('sTotal').textContent = total;
+    $('sProt').textContent = (nNoVac - total) + ' / ' + nNoVac;
+  }
+
+  function stop(){ clearInterval(timer); timer = null; running = false; $('bCas').disabled = false; }
+
+  function reset(){
+    stop(); ronda = 0; total = 0; actius = [];
+    state = vaccinate(new Array(N));
+    draw();
+    setMsg('Poble nou: ' + Math.round(N * pct / 100) + ' persones vacunades. Prem «Introdueix un cas».', '');
+  }
+
+  function setMsg(t, cls){ msg.textContent = t; msg.className = 'msg' + (cls ? ' ' + cls : ''); }
+
+  function nomMalaltia(){ return R0 === 15 ? 'el xarampió' : 'la grip'; }
+
+  function introdueix(){
+    if (running) return;
+    if (ronda > 0) { ronda = 0; total = 0; state = vaccinate(new Array(N)); }
+    actius = [-1]; draw();
+    setMsg('Arriba al poble un visitant amb ' + nomMalaltia() + '. Mira a qui contagia...', '');
+    running = true; $('bCas').disabled = true;
+    timer = setInterval(() => {
+      ronda++;
+      actius = contagia(state, actius);
+      total += actius.length;
+      draw();
+      if (actius.length === 0) {
+        stop();
+        const nNoVac = state.filter(x => x !== 'v').length;
+        const perc = nNoVac ? Math.round(100 * total / nNoVac) : 0;
+        const txt = 'El brot s’ha acabat a la ronda ' + ronda + '. S’han contagiat ' + total + ' de les ' + nNoVac + ' persones no vacunades (' + perc + ' %).';
+        setMsg(txt + (perc >= 30 ? ' Brot gran.' : perc <= 10 ? ' Brot petit.' : ''), perc >= 30 ? 'bad' : perc <= 10 ? 'good' : '');
+      } else {
+        setMsg('Ronda ' + ronda + ': ' + actius.length + ' persones contagioses ara.', '');
+      }
+    }, 650);
+  }
+
+  // 100 brots sense animació. Mesura quantes persones contagia de mitjana cada persona contagiosa
+  // a l'inici del brot (visitant + 1a generació), abans que s'esgotin les no vacunades.
+  function multi(){
+    if (running) return;
+    const REP = 100;
+    let sec = 0, casos = 0, sumaP = 0;
+    for (let r = 0; r < REP; r++) {
+      const st = vaccinate(new Array(N));
+      const nNoVac = st.filter(x => x === 's').length;
+      let gen = [-1], g = 0, t = 0;
+      while (gen.length) {
+        const nous = contagia(st, gen);
+        if (g < 2) { sec += nous.length; casos += gen.length; }
+        t += nous.length; gen = nous; g++;
+      }
+      sumaP += nNoVac ? 100 * t / nNoVac : 0;
+    }
+    const Rm = sec / casos, mitj = Math.round(sumaP / REP);
+    const Rtxt = Rm.toFixed(2).replace('.', ',');
+    $('multi').innerHTML = '<b>100 brots amb ' + nomMalaltia() + ' i un ' + pct + ' % de vacunats:</b><br>' +
+      'Cada persona contagiosa n’ha contagiat de mitjana <b>' + Rtxt + '</b> persones. ' +
+      'S’han contagiat de mitjana ' + (mitj === 1 || mitj === 11 ? 'l’' : 'el ') + mitj + ' % de les persones no vacunades.<br>' +
+      (Rm < 1 ? '🟢 Menys d’1 contagi per persona: els brots s’apaguen sols.' : '🔴 1 contagi o més per persona: els brots poden créixer.') +
+      '<div class="bar"><div style="width:' + mitj + '%"></div></div>';
+  }
+
+  vac.addEventListener('input', () => { pct = +vac.value; vacOut.textContent = pct + ' %'; reset(); $('multi').innerHTML = ''; });
+  document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.seg button').forEach(x => x.classList.remove('on'));
+    b.classList.add('on'); R0 = +b.dataset.r0; reset(); $('multi').innerHTML = '';
+  }));
+  $('bCas').addEventListener('click', introdueix);
+  $('bReset').addEventListener('click', reset);
+  $('bMulti').addEventListener('click', multi);
+
+  // ── Repte final ──
+  $('rBtn').addEventListener('click', () => {
+    const v = parseFloat($('rIn').value), fb = $('rFb');
+    fb.className = 'fb show';
+    if (isNaN(v)) { fb.textContent = 'Escriu un número entre 0 i 100.'; return; }
+    if (v >= 93 && v <= 94) {
+      fb.innerHTML = '✅ <b>Correcte.</b> A partir d\'un 93-94 % cada persona amb xarampió en contagia menys d\'1 i els brots de xarampió s\'apaguen sols. La fórmula ho confirma: llindar = 1 − 1/R₀ = 1 − 1/15 ≈ 0,93, és a dir, un 93 %. Amb la grip (R₀ 2,5) n\'hi ha prou amb un 60 %: com més contagiosa és la malaltia, més gent cal vacunar.';
+    } else if (v > 94) {
+      fb.innerHTML = '🟡 Amb aquest % sí que estan protegits, però no és el <b>mínim</b>. Baixa el control lliscant d\'un en un i simula 100 brots cada vegada: a quin % cada persona contagiosa passa a contagiar-ne 1 o més?';
+    } else {
+      fb.innerHTML = '❌ Encara no. Posa el xarampió, deixa el control lliscant en un ' + v + ' % i prem «Simula 100 brots»: quantes persones contagia cada persona contagiosa? Puja el % fins que en contagiï menys d\'1.';
+    }
+  });
+
+  // ── Comprova-ho ──
+  const Q = [
+    { p: 'Amb un 60 % de vacunats, què passa normalment amb la grip i amb el xarampió?',
+      o: ['Tots dos brots s\'apaguen sols', 'La grip s\'apaga, però el xarampió encara fa brots grans', 'El xarampió s\'apaga, però la grip no', 'Tots dos fan brots grans'],
+      c: 1, f: 'Cada persona amb xarampió contagia unes 15 persones; amb grip, unes 2,5. Per frenar el xarampió calen moltes més barreres (persones vacunades).' },
+    { p: 'Un nadó de dos mesos encara no es pot vacunar del xarampió. Què el protegeix?',
+      o: ['Res: si arriba el virus, segur que s\'encomana', 'Que la majoria de la gent del voltant estigui vacunada i el virus no li arribi', 'Els anticossos que ell mateix fabrica de seguida', 'Viure en un poble petit'],
+      c: 1, f: 'Les persones vacunades no transmeten el virus. Si n\'hi ha prou, el virus no troba camí fins a qui no es pot vacunar: això és la immunitat de grup.' },
+    { p: 'Si apareix una malaltia amb un R₀ més alt que el del xarampió, el % de vacunats necessari...',
+      o: ['Baixa', 'Es manté igual', 'Puja', 'No depèn del R₀'],
+      c: 2, f: 'Llindar = 1 − 1/R₀. Com més gran és el R₀, més petit és 1/R₀ i més s\'acosta el llindar al 100 %.' }
+  ];
+  const quiz = $('quiz');
+  Q.forEach((q, qi) => {
+    const box = document.createElement('div'); box.className = 'q';
+    box.innerHTML = '<p>' + (qi + 1) + '. ' + q.p + '</p>';
+    const fb = document.createElement('div'); fb.className = 'fb';
+    q.o.forEach((t, oi) => {
+      const b = document.createElement('button'); b.className = 'opt'; b.textContent = t;
+      b.addEventListener('click', () => {
+        box.querySelectorAll('.opt').forEach((x, xi) => { x.classList.remove('correct', 'wrong', 'dim'); if (xi === q.c) x.classList.add('correct'); else if (xi === oi) x.classList.add('wrong'); else x.classList.add('dim'); });
+        fb.innerHTML = (oi === q.c ? '✅ ' : '❌ ') + q.f; fb.classList.add('show');
+      });
+      box.appendChild(b);
+    });
+    box.appendChild(fb); quiz.appendChild(box);
+  });
+
+  reset();
+})();
+</script>
+</body>
+</html>

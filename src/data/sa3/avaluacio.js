@@ -127,18 +127,19 @@ export const sa3Avaluacio = {
     { id: 'c1', oa: 'OA1', text: "Sé distingir bacteris (procariotes) de virus (no cèl·lules) i explicar per quina raó els antibiòtics no funcionen contra la grip." },
     { id: 'c2', oa: 'OA1', text: "Puc interpretar el R₀ d'una malaltia i dir si una epidèmia s'estén (R₀>1) o s'extingeix (R₀<1)." },
     { id: 'c3', oa: 'OA1', text: "Conec les vies de transmissió principals (aèria, contacte, fecal-oral, vectorial) i una mesura preventiva per a cadascuna." },
-    { id: 'c4', oa: 'OA2', text: "Sé explicar la seqüència immunitat innata (hores, inespecífica) → adaptativa (dies, específica, amb memòria)." },
-    { id: 'c5', oa: 'OA2', text: "Puc explicar el mecanisme antigen-anticòs (clau-pany) i per quina raó un anticòs contra la grip no protegeix contra la varicel·la." },
-    { id: 'c6', oa: 'OA2', text: "Entenc per quina raó la memòria immunològica impedeix una segona infecció i per quina raó la grip pot infectar-te cada any (el virus muta)." },
-    { id: 'c7', oa: 'OA3', text: "Puc explicar el mecanisme d'acció de les vacunes (antigen atenuat → resposta adaptativa → memòria) i el concepte d'immunitat de grup." },
-    { id: 'c8', oa: 'OA3', text: "Sé aplicar els 4 criteris de qualitat d'una font (revisió per parells, mida de la mostra, conflicte d'interès, replicació) a qualsevol afirmació sobre salut." },
-    { id: 'c9', oa: 'OA4', text: "Sé distingir antibiòtics (bacteris), antivirals (virus) i analgèsics (símptomes), i explicar per quina raó l'automedicació amb antibiòtics és perillosa." },
-    { id: 'c10', oa: 'OA4', text: "Entenc per quina raó les drogues causen addicció: activen la via de la dopamina de forma artificial → tolerància → comportament compulsiu." }
+    { id: 'c4', oa: 'OA1', text: "Sé explicar la seqüència immunitat innata (hores, inespecífica) → adaptativa (dies, específica, amb memòria)." },
+    { id: 'c5', oa: 'OA1', text: "Puc explicar el mecanisme antigen-anticòs (clau-pany) i per quina raó un anticòs contra la grip no protegeix contra la varicel·la." },
+    { id: 'c6', oa: 'OA1', text: "Entenc per quina raó la memòria immunològica impedeix una segona infecció i per quina raó la grip pot infectar-te cada any (el virus muta)." },
+    { id: 'c7', oa: 'OA1', text: "Puc explicar el mecanisme d'acció de les vacunes (antigen atenuat → resposta adaptativa → memòria) i el concepte d'immunitat de grup." },
+    { id: 'c8', oa: 'OA2', text: "Sé aplicar els 6 criteris de qualitat d'una font (autor/a, on es publica, estudis verificables, mida de la mostra, conflicte d'interès, titular i contingut) a qualsevol afirmació sobre salut." },
+    { id: 'c9', oa: 'OA3', text: "Sé distingir antibiòtics (bacteris), antivirals (virus) i analgèsics (símptomes), i explicar per quina raó l'automedicació amb antibiòtics és perillosa." },
+    { id: 'c10', oa: 'OA3', text: "Entenc per quina raó les drogues causen addicció: activen la via de la dopamina de forma artificial → tolerància → comportament compulsiu." },
+    { id: 'c11', oa: 'OA4', text: "Sé detectar errors de disseny en un experiment (poca mostra, sense grup control, sense rèpliques, sense doble cec) i proposar com millorar-lo." }
   ],
 
   // Cas-fil NOU: Kemal, alumne nouvingut de Turquia, té el carnet de vacunes incomplet.
   // Context diferent dels casos "grip de novembre" i "article anti-vacunes" de la SA.
-  // Toca els 4 OA: patògens (OA1), SI i memòria (OA2), vacunes i fonts (OA3), antibiòtics (OA4).
+  // Toca els 4 OA: defenses i immunitat (OA1), fonts (OA2), antibiòtics (OA3).
   test: {
     context:
       "El Kemal acaba d'arribar de Turquia a la classe. Porta el carnet de vacunes però li falta la dosi de reforç de la rubèola. El primer dia alguns companys li diuen que no cal vacunar-se perquè «la rubèola ja ha desaparegut a Europa» i que «les vacunes sobrecarreguen el sistema immunitari». Al cap d'una setmana, un company de la classe no vacunat té rubèola (R₀ ≈ 6).",
@@ -161,7 +162,7 @@ export const sa3Avaluacio = {
       },
       {
         id: 't2',
-        oa: 'OA2',
+        oa: 'OA1',
         text: "El Kemal va passar la rubèola als 3 anys. Ara, als 14, s'exposa al company infectat. Per quina raó probablement no emmalaltirà?",
         options: [
           "Perquè la rubèola només afecta els infants i el sistema immunitari adult ja l'ignora",
@@ -177,7 +178,7 @@ export const sa3Avaluacio = {
       },
       {
         id: 't3',
-        oa: 'OA3',
+        oa: 'OA2',
         text: "Un company li ensenya un vídeo sense fonts que diu que «les vacunes sobrecarreguen el sistema immunitari». Quin criteri de qualitat falla primer?",
         options: [
           "La mida de la mostra, perquè el vídeo no diu amb quantes persones s'ha comprovat",
@@ -193,7 +194,7 @@ export const sa3Avaluacio = {
       },
       {
         id: 't4',
-        oa: 'OA4',
+        oa: 'OA3',
         text: "El Kemal pren amoxicil·lina set dies per una faringitis bacteriana. Al quart dia es troba bé i vol deixar-la. Per quina raó ha d'acabar-la?",
         options: [
           "Perquè primer moren els bacteris més sensibles i queden els resistents",

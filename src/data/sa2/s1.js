@@ -87,8 +87,7 @@ export const sa2s1 = {
       heading: "Per quina raó el ==lugol== no detecta tots els hidrats",
       text: "El ==iode== reacciona amb l'estructura helicoïdal del ==midó|o== (polímer de glucosa). La ==fructosa== (sucre simple de la poma) no té aquesta estructura → ==fals negatiu|r==. Límit del test científic.",
       type: "epistemic",
-      badge: "🔬 Límit del test",
-      video: "/animacions/sa2-s1-t5.mp4"
+      badge: "🔬 Límit del test"
     },
     {
       id: "t0",
@@ -100,9 +99,9 @@ export const sa2s1 = {
       badge: "⭐ La peça clau de tota la SA",
       video: "/animacions/sa2-s1-t0.mp4"
     },
-    { id: "t1", apartat: "2", heading: "==Hidrats de carboni== → ==glucosa|o== → ==ATP|g==", text: "Els ==hidrats== es digereixen fins a ==glucosa|o==. La glucosa entra al ==mitocondri== (connexió SA1) i produeix ==ATP|g==. Sense hidrats → sense glucosa → sense ==energia ràpida|g==.", type: "concept", video: "/animacions/sa2-s1-t1.mp4" },
-    { id: "t2", apartat: "2", heading: "==Greixos== → ==energia de reserva|o== + membrana", text: "Els ==greixos== donen el ==doble d'energia|o== per gram que els hidrats, però més lentament. A més, la ==membrana cel·lular== és feta de ==fosfolípids|o== (greixos modificats) — connexió SA1.", type: "concept", video: "/animacions/sa2-s1-t2.mp4" },
-    { id: "t3", apartat: "2", heading: "==Proteïnes== → ==construcció==", text: "Les ==proteïnes== es digereixen fins a ==aminoàcids|o== → s'usen per fabricar cèl·lules, ==enzims==, ==hormones==. No és el combustible principal però és imprescindible per reparar i créixer.", type: "concept", video: "/animacions/sa2-s1-t3.mp4" },
+    { id: "t1", apartat: "2", heading: "==Hidrats de carboni== → ==glucosa|o== → ==ATP|g==", text: "Els ==hidrats== es digereixen fins a ==glucosa|o==. La glucosa entra al ==mitocondri== (connexió SA1) i produeix ==ATP|g==. Sense hidrats → sense glucosa → sense ==energia ràpida|g==.", type: "concept" },
+    { id: "t2", apartat: "2", heading: "==Greixos== → ==energia de reserva|o== + membrana", text: "Els ==greixos== donen el ==doble d'energia|o== per gram que els hidrats, però més lentament. A més, la ==membrana cel·lular== és feta de ==fosfolípids|o== (greixos modificats) — connexió SA1.", type: "concept" },
+    { id: "t3", apartat: "2", heading: "==Proteïnes== → ==construcció==", text: "Les ==proteïnes== es digereixen fins a ==aminoàcids|o== → s'usen per fabricar cèl·lules, ==enzims==, ==hormones==. No és el combustible principal però és imprescindible per reparar i créixer.", type: "concept" },
     { id: "t4", apartat: "2", heading: "==Ferro== → ==hemoglobina== (primer vincle enigma)", text: "El ==ferro== és necessari per fabricar ==hemoglobina== (la proteïna dels ==eritròcits|r== que porta ==O₂|b==). Sense ferro → menys hemoglobina → menys O₂ als músculs. Primer vincle amb l'analítica de sang, però no revelarem res més ara.", type: "concept", badge: "🔗 Enigma 2 — primera pista", video: "/animacions/sa2-s1-t4.mp4" }
   ],
 
@@ -151,5 +150,5 @@ export const sa2s1 = {
     "Prepara igualment els 3 productes fotografiats — es defensarà oralment a S2",
     "Exit tiquet en paper a S2 o fes-lo online a l'acordió de sota"
   ],
-  oaLinks: ["OA1"], competencies: ["CE1", "CE2", "CE3"]
+  oaLinks: ["OA2"], competencies: ["CE1", "CE2", "CE3"]
 }

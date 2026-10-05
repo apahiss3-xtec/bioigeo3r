@@ -21,10 +21,10 @@ export const sa2 = {
     }
   ],
   objectives: [
-    { id: "OA1", text: "Nutrients i digestió", desc: "Relacionar cada nutrient amb la seva funció cel·lular i el recorregut complet fins al mitocondri" },
-    { id: "OA2", text: "Sang i circulació", desc: "Explicar com l'hemoglobina i el ferro transporten l'O₂ i per quina raó la circulació és doble" },
-    { id: "OA3", text: "Respiració i FC", desc: "Interpretar gràfiques de FC i explicar la cadena esforç → ATP → O₂ → FC" },
-    { id: "OA4", text: "Control integrat", desc: "Explicar com SN, SE i sistema excretor mantenen l'homeòstasi durant l'exercici" }
+    { id: "OA1", text: "Interpretar una analítica de sang", desc: "Llegir una analítica amb valors de referència, identificar què està alterat i explicar-ho amb la sang, l'hemoglobina i el ferro (criteri 1.1)" },
+    { id: "OA2", text: "Camí dels nutrients i de l'O₂", desc: "Explicar el camí dels nutrients i de l'oxigen des de fora del cos fins al mitocondri de la cèl·lula (digestió, circulació doble i respiració cel·lular) (criteri 1.2)" },
+    { id: "OA3", text: "Respiració i FC", desc: "Interpretar gràfiques de FC i explicar la cadena esforç → ATP → O₂ → FC (criteris 4.1 i 4.2)" },
+    { id: "OA4", text: "Eliminació, medi intern i salut", desc: "Connectar l'esforç, l'eliminació de residus (sistema excretor) i el medi intern (SN i SE) amb hàbits saludables (criteris 1.2 i 5.3)" }
   ],
   competencies: ["CE1", "CE2", "CE3", "CE4", "CE5"],
   flippedClassroom: true,

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ca"><head><meta charset="utf-8">
+<title>Full de sortida - Sessió 1 - Defensors del cos</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Fira+Sans+Extra+Condensed:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--green:#2F6B5E;--ink:#173328;--light:#84BBA8;--tint:#EAF4F0;--rule:#CBD9D4;--amber:#D98B34;}
+*{box-sizing:border-box;}
+body{margin:0;background:#EEF2F0;font-family:"Fira Sans Extra Condensed","Fira Sans Condensed",
+  "Arial Narrow",Arial,sans-serif;color:var(--ink);}
+.page{width:210mm;min-height:297mm;margin:12px auto;background:#fff;padding:13mm 14mm;
+  box-shadow:0 2px 10px rgba(0,0,0,.14);}
+.head{display:flex;align-items:center;gap:11px;border-bottom:3px solid var(--green);
+  padding-bottom:8px;margin-bottom:10px;}
+.head .tick{font-size:30px;line-height:1;}
+.head h1{margin:0;font-size:20px;letter-spacing:.01em;color:var(--green);text-transform:uppercase;}
+.head .sub{font-size:13.5px;color:#5C6E68;margin-top:1px;}
+.badge{margin-left:auto;border:2px solid var(--green);color:var(--green);border-radius:20px;
+  padding:3px 12px;font-size:13.5px;font-weight:800;white-space:nowrap;}
+.ident{display:flex;gap:14px;font-size:13.5px;margin-bottom:6px;}
+.ident>div{flex:1;border-bottom:1.6px solid var(--ink);padding-bottom:2px;}
+.crit-bar{display:flex;align-items:baseline;gap:8px;font-size:11px;color:#5C6E68;margin-bottom:9px;}
+.crit-bar .ck{font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;}
+.crit-bar b{font-size:13.5px;color:var(--green);}
+.crit-bar .esc{margin-left:auto;letter-spacing:.06em;}
+.avis{background:#FBEEF0;border-left:4px solid #C05A6B;padding:7px 10px;font-size:13.5px;
+  line-height:1.5;border-radius:0 7px 7px 0;margin-bottom:12px;}
+.q{margin-bottom:13px;break-inside:avoid;}
+.qh{display:flex;gap:7px;align-items:flex-start;margin-bottom:4px;}
+.qn{background:var(--green);color:#fff;border-radius:50%;width:21px;height:21px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;}
+.qt{font-size:14.5px;line-height:1.5;}
+.wl{border-bottom:1.5px solid var(--rule);height:23px;}
+.pista{font-size:13.5px;color:#5C6E68;background:var(--tint);border-radius:6px;
+  padding:4px 8px;margin:3px 0 5px;line-height:1.5;}
+.bastida{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--green);margin:6px 0 1px;}
+.bank{background:var(--tint);border:1.4px dashed var(--light);border-radius:8px;padding:6px 9px;
+  margin:4px 0 6px;}
+.bank .t{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--green);margin-bottom:3px;}
+.chip{display:inline-block;background:#fff;border:1.3px solid var(--light);border-radius:13px;
+  padding:1px 9px;font-size:13.5px;margin:2px 3px 2px 0;}
+.opt{display:inline-block;border:1.4px solid var(--green);border-radius:13px;
+  padding:0 9px;font-size:13.5px;margin:2px 4px 2px 0;font-weight:600;}
+table.dades{border-collapse:collapse;margin:4px 0 6px 28px;font-size:13.5px;}
+table.dades th,table.dades td{border:1.3px solid var(--light);padding:2px 12px;text-align:center;}
+table.dades th{background:var(--tint);font-weight:800;}
+.foot{margin-top:14px;padding-top:6px;border-top:1.6px solid var(--rule);display:flex;
+  justify-content:space-between;font-size:11px;color:#7A8A85;}
+.noprint{text-align:center;margin:10px;}
+.noprint button{font:inherit;font-size:14.5px;padding:7px 16px;border:0;border-radius:7px;
+  background:var(--green);color:#fff;cursor:pointer;}
+@media print{body{background:#fff;}.page{margin:0;box-shadow:none;}
+  .noprint{display:none;}@page{size:A4;margin:0;}}
+
+/* ══════════════════════════════════════════════════════════════
+   LLEGIBILITAT-C v1 — llegibilitat de la Versió C (dislèxia). 09/09/2026.
+   Cos en 'Fira Sans Condensed' (mateixa família que l'Extra Condensed
+   de la casa, però amb lletres més obertes i distingibles), interlineat
+   ample i separació de paraules. Titulars, capçalera i peu no es toquen.
+   ══════════════════════════════════════════════════════════════ */
+.sheet-body,#doc{font-family:'Fira Sans Condensed','Fira Sans Extra Condensed',sans-serif;
+  line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
+.sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
+.sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
+</style></head><body>
+<div class="noprint"><button onclick="window.print()">&#128438; Imprimir / PDF (A4)</button></div>
+<div class="page">
+  <div class="head">
+    <span class="tick">&#127903;&#65039;</span>
+    <div><h1>Full de sortida &middot; Sessi&oacute; 1</h1>
+      <div class="sub">Defensors del cos &middot; L'enemic entra &middot; Patògens, R₀ i febre</div></div>
+    <span class="badge">Nivell C</span>
+  </div>
+  <div class="ident"><div>Nom i cognoms:</div><div style="max-width:34%">Data:</div></div>
+  <div class="crit-bar"><span class="ck">&#128208; Criteri avaluat</span><b>1.1</b>
+    <span class="esc">avaluaci&oacute;: NA &middot; AS &middot; AN &middot; AE</span></div>
+  <div class="avis"><strong>Es fa sol i sense ajuda, i es recull.</strong> Aquestes tres preguntes mostren el que has après avui. La fitxa de la sessió te la quedes tu; aquest full l'entregues.</div>
+  <div class="bank"><div class="t">&#128230; Paraules que et poden servir</div><span class="chip">bacteri</span><span class="chip">virus</span><span class="chip">cèl·lula</span><span class="chip">antibiòtic</span><span class="chip">R₀</span><span class="chip">s&rsquo;extingeix</span><span class="chip">s&rsquo;estén</span><span class="chip">febre</span><span class="chip">temperatura</span><span class="chip">patogen</span></div><div class="q"><div class="qh"><div class="qn">1</div><div class="qt"><strong>Cas.</strong> En Biel t&eacute; un mal de coll causat per un <strong>virus</strong>. Li serviria l'antibi&ograve;tic que va sobrar? Encercla i explica.</div></div><div style="margin:3px 0 2px 28px"><span class="opt">S&iacute; que serviria</span><span class="opt">No serviria</span></div><div class="bastida">&#128300; Un bacteri &eacute;s&hellip;</div><div class="wl"></div><div class="bastida">&#129440; Un virus no &eacute;s&hellip;, per tant l'antibi&ograve;tic&hellip;</div><div class="wl"></div><div class="wl"></div></div><div class="q"><div class="qh"><div class="qn">2</div><div class="qt"><strong>Interpreta la taula.</strong> Tres malalties inventades:</div></div><table class="dades"><tr><th>Malaltia</th><th>X</th><th>Y</th><th>Z</th></tr><tr><td>R&#8320;</td><td>0,8</td><td>2,5</td><td>15</td></tr></table><div class="bastida">&#9989; La que s'extingeix sola &eacute;s&hellip;</div><div class="wl"></div><div class="bastida">&#128161; Ho s&eacute; perqu&egrave; el seu R&#8320; &eacute;s&hellip; (m&eacute;s gran / m&eacute;s petit) que 1, i aix&ograve; vol dir que&hellip;</div><div class="wl"></div><div class="wl"></div></div><div class="q"><div class="qh"><div class="qn">3</div><div class="qt"><strong>Cas.</strong> La Nora t&eacute; 38,3&nbsp;&deg;C de febre. Cal baixar-la ara mateix? Encercla i explica.</div></div><div style="margin:3px 0 2px 28px"><span class="opt">S&iacute;, ara mateix</span><span class="opt">No cal, &eacute;s moderada</span></div><div class="bastida">&#127777;&#65039; La temperatura alta fa que el patogen&hellip;</div><div class="wl"></div><div class="bastida">&#128170; I les defenses del cos&hellip;</div><div class="wl"></div></div>
+  <div class="foot"><span>Defensors del cos &middot; Sessi&oacute; 1 &middot; IE Temple</span>
+    <span>CC BY-NC &middot; Albert Pahissa</span></div>
+</div>
+</body></html>

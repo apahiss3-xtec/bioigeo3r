@@ -88,11 +88,11 @@ export const sa2s2 = {
   exploreNote: "Simulació adaptada de © Fátima Miró (larubiscoeslomas.com) — citar autoria a la fitxa i al portal.",
 
   theoryPoints: [
-    { id: "t5", apartat: "1", heading: "Límits del model de simulació", text: "La simulació NO reprodueix: la temperatura (37ºC), la pressió de l'estómac, la velocitat real (~24h), la ==selectivitat molecular|o== de les ==vellositats==. Tot ==model== simplifica la realitat.", type: "epistemic", badge: "🔬 Límits del model", video: "/animacions/sa2-s2-t5.mp4" },
-    { id: "t1", apartat: "3", heading: "Per quina raó l'absorció és a l'==intestí prim== i no a l'==estómac==", text: "L'==intestí prim== té ==vellositats|o== que multipliquen la ==superfície d'absorció|o== (~200 m²). El ==pH== és neutre (favorable per a ==enzims==). L'estómac té ==pH àcid (2–3)|r== que ==desnaturalitza|r== enzims però mata bacteris.", type: "concept", video: "/animacions/sa2-s2-t1.mp4" },
-    { id: "t2", apartat: "3", heading: "Per quina raó el ==pàncrees== secreta ==bicarbonat==", text: "El ==quimo== que arriba del estómac és molt àcid. El ==bicarbonat pancreàtic== el neutralitza fins a ==pH 7–8|g== perquè els ==enzims intestinals== (lipasa, proteasa) funcionin. Sense neutralització, els enzims no funcionen.", type: "concept", video: "/animacions/sa2-s2-t2.mp4" },
+    { id: "t5", apartat: "1", heading: "Límits del model de simulació", text: "La simulació NO reprodueix: la temperatura (37ºC), la pressió de l'estómac, la velocitat real (~24h), la ==selectivitat molecular|o== de les ==vellositats==. Tot ==model== simplifica la realitat.", type: "epistemic", badge: "🔬 Límits del model" },
+    { id: "t1", apartat: "3", heading: "Per quina raó l'absorció és a l'==intestí prim== i no a l'==estómac==", text: "L'==intestí prim== té ==vellositats|o== que multipliquen la ==superfície d'absorció|o== (~200 m²). El ==pH== és neutre (favorable per a ==enzims==). L'estómac té ==pH àcid (2–3)|r== que ==desnaturalitza|r== enzims però mata bacteris.", type: "concept" },
+    { id: "t2", apartat: "3", heading: "Per quina raó el ==pàncrees== secreta ==bicarbonat==", text: "El ==quimo== que arriba del estómac és molt àcid. El ==bicarbonat pancreàtic== el neutralitza fins a ==pH 7–8|g== perquè els ==enzims intestinals== (lipasa, proteasa) funcionin. Sense neutralització, els enzims no funcionen.", type: "concept" },
     { id: "t3", apartat: "4", heading: "Connexió central: ==glucosa== → ==sang== → ==mitocondri==", text: "La ==glucosa|o== absorbida a l'==intestí prim== passa als ==capil·lars== de les vellositats → ==vena porta== → circulació general → ==mitocondri== de cada cèl·lula (connexió SA1 i S1).", type: "transfer", badge: "🔗 Connexió SA1", video: "/animacions/sa2-s2-t3.mp4" },
-    { id: "t4", apartat: "4", heading: "==Microbiota==: els 0.5 kg de bacteris que t'ajuden", text: "El teu intestí conté >100 bilions de bacteris (==microbiota==). Produeixen ==vitamines|g==, protegeixen de ==patògens|r== i regulen el ==sistema immunitari==. Per quina raó els ==antibiòtics== causen diarrea? Maten els bacteris dolents però també els ==bacteris bons|g==.", type: "concept", video: "/animacions/sa2-s2-t4.mp4" }
+    { id: "t4", apartat: "4", heading: "==Microbiota==: els 0.5 kg de bacteris que t'ajuden", text: "El teu intestí conté >100 bilions de bacteris (==microbiota==). Produeixen ==vitamines|g==, protegeixen de ==patògens|r== i regulen el ==sistema immunitari==. Per quina raó els ==antibiòtics== causen diarrea? Maten els bacteris dolents però també els ==bacteris bons|g==.", type: "concept" }
   ],
 
   graphicResources: [
@@ -157,5 +157,5 @@ export const sa2s2 = {
     "Omple la fitxa S2 seccions 1–3",
     "Fes l'exit tiquet online a l'acordió de sota"
   ],
-  oaLinks: ["OA1"], competencies: ["CE1", "CE2", "CE4"]
+  oaLinks: ["OA2"], competencies: ["CE1", "CE2", "CE4"]
 }

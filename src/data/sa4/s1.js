@@ -154,7 +154,7 @@ export const sa4s1 = {
     B: "/fitxes/sa4-s1-fitxa-B.html",
     C: "/fitxes/sa4-s1-fitxa-C.html"
   },
-  teoriaPdfUrl: null,
+  teoriaPdfUrl: "/teoria/sa4-s1-teoria.pdf",
 
   fitxaGuide: {
     fitxaName: "Fitxa Sessió 1 — Qui som?",
@@ -175,6 +175,7 @@ export const sa4s1 = {
         "El dofí té trampa: sembla un peix, però ve d'avantpassats que caminaven per terra. Mira't bé els caràcters 5 i 6 de la llista.",
         "Per classificar una pregunta: es pot comprovar amb una dada o un experiment? Si sí, és 'de biologia'."
       ] },
+      { apartat: "—", title: "Full de sortida", time: "7 min", phase: "avalua", instruction: "Full de sortida: un full A PART de la fitxa, individual, sense ajuda i sense mirar la fitxa. Es recull. Són tres preguntes sobre el que has fet avui.", hints: [] },
       { apartat: "4", title: "Metacognició", time: "3 min", phase: "avalua", instruction: "Apartat 4: marca el semàfor, escriu una cosa que t'ha sorprès de l'arbre de la vida i repassa la llista d'objectius.", hints: [] }
     ]
   },

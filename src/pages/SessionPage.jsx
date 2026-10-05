@@ -506,6 +506,21 @@ export default function SessionPage() {
           </section>
         )}
 
+        {/* App en un apartat sense teoria (p. ex. SA4·S2: app del cicle a
+            l'apartat 3, quan l'enigma de la Laia ja està resolt, 04/10/2026) */}
+        {hasApartats && session.appSrc && session.appApartat && session.appApartat !== '1' &&
+          !theoryApartatNums.includes(session.appApartat) && (
+          <section className="pb-12">
+            <ApartatHeader
+              num={session.appApartat}
+              phase={apartatMeta[session.appApartat]?.phase || 'elabora'}
+              title={apartatMeta[session.appApartat]?.title || t('session.explica')}
+              time={apartatMeta[session.appApartat]?.time}
+            />
+            <SessionApp session={session} />
+          </section>
+        )}
+
         {/* Gràfiques no vinculades a cap apartat */}
         {looseGraphics.length > 0 && (
           <section className="pb-12">

@@ -21,10 +21,10 @@ export const sa3 = {
     }
   ],
   objectives: [
-    { id: "OA1", text: "Patògens i contagi", desc: "Identificar els tipus de patògens, les vies de transmissió i interpretar una corba epidèmica bàsica" },
-    { id: "OA2", text: "Sistema immunitari", desc: "Explicar les respostes immunitàries innata i adaptativa, el paper dels anticossos i la memòria immunològica" },
-    { id: "OA3", text: "Vacunes i fonts (CE2)", desc: "Explicar com funcionen les vacunes i avaluar la credibilitat de fonts sobre salut" },
-    { id: "OA4", text: "Fàrmacs i drogues", desc: "Distingir tipus de medicaments i explicar per quina raó les drogues causen addicció" }
+    { id: "OA1", text: "Defenses, vacunes i immunitat de grup", desc: "Interpretar com es defensa el cos d'un patogen (tipus, contagi, immunitat innata i adaptativa, anticossos i memòria) i com actua una vacuna, i relacionar-ho amb la immunitat de grup (criteris 1.1 i 1.2)" },
+    { id: "OA2", text: "Ciència i pseudociència (CE2)", desc: "Distingir la informació amb base científica de la pseudociència i justificar-ho amb criteris de qualitat d'una font (criteri 2.2)" },
+    { id: "OA3", text: "Decisions de salut: fàrmacs i drogues", desc: "Justificar decisions de salut (automedicació, drogues) amb fonaments de la fisiologia: tipus de medicaments i base física de l'addicció (criteri 5.3)" },
+    { id: "OA4", text: "Disseny experimental", desc: "Analitzar críticament un estudi i detectar-hi errors de disseny (grup control, rèpliques, doble cec) (criteris 4.2 i 1.1)" }
   ],
   competencies: ["CE2", "CE5"],
   flippedClassroom: true,

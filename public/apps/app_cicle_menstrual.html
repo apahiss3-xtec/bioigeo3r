@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El cicle menstrual · IE Temple · 3r ESO</title>
+<style>
+:root{
+  --purple:#c084fc;--purple-ink:#5a4aa0;--purple-deep:#7B68C8;
+  --ink:#1A1A2E;--ink-2:#4A3F3F;--muted:#666666;
+  --surface:#fdfafb;--card:#ffffff;--rule:#EAE6F6;--rule-dark:#C8C2DD;
+  --purple-tint:#EFEAF5;--yellow-tint:#FFF9E0;--green:#3fa15a;--green-tint:#EAF4EB;
+  --red:#d64550;--red-tint:#fbecec;--amber:#e0a92b;
+  --fsh:#3a7bd5;--lh:#d08a00;--estr:#d64f8c;--prog:#2e8b57;
+  --shadow:0 1px 2px rgba(26,26,46,.06),0 8px 24px rgba(26,26,46,.07);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Fira Sans Extra Condensed','Arial Narrow','Segoe UI',sans-serif;background:var(--surface);color:var(--ink-2);min-height:100vh;}
+button,input{font-family:inherit;}
+button{cursor:pointer;}
+header{background:var(--purple-ink);padding:12px 24px;}
+.eyebrow{font-size:11px;font-weight:700;color:var(--purple);letter-spacing:.1em;text-transform:uppercase;}
+.htitle{font-size:22px;font-weight:700;color:#fff;line-height:1.1;}
+.hsub{font-size:13px;color:#e4defa;margin-top:2px;}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 20px 40px;}
+.intro h1{font-size:24px;color:var(--ink);line-height:1.15;}
+.intro p{font-size:15.5px;line-height:1.45;margin-top:6px;}
+.mission{margin-top:10px;background:var(--yellow-tint);border-left:4px solid var(--amber);padding:9px 12px;border-radius:8px;font-size:15px;font-weight:600;color:var(--ink);}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:18px;margin-top:16px;align-items:start;}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);padding:16px;}
+.card h2{font-size:14px;color:var(--purple-ink);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.step{display:inline-block;background:var(--purple-deep);color:#fff;border-radius:50%;width:22px;height:22px;text-align:center;line-height:22px;font-size:13px;margin-right:6px;}
+.hint{font-size:14.5px;line-height:1.4;}
+.len{display:flex;align-items:center;gap:12px;margin-top:6px;}
+.len input[type=range]{flex:1;accent-color:var(--purple-deep);height:28px;}
+.len output{font-size:28px;font-weight:700;color:var(--ink);min-width:78px;text-align:right;}
+.len output small{font-size:15px;font-weight:600;color:var(--muted);}
+.pred{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:10px;font-size:16px;font-weight:600;color:var(--ink);}
+.pred input{width:74px;font-size:20px;font-weight:700;padding:5px 8px;border:1.5px solid var(--rule-dark);border-radius:10px;text-align:center;color:var(--ink);}
+.pred input:focus{outline:none;border-color:var(--purple-deep);}
+.btn{display:inline-flex;align-items:center;gap:7px;border:none;background:var(--purple-deep);color:#fff;font-size:15px;font-weight:700;padding:9px 16px;border-radius:10px;transition:filter .15s,transform .1s;}
+.btn:hover{filter:brightness(1.08);}
+.btn:active{transform:translateY(1px);}
+.btn:disabled{opacity:.4;cursor:not-allowed;}
+.chartwrap{position:relative;margin-top:6px;}
+svg.chart{width:100%;height:auto;display:block;}
+.veil{position:absolute;inset:0 0 58px 0;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;background:rgba(253,250,251,.86);border-radius:12px;font-size:16px;font-weight:600;color:var(--purple-ink);}
+.veil.hidden{display:none;}
+.toggles{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.tg{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--rule-dark);background:#fff;border-radius:9999px;padding:5px 11px;font-size:14.5px;font-weight:700;color:var(--ink-2);}
+.tg i{width:14px;height:4px;border-radius:2px;display:inline-block;}
+.tg.off{opacity:.4;}
+.who{font-size:13.5px;color:var(--muted);margin-top:6px;line-height:1.4;}
+.fb{margin-top:12px;border-radius:12px;padding:10px 12px;font-size:15px;line-height:1.45;}
+.fb.ok{background:var(--green-tint);border-left:4px solid var(--green);}
+.fb.no{background:var(--red-tint);border-left:4px solid var(--red);}
+.fb.hidden{display:none;}
+table.log{width:100%;border-collapse:collapse;margin-top:8px;font-size:15px;}
+table.log th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--purple-ink);text-align:left;padding:4px 4px;border-bottom:1.5px solid var(--rule-dark);}
+table.log td{padding:5px 4px;border-bottom:1px solid var(--rule);}
+.empty{font-size:14px;color:var(--muted);margin-top:8px;}
+.rule{margin-top:12px;padding:10px 12px;border-radius:10px;font-size:15px;line-height:1.45;background:var(--purple-tint);color:var(--ink);}
+.rule.hidden{display:none;}
+.quiz{background:var(--card);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);padding:18px 20px;margin-top:18px;}
+.quiz h2{font-size:18px;color:var(--purple-ink);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em;}
+.quiz .q{margin-top:14px;}
+.quiz .q p{font-size:15.5px;font-weight:600;color:var(--ink);margin-bottom:8px;}
+.opt{display:block;width:100%;text-align:left;border:1.5px solid var(--rule-dark);background:#fff;border-radius:10px;padding:9px 12px;font-size:15px;color:var(--ink-2);margin-top:6px;}
+.opt:hover{border-color:var(--purple-deep);}
+.opt.correct{background:var(--green-tint);border-color:var(--green);color:var(--ink);}
+.opt.wrong{background:var(--red-tint);border-color:var(--red);}
+.opt.dim{opacity:.55;}
+.qfb{font-size:14.5px;margin-top:8px;line-height:1.45;display:none;}
+.qfb.show{display:block;}
+@media (max-width:900px){ .grid{grid-template-columns:1fr;} }
+@media (max-width:480px){
+  header{padding:10px 16px;}
+  .wrap{padding:14px 16px 32px;}
+  .intro h1{font-size:21px;}
+  .card{padding:12px;}
+  .veil{font-size:15px;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Biologia i Geologia · 3r ESO · IE Temple</div>
+  <div class="htitle">El cicle menstrual</div>
+  <div class="hsub">SA4 · Sessió 2 · Com funcionem? La biologia de la reproducció</div>
+</header>
+
+<div class="wrap">
+  <div class="intro">
+    <h1>Quin dia s'allibera l'òvul?</h1>
+    <p>Ja has resolt el cas de la Laia a la fitxa. Ara posa a prova el teu mètode amb altres durades del cicle. Per a cada durada, <b>primer escriu la teva predicció</b>: les hormones i l'ovulació apareixen només quan hagis comprovat.</p>
+    <div class="mission">🎯 Missió: encerta l'ovulació en tres durades diferents i descobreix quina part del cicle s'allarga quan el cicle és més llarg.</div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2><span class="step">1</span>Tria la durada del cicle</h2>
+      <div class="len">
+        <input type="range" id="len" min="26" max="32" step="1" value="28" aria-label="Durada del cicle en dies">
+        <output id="lenOut">28 <small>dies</small></output>
+      </div>
+      <div class="pred">
+        <label for="pred">Crec que ovula el dia</label>
+        <input type="number" id="pred" min="1" max="32" inputmode="numeric">
+        <button class="btn" id="bCheck" disabled>🔍 Comprova</button>
+      </div>
+
+      <div class="chartwrap">
+        <svg class="chart" id="chart" viewBox="0 0 700 330" role="img" aria-label="Gràfic de les hormones al llarg del cicle"></svg>
+        <div class="veil" id="veil">🔒 Escriu la teva predicció i prem «Comprova» per veure les hormones d'aquest cicle.</div>
+      </div>
+      <div class="toggles" id="toggles"></div>
+      <p class="who">La <b>FSH</b> i la <b>LH</b> les fabrica la hipòfisi, al cervell. Els <b>estrògens</b> i la <b>progesterona</b>, l'ovari. Les corbes són un model: mostren quan pugen i baixen, no quantitats reals.</p>
+      <div class="fb hidden" id="fb"></div>
+    </div>
+
+    <div class="card">
+      <h2><span class="step">2</span>Les teves proves</h2>
+      <div id="logBox"><p class="empty">Encara no has comprovat cap durada.</p></div>
+      <div class="rule hidden" id="rule"></div>
+    </div>
+  </div>
+
+  <div class="quiz" id="quiz">
+    <h2>Comprova-ho</h2>
+  </div>
+</div>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const NS = 'http://www.w3.org/2000/svg';
+  const LUTEA = 14;
+  const H = [
+    { k: 'fsh',  nom: 'FSH',          col: '#3a7bd5' },
+    { k: 'lh',   nom: 'LH',           col: '#d08a00' },
+    { k: 'estr', nom: 'Estrògens',    col: '#d64f8c' },
+    { k: 'prog', nom: 'Progesterona', col: '#2e8b57' }
+  ];
+  const on = { fsh: true, lh: true, estr: true, prog: true };
+  let L = 28, revealed = false;
+  const log = new Map();   // durada → { pred, real }
+
+  const g = (x, m, s) => Math.exp(-((x - m) * (x - m)) / (2 * s * s));
+  // Model qualitatiu. O = dia d'ovulació. La fase fol·licular s'escala; la lútia dura sempre 14 dies.
+  function level(k, d, O){
+    const f = O;   // durada de la fase fol·licular (fins al dia O)
+    switch (k) {
+      case 'fsh':  return 0.18 + 0.30 * g(d, 3, 2.2) + 0.32 * g(d, O - 0.4, 0.8) + 0.25 * g(d, L + 1.5, 1.6);
+      case 'lh':   return 0.12 + 0.88 * g(d, O - 0.4, 0.75);
+      case 'estr': return 0.12 + 0.70 * g(d, O - 1.6, Math.max(2, f / 4)) + 0.38 * g(d, O + 7, 2.6);
+      case 'prog': return 0.05 + 0.85 * g(d, O + 7, 3);
+    }
+  }
+
+  // ── Gràfic ──
+  const svg = $('chart');
+  let W = 700, X0 = 46, X1 = 684, NARROW = false;
+  const Y0 = 26, Y1 = 236;
+  const el = (t, a) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); return e; };
+  const xd = d => X0 + (d - 1) / (L - 1) * (X1 - X0);
+  const yv = v => Y1 - v * (Y1 - Y0);
+
+  function draw(){
+    NARROW = svg.clientWidth > 0 && svg.clientWidth < 520;
+    W = NARROW ? 420 : 700; X0 = NARROW ? 26 : 46; X1 = W - 16;
+    svg.setAttribute('viewBox', '0 0 ' + W + ' 330');
+    svg.innerHTML = '';
+    const O = L - LUTEA;
+    // regla (dies 1-5)
+    svg.appendChild(el('rect', { x: xd(1) - 4, y: Y0, width: xd(5) - xd(1) + 8, height: Y1 - Y0, fill: '#fbecec' }));
+    const tr = el('text', { x: (xd(1) + xd(5)) / 2, y: Y0 + 16, 'text-anchor': 'middle', 'font-size': 15, 'font-weight': 700, fill: '#b23a44' }); tr.textContent = 'Regla'; svg.appendChild(tr);
+    // eix
+    svg.appendChild(el('line', { x1: X0, y1: Y1, x2: X1, y2: Y1, stroke: '#4A3F3F', 'stroke-width': 2 }));
+    svg.appendChild(el('line', { x1: X0, y1: Y0, x2: X0, y2: Y1, stroke: '#C8C2DD', 'stroke-width': 1.5 }));
+    if (!NARROW) { const yl = el('text', { x: 14, y: (Y0 + Y1) / 2, 'font-size': 14, fill: '#666', transform: 'rotate(-90 14 ' + (Y0 + Y1) / 2 + ')', 'text-anchor': 'middle' }); yl.textContent = 'nivell'; svg.appendChild(yl); }
+    for (let d = 1; d <= L; d++) {
+      svg.appendChild(el('line', { x1: xd(d), y1: Y1, x2: xd(d), y2: Y1 + 5, stroke: '#4A3F3F', 'stroke-width': 1.2 }));
+      if (d === 1 || d % (NARROW ? 4 : 2) === 0 || (d === L && !NARROW)) {
+        const t = el('text', { x: xd(d), y: Y1 + 22, 'text-anchor': 'middle', 'font-size': 16, fill: '#4A3F3F' }); t.textContent = d; svg.appendChild(t);
+      }
+    }
+    const dl = el('text', { x: (X0 + X1) / 2, y: Y1 + 42, 'text-anchor': 'middle', 'font-size': 15, fill: '#666' }); dl.textContent = 'dia del cicle'; svg.appendChild(dl);
+
+    if (!revealed) return;
+    // fases
+    const yb = Y1 + 56;
+    const fase = (a, b, txt, col) => {
+      svg.appendChild(el('rect', { x: a, y: yb, width: b - a, height: 26, rx: 6, fill: col }));
+      const t = el('text', { x: (a + b) / 2, y: yb + 18, 'text-anchor': 'middle', 'font-size': 15, 'font-weight': 700, fill: '#1A1A2E' }); t.textContent = txt; svg.appendChild(t);
+    };
+    fase(xd(1), xd(O) - 2, (NARROW ? 'Fol·licular · ' : 'Fase fol·licular · ') + O + ' dies', '#EFEAF5');
+    fase(xd(O) + 2, xd(L), (NARROW ? 'Lútia · ' : 'Fase lútia · ') + LUTEA + ' dies', '#EAF4EB');
+    // corbes
+    H.forEach(h => {
+      if (!on[h.k]) return;
+      let dd = '';
+      for (let i = 0; i <= 200; i++) { const d = 1 + (L - 1) * i / 200; dd += (i ? 'L' : 'M') + xd(d).toFixed(1) + ',' + yv(level(h.k, d, O)).toFixed(1); }
+      svg.appendChild(el('path', { d: dd, fill: 'none', stroke: h.col, 'stroke-width': 3.2, 'stroke-linejoin': 'round' }));
+    });
+    // ovulació
+    svg.appendChild(el('line', { x1: xd(O), y1: Y0 - 4, x2: xd(O), y2: Y1, stroke: '#5a4aa0', 'stroke-width': 2.2, 'stroke-dasharray': '6 4' }));
+    const ot = el('text', { x: xd(O), y: Y0 - 8, 'text-anchor': 'middle', 'font-size': 15, 'font-weight': 700, fill: '#5a4aa0' }); ot.textContent = 'Ovulació · dia ' + O;
+    svg.appendChild(ot);
+  }
+  let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(draw, 120); });
+
+  // ── Interruptors de les hormones ──
+  H.forEach(h => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'tg'; b.setAttribute('aria-pressed', 'true');
+    b.innerHTML = '<i style="background:' + h.col + '"></i>' + h.nom;
+    b.addEventListener('click', () => { on[h.k] = !on[h.k]; b.classList.toggle('off', !on[h.k]); b.setAttribute('aria-pressed', on[h.k]); draw(); });
+    $('toggles').appendChild(b);
+  });
+
+  // ── Predicció ──
+  function setLen(v){
+    L = v; $('lenOut').innerHTML = L + ' <small>dies</small>';
+    revealed = log.has(L);
+    $('veil').classList.toggle('hidden', revealed);
+    $('pred').max = L;
+    $('pred').value = revealed ? log.get(L).pred : '';
+    $('fb').classList.add('hidden');
+    validate(); draw();
+  }
+  function validate(){
+    const v = parseInt($('pred').value, 10);
+    $('bCheck').disabled = !(v >= 1 && v <= L);
+  }
+  $('len').addEventListener('input', e => setLen(parseInt(e.target.value, 10)));
+  $('pred').addEventListener('input', validate);
+  $('pred').addEventListener('keydown', e => { if (e.key === 'Enter' && !$('bCheck').disabled) check(); });
+  $('bCheck').addEventListener('click', check);
+
+  function check(){
+    const p = parseInt($('pred').value, 10), O = L - LUTEA;
+    revealed = true; $('veil').classList.add('hidden');
+    log.set(L, { pred: p, real: O });
+    const fb = $('fb');
+    if (p === O) {
+      fb.className = 'fb ok';
+      fb.innerHTML = '✅ Encertat: amb un cicle de ' + L + ' dies, l’ovulació és el <b>dia ' + O + '</b>. Al gràfic, la fase fol·licular (fins a l’ovulació) dura ' + O + ' dies i la lútia, ' + LUTEA + '.';
+    } else {
+      let why;
+      if (p === 14) why = 'Has posat el dia 14, com si l’ovulació fos sempre al mateix dia. Mira el gràfic: quina de les dues fases ha canviat de llargada?';
+      else if (Math.abs(p - L / 2) < 0.6) why = 'Has partit el cicle per la meitat. Però les dues fases no s’allarguen igual: compta quants dies hi ha des de l’ovulació fins a la regla següent.';
+      else if (p === 15) why = 'Sembla que has comptat 14 dies cap endavant des de la regla. Els 14 dies es compten cap enrere, des del final del cicle.';
+      else why = 'Compta quants dies hi ha des de la línia de l’ovulació fins al final del cicle. Són sempre els mateixos?';
+      fb.className = 'fb no';
+      fb.innerHTML = '❌ Havies dit el dia ' + p + ', però és el <b>dia ' + O + '</b>. ' + why;
+    }
+    renderLog(); draw();
+  }
+
+  function renderLog(){
+    const rows = [...log.entries()].sort((a, b) => a[0] - b[0]);
+    $('logBox').innerHTML = '<table class="log"><thead><tr><th>Cicle</th><th>Predicció</th><th>Ovulació</th><th></th></tr></thead><tbody>' +
+      rows.map(([l, r]) => '<tr><td>' + l + ' dies</td><td>dia ' + r.pred + '</td><td>dia ' + r.real + '</td><td>' + (r.pred === r.real ? '✅' : '❌') + '</td></tr>').join('') +
+      '</tbody></table>';
+    const encerts = rows.filter(([, r]) => r.pred === r.real).length;
+    const rule = $('rule');
+    if (encerts >= 3) {
+      rule.classList.remove('hidden');
+      rule.innerHTML = '🏅 Tres durades encertades! Escriu amb paraules la regla que has fet servir. Pista: quina fase canvia quan el cicle s’allarga o s’escurça, i quina es manté igual?';
+    } else if (rows.length >= 3) {
+      rule.classList.remove('hidden');
+      rule.innerHTML = '🔎 Mira la taula: a quina distància del final del cicle cau sempre l’ovulació?';
+    } else rule.classList.add('hidden');
+  }
+
+  // ── Comprova-ho ──
+  const Q = [
+    { p: 'Quan un cicle dura més de 28 dies, quina part s’allarga?',
+      o: ['La regla', 'La fase d’abans de l’ovulació (fol·licular)', 'La fase d’després de l’ovulació (lútia)', 'Totes dues fases igual'],
+      c: 1, f: 'La fase lútia dura uns 14 dies en gairebé tots els cicles. El que canvia és el temps que l’òvul triga a madurar abans de sortir.' },
+    { p: 'Quina hormona fa un pic molt alt i curt just abans de l’ovulació?',
+      o: ['La progesterona', 'La LH', 'Els estrògens, a la regla', 'Cap: l’ovulació passa sense hormones'],
+      c: 1, f: 'El pic de LH, que fabrica la hipòfisi, és el senyal que fa que l’òvul surti de l’ovari.' },
+    { p: 'Si el cicle dura 32 dies, quin dia ovula?',
+      o: ['El dia 14', 'El dia 16', 'El dia 18', 'El dia 32'],
+      c: 2, f: 'Es compten 14 dies cap enrere des del final: 32 − 14 = 18. El dia 16 seria partir el cicle per la meitat.' }
+  ];
+  const quiz = $('quiz');
+  Q.forEach((q, qi) => {
+    const box = document.createElement('div'); box.className = 'q';
+    box.innerHTML = '<p>' + (qi + 1) + '. ' + q.p + '</p>';
+    const fb = document.createElement('div'); fb.className = 'qfb';
+    q.o.forEach((t, oi) => {
+      const b = document.createElement('button'); b.className = 'opt'; b.textContent = t;
+      b.addEventListener('click', () => {
+        box.querySelectorAll('.opt').forEach((x, xi) => { x.classList.remove('correct', 'wrong', 'dim'); if (xi === q.c) x.classList.add('correct'); else if (xi === oi) x.classList.add('wrong'); else x.classList.add('dim'); });
+        fb.innerHTML = (oi === q.c ? '✅ ' : '❌ ') + q.f; fb.classList.add('show');
+      });
+      box.appendChild(b);
+    });
+    box.appendChild(fb); quiz.appendChild(box);
+  });
+
+  setLen(28);
+})();
+</script>
+</body>
+</html>

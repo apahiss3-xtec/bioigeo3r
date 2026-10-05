@@ -80,7 +80,6 @@ export const sa3s1 = {
     {
       id: "t1",
       apartat: "2",
-      video: "/animacions/sa3-s1-t1.mp4",
       heading: "==Bacteris== vs ==virus==: l'enemic no és un de sol",
       text: "==Bacteris|r==: cèl·lules ==procariotes|o== amb membrana pròpia, es reprodueixen ells sols, l'==antibiòtic|g== pot matar-los. ==Virus|r==: no són cèl·lules, no tenen metabolisme propi, necessiten una ==cèl·lula hoste|o== per copiar-se — l'antibiòtic ==no els afecta|r==. Per la grip cal un ==antiviral==, no un antibiòtic.",
       type: "concept"
@@ -95,6 +94,13 @@ export const sa3s1 = {
       badge: "🔢 Connexió simulació"
     },
     {
+      id: "t6",
+      apartat: "2",
+      heading: "==Vies de transmissió== i mesures preventives",
+      text: "Cada via té la seva mesura. ==Aire (gotetes i aerosols)|o==: grip, COVID, xarampió → mascareta i ventilació. ==Contacte directe|o==: herpes, varicel·la → rentar-se les mans, evitar el contacte. ==Superfícies (fomites)|o==: gastroenteritis vírica → desinfecció i higiene. ==Sang i fluids corporals|r==: VIH, hepatitis B → preservatiu, no compartir agulles. ==Aliments o aigua|g==: salmonel·la, còlera → cuinar bé, aigua potable. Són ==barreres físiques|g== que actuen abans que entrin en joc els anticossos.",
+      type: "concept"
+    },
+    {
       id: "t3",
       apartat: "3",
       video: "/animacions/sa3-s1-t3.mp4",
@@ -105,7 +111,6 @@ export const sa3s1 = {
     {
       id: "t4",
       apartat: "3",
-      video: "/animacions/sa3-s1-t4.mp4",
       heading: "Malalties ==infeccioses== vs ==no infeccioses==",
       text: "==Infeccioses|r==: causades per patògens (bacteris, virus, fongs, paràsits) → transmissibles (grip, tuberculosi, VIH). ==No infeccioses==: factors genètics, ambientals o d'estil de vida (==diabetis tipus 2|o==, ==càncer|r==, malaltia cardiovascular). Connexió SA2: l'anèmia del Marc era ==no infecciosa|o== (manca de ferro).",
       type: "concept"
@@ -113,7 +118,6 @@ export const sa3s1 = {
     {
       id: "t5",
       apartat: "3",
-      video: "/animacions/sa3-s1-t5.mp4",
       heading: "Per quina raó tenim ==febre==?",
       text: "La ==febre== és una resposta controlada: el cos puja la temperatura per ==dificultar la reproducció del patogen|o== i activar millor les cèl·lules immunitàries. ==Febre moderada (37.5–39°C)|g==: beneficiosa, no cal baixar-la de seguida. ==Febre alta (>39.5°C)|r==: cal tractament, pot ser perillosa per al cervell.",
       type: "concept",
@@ -121,33 +125,40 @@ export const sa3s1 = {
     }
   ],
 
-  fitxaUrl: { A: "/fitxes/sa3-s1-fitxa-A.html", B: "/fitxes/sa3-s1-fitxa-B.html", C: "/fitxes/sa3-s1-fitxa-C.html" }, teoriaPdfUrl: null,
+  sessionMaterials: [
+    { name: "Full de sortida — versions A i B", url: "/fitxes/sa3-s1-exit-ticket.html" },
+    { name: "Full de sortida — versió C (amb bastida)", url: "/fitxes/sa3-s1-exit-ticket-C.html" }
+  ],
+
+  fitxaUrl: { A: "/fitxes/sa3-s1-fitxa-A.html", B: "/fitxes/sa3-s1-fitxa-B.html", C: "/fitxes/sa3-s1-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa3-s1-teoria.pdf",
 
   fitxaGuide: {
     fitxaName: "Fitxa S1 — L'enemic entra",
     steps: [
-      { apartat: "0", title: "Idees prèvies", time: "5 min", phase: "engage", instruction: "Omple l'apartat 0 sense mirar el mòbil. Quina diferència creus que hi ha entre un bacteri i un virus? No es corregeix ara — el compararàs al final de la SA.", hints: [] },
-      { apartat: "1", title: "Simulació del contagi", time: "25 min", phase: "explore", instruction: "Durant el joc de rols, omple el mapa de contactes de l'apartat 1: anota amb qui interactues a cada ronda. Després del recompte, calcula el R₀ de la teva targeta.", hints: [
+      { apartat: "0", title: "Idees prèvies", time: "5 min", phase: "engage", instruction: "Apartat 0: pensa en l'última vegada que vas estar malalt/a i escriu per quina raó creus que et va passar i per quina et vas curar. Escriu també quina diferència creus que hi ha entre un bacteri i un virus. No es corregeix ara: ho compararàs al final de la SA.", hints: [] },
+      { apartat: "1", title: "Simulació del contagi", time: "25 min", phase: "explore", instruction: "Apartat 1: durant el joc de rols, anota amb qui interactues a cada ronda (la ronda 2 pot ser amb «mascareta»). Després del recompte, calcula el teu R₀ individual i el de la classe, interpreta si és més gran o més petit que 1 i apunta un límit del model de la simulació.", hints: [
         "Anota TOTES les interaccions, fins i tot les curtes. El virus no avisa.",
-        "Segona ronda: anota si portaves 'mascareta' o no. Compararem els dos grups al final."
+        "R₀ > 1: l'epidèmia s'estén. R₀ < 1: s'extingeix."
       ] },
-      { apartat: "2", title: "Qui és l'enemic?", time: "20 min", phase: "explica", instruction: "Omple l'apartat 2: completa la taula bacteris vs virus i la definició de R₀. Per quina raó l'antibiòtic no funciona per a la grip?", hints: [
-        "Pensa en la diferència estructural: un bacteri és una cèl·lula; un virus, no. L'antibiòtic ataca estructures cel·lulars — té sentit usar-lo contra alguna cosa que no és una cèl·lula?",
-        "R₀: si a la simulació has 'infectat' 3 persones, el teu R₀ és 3."
+      { apartat: "2", title: "Qui és l'enemic?", time: "20 min", phase: "explica", instruction: "Apartat 2: completa la taula de bacteris vs virus, explica amb les dades de la taula per quina raó l'antibiòtic no pot matar el virus de la grip i completa les frases del R₀ (2,5 · 0,8 · xarampió).", hints: [
+        "Mira a la taula què té el bacteri que el virus no té. L'antibiòtic ataca alguna d'aquestes parts?",
+        "Si R₀ = 2,5, cada cas en genera 2,5 de nous i l'epidèmia s'estén."
       ] },
-      { apartat: "3", title: "Com funciona la infecció?", time: "15 min", phase: "explica", instruction: "Apartat 3: completa el diagrama de vies de transmissió i les mesures preventives. Explica per quina raó la febre moderada pot ser beneficiosa.", hints: [
-        "Cada via de transmissió suggereix una mesura: si va per l'aire → mascareta / ventilació. Si va per contacte → rentar mans. Lliga la causa amb la solució.",
-        "Febre: el patogen també necessita una temperatura òptima per reproduir-se. Puja la teva temperatura → surts de la seva zona de confort."
-      ] }
+      { apartat: "3", title: "Com funciona la infecció?", time: "15 min", phase: "explica", instruction: "Apartat 3: observa les barreres del cos, omple la taula de vies de transmissió amb una mesura preventiva concreta, explica per quina raó es pot contagiar sense saber que s'és malalt/a, per quina raó la febre moderada pot ser útil i formula una hipòtesi per a l'enigma de la Martina.", hints: [
+        "Cada via suggereix una mesura: aire → mascareta o ventilació; contacte → rentar mans; superfícies → netejar.",
+        "Pensa què li fa la temperatura alta al patogen i a les defenses del cos."
+      ] },
+      { apartat: "Final", title: "Full de sortida i metacognició", time: "13 min", phase: "elabora", instruction: "Full de sortida (10 min): sol/a i sense ajuda, tres preguntes de cas; el lliures a la professora. Després, metacognició (3 min): torna als objectius del principi, marca el que has après i apunta què et continues preguntant.", hints: [] }
     ]
   },
 
   exitTicketType: "paper",
   exitTicketQuestions: [
-    { id: "q1", type: "open", text: "El teu company té grip i t'ha estossegat a la cara. Quina és la via de transmissió? Quin tipus de patogen és el virus de la grip i per quina raó un antibiòtic no el pot matar?", hint: "Identifica la via (aire/droplets). Recorda: l'antibiòtic ataca estructures de cèl·lules bacterianes. El virus de la grip... és una cèl·lula?" },
-    { id: "q2", type: "open", text: "A la simulació, el R₀ de la classe ha estat de 2.4. Interpreteu-lo: s'estendria una epidèmia real amb aquest valor? Quina mesura hauria baixat el R₀ per sota d'1?", hint: "R₀>1 → expansió. R₀<1 → extinció. Quina de les mesures de l'apartat 3 redueix més el nombre de contactes efectius?" },
-    { id: "q3", type: "multiple", text: "Quin dels patògens següents té el R₀ més alt?", options: ["Xarampió (R₀ ≈ 12–18)", "Grip estacional (R₀ ≈ 2–3)", "COVID-19 soca original (R₀ ≈ 5–7)", "Tuberculosi (R₀ ≈ 2–3)"], correct: 0 }
+    { id: "q1", type: "open", text: "En Biel té mal de coll i el metge li ha dit que l'ha causat un virus. La seva mare vol donar-li l'antibiòtic que va sobrar de l'hivern passat. Serviria? Justifica-ho amb una diferència entre un bacteri i un virus.", hint: "Un bacteri és una cèl·lula i el virus no. L'antibiòtic ataca estructures dels bacteris: el virus no en té." },
+    { id: "q2", type: "open", text: "Tres malalties inventades tenen aquests R₀: X = 0,8 · Y = 2,5 · Z = 15. Quina s'extingiria sola i quina s'estendria més de pressa? Justifica-ho amb el significat de R₀.", hint: "R₀ < 1 → l'epidèmia s'extingeix (X). R₀ gran → s'estén més de pressa (Z)." },
+    { id: "q3", type: "open", text: "La Nora té 38,3 °C de febre. La seva àvia diu: «cal baixar-la ara mateix, la febre és dolenta». Hi estàs d'acord? Justifica-ho explicant què li fa la temperatura al patogen.", hint: "Febre moderada (37,5–39 °C): dificulta la reproducció del patogen i accelera les defenses; no sempre cal baixar-la." }
   ],
+  exitTicketNote: "Avaluació formativa. Criteri avaluat: 1.1 (OA1). Les tres preguntes són de cas i es responen sol/a i sense ajuda. Es fa en un full a part: /fitxes/sa3-s1-exit-ticket.html (versions A i B) i /fitxes/sa3-s1-exit-ticket-C.html (versió C, amb bastida). Qui ha faltat pot respondre-les en línia.",
 
   homework: null, // S1 no té feina a casa — decisió de disseny (spec SA3-S1, 02/07/2026)
   recoveryInstructions: [

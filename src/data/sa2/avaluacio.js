@@ -105,11 +105,11 @@ export const sa2Avaluacio = {
   },
 
   checklist: [
-    { id: 'c1', oa: 'OA1', text: "Sé relacionar cada nutrient (hidrats, greixos, proteïnes) amb la seva funció al cos." },
-    { id: 'c2', oa: 'OA1', text: "Puc explicar el recorregut de la glucosa des de l'intestí prim fins al mitocondri." },
-    { id: 'c3', oa: 'OA1', text: "Entenc per quina raó l'absorció passa a l'intestí prim i no a l'estómac." },
-    { id: 'c4', oa: 'OA2', text: "Sé què transporta la sang i quins són els seus components principals." },
-    { id: 'c5', oa: 'OA2', text: "Puc explicar el paper del ferro i de l'hemoglobina en el transport d'O₂." },
+    { id: 'c1', oa: 'OA2', text: "Sé relacionar cada nutrient (hidrats, greixos, proteïnes) amb la seva funció al cos." },
+    { id: 'c2', oa: 'OA2', text: "Puc explicar el recorregut de la glucosa des de l'intestí prim fins al mitocondri." },
+    { id: 'c3', oa: 'OA2', text: "Entenc per quina raó l'absorció passa a l'intestí prim i no a l'estómac." },
+    { id: 'c4', oa: 'OA1', text: "Sé què transporta la sang i quins són els seus components principals." },
+    { id: 'c5', oa: 'OA1', text: "Puc explicar el paper del ferro i de l'hemoglobina en el transport d'O₂." },
     { id: 'c6', oa: 'OA2', text: "Entenc per quina raó la circulació és doble i per a què serveixen les 4 cavitats del cor." },
     { id: 'c7', oa: 'OA3', text: "Sé interpretar una gràfica de FC (pujada, pic, recuperació) i explicar-la." },
     { id: 'c8', oa: 'OA3', text: "Puc explicar la cadena esforç → ATP → O₂ → FC." },
@@ -158,7 +158,7 @@ export const sa2Avaluacio = {
       },
       {
         id: 't3',
-        oa: 'OA2',
+        oa: 'OA1',
         text: "Per quina raó tenir més eritròcits ajuda la Júlia a rendir millor a l'altitud?",
         options: [
           "Perquè els eritròcits fabriquen ATP i així els músculs tenen més energia",
@@ -174,7 +174,7 @@ export const sa2Avaluacio = {
       },
       {
         id: 't4',
-        oa: 'OA1',
+        oa: 'OA2',
         text: "Durant l'escalada la Júlia menja fruits secs i barretes de cereals. Per quina raó és una bona elecció?",
         options: [
           "Perquè combinen glucosa ràpida i greixos per a l'esforç llarg",

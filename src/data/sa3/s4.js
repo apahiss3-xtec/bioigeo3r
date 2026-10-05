@@ -9,7 +9,7 @@ export const sa3s4 = {
 
   // NO es renderitza al web: guió del docent (logística, temps,
   // material, revisió de deures). Tasca 2, 09/09/2026.
-  teacherNotes: "Revisió del formulari de comprensió prèvia (deures de S3). El docent explica l'estructura de la sessió.",
+  teacherNotes: "Posada en comú de la reflexió «és una droga?» (deures de S3). El docent explica l'estructura de la sessió.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {
@@ -23,13 +23,13 @@ export const sa3s4 = {
       "Classifico els fàrmacs en 4 famílies (analgèsics, antitèrmics, antisèptics, antiinflamatoris) segons per a què serveixen i on actuen.",
       "Explico amb un model senzill com actua un fàrmac (p. ex. l'ibuprofèn bloqueja l'enzim COX).",
       "Justifico per quina raó automedicar-se (sobretot antibiòtics per a virus) és un risc.",
-      "Distingeixo que un fàrmac tracta el símptoma i que «millorar» no prova per si sol que el fàrmac funcioni (efecte placebo)."
+      "Distingeixo que un fàrmac tracta el símptoma i que «millorar» no prova per si sol que el fàrmac funcioni (efecte placebo), i que per comprovar-ho cal un grup control i un assaig doble cec."
     ],
     C: [
       "Sé que els fàrmacs es classifiquen per la seva funció: analgèsics, antitèrmics, antisèptics i antiinflamatoris.",
       "Sé que l'ibuprofèn bloqueja l'enzim COX i per això baixa el dolor i la inflamació.",
       "Sé que automedicar-se (sobretot antibiòtics per a virus) és perillós.",
-      "Sé que l'efecte placebo és quan millores sense principi actiu, només per expectativa."
+      "Sé que l'efecte placebo és quan millores sense principi actiu, només per expectativa, i que per comprovar un fàrmac cal un grup control (placebo)."
     ]
   },
 
@@ -61,9 +61,15 @@ export const sa3s4 = {
       badge: "⚕️ No automedicació"
     },
     {
+      id: "t5",
+      apartat: "1",
+      heading: "==Antivirals==: contra virus concrets",
+      text: "Els ==antivirals|g== actuen contra ==virus específics|o== (per exemple, el Tamiflu contra la grip o els antiretrovirals contra el VIH). Com que el virus s'amaga dins les cèl·lules, ==és molt més difícil== atacar-lo sense fer mal a la cèl·lula: per això n'hi ha ==molts menys que d'antibiòtics|r==. Cada antiviral serveix només per al virus per al qual s'ha fet, i ==no és un antibiòtic|r==. Per això una vacuna, que prepara el sistema immunitari abans, és tan important contra els virus.",
+      type: "concept"
+    },
+    {
       id: "t2",
       apartat: "1",
-      video: "/animacions/sa3-s4-t2.mp4",
       heading: "==Analgèsics== i ==antipirètics==: no tot és igual",
       text: "==Paracetamol==: analgèsic + antipirètic. Actua al cervell. Risc hepàtic si s'abusa. ==Ibuprofèn|o==: AINE — analgèsic + antiinflamatori + antipirètic. Actua als teixits. Risc gàstric. ==Cap dels dos mata el virus|r== — tracten els símptomes mentre el SI lluita. Mai combinar sense prescripció. La febre moderada és beneficiosa (S1): ==no cal baixar-la sempre|o==.",
       type: "concept"
@@ -79,52 +85,55 @@ export const sa3s4 = {
     {
       id: "t4",
       apartat: "3",
-      video: "/animacions/sa3-s4-t4.mp4",
       heading: "==Automedicació== i efecte ==placebo==",
-      text: "Automedicar-se sense llegir el prospecte (p. ex. combinar ibuprofèn i paracetamol, o prendre antibiòtics que sobren) pot ser perillós. ==Efecte placebo|o==: una pastilla sense principi actiu pot reduir el dolor de debò — el cervell allibera ==endorfines== quan espera millorar. Per això cap fàrmac es valida sense grup placebo: ==«millorar» després de prendre alguna cosa no demostra per si sol que aquella cosa hagi funcionat|r==.",
+      text: "Automedicar-se sense llegir el prospecte (p. ex. combinar ibuprofèn i paracetamol, o prendre antibiòtics que sobren) pot ser perillós. ==Efecte placebo|o==: una pastilla sense principi actiu pot reduir el dolor de debò — el cervell allibera ==endorfines== quan espera millorar. Per això cap fàrmac es valida sense grup placebo: ==«millorar» després de prendre alguna cosa no demostra per si sol que aquella cosa hagi funcionat|r==. Un assaig fiable compara un ==grup control== (que pren placebo) amb el grup que pren el fàrmac, amb prou participants i en ==doble cec== (ni el pacient ni qui l'avalua saben qui pren què).",
       type: "concept",
       badge: "🔬 Pensament crític"
     }
   ],
 
-  fitxaUrl: { A: "/fitxes/sa3-s4-fitxa-A.html", B: "/fitxes/sa3-s4-fitxa-B.html", C: "/fitxes/sa3-s4-fitxa-C.html" }, teoriaPdfUrl: null,
+  sessionMaterials: [
+    { name: "Full de sortida — versions A i B", url: "/fitxes/sa3-s4-exit-ticket.html" },
+    { name: "Full de sortida — versió C (amb bastida)", url: "/fitxes/sa3-s4-exit-ticket-C.html" }
+  ],
+
+  fitxaUrl: { A: "/fitxes/sa3-s4-fitxa-A.html", B: "/fitxes/sa3-s4-fitxa-B.html", C: "/fitxes/sa3-s4-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa3-s4-teoria.pdf",
 
   fitxaGuide: {
     fitxaName: "Fitxa S4 — Medicaments: com actuen",
     steps: [
-      { apartat: "0", title: "Idees prèvies", time: "5 min", phase: "engage", instruction: "Apartat 0: escriu què prens per al mal de cap i per a la febre, i si saps què fa realment la pastilla dins el cos.", hints: [] },
-      { apartat: "1", title: "Estacions de medicaments", time: "30 min", phase: "explore", instruction: "Apartat 1: omple la graella de fàrmacs (analgèsic / antitèrmic / antisèptic / antiinflamatori): per a què serveix, on actua, si cal recepta. Compte amb la trampa: el paracetamol i l'ibuprofèn surten a més d'una família!", hints: [
-        "El paracetamol és analgèsic i antitèrmic però NO antiinflamatori. L'ibuprofèn és els tres — per quina raó? Pensa en el mecanisme COX.",
-        "L'antisèptic actua a la pell (mata microbis per contacte); els altres actuen per dins el cos."
+      { apartat: "0", title: "Posada en comú dels deures i idees prèvies", time: "10 min", phase: "engage", instruction: "Primer, posada en comú de la reflexió de S3: per què creus que una substància és o no és una «droga» (5 min). Després, apartat 0: escriu què prens quan tens mal de cap i febre i si saps què fa la pastilla dins el cos. Ho compararàs al final de la SA.", hints: [] },
+      { apartat: "1", title: "Estacions de medicaments", time: "30 min", phase: "explore", instruction: "Apartat 1: llegeix les targetes de cada família i completa la graella (per a què serveix, on actua, si cal recepta). Compte amb la trampa: hi ha fàrmacs que surten a més d'una família. Respon per què un mateix fàrmac pot tenir més d'un efecte i si «alleuja el dolor a l'instant» és prova o promesa.", hints: [
+        "El paracetamol és analgèsic i antitèrmic; l'ibuprofèn també és antiinflamatori.",
+        "L'antisèptic actua a la pell; els altres actuen per dins el cos."
       ] },
-      { apartat: "2", title: "Com actuen per dins", time: "25 min", phase: "explica", instruction: "Apartat 2: completa la cadena causa → malaltia → símptoma → fàrmac, i les frases sobre l'ibuprofèn (enzim COX) i per quina raó un antibiòtic no serveix per a la grip.", hints: [
-        "Antibiòtic vs antiviral: un ataca cèl·lules (procariotes), l'altre no. La grip no té cèl·lules pròpies → l'antibiòtic no té diana.",
-        "Resistències: imagina que mors el 99% dels bacteris amb antibiòtic. El 1% que sobreviu és el més resistent. Quan es reprodueix, tota la colònia és resistent."
+      { apartat: "2", title: "Com actuen per dins", time: "25 min", phase: "explica", instruction: "Apartat 2: mira la cadena causa → malaltia → símptoma → fàrmac i completa les frases sobre l'ibuprofèn (enzim COX) i per quina raó un antibiòtic no serveix per a la grip.", hints: [
+        "Molts fàrmacs actuen sobre el símptoma, no sobre la causa: baixar la febre no mata el virus.",
+        "Els antibiòtics ataquen estructures que només tenen els bacteris; el virus no en té."
       ] },
-      { apartat: "3", title: "Automedicació, placebo i cas Yasmina", time: "15 min", phase: "explica", instruction: "Apartat 3: analitza el cas Yasmina (antibiòtics per a la grip + ibuprofèn i paracetamol sense llegir el prospecte) i explica per quina raó «millorar el dia 5» no demostra que els antibiòtics funcionessin.", hints: [
-        "Placebo: el cervell allibera endorfines quan espera millorar — per això cap fàrmac es valida sense grup placebo.",
-        "La Yasmina podria haver-se curat igualment (la grip dura uns 5-7 dies) encara que no hagués pres els antibiòtics."
-      ] }
+      { apartat: "3", title: "Automedicació, placebo i cas Yasmina", time: "25 min", phase: "explica", instruction: "Apartat 3: llegeix el cas de la Yasmina, digues quins errors ha comès (mínim 2) i explica per quina raó «millorar el dia 5» no demostra que els antibiòtics funcionessin. Després, a «Com es comprova un fàrmac», detecta els errors de disseny de l'assaig del xarop i explica com el milloraries (grup control, placebo i doble cec).", hints: [
+        "Grup control: el que NO rep el fàrmac (rep un placebo) per poder comparar. Doble cec: ni el pacient ni qui avalua saben qui pren què.",
+        "El cervell allibera endorfines quan espera millorar: per això cap fàrmac es valida sense grup placebo.",
+        "La grip dura uns 5-7 dies: la Yasmina podria haver-se curat igualment."
+      ] },
+      { apartat: "Final", title: "Full de sortida i metacognició", time: "13 min", phase: "elabora", instruction: "Full de sortida (10 min): sol/a i sense ajuda, tres preguntes de cas; el lliures a la professora. Després, metacognició (3 min): torna als objectius del principi, marca el que has après i apunta què et continues preguntant.", hints: [] }
     ]
   },
 
   exitTicketType: "paper",
   exitTicketQuestions: [
-    { id: "q1", type: "open", text: "Tria un fàrmac (ibuprofèn, paracetamol o un antisèptic) i explica en 2-3 frases on actua i què atura dins el cos.", hint: "Ibuprofèn → bloqueja COX → menys prostaglandines → menys dolor i inflamació. Antisèptic → actua a la pell, mata microbis per contacte." },
-    { id: "q2", type: "open", text: "En Pau té mal de coll víric i es pren un antibiòtic que li va sobrar. Dona dues raons per les quals és una mala decisió.", hint: "(1) L'antibiòtic no té diana en un virus — no el matarà. (2) Contribueix a les resistències bacterianes si en queden bacteris exposats sense necessitat." },
-    { id: "q3", type: "open", text: "La iaia diu: «em vaig prendre una til·la i el mal de cap va marxar, així que la til·la cura el mal de cap». Per quina raó això NO és una prova? Què caldria per saber-ho de debò?", hint: "El mal de cap també hauria pogut marxar sol. Caldria un assaig amb grup placebo: comparar persones que prenen til·la real amb persones que prenen una til·la «buida» sense saber-ho." }
+    { id: "q1", type: "open", text: "La Laia té el turmell inflat i adolorit. Pot triar entre paracetamol i ibuprofèn. Quin li convindria més? Justifica-ho explicant què atura aquest fàrmac dins el cos (enzim COX).", hint: "Ibuprofèn: bloqueja l'enzim COX → menys prostaglandines → menys inflamació i dolor. El paracetamol no és antiinflamatori." },
+    { id: "q2", type: "open", text: "En Pau té mal de coll víric i es pren un antibiòtic que li va sobrar. Dona dues raons per les quals és una mala decisió per a la seva salut.", hint: "(1) L'antibiòtic no té diana en un virus. (2) L'ús innecessari afavoreix les resistències bacterianes (i pot fer efectes adversos)." },
+    { id: "q3", type: "open", text: "La iaia diu: «em vaig prendre una til·la i el mal de cap va marxar, així que la til·la cura el mal de cap». Per quina raó això no és una prova? Com ho comprovaries de debò? Fes servir un grup control i digues què vol dir que sigui doble cec.", hint: "El mal de cap també hauria pogut marxar sol. Caldria un assaig amb grup control (placebo): til·la real vs. til·la «buida», i en doble cec: ni qui la pren ni qui avalua sap qui pren què. (OA4)" }
   ],
-  exitTicketNote: "Avaluació formativa OA4.",
+  exitTicketNote: "Avaluació formativa. Criteris avaluats: 5.3 (OA3, preguntes 1 i 2) i 4.2 i 1.1 (OA4, pregunta 3). Les tres preguntes són de cas i es responen sol/a i sense ajuda. Es fa en un full a part: /fitxes/sa3-s4-exit-ticket.html (versions A i B) i /fitxes/sa3-s4-exit-ticket-C.html (versió C, amb bastida). Qui ha faltat pot respondre-les en línia.",
 
-  homework: {
-    description: "Pensa en una substància que creus que pot generar dependència i una raó. Ho comentareu en veu alta a l'inici de S5 (no cal recerca).",
-    note: "Lectura prèvia disponible per a S5 (drogues, addicció i síntesi de la SA).",
-  },
+  homework: { description: "Pensa en una substància que creus que pot generar dependència i una raó. Ho comentareu en veu alta a l'inici de S5 (no cal recerca)." },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (famílies de fàrmacs, mecanisme COX, automedicació, placebo)",
     "Omple la taula de famílies de fàrmacs (analgèsic / antitèrmic / antisèptic / antiinflamatori)",
     "Explica per quina raó un antibiòtic no serveix per a un virus i per quina raó cal un grup placebo per validar un fàrmac",
     "Fes l'exit tiquet online a l'acordió de sota"
   ],
-  oaLinks: ["OA4"], competencies: ["CE2"]
+  oaLinks: ["OA3", "OA4"], competencies: ["CE2"]
 }

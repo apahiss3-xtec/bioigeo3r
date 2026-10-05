@@ -87,11 +87,11 @@ export const sa2s3 = {
   exploreNote: "App interactiva: segueix una molècula d'O₂ per 7 estacions (alvèol → hemoglobina → cor esquerre → aorta → capil·lar → mitocondri → tornada). Botó 'Mode anèmia' connecta amb l'enigma 2 del Marc. Inclou Simplifica + ajuda àrab/castellà/urdú i quiz autocorrectiu de 3 preguntes.",
 
   theoryPoints: [
-    { id: "t5", apartat: "1", heading: "Harvey (1628): la deducció matemàtica", text: "William Harvey va calcular que si el ==cor== bomba ~70 mL per batec × 70 batecs/min, en mitja hora hauria bombejat més sang de la que hi ha al cos. Va concloure que la ==sang circula==. Va precedir el microscopi per 30 anys.", type: "epistemic", badge: "🔬 Com funciona la ciència", video: "/animacions/sa2-s3-t5.mp4" },
-    { id: "t1", apartat: "2", heading: "Composició de la sang", text: "==55% plasma|o== (groc): transport de nutrients, hormones, CO₂. ==44% eritròcits|r== (vermells): transport ==O₂|b== via ==hemoglobina==. ==<1% leucòcits i plaquetes==: defensa i coagulació.", type: "concept", video: "/animacions/sa2-s3-t1.mp4" },
+    { id: "t5", apartat: "1", heading: "Harvey (1628): la deducció matemàtica", text: "William Harvey va calcular que si el ==cor== bomba ~70 mL per batec × 70 batecs/min, en mitja hora hauria bombejat més sang de la que hi ha al cos. Va concloure que la ==sang circula==. Va precedir el microscopi per 30 anys.", type: "epistemic", badge: "🔬 Com funciona la ciència" },
+    { id: "t1", apartat: "2", heading: "Composició de la sang", text: "==55% plasma|o== (groc): transport de nutrients, hormones, CO₂. ==44% eritròcits|r== (vermells): transport ==O₂|b== via ==hemoglobina==. ==<1% leucòcits i plaquetes==: defensa i coagulació.", type: "concept" },
     { id: "t2", apartat: "2", heading: "==Hemoglobina==: la proteïna que porta l'O₂", text: "L'==hemoglobina== és una proteïna dels ==eritròcits|r== que conté ==ferro==. Als ==pulmons|b==, el ferro s'uneix a l'==O₂|b== (es torna vermell brillant). Als ==teixits==, el cedeix. Sense ferro → no es forma hemoglobina → menys O₂ als músculs.", type: "concept", video: "/animacions/sa2-s3-t2.mp4" },
-    { id: "t3", apartat: "3", heading: "Per quina raó la circulació és doble", text: "==Petita circulació|b==: cor → pulmons → cor (oxigenació). ==Gran circulació|o==: cor → tot el cos → cor (distribució). Calen ==4 cavitats== per mantenir les pressions separades. Si es barregen ==sang oxigenada i desoxigenada|r== → menys eficiència.", type: "concept", video: "/animacions/sa2-s3-t3.mp4" },
-    { id: "t4", apartat: "4", heading: "Primera lectura de l'analítica", text: "Marc Fontana: ==Hb 9.2 g/dL|r== (normal >13), ==eritròcits petits|r==, ==ferro baix|r==. Diagnòstic parcial: ==anèmia ferropènica==. Per quina raó es fatiga tant? Porta menys ==O₂|b== per litre de sang → els músculs no reben prou combustible.", type: "keyequation", badge: "🔗 Enigma 2 — segon pas", video: "/animacions/sa2-s3-t4.mp4" }
+    { id: "t3", apartat: "3", heading: "Per quina raó la circulació és doble", text: "==Petita circulació|b==: cor → pulmons → cor (oxigenació). ==Gran circulació|o==: cor → tot el cos → cor (distribució). Calen ==4 cavitats== per mantenir les pressions separades. Si es barregen ==sang oxigenada i desoxigenada|r== → menys eficiència.", type: "concept" },
+    { id: "t4", apartat: "4", heading: "Primera lectura de l'analítica", text: "Marc Fontana: ==Hb 9.2 g/dL|r== (normal >13), ==eritròcits petits|r==, ==ferro baix|r==. Diagnòstic parcial: ==anèmia ferropènica==. Per quina raó es fatiga tant? Porta menys ==O₂|b== per litre de sang → els músculs no reben prou combustible.", type: "keyequation", badge: "🔗 Enigma 2 — segon pas" }
   ],
 
   graphicResources: [
@@ -150,5 +150,5 @@ export const sa2s3 = {
     "Llegeix la teoria (apartat EXPLICA)",
     "Omple la fitxa S3 i fes l'exit tiquet online a l'acordió de sota"
   ],
-  oaLinks: ["OA2"], competencies: ["CE1", "CE2", "CE4"]
+  oaLinks: ["OA1"], competencies: ["CE1", "CE2", "CE4"]
 }
