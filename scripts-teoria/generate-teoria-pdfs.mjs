@@ -12,6 +12,25 @@ const publicDir = path.join(webRoot, 'public')
 const outDir = path.join(publicDir, 'teoria')
 fs.mkdirSync(outDir, { recursive: true })
 
+const SITE = 'https://templeobert.cat/bio-geo-3r/'
+const framesDir = path.join(__dirname, 'frames')
+const sessionUrl = (s) => `${SITE}#/sa/${s.saId}/${s.id}`
+const plain = (t) => String(t || '').replace(/==/g, '').replace(/\|[apogrb]/g, '')
+
+// Fotograma d'una animació HyperFrames (extret dels MP4 de public/animacions) com a miniatura
+function frameFor (video) {
+  if (!video) return null
+  const f = path.join(framesDir, path.basename(video, '.mp4') + '.jpg')
+  return fs.existsSync(f) ? `data:image/jpeg;base64,${fs.readFileSync(f).toString('base64')}` : null
+}
+
+// Avís clicable: el full és de paper, la peça interactiva viu al web
+function webNote (kind, session, label, frame) {
+  const what = kind === 'app' ? 'una app interactiva' : 'una animació'
+  const thumb = frame ? `<span class="wn-thumb"><img src="${frame}" alt="" /><i>▶</i></span>` : `<span class="wn-ico">${kind === 'app' ? '🧪' : '▶'}</span>`
+  return `<a class="web-note" href="${sessionUrl(session)}">${thumb}<span class="wn-txt"><b>Per entendre-ho millor</b>: tens ${what} al web — <b>${escapeHtml(session.saLabelShort)}, sessió ${session.sessionNumber}</b>${label ? ` (${escapeHtml(label)})` : ''}.<em>templeobert.cat/bio-geo-3r</em></span></a>`
+}
+
 const SA_LABEL = { sa1: 'La cèl·lula', sa2: 'El cos humà', sa3: 'Defensors del cos', sa4: 'Créixer i reproduir-se' }
 // Accent = color.accent de data/saN/index.js
 const SA_ACCENT = { sa1: '#7c3aed', sa2: '#c0392b', sa3: '#157f6b', sa4: '#8350c8' }
@@ -92,17 +111,17 @@ function apartatKey (v) {
   return Number.isNaN(n) ? 9998 : n
 }
 
-function imageCard (res, accent) {
-  const url = resolveAsset(res.src)
+function imageCard (res, accent, session) {
+  const url = res.embed ? null : resolveAsset(res.src)
   const titleHtml = renderHighlighted(res.title || '', accent)
   const noteHtml = res.note ? `<span class="note">${renderHighlighted(res.note, accent)}</span>` : ''
   return `<figure class="card img-card">
     ${url ? `<img src="${url}" alt="${escapeHtml(res.title || '')}" />` : ''}
-    <figcaption><strong>${escapeHtml(res.id || '')}</strong>${res.id ? ' — ' : ''}${titleHtml}${noteHtml ? `<br/>${noteHtml}` : ''}</figcaption>
+    <figcaption><strong>${escapeHtml(res.id || '')}</strong>${res.id ? ' — ' : ''}${titleHtml}${noteHtml ? `<br/>${noteHtml}` : ''}${(res.embed || /animació/i.test(res.title || '')) ? webNote('video', session, '', null) : ''}</figcaption>
   </figure>`
 }
 
-function textCard (tp, accent) {
+function textCard (tp, accent, session) {
   const meta = TYPE_META[tp.type] || TYPE_META.concept
   const borderColor = meta.border(accent)
   const chipText = tp.badge || meta.label
@@ -121,10 +140,12 @@ function textCard (tp, accent) {
     <p>${renderHighlighted(tp.text, accent)}</p>
     ${formula}
     ${inlineImg}
+    ${tp.video ? webNote('video', session, plain(tp.heading), frameFor(tp.video)) : ''}
   </div>`
 }
 
 function buildHtml (session) {
+  session.saLabelShort = session.saId.toUpperCase()
   const accent = SA_ACCENT[session.saId]
   const accentSoft = SA_ACCENT_SOFT[session.saId]
   const saLabel = SA_LABEL[session.saId]
@@ -138,8 +159,8 @@ function buildHtml (session) {
     if (!groups.has(key)) groups.set(key, [])
     groups.get(key).push(html)
   }
-  for (const tp of theoryPoints) addToGroup(tp.apartat, textCard(tp, accent))
-  for (const res of graphicResources) addToGroup(res.apartat, imageCard(res, accent))
+  for (const tp of theoryPoints) addToGroup(tp.apartat, textCard(tp, accent, session))
+  for (const res of graphicResources) addToGroup(res.apartat, imageCard(res, accent, session))
 
   const sortedKeys = [...groups.keys()].sort((a, b) => a - b)
   const multipleGroups = sortedKeys.filter((k) => k < 9998).length > 1
@@ -266,6 +287,22 @@ function buildHtml (session) {
     border-radius: 1.5mm;
   }
 
+  .web-note {
+    display: flex; align-items: center; gap: 2.5mm;
+    margin: 2mm 0 0 0; padding: 1.6mm 2.4mm;
+    border: 1.2px solid ${accent}; border-radius: 2mm;
+    background: ${accentSoft}; color: #4a3f3f; text-decoration: none;
+    font-size: 8.5px; line-height: 1.3; break-inside: avoid;
+  }
+  .web-note b { color: ${accent}; }
+  .web-note em { display: block; font-style: normal; font-size: 7.5px; color: #6b5e5e; margin-top: 0.4mm; }
+  .wn-thumb { position: relative; flex: 0 0 26mm; }
+  .wn-thumb img { display: block; width: 26mm; height: auto; border: 1px solid rgba(74,63,63,0.2); border-radius: 1mm; }
+  .wn-thumb i { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 6mm; height: 6mm; line-height: 6mm; text-align: center; font-style: normal; font-size: 8px; color: #fff; background: ${accent}; border-radius: 50%; opacity: 0.92; }
+  .wn-ico { flex: 0 0 auto; font-size: 13px; }
+  .hero + .web-note { margin: 0 0 3mm 0; }
+  .img-card .web-note { text-align: left; margin-top: 1.2mm; }
+
   .img-card { border: 1px solid rgba(74,63,63,0.12); text-align: center; }
   .img-card img {
     display: block;
@@ -298,6 +335,7 @@ function buildHtml (session) {
       <div class="duration">⏱ ${escapeHtml(session.duration || '')}</div>
     </div>
   </div>
+  ${session.appSrc ? webNote('app', session, 'apartat Explora', null) : ''}
   <div class="flow">
     ${body}
   </div>
