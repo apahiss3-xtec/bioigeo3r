@@ -76,7 +76,8 @@ export const sa2s7 = {
 
   sessionMaterials: [
     { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s7-exit-ticket.html", who: "docent" },
-    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s7-exit-ticket-C.html", who: "docent" }
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s7-exit-ticket-C.html", who: "docent" },
+    { id: "rubrica", title: "Rúbrica de l'informe FC", url: "/fitxes/sa2-s7-rubrica-informe.html", who: "la té l'alumnat al davant des del primer minut de l'apartat 4" }
   ],
 
   fitxaGuide: {
@@ -113,7 +114,7 @@ export const sa2s7 = {
   exitTicketNote: "Avaluació sumativa CE1 + CE4. Individual, sense ajuda. Hi ha versió EN PAPER per a qui no tingui dispositiu: exit_ticket_s7_VISUAL.html (A i B) i exit_ticket_s7_C_VISUAL.html (C). Per cabre en mig full A4, el full de paper porta NOMÉS la pregunta q1 d'aquí (gràfica G3 del Nil + hipòtesi): és la que millor recull la idea central de la sessió (el cicle complet i com un valor alterat ho explica tot).",
 
   deliverables: [
-    { name: "Informe FC en parelles (Rols A + B)", note: "Entrega a Classroom. Termini 1 setmana si no s'acaba a classe." }
+    { name: "Informe FC en parelles (Rols A + B)", note: "Entrega a Classroom. Termini 1 setmana si no s'acaba a classe. Rúbrica: /fitxes/sa2-s7-rubrica-informe.html" }
   ],
 
   reportStructure: {

@@ -112,7 +112,7 @@ export const sa2s2 = {
     fitxaName: "Fitxa S2 — El sistema digestiu",
     steps: [
       { apartat: "—", title: "Formulari de comprensió de la lectura", time: "5 min", phase: "engage", instruction: "Abans de començar la fitxa, fes el formulari de comprensió (Google Forms) de la lectura de la sessió 2 que havies de llegir a casa.", hints: [] },
-      { apartat: "0", title: "Idees prèvies", time: "10 min", phase: "engage", instruction: "Omple l'apartat 0 — Idees prèvies del full: escriu les parts del sistema digestiu que recordes i l'ordre per on passa el menjar.", hints: [] },
+      { apartat: "0", title: "Idees prèvies", time: "5 min", phase: "engage", instruction: "Omple l'apartat 0 — Idees prèvies del full: escriu les parts del sistema digestiu que recordes i l'ordre per on passa el menjar.", hints: [] },
       { apartat: "1", title: "Posa nom al sistema digestiu", time: "20 min", phase: "explore", instruction: "Amb el banc de paraules, omple l'apartat 1 del full: nom i funció de cada òrgan numerat al diagrama.", hints: [
         "Segueix el recorregut del menjar de dalt a baix: boca, esòfag, estómac, intestins.",
         "Per a la funció pensa què hi PASSA al menjar a cada òrgan, no només com es diu."

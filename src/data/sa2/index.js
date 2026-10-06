@@ -6,6 +6,7 @@ export const sa2 = {
   color: { primary: "#8B1A1A", accent: "#C0392B" },
   sessions: 7,
   portadaImage: "/images/sa2-portada.jpg",
+  guiaDocent: "/docs/sa2-guia-docent.docx",
   description: "Seguiràs el rastre de la glucosa i l'oxigen des que entren al cos fins que arriben al mitocondri de cada cèl·lula — i entendràs per quina raó un problema de ferro pot destrossar el rendiment d'un corredor.",
   product: "Informe científic en parelles sobre la freqüència cardíaca durant l'esforç",
   enigmas: [
