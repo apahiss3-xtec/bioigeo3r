@@ -87,7 +87,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .previ-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch; margin-top:8px; }
 .draw-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:9px 12px; display:flex; flex-direction:column; }
 .draw-box .card-label { color:var(--purple-ink); }
-.draw-area { flex:1 1 auto; min-height:240px; border:1.5px dashed var(--rule-dark); border-radius:8px; background:#fff; margin-top:6px; display:flex; align-items:flex-start; justify-content:flex-end; }
+.draw-area { flex:1 1 auto; min-height:150px; border:1.5px dashed var(--rule-dark); border-radius:8px; background:#fff; margin-top:6px; display:flex; align-items:flex-start; justify-content:flex-end; }
 .draw-area .draw-hint { font-size:9px; color:#c0b8d8; font-style:italic; padding:5px 8px; user-select:none; pointer-events:none; }
 .wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:6px; background:#fff; outline:none; padding:3px 4px; }
 .pista { font-size:10px; color:var(--muted); font-style:italic; margin:4px 0 2px; }
@@ -105,8 +105,8 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
 .word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
 .word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
-.chips { display:flex; flex-wrap:wrap; gap:4px; }
-.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.chips { display:grid; grid-template-columns:1fr 1fr; gap:3px 6px; }
+.chip { font-size:11px; line-height:1.2; font-weight:600; padding:2px 8px; border-radius:12px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
 
 .data-table { width:100%; border-collapse:collapse; font-size:11px; }
 .data-table th { background:var(--purple-ink); color:#fff; padding:5px 8px; text-align:left; font-size:9px; letter-spacing:.05em; text-transform:uppercase; }
@@ -199,6 +199,9 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   .header-emoji-box { background:#ede8f8; }
 }
 
+
+/* ══ P13 · 08/10/2026 — compactació per evitar fulls de més. Mateixes preguntes; només espaiat, caixes i figures. ══ */
+.section{margin-top:8px} .section-header{margin-bottom:5px} .divider{margin-bottom:6px} .card{padding:7px 10px;margin-bottom:6px} .info-box{padding:6px 10px} .wline{min-height:24px;margin-top:4px} .previ-box{padding:7px 10px} .draw-area{min-height:120px}
 </style>
 </head>
 <body>

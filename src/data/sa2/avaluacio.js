@@ -53,16 +53,16 @@ export const sa2Avaluacio = {
         oa: 'OA3',
         source: "Entrena el bloc 3 de la prova · Llegir i comparar dades de freqüència cardíaca",
         minutes: 7,
-        text: "L'Aina es mesura la freqüència cardíaca (FC) amb el rellotge en la mateixa pujada. Al setembre: repòs 84 bpm, màxim 182 bpm, 3 minuts després d'acabar 150 bpm. Al desembre, després d'entrenar tres dies per setmana: repòs 70 bpm, màxim 176 bpm, 3 minuts després 110 bpm. a) En quin mes està més entrenada? Justifica-ho amb DUES dades. b) Calcula la seva FC màxima teòrica i quin percentatge n'ha fet servir al desembre. c) Per què la FC puja quan pedala?",
+        text: "L'Aina es mesura la freqüència cardíaca (FC) amb el rellotge en la mateixa pujada. Al setembre: repòs 84 bat/min, màxim 182 bat/min, 3 minuts després d'acabar 150 bat/min. Al desembre, després d'entrenar tres dies per setmana: repòs 70 bat/min, màxim 176 bat/min, 3 minuts després 110 bat/min. a) En quin mes està més entrenada? Justifica-ho amb DUES dades. b) Calcula la seva FC màxima teòrica i quin percentatge n'ha fet servir al desembre. c) Per què la FC puja quan pedala?",
         model: {
-          as: "a) Al desembre, perquè en repòs té les pulsacions més baixes (70) i es recupera més de pressa (110). b) 220 − 14 = 206 bpm; 176 / 206 = 85 %. c) Perquè en pedalar les cames demanen més oxigen, i per portar-l'hi cal més sang per minut.",
-          ae: "a) Al desembre. En repòs baixa de 84 a 70 bpm: el cor entrenat és més fort i en cada batec impulsa més sang, així que necessita menys batecs per fer la mateixa feina. I 3 minuts després ha baixat fins a 110, en comparació amb els 150 del setembre: es recupera molt més de pressa. b) FCmàx = 220 − 14 = 206 bpm. 176 / 206 × 100 ≈ 85 %: ha fet un esforç intens, però per sota del seu màxim. c) En pedalar, els músculs fan molta més respiració cel·lular i necessiten més oxigen i glucosa, i treure més CO₂. El cor accelera per fer passar més sang per minut pels músculs i pels pulmons."
+          as: "a) Al desembre, perquè en repòs té les pulsacions més baixes (70) i es recupera més de pressa (110). b) 220 − 14 = 206 bat/min; 176 / 206 = 85 %. c) Perquè en pedalar les cames demanen més oxigen, i per portar-l'hi cal més sang per minut.",
+          ae: "a) Al desembre. En repòs baixa de 84 a 70 bat/min: el cor entrenat és més fort i en cada batec impulsa més sang, així que necessita menys batecs per fer la mateixa feina. I 3 minuts després ha baixat fins a 110, en comparació amb els 150 del setembre: es recupera molt més de pressa. b) FCmàx = 220 − 14 = 206 bat/min. 176 / 206 × 100 ≈ 85 %: ha fet un esforç intens, però per sota del seu màxim. c) En pedalar, els músculs fan molta més respiració cel·lular i necessiten més oxigen i glucosa, i treure més CO₂. El cor accelera per fer passar més sang per minut pels músculs i pels pulmons."
         },
         aeWhy: "L'AE no només compara xifres: explica el PER QUÈ de cada diferència (cor més fort, més sang per batec) i fa el percentatge sencer. Tanca la porta a l'error típic de pensar que «entrenat = arriba a més pulsacions» (al desembre el màxim és fins i tot més baix).",
         must: [
           "Has triat el desembre i has fet servir dues dades del text.",
           "Has explicat per què un cor entrenat batega menys en repòs.",
-          "Has calculat la FCmàx (206 bpm) i el percentatge (≈ 85 %).",
+          "Has calculat la FCmàx (206 bat/min) i el percentatge (≈ 85 %).",
           "Has lligat la pujada de la FC amb la necessitat d'oxigen dels músculs."
         ]
       },

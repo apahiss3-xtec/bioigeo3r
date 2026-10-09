@@ -13,7 +13,7 @@ export const sa2 = {
     {
       id: "enigma1",
       title: "La gràfica de la Mercè",
-      description: "Gràfica FC d'una corredora: repòs (~65 bpm) → pic (~185 bpm) → recuperació (~90 bpm als 10'). Forma asimètrica. Per quina raó canvia tant? Al final de la SA ho sabràs."
+      description: "Gràfica FC d'una corredora: repòs (~65 bat/min) → pic (~185 bat/min) → recuperació (~90 bat/min als 10'). Forma asimètrica. Per quina raó canvia tant? Al final de la SA ho sabràs."
     },
     {
       id: "enigma2",

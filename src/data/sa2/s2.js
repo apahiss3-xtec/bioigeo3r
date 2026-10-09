@@ -39,7 +39,7 @@ export const sa2s2 = {
   apartatExtras: {
     "1": {
       scaffold: "Segueix el recorregut del menjar de dalt a baix: boca → _______ → estómac → _______ → intestí gros → _______. Per a cada pas anota UNA funció amb el patró: «aquí el menjar ___».",
-      challenge: "L'intestí prim mesura ~6 m però fa molta superfície: per quina raó el cos 'necessita' tanta longitud? Calcula el radi aproximat d'un vas cilíndric de 6 m sense vellositats que tingués la mateixa superfície que els 200 m² reals. Quina diferència de volum implicaria?"
+      challenge: "L'intestí prim mesura ~6 m però fa molta superfície: per quina raó el cos 'necessita' tanta longitud? Calcula el radi aproximat d'un vas cilíndric de 6 m sense vellositats que tingués la mateixa superfície que els ~30 m² reals. Quina diferència de volum implicaria?"
     },
     "3": {
       scaffold: "A la simulació: vinagre → representa _______ (pH ~___). Bicarbonat → neutralitza fins a pH ___. La mitja de niló → representa _______ perquè deixa passar _______ però NO _______.",
@@ -89,7 +89,7 @@ export const sa2s2 = {
 
   theoryPoints: [
     { id: "t5", apartat: "1", heading: "Límits del model de simulació", text: "La simulació NO reprodueix: la temperatura (37ºC), la pressió de l'estómac, la velocitat real (~24h), la ==selectivitat molecular|o== de les ==vellositats==. Tot ==model== simplifica la realitat.", type: "epistemic", badge: "🔬 Límits del model" },
-    { id: "t1", apartat: "3", heading: "Per quina raó l'absorció és a l'==intestí prim== i no a l'==estómac==", text: "L'==intestí prim== té ==vellositats|o== que multipliquen la ==superfície d'absorció|o== (~200 m²). El ==pH== és neutre (favorable per a ==enzims==). L'estómac té ==pH àcid (2–3)|r== que ==desnaturalitza|r== enzims però mata bacteris.", type: "concept" },
+    { id: "t1", apartat: "3", heading: "Per quina raó l'absorció és a l'==intestí prim== i no a l'==estómac==", text: "L'==intestí prim== té ==vellositats|o== que multipliquen la ==superfície d'absorció|o== (~30–40 m²). El ==pH== és neutre (favorable per a ==enzims==). L'estómac té ==pH àcid (2–3)|r== que ==desnaturalitza|r== enzims però mata bacteris.", type: "concept" },
     { id: "t2", apartat: "3", heading: "Per quina raó el ==pàncrees== secreta ==bicarbonat==", text: "El ==quimo== que arriba del estómac és molt àcid. El ==bicarbonat pancreàtic== el neutralitza fins a ==pH 7–8|g== perquè els ==enzims intestinals== (lipasa, proteasa) funcionin. Sense neutralització, els enzims no funcionen.", type: "concept" },
     { id: "t3", apartat: "4", heading: "Connexió central: ==glucosa== → ==sang== → ==mitocondri==", text: "La ==glucosa|o== absorbida a l'==intestí prim== passa als ==capil·lars== de les vellositats → ==vena porta== → circulació general → ==mitocondri== de cada cèl·lula (connexió SA1 i S1).", type: "transfer", badge: "🔗 Connexió SA1", video: "/animacions/sa2-s2-t3.mp4" },
     { id: "t4", apartat: "4", heading: "==Microbiota==: els 0.5 kg de bacteris que t'ajuden", text: "El teu intestí conté >100 bilions de bacteris (==microbiota==). Produeixen ==vitamines|g==, protegeixen de ==patògens|r== i regulen el ==sistema immunitari==. Per quina raó els ==antibiòtics== causen diarrea? Maten els bacteris dolents però també els ==bacteris bons|g==.", type: "concept" }
@@ -97,7 +97,7 @@ export const sa2s2 = {
 
   graphicResources: [
     { id: "Fig.1", title: "L'aparell digestiu humà complet", src: "/images/sa2-aparell-digestiu.png", note: "El recorregut del menjar: boca → esòfag → estómac → intestí prim → intestí gros → anus, amb les glàndules (fetge, pàncrees) que hi aboquen sucs." },
-    { id: "Fig.2", title: "Per què s'absorbeix a l'intestí prim", src: "/images/sa2-vellositats.png", note: "Les vellositats i microvellositats multipliquen la superfície fins a ~200 m². Cada vellositat té capil·lars (glucosa, aminoàcids) i vasos limfàtics (greixos)." },
+    { id: "Fig.2", title: "Per què s'absorbeix a l'intestí prim", src: "/images/sa2-vellositats.png", note: "Les vellositats i microvellositats multipliquen la superfície fins a uns 30–40 m². Cada vellositat té capil·lars (glucosa, aminoàcids) i vasos limfàtics (greixos)." },
     { id: "Fig.3", title: "L'escala de Bristol", src: "/images/sa2-escala-bristol.png", note: "Classifica les femtes en 7 tipus segons el temps de trànsit intestinal. La fas servir a l'apartat 5 del full." }
   ],
 

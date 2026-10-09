@@ -109,7 +109,10 @@ export const sa2s1 = {
 
   sessionMaterials: [
     { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s1-exit-ticket.html", who: "docent" },
-    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s1-exit-ticket-C.html", who: "docent" }
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s1-exit-ticket-C.html", who: "docent" },
+    { id: "posterEnigma1", title: "Pòster de paret · Enigma 1, la gràfica de la Mercè (A2 = 2 fulls A3)", url: "/fitxes/sa2-s1-poster-enigma1.pdf", who: "docent" },
+    { id: "posterEnigma2", title: "Pòster de paret · Enigma 2, l'analítica del Marc (A2 = 2 fulls A3)", url: "/fitxes/sa2-s1-poster-enigma2.pdf", who: "docent" },
+    { id: "etiquetes", title: "10 etiquetes nutricionals per a «Detectius d'etiquetes» (A4, 4 per full, per retallar)", url: "/fitxes/sa2-s1-etiquetes-nutricionals.pdf", who: "docent" }
   ],
 
   fitxaGuide: {

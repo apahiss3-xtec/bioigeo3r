@@ -233,7 +233,7 @@ export const sa3Avaluacio = {
       {
         id: 'p2', oa: 'OA3',
         img: '/images/sa3-s4-farmacs.jpg',
-        alt: "Diverses capses de medicaments sobre una taula.",
+        alt: "Un pastiller setmanal ple de pastilles i càpsules, al costat d'un got d'aigua.",
         llegir: "Els bacteris i els virus són microbis diferents. L'antibiòtic mata bacteris. Contra els virus no fa res.",
         text: "En Nil té la grip 🤧 (és un virus). Li anirà bé un antibiòtic?",
         options: ["Sí, perquè mata tots els microbis del cos", "No, no fa res contra els virus"],

@@ -123,7 +123,7 @@ export const sa4s3 = {
   // Material físic que la sessió dona per existent (comprovació transversal 'ah').
   sessionMaterials: [
     { id: "M1", title: "Targetes de casos (8 casos retallables)", url: "/fitxes/sa4-s3-targetes-casos.html", who: "docent imprimeix un joc per grup de 3-4" },
-    { id: "M1b", title: "Clau del docent dels vuit casos", url: null, who: "NOMÉS docent. NO es publica a la web (27/08): la URL era endevinable des de la del full de l'alumnat. Es troba a la carpeta de la sessió, a SA4-creixer-reproduir/S3-ciencia-i-societat/targetes_casos_sessio3_DOCENT.html" },
+    { id: "M1b", title: "Clau del docent dels vuit casos", url: null, who: "només docent, en paper (no es publica a la web)" }, // Font: SA4-creixer-reproduir/S3-ciencia-i-societat/targetes_casos_sessio3_DOCENT.html (no es publica: URL endevinable, 27/08)
     { id: "M2", title: "Cartell: acord d'aula + pauta d'argumentació", url: "/fitxes/sa4-s3-cartell-acord.html", who: "docent el penja abans de començar i el deixa visible tota la sessió" },
     { id: "M3", title: "Preguntes de la bústia transcrites a màquina (dues)", url: null, who: "docent. Es transcriuen fora de classe: mai es llegeix el paper original" },
     { id: "M4", title: "Full de sortida (versions A i B)", url: "/fitxes/sa4-s3-full-sortida.html", who: "es reparteix als últims 7 minuts" },

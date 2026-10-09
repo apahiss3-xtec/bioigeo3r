@@ -127,14 +127,14 @@ export const sa4s4 = {
   // Material físic que la sessió dona per existent (comprovació transversal 'ah').
   sessionMaterials: [
     { id: "M1", title: "Targetes de mètodes (8 targetes retallables)", url: "/fitxes/sa4-s4-targetes-metodes.html", who: "docent imprimeix un joc per grup de 3" },
-    { id: "M1b", title: "Clau del docent de les vuit targetes", url: null, who: "NOMÉS docent. NO es publica a la web: la URL seria endevinable des de la del material de l'alumnat. És a SA4-creixer-reproduir/_NO-PUBLICAR/targetes_metodes_sessio4_DOCENT.html" },
+    { id: "M1b", title: "Clau del docent de les vuit targetes", url: null, who: "només docent, en paper (no es publica a la web)" }, // Font: SA4-creixer-reproduir/_NO-PUBLICAR/targetes_metodes_sessio4_DOCENT.html (no es publica: URL endevinable)
     { id: "M2", title: "Plantilla del producte final (versions B i A)", url: "/fitxes/sa4-s4-plantilla-producte.html", who: "una per parella, es reparteix a l'inici de l'apartat 3" },
     { id: "M3", title: "Plantilla del producte final (versió C, guiada frase a frase)", url: "/fitxes/sa4-s4-plantilla-producte-C.html", who: "una per parella" },
     { id: "M4", title: "Rúbrica del producte final", url: "/fitxes/sa4-s4-rubrica-producte.html", who: "la té l'alumnat AL DAVANT des del primer minut de l'apartat 3, no en acabar" },
     { id: "M5", title: "Les tres preguntes de la bústia, transcrites a màquina", url: null, who: "docent. Es transcriuen i es reformulen en tercera persona fora de classe; mai el paper original. Són les MATEIXES per a tota la classe" },
     { id: "M6", title: "Vídeo viral (o la seva transcripció impresa)", url: null, who: "docent. Es projecta un sol cop i no es deixa enllaçat enlloc: l'objecte d'estudi és l'afirmació, no el canal" },
     { id: "M7", title: "Formulari Google de la unitat", url: null, who: "docent. L'enllaç es comparteix JUST en el moment de respondre'l, els últims 10 minuts" },
-    { id: "M8", title: "Full de sortida en paper (versions B i C) — mateixes preguntes que el formulari", url: null, who: "NOMÉS docent, per a qui no pot fer el formulari en línia. NO es publica a la web: portaria les preguntes sumatives. Fonts: SA4-creixer-reproduir/S4-decisions-informades/full_sortida_s4_VISUAL.html (A/B) i full_sortida_s4_C_VISUAL.html (C)" }
+    { id: "M8", title: "Full de sortida en paper (versions B i C) — mateixes preguntes que el formulari", url: null, who: "docent, en paper, per a qui no pot fer el formulari en línia" } // Fonts: SA4-creixer-reproduir/S4-decisions-informades/full_sortida_s4_VISUAL.html (A/B) i full_sortida_s4_C_VISUAL.html (C); no es publica: portaria les preguntes sumatives
   ],
 
   theoryPoints: [

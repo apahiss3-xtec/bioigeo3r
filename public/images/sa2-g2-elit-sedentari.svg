@@ -47,7 +47,7 @@
   <line x1="78.0" y1="74.0" x2="78.0" y2="336.0" stroke="#8a8a9a" stroke-width="1.3"/>
   <line x1="78.0" y1="336.0" x2="852.0" y2="336.0" stroke="#8a8a9a" stroke-width="1.3"/>
   <line x1="78.0" y1="123.1" x2="852.0" y2="123.1" stroke="#c0474a" stroke-width="1.3" stroke-dasharray="6,4"/>
-  <text x="86.0" y="91.0" font-size="12" font-weight="700" fill="#c0474a" font-family="Fira Sans Extra Condensed, sans-serif">ZONA ANAERÒBICA (&gt;170 bat/min)</text>
+  <text x="846.0" y="91.0" text-anchor="end" font-size="12" font-weight="700" fill="#c0474a" font-family="Fira Sans Extra Condensed, sans-serif">ZONA ANAERÒBICA (&gt;170 bat/min = 85 % de la FC màx. als 20 anys)</text>
   <text x="86.0" y="140.1" font-size="12" font-weight="700" fill="#4a8a5c" font-family="Fira Sans Extra Condensed, sans-serif">ZONA AERÒBICA</text>
   <text x="465.0" y="378.0" font-size="13" font-weight="700" fill="#555555" text-anchor="middle" font-family="Fira Sans Extra Condensed, sans-serif">Temps (minuts)</text>
   <text x="24" y="205.0" font-size="13" font-weight="700" fill="#555555" text-anchor="middle" font-family="Fira Sans Extra Condensed, sans-serif" transform="rotate(-90,24,205.0)">Freqüència cardíaca (bat/min)</text>

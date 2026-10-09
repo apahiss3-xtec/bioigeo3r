@@ -107,7 +107,7 @@ export const sa4s2 = {
   // Material físic que la sessió dona per existent (comprovació transversal 'ah').
   sessionMaterials: [
     { id: "M1", title: "Targetes de cromosomes (8 targetes + plantilles de gàmeta i zigot)", url: "/fitxes/sa4-s2-targetes-cromosomes.html", who: "docent imprimeix tants jocs com parelles hi hagi: 1 joc per parella" },
-    { id: "M1b", title: "Guió i solucionari del docent (targetes)", url: null, who: "NOMÉS docent. NO es publica a la web (27/08): la URL era endevinable des de la del full de l'alumnat. Es troba a SA4-creixer-reproduir/S2-com-funcionem/targetes_cromosomes_sessio2_DOCENT.html" },
+    { id: "M1b", title: "Guió i solucionari del docent (targetes)", url: null, who: "només docent, en paper (no es publica a la web)" }, // Font: SA4-creixer-reproduir/S2-com-funcionem/targetes_cromosomes_sessio2_DOCENT.html (no es publica: URL endevinable, 27/08)
     { id: "M2", title: "Preguntes de la bústia transcrites a màquina", url: null, who: "docent. Es transcriuen fora de classe: mai es llegeix el paper original" },
     { id: "M3", title: "Full de sortida (versions A i B)", url: "/fitxes/sa4-s2-full-sortida.html", who: "es reparteix als últims 7 minuts" },
     { id: "M4", title: "Full de sortida (versió C)", url: "/fitxes/sa4-s2-full-sortida-C.html", who: "es reparteix als últims 7 minuts" }

@@ -169,7 +169,7 @@ span[contenteditable] { display:inline-block; }
 .fig { margin:10px 0; text-align:center; }
 .fig-frame { position:relative; display:inline-block; max-width:100%; border:1.5px solid var(--purple-light); border-radius:9px; background:var(--purple-tint); overflow:hidden; box-shadow:0 1px 6px rgba(47,107,94,.12); }
 .fig-frame img { display:block; max-width:100%; object-fit:contain; }
-.fig-ph { align-items:center; justify-content:center; min-height:118px; padding:16px 20px; font-size:10.5px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
+.fig-ph { display:none; /* P13 08/10: el rètol «imatge a generar» només surt si la imatge falla (onerror) */ align-items:center; justify-content:center; min-height:118px; padding:16px 20px; font-size:10.5px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
 .fig-ph .ph-ico { font-size:26px; display:block; margin-bottom:5px; }
 .figcap { font-size:9.5px; color:var(--muted); margin-top:5px; font-style:italic; line-height:1.4; }
 .fig-row { display:flex; gap:12px; align-items:stretch; flex-wrap:wrap; justify-content:center; }

@@ -145,7 +145,7 @@ export const sa2s7 = {
       { t: 8, fc: 104 }, { t: 9, fc: 96 }, { t: 10, fc: 90 }, { t: 11, fc: 87 }, { t: 12, fc: 85 }
     ],
     graphic: { id: "GR", title: "Gràfica FC de la Berta (dades de reserva)", src: "/images/sa2-s7-dades-reserva.svg" },
-    note: "Pic ~178 bpm (just per sobre del llindar anaeròbic 175: toca la zona anaeròbica un moment, i per això la cursa és curta i a fons) i recuperació RÀPIDA: en 5 min ja torna a prop del repòs. És el patró sa que serveix de base per a la Discussió."
+    note: "Pic ~178 bat/min (just per sobre del llindar anaeròbic 175: toca la zona anaeròbica un moment, i per això la cursa és curta i a fons) i recuperació RÀPIDA: en 5 min ja torna a prop del repòs. És el patró sa que serveix de base per a la Discussió."
   },
 
   homework: { description: "Acabar l'informe FC i entregar a Classroom en un termini d'una setmana." },
