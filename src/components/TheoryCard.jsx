@@ -8,6 +8,21 @@ import { asset } from '../utils.js'
 export default function TheoryCard({ point, index }) {
   const isKey = point.type === 'keyequation'
   const isSynthesis = point.type === 'synthesis'
+  const figure = point.image && (
+    <figure className="mt-4 overflow-hidden rounded-xl border border-[var(--rule)] bg-white">
+      <img
+        src={asset(point.image)}
+        alt={point.imageAlt || ''}
+        className="w-full block"
+        loading="lazy"
+      />
+      {point.imageCaption && (
+        <figcaption className="px-4 py-2 text-xs text-[var(--muted)]">
+          <T>{point.imageCaption}</T>
+        </figcaption>
+      )}
+    </figure>
+  )
 
   return (
     <motion.article
@@ -60,23 +75,11 @@ export default function TheoryCard({ point, index }) {
               </figcaption>
             </figure>
           )}
-          {point.image && (
-            <figure className="mt-4 overflow-hidden rounded-xl border border-[var(--rule)] bg-white">
-              <img
-                src={asset(point.image)}
-                alt=""
-                className="w-full block"
-                loading="lazy"
-              />
-              {point.imageCaption && (
-                <figcaption className="px-4 py-2 text-xs text-[var(--muted)]">
-                  <T>{point.imageCaption}</T>
-                </figcaption>
-              )}
-            </figure>
-          )}
+          {point.image && !point.imageWide && figure}
         </div>
       </div>
+      {/* imageWide: imatge amb text a dins → a tot l'ample de la targeta (no a la columna del text) */}
+      {point.image && point.imageWide && figure}
     </motion.article>
   )
 }
