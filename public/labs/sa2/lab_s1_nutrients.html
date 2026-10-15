@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laboratori del iode</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@600;700&family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8f6;--surface:#ffffff;--ink:#16241c;--muted:#5b6b62;--line:#d5ded8;
+      --green:#1f5a3c;--green-2:#2f7a52;--accent:#d98a1e;--ok:#2e7d4f;--warn:#b7791f;--bad:#b23b3b;
+      --dish:#eef1ee;--wet:#8c7c52;--grease:#a8954f;--paper:#f4f0e3;--paper-lit:#cdbf86;--spot-lit:#fff8d2}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1712;--surface:#16211a;--ink:#e6efe9;
+      --muted:#9fb1a6;--line:#2a3a30;--green:#7cc39a;--green-2:#5fae82;--accent:#f0a945;--ok:#6fcf97;--warn:#e0b252;--bad:#ef7b7b;--dish:#24352b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1712;--surface:#16211a;--ink:#e6efe9;
+      --muted:#9fb1a6;--line:#2a3a30;--green:#7cc39a;--green-2:#5fae82;--accent:#f0a945;--ok:#6fcf97;--warn:#e0b252;--bad:#ef7b7b;--dish:#24352b;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Fira Sans",system-ui,sans-serif;font-size:17px;line-height:1.5}
+h1,h2,h3{font-family:"Fira Sans Extra Condensed","Fira Sans",system-ui,sans-serif;font-weight:700;line-height:1.15;margin:0 0 .4em;color:var(--green)}
+h1{font-size:2rem}h2{font-size:1.5rem}h3{font-size:1.2rem}
+p{margin:.4em 0 .8em}
+a{color:var(--green-2)}
+.wrap{max-width:940px;margin:0 auto;padding:12px max(16px,env(safe-area-inset-right)) 60px max(16px,env(safe-area-inset-left))}
+.back{display:inline-block;margin:6px 0 10px;font-weight:500}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+.tag{display:inline-block;font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--surface);background:var(--green);padding:2px 10px;border-radius:99px}
+header .sub{color:var(--muted);margin:.2em 0 .8em}
+.levels{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:6px 0 14px;font-size:.92rem;color:var(--muted)}
+.levels button{min-width:44px;min-height:40px;border:1.5px solid var(--green);background:var(--surface);color:var(--green);border-radius:10px;font:600 1rem "Fira Sans",sans-serif;cursor:pointer}
+.levels button[aria-pressed="true"]{background:var(--green);color:var(--surface)}
+.steps{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 18px;padding:0;list-style:none}
+.steps button{display:flex;flex-direction:column;align-items:flex-start;min-height:52px;padding:6px 12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;font:500 .92rem "Fira Sans",sans-serif;cursor:pointer;text-align:left}
+.steps button b{font-family:"Fira Sans Extra Condensed",sans-serif;font-size:1.05rem;color:var(--green)}
+.steps button[aria-selected="true"]{border-color:var(--green);box-shadow:inset 0 -4px 0 var(--green)}
+.steps button.done b::after{content:" ✔";color:var(--ok)}
+section.panel{display:none}
+section.panel.on{display:block}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:0 0 14px}
+.card.note{border-left:5px solid var(--accent)}
+.card.tip{border-left:5px solid var(--green-2)}
+.meta{color:var(--muted);font-size:.92rem}
+label{font-weight:500}
+textarea,select,input[type=text],input[type=number]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:8px 10px;min-height:44px}
+textarea{min-height:92px;resize:vertical}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:46px;padding:8px 18px;border:0;border-radius:12px;background:var(--green);color:var(--surface);font:600 1rem "Fira Sans",sans-serif;cursor:pointer}
+.btn.alt{background:var(--surface);color:var(--green);border:1.5px solid var(--green)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn[aria-pressed="true"]{background:var(--accent);color:#1b1305}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.msg{margin:.5em 0 0;padding:8px 12px;border-radius:10px;font-size:.96rem;background:var(--bg);border:1px solid var(--line)}
+.msg.ok{border-color:var(--ok);color:var(--ok)}
+.msg.warn{border-color:var(--warn)}
+.msg.bad{border-color:var(--bad)}
+.msg:empty{display:none}
+.blank{display:inline-block;min-width:150px}
+.inline-sel{width:auto;min-width:150px;display:inline-block}
+/* referències */
+.refs{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0}
+.refs div{display:flex;align-items:center;gap:10px}
+.sw{width:42px;height:42px;border-radius:50%;border:2px solid var(--line)}
+/* banc */
+.bench{border:2px solid var(--line);border-radius:16px;padding:12px;background:var(--surface);margin:0 0 16px}
+.bench h3{margin-bottom:.2em}
+.tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:6px 0 10px}
+#dropper{display:flex;align-items:center;gap:10px;min-height:64px;padding:6px 14px;border:2px dashed var(--accent);border-radius:14px;background:var(--bg);color:var(--ink);font:600 1rem "Fira Sans",sans-serif;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+#dropper[aria-pressed="true"]{border-style:solid;background:color-mix(in srgb,var(--accent) 22%,var(--bg));box-shadow:0 0 0 3px var(--accent)}
+#dropper svg{width:30px;height:60px;flex:none}
+.ghost{position:fixed;z-index:50;pointer-events:none;width:30px;height:60px;transform:translate(-15px,-52px)}
+.samples{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.sample,.paper{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 4px 8px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:500 .92rem "Fira Sans",sans-serif;cursor:pointer;text-align:center;min-height:44px}
+.sample svg,.paper svg{width:100%;max-width:130px;height:auto;display:block;touch-action:none}
+.sample.target{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent)}
+.sample .st,.paper .st{font-size:.8rem;color:var(--muted);min-height:1.2em}
+.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.plate{fill:var(--dish);stroke:var(--line);stroke-width:2}
+.pp-bg{fill:var(--paper);stroke:#b9b29a;stroke-width:1.5}
+.paperpanel{border-radius:14px;padding:10px;transition:background .5s;background:var(--bg);border:1px solid var(--line)}
+.paperpanel.back{background:radial-gradient(circle at 50% 40%,#fffbe0 0%,#ffe27a 70%,#ffcb3d 100%);border-color:#e0a82a}
+.paperpanel.back .paper{background:#fff4c2;border-color:#d9a83a;color:#2b2208}
+.paperpanel.back .paper .st{color:#5a4a15}
+.paperpanel.back .pp-bg{fill:var(--paper-lit)}
+.wetp,.greasep{fill:none;stroke-width:15;stroke-linecap:round;stroke-linejoin:round}
+.wetp{stroke:var(--wet);stroke-opacity:.0;transition:stroke-opacity 2.5s}
+.wetp.show{stroke-opacity:.38}
+.greasep{stroke:var(--grease);stroke-opacity:0}
+.greasep.show{stroke-opacity:.3}
+.paperpanel.back .wetp.show,.paperpanel.back .greasep.show{stroke:var(--spot-lit);stroke-opacity:1}
+.paperpanel.back .greasep.show{filter:drop-shadow(0 0 4px #fff)}
+/* taula */
+table.res{width:100%;border-collapse:separate;border-spacing:0 6px}
+.res th{font-size:.85rem;text-align:left;color:var(--muted);padding:2px 6px}
+.res td{padding:4px 6px;vertical-align:top}
+.res td.fn{font-weight:600;min-width:110px}
+.res tr.ok td{background:color-mix(in srgb,var(--ok) 10%,transparent)}
+.res tr.ex td.fn::after{content:" (exemple)";font-weight:400;color:var(--muted);font-size:.85rem}
+.res .msg{margin-top:4px}
+@media (max-width:760px){
+ .samples{grid-template-columns:repeat(2,1fr)}
+ table.res,.res tbody,.res tr,.res td{display:block;width:100%}
+ .res thead{display:none}
+ .res tr{border:1px solid var(--line);border-radius:12px;padding:8px;margin-bottom:10px;background:var(--surface)}
+ .res td::before{content:attr(data-l);display:block;font-weight:600;font-size:.8rem;color:var(--muted)}
+ .res td.fn::before{display:none}
+ .res td.fn{font-size:1.1rem}
+ h1{font-size:1.6rem}
+}
+/* etiquetes */
+.labgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:8px 0}
+.lbl-card{background:#fff;color:#111;border:2px solid #222;border-radius:8px;padding:10px 12px;font-family:Arial,Helvetica,sans-serif;max-width:430px;margin:8px 0}
+.lbl-card .br{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.lbl-card .nm{font-size:1.3rem;font-weight:800;line-height:1.1}
+.lbl-card .sb{font-size:.82rem;color:#333}
+.lbl-card .rc{font-size:.85rem;font-weight:700;font-style:italic;margin:4px 0}
+.lbl-card .ing{font-size:.8rem;line-height:1.3;margin:6px 0}
+.lbl-card table{width:100%;border-collapse:collapse;border:2px solid #111;font-size:.85rem}
+.lbl-card th,.lbl-card td{padding:2px 6px;border-bottom:1px solid #888;text-align:right}
+.lbl-card th:first-child,.lbl-card td:first-child{text-align:left;font-weight:700}
+.lbl-card tr.sb td:first-child{font-weight:400;font-style:italic;padding-left:16px}
+.lbl-card .tt{font-size:.95rem;letter-spacing:.03em}
+.form2{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+.form2 .full{grid-column:1/-1}
+@media (max-width:620px){.form2{grid-template-columns:1fr}}
+.eq{font-size:.92rem;background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:6px 10px}
+.only-a,.only-c{display:none}
+body[data-level="A"] .only-a{display:block}
+body[data-level="C"] .only-c{display:block}
+body[data-level="C"] .not-c{display:none}
+body[data-level="A"] .not-a{display:none}
+span.only-a,span.only-c{display:none}
+body[data-level="A"] span.only-a,body[data-level="C"] span.only-c{display:inline}
+.pre{width:100%;min-height:300px;font:14px/1.45 ui-monospace,Consolas,monospace}
+.cmp li{margin:.2em 0}
+.nav2{display:flex;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body data-level="B">
+<div class="wrap">
+<a class="back" href="index.html">← Laboratoris SA2</a>
+<header>
+ <span class="tag">SA2 · Sessió 1</span>
+ <h1>Laboratori — què s'amaga dins els aliments</h1>
+ <p class="sub">Ets un detectiu de nutrients: amb lugol i paper descobriràs què té cada aliment. Després llegiràs etiquetes. Aquest laboratori és per a qui ha faltat a la pràctica; el que facis aquí t'ajudarà a omplir la fitxa impresa.</p>
+ <div class="levels" role="group" aria-label="Nivell de la fitxa">Nivell de la teva fitxa:
+  <button type="button" data-lv="A" aria-pressed="false" title="Repte extra">A</button>
+  <button type="button" data-lv="B" aria-pressed="true">B</button>
+  <button type="button" data-lv="C" aria-pressed="false" title="Més guiat">C</button>
+ </div>
+ <ul class="steps" role="tablist" aria-label="Apartats de la fitxa">
+  <li><button type="button" role="tab" data-t="s0" aria-selected="true"><b>0 · Idees prèvies</b>Predicció</button></li>
+  <li><button type="button" role="tab" data-t="s1" aria-selected="false"><b>1 · Laboratori</b>Iode i greix</button></li>
+  <li><button type="button" role="tab" data-t="s3" aria-selected="false"><b>3 · Detectius d'etiquetes</b>Envàs</button></li>
+  <li><button type="button" role="tab" data-t="sr" aria-selected="false"><b>Resum</b>Copia-ho a la fitxa</button></li>
+ </ul>
+</header>
+
+<!-- ===== PART 0 ===== -->
+<section class="panel on" id="s0">
+ <h2>0 · Idees prèvies — la teva predicció</h2>
+ <p class="meta">Individual · 10 min · No es corregeix ara. Les altres preguntes d'aquesta part (quins nutrients coneixes, el dibuix del pa) les fas directament a la fitxa.</p>
+ <div class="card tip"><strong>Qui és la Mercè?</strong> Una noia de 16 anys que corre 10 km amb el club del barri. Fa dues setmanes es va aturar esgotada a mig entrenament. Vol saber què li ha de donar el menjar per aguantar tota la cursa. Anirem responent aquesta pregunta durant tota la unitat.</div>
+ <div class="card">
+  <h3>La teva predicció (abans del laboratori)</h3>
+  <p>Un <b>nutrient</b> és una substància dels aliments que el cos fa servir. Un <b>aliment</b> és el que mengem i conté diversos nutrients.</p>
+  <p>Crec que el <b>pa</b> té sobretot <select class="inline-sel" id="pred-pa" data-k="pred-pa" aria-label="El pa té sobretot"><option value="">tria…</option><option>hidrats de carboni</option><option>greixos</option><option>proteïnes</option><option>vitamines i minerals</option><option>aigua</option></select>.</p>
+  <p>Crec que l'<b>ametlla</b> té sobretot <select class="inline-sel" id="pred-ametlla" data-k="pred-ametlla" aria-label="L'ametlla té sobretot"><option value="">tria…</option><option>hidrats de carboni</option><option>greixos</option><option>proteïnes</option><option>vitamines i minerals</option><option>aigua</option></select>.</p>
+  <p>Crec que la <b>clara d'ou</b> té sobretot <select class="inline-sel" id="pred-clara" data-k="pred-clara" aria-label="La clara d'ou té sobretot"><option value="">tria…</option><option>hidrats de carboni</option><option>greixos</option><option>proteïnes</option><option>vitamines i minerals</option><option>aigua</option></select>.</p>
+  <p class="meta">Després del laboratori comprovaràs si ho havies encertat.</p>
+ </div>
+ <div class="nav2"><span></span><button class="btn" type="button" data-go="s1">Anem al laboratori →</button></div>
+</section>
+
+<!-- ===== PART 1 ===== -->
+<section class="panel" id="s1">
+ <h2>1 · Laboratori — què s'amaga dins els aliments</h2>
+ <p class="meta">En grups de 4 · 35 min · Detectives de nutrients amb lugol i paper</p>
+
+ <div class="card only-c tip" style="display:none">
+  <strong>Com pensarem avui — els 4 passos</strong>
+  <ol style="margin:.3em 0 0 1.1em;padding:0">
+   <li><b>OBSERVO</b> — miro bé l'aliment i el color que agafa amb el lugol.</li>
+   <li><b>EM PREGUNTO</b> — què vol dir aquest color? Què hi deu haver a dins?</li>
+   <li><b>CONNECTO</b> — ho lligo amb el que ja sé: el iode es torna fosc quan hi ha midó.</li>
+   <li><b>DEDUEIXO</b> — escric quin nutrient hi ha en aquell aliment.</li>
+  </ol>
+ </div>
+
+ <div class="card">
+  <h3>Hipòtesi inicial (abans de tocar res)</h3>
+  <label for="hypo">Creus que en el pa hi ha midó? I greix en l'ametlla? Com ho comprovaries?</label>
+  <textarea id="hypo" data-k="hypo" placeholder=""></textarea>
+  <div class="row" style="margin-top:8px"><button class="btn" type="button" id="unlock">Desa la hipòtesi i obre el banc</button></div>
+  <div class="msg" id="unlock-msg" role="status"></div>
+ </div>
+
+ <div id="benchwrap" hidden>
+ <div class="card">
+  <h3>Recordatori dels dos tests</h3>
+  <p><b>Test del iode (midó):</b> posa una gota de lugol sobre l'aliment i espera 10 segons. Si es torna molt fosc (gairebé negre) ✔ hi ha midó. Si es queda igual ✘ no n'hi ha.</p>
+  <p><b>Test del greix:</b> frega l'aliment sobre el paper de cuina, deixa'l assecar i mira'l a contrallum. Si hi ha una taca translúcida (deixa passar la llum) ✔ hi ha greix.</p>
+  <div class="refs" aria-label="Colors de referència del lugol">
+   <div><span class="sw" style="background:#d98a1e"></span><span><b>✘ Negatiu</b><br>es queda color iode (groc-marró)</span></div>
+   <div><span class="sw" style="background:#1d1b45"></span><span><b>✔ Positiu</b><br>blau-negre: hi ha midó</span></div>
+  </div>
+  <p class="meta">Compara sempre la teva mostra amb aquests dos colors.</p>
+ </div>
+
+ <div class="bench" id="bench-iode">
+  <h3>Banc 1 · Test del iode</h3>
+  <p>Agafa el <b>comptagotes de lugol</b> i arrossega'l sobre una mostra. Si no pots arrossegar, <b>toca</b> el comptagotes (s'il·lumina) i després toca la mostra.</p>
+  <div class="tools">
+   <button type="button" id="dropper" aria-pressed="false" aria-label="Comptagotes de lugol. Toca per agafar-lo i després toca una mostra.">
+    <svg viewBox="0 0 30 60" aria-hidden="true"><rect x="9" y="0" width="12" height="16" rx="6" fill="#444"/><rect x="10" y="14" width="10" height="5" fill="#777"/><path d="M10 19h10v22l-5 17-5-17z" fill="#f4f1e8" stroke="#8a8a80" stroke-width="1.2"/><path d="M11 30h8v11l-4 14-4-14z" fill="#b8651a"/></svg>
+    <span>Lugol</span>
+   </button>
+   <button class="btn alt" type="button" id="clean-iode">Neteja les mostres</button>
+  </div>
+  <div class="samples" id="samples"></div>
+  <div class="msg" id="iode-msg" role="status"></div>
+  <p class="meta">A classe esperaves 10 segons; aquí el temps va una mica més de pressa.</p>
+ </div>
+
+ <div class="bench" id="bench-greix">
+  <h3>Banc 2 · Test del greix</h3><p class="meta">Material de cada grup: lugol (iode), paper de cuina i 8-10 aliments (pa, patata, poma, oli, fruits secs, formatge…).</p>
+  <p>1) <b>Frega</b> cada aliment sobre el seu tros de paper de cuina (arrossega el dit o el ratolí; o prem Intro). 2) <b>Deixa-ho assecar</b>. 3) <b>Mira-ho a contrallum</b>.</p>
+  <div class="tools">
+   <button class="btn" type="button" id="dry">Deixa assecar el paper</button>
+   <button class="btn alt" type="button" id="backlight" aria-pressed="false">Mira a contrallum</button>
+   <button class="btn alt" type="button" id="clean-greix">Paper de cuina nou</button>
+  </div>
+  <div class="paperpanel" id="paperpanel"><div class="samples" id="papers"></div></div>
+  <div class="msg" id="greix-msg" role="status"></div>
+  <p class="meta">A classe el paper s'asseca uns minuts; aquí és més ràpid.</p>
+ </div>
+
+ <div class="card">
+  <h3>La taula de resultats</h3>
+  <p class="meta">Escriu què has vist a cada banc. Quan una fila estigui feta, prem «Comprova».</p>
+  <div class="only-c card note" style="display:none;margin:0 0 10px">La primera fila ja està feta com a exemple. Fes-ne les altres.</div>
+  <table class="res" id="restable">
+   <thead><tr><th>Aliment</th><th>La teva predicció</th><th>Test del iode (què observes)</th><th>Test del greix (taca al paper?)</th><th>Nutrient principal</th><th></th></tr></thead>
+   <tbody id="resbody"></tbody>
+  </table>
+  <div class="row"><button class="btn" type="button" id="checkall">Comprova tota la taula</button></div>
+  <div class="msg" id="all-msg" role="status"></div>
+ </div>
+
+ <div class="card" id="predbox">
+  <h3>Comprovació de la teva predicció</h3>
+  <div id="predres" class="meta">Completa i comprova les files del pa, l'ametlla i la clara d'ou per veure si ho havies encertat.</div>
+ </div>
+
+ <div class="card">
+  <h3>Pensa-hi com un científic — El fals negatiu de la poma</h3>
+  <p class="not-c">El test del iode no detecta el sucre de la poma, tot i que en té. Explica per quina raó passa això i què és un fals negatiu en un experiment.<span class="only-a"> Argumenta també quin problema tindria un estudi científic que només confiés en aquest test sense saber-ne els límits.</span></p>
+  <div class="not-c">
+   <label for="poma-txt" class="meta">Pensa en quina molècula detecta el iode.</label>
+   <textarea id="poma-txt" data-k="poma-txt"></textarea>
+  </div>
+  <div class="only-c" style="display:none">
+   <p>El test del iode falla amb la poma. Tria la resposta correcta:</p>
+   <p>1. La poma té sucre de tipus <select class="inline-sel" id="pc1" data-k="pc1" aria-label="Tipus de sucre"><option value="">tria…</option><option value="mido">midó</option><option value="fru">fructosa (sucre simple)</option></select></p>
+   <p>2. El iode només detecta <select class="inline-sel" id="pc2" data-k="pc2" aria-label="Què detecta el iode"><option value="">tria…</option><option value="mido">el midó</option><option value="tot">qualsevol sucre</option></select></p>
+   <p>3. Per això el test diu «no hi ha sucre» quan en realitat sí que n'hi ha: és un <select class="inline-sel" id="pc3" data-k="pc3" aria-label="Encert o fals negatiu"><option value="">tria…</option><option value="enc">encert</option><option value="fn">fals negatiu</option></select></p>
+  </div>
+  <div class="row"><button class="btn" type="button" id="poma-check">Comprova</button></div>
+  <div class="msg" id="poma-msg" role="status"></div>
+ </div>
+
+ <div class="card only-a" style="display:none" id="nineth">
+  <h3>Dissenya el teu test (9è aliment)</h3>
+  <p>Tria un aliment que no sigui a la taula. Escriu què esperes trobar-hi i quin test faries servir per comprovar-ho. Després, prediu el resultat a partir de la seva composició.</p>
+  <div class="form2">
+   <div><label for="n9-ali">El meu 9è aliment</label><input type="text" id="n9-ali" data-k="n9-ali"></div>
+   <div><label for="n9-test">Test que faria servir</label><select id="n9-test" data-k="n9-test"><option value="">tria…</option><option>Test del iode</option><option>Test del greix</option><option>Els dos tests</option></select></div>
+   <div class="full"><label for="n9-esp">Què hi espero trobar</label><textarea id="n9-esp" data-k="n9-esp"></textarea></div>
+   <div class="full"><label for="n9-pred">Resultat que predic a cada test (segons la composició)</label><textarea id="n9-pred" data-k="n9-pred"></textarea></div>
+  </div>
+ </div>
+ </div><!-- /benchwrap -->
+ <div class="nav2"><button class="btn alt" type="button" data-go="s0">← Predicció</button><button class="btn" type="button" data-go="s3">Detectius d'etiquetes →</button></div>
+</section>
+
+<!-- ===== PART 3 ===== -->
+<section class="panel" id="s3">
+ <h2>3 · Detectius d'etiquetes</h2>
+ <p class="meta">En grup · 25 min · El que diu l'envàs sobre el que menges. La part 2 (els cinc nutrients) la fas a classe amb el professor o la professora.</p>
+ <div class="card">
+  <p class="not-a">Analitza l'etiqueta que t'ha tocat.</p>
+  <p class="only-a">Analitza les <b>dues</b> etiquetes que t'han tocat i compara-les.</p>
+  <div class="eq"><b>Equivalències d'energia:</b> 1 g d'hidrats = 4 kcal · 1 g de proteïna = 4 kcal · 1 g de greix = 9 kcal.<br><b>Ultraprocessat</b> = aliment amb molts ingredients i additius. Compta els ingredients «de primer nivell»: el que va dins d'un parèntesi és part d'un ingredient.</div>
+ </div>
+
+ <div class="card tip only-c" style="display:none">
+  <strong>OBSERVO — Exemple ja resolt (galetes de xocolata)</strong>
+  <p>Per 100 g: 520 kcal · greixos 29 g · hidrats 57 g (sucres 49 g) · proteïnes 6,3 g.<br>Nutrient que hi predomina: <b>hidrats (sucre)</b>. Ingredients: 14 → molts. El sucre és el 2n ingredient. Conclusió: <b>és ultraprocessat</b>; bo com a energia ràpida, però no com a aliment principal.</p>
+  <p class="meta">Totes les etiquetes segueixen aquest ordre. Les línies en cursiva («dels quals…») són una part de la línia de sobre, no un nutrient nou.</p>
+ </div>
+
+ <div id="slot1" class="card"></div>
+ <div id="slot2" class="card only-a" style="display:none"></div>
+
+ <div class="card">
+  <h3 class="not-c not-a">Quin seria un bon combustible per a la Mercè? Per què?</h3>
+  <h3 class="only-a" style="display:none">Recomanació argumentada per a la Mercè</h3>
+  <h3 class="only-c" style="display:none">Pensa en la Mercè</h3>
+  <div class="not-c not-a"><textarea id="merce-b" data-k="merce-b" aria-label="Combustible per a la Mercè"></textarea></div>
+  <div class="only-a" style="display:none">
+   <p>Tria quin dels dos aliments recomanaries a la Mercè i justifica-ho amb els nutrients i la seva funció a la cèl·lula.</p>
+   <select id="merce-a-sel" data-k="merce-a-sel" aria-label="Aliment recomanat"><option value="">tria…</option><option value="1">L'aliment de l'etiqueta 1</option><option value="2">L'aliment de l'etiqueta 2</option></select>
+   <textarea id="merce-a" data-k="merce-a" style="margin-top:8px" aria-label="Justificació"></textarea>
+  </div>
+  <div class="only-c" style="display:none">
+   <p>Per a la Mercè, un bon combustible seria un aliment ric en
+    <select class="inline-sel" id="mc1" data-k="mc1" aria-label="Nutrient"><option value="">tria…</option><option value="hid">hidrats de carboni</option><option value="gre">greixos</option><option value="pro">proteïnes</option></select>,
+    perquè donen <select class="inline-sel" id="mc2" data-k="mc2" aria-label="Què donen"><option value="">tria…</option><option value="glu">glucosa (energia)</option><option value="aig">aigua</option><option value="aa">aminoàcids</option></select> de pressa.</p>
+  </div>
+  <div class="row"><button class="btn" type="button" id="merce-check">Comprova</button></div>
+  <div class="msg" id="merce-msg" role="status"></div>
+ </div>
+
+ <div class="card only-a" style="display:none" id="ampli">
+  <h3>Ampliació — fes parlar les dades</h3>
+  <p class="meta">Per a qui acabi abans. Dades per 100 g: pa blanc 265 kcal (hidrats 49 g, greixos 3,2 g, proteïnes 9,0 g) · ametlles 579 kcal (22 g, 50 g, 21 g) · plàtan 89 kcal (23 g, 0,3 g, 1,1 g) · pit de pollastre 165 kcal (0 g, 3,6 g, 31 g).</p>
+  <label for="a1-txt"><b>A1.</b> Quin percentatge de l'energia de l'ametlla ve del greix? I quin percentatge de la del plàtan ve dels hidrats? Escriu el càlcul, no només el resultat.</label>
+  <textarea id="a1-txt" data-k="a1-txt"></textarea><div class="msg" id="a1-msg"></div>
+  <label for="a2-txt" style="display:block;margin-top:10px"><b>A2.</b> L'ametlla té més del doble d'energia que el pa. Aleshores, per què la Mercè no fa un esmorzar només d'ametlles el dia de la cursa? Pensa en <i>quan</i> arriba l'energia a la cèl·lula.</label>
+  <textarea id="a2-txt" data-k="a2-txt"></textarea><div class="msg" id="a2-msg"></div>
+  <label for="a3-txt" style="display:block;margin-top:10px"><b>A3.</b> L'Ivan fa halterofília (entrenaments curts i molt intensos; vol guanyar massa muscular). La Mercè fa resistència. Quin nutrient hauria de pesar més en cada dieta, i per quina raó cel·lular?</label>
+  <textarea id="a3-txt" data-k="a3-txt"></textarea><div class="msg" id="a3-msg"></div>
+  <div class="row" style="margin-top:8px"><button class="btn" type="button" id="ampli-check">Comprova l'ampliació</button></div>
+ </div>
+ <div class="nav2"><button class="btn alt" type="button" data-go="s1">← Laboratori</button><button class="btn" type="button" data-go="sr">Veure el resum →</button></div>
+</section>
+
+<!-- ===== RESUM ===== -->
+<section class="panel" id="sr">
+ <h2>Copia-ho a la teva fitxa</h2>
+ <p>Aquí tens les teves dades i respostes, agrupades per apartat de la fitxa, en el mateix ordre. Copia-ho i passa-ho a la fitxa impresa.</p>
+ <div class="row" style="margin-bottom:8px">
+  <button class="btn" type="button" id="copy">Copia el resum</button>
+  <button class="btn alt" type="button" id="refresh">Actualitza</button>
+  <button class="btn alt" type="button" id="reset">Esborra el meu progrés</button>
+ </div>
+ <div class="msg" id="copy-msg" role="status"></div>
+ <textarea id="resum-text" class="pre" readonly aria-label="Resum per copiar a la fitxa"></textarea>
+ <div class="nav2"><button class="btn alt" type="button" data-go="s3">← Etiquetes</button><span></span></div>
+</section>
+</div>
+
+<script>
+(function(){
+'use strict';
+var KEY='lab_s1_nutrients_v1';
+var REDUCED=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+
+/* ---------- DADES ---------- */
+var NUT={'hid-mido':'Hidrats (midó)','hid-sucre':'Hidrats (sucres simples)','greix':'Greixos','prot':'Proteïnes','cap':'Cap (control)'};
+var FOODS=[
+ {id:'patata',name:'Patata crua',iode:true,greix:false,nut:'hid-mido',wet:true,cols:['#14122f','#25225a'],
+  hn:['Mira el resultat dels dos tests junts: el iode es torna fosc i el greix no deixa taca.','La patata és un tubercle: guarda energia en forma de midó.']},
+ {id:'pa',name:'Pa de motlle',iode:true,greix:false,nut:'hid-mido',wet:false,cols:['#1b1940','#2e2d69'],
+  hn:['El iode dóna positiu i el paper no té taca. Quin nutrient detecta el iode?','El pa es fa amb farina de blat, que guarda midó.']},
+ {id:'pasta',name:'Pasta cuita',iode:true,greix:false,nut:'hid-mido',wet:true,cols:['#1a1840','#37357d'],
+  hn:['La pasta també és de farina de blat. Mira el color del lugol.','Cuita o no, el midó hi continua sent.']},
+ {id:'clara',name:'Clara d\'ou',iode:false,greix:false,nut:'prot',wet:true,tint:'#d6a032',
+  hn:['Cap dels dos tests dóna positiu. Queden tres nutrients: hidrats, greixos i proteïnes. Quin ens queda?','La clara d\'ou és sobretot aigua i una proteïna (l\'albúmina).']},
+ {id:'rovell',name:'Rovell d\'ou',iode:false,greix:true,nut:'greix',wet:true,tint:'#b8661a',
+  hn:['El iode no canvia, però el paper sí que té taca translúcida. Què indica això?','El rovell guarda l\'energia de reserva de l\'embrió: greix.']},
+ {id:'poma',name:'Poma',iode:false,greix:false,nut:'hid-sucre',wet:true,tint:'#c98a2a',
+  hn:['Els dos tests donen negatiu, però la poma és dolça. Quin tipus d\'hidrat dóna aquest gust?','La poma té fructosa, un sucre simple que el iode no detecta.']},
+ {id:'ametlla',name:'Ametlles',iode:false,greix:true,nut:'greix',wet:false,tint:'#8c5a24',
+  hn:['El iode no canvia i el paper queda translúcid. Quin nutrient deixa aquesta taca?','Els fruits secs guarden l\'energia en forma d\'oli.']},
+ {id:'oli',name:"Oli d'oliva",iode:false,greix:true,nut:'greix',wet:false,tint:'#c8a21e',
+  hn:["El iode no canvia i el paper queda translúcid. Quin nutrient és l'oli?","L'oli és greix gairebé pur."]},
+ {id:'formatge',name:'Formatge',iode:false,greix:true,nut:'greix',wet:false,tint:'#d9a63a',
+  hn:['El iode no canvia i el paper queda translúcid: quin nutrient deixa aquesta taca?','El formatge té proteïnes, però el que fa taca al paper és el greix; i no té midó.']},
+ {id:'coto',name:'Cotó amb oli',iode:false,greix:true,nut:'greix',wet:false,tint:'#d08c25',
+  hn:['El cotó no és un aliment: és el control. Què hi hem posat perquè faci taca?','És cotó (cel·lulosa, no midó) amb una mica d\'oli: el teu «positiu» del greix.']}
+];
+var FBY={};FOODS.forEach(function(f){FBY[f.id]=f});
+
+var LABELS=[
+ {id:1,br:'CAMPVERD',nm:'Flocs de civada integral',sb:'Flocs fins · 100 % gra sencer',rc:'',ing:'<b>Civada</b> integral en flocs (100 %). Pot contenir traces de blat i ordi.',kcal:372,kj:1566,g:7.0,sat:1.3,h:59,su:1.0,f:10,p:14,sal:0.02,n:1,ultra:false,why:'Només té 1 ingredient i cap additiu.'},
+ {id:2,br:'Bon Matí',nm:'CRUNXIS',sb:'Cereals d\'esmorzar amb cacau',rc:'Amb cereals integrals · Font de 6 vitamines i ferro!',ing:'Farina de blat integral (32 %), sucre, farina de blat, sèmola de blat de moro, cacau desgreixat en pols (6 %), xarop de glucosa, oli de gira-sol, sal, dextrosa, aroma, emulsionant (lecitina de soja), carbonat de calci, vitamines (B3, B5, B6, B2, B1, B9), ferro.',kcal:391,kj:1653,g:4.0,sat:0.9,h:76,su:24,f:7.5,p:9.0,sal:0.55,n:14,ultra:true,why:'Té molts ingredients, molt sucre (sucre, xarop de glucosa, dextrosa) i additius (aroma, emulsionant).'},
+ {id:3,br:'FORNS DEL VALLÈS',nm:'Pa de motlle TOU',sb:'Sense crosta · 16 llesques',rc:'Tendre durant més dies',ing:'Farina de blat (62 %), aigua, oli de gira-sol (4 %), sucre, llevat, gluten de blat, sal, sèmola de blat de moro, conservants (E-282, E-200), emulsionants (E-471, E-481), corrector d\'acidesa (E-262), agent de tractament de la farina (E-300).',kcal:268,kj:1132,g:4.5,sat:0.5,h:47,su:4.8,f:2.8,p:8.5,sal:1.1,n:12,ultra:true,why:'Té molts ingredients i additius (conservants, emulsionants i correctors amb codi E).'},
+ {id:4,br:'Avellà',nm:'Crema de cacau i avellanes',sb:'Per untar',rc:'Amb avellanes seleccionades',ing:'Sucre, oli de palma, avellanes (13 %), llet desnatada en pols (8,7 %), cacau magre (7,4 %), emulsionant (lecitina de soja), aroma (vanil·lina).',kcal:539,kj:2252,g:31,sat:11,h:58,su:56,f:3.0,p:6.3,sal:0.11,n:7,ultra:true,why:'El sucre és el primer ingredient, després oli de palma, i porta emulsionant i aroma.'},
+ {id:5,br:'FRUITS DEL CAMP',nm:'Ametlla torrada',sb:'Sense sal · Pelada',rc:'',ing:'<b>Ametlles</b> torrades (100 %). Pot contenir traces de cacauet i altres fruits de closca.',kcal:614,kj:2535,g:54,sat:4.1,h:4.8,su:4.4,f:12,p:22,sal:0.01,n:1,ultra:false,why:'Només té 1 ingredient i cap additiu.'},
+ {id:6,br:'ENERGIBAR',nm:'Barreta de cereals',sb:'amb xocolata amb llet · 6 × 25 g',rc:'ENERGIA PER AL TEU ESPORT!',ing:'Cereals (37 %) (flocs de civada, arròs inflat, flocs de blat), xarop de glucosa, xocolata amb llet (15 %), sucre, oli de palma, fructosa, humectant (sorbitol), dextrosa, sal, aroma, emulsionant (lecitina de soja), antioxidant (tocoferols).',kcal:428,kj:1798,g:14,sat:6.8,h:68,su:31,f:4.0,p:6.5,sal:0.45,n:12,ultra:true,why:'Molts ingredients, diversos sucres (xarop de glucosa, sucre, fructosa, dextrosa) i additius.'},
+ {id:7,br:'Horta Plana',nm:'Cigrons cuits',sb:'En pot de vidre',rc:'',ing:'Cigrons, aigua i sal. Pot contenir traces de soja.',kcal:114,kj:477,g:2.4,sat:0.3,h:14,su:0.5,f:5.0,p:7.0,sal:0.60,n:3,ultra:false,why:'Només 3 ingredients senzills i cap additiu.'},
+ {id:8,br:'Cruixent',nm:'Patates fregides',sb:'Clàssiques · Fregides en oli de gira-sol',rc:'Només 3 ingredients',ing:'Patates (64 %), oli de gira-sol alt oleic (35 %), sal (1 %).',kcal:539,kj:2245,g:34,sat:3.3,h:50,su:0.5,f:4.4,p:6.0,sal:1.2,n:3,ultra:false,why:'Només 3 ingredients i cap additiu. Està processat i porta molt greix i sal, però no és ultraprocessat.'},
+ {id:9,br:'HIDROX SPORT',nm:'Beguda isotònica',sb:'Sabor llimona · Ampolla 500 ml',rc:'Hidrata i recupera',ing:'Aigua, sucre, xarop de glucosa i fructosa, acidulant (àcid cítric), correctors d\'acidesa (citrats de sodi, citrats de potassi), sal, aromes, edulcorant (sucralosa), estabilitzant (goma aràbiga), colorant (betacarotè).',kcal:24,kj:102,g:0,sat:0,h:6.0,su:6.0,f:0,p:0,sal:0.12,n:10,ultra:true,per:'100 ml',why:'Té molts additius (acidulant, aromes, edulcorant, estabilitzant, colorant) i sucres afegits.'},
+ {id:10,br:'MAR DE CAP',nm:'Tonyina en oli d\'oliva',sb:'Pack 3 llaunes',rc:'',ing:'Tonyina (peix) (70 %), oli d\'oliva (29 %), sal.',kcal:185,kj:775,g:9.0,sat:1.6,h:0,su:0,f:0,p:26,sal:1.0,n:3,ultra:false,why:'Només 3 ingredients i cap additiu.'}
+];
+LABELS.forEach(function(L){
+ var kg=L.g*9,kh=L.h*4,kp=L.p*4,tot=kh+kg+kp;
+ L.pH=Math.round(kh/tot*100);L.pG=Math.round(kg/tot*100);
+ L.pH2=Math.round(kh/L.kcal*100);L.pG2=Math.round(kg/L.kcal*100);
+ var gm=L.h>=L.g&&L.h>=L.p?'hid':(L.g>=L.p?'gre':'pro');
+ var em=kh>=kg&&kh>=kp?'hid':(kg>=kp?'gre':'pro');
+ L.nutOK=[gm];if(em!==gm)L.nutOK.push(em);
+});
+var NUTN={hid:'hidrats de carboni',gre:'greixos',pro:'proteïnes'};
+
+/* ---------- ESTAT ---------- */
+var S={level:'B',unlocked:false,f:{},dropped:{},jit:{},rub:{},dry:{},seenDry:false,seenWet:false,slot:{1:1,2:2},sl:{},att:{},tab:'s0',ok:{},rowok:{}};
+try{var raw=localStorage.getItem(KEY);if(raw){var o=JSON.parse(raw);for(var k in o)S[k]=o[k]}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function setMsg(el,t,cls){if(typeof el==='string')el=$(el);el.textContent=t;el.className='msg'+(cls?' '+cls:'')}
+function hint(key,list,answer){var n=S.att[key]=(S.att[key]||0)+1;save();return n<=list.length?'Pista '+n+': '+list[n-1]:'Resposta: '+answer}
+function kw(txt,groups){var miss=[];groups.forEach(function(g,i){if(!g.test(txt))miss.push(i)});return miss}
+
+/* ---------- camps genèrics ---------- */
+function bindFields(root){
+ $$('[data-k]',root).forEach(function(el){
+  var k=el.getAttribute('data-k');
+  if(S.f[k]!=null)el.value=S.f[k];
+  el.addEventListener('input',function(){S.f[k]=el.value;save();updateDone()});
+  el.addEventListener('change',function(){S.f[k]=el.value;save();updateDone()});
+ });
+}
+
+/* ---------- navegació ---------- */
+function go(t){
+ S.tab=t;save();
+ $$('section.panel').forEach(function(s){s.classList.toggle('on',s.id===t)});
+ $$('.steps button').forEach(function(b){b.setAttribute('aria-selected',b.getAttribute('data-t')===t?'true':'false')});
+ if(t==='sr')buildSummary();
+ window.scrollTo(0,0);
+}
+$$('.steps button').forEach(function(b){b.addEventListener('click',function(){go(b.getAttribute('data-t'))})});
+$$('[data-go]').forEach(function(b){b.addEventListener('click',function(){go(b.getAttribute('data-go'))})});
+function updateDone(){
+ var d0=S.f['pred-pa']&&S.f['pred-ametlla']&&S.f['pred-clara'];
+ var d1=allRowsOk()&&S.ok.poma;
+ var d3=S.ok.slot1&&S.ok.merce;
+ var m={s0:d0,s1:d1,s3:d3};
+ $$('.steps button').forEach(function(b){b.classList.toggle('done',!!m[b.getAttribute('data-t')])});
+}
+
+/* ---------- nivells ---------- */
+function setLevel(l){
+ S.level=l;save();document.body.setAttribute('data-level',l);
+ $$('.levels button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-lv')===l?'true':'false')});
+ // blocs que s'han creat amb display:none inline
+ $$('.only-a,.only-c').forEach(function(e){if(e.style.display==='none'&&e.tagName!=='SPAN')e.style.display=''});
+ var ph={C:{hypo:'Crec que sí (o que no) perquè…'},A:{},B:{}};
+ $('#hypo').placeholder=(ph[l]&&ph[l].hypo)||'';
+ if(l==='C')prefillExample();
+ var ex=$('#row-patata');if(ex)ex.classList.toggle('ex',l==='C');
+ renderSlots();
+}
+function prefillExample(){
+ var p={'pred-patata':'hid-mido','obs-patata-iode':'si','obs-patata-greix':'no','obs-patata-nut':'hid-mido'};
+ for(var k in p){if(!S.f[k]){S.f[k]=p[k];var el=document.getElementById(k);if(el)el.value=p[k]}}
+ save();
+}
+$$('.levels button').forEach(function(b){b.addEventListener('click',function(){setLevel(b.getAttribute('data-lv'))})});
+
+/* ---------- banc: mostres ---------- */
+var SVGNS='http://www.w3.org/2000/svg';
+function foodArt(id){
+ switch(id){
+ case 'patata':return '<ellipse cx="46" cy="58" rx="24" ry="19" fill="#ead9a2" stroke="#c4ad6c" stroke-width="2"/><ellipse cx="72" cy="66" rx="24" ry="19" fill="#efe0ac" stroke="#c4ad6c" stroke-width="2"/><ellipse cx="60" cy="46" rx="22" ry="17" fill="#e6d49a" stroke="#c4ad6c" stroke-width="2"/><circle cx="52" cy="52" r="1.6" fill="#c4ad6c"/><circle cx="76" cy="62" r="1.6" fill="#c4ad6c"/><circle cx="62" cy="44" r="1.6" fill="#c4ad6c"/>';
+ case 'pa':return '<path d="M30 40a18 16 0 0 1 20-10h20a18 16 0 0 1 20 10v46a6 6 0 0 1-6 6H36a6 6 0 0 1-6-6z" fill="#f5e5b9" stroke="#dcc486" stroke-width="3"/><circle cx="48" cy="52" r="1.6" fill="#d9bf80"/><circle cx="70" cy="62" r="1.6" fill="#d9bf80"/><circle cx="58" cy="76" r="1.6" fill="#d9bf80"/><circle cx="76" cy="48" r="1.6" fill="#d9bf80"/>';
+ case 'pasta':return '<g fill="none" stroke-linecap="round"><path d="M32 52c10-16 22-16 28 0" stroke="#d6b45c" stroke-width="12"/><path d="M32 52c10-16 22-16 28 0" stroke="#f3e0a0" stroke-width="8"/><path d="M62 70c10-16 24-14 28 2" stroke="#d6b45c" stroke-width="12"/><path d="M62 70c10-16 24-14 28 2" stroke="#f3e0a0" stroke-width="8"/><path d="M30 80c8-12 20-10 26 2" stroke="#d6b45c" stroke-width="12"/><path d="M30 80c8-12 20-10 26 2" stroke="#f3e0a0" stroke-width="8"/><path d="M66 36c8-8 16-6 22 4" stroke="#d6b45c" stroke-width="12"/><path d="M66 36c8-8 16-6 22 4" stroke="#f3e0a0" stroke-width="8"/></g>';
+ case 'clara':return '<path d="M30 62c-6-18 14-32 32-28 20 2 34 18 26 36-6 14-30 20-46 12-8-4-10-12-12-20z" fill="#f6f3e8" fill-opacity=".92" stroke="#ddd8c4" stroke-width="2"/><ellipse cx="50" cy="48" rx="10" ry="5" fill="#fff" fill-opacity=".8"/>';
+ case 'rovell':return '<path d="M24 62c-4-20 16-34 36-30 22 4 36 20 28 38-6 14-32 20-48 12-8-4-14-10-16-20z" fill="#f6f3e8" fill-opacity=".85" stroke="#ddd8c4" stroke-width="2"/><circle cx="58" cy="58" r="22" fill="#f2a31a" stroke="#d98a0a" stroke-width="2"/><ellipse cx="50" cy="49" rx="7" ry="4" fill="#ffd36a"/>';
+ case 'poma':return '<path d="M26 58h68a34 34 0 0 1-68 0z" fill="#f6efc9" stroke="#c0392b" stroke-width="5" stroke-linejoin="round"/><path d="M26 58a34 34 0 0 1 68 0z" fill="#f6efc9" stroke="#c0392b" stroke-width="5" stroke-linejoin="round"/><path d="M60 58v-36" stroke="#7a5a2a" stroke-width="3"/><ellipse cx="54" cy="60" rx="3" ry="5" fill="#6a4020"/><ellipse cx="66" cy="60" rx="3" ry="5" fill="#6a4020"/>';
+ case 'ametlla':return '<g stroke="#7a4f22" stroke-width="2"><ellipse cx="44" cy="50" rx="14" ry="22" transform="rotate(-30 44 50)" fill="#b88850"/><ellipse cx="76" cy="52" rx="14" ry="22" transform="rotate(25 76 52)" fill="#c0925a"/><ellipse cx="52" cy="80" rx="14" ry="20" transform="rotate(70 52 80)" fill="#b3834b"/><ellipse cx="80" cy="82" rx="13" ry="19" transform="rotate(-60 80 82)" fill="#bc8c54"/></g><path d="M38 42c4-6 8-8 11-8" stroke="#e6c490" stroke-width="2.5" fill="none" stroke-linecap="round"/>';
+ case 'oli':return '<path d="M26 64c-2-20 18-32 36-28 20 4 32 20 24 36-6 12-30 18-44 10-8-4-14-10-16-18z" fill="#e6c53a" fill-opacity=".8" stroke="#c9a21a" stroke-width="2"/><ellipse cx="50" cy="52" rx="9" ry="4" fill="#fff" fill-opacity=".7"/>';
+ case 'formatge':return '<path d="M24 82L60 30l40 52z" fill="#f3cf62" stroke="#c9a02e" stroke-width="3" stroke-linejoin="round"/><circle cx="58" cy="62" r="5" fill="#d9ad40"/><circle cx="72" cy="74" r="4" fill="#d9ad40"/><circle cx="46" cy="74" r="3.5" fill="#d9ad40"/>';
+ case 'coto':return '<g fill="#fbfbf6" stroke="#d6d6c8" stroke-width="2"><circle cx="46" cy="58" r="20"/><circle cx="70" cy="50" r="19"/><circle cx="72" cy="74" r="18"/><circle cx="50" cy="78" r="15"/></g><g fill="#efc650" fill-opacity=".55"><circle cx="58" cy="62" r="10"/><circle cx="74" cy="66" r="6"/></g><ellipse cx="54" cy="56" rx="5" ry="2.5" fill="#fff" fill-opacity=".9"/>';
+ }
+ return '';
+}
+function buildSamples(){
+ var h='';
+ FOODS.forEach(function(f){
+  h+='<button type="button" class="sample" data-food="'+f.id+'" aria-label="'+f.name+': posa-hi lugol"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="plate" cx="60" cy="60" r="54"/>'+foodArt(f.id)+'<circle class="spot" cx="60" cy="60" r="0" fill="#d98a1e" fill-opacity=".9" stroke="#fff" stroke-opacity=".35" stroke-width="1.5"/><circle class="drop" cx="60" cy="-10" r="5" fill="#d98a1e" opacity="0"/></svg><span>'+f.name+'</span><span class="st" aria-live="polite">Sense lugol</span></button>';
+ });
+ $('#samples').innerHTML=h;
+}
+function buildPapers(){
+ var h='';
+ FOODS.forEach(function(f){
+  h+='<div class="paper" tabindex="0" role="button" data-food="'+f.id+'" aria-label="Fregar '+f.name+' sobre el paper de cuina (arrossega o prem Intro)"><svg viewBox="0 0 120 120" aria-hidden="true"><rect class="pp-bg" x="8" y="8" width="104" height="104" rx="4"/><path class="wetp" d=""/><path class="greasep" d=""/></svg><span>'+f.name+'</span><span class="st" aria-live="polite">Paper de cuina net</span></div>';
+ });
+ $('#papers').innerHTML=h;
+}
+function hex2rgb(h){h=h.replace('#','');return [parseInt(h.substr(0,2),16),parseInt(h.substr(2,2),16),parseInt(h.substr(4,2),16)]}
+function mix(a,b,t){var A=hex2rgb(a),B=hex2rgb(b);return 'rgb('+A.map(function(v,i){return Math.round(v+(B[i]-v)*t)}).join(',')+')'}
+function finalColor(f,j){
+ if(f.iode)return mix(f.cols[0],f.cols[1],j);
+ return mix(f.tint,'#b97a1c',j*0.35);
+}
+var LUGOL='#d98a1e';
+function sampleEl(id){return $('.sample[data-food="'+id+'"]')}
+function showSpot(id,instant){
+ var el=sampleEl(id),spot=$('.spot',el),drop=$('.drop',el),f=FBY[id],end=finalColor(f,S.jit[id]||0),R=24+(S.jit[id]||0)*4,st=$('.st',el);
+ if(instant||REDUCED){spot.setAttribute('r',R);spot.setAttribute('fill',end);st.textContent='Fet: mira el color';return}
+ st.textContent='Reaccionant…';
+ var t0=null,T1=450,T2=1050,T3=4500;
+ function step(ts){
+  if(t0===null)t0=ts;var t=ts-t0;
+  if(t<T1){drop.setAttribute('opacity',1);drop.setAttribute('cy',-8+(t/T1)*(t/T1)*66)}
+  else{drop.setAttribute('opacity',0);
+   var k=Math.min(1,(t-T1)/(T2-T1));spot.setAttribute('r',R*(1-Math.pow(1-k,3)));
+   var c=Math.max(0,Math.min(1,(t-T1)/(T3-T1)));c=c*c*(3-2*c);
+   spot.setAttribute('fill',mixTo(end,c))}
+  if(t<T3)requestAnimationFrame(step);else st.textContent='Fet: mira el color';
+ }
+ function mixTo(endRgb,c){var A=hex2rgb(LUGOL),B=endRgb.match(/\d+/g).map(Number);return 'rgb('+A.map(function(v,i){return Math.round(v+(B[i]-v)*c)}).join(',')+')'}
+ requestAnimationFrame(step);
+}
+function applyLugol(id){
+ var el=sampleEl(id);
+ if(S.dropped[id]){el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake');setMsg('#iode-msg','Aquesta mostra ja té lugol. Prem «Neteja les mostres» per repetir el test.','warn');return}
+ S.dropped[id]=1;S.jit[id]=Math.random();save();
+ setMsg('#iode-msg','Has posat lugol a: '+FBY[id].name+'. Mira com canvia el color.','');
+ showSpot(id,false);
+}
+$('#clean-iode').addEventListener('click',function(){
+ S.dropped={};S.jit={};save();
+ $$('.sample').forEach(function(el){$('.spot',el).setAttribute('r',0);$('.st',el).textContent='Sense lugol'});
+ setMsg('#iode-msg','Mostres netes.','');
+});
+
+/* comptagotes: arrossegar o tocar */
+(function(){
+ var dr=$('#dropper'),armed=false,start=null,moved=false,ghost=null;
+ function setArmed(v){armed=v;dr.setAttribute('aria-pressed',v?'true':'false');if(v)setMsg('#iode-msg','Comptagotes agafat. Ara toca una mostra.','')}
+ function under(x,y){var e=document.elementFromPoint(x,y);return e&&e.closest?e.closest('.sample'):null}
+ dr.addEventListener('pointerdown',function(e){e.preventDefault();start={x:e.clientX,y:e.clientY};moved=false;try{dr.setPointerCapture(e.pointerId)}catch(x){}});
+ dr.addEventListener('pointermove',function(e){
+  if(!start)return;
+  if(!moved&&Math.hypot(e.clientX-start.x,e.clientY-start.y)>6){moved=true;ghost=dr.querySelector('svg').cloneNode(true);ghost.setAttribute('class','ghost');document.body.appendChild(ghost)}
+  if(moved){ghost.style.left=e.clientX+'px';ghost.style.top=e.clientY+'px';
+   $$('.sample').forEach(function(s){s.classList.remove('target')});var t=under(e.clientX,e.clientY);if(t)t.classList.add('target')}
+ });
+ function end(e,cancel){
+  if(!start)return;
+  if(moved){var t=cancel?null:under(e.clientX,e.clientY);if(t)applyLugol(t.getAttribute('data-food'));if(ghost){ghost.remove();ghost=null}$$('.sample').forEach(function(s){s.classList.remove('target')})}
+  else if(!cancel){setArmed(!armed)}
+  start=null;moved=false;
+ }
+ dr.addEventListener('pointerup',function(e){end(e,false)});
+ dr.addEventListener('pointercancel',function(e){end(e,true)});
+ dr.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();setArmed(!armed)}});
+ $('#samples').addEventListener('click',function(e){
+  var s=e.target.closest('.sample');if(!s)return;
+  if(armed)applyLugol(s.getAttribute('data-food'));
+  else setMsg('#iode-msg','Primer agafa el comptagotes de lugol (toca-ho o arrossega-ho fins a la mostra).','warn');
+ });
+})();
+
+/* paper: fregar */
+function zig(){var d='M22 40',x=22,y=40,i;for(i=0;i<6;i++){x=(i%2?24:96);y=40+i*8;d+=' L'+x+' '+y+' L'+x+' '+(y+4)}return d}
+function paperEl(id){return $('.paper[data-food="'+id+'"]')}
+function renderPaper(id){
+ var el=paperEl(id),f=FBY[id],w=$('.wetp',el),g=$('.greasep',el),st=$('.st',el);
+ if(!S.rub[id]){w.setAttribute('d','');g.setAttribute('d','');w.classList.remove('show');g.classList.remove('show');st.textContent='Paper de cuina net';return}
+ var d=el._d||zig();w.setAttribute('d',d);g.setAttribute('d',d);
+ w.classList.toggle('show',f.wet&&!S.dry[id]);
+ g.classList.toggle('show',!!f.greix);
+ st.textContent=S.dry[id]?'Paper sec':'Paper mullat de fresc';
+}
+function doRub(id){S.rub[id]=1;S.dry[id]=false;save();renderPaper(id);setMsg('#greix-msg','Has fregat: '+FBY[id].name+'. Ara deixa que s\'assequi.','')}
+(function(){
+ $('#papers').addEventListener('pointerdown',function(e){
+  var p=e.target.closest('.paper');if(!p)return;
+  var id=p.getAttribute('data-food');
+  var svg=$('svg',p),r=svg.getBoundingClientRect(),pts=[],len=0,last=null;
+  function pt(ev){return {x:(ev.clientX-r.left)/r.width*120,y:(ev.clientY-r.top)/r.height*120}}
+  var moved=false;
+  function mv(ev){
+   var q=pt(ev);q.x=Math.max(14,Math.min(106,q.x));q.y=Math.max(14,Math.min(106,q.y));
+   if(last)len+=Math.hypot(q.x-last.x,q.y-last.y);last=q;pts.push(q);
+   if(len>6)moved=true;
+   var d='M'+pts.map(function(a){return a.x.toFixed(1)+' '+a.y.toFixed(1)}).join(' L');
+   p._d=d;S.dry[id]=false;
+   var f=FBY[id];$('.wetp',p).setAttribute('d',d);$('.greasep',p).setAttribute('d',d);
+   $('.wetp',p).classList.toggle('show',f.wet);$('.greasep',p).classList.toggle('show',!!f.greix);
+   $('.st',p).textContent='Fregant…';
+   if(len>150){up(ev,true)}
+  }
+  function up(ev,done){
+   window.removeEventListener('pointermove',mv);window.removeEventListener('pointerup',up2);window.removeEventListener('pointercancel',up2);
+   if(len>150||done){doRub(id)}
+   else if(!moved){doRub(id)}
+   else{S.rub[id]=0;renderPaper(id);setMsg('#greix-msg','Frega una mica més per deixar una bona marca.','warn')}
+  }
+  function up2(ev){up(ev,false)}
+  e.preventDefault();
+  window.addEventListener('pointermove',mv);window.addEventListener('pointerup',up2);window.addEventListener('pointercancel',up2);
+ });
+ $('#papers').addEventListener('keydown',function(e){
+  var p=e.target.closest('.paper');if(!p)return;
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();doRub(p.getAttribute('data-food'))}
+ });
+})();
+$('#dry').addEventListener('click',function(){
+ var any=FOODS.some(function(f){return S.rub[f.id]});
+ if(!any){setMsg('#greix-msg','Primer frega almenys un aliment sobre el seu paper.','warn');return}
+ var btn=this;btn.disabled=true;setMsg('#greix-msg','Assecant el paper…','');
+ FOODS.forEach(function(f){if(S.rub[f.id])S.dry[f.id]=true});save();
+ FOODS.forEach(function(f){if(S.rub[f.id])renderPaper(f.id)});
+ setTimeout(function(){btn.disabled=false;setMsg('#greix-msg','El paper ja és sec. Ara mira-ho a contrallum.','')},REDUCED?0:2600);
+});
+var backOn=false;
+$('#backlight').addEventListener('click',function(){
+ backOn=!backOn;this.setAttribute('aria-pressed',backOn?'true':'false');
+ $('#paperpanel').classList.toggle('back',backOn);
+ if(backOn){
+  var rubbed=FOODS.filter(function(f){return S.rub[f.id]});
+  if(!rubbed.length){setMsg('#greix-msg','Encara no has fregat cap aliment. Frega\'n algun i torna a mirar.','warn');return}
+  var wet=rubbed.some(function(f){return !S.dry[f.id]});
+  if(wet){S.seenWet=true;setMsg('#greix-msg','Compte: hi ha papers que encara estan mullats. L\'aigua també deixa passar la llum, però desapareix quan s\'asseca. Deixa assecar el paper i torna a mirar.','warn')}
+  else{S.seenDry=true;setMsg('#greix-msg','Ara el paper és sec. Mira quines taques deixen passar la llum (brillen més que el paper).','ok')}
+  save();
+ }else setMsg('#greix-msg','','');
+});
+$('#clean-greix').addEventListener('click',function(){
+ S.rub={};S.dry={};S.seenDry=false;S.seenWet=false;save();
+ FOODS.forEach(function(f){var el=paperEl(f.id);el._d=null;renderPaper(f.id)});
+ setMsg('#greix-msg','Paper de cuina nou.','');
+});
+
+/* ---------- taula ---------- */
+var OPT_PRED='<option value="">tria…</option><option value="hid-mido">Hidrats (midó)</option><option value="hid-sucre">Hidrats (sucres simples)</option><option value="greix">Greixos</option><option value="prot">Proteïnes</option><option value="nose">No ho sé</option>';
+var OPT_IODE='<option value="">tria…</option><option value="si">Es torna molt fosc ✔ (blau-negre)</option><option value="no">Es queda igual ✘ (groc-marró)</option>';
+var OPT_GREIX='<option value="">tria…</option><option value="si">Taca translúcida ✔</option><option value="no">No deixa taca ✘</option>';
+var OPT_NUT='<option value="">tria…</option><option value="hid-mido">Hidrats (midó)</option><option value="hid-sucre">Hidrats (sucres simples)</option><option value="greix">Greixos</option><option value="prot">Proteïnes</option>';
+function buildTable(){
+ var h='';
+ FOODS.forEach(function(f){
+  h+='<tr id="row-'+f.id+'"><td class="fn">'+f.name+(f.id==='oli'||f.id==='formatge'?' <span class="meta">(aliment extra)</span>':'')+'</td>'+
+   '<td data-l="La teva predicció"><select id="pred-'+f.id+'" data-k="pred-'+f.id+'" aria-label="Predicció per a '+f.name+'">'+OPT_PRED+'</select></td>'+
+   '<td data-l="Test del iode (què observes)"><select id="obs-'+f.id+'-iode" data-k="obs-'+f.id+'-iode" aria-label="Iode: '+f.name+'">'+OPT_IODE+'</select></td>'+
+   '<td data-l="Test del greix (taca al paper?)"><select id="obs-'+f.id+'-greix" data-k="obs-'+f.id+'-greix" aria-label="Greix: '+f.name+'">'+OPT_GREIX+'</select></td>'+
+   '<td data-l="Nutrient principal"><select id="obs-'+f.id+'-nut" data-k="obs-'+f.id+'-nut" aria-label="Nutrient principal: '+f.name+'">'+OPT_NUT+'</select></td>'+
+   '<td data-l=""><button type="button" class="btn alt" data-row="'+f.id+'">Comprova</button><div class="msg" id="rm-'+f.id+'" role="status"></div></td></tr>';
+ });
+ $('#resbody').innerHTML=h;
+ $$('[data-row]').forEach(function(b){b.addEventListener('click',function(){checkRow(b.getAttribute('data-row'),true)})});
+}
+function val(id){return (document.getElementById(id)||{}).value||''}
+function checkRow(id,showMsg){
+ var f=FBY[id],iv=val('obs-'+id+'-iode'),gv=val('obs-'+id+'-greix'),nv=val('obs-'+id+'-nut'),m=$('#rm-'+id),row=$('#row-'+id);
+ function out(t,c){if(showMsg)setMsg(m,t,c)}
+ if(!iv||!gv||!nv){out('Omple les tres columnes d\'observació i el nutrient.','warn');return false}
+ if(!S.dropped[id]){out('Encara no has posat lugol a aquesta mostra: fes el test del iode al Banc 1.','warn');return false}
+ if(!S.rub[id]||!S.dry[id]||!S.seenDry){out('Encara no has fet tot el test del greix: fregar, deixar assecar i mirar a contrallum (Banc 2).','warn');return false}
+ var errs=[],msgs=[];
+ if(iv!==(f.iode?'si':'no')){errs.push('iode');
+  msgs.push(hint('i-'+id,['Torna a mirar la mostra amb lugol: el color és blau-negre o continua groc-marró?','Compara-la amb els dos colors de referència. Si hi ha midó, el iode es torna gairebé negre.'],f.iode?'es torna molt fosc ✔':'es queda igual ✘'))}
+ if(gv!==(f.greix?'si':'no')){errs.push('greix');
+  msgs.push(hint('g-'+id,[f.wet?'Has deixat assecar el paper abans de mirar-lo a contrallum? L\'aigua també fa una taca, però desapareix.':'Torna a mirar el paper a contrallum, un cop sec: brilla més que la resta?','Una taca de greix es manté quan el paper s\'asseca i deixa passar la llum.'],f.greix?'taca translúcida ✔':'no deixa taca ✘'))}
+ if(nv!==f.nut){errs.push('nut');
+  msgs.push(hint('n-'+id,[f.hn[0],f.hn[1]],NUT[f.nut]))}
+ if(errs.length){row.classList.remove('ok');S.rowok[id]=false;save();out(msgs.join(' '),'bad');updateDone();return false}
+ var p=val('pred-'+id),pm='';
+ if(p&&p!=='nose'){var okp=(p===f.nut)||(p.indexOf('hid')===0&&f.nut.indexOf('hid')===0);pm=okp?' La teva predicció era correcta.':' La teva predicció no coincidia: no passa res, així s\'aprèn.'}
+ if(id==='poma')pm+=' Compte: té sucre però el iode no el detecta (mira l\'apartat de la poma).';
+ if(id==='coto')pm+=' Aquest és el control positiu del greix.';
+ row.classList.add('ok');S.rowok[id]=true;save();out('Correcte.'+pm,'ok');updateDone();showPred();return true;
+}
+function allRowsOk(){return FOODS.every(function(f){return S.rowok[f.id]})}
+$('#checkall').addEventListener('click',function(){
+ var n=0;FOODS.forEach(function(f){if(checkRow(f.id,true))n++});
+ setMsg('#all-msg',n===FOODS.length?'Taula completa i correcta. Molt bé!':n+' de '+FOODS.length+' files correctes. Revisa les altres.',n===FOODS.length?'ok':'warn');
+ updateDone();
+});
+function showPred(){
+ var t={pa:['pred-pa','hid-mido','pa'],ametlla:['pred-ametlla','greix','ametlla'],clara:['pred-clara','prot','clara']};
+ var want=[['pa','pa','hidrats de carboni'],['ametlla','ametlla','greixos'],['clara','clara','proteïnes']];
+ var ready=S.rowok.pa&&S.rowok.ametlla&&S.rowok.clara;
+ var el=$('#predres');
+ if(!ready){el.className='meta';el.textContent='Completa i comprova les files del pa, l\'ametlla i la clara d\'ou per veure si ho havies encertat.';return}
+ var nm={pa:'El pa',ametlla:'L\'ametlla',clara:'La clara d\'ou'},h='<ul class="cmp">';
+ want.forEach(function(w){
+  var p=S.f['pred-'+w[0]]||'(sense predicció)';
+  h+='<li>'+nm[w[0]]+': tu vas dir <b>'+p+'</b>; al laboratori surt sobretot <b>'+w[2]+'</b> '+(p===w[2]?'✔':'✘')+'</li>';
+ });
+ el.className='';el.innerHTML=h+'</ul>';
+}
+
+/* ---------- poma ---------- */
+$('#poma-check').addEventListener('click',function(){
+ var m='#poma-msg';
+ if(S.level==='C'){
+  var a=val('pc1'),b=val('pc2'),c=val('pc3');
+  if(!a||!b||!c){setMsg(m,'Tria una resposta a les tres frases.','warn');return}
+  var bad=[];if(a!=='fru')bad.push(1);if(b!=='mido')bad.push(2);if(c!=='fn')bad.push(3);
+  if(!bad.length){S.ok.poma=1;save();setMsg(m,'Correcte: la poma té fructosa, el iode només detecta midó, i això és un fals negatiu.','ok');updateDone();return}
+  setMsg(m,hint('poma',['Revisa la frase '+bad[0]+'. Recorda què detecta el iode: ho diu el vocabulari.','Una poma és dolça: el sucre que té és simple. Si el test diu «no» però sí que hi és, el resultat és fals.'],'1) fructosa, 2) el midó, 3) fals negatiu'),'bad');return;
+ }
+ var t=val('poma-txt').toLowerCase();
+ if(t.trim().length<15){setMsg(m,'Escriu una explicació una mica més llarga (2 o 3 frases).','warn');return}
+ var groups=[/mid[óo]/,/fructosa|sucre simple|sucres simples|sucre/,/fals negatiu|no el detecta|no ho detecta|no detecta|només detecta|només (es )?detecta/];
+ var mi=kw(t,groups);
+ if(S.level==='A')mi=mi.concat(kw(t,[/estudi|conclusi|error|equivoc|enganya|només aquest|altres (tests|proves)|confirm|limit|límit|cre(ure|iem)/]).map(function(){return 3}));
+ if(!mi.length){S.ok.poma=1;save();setMsg(m,'Molt bé: has relacionat el iode amb el midó, el sucre de la poma i el fals negatiu.','ok');updateDone();return}
+ var tips={0:'Quina molècula detecta el iode? Mira el vocabulari: «midó…».',1:'De quin tipus de sucre té la poma? Pensa en què és diferent del midó (és simple o és una cadena?).',2:'Explica què és un fals negatiu: el test diu «no» però en realitat sí que hi és.',3:'Pensa què passaria en un estudi científic que només es refiés d\'aquest test: quina conclusió errònia en trauria?'};
+ setMsg(m,hint('poma',[tips[mi[0]],'Encara et falta: '+mi.map(function(i){return ['la molècula que detecta el iode','el tipus de sucre de la poma','què és un fals negatiu','el problema per a un estudi'][i]}).join(', ')+'.'],'El iode només detecta el midó (una cadena llarga de glucoses). La poma té fructosa, un sucre simple, que el iode no detecta: el test diu «no hi ha» quan sí que n\'hi ha. Això és un fals negatiu. Un estudi que confiï només en aquest test tindria conclusions errònies: caldria altres proves.'),'bad');
+});
+
+/* ---------- Detectius ---------- */
+function f1(n){return String(n).replace('.',',')}
+function labelHTML(L){
+ var per=L.per||'100 g';
+ return '<div class="lbl-card"><div class="br">'+L.br+'</div><div class="nm">'+L.nm+'</div><div class="sb">'+L.sb+'</div>'+(L.rc?'<div class="rc">'+L.rc+'</div>':'')+
+ '<div class="ing"><b>INGREDIENTS:</b> '+L.ing+'</div>'+
+ '<table><thead><tr><th class="tt" colspan="2">INFORMACIÓ NUTRICIONAL</th></tr><tr><th></th><th>Per '+per+'</th></tr></thead><tbody>'+
+ '<tr><td>Energia</td><td>'+L.kj+' kJ / '+L.kcal+' kcal</td></tr>'+
+ '<tr><td>Greixos</td><td>'+f1(L.g)+' g</td></tr><tr class="sb"><td>dels quals saturats</td><td>'+f1(L.sat)+' g</td></tr>'+
+ '<tr><td>Hidrats de carboni</td><td>'+f1(L.h)+' g</td></tr><tr class="sb"><td>dels quals sucres</td><td>'+f1(L.su)+' g</td></tr>'+
+ '<tr><td>Fibra alimentària</td><td>'+f1(L.f)+' g</td></tr><tr><td>Proteïnes</td><td>'+f1(L.p)+' g</td></tr><tr><td>Sal</td><td>'+f1(L.sal)+' g</td></tr></tbody></table></div>';
+}
+function slotAns(n){var k=n+'.'+S.slot[n];return S.sl[k]||(S.sl[k]={})}
+function renderSlot(n){
+ var host=$('#slot'+n),L=LABELS[S.slot[n]-1]||LABELS[0],a=slotAns(n),opts='';
+ LABELS.forEach(function(x){opts+='<option value="'+x.id+'"'+(x.id===L.id?' selected':'')+'>Etiqueta '+x.id+' · '+x.nm+'</option>'});
+ var ttl=n===1?'Etiqueta 1':'Etiqueta 2';
+ host.innerHTML='<h3>'+ttl+'</h3><div class="row"><label for="pick'+n+'">Quina etiqueta t\'ha tocat?</label><select id="pick'+n+'" style="max-width:340px">'+opts+'</select><button type="button" class="btn alt" id="rnd'+n+'">Una a l\'atzar</button></div>'+
+ labelHTML(L)+
+ '<div class="form2">'+
+ '<div><label for="s'+n+'-nut">Nutrient que hi predomina</label><select id="s'+n+'-nut"><option value="">tria…</option><option value="hid">Hidrats de carboni</option><option value="gre">Greixos</option><option value="pro">Proteïnes</option></select></div>'+
+ '<div><label for="s'+n+'-ing">Nombre d\'ingredients</label><input type="number" id="s'+n+'-ing" inputmode="numeric" min="0" max="40"></div>'+
+ '<div><label for="s'+n+'-hid">% d\'energia que ve dels hidrats</label><input type="number" id="s'+n+'-hid" inputmode="decimal" min="0" max="100"></div>'+
+ '<div><label for="s'+n+'-gre">% d\'energia que ve dels greixos</label><input type="number" id="s'+n+'-gre" inputmode="decimal" min="0" max="100"></div>'+
+ '<div><label for="s'+n+'-ult">És ultraprocessat?</label><select id="s'+n+'-ult"><option value="">tria…</option><option value="si">Sí</option><option value="no">No</option></select></div>'+
+ '<div class="full"><label for="s'+n+'-why">Per què?</label><textarea id="s'+n+'-why" placeholder="'+(S.level==='C'?'És ultraprocessat perquè… / No és ultraprocessat perquè…':'')+'"></textarea></div></div>'+
+ '<div class="row" style="margin-top:8px"><button type="button" class="btn" id="chk'+n+'">Comprova</button></div><div class="msg" id="sm'+n+'" role="status"></div>';
+ ['nut','ing','hid','gre','ult','why'].forEach(function(fd){
+  var el=$('#s'+n+'-'+fd);if(a[fd]!=null)el.value=a[fd];
+  el.addEventListener('input',function(){slotAns(n)[fd]=el.value;save()});
+  el.addEventListener('change',function(){slotAns(n)[fd]=el.value;save()});
+ });
+ $('#pick'+n).addEventListener('change',function(){S.slot[n]=+this.value;save();renderSlot(n)});
+ $('#rnd'+n).addEventListener('click',function(){var o=n===1?2:1,r;do{r=1+Math.floor(Math.random()*LABELS.length)}while(S.slot[o]===r&&$('#slot'+o).offsetParent!==null);S.slot[n]=r;save();renderSlot(n)});
+ $('#chk'+n).addEventListener('click',function(){checkSlot(n)});
+}
+function renderSlots(){renderSlot(1);renderSlot(2)}
+function checkSlot(n){
+ var L=LABELS[S.slot[n]-1],a=slotAns(n),m='#sm'+n,pfx=n+'.'+L.id+'.';
+ var nut=a.nut,ing=parseFloat(a.ing),hid=parseFloat(a.hid),gre=parseFloat(a.gre),ult=a.ult,why=(a.why||'').trim();
+ if(!nut||isNaN(ing)||isNaN(hid)||isNaN(gre)||!ult||!why){setMsg(m,'Omple tots els camps (també el «Per què?»).','warn');return false}
+ var bad=[],tx=[];
+ if(L.nutOK.indexOf(nut)<0){bad.push('nut');tx.push(hint(pfx+'nut',['Mira la taula d\'informació nutricional: quin dels tres té més grams?','Compara també l\'energia: 1 g d\'hidrats = 4 kcal, 1 g de proteïna = 4 kcal, 1 g de greix = 9 kcal.'],NUTN[L.nutOK[0]]+(L.nutOK.length>1?' (o '+NUTN[L.nutOK[1]]+' si mires l\'energia)':'')))}
+ function near(v,x,y){return Math.abs(v-x)<=4||Math.abs(v-y)<=4}
+ if(!near(hid,L.pH,L.pH2)){bad.push('hid');tx.push('Hidrats: '+hint(pfx+'hid',['calcula les kcal dels hidrats (g × 4) i divideix-les per les kcal totals dels tres nutrients.','% = kcal del nutrient ÷ kcal totals × 100. Les kcal totals = hidrats (×4) + greixos (×9) + proteïnes (×4).'],'uns '+L.pH+' %'))}
+ if(!near(gre,L.pG,L.pG2)){bad.push('gre');tx.push('Greixos: '+hint(pfx+'gre',['calcula les kcal del greix (g × 9) i divideix-les per les kcal totals.','Recorda que el greix dóna 9 kcal per gram, més que els altres.'],'uns '+L.pG+' %'))}
+ if(Math.abs(ing-L.n)>1){bad.push('ing');tx.push('Ingredients: '+hint(pfx+'ing',['compta els ingredients de la llista, separats per comes. El que va dins d\'un parèntesi és part d\'un ingredient.','Torna a comptar només els de primer nivell, sense els parèntesis.'],'uns '+L.n))}
+ if(ult!==(L.ultra?'si':'no')){bad.push('ult');tx.push('Ultraprocessat: '+hint(pfx+'ult',['compta ingredients i busca additius (codis E, emulsionants, aromes, colorants, edulcorants).','Un aliment amb pocs ingredients i cap additiu no és ultraprocessat. Un amb molts ingredients, sucres afegits i additius, sí.'],(L.ultra?'sí':'no')+'. '+L.why))}
+ else if(!/ingredient|additiu|sucre|xarop|aroma|emulsion|conservant|colorant|edulcorant|E-|pocs|molts|natural|simple|processat/i.test(why)){bad.push('why');tx.push('Explica el «per què» fent servir els ingredients o els additius que has vist.')}
+ if(bad.length){S.ok['slot'+n]=false;save();setMsg(m,tx.join(' '),'bad');updateDone();return false}
+ S.ok['slot'+n]=true;S.ok.slot1=S.ok.slot1||false;save();
+ setMsg(m,'Tot correcte. '+(L.ultra?'Aquest aliment és ultraprocessat.':'Aquest aliment no és ultraprocessat.')+' '+L.why,'ok');
+ updateDone();return true;
+}
+$('#merce-check').addEventListener('click',function(){
+ var m='#merce-msg';
+ if(S.level==='C'){
+  var a=val('mc1'),b=val('mc2');
+  if(!a||!b){setMsg(m,'Tria una opció a cada espai.','warn');return}
+  if(a==='hid'&&b==='glu'){S.ok.merce=1;save();setMsg(m,'Correcte: els hidrats es transformen en glucosa, el combustible ràpid de la cèl·lula.','ok');updateDone();return}
+  setMsg(m,hint('merce',['Quin nutrient dóna glucosa, el combustible que crema el mitocondri?','Pensa en el camí: hidrats → glucosa → mitocondri → ATP.'],'hidrats de carboni; glucosa (energia)'),'bad');return;
+ }
+ var t,groups;
+ if(S.level==='A'){
+  if(!val('merce-a-sel')){setMsg(m,'Primer tria quin dels dos aliments recomanes.','warn');return}
+  t=val('merce-a').toLowerCase();groups=[/hidrat|glucosa|midó|sucre|greix|prote/,/energia|combustible|atp|ràpid|rapid|pressa|lent/,/mitocondri|cèl·lul|atp|respiraci/];
+ }else{t=val('merce-b').toLowerCase();groups=[/hidrat|glucosa|midó|sucre|pasta|pa\b|arròs|civada|patata/,/energia|combustible|atp|ràpid|rapid|pressa/]}
+ if(t.trim().length<15){setMsg(m,'Escriu-ne una explicació d\'almenys dues frases.','warn');return}
+ var mi=kw(t,groups);
+ if(!mi.length){S.ok.merce=1;save();setMsg(m,'Molt bé: has lligat el nutrient amb l\'energia que necessita la Mercè.','ok');updateDone();return}
+ var tips=['Digues quin nutrient (o aliment ric en aquest nutrient) li aniria bé.','Explica quin paper té aquest nutrient: dóna energia? A quina velocitat?','Lliga-ho amb la cèl·lula: què passa al mitocondri?'];
+ setMsg(m,hint('merce',[tips[mi[0]],'Torna-hi: a la Mercè li cal energia que arribi a les cèl·lules de pressa. Quin nutrient la hi dóna?'],'Un aliment ric en hidrats de carboni, perquè donen glucosa (energia ràpida) que el mitocondri converteix en ATP.'),'bad');
+});
+$('#ampli-check').addEventListener('click',function(){
+ var a1=val('a1-txt').toLowerCase(),a2=val('a2-txt').toLowerCase(),a3=val('a3-txt').toLowerCase();
+ if(a1.trim().length<5)setMsg('#a1-msg','Escriu el càlcul.','warn');
+ else if(/(78|77|78,|77,)/.test(a1)&&/(100|99|103|23\s*[x×*]\s*4|92)/.test(a1))setMsg('#a1-msg','Correcte. Ametlla: 50 × 9 = 450 kcal de 579 → uns 78 %. Plàtan: 23 × 4 = 92 kcal de 89 → gairebé el 100 % (les xifres arrodonides no quadren del tot).','ok');
+ else setMsg('#a1-msg',hint('a1',['Passa els grams a kcal (greix ×9, hidrats ×4) i divideix per les kcal totals de l\'aliment.','Ametlla: 50 g × 9 kcal. Plàtan: 23 g × 4 kcal. Després divideix per 579 i 89.'],'ametlla ≈ 78 %; plàtan ≈ 100 %'),'bad');
+ if(a2.trim().length<10)setMsg('#a2-msg','Escriu una explicació.','warn');
+ else if(/greix/.test(a2)&&/(lent|temps|digest|tard|poc a poc|ràpid|rapid|pressa)/.test(a2))setMsg('#a2-msg','Bé: el greix és energia de reserva i arriba més a poc a poc; per a una cursa cal energia ràpida (hidrats).','ok');
+ else setMsg('#a2-msg',hint('a2',['Pensa en la velocitat: l\'energia dels greixos arriba igual de ràpid que la de la glucosa?','Compara energia de reserva i energia ràpida.'],'El greix dóna molta energia, però arriba a poc a poc; abans d\'una cursa convé energia ràpida dels hidrats.'),'bad');
+ if(a3.trim().length<10)setMsg('#a3-msg','Escriu una explicació.','warn');
+ else if(/prote/.test(a3)&&/hidrat|glucosa/.test(a3)&&/(múscul|construc|repara|aminoàcid|ribosom|mitocondri)/.test(a3))setMsg('#a3-msg','Molt bé: l\'Ivan necessita més proteïnes (construcció del múscul) i la Mercè més hidrats (energia ràpida i sostinguda).','ok');
+ else setMsg('#a3-msg',hint('a3',['Per a cada esportista, pensa què fa el seu cos: construir múscul o aguantar molta estona?','Un nutrient serveix per construir i reparar; un altre, per donar energia ràpida a la cèl·lula.'],'Ivan: més proteïnes (construcció i reparació del múscul). Mercè: més hidrats (glucosa, energia per al mitocondri).'),'bad');
+});
+
+/* ---------- resum ---------- */
+function sel(id){var el=document.getElementById(id);if(!el||!el.value)return '—';return el.tagName==='SELECT'?el.options[el.selectedIndex].text:el.value}
+function txt(id){var v=val(id).trim();return v||'—'}
+function buildSummary(){
+ var L=[];
+ L.push('FITXA SESSIÓ 1 · NUTRIENTS (nivell '+S.level+')');L.push('');
+ L.push('== 0 · IDEES PRÈVIES · La meva predicció ==');
+ L.push('Crec que el pa té sobretot: '+sel('pred-pa'));
+ L.push('Crec que l\'ametlla té sobretot: '+sel('pred-ametlla'));
+ L.push('Crec que la clara d\'ou té sobretot: '+sel('pred-clara'));L.push('');
+ L.push('== 1 · LABORATORI · Hipòtesi inicial ==');L.push(txt('hypo'));L.push('');
+ L.push('== 1 · LABORATORI · Taula de resultats ==');
+ L.push('Aliment | Predicció | Test del iode | Test del greix | Nutrient principal');
+ FOODS.forEach(function(f){
+  L.push(f.name+' | '+sel('pred-'+f.id)+' | '+sel('obs-'+f.id+'-iode').replace(/ \(.*\)/,'')+' | '+sel('obs-'+f.id+'-greix')+' | '+sel('obs-'+f.id+'-nut'));
+ });
+ L.push('');
+ L.push('== 1 · LABORATORI · Pensa-hi com un científic: el fals negatiu de la poma ==');
+ if(S.level==='C'){L.push('1. La poma té sucre de tipus: '+sel('pc1'));L.push('2. El iode només detecta: '+sel('pc2'));L.push('3. El resultat és un: '+sel('pc3'))}
+ else L.push(txt('poma-txt'));
+ if(S.level==='A'){L.push('');L.push('== 1 · LABORATORI · El meu 9è aliment ==');L.push('Aliment: '+txt('n9-ali'));L.push('Test: '+sel('n9-test'));L.push('Què hi espero trobar: '+txt('n9-esp'));L.push('Predicció del resultat: '+txt('n9-pred'))}
+ L.push('');
+ L.push('== 3 · DETECTIUS D\'ETIQUETES ==');
+ [1,2].forEach(function(n){
+  if(n===2&&S.level!=='A')return;
+  var lab=LABELS[S.slot[n]-1],a=S.sl[n+'.'+lab.id]||{};
+  L.push('Etiqueta '+n+': '+lab.nm+' ('+lab.br+')');
+  L.push('  Nutrient que hi predomina: '+(a.nut?NUTN[a.nut]:'—'));
+  L.push('  % d\'energia que ve dels hidrats: '+(a.hid!=null&&a.hid!==''?a.hid+' %':'—'));
+  L.push('  % d\'energia que ve dels greixos: '+(a.gre!=null&&a.gre!==''?a.gre+' %':'—'));
+  L.push('  Nombre d\'ingredients: '+(a.ing!=null&&a.ing!==''?a.ing:'—'));
+  L.push('  És ultraprocessat?: '+(a.ult?(a.ult==='si'?'Sí':'No'):'—')+(a.why?' — '+a.why:''));
+ });
+ L.push('');
+ if(S.level==='C'){L.push('Per a la Mercè, un bon combustible seria un aliment ric en '+sel('mc1')+', perquè donen '+sel('mc2')+' de pressa.')}
+ else if(S.level==='A'){L.push('Recomanació per a la Mercè (aliment de l\'etiqueta '+(val('merce-a-sel')||'—')+'): '+txt('merce-a'))}
+ else{L.push('Quin seria un bon combustible per a la Mercè? Per què?');L.push(txt('merce-b'))}
+ if(S.level==='A'){L.push('');L.push('== AMPLIACIÓ ==');L.push('A1: '+txt('a1-txt'));L.push('A2: '+txt('a2-txt'));L.push('A3: '+txt('a3-txt'))}
+ $('#resum-text').value=L.join('\n');
+}
+$('#refresh').addEventListener('click',function(){buildSummary();setMsg('#copy-msg','Resum actualitzat.','')});
+$('#copy').addEventListener('click',function(){
+ buildSummary();
+ var ta=$('#resum-text'),t=ta.value;
+ function fallback(){ta.focus();ta.select();ta.setSelectionRange(0,t.length);var ok=false;try{ok=document.execCommand('copy')}catch(e){}
+  setMsg('#copy-msg',ok?'Copiat! Ara enganxa-ho a la fitxa.':'He seleccionat el text: prem Ctrl+C (o mantén premut i tria Copia).',ok?'ok':'warn')}
+ if(navigator.clipboard&&navigator.clipboard.writeText){
+  navigator.clipboard.writeText(t).then(function(){setMsg('#copy-msg','Copiat! Ara enganxa-ho a la fitxa.','ok')},fallback);
+ }else fallback();
+});
+$('#reset').addEventListener('click',function(){
+ var b=this;
+ if(!b.dataset.sure){b.dataset.sure='1';b.textContent='Segur? Torna a prémer';setTimeout(function(){delete b.dataset.sure;b.textContent='Esborra el meu progrés'},4000);return}
+ try{localStorage.removeItem(KEY)}catch(e){}
+ location.reload();
+});
+
+/* ---------- hipòtesi ---------- */
+function unlockUI(){$('#benchwrap').hidden=false;$('#unlock').textContent='Hipòtesi desada';}
+$('#unlock').addEventListener('click',function(){
+ if(val('hypo').trim().length<8){setMsg('#unlock-msg','Escriu la teva hipòtesi abans de tocar res (una o dues frases).','warn');return}
+ S.unlocked=true;save();unlockUI();setMsg('#unlock-msg','Hipòtesi desada. El banc de treball és obert: comença pel Banc 1.','ok');
+});
+
+/* ---------- init ---------- */
+buildSamples();buildPapers();buildTable();
+bindFields(document);
+document.body.setAttribute('data-level',S.level);
+$$('.levels button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-lv')===S.level?'true':'false')});
+$$('.only-a,.only-c').forEach(function(e){if(e.style.display==='none'&&e.tagName!=='SPAN')e.style.display=''});
+if(S.unlocked)unlockUI();
+FOODS.forEach(function(f){if(S.dropped[f.id])showSpot(f.id,true);if(S.rub[f.id])renderPaper(f.id)});
+FOODS.forEach(function(f){if(S.rowok[f.id])$('#row-'+f.id).classList.add('ok')});
+renderSlots();
+setLevel(S.level);
+showPred();updateDone();
+go(S.tab||'s0');
+})();
+</script>
+</body>
+</html>

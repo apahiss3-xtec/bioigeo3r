@@ -1,0 +1,52 @@
+<title>Laboratoris SA2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@600;700&family=Fira+Sans:wght@400;500&display=swap">
+<style>
+/* Layout: capçalera curta + llista ordenada de sessions (la seqüència és real: S1→S6) */
+:root{--bg:#f6f8f6;--surface:#ffffff;--ink:#16241c;--muted:#5b6b62;--line:#d5ded8;
+  --green:#1f5a3c;--green-2:#2f7a52;--accent:#d98a1e;
+  --display:"Fira Sans Extra Condensed",system-ui,sans-serif;--body:"Fira Sans",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1712;--surface:#16211a;--ink:#e6efe9;
+  --muted:#9fb1a6;--line:#2a3a30;--green:#7cc39a;--green-2:#5fae82;--accent:#f0a945;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1712;--surface:#16211a;--ink:#e6efe9;--muted:#9fb1a6;--line:#2a3a30;
+  --green:#7cc39a;--green-2:#5fae82;--accent:#f0a945;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.55}
+.wrap{max-width:52rem;margin:0 auto;padding-inline:1rem;padding-block:2.5rem 3rem}
+.eyebrow{font-family:var(--display);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green-2);font-size:.9rem}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.02;margin:.3rem 0 .8rem;color:var(--green);text-wrap:balance}
+.lede{max-width:40rem;color:var(--muted);margin:0}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.75rem;margin:1.8rem 0 2.2rem;padding:0;list-style:none;counter-reset:h}
+.how li{border-top:2px solid var(--green);padding-top:.6rem;counter-increment:h;font-size:.95rem}
+.how li::before{content:counter(h);font-family:var(--display);font-weight:700;color:var(--accent);margin-right:.4rem}
+ol.labs{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.labs a{display:grid;grid-template-columns:4.2rem 1fr auto;gap:1rem;align-items:center;text-decoration:none;color:inherit;
+  background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;transition:border-color .15s,transform .15s}
+.labs a:hover{border-color:var(--green-2);transform:translateX(3px)}
+.labs a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.num{font-family:var(--display);font-weight:700;font-size:1.05rem;color:var(--green-2);letter-spacing:.04em}
+.labs h2{font-family:var(--display);font-weight:600;font-size:1.35rem;margin:0;line-height:1.15}
+.labs p{margin:.15rem 0 0;color:var(--muted);font-size:.93rem;min-width:0}
+.go{font-family:var(--display);font-weight:600;color:var(--green);white-space:nowrap}
+.note{margin-top:2rem;font-size:.9rem;color:var(--muted);border-left:3px solid var(--accent);padding-left:.8rem}
+@media (max-width:520px){.labs a{grid-template-columns:1fr}.go{display:none}}
+@media (prefers-reduced-motion:reduce){.labs a{transition:none}.labs a:hover{transform:none}}
+</style>
+<div class="wrap">
+  <div class="eyebrow">Biologia i Geologia · 3r ESO · SA2 El nostre cos en marxa</div>
+  <h1>Laboratoris virtuals</h1>
+  <p class="lede">Has faltat el dia de la pràctica? Aquí la pots fer des de casa, pas a pas, amb els mateixos materials i les mateixes preguntes que la fitxa de paper.</p>
+  <ol class="how">
+    <li>Tingues la fitxa de la sessió al costat.</li>
+    <li>Fes el laboratori: manipula, observa i anota.</li>
+    <li>Al final, copia el resum a la fitxa i entrega-la.</li>
+  </ol>
+  <ol class="labs">
+    <li><a href="lab_s1_nutrients.html"><span class="num">S1</span><div><h2>Què s'amaga dins els aliments</h2><p>Test del iode i test del greix · detectius d'etiquetes</p></div><span class="go">Obre →</span></a></li>
+    <li><a href="lab_s2_digestiu.html"><span class="num">S2</span><div><h2>El viatge del menjar</h2><p>Parts del tub digestiu · cabdell de llana · simulació de la digestió</p></div><span class="go">Obre →</span></a></li>
+    <li><a href="lab_s3_circulatori.html"><span class="num">S3</span><div><h2>La sang i el cor</h2><p>Pols en repòs · targetes de la sang · doble circulació · analítica</p></div><span class="go">Obre →</span></a></li>
+    <li><a href="lab_s4_disseccio.html"><span class="num">S4</span><div><h2>Dissecció del cor</h2><p>Observació exterior · cavitats i vàlvules · cas clínic</p></div><span class="go">Obre →</span></a></li>
+    <li><a href="lab_s5_fc.html"><span class="num">S5</span><div><h2>La freqüència cardíaca</h2><p>Repòs, exercici i recuperació · la gràfica de la FC</p></div><span class="go">Obre →</span></a></li>
+    <li><a href="lab_s6_control.html"><span class="num">S6</span><div><h2>Com dóna ordres el cos</h2><p>Temps de reacció amb el regle · arc reflex · hormones</p></div><span class="go">Obre →</span></a></li>
+  </ol>
+  <p class="note">La sessió 7 és la síntesi i l'informe de la freqüència cardíaca: fes-la amb les dades que hagis obtingut a la S5.</p>
+</div>

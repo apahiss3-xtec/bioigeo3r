@@ -3,10 +3,10 @@ export const sa2s6 = {
   title: "El sistema de control i l'equilibri intern",
   sessionNumber: 6, biome: "sa2", duration: "2h",
   engageImage: "/images/sa2-s6-neuronal.jpg",
-  flippedReading: "Lectura prèvia a casa (2 versions, Classroom): les dues vies de control del cos — els nervis (elèctrics, mil·lisegons) i les hormones (per la sang, minuts). Idea clau que cal portar a classe: una via és ràpida i breu; l'altra, lenta i duradora.",
+  flippedReading: "Les dues vies de control del cos: els nervis (elèctrics, mil·lisegons) i les hormones (per la sang, minuts). Idea clau: una via és ràpida i breu; l'altra, lenta i duradora.",
 
   // Repte oral curt: "l'enigma del control" — pregunta oberta deixada penjada fins a l'Explica.
-  engageChallenge: "Quan l'àrbitre va xiular i la Mercè va sortir a córrer, la seva FC JA pujava ABANS d'agafar ritme. Per quina raó? Ningú li ha dit conscientment al cor que bategui més ràpid. (Pregunta oberta — la resoldreu a l'Explica.)",
+  engageChallenge: "Quan l'àrbitre va xiular i la Mercè va sortir a córrer, la seva FC JA pujava ABANS d'agafar ritme. Per quina raó? Ningú li ha dit conscientment al cor que bategui més ràpid. (És una pregunta oberta: la resoldràs a l'Explica.)",
   engageQuestion: "Has mesurat la FC en repòs 3 matins. Posem-la en comú: hi ha molta variabilitat a la classe. Per quina raó? (Edat, estrès, son, temperatura...) Escriu també: quin sistema creus que controla el cor, el pols, els reflexos?",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
@@ -79,8 +79,8 @@ export const sa2s6 = {
 
   theoryPoints: [
     { id: "t1", apartat: "2", heading: "==Sistema nerviós==: la via ràpida", text: "==SN Simpàtic==: 'fight or flight' → augmenta ==FC|o==, dilata bronquis, inhibeix digestió. Actua en ==mil·lisegons|g== (via elèctrica). Per quina raó la Mercè puja la FC abans d'arrencar: el ==SN simpàtic== anticipa l'esforç.", type: "concept", video: "/animacions/sa2-s6-t1.mp4" },
-    { id: "t2", apartat: "2", heading: "==Sistema endocrí==: la via lenta però duradora", text: "==Adrenalina|o== (medul·la suprarenal): glucosa ↑, FC ↑. Efecte als ==30 seg|o== (via sang). ==Insulina|g== (pàncrees): glucosa entra a les cèl·les. ==EPO|b== (ronyó): estimula producció eritròcits — per quina raó l'EPO és el ==dopatge|r== dels ciclistes.", type: "concept" },
-    { id: "t3", apartat: "3", heading: "==Sistema excretor==: treure el que sobra", text: "Les cèl·les que treballen produeixen residus: ==CO₂|r== (surt pels ==pulmons|b==), ==urea i sals|o== (surten pels ==ronyons|g== com a orina). El ronyó filtra la sang i manté constant el medi intern (==homeòstasi==). L'==ADH|p== (hormona) controla quanta aigua retén el ronyó: poca orina quan tens set.", type: "concept", video: "/animacions/sa2-s6-t3.mp4" },
+    { id: "t2", apartat: "2", heading: "==Sistema endocrí==: la via lenta però duradora", text: "==Adrenalina|o== (medul·la suprarenal): glucosa ↑, FC ↑. Efecte als ==30 seg|o== (via sang). ==Insulina|g== (pàncrees): glucosa entra a les cèl·lules. ==EPO|b== (ronyó): estimula producció eritròcits — per quina raó l'EPO és el ==dopatge|r== dels ciclistes.", type: "concept" },
+    { id: "t3", apartat: "3", heading: "==Sistema excretor==: treure el que sobra", text: "Les cèl·lules que treballen produeixen residus: ==CO₂|r== (surt pels ==pulmons|b==), ==urea i sals|o== (surten pels ==ronyons|g== com a orina). El ronyó filtra la sang i manté constant el medi intern (==homeòstasi==). L'==ADH|p== (hormona) controla quanta aigua retén el ronyó: poca orina quan tens set.", type: "concept", video: "/animacions/sa2-s6-t3.mp4" },
     { id: "t4", apartat: "3", heading: "Connexió enigma: ==EPO== i anèmia", text: "El ==ronyó|g== fabrica ==EPO==, que ordena als ossos fabricar ==eritròcits|r==. Marc Fontana té pocs eritròcits però el seu problema és el ==FERRO|r== (no el ronyó). Però un problema de ronyó TAMBÉ pot causar ==anèmia|r== (via EPO). L'analítica ho confirma: ==creatinina i urea normals|g== = ronyó sa.", type: "keyequation", badge: "🔗 Enigma 2 — tercera pista" },
     { id: "t5", apartat: "4", heading: "La integració: rapidesa nerviosa vs. hormonal", text: "==Nervis|b==: ==mil·lisegons|g== (via elèctrica). ==Hormones|o==: ==30 seg – minuts|o== (via sang). Per quina raó les hormones van 'més tard': han de viatjar per la ==circulació==. Però els seus ==efectes duren molt més|g==.", type: "synthesis" }
   ],
@@ -96,8 +96,9 @@ export const sa2s6 = {
   fitxaUrl: { A: "/fitxes/sa2-s6-fitxa-A.html", B: "/fitxes/sa2-s6-fitxa-B.html", C: "/fitxes/sa2-s6-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s6-teoria.pdf",
 
   sessionMaterials: [
-    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s6-exit-ticket.html", who: "docent" },
-    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s6-exit-ticket-C.html", who: "docent" }
+    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s6-exit-ticket.html", who: "per al final de la sessió" },
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s6-exit-ticket-C.html", who: "per al final de la sessió" },
+    { id: "labVirtual", title: "Laboratori virtual (si has faltat a la pràctica)", url: "/labs/sa2/lab_s6_control.html", who: "per fer a casa si no vas poder fer la pràctica" }
   ],
 
   fitxaGuide: {
@@ -105,7 +106,7 @@ export const sa2s6 = {
     steps: [
       { apartat: "—", title: "Formulari de comprensió de la lectura", time: "5 min", phase: "engage", instruction: "Abans de començar la fitxa, fes el formulari de comprensió (Google Forms) de la lectura de la sessió 6 que havies de llegir a casa.", hints: [] },
       { apartat: "0", title: "Idees prèvies", time: "8 min", phase: "engage", instruction: "Dibuixa la teva hipòtesi (per on surten els residus líquids) i respon les tres preguntes de l'apartat 0. No es corregeix: ho compararàs al final.", hints: [] },
-      { apartat: "1", title: "Tres estacions — com dona ordres el cos", time: "25 min", phase: "explore", instruction: "Rota per les 3 estacions i omple-les a la fitxa. A: temps de reacció amb regle (5 proves per mà, cm → ms). B: arc reflex en grup. C: taula d'hormones.", hints: [
+      { apartat: "1", title: "Tres estacions — com dóna ordres el cos", time: "25 min", phase: "explore", instruction: "Rota per les 3 estacions i omple-les a la fitxa. A: temps de reacció amb regle (5 proves per mà, cm → ms). B: arc reflex en grup. C: taula d'hormones.", hints: [
         "Estació A: anota TOTES les distàncies sense arrodonir — la variabilitat és la dada interessant.",
         "Estació C: llegeix primer la columna EFECTE; després decideix la glàndula i la situació."
       ] },
@@ -118,7 +119,7 @@ export const sa2s6 = {
         "Compte: aquí «sang neta» vol dir sense urea, no amb oxigen.",
         "ADH: en fabriques més quan beus molt o quan beus poc? Per quina raó?"
       ] },
-      { apartat: "4", title: "Integració i homeòstasi", time: "15 min", phase: "elabora", instruction: "Apartat 4: completa el bucle de l'ADH, tanca el cas del Marc Fontana amb dades de l'analítica i respon el moment epistèmic sobre l'EPO.", hints: [
+      { apartat: "4", title: "Integració i homeòstasi", time: "15 min", phase: "elabora", instruction: "Apartat 4: completa el bucle de l'ADH, tanca el cas del Marc Fontana amb dades de l'analítica i respon la pregunta final sobre l'EPO.", hints: [
         "Homeòstasi = mantenir estable el medi intern. Fixa't que l'efecte del bucle apaga la causa que l'havia engegat."
       ] }
     ]
@@ -139,8 +140,10 @@ export const sa2s6 = {
   recoveryInstructions: [
     "Fes el test de temps de reacció a casa: que algú et deixi caure un regle de 30 cm sense avisar; anota on l'agafes, 5 vegades amb cada mà",
     "Llegeix la teoria d'aquesta pàgina (les dues vies de control + el sistema excretor)",
+    "Fes la pràctica al laboratori virtual (botó de sota) i copia el resum a la fitxa",
     "Omple la fitxa de la Sessió 6, apartats 0 a 4",
     "Recorda: necessites les dades de FC en repòs dels 3 matins per a la Sessió 7"
   ],
+  recoveryLinks: [{ label: "Laboratori virtual de la pràctica", url: "/labs/sa2/lab_s6_control.html", icon: "🧪" }],
   oaLinks: ["OA4"], competencies: ["CE1", "CE2", "CE3", "CE4"]
 }

@@ -1,0 +1,1057 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laboratori de la FC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@600;700&family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8f6;--surface:#ffffff;--ink:#16241c;--muted:#5b6b62;--line:#d5ded8;
+      --green:#1f5a3c;--green-2:#2f7a52;--accent:#d98a1e;--ok:#2e7d4f;--warn:#b7791f;--bad:#b23b3b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1712;--surface:#16211a;--ink:#e6efe9;
+      --muted:#9fb1a6;--line:#2a3a30;--green:#7cc39a;--green-2:#5fae82;--accent:#f0a945;--ok:#6fcf97;--warn:#e0b252;--bad:#ef7b7b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1712;--surface:#16211a;--ink:#e6efe9;--muted:#9fb1a6;--line:#2a3a30;
+      --green:#7cc39a;--green-2:#5fae82;--accent:#f0a945;--ok:#6fcf97;--warn:#e0b252;--bad:#ef7b7b;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Fira Sans",system-ui,sans-serif;font-size:16px;line-height:1.5}
+h1,h2,h3{font-family:"Fira Sans Extra Condensed",system-ui,sans-serif;font-weight:700;line-height:1.15;margin:0 0 .4em}
+h1{font-size:2rem;color:var(--green)} h2{font-size:1.5rem;color:var(--green)} h3{font-size:1.15rem}
+a{color:var(--green-2)}
+.wrap{max-width:860px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left)) 64px max(16px,env(safe-area-inset-right))}
+.back{display:inline-block;margin:14px 0 4px;font-weight:600}
+.tag{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+header.top{padding:4px 0 10px;border-bottom:2px solid var(--green)}
+.sub{color:var(--muted);margin:.2em 0 .6em}
+.bar{position:sticky;top:0;z-index:20;background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.bar a{flex:1 1 auto;min-width:68px;text-align:center;text-decoration:none;font-size:.88rem;font-weight:600;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 6px}
+.bar a.done{border-color:var(--ok);color:var(--ok)}
+.bar a.done::after{content:" \2713"}
+.bar a:hover{border-color:var(--green-2)}
+.lvl{display:flex;gap:6px;align-items:center;font-size:.9rem;margin:8px 0}
+.lvl button{min-height:36px}
+section.sec{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin:18px 0}
+.sec>h2 .n{display:inline-grid;place-items:center;width:1.6em;height:1.6em;border-radius:50%;background:var(--green);color:var(--surface);font-size:.9em;margin-right:.35em}
+.meta{color:var(--muted);font-size:.92rem;margin:-.2em 0 .8em}
+.card{border:1px solid var(--line);border-radius:10px;padding:12px;margin:12px 0;background:var(--bg)}
+.card.info{border-left:5px solid var(--green-2)}
+.card.warn{border-left:5px solid var(--warn)}
+.card.enig{border-left:5px solid var(--accent)}
+label{font-weight:500}
+input[type=text],input[type=number],textarea,select{font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:8px;padding:8px 10px;max-width:100%}
+input[type=number]{width:6.5em}
+textarea{width:100%;min-height:84px;resize:vertical}
+input:focus-visible,textarea:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible,.pt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button{font:inherit;font-weight:600;cursor:pointer;border-radius:8px;border:1.5px solid var(--green);background:var(--green);color:var(--surface);padding:9px 14px;min-height:44px}
+button.sec2{background:var(--surface);color:var(--green)}
+button.big{min-height:64px;font-size:1.2rem;padding:12px 22px}
+button:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.fb{margin-top:8px;padding:8px 10px;border-radius:8px;font-size:.96rem;background:var(--bg);border-left:4px solid var(--line)}
+.fb.ok{border-left-color:var(--ok)} .fb.warn{border-left-color:var(--warn)} .fb.bad{border-left-color:var(--bad)}
+.chip{display:inline-block;border:1px solid var(--ok);color:var(--ok);border-radius:99px;padding:0 9px;margin:2px 4px 2px 0;font-size:.85rem}
+.small{font-size:.9rem;color:var(--muted)}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:5px 6px;text-align:center}
+th{background:var(--bg);font-weight:600} td:first-child{text-align:left}
+tr.sepr td{background:var(--bg);font-style:italic;color:var(--muted)}
+td input{width:5.2em;text-align:center;padding:5px}
+td input[readonly]{background:var(--bg)}
+.tablewrap{overflow-x:auto}
+.mk{font-weight:700} .mk.ok{color:var(--ok)} .mk.bad{color:var(--bad)}
+/* banc */
+.bench{border:2px solid var(--green);border-radius:12px;padding:14px;background:var(--bg)}
+.bench-top{display:grid;grid-template-columns:130px 1fr;gap:14px;align-items:center}
+.heart-box{display:grid;place-items:center}
+#heart{width:110px;height:110px;transform-origin:50% 55%}
+#heart path{fill:var(--bad)}
+#heart.flash path{fill:var(--accent)}
+.clock{font-family:"Fira Sans Extra Condensed",sans-serif;font-size:2.6rem;font-weight:700;color:var(--green);line-height:1}
+.phase{font-weight:600;color:var(--muted)}
+.strip{position:relative;height:22px;border:1px solid var(--line);border-radius:6px;background:var(--surface);overflow:hidden;margin:8px 0}
+.strip i{position:absolute;top:2px;bottom:2px;width:3px;background:var(--bad);border-radius:2px}
+.strip b{position:absolute;left:0;top:0;bottom:0;background:var(--green-2);opacity:.18}
+.tapcount{font-family:"Fira Sans Extra Condensed",sans-serif;font-size:2rem;font-weight:700}
+.runner{display:none}
+.runner.on{display:block}
+.runner svg{width:80px;height:80px}
+.runner.on .bob{animation:bob .35s infinite alternate ease-in-out}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-8px)}}
+/* gràfics */
+svg.chart{width:100%;height:auto;display:block;background:var(--surface);border:1px solid var(--line);border-radius:8px;touch-action:manipulation}
+svg.chart text{font-family:"Fira Sans",sans-serif;fill:var(--muted);font-size:12px}
+svg.chart .ax{stroke:var(--muted);stroke-width:1.2}
+svg.chart .gl{stroke:var(--line);stroke-width:1}
+svg.chart .thr{stroke:var(--bad);stroke-width:1.5;stroke-dasharray:6 4}
+.pt{cursor:pointer}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.92rem;margin:6px 0}
+.legend span::before{content:"";display:inline-block;width:26px;height:0;border-top:3px solid currentColor;margin-right:6px;vertical-align:middle}
+.legend .sed::before{border-top-style:dashed}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{min-height:38px;padding:4px 10px;background:var(--surface);color:var(--green)}
+.chips button[aria-pressed=true]{background:var(--green);color:var(--surface)}
+.zonebar{display:flex;height:34px;border-radius:8px;overflow:hidden;border:1px solid var(--line);font-size:.85rem;font-weight:600;position:relative}
+.zonebar div{display:grid;place-items:center;color:#16241c}
+.zonebar .z1{background:#cfe5d7;width:60%}.zonebar .z2{background:#f3dfa8;width:25%}.zonebar .z3{background:#f0b8b0;width:15%}
+.zonemark{position:absolute;top:-6px;bottom:-6px;width:3px;background:var(--ink)}
+.chain{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.92rem}
+.chain span.st{border:1px solid var(--green-2);border-radius:8px;padding:3px 8px;background:var(--surface)}
+.plate{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px;text-align:center}.plate img{width:100%;max-width:520px;height:auto;display:block;margin:0 auto}
+.lvl-a,.lvl-c{display:none}
+body[data-level="A"] .lvl-a{display:block}
+body[data-level="C"] .lvl-c{display:block}
+.sumbox{white-space:pre-wrap;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;width:100%;min-height:260px}
+details>summary{cursor:pointer;font-weight:600;padding:4px 0}
+@media (max-width:520px){.bench-top{grid-template-columns:1fr;justify-items:center;text-align:center}h1{font-size:1.7rem}td input{width:4.6em}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body data-level="B">
+<div class="wrap">
+<a class="back" href="index.html">← Laboratoris SA2</a>
+<header class="top">
+  <span class="tag">SA2 · Sessió 5</span>
+  <h1>Respiració i esforç: la freqüència cardíaca</h1>
+  <p class="sub">Laboratori virtual. Avui resols els dos enigmes de la paret, i les dades les poses tu.</p>
+  <div class="lvl" role="group" aria-label="Nivell de la fitxa">
+    <span>Nivell:</span>
+    <span class="chips" id="lvlchips"></span>
+    <span class="small" id="lvlnote"></span>
+  </div>
+</header>
+<nav class="bar" aria-label="Passos de la fitxa" id="stepbar">
+  <a href="#s0" data-s="0">0 · Idees</a><a href="#s1" data-s="1">1 · Mesura</a><a href="#s2" data-s="2">2 · Gràfica</a><a href="#s3" data-s="3">3 · G1</a><a href="#s4" data-s="4">4 · G2</a><a href="#s5" data-s="5">Resum</a>
+</nav>
+
+<!-- 0 -->
+<section class="sec" id="s0">
+  <h2><span class="n">0</span>Idees prèvies — els dos enigmes de la paret</h2>
+  <p class="meta">Individual · 10 min · No es corregeix ara: la compararàs al final.</p>
+  <label for="hip"><strong>Per quina raó creus que augmenta la freqüència cardíaca quan fas exercici?</strong> Escriu la teva hipòtesi ara.</label>
+  <textarea id="hip" data-k="hip"></textarea>
+  <div class="card">
+    <strong>Les teves estimacions (abans de mesurar res)</strong>
+    <p>La meva FC en repòs, ara mateix, crec que és de <input type="number" id="est_rep" data-k="est_rep" inputmode="numeric" min="30" max="220" aria-label="FC en repòs estimada"> bat/min.</p>
+    <p>La FC màxima que crec que puc assolir és de <input type="number" id="est_max" data-k="est_max" inputmode="numeric" min="30" max="260" aria-label="FC màxima estimada"> bat/min.</p>
+    <p>Després de l'exercici, crec que trigaré <input type="number" id="est_rec" data-k="est_rec" inputmode="numeric" min="0" max="120" aria-label="Minuts de recuperació estimats"> minuts a tornar al repòs.</p>
+    <p class="small">Després de l'experiment tornaràs aquí a comprovar si ho havies encertat (ho veuràs al final).</p>
+  </div>
+  <div class="card enig">
+    <strong>Enigma 1 — la Mercè.</strong> La Mercè té 14 anys i corre 10 km. En creuar la meta, el cor li va a 185 bat/min. En mig minut ja n'ha baixat 15… però encara triga un quart d'hora a tornar a la normalitat. <em>Per quina raó puja de pressa i baixa a poc a poc?</em>
+  </div>
+  <div class="card enig">
+    <strong>Enigma 2 — el Marc Fontana.</strong> El Marc té 28 anys, corre per afició i últimament s'ofega pujant les escales de casa. A l'analítica li surt l'hemoglobina a <strong>9,2 g/dL</strong> (en un home adult, el normal és <strong>13,5–17,5 g/dL</strong>). <em>Per quina raó, fent el mateix esforç que tu, ell arriba abans al límit?</em>
+  </div>
+  <div class="card info"><strong>Connexió amb la Sessió 4 (el cor per dins):</strong> vas tenir el cor a les mans i vas veure que el ventricle esquerre és el múscul que empeny la sang a tot el cos. Avui mesuraràs com aquest múscul canvia de ritme segons el que el cos necessita.</div>
+  <details><summary>Vocabulari clau d'avui</summary>
+    <ul class="small">
+      <li><b>freqüència cardíaca (FC)</b> = batecs del cor en un minut</li><li><b>bat/min</b> = batecs per minut</li>
+      <li><b>FCmàx</b> = FC màxima del teu cor ≈ 220 − edat</li><li><b>zona aeròbica</b> = esforç moderat, amb prou O₂</li>
+      <li><b>zona anaeròbica</b> = esforç màxim, falta O₂ → àcid làctic</li><li><b>recuperació</b> = temps que triga la FC a tornar al repòs</li>
+      <li><b>alvèol</b> = saquet del pulmó on l'O₂ entra a la sang</li><li><b>hemoglobina</b> = proteïna amb ferro que transporta l'O₂</li>
+      <li><b>sistema nerviós simpàtic</b> = els nervis que acceleren el cos sense que hi pensis</li><li><b>adrenalina</b> = hormona que ordena al cor bategar més de pressa</li>
+      <li><b>lactat</b> = residu que s'acumula quan el múscul treballa sense prou O₂</li>
+    </ul></details>
+</section>
+
+<!-- 1 -->
+<section class="sec" id="s1">
+  <h2><span class="n">1</span>Mesura la teva FC — l'experiment</h2>
+  <p class="meta">Tota la classe alhora · 35 min · Sense aparells: només els teus dits i un rellotge.</p>
+
+  <div class="card info">
+    <strong>Com mesurar el pols</strong>
+    <ol>
+      <li>Col·loca <b>2 dits</b> (índex i mig, mai el polze) al canell o al coll, i prem fluix: si prems massa fort, deixaràs de notar-lo.</li>
+      <li>Compta els batecs durant <b>15 segons</b>.</li>
+      <li>Multiplica <b>× 4</b> → bat/min.</li>
+      <li><b>Després de l'esforç, mesura IMMEDIATAMENT</b>, en el mateix segon que pares: la FC baixa molt de pressa i, si tardes, el valor ja no és el màxim.</li>
+      <li>Per parelles: primer mesures tu i el company/a et compta el temps; després ho feu al revés, al mateix moment de la sessió.</li>
+    </ol>
+    <p><strong>Comprova que ho tens clar:</strong></p>
+    <p><label for="q_dits">Quins dits fas servir?</label>
+      <select id="q_dits" data-k="q_dits"><option value="">—</option><option value="a">Polze i índex</option><option value="b">Índex i mig</option><option value="c">Només el polze</option></select>
+      <span class="mk" id="mk_dits"></span></p>
+    <p><label for="q_x">Comptes 15 s i tens 18 batecs. Quants bat/min són?</label>
+      <input type="number" id="q_x" data-k="q_x" inputmode="numeric"> <button type="button" class="sec2" id="b_qx">Comprova</button> <span class="mk" id="mk_x"></span></p>
+  </div>
+  <div class="card warn"><strong>Protocol de seguretat.</strong> Si et mareges o et fa mal el pit, para immediatament i avisa el professor. No hi ha cap nota a guanyar si et trobes malament.</div>
+
+  <div class="card">
+    <h3>Prepara l'experiment</h3>
+    <div class="row">
+      <label for="age">La teva edat:</label>
+      <input type="number" id="age" data-k="age" min="11" max="19" value="15" inputmode="numeric">
+    </div>
+    <fieldset style="border:1px solid var(--line);border-radius:8px">
+      <legend>Qui mesures?</legend>
+      <label><input type="radio" name="mode" data-k="mode" value="sed" id="m_sed"> Alumne/a virtual <b>sedentari/ària</b></label><br>
+      <label><input type="radio" name="mode" data-k="mode" value="act" id="m_act"> Alumne/a virtual <b>actiu/va</b> (fa esport sovint)</label><br>
+      <label><input type="radio" name="mode" data-k="mode" value="real" id="m_real"> <b>Tinc les meves dades reals</b> (les he mesurat jo)</label>
+    </fieldset>
+    <p class="small" id="modenote"></p>
+    <button type="button" class="sec2" id="b_resetm" style="display:none">Torna a començar la mesura</button>
+  </div>
+
+  <div class="bench" id="bench" hidden>
+    <div class="bench-top">
+      <div class="heart-box">
+        <svg id="heart" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 88C10 58 6 28 28 18 40 13 50 20 50 30 50 20 60 13 72 18 94 28 90 58 50 88Z"/></svg>
+        <div class="runner" id="runner" aria-hidden="true"><svg viewBox="0 0 80 80"><g class="bob" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"><circle cx="40" cy="14" r="8"/><path d="M40 22V46M40 30L24 40M40 30L56 24M40 46L28 66M40 46L54 58L54 70"/></g></svg></div>
+      </div>
+      <div>
+        <div class="clock" id="clock" aria-label="Cronòmetre de l'experiment">00:00</div>
+        <div class="phase" id="phase">Repòs</div>
+        <div class="small" id="steptxt" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="strip" id="strip" aria-hidden="true"><b id="stripfill"></b></div>
+    <div class="row">
+      <label>Velocitat del cronòmetre
+        <select id="speed" aria-label="Velocitat del cronòmetre"><option value="1">×1 (temps real)</option><option value="2">×2</option><option value="3">×3</option></select></label>
+      <label>Recompte
+        <select id="cmode" aria-label="Mode de recompte"><option value="tap">Compto jo (un toc a cada batec)</option><option value="auto">Automàtic (compta l'alumne virtual)</option></select></label>
+      <label><input type="checkbox" id="sound" checked> So del pols</label>
+    </div>
+    <div class="row">
+      <button type="button" class="big" id="b_go">Comença</button>
+      <button type="button" class="big sec2" id="b_tap" disabled aria-label="Marca un batec">♥ Batec (espai)</button>
+      <div>Batecs marcats: <span class="tapcount" id="tapcount">0</span></div>
+    </div>
+    <div id="result" hidden>
+      <div class="card">
+        <p><strong id="restitle">Fi dels 15 segons.</strong></p>
+        <p><label for="cnt">Batecs comptats en 15 s:</label> <input type="number" id="cnt" inputmode="numeric" min="0"> <span class="small" id="cntnote"></span></p>
+        <p><label for="ppm">Calcula els bat/min (batecs × 4):</label> <input type="number" id="ppm" inputmode="numeric"> bat/min
+           <button type="button" id="b_save">Comprova i desa a la taula</button></p>
+        <div class="fb" id="savefb" hidden></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:18px">Taula de dades</h3>
+  <p class="small" id="tabnote">Al mode virtual, la taula s'omple quan desis cada mesura.</p>
+  <div class="tablewrap"><table id="fctab">
+    <thead><tr><th>Moment</th><th>Temps</th><th>La teva FC (bat/min)</th><th>FC company/a (bat/min)</th><th>Diferència (la teva − la seva)</th></tr></thead>
+    <tbody></tbody></table></div>
+  <div class="row"><button type="button" class="sec2" id="b_fixdif">Omple o corregeix les diferències</button><span class="small">Primer prova-ho tu: la resta és «la teva − la seva».</span></div>
+
+  <details class="card info" open><summary>Per llegir — Per quina raó t'ha pujat la FC?</summary>
+    <div class="chain"><span class="st">El múscul treballa</span>→<span class="st">Gasta més energia (ATP)</span>→<span class="st">Necessita més O₂</span>→<span class="st">La sang n'ha de portar més</span>→<span class="st">El cor batega més ràpid i fort</span></div>
+    <p>Quan corres, les cèl·lules dels músculs gasten molt ATP. Per fabricar-lo necessiten més glucosa i més O₂ (recorda la respiració cel·lular: glucosa + O₂ → CO₂ + H₂O + ATP, dins el mitocondri). El cos ho resol de diverses maneres alhora: respires més fort (entra més O₂ als alvèols), la sang es redirigeix cap als músculs que treballen i, sobretot, circula més de pressa.</p>
+    <p>Però qui li ordena, al cor, que s'acceleri? Tu no hi penses: passa sol. El cervell detecta l'esforç i activa el sistema nerviós simpàtic, que arriba al cor per un nervi i allibera adrenalina a la sang. Aquests dos senyals fan que el marcapassos del cor dispari més sovint. Per això la FC puja en segons, abans que al múscul li falti gens d'O₂ — i per això costa més fer-la baixar que fer-la pujar (ho veuràs a l'apartat 3).</p>
+  </details>
+
+  <div class="card">
+    <strong>Calcula la teva FCmàx estimada i les zones de treball</strong>
+    <p>220 − <input type="number" id="f_age" data-k="age" inputmode="numeric" aria-label="Edat"> = <input type="number" id="f_max" data-k="f_max" inputmode="numeric" aria-label="FCmàx estimada"> bat/min <span class="small">(FCmàx estimada)</span> <span class="mk" id="mk_fmax"></span></p>
+    <p>0,85 × FCmàx = <input type="number" id="f_thr" data-k="f_thr" inputmode="numeric" aria-label="Llindar anaeròbic"> bat/min <span class="small">(llindar anaeròbic, 85 % FCmàx)</span> <span class="mk" id="mk_fthr"></span></p>
+    <p>Durant l'exercici: <b id="peakshow">—</b> bat/min. Zona:
+      <label><input type="radio" name="zona" data-k="zona" value="aer"> Aeròbica</label>
+      <label><input type="radio" name="zona" data-k="zona" value="ana"> Anaeròbica</label>
+      <button type="button" class="sec2" id="b_zone">Comprova</button></p>
+    <div class="fb" id="fb_zone" hidden></div>
+    <p class="small">Escala de zones de FC (% de la teva FCmàx):</p>
+    <div class="zonebar" id="zonebar"><div class="z1">0–60 % · repòs i suau</div><div class="z2">60–85 % · aeròbica</div><div class="z3">85–100 % · anaeròbica</div><span class="zonemark" id="zonemark" hidden></span></div>
+    <p class="small">La barra va de 0 % a 100 % (= la teva FCmàx).</p>
+  </div>
+  <details class="card info"><summary>Per llegir — Les dues zones d'esforç</summary>
+    <p>Fins al 85 % de la teva FCmàx ets a la zona aeròbica: arriba prou O₂ i els músculs cremen glucosa i greixos. Per sobre del 85 % entres a la zona anaeròbica: l'O₂ no arriba prou de pressa, el múscul crema glucosa sense O₂ i es produeix lactat i acidesa, que et fan cremar el múscul i t'obliguen a abaixar el ritme. Per això ningú pot mantenir gaire estona un esforç per damunt del llindar.</p></details>
+
+  <div class="card">
+    <h3>I els pulmons? — d'on surt l'O₂ que la sang reparteix</h3>
+    <p>La sang no fabrica l'O₂: el recull. Ho fa als alvèols, on la paret és tan prima que l'O₂ hi passa a la sang i el CO₂ fa el camí contrari. Per això l'esforç accelera dos sistemes alhora, el cor i la respiració.</p>
+    <details class="card info"><summary>Consulta la figura: l'aparell respiratori i l'alvèol</summary>
+      <div class="plate"><img src="img/respiratori_alveols.webp" alt="Aparell respiratori: tràquea, bronquis, bronquíols i alvèols, amb un alvèol envoltat de capil·lars" loading="lazy"></div>
+      <p class="small">Figura. El camí de l'aire fins als alvèols i l'intercanvi de gasos amb la sang dels capil·lars.</p></details>
+    <div data-oq="pulm1"></div>
+    <div data-oq="pulm2"></div>
+  </div>
+
+  <div class="card">
+    <h3>Reflexió científica — Som científics de debò?</h3>
+    <p>Creus que les nostres dades es podrien publicar en una revista científica? Marca els problemes que hi veus i explica el que et sembla més greu:</p>
+    <div id="epist"></div>
+    <label for="ep_txt">El problema que em sembla més greu és…</label>
+    <textarea id="ep_txt" data-k="ep_txt"></textarea>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="sec" id="s2">
+  <h2><span class="n">2</span>La gràfica de la teva FC</h2>
+  <p class="meta">Individual · 15 min · Tria tu l'escala de l'eix vertical, escriu-ne els valors i representa cada punt de la taula.</p>
+  <div id="g2need" class="fb warn" hidden>Primer omple la taula de l'apartat 1: necessites els teus valors per fer la gràfica.</div>
+  <div class="card">
+    <strong>1. Escala de l'eix vertical (FC, bat/min)</strong>
+    <div class="row">
+      <label>Mínim <input type="number" id="gmin" data-k="gmin" inputmode="numeric"></label>
+      <label>Màxim <input type="number" id="gmax" data-k="gmax" inputmode="numeric"></label>
+      <label>Cada <input type="number" id="gstep" data-k="gstep" inputmode="numeric"></label>
+      <button type="button" id="b_scale">Aplica l'escala</button>
+    </div>
+    <div class="fb" id="fb_scale" hidden></div>
+    <p class="lvl-c small">Pista de nivell C: prova amb mínim 40, màxim 220 i cada 20.</p>
+  </div>
+  <div class="card">
+    <strong>2. Situa els punts</strong>
+    <p class="small">Toca o clica a la gràfica, a sobre de cada columna, a l'alçada de la FC. També pots triar la columna aquí sota i escriure'n el valor.</p>
+    <div class="row"><span class="chips" id="colchips" role="group" aria-label="Columna"></span></div>
+    <div class="row"><label>Valor <input type="number" id="colval" inputmode="numeric"></label><button type="button" class="sec2" id="b_setval">Situa el punt</button></div>
+    <svg id="mygraph" class="chart" viewBox="0 0 640 340" role="img" aria-label="La meva gràfica de FC"></svg>
+    <div class="row">
+      <button type="button" id="b_chk">Comprova els punts</button>
+      <button type="button" class="sec2" id="b_join">Uneix els punts amb una línia</button>
+      <label><input type="checkbox" id="showthr"> Mostra el meu llindar anaeròbic</label>
+      <button type="button" class="sec2 lvl-a" id="b_comp">Superposa el company/a (traç discontinu)</button>
+    </div>
+    <div class="fb" id="fb_pts" hidden></div>
+    <div class="fb lvl-a" id="fb_comp" hidden></div>
+  </div>
+  <div class="card">
+    <p><label for="g_max">La meva FC màxima assolida durant l'exercici:</label> <input type="number" id="g_max" data-k="g_max" inputmode="numeric"> bat/min <button type="button" class="sec2" id="b_gmax">Comprova</button> <span class="mk" id="mk_gmax"></span></p>
+    <fieldset style="border:1px solid var(--line);border-radius:8px"><legend>He entrat a zona anaeròbica?</legend>
+      <label><input type="radio" name="ana" data-k="ana" value="si"> Sí</label>
+      <label><input type="radio" name="ana" data-k="ana" value="no"> No</label>
+      <label><input type="radio" name="ana" data-k="ana" value="nosap"> No ho puc saber</label>
+      <button type="button" class="sec2" id="b_ana">Comprova</button></fieldset>
+    <div class="fb" id="fb_ana" hidden></div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="sec" id="s3">
+  <h2><span class="n">3</span>G1 — La Mercè · resolució de l'enigma 1</h2>
+  <p class="meta">Guiat conjunt → individual · 15 min · La gràfica de la paret, per fi desxifrada.</p>
+  <p><strong>G1 · FC de la Mercè durant una cursa de 10 km.</strong> <span class="small">Dades recreades amb finalitat didàctica. La Mercè té 14 anys: FCmàx = 206 → llindar anaeròbic (85 %) = 175 bat/min.</span></p>
+  <div id="g1chart"></div>
+  <div class="card lvl-c info"><strong>Com es llegeix una gràfica:</strong> 1) Mira l'eix horitzontal (temps, minuts). 2) Mira l'eix vertical (FC, bat/min). 3) Busca el punt més alt i llegeix-ne els dos valors. 4) Observa si la línia puja i baixa a la mateixa velocitat.</div>
+
+  <div class="card">
+    <p><strong>① En quin minut assoleix la FC màxima i quin valor té? Què estava fent en aquell moment?</strong></p>
+    <div class="row"><label>Minut <input type="number" id="g1_min" data-k="g1_min" inputmode="numeric"></label>
+      <label>FC (bat/min) <input type="number" id="g1_fc" data-k="g1_fc" inputmode="numeric"></label></div>
+    <label for="g1_do">Què feia?</label>
+    <input type="text" id="g1_do" data-k="g1_do" style="width:100%">
+    <div class="row"><button type="button" id="b_g1a">Comprova</button></div>
+    <div class="fb" id="fb_g1a" hidden></div>
+  </div>
+  <div class="card">
+    <p><strong>② Creua la meta al minut 55. A partir de quin minut la seva FC torna a estar per sota de 80 bat/min? Quanta estona ha trigat, doncs, a recuperar-se?</strong></p>
+    <div class="row"><label>Minut <input type="number" id="g1_m80" data-k="g1_m80" inputmode="numeric"></label>
+      <label>Ha trigat (min) <input type="number" id="g1_dur" data-k="g1_dur" inputmode="numeric"></label></div>
+    <div class="row"><button type="button" id="b_g1b">Comprova</button></div>
+    <div class="fb" id="fb_g1b" hidden></div>
+  </div>
+  <div class="lvl-c">
+    <div class="card"><p><strong>④ Què és més ràpid?</strong></p>
+      <label><input type="radio" name="g1_fast" data-k="g1_fast" value="pujada"> La pujada</label>
+      <label><input type="radio" name="g1_fast" data-k="g1_fast" value="baixada"> La baixada (recuperació)</label>
+      <button type="button" class="sec2" id="b_g1fast">Comprova</button><div class="fb" id="fb_g1fast" hidden></div></div>
+  </div>
+  <div data-oq="g1q3"></div>
+  <div class="lvl-c"><div data-oq="g1c6"></div></div>
+  <div class="lvl-a"><div data-oq="g1inf"></div></div>
+</section>
+
+<!-- 4 -->
+<section class="sec" id="s4">
+  <h2><span class="n">4</span>G2 — Esportista d'elit vs. persona sedentària</h2>
+  <p class="meta">En parelles · 20 min · El mateix esforç, dos cors molt diferents.</p>
+  <p><strong>G2 · Dues persones de 20 anys fan exactament el mateix exercici.</strong> <span class="small">Mateixa intensitat i mateixa estona (5 min) · FCmàx de tots dos = 200 → llindar = 170 bat/min.</span></p>
+  <div class="legend"><span style="color:var(--green-2)">Esportista d'elit, 20 anys — línia contínua verda (FC en repòs ≈ 45 bat/min)</span><span class="sed" style="color:#7B68C8">Persona sedentària, 20 anys — línia discontínua lila (FC en repòs ≈ 78 bat/min)</span></div>
+  <div id="g2chart"></div>
+  <details class="card info"><summary>Per llegir — Què li passa a un cor entrenat</summary>
+    <p>Entrenar fa el ventricle esquerre més gran i més fort. Per això, amb un sol batec, un cor entrenat expulsa molta més sang que un cor sedentari. Si cada batec ret més, en calen menys per moure la mateixa sang: la FC en repòs baixa, i en acabar l'esforç el cor neteja abans el CO₂ i el lactat dels músculs.</p></details>
+
+  <div class="card">
+    <p><strong>① Qui arriba abans al seu punt més alt, i qui és l'únic que supera el llindar dels 170? Digues en quin minut passa cada cosa.</strong></p>
+    <div class="row"><span>Esportista, punt més alt: minut <input type="number" id="g2_em" data-k="g2_em" step="0.5" inputmode="decimal"> FC <input type="number" id="g2_ef" data-k="g2_ef" inputmode="numeric"></span></div>
+    <div class="row"><span>Sedentari/ària, punt més alt: minut <input type="number" id="g2_sm" data-k="g2_sm" step="0.5" inputmode="decimal"> FC <input type="number" id="g2_sf" data-k="g2_sf" inputmode="numeric"></span></div>
+    <div class="row"><label>Arriba abans al seu màxim:
+      <select id="g2_first" data-k="g2_first"><option value="">—</option><option value="elit">L'esportista</option><option value="sed">El sedentari</option><option value="tots">Tots dos al mateix moment</option></select></label>
+      <label>Supera els 170:
+      <select id="g2_over" data-k="g2_over"><option value="">—</option><option value="elit">Només l'esportista</option><option value="sed">Només el sedentari</option><option value="tots">Tots dos</option><option value="cap">Cap dels dos</option></select></label></div>
+    <div class="row"><span>La supera des del minut <input type="number" id="g2_from" data-k="g2_from" step="0.5" inputmode="decimal"> fins al minut <input type="number" id="g2_to" data-k="g2_to" step="0.5" inputmode="decimal"></span></div>
+    <button type="button" id="b_g2a">Comprova</button><div class="fb" id="fb_g2a" hidden></div>
+  </div>
+  <div data-oq="g2q2"></div>
+  <div class="card">
+    <p><strong>③ Quin dels dos perfils s'assembla més a la teva gràfica de l'apartat 2? Formula una hipòtesi de per quina raó.</strong></p>
+    <label><input type="radio" name="g2_prof" data-k="g2_prof" value="elit"> L'esportista d'elit</label>
+    <label><input type="radio" name="g2_prof" data-k="g2_prof" value="sed"> La persona sedentària</label>
+    <label><input type="radio" name="g2_prof" data-k="g2_prof" value="cap"> Cap dels dos, estic enmig</label>
+    <textarea id="g2_hyp" data-k="g2_hyp" aria-label="La meva hipòtesi"></textarea>
+    <button type="button" id="b_g2c">Compara amb les meves dades</button><div class="fb" id="fb_g2c" hidden></div>
+  </div>
+  <div class="lvl-c"><div data-oq="g2c6"></div></div>
+  <div class="lvl-a">
+    <div class="card info"><strong>Ampliació — el cor com a bomba, amb números.</strong>
+      <p>La sang que el cor mou cada minut és la <b>despesa cardíaca</b>: <b>Q = volum de cada batec × FC</b>. Calcula Q en L/min (1 L = 1000 mL):</p>
+      <div class="tablewrap"><table><thead><tr><th></th><th>Volum/batec</th><th>FC</th><th>Q (L/min)</th></tr></thead><tbody>
+        <tr><td>Sedentari, repòs</td><td>70 mL</td><td>78</td><td><input type="number" id="q_sr" data-k="q_sr" step="0.01" inputmode="decimal"></td></tr>
+        <tr><td>Sedentari, esforç màxim</td><td>100 mL</td><td>182</td><td><input type="number" id="q_sm" data-k="q_sm" step="0.01" inputmode="decimal"></td></tr>
+        <tr><td>Esportista, repòs</td><td>110 mL</td><td>45</td><td><input type="number" id="q_er" data-k="q_er" step="0.01" inputmode="decimal"></td></tr>
+        <tr><td>Esportista, esforç màxim</td><td>170 mL</td><td>150</td><td><input type="number" id="q_em" data-k="q_em" step="0.01" inputmode="decimal"></td></tr></tbody></table></div>
+      <button type="button" id="b_q">Comprova</button><div class="fb" id="fb_q" hidden></div>
+      <div data-oq="qa1"></div><div data-oq="qa2"></div>
+    </div>
+    <div class="card enig"><strong>Connexió amb l'enigma 2 — el Marc Fontana.</strong> Fa exactament el mateix exercici que els dos perfils de G2 i té l'hemoglobina a 9,2 g/dL. Com seria la seva corba? Justifica-ho amb la cadena hemoglobina → O₂ → múscul → FC.</div>
+    <div data-oq="marc"></div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="sec" id="s5">
+  <h2><span class="n">★</span>Posada en comú i resum</h2>
+  <div class="card">
+    <strong>Torna als objectius del principi i marca el que has après avui:</strong><br>
+    <label><input type="checkbox" data-k="ob1"> Mesuro la meva FC en repòs, exercici i recuperació, i represento les dades en una gràfica pròpia.</label><br>
+    <label><input type="checkbox" data-k="ob2"> Explico per quina raó augmenta la FC durant l'exercici (més O₂ per als mitocondris dels músculs).</label><br>
+    <label><input type="checkbox" data-k="ob3"> Calculo la FCmàx (220 − edat) i distingeixo la zona aeròbica de l'anaeròbica.</label><br>
+    <label><input type="checkbox" data-k="ob4"> Interpreto gràfiques de FC reals (la Mercè, esportista vs. sedentari) i explico les diferències.</label>
+  </div>
+  <div class="card"><strong>Les teves estimacions de l'apartat 0, comparades amb la realitat:</strong><div id="cmp" class="small"></div></div>
+  <label for="meta1">La meva hipòtesi inicial (apartat 0) era encertada? En què m'equivocava?</label>
+  <textarea id="meta1" data-k="meta1"></textarea>
+  <label for="meta2">Encara em pregunto…</label>
+  <textarea id="meta2" data-k="meta2"></textarea>
+
+  <h3 style="margin-top:16px">Tasca per a casa — els propers 3 matins (prepara la Sessió 6)</h3>
+  <p>Just en llevar-te (abans d'esmorzar i sense moure't gaire), mesura la FC en repòs: compta els batecs durant <b>30 segons</b> i multiplica <b>× 2</b> (a casa comptem el doble d'estona que a classe perquè, en repòs, com més estona comptes més fiable surt la mesura). Apunta-ho aquí:</p>
+  <div class="tablewrap"><table><thead><tr><th>Matí</th><th>Data</th><th>Hora de llevar-te</th><th>FC en repòs (bat/min)</th><th>Notes</th></tr></thead><tbody id="homet"></tbody></table></div>
+  <label for="pregunta">A partir de les teves dades, formula una pregunta d'investigació pròpia:</label>
+  <textarea id="pregunta" data-k="pregunta" placeholder="Exemple de pregunta: «Per quina raó la meva FC és diferent el dia que he dormit menys?»"></textarea>
+  <p class="small">Porta la fitxa a la Sessió 6. Posarem en comú les dades de tota la classe. Les pulsacions són teves.</p>
+
+  <h3 style="margin-top:20px">Copia-ho a la teva fitxa</h3>
+  <p class="small">Aquí tens les teves dades i respostes agrupades per apartat de la fitxa. Copia-les i passa-les a la fitxa impresa.</p>
+  <div class="row"><button type="button" id="b_sum">Genera el resum</button><button type="button" class="sec2" id="b_copy">Copia el resum</button><span class="small" id="copyfb" aria-live="polite"></span></div>
+  <textarea id="sumbox" class="sumbox" readonly aria-label="Resum per copiar a la fitxa"></textarea>
+  <p style="margin-top:16px"><button type="button" class="sec2" id="b_reset">Esborra tot el progrés</button> <span class="small" id="resetfb"></span></p>
+</section>
+</div>
+
+<script>
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var KEY='lab_s5_fc_v1';
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+var S={f:{},rows:[],pts:[],sim:null,level:'B',scaleOk:false,home:[{},{},{}],hints:{},tries:{}};
+try{var raw=localStorage.getItem(KEY);if(raw){var o=JSON.parse(raw);if(o&&typeof o==='object'){for(var k in o)S[k]=o[k];}}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function norm(s){return String(s||'').toLowerCase().replace(/₂/g,'2').replace(/[·.]/g,'').normalize('NFD').replace(/[̀-ͯ]/g,'');}
+function num(v){var x=parseFloat(String(v).replace(',','.'));return isNaN(x)?null:x;}
+function show(el,html,cls){el.hidden=false;el.className='fb '+(cls||'');el.innerHTML=html;}
+function fbEl(id){return document.getElementById(id);}
+
+/* ---------- Passos ---------- */
+var STEPS=[
+ {k:'r0',lab:'Repòs (inici)',tm:'0 min',t0:0,row:0},
+ {k:'r1',lab:'Repòs',tm:'1 min',t0:60,row:1},
+ {k:'r2',lab:'Repòs',tm:'2 min',t0:120,row:2},
+ {k:'ex',ex:true},
+ {k:'j0',lab:'Just en parar',tm:'0 s',t0:270,row:3},
+ {k:'c1',lab:'Recuperació',tm:'1 min',t0:330,row:4},
+ {k:'c2',lab:'Recuperació',tm:'2 min',t0:390,row:5},
+ {k:'c3',lab:'Recuperació',tm:'3 min',t0:450,row:6},
+ {k:'c4',lab:'Recuperació',tm:'4 min',t0:510,row:7},
+ {k:'c5',lab:'Recuperació',tm:'5 min',t0:570,row:8}];
+var E0=150,E1=270;
+var ROWNAMES=["Rep 0'","Rep 1'","Rep 2'","Exercici","Rec 1'","Rec 2'","Rec 3'","Rec 4'","Rec 5'"];
+var ROWFULL=["Repòs (inici) 0 min","Repòs 1 min","Repòs 2 min","Just en parar 0 s","Recuperació 1 min","Recuperació 2 min","Recuperació 3 min","Recuperació 4 min","Recuperació 5 min"];
+
+/* ---------- Model fisiològic ---------- */
+function rnd(a,b){return a+Math.random()*(b-a);}
+function gauss(){var u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
+function newSim(kind,age){
+  var fm=220-age,p;
+  if(kind==='sed'){p={rest:Math.round(rnd(74,84)),pf:rnd(.84,.92),t1:rnd(40,52),t2:rnd(200,260),a:.55};}
+  else{p={rest:Math.round(rnd(57,66)),pf:rnd(.76,.84),t1:rnd(25,34),t2:rnd(110,150),a:.62};}
+  p.peak=Math.round(fm*p.pf);p.ph1=rnd(0,6.28);p.ph2=rnd(0,6.28);p.kind=kind;return p;
+}
+function fcAt(p,t){
+  var w=1+.012*Math.sin(t/9+p.ph1)+.008*Math.sin(t/4+p.ph2),f;
+  if(t<E0){f=p.rest+5*Math.exp(-t/90);}
+  else if(t<E1){var x=(t-E0);f=p.rest+(p.peak-p.rest)*(1-Math.exp(-x/35))/(1-Math.exp(-(E1-E0)/35));}
+  else{var y=t-E1,ex=p.peak-p.rest;f=p.rest+ex*(p.a*Math.exp(-y/p.t1)+(1-p.a)*Math.exp(-y/p.t2));}
+  return f*w;
+}
+function genBeats(p,t0,t1){
+  var out=[],t=t0+Math.random()*60/fcAt(p,t0);
+  while(t<t1){out.push(t);t+=60/fcAt(p,t)*(1+.025*gauss());}
+  return out;
+}
+function otherSim(){var k=S.sim.kind==='sed'?'act':'sed';if(!S.sim.partner)S.sim.partner=newSim(k,S.sim.age);return S.sim.partner;}
+
+/* ---------- Persistència dels camps ---------- */
+function bindFields(){
+  $$('[data-k]').forEach(function(el){
+    var k=el.getAttribute('data-k');
+    if(el.type==='checkbox'){el.checked=!!S.f[k];el.addEventListener('change',function(){S.f[k]=el.checked;save();progress();});}
+    else if(el.type==='radio'){el.checked=(S.f[k]===el.value);el.addEventListener('change',function(){if(el.checked){S.f[k]=el.value;save();onField(k);progress();}});}
+    else{if(S.f[k]!=null)el.value=S.f[k];el.addEventListener('input',function(){S.f[k]=el.value;save();onField(k);});}
+  });
+}
+function onField(k){
+  if(k==='age'){$$('[data-k="age"]').forEach(function(e){if(e.value!==S.f.age)e.value=S.f.age;});drawZone();}
+  if(k==='mode')modeChanged();
+}
+
+/* ---------- Nivells ---------- */
+function setLevel(l){
+  S.level=l;document.body.setAttribute('data-level',l);save();
+  $$('#lvlchips button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l?'true':'false');});
+  $('#lvlnote').textContent=l==='A'?'A: reptes extra (ampliació)':l==='C'?'C: més guiat, amb inicis de frase':'B: estàndard';
+  renderOQ();drawMy();
+}
+(function(){var c=$('#lvlchips');['A','B','C'].forEach(function(l){var b=document.createElement('button');b.type='button';b.className='';b.textContent=l;b.dataset.l=l;b.addEventListener('click',function(){setLevel(l)});c.appendChild(b);});})();
+
+/* ---------- Preguntes obertes amb pistes progressives ---------- */
+var OQ={
+ pulm1:{lab:"① En quin punt exacte del recorregut de l'aire passa l'O₂ a la sang? I quin gas fa el camí contrari?",st:"L'O₂ passa a la sang als… i el gas que fa el camí contrari és el…",req:[0,2],
+  c:[{n:"als alvèols",re:/alveol/},{n:"cap a la sang (capil·lars)",re:/sang|capil/},{n:"el CO₂ fa el camí contrari",re:/co2|diox/}],
+  h:["Segueix el camí de l'aire: tràquea, bronquis, bronquíols… i al final de tot?","Mira la figura: l'O₂ passa on la paret és finíssima i toca un capil·lar. I el gas que és residu de la respiració cel·lular (glucosa + O₂ → …)?"],
+  m:"L'O₂ passa a la sang als alvèols, a través d'una paret finíssima cap al capil·lar. El CO₂ fa el camí contrari: de la sang a l'alvèol, i s'expulsa en espirar."},
+ pulm2:{lab:"② Durant l'esforç s'acceleren alhora el cor i la respiració. Explica per quina raó no serviria de res que només s'accelerés un dels dos.",st:"Si només respirés més de pressa, però el cor… ",need:2,
+  c:[{n:"la respiració fa entrar l'O₂",re:/respir|pulmo|alveol|aire|entra.{0,12}(o2|oxigen)/},{n:"el cor/la sang el transporta",re:/cor|sang|circul|bomb|transport|reparteix|porta/},{n:"fins als músculs (cèl·lules)",re:/musc|cel.?lul|mitocon/}],
+  h:["Pensa en dos feines diferents: una és fer entrar l'O₂ a la sang. L'altra és…","Si l'O₂ ja és a la sang però el cor no va més de pressa, arriba als músculs? I si el cor va molt però no entra més O₂?"],
+  m:"Sense respirar més, la sang que va més de pressa no podria agafar més O₂ als alvèols. Sense que el cor s'accelerés, l'O₂ que entra als pulmons no arribaria als músculs. Cal que els dos treballin junts."},
+ g1q3:{lab:"③ Per quina raó la recuperació és asimètrica (molt més lenta que la pujada)?",st:"La FC puja de pressa perquè… però baixa a poc a poc perquè…",need:2,
+  c:[{n:"deute d'oxigen",re:/deute|o2|oxigen/},{n:"cal eliminar lactat",re:/lactat|acid/},{n:"cal eliminar CO₂/residus",re:/co2|diox|residu|neteja|elimin/},{n:"l'adrenalina triga a desaparèixer",re:/adrenal/},{n:"la pujada la ordena el sistema nerviós",re:/nervi|simpatic|cervell/}],
+  h:["Pensa en la pujada: qui ordena al cor accelerar? Va ràpid (en segons). I ara pensa què ha deixat l'esforç als músculs i a la sang.","Durant la cursa els músculs han gastat O₂ i han fabricat residus (lactat, CO₂). Quant triga a netejar-se tot això? I l'adrenalina, desapareix de cop?"],
+  m:"La pujada és ràpida perquè el cervell activa el simpàtic i l'adrenalina i el cor accelera en segons. La baixada és lenta perquè el cos encara ha de pagar el «deute» d'O₂, eliminar el lactat i el CO₂ dels músculs, i l'adrenalina triga a desaparèixer de la sang."},
+ g1c6:{lab:"⑥ Aplica-ho a un cas nou: la Mercè fa 30 segons d'esprint i para. La seva FC tornarà al repòs de seguida o al cap d'un quart d'hora? Per quina raó?",st:"Crec que tornarà al repòs… perquè en 30 segons ha acumulat…",need:1,
+  c:[{n:"poc deute d'oxigen / pocs residus",re:/poc|menys|curt|poca/},{n:"recupera de seguida",re:/segui|rapid|minuts|ara|pocs/}],
+  h:["Compara: 10 km són uns 55 minuts d'esforç. 30 segons són molt menys. Quant «deute» acumula?"],
+  m:"Tornarà al repòs en pocs minuts: en només 30 s ha acumulat poc deute d'O₂ i poc lactat, i en cal menys per netejar."},
+ g1inf:{lab:"Informe breu (≈100 paraules): descriu científicament la gràfica de la Mercè (valor inicial, escalfament, pic, fase estable, final de cursa i recuperació). Tanca amb una frase causal: «la FC canvia perquè…».",st:"",need:3,
+  c:[{n:"valor inicial (≈65)",re:/65|repos/},{n:"pic (185)",re:/185|pic|maxim/},{n:"recuperació",re:/recuper|baix/},{n:"causa (perquè)",re:/perque|degut|a causa/}],
+  h:["Recorda les parts: repòs, escalfament, fase estable, pic final, recuperació. Posa-hi números.","Acaba amb una causa: la FC canvia perquè el múscul necessita…"],m:""},
+ g2q2:{lab:"② Per quina raó l'esportista es recupera molt més ràpid?",st:"L'esportista es recupera més ràpid perquè el seu cor, a cada batec, envia… ",need:2,pista:"Compara quanta sang mou cada cor a cada batec, no quants batecs fa.",
+  c:[{n:"més sang a cada batec",re:/mes sang|volum|cada batec|per batec|un sol batec|a cada/},{n:"ventricle més gran i fort",re:/ventricle|mes fort|mes gran|musculat|entrena/},{n:"neteja abans CO₂ i lactat",re:/co2|diox|lactat|residu|neteja|elimin/},{n:"calen menys batecs",re:/menys batecs|menys pulsacions|menys vegades|no cal|calen menys|menys cops/}],
+  h:["Pensa en el ventricle esquerre d'una persona entrenada: com és?","Si cada batec mou més sang, quants batecs calen per moure la mateixa? I què passa amb el CO₂ i el lactat dels músculs?"],
+  m:"L'esportista té un ventricle més gran i fort, i amb cada batec expulsa molta més sang. Calen menys batecs per moure la mateixa sang, i el cor neteja abans el CO₂ i el lactat dels músculs, de manera que la FC torna abans al repòs."},
+ g2c6:{lab:"⑥ Completa la conclusió: «L'esportista es recupera més ràpid perquè el seu cor, amb cada batec, envia ___ sang, i així elimina abans el CO₂ i el lactat.»",st:"Amb cada batec envia… ",need:1,c:[{n:"més sang",re:/mes/}],h:["Escriu una paraula: més o menys?"],m:"Més sang (el ventricle entrenat expulsa més volum a cada batec)."},
+ qa1:{lab:"En repòs, els dos mouen gairebé la mateixa sang tot i tenir FC molt diferents. Com pot ser?",st:"",need:1,c:[{n:"més volum per batec compensa la FC baixa",re:/volum|batec|mes sang|compens|110|70/}],h:["Mira la fórmula: Q = volum × FC. Si la FC és molt més baixa, què ha de ser més gran?"],m:"L'esportista té menys batecs però cada batec mou més sang (110 mL contra 70 mL): els dos productes surten gairebé iguals (≈5 L/min)."},
+ qa2:{lab:"A l'esforç màxim l'esportista té la FC més baixa i, tot i així, mou més sang. Quina de les dues variables de la fórmula ha entrenat?",st:"",need:1,c:[{n:"el volum per batec",re:/volum|batec|ventricle/}],h:["La FC és més baixa. Doncs l'altra variable…"],m:"El volum per batec (170 mL contra 100 mL): l'entrenament fa el ventricle més potent."},
+ marc:{lab:"Esbossa amb paraules la corba del Marc (repòs, pujada, pic, recuperació) i justifica-la.",st:"Amb l'hemoglobina baixa, la sang porta… per això la seva FC…",need:3,
+  c:[{n:"hemoglobina baixa = menys O₂ transportat",re:/hemoglob|ferro|menys o2|poc o2|menys oxigen|poc oxigen/},{n:"el cor ha de bategar més per compensar",re:/mes de pressa|mes rapid|mes alta|mes batec|compens|puja mes|mes fc/},{n:"arriba abans al límit / es cansa abans",re:/abans|limit|ofega|cansa|anaerob|lactat/},{n:"recuperació més lenta",re:/recuper.{0,20}(lent|mes)|triga/}],
+  h:["Què fa l'hemoglobina? Si n'hi ha poca, quant O₂ porta cada litre de sang?","Si cada litre de sang porta menys O₂, com ho compensa el cor? I què passa amb el llindar anaeròbic?"],
+  m:"Amb poca hemoglobina, la sang transporta menys O₂. El cor compensa bategant més de pressa, de manera que la FC del Marc pujaria més i abans, arribaria al llindar anaeròbic abans i es recuperaria més lentament."}
+};
+function renderOQ(){
+  $$('[data-oq]').forEach(function(box){
+    var id=box.getAttribute('data-oq'),q=OQ[id];if(!q)return;
+    var ph=(S.level==='C'&&q.st)?q.st:'';
+    var old=$('textarea',box);
+    var val=old?old.value:(S.f['oq_'+id]||'');
+    box.innerHTML='<div class="card"><label for="oq_'+id+'"><strong>'+q.lab+'</strong></label>'+
+      (q.pista?'<p class="small">Pista: '+q.pista+'</p>':'')+
+      '<textarea id="oq_'+id+'" placeholder="'+ph.replace(/"/g,'&quot;')+'"></textarea>'+
+      '<div class="row"><button type="button" data-chk>Comprova</button> <button type="button" class="sec2" data-model hidden>Veure un model de resposta</button></div>'+
+      '<div class="fb" data-fb hidden></div></div>';
+    var ta=$('textarea',box);ta.value=val;
+    ta.addEventListener('input',function(){S.f['oq_'+id]=ta.value;save();});
+    $('[data-chk]',box).addEventListener('click',function(){checkOQ(id,box)});
+    $('[data-model]',box).addEventListener('click',function(){show($('[data-fb]',box),'<b>Model:</b> '+q.m,'warn');});
+  });
+}
+function checkOQ(id,box){
+  var q=OQ[id],ta=$('textarea',box),fb=$('[data-fb]',box),t=norm(ta.value);
+  if(t.length<10){show(fb,'Escriu una resposta abans de comprovar.','warn');return;}
+  var found=[],miss=[];q.c.forEach(function(c,i){if(c.re.test(t))found.push(i);else miss.push(i);});
+  var okreq=q.req?q.req.every(function(i){return found.indexOf(i)>-1}):found.length>=q.need;
+  var chips=found.map(function(i){return '<span class="chip">'+q.c[i].n+'</span>'}).join('');
+  if(okreq){S.f['oqok_'+id]=true;save();progress();
+    show(fb,'Molt bé. Has recollit aquestes idees: '+chips+(q.m?'<br><span class="small">Compara-ho amb el model si vols.</span>':''),'ok');
+    if(q.m)$('[data-model]',box).hidden=false;return;}
+  var n=(S.tries[id]=(S.tries[id]||0)+1);save();
+  var hint=q.h[Math.min(n-1,q.h.length-1)];
+  show(fb,(chips?'Ja hi ets en part: '+chips+'<br>':'')+'<b>Pista '+Math.min(n,q.h.length)+':</b> '+hint+'<br><span class="small">Reescriu la resposta i torna a comprovar.</span>','warn');
+  if(n>=2&&q.m)$('[data-model]',box).hidden=false;
+}
+
+/* ---------- Pols: preguntes ràpides ---------- */
+$('#q_dits').addEventListener('change',function(){var v=this.value,m=$('#mk_dits');if(!v){m.textContent='';return;}
+  if(v==='b'){m.textContent='✓ Correcte: mai el polze, perquè té el seu propi pols.';m.className='mk ok';}else{m.textContent='✗ Torna-ho a pensar: el polze no es fa servir.';m.className='mk bad';}});
+$('#b_qx').addEventListener('click',function(){var v=num($('#q_x').value),m=$('#mk_x');
+  if(v===72){m.textContent='✓ 18 × 4 = 72 bat/min';m.className='mk ok';}else{m.textContent='✗ Recorda: 15 s × 4 = 1 minut.';m.className='mk bad';}});
+
+/* ---------- Mode i banc virtual ---------- */
+function curStep(){var n=S.rows.filter(function(r){return r&&r.fc!=null}).length;return Math.min(n+(n>=4?1:0),STEPS.length);}
+function savedCount(){var n=0;S.rows.forEach(function(r){if(r&&r.fc!=null)n++});return n;}
+function stepIndex(){ // índex dins STEPS de la propera acció (virtual)
+  var c=savedCount();return c<3?c:c+1; // després de 3 mesures va l'exercici (idx 3)
+}
+function modeChanged(){
+  var m=S.f.mode,virt=(m==='sed'||m==='act');
+  $('#bench').hidden=!virt;
+  var started=savedCount()>0;
+  $$('input[name=mode]').forEach(function(r){r.disabled=started;});
+  $('#age').disabled=started;$('#f_age').disabled=false;
+  $('#b_resetm').style.display=started?'':'none';
+  $('#modenote').textContent=m==='real'?'Mode dades reals: escriu a la taula les mesures que has pres tu (15 s × 4). Si no tens company/a, deixa buides les columnes del company/a.':
+    virt?'Mesuraràs un/a alumne/a virtual. El pols es veu i se sent; tu comptes els batecs.':'Tria una opció per començar.';
+  if(virt&&!S.sim){S.sim=newSim(m,num(S.f.age)||15);S.sim.age=num(S.f.age)||15;save();}
+  buildTable();updateBench();progress();
+}
+$('#b_resetm').addEventListener('click',function(){
+  if(!this.dataset.sure){this.dataset.sure=1;this.textContent='Segur? Torna a clicar per esborrar les mesures';return;}
+  this.dataset.sure='';this.textContent='Torna a començar la mesura';
+  S.rows=[];S.pts=[];S.sim=null;S.scaleOk=false;S.f.zona=null;stopRun();save();
+  $$('input[name=zona]').forEach(function(r){r.checked=false});$('#result').hidden=true;
+  modeChanged();drawMy();
+});
+
+/* taula */
+function buildTable(){
+  var tb=$('#fctab tbody');tb.innerHTML='';var real=S.f.mode==='real';
+  STEPS.forEach(function(st){
+    if(st.ex){var tr=document.createElement('tr');tr.className='sepr';tr.innerHTML='<td colspan="5">EXERCICI (2 minuts) — Salt a peu coix, cursa al passadís o, si no pots saltar, 2 min d\'elevacions ràpides de braços assegut/da. Mesura la FC just el segon que pares.</td>';tb.appendChild(tr);return;}
+    var i=st.row,r=S.rows[i]||{},tr=document.createElement('tr');
+    tr.innerHTML='<td>'+st.lab+'</td><td>'+st.tm+'</td>'+
+     '<td><input type="number" id="fc'+i+'" inputmode="numeric" aria-label="La teva FC, '+ROWFULL[i]+'"'+(real?'':' readonly')+'></td>'+
+     '<td><input type="number" id="cp'+i+'" inputmode="numeric" aria-label="FC del company, '+ROWFULL[i]+'"'+(real?'':' readonly')+'></td>'+
+     '<td><input type="number" id="df'+i+'" inputmode="numeric" aria-label="Diferència, '+ROWFULL[i]+'"> <span class="mk" id="mkd'+i+'"></span></td>';
+    tb.appendChild(tr);
+    var a=$('#fc'+i),b=$('#cp'+i),d=$('#df'+i);
+    if(r.fc!=null)a.value=r.fc;if(r.cp!=null)b.value=r.cp;if(r.df!=null)d.value=r.df;
+    if(real){a.addEventListener('input',function(){rowSet(i,'fc',num(a.value));});b.addEventListener('input',function(){rowSet(i,'cp',num(b.value));});}
+    d.addEventListener('input',function(){rowSet(i,'df',num(d.value));checkDiff(i);});
+    if(r.df!=null)checkDiff(i);
+  });
+}
+function rowSet(i,k,v){S.rows[i]=S.rows[i]||{};S.rows[i][k]=v;save();refreshPeak();progress();}
+function checkDiff(i){var r=S.rows[i]||{},m=$('#mkd'+i);
+  if(r.df==null||r.fc==null||r.cp==null){m.textContent='';return;}
+  var ex=r.fc-r.cp;if(r.df===ex){m.textContent='✓';m.className='mk ok';}
+  else if(r.df===-ex){m.textContent='✗ signe';m.className='mk bad';}else{m.textContent='✗';m.className='mk bad';}}
+$('#b_fixdif').addEventListener('click',function(){
+  var bad=0;for(var i=0;i<9;i++){var r=S.rows[i];if(r&&r.fc!=null&&r.cp!=null){if(r.df!==r.fc-r.cp){bad++;r.df=r.fc-r.cp;var d=$('#df'+i);if(d)d.value=r.df;checkDiff(i);}}}
+  save();
+});
+function refreshPeak(){var v=peak();$('#peakshow').textContent=v!=null?v:'—';drawZone();}
+function peak(){var m=null;S.rows.forEach(function(r){if(r&&r.fc!=null&&(m==null||r.fc>m))m=r.fc;});return m;}
+
+/* FCmàx i zones */
+function ageV(){return num(S.f.age)||null;}
+function chkInput(id,mk,exp,tol){var v=num($(id).value),m=$(mk);if(v==null){m.textContent='';return;}
+  if(Math.abs(v-exp)<=tol){m.textContent='✓';m.className='mk ok';}else{m.textContent='✗';m.className='mk bad';}}
+function checkF(){var a=ageV();if(!a)return;chkInput('#f_max','#mk_fmax',220-a,0);chkInput('#f_thr','#mk_fthr',.85*(220-a),1);}
+$('#f_max').addEventListener('input',checkF);$('#f_thr').addEventListener('input',checkF);
+function drawZone(){var a=ageV(),p=peak(),mk=$('#zonemark');
+  if(a&&p!=null){var pct=Math.max(0,Math.min(100,p/(220-a)*100));mk.hidden=false;mk.style.left=pct+'%';mk.title=Math.round(pct)+' % de la FCmàx';}else mk.hidden=true;
+  checkF();}
+$('#b_zone').addEventListener('click',function(){
+  var fb=$('#fb_zone'),a=ageV(),p=peak(),z=S.f.zona;
+  if(!a||p==null){show(fb,'Primer necessites l\'edat i les dades de la taula (sobretot el valor més alt).','warn');return;}
+  if(!z){show(fb,'Marca una zona.','warn');return;}
+  var thr=.85*(220-a),pct=Math.round(p/(220-a)*100),ana=p>thr;
+  var cor=(z==='ana')===ana;
+  show(fb,(cor?'Correcte. ':'Torna-ho a mirar. ')+'El teu valor més alt és '+p+' bat/min, que és el '+pct+' % de la teva FCmàx ('+(220-a)+'). El llindar és '+Math.round(thr)+'. '+
+   (cor?(ana?'Has passat del 85 %: zona anaeròbica.':'No arribes al 85 %: zona aeròbica.'):'Compara el teu valor amb el llindar: el passa o no?')+
+   (Math.abs(p-thr)<=8?' <br><span class="small">Atenció: estàs molt a prop del llindar i, com que has comptat 15 s just en parar, el pic real podia ser una mica més alt.</span>':''),cor?'ok':'warn');
+});
+
+/* ---------- Motor del banc ---------- */
+var run=null,simT=0,taps=0,curBeats=[],bi=0,idleAt=0,ac=null,winRes=null,curStepIdx=0;
+var heart=$('#heart');
+function fmt(t){t=Math.max(0,Math.floor(t));var m=Math.floor(t/60),s=t%60;return (m<10?'0':'')+m+':'+(s<10?'0':'')+s;}
+function beat(){
+  if(RM){heart.classList.add('flash');setTimeout(function(){heart.classList.remove('flash')},120);}
+  else if(heart.animate){heart.animate([{transform:'scale(1)'},{transform:'scale(1.22)'},{transform:'scale(1)'}],{duration:220,easing:'ease-out'});}
+  if($('#sound').checked&&ac){try{var o=ac.createOscillator(),g=ac.createGain();o.frequency.value=820;g.gain.value=.07;o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+.05);}catch(e){}}
+}
+function activeSim(){return S.sim;}
+function phaseName(t){return t<E0?'Repòs':t<E1?'Exercici':'Recuperació';}
+function loop(now){
+  requestAnimationFrame(loop);
+  if(!S.sim||$('#bench').hidden)return;
+  if(run&&run.type==='ff'){var f=Math.min(1,(now-run.s)/run.d);simT=run.a+(run.b-run.a)*f;if(f>=1){var cb=run.cb;run=null;cb&&cb();}}
+  else if(run&&run.type==='ex'){var f2=Math.min(1,(now-run.s)/run.d);simT=E0+(E1-E0)*f2;if(f2>=1){run=null;simT=E1;endExercise();}}
+  else if(run&&run.type==='win'){
+    simT=run.t0+Math.min(15,(now-run.s)/1000*run.sp);
+    while(bi<curBeats.length&&curBeats[bi]<=simT){beat();var tk=document.createElement('i');tk.style.left=((curBeats[bi]-run.t0)/15*100)+'%';$('#strip').appendChild(tk);bi++;}
+    $('#stripfill').style.width=((simT-run.t0)/15*100)+'%';
+    if(simT>=run.t0+15){winDone();}
+  }
+  if(!run||run.type!=='win'){if(now>=idleAt){beat();idleAt=now+60000/fcAt(S.sim,simT)*(1+.03*gauss());}}
+  $('#clock').textContent=(run&&run.type==='win')?fmt(15-(simT-run.t0)+0.999):fmt(simT);
+  $('#phase').textContent=run&&run.type==='win'?'Compta! Queden '+Math.max(0,Math.ceil(run.t0+15-simT))+' s':phaseName(simT)+(run&&run.type==='ex'?' · exercici en marxa':'');
+}
+requestAnimationFrame(loop);
+function stopRun(){run=null;winRes=null;}
+function ffTo(t,cb){var d=Math.max(300,Math.min(1800,(t-simT)*28));if(t<=simT){cb();return;}run={type:'ff',a:simT,b:t,d:d,s:performance.now(),cb:cb};}
+function updateBench(){
+  if($('#bench').hidden||!S.sim)return;
+  var si=stepIndex(),st=STEPS[si];curStepIdx=si;
+  var go=$('#go'),b=$('#b_go');
+  if(!st){b.disabled=true;b.textContent='Mesures acabades';$('#steptxt').textContent='Ja tens tota la taula. Passa a la gràfica de l\'apartat 2.';$('#runner').classList.remove('on');if(!run)simT=Math.max(simT,STEPS[9].t0+15);return;}
+  b.disabled=!!run||!$('#result').hidden;
+  $('#b_tap').disabled=!(run&&run.type==='win')||$('#cmode').value==='auto';
+  if(st.ex){b.textContent='Comença l\'exercici (2 min)';$('#steptxt').textContent='Ara l\'alumne/a virtual farà 2 minuts d\'exercici. Quan pari, compta IMMEDIATAMENT el pols, sense perdre ni un segon: la FC baixa molt de pressa!';}
+  else{b.textContent='Comença a comptar (15 s)';
+    var txt={r0:'Repòs. Dits al canell, sense prémer fort. Quan estiguis a punt, comença.',r1:'Ha passat 1 minut de repòs. Torna a comptar.',r2:'Ha passat 2 minuts de repòs. Última mesura en repòs.',j0:'Ha parat! Compta ja, just el segon que para.',c1:'Recuperació, minut 1. Segueix quiet/a.',c2:'Recuperació, minut 2.',c3:'Recuperació, minut 3.',c4:'Recuperació, minut 4.',c5:'Recuperació, minut 5. Última mesura.'}[st.k];
+    $('#steptxt').textContent=txt;}
+}
+$('#cmode').addEventListener('change',updateBench);
+$('#b_go').addEventListener('click',function(){
+  if(!S.sim||run)return;
+  if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)();}catch(e){ac=null;}}
+  var st=STEPS[curStepIdx];if(!st)return;
+  $('#savefb').hidden=true;$('#b_go').disabled=true;
+  if(st.ex){ffTo(E0,function(){$('#runner').classList.add('on');run={type:'ex',s:performance.now(),d:7000};});return;}
+  ffTo(st.t0,function(){startWindow(st);});
+});
+function startWindow(st){
+  var sp=num($('#speed').value)||1;taps=0;$('#tapcount').textContent='0';
+  var st2=$$('#strip i');st2.forEach(function(e){e.remove()});$('#stripfill').style.width='0';
+  curBeats=genBeats(S.sim,st.t0,st.t0+15);bi=0;
+  run={type:'win',t0:st.t0,s:performance.now(),sp:sp,st:st};
+  $('#b_tap').disabled=$('#cmode').value==='auto';
+  if($('#cmode').value!=='auto')$('#b_tap').focus({preventScroll:true});
+}
+function endExercise(){
+  $('#runner').classList.remove('on');
+  $('#phase').textContent='PARA! Compta ja!';
+  setTimeout(function(){var st=STEPS[4];curStepIdx=4;simT=E1;startWindow(st);},700);
+}
+function tap(){if(run&&run.type==='win'&&$('#cmode').value!=='auto'){taps++;$('#tapcount').textContent=taps;}}
+$('#b_tap').addEventListener('click',tap);
+document.addEventListener('keydown',function(e){if((e.code==='Space')&&run&&run.type==='win'&&$('#cmode').value!=='auto'&&!/INPUT|TEXTAREA|SELECT/.test((document.activeElement||{}).tagName||'')){e.preventDefault();tap();}});
+function winDone(){
+  var st=run.st,t0=run.t0;run=null;simT=t0+15;
+  var real=curBeats.length,auto=$('#cmode').value==='auto';
+  var guess=auto?real+(Math.random()<.35?(Math.random()<.5?-1:1):0):taps;
+  winRes={st:st,real:real,taps:taps,auto:auto,start:t0};
+  $('#result').hidden=false;$('#cnt').value=guess;$('#ppm').value='';$('#restitle').textContent='Fi dels 15 segons ('+st.lab+' '+st.tm+').';
+  $('#cntnote').textContent=auto?'(ha comptat l\'alumne/a virtual; pot equivocar-se en ±1)':'(els teus tocs)';
+  $('#b_go').disabled=true;$('#b_tap').disabled=true;S.tries['save']=0;
+  $('#cnt').focus({preventScroll:true});
+}
+$('#cnt').addEventListener('input',function(){
+  if(!winRes)return;var v=num(this.value),n=$('#cntnote');
+  if(v!=null&&Math.abs(v-winRes.real)>2&&!winRes.auto){n.innerHTML='Hi ha molta diferència amb els batecs reals d\'aquest tram ('+winRes.real+'). Si t\'has perdut, pots <a href="#" id="usereal">usar el recompte real</a>.';var l=$('#usereal');if(l)l.onclick=function(e){e.preventDefault();$('#cnt').value=winRes.real;n.textContent='(recompte real del pols)';};}
+});
+$('#b_save').addEventListener('click',function(){
+  if(!winRes)return;var fb=$('#savefb'),c=num($('#cnt').value),p=num($('#ppm').value);
+  if(c==null||c<=0){show(fb,'Escriu quants batecs has comptat en 15 s.','warn');return;}
+  if(p==null){show(fb,'Calcula els bat/min multiplicant els batecs per 4.','warn');return;}
+  if(p!==c*4){var n=(S.tries.save=(S.tries.save||0)+1);
+    show(fb,n<2?'No surt. Recorda: 15 s són un quart de minut, per tant has de multiplicar per <b>4</b>.':'Fes-ho així: '+c+' × 4 = '+(c*4)+'. Escriu-ho al camp de bat/min.','warn');return;}
+  var i=winRes.st.row,r=S.rows[i]=S.rows[i]||{};r.fc=p;
+  var ps=otherSim(),pb=genBeats(ps,winRes.start,winRes.start+15).length;
+  r.cp=(pb+(Math.random()<.3?(Math.random()<.5?-1:1):0))*4;
+  save();winRes=null;$('#result').hidden=true;
+  buildTable();refreshPeak();modeChanged();
+  show(fb,'Desat: '+ROWNAMES[i]+' = '+p+' bat/min. La FC del company/a virtual ja és a la taula.','ok');
+  $('#savefb').hidden=false;
+  if(savedCount()===9)show($('#savefb'),'Mesures acabades. Ara omple les diferències, calcula la FCmàx i passa a l\'apartat 2.','ok');
+});
+
+/* ---------- Epistèmic ---------- */
+(function(){
+  var items=[['ep_a','Mostra petita (≈20 persones)','Amb poca gent, una persona rara canvia molt la mitjana. Cal molta més gent per treure conclusions.'],
+   ['ep_b','Condicions no controlades','Hem fet exercici diferent (salt, cursa…) i fins i tot hem pogut fer-lo a mala hora: no comparem el mateix.'],
+   ['ep_c','Mostra no representativa','Només som alumnes de 3r ESO d\'una escola: no representem nens, adults ni gent gran.'],
+   ['ep_d','Efecte expectativa','Si saps què s\'espera, pots posar-te nerviós o forçar-te: el cos respon al que penses.'],
+   ['ep_e','Variabilitat personal alta','Cada persona té una FC en repòs diferent (dormir, cafè, nervis): és difícil comparar.']];
+  var c=$('#epist');
+  items.forEach(function(it){var d=document.createElement('div');d.innerHTML='<label><input type="checkbox" data-k="'+it[0]+'"> '+it[1]+'</label> <span class="small" id="x'+it[0]+'"></span>';c.appendChild(d);});
+  window.__ep=items;
+})();
+function epRefresh(){window.__ep.forEach(function(it){var e=$('#x'+it[0]);e.textContent=S.f[it[0]]?'→ '+it[2]:'';});}
+document.addEventListener('change',function(e){if(/^ep_/.test(e.target.getAttribute('data-k')||''))epRefresh();});
+
+/* ---------- Gràfica pròpia ---------- */
+var G={W:640,H:340,L:58,R:16,T:16,B:56};var selCol=0,chk=0,joined=false,showComp=false;
+function dataVals(){var a=[];for(var i=0;i<9;i++)a.push(S.rows[i]&&S.rows[i].fc!=null?S.rows[i].fc:null);return a;}
+function allData(){return dataVals().every(function(v){return v!=null;});}
+function sc(){return {min:num(S.f.gmin),max:num(S.f.gmax),step:num(S.f.gstep)};}
+function xCol(i){var pw=G.W-G.L-G.R;return G.L+(i+.5)*pw/9;}
+function yV(v,s){var ph=G.H-G.T-G.B;return G.T+ph*(1-(v-s.min)/(s.max-s.min));}
+function vY(y,s){var ph=G.H-G.T-G.B;return s.min+(1-(y-G.T)/ph)*(s.max-s.min);}
+function drawMy(){
+  var svg=$('#mygraph');if(!svg)return;var s=sc(),h='';
+  var ph=G.H-G.T-G.B,pw=G.W-G.L-G.R;
+  h+='<line class="ax" x1="'+G.L+'" y1="'+G.T+'" x2="'+G.L+'" y2="'+(G.H-G.B)+'"/><line class="ax" x1="'+G.L+'" y1="'+(G.H-G.B)+'" x2="'+(G.W-G.R)+'" y2="'+(G.H-G.B)+'"/>';
+  var okScale=S.scaleOk&&s.min!=null&&s.max>s.min&&s.step>0;
+  for(var i=0;i<9;i++){h+='<line class="gl" x1="'+xCol(i)+'" y1="'+G.T+'" x2="'+xCol(i)+'" y2="'+(G.H-G.B)+'" stroke-dasharray="2 4"/><text x="'+xCol(i)+'" y="'+(G.H-G.B+18)+'" text-anchor="middle">'+ROWNAMES[i]+'</text>';}
+  h+='<text x="'+(G.L+pw/2)+'" y="'+(G.H-8)+'" text-anchor="middle" style="font-weight:600">Moment de la mesura</text>';
+  h+='<text x="14" y="'+(G.T+ph/2)+'" text-anchor="middle" transform="rotate(-90 14 '+(G.T+ph/2)+')" style="font-weight:600">FC (bat/min)</text>';
+  if(okScale){
+    for(var v=s.min;v<=s.max+1e-9;v+=s.step){var y=yV(v,s);h+='<line class="gl" x1="'+G.L+'" y1="'+y+'" x2="'+(G.W-G.R)+'" y2="'+y+'"/><text x="'+(G.L-6)+'" y="'+(y+4)+'" text-anchor="end">'+Math.round(v*100)/100+'</text>';}
+    var a=ageV();
+    if((S.level==='C'||$('#showthr').checked)&&a){var th=.85*(220-a);if(th>=s.min&&th<=s.max){var yt=yV(th,s);h+='<line class="thr" x1="'+G.L+'" y1="'+yt+'" x2="'+(G.W-G.R)+'" y2="'+yt+'"/><text x="'+(G.W-G.R-4)+'" y="'+(yt-5)+'" text-anchor="end" style="fill:var(--bad)">llindar anaeròbic '+Math.round(th)+'</text>';}}
+    if(showComp){var pts=[];for(var j=0;j<9;j++){var r=S.rows[j];if(r&&r.cp!=null)pts.push(xCol(j)+','+yV(r.cp,s));}h+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#7B68C8" stroke-width="2.5" stroke-dasharray="6 4"/>';}
+    if(joined){var q=[];for(var k=0;k<9;k++)if(S.pts[k]!=null)q.push(xCol(k)+','+yV(S.pts[k],s));if(q.length>1)h+='<polyline points="'+q.join(' ')+'" fill="none" stroke="var(--green-2)" stroke-width="2.5"/>';}
+    for(var m=0;m<9;m++){if(S.pts[m]!=null){var st=(S.ptst&&S.ptst[m])||'';var col=st==='ok'?'var(--ok)':st==='bad'?'var(--warn)':'var(--green)';
+      h+='<circle class="pt" tabindex="0" role="img" aria-label="'+ROWNAMES[m]+': '+S.pts[m]+' bat/min. Fletxes amunt i avall per moure." data-i="'+m+'" cx="'+xCol(m)+'" cy="'+yV(S.pts[m],s)+'" r="7" fill="'+col+'" stroke="var(--surface)" stroke-width="2"/>';}}
+  }else{h+='<text x="'+(G.L+pw/2)+'" y="'+(G.T+ph/2)+'" text-anchor="middle" style="font-size:15px">Tria i aplica l\'escala de l\'eix vertical</text>';}
+  svg.innerHTML=h;
+  $$('.pt',svg).forEach(function(c){c.addEventListener('keydown',function(e){var i=+c.dataset.i,d=e.shiftKey?5:1;if(e.key==='ArrowUp'||e.key==='ArrowDown'){e.preventDefault();S.pts[i]=Math.round(S.pts[i]+(e.key==='ArrowUp'?d:-d));S.ptst=S.ptst||{};S.ptst[i]='';save();drawMy();var n=$('.pt[data-i="'+i+'"]');n&&n.focus();}});});
+  var cc=$('#colchips');cc.innerHTML='';
+  ROWNAMES.forEach(function(n,i){var b=document.createElement('button');b.type='button';b.textContent=n;b.setAttribute('aria-pressed',i===selCol?'true':'false');b.addEventListener('click',function(){selCol=i;var v=S.pts[i];$('#colval').value=v!=null?v:'';drawMy();});cc.appendChild(b);});
+  $('#g2need').hidden=allData();
+}
+function placePt(i,v){S.pts[i]=Math.round(v);S.ptst=S.ptst||{};S.ptst[i]='';save();drawMy();progress();}
+$('#mygraph').addEventListener('pointerdown',function(e){
+  var s=sc();if(!S.scaleOk||s.min==null){show($('#fb_pts'),'Primer tria i aplica l\'escala de l\'eix vertical.','warn');return;}
+  if(e.target.classList&&e.target.classList.contains('pt'))return;
+  var r=this.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*G.W,y=(e.clientY-r.top)/r.height*G.H;
+  if(y<G.T||y>G.H-G.B||x<G.L)return;
+  var col=Math.max(0,Math.min(8,Math.floor((x-G.L)/((G.W-G.L-G.R)/9))));
+  selCol=col;placePt(col,Math.max(s.min,Math.min(s.max,vY(y,s))));$('#colval').value=S.pts[col];
+});
+$('#b_setval').addEventListener('click',function(){var s=sc(),v=num($('#colval').value);
+  if(!S.scaleOk){show($('#fb_pts'),'Primer tria i aplica l\'escala.','warn');return;}
+  if(v==null||v<s.min||v>s.max){show($('#fb_pts'),'Escriu un valor que càpiga dins l\'escala ('+s.min+'–'+s.max+').','warn');return;}
+  placePt(selCol,v);});
+$('#b_scale').addEventListener('click',function(){
+  var fb=$('#fb_scale'),s=sc();
+  if(!allData()){show(fb,'Necessites tots els valors de la taula per decidir l\'escala.','warn');return;}
+  if(s.min==null||s.max==null||s.step==null||s.step<=0||s.max<=s.min){show(fb,'Escriu el mínim, el màxim i cada quant van els valors (pas), amb màxim més gran que mínim.','warn');S.scaleOk=false;drawMy();return;}
+  var d=dataVals(),dm=Math.max.apply(null,d),dn=Math.min.apply(null,d),msg=[];
+  if(s.max<dm)msg.push('El teu valor més alt ('+dm+') no hi cap: puja el màxim.');
+  if(s.min>dn)msg.push('El teu valor més baix ('+dn+') no hi cap: baixa el mínim.');
+  if((s.max-s.min)/s.step>14)msg.push('Hi ha massa marques: escull un pas més gran.');
+  if((s.max-s.min)/s.step<3)msg.push('Hi ha molt poques marques: escull un pas més petit.');
+  if(!msg.length&&((s.max-s.min)%s.step)!==0)msg.push('Perquè la graella sigui neta, el pas ha de dividir exactament la diferència entre màxim i mínim.');
+  if(!msg.length&&(s.max-s.min)>2*(dm-dn)+60)msg.push('Hi cap tot, però sobra molt d\'espai: els punts quedaran aixafats. Ajusta l\'escala.');
+  if(msg.length){S.scaleOk=false;show(fb,msg.join('<br>'),'warn');drawMy();save();return;}
+  S.scaleOk=true;S.pts=S.pts||[];show(fb,'Escala correcta: caben tots els punts i es llegeix bé.','ok');save();drawMy();progress();
+});
+$('#showthr').addEventListener('change',drawMy);
+$('#b_join').addEventListener('click',function(){joined=true;drawMy();});
+$('#b_comp').addEventListener('click',function(){
+  showComp=!showComp;drawMy();var fb=$('#fb_comp');
+  if(showComp){var a=dataVals(),b=[];for(var i=0;i<9;i++)b.push(S.rows[i]&&S.rows[i].cp!=null?S.rows[i].cp:null);
+    show(fb,'Compara: el company/a puja fins a <b>'+Math.max.apply(null,b.filter(function(x){return x!=null}))+'</b> i tu fins a <b>'+Math.max.apply(null,a)+'</b>. Qui es recupera abans? Quina variable ho podria explicar (edat, entrenament, son, nervis)?','');}
+  else fb.hidden=true;
+});
+var ptHint=0;
+$('#b_chk').addEventListener('click',function(){
+  var fb=$('#fb_pts'),s=sc(),d=dataVals();
+  if(!S.scaleOk){show(fb,'Primer tria l\'escala.','warn');return;}
+  var tol=Math.max(2,(s.max-s.min)*.03),bad=[],miss=[],ok=0;S.ptst={};
+  for(var i=0;i<9;i++){
+    if(d[i]==null)continue;
+    if(S.pts[i]==null){miss.push(ROWNAMES[i]);continue;}
+    var df=S.pts[i]-d[i];
+    if(Math.abs(df)<=tol){ok++;S.ptst[i]='ok';}else{S.ptst[i]='bad';bad.push({n:ROWNAMES[i],df:df});}
+  }
+  ptHint++;save();drawMy();
+  var h='';
+  if(miss.length)h+='Et falten: '+miss.join(', ')+'.<br>';
+  if(bad.length){h+='Aquests punts no coincideixen amb la taula (en taronja): '+bad.map(function(b){return b.n+(ptHint>1?(b.df>0?' (és massa amunt)':' (és massa avall)'):'')}).join(', ')+'.'+(ptHint===1?' <span class="small">Torna a comprovar-ho per veure més pistes.</span>':'');}
+  if(!bad.length&&!miss.length){h='Tots els punts són al lloc. Ara uneix-los amb una línia. Mira la forma: puja ràpid, baixa…?';S.f.ptsok=true;save();progress();}
+  show(fb,h,(bad.length||miss.length)?'warn':'ok');
+});
+$('#b_gmax').addEventListener('click',function(){var v=num($('#g_max').value),m=$('#mk_gmax'),p=peak();
+  if(v==null||p==null){m.textContent='';return;}
+  if(v===p){m.textContent='✓';m.className='mk ok';}else{m.textContent='✗ Mira el valor més alt de la teva taula';m.className='mk bad';}});
+$('#b_ana').addEventListener('click',function(){
+  var fb=$('#fb_ana'),z=S.f.ana,p=peak(),a=ageV();
+  if(!z||p==null||!a){show(fb,'Marca una resposta (i recorda tenir la taula i l\'edat).','warn');return;}
+  var thr=.85*(220-a),close=Math.abs(p-thr)<=8,ana=p>thr,res;
+  if(z==='nosap')res=close?['Bona resposta científica: el teu valor ('+p+') és molt a prop del llindar ('+Math.round(thr)+') i, com que només compta 15 s i el pols ja baixa, no es pot assegurar.','ok']:['Sí que ho pots saber: '+p+' bat/min '+(ana?'supera':'no arriba a')+' el llindar de '+Math.round(thr)+'. Torna a comparar.','warn'];
+  else{var cor=(z==='si')===ana;res=[cor?'Correcte: '+p+' '+(ana?'>':'<')+' '+Math.round(thr)+' bat/min (llindar = 0,85 × '+(220-a)+').'+(close?' Compte: estàs molt a prop, el pic real podria ser una mica més alt o baix.':''):'Compara el teu valor més alt ('+p+') amb el llindar ('+Math.round(thr)+').','warn'];if(cor)res[1]='ok';}
+  show(fb,res[0],res[1]);
+});
+
+/* ---------- Gràfics G1 i G2 ---------- */
+var G1=[[0,65],[2,66],[5,70],[8,120],[12,148],[15,155],[20,157],[25,158],[30,160],[35,162],[40,165],[45,168],[50,172],[53,180],[55,185],[56,170],[58,145],[60,125],[62,112],[65,100],[70,80],[75,74],[80,70]];
+var EL=[[0,45],[1,45],[2,46],[3,80],[4,110],[5,132],[6,148],[7,150],[7.5,140],[8,120],[9,95],[10,72],[11,58],[12,50],[14,46],[16,45],[18,45],[20,45]];
+var SE=[[0,78],[1,78],[2,79],[3,130],[4,168],[4.5,178],[5,180],[6,181],[7,182],[8,170],[9,158],[10,148],[11,140],[12,133],[14,120],[16,108],[18,98],[20,90]];
+function interp(p,t){if(t<=p[0][0])return p[0][1];for(var i=1;i<p.length;i++){if(t<=p[i][0]){var a=p[i-1],b=p[i];return a[1]+(b[1]-a[1])*(t-a[0])/(b[0]-a[0]);}}return p[p.length-1][1];}
+function chart(box,c){
+  var W=640,H=330,L=50,R=14,T=16,B=44,pw=W-L-R,ph=H-T-B;
+  var X=function(t){return L+(t-c.t0)/(c.t1-c.t0)*pw},Y=function(f){return T+ph*(1-(f-c.f0)/(c.f1-c.f0))};
+  var h='<svg class="chart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+c.aria+'">';
+  (c.zones||[]).forEach(function(z){h+='<rect x="'+L+'" y="'+Y(z.b)+'" width="'+pw+'" height="'+(Y(z.a)-Y(z.b))+'" fill="'+z.fill+'" fill-opacity=".14"/><text x="'+(L+5)+'" y="'+(Y(z.b)+13)+'" style="fill:'+z.fill+';font-weight:600;font-size:11px">'+z.t+'</text>';});
+  if(c.band)h+='<rect x="'+X(c.band[0])+'" y="'+T+'" width="'+(X(c.band[1])-X(c.band[0]))+'" height="'+ph+'" fill="#7B68C8" fill-opacity=".12"/><text x="'+((X(c.band[0])+X(c.band[1]))/2)+'" y="'+(T+ph-6)+'" text-anchor="middle" style="font-weight:600">ESFORÇ (5 min)</text>';
+  for(var t=c.t0;t<=c.t1;t+=c.ts)h+='<line class="gl" x1="'+X(t)+'" y1="'+T+'" x2="'+X(t)+'" y2="'+(T+ph)+'"/><text x="'+X(t)+'" y="'+(T+ph+15)+'" text-anchor="middle">'+t+'</text>';
+  for(var f=c.f0;f<=c.f1;f+=c.fs)h+='<line class="gl" x1="'+L+'" y1="'+Y(f)+'" x2="'+(W-R)+'" y2="'+Y(f)+'" stroke-dasharray="3 4"/><text x="'+(L-6)+'" y="'+(Y(f)+4)+'" text-anchor="end">'+f+'</text>';
+  h+='<line class="ax" x1="'+L+'" y1="'+T+'" x2="'+L+'" y2="'+(T+ph)+'"/><line class="ax" x1="'+L+'" y1="'+(T+ph)+'" x2="'+(W-R)+'" y2="'+(T+ph)+'"/>';
+  h+='<line class="thr" x1="'+L+'" y1="'+Y(c.thr)+'" x2="'+(W-R)+'" y2="'+Y(c.thr)+'"/><text x="'+(W-R-4)+'" y="'+(Y(c.thr)-5)+'" text-anchor="end" style="fill:var(--bad)">llindar '+c.thr+'</text>';
+  (c.marks||[]).forEach(function(m){h+='<line x1="'+X(m.t)+'" y1="'+T+'" x2="'+X(m.t)+'" y2="'+(T+ph)+'" stroke="var(--muted)" stroke-dasharray="3 3"/><text x="'+(X(m.t)+(m.dx||4))+'" y="'+(T+26)+'" text-anchor="'+(m.an||'start')+'">'+m.l+'</text>';});
+  c.series.forEach(function(s){h+='<polyline fill="none" stroke="'+s.col+'" stroke-width="2.8" stroke-linejoin="round" '+(s.dash?'stroke-dasharray="7 4"':'')+' points="'+s.p.map(function(q){return X(q[0])+','+Y(q[1])}).join(' ')+'"/>';});
+  h+='<text x="'+(L+pw/2)+'" y="'+(H-6)+'" text-anchor="middle" style="font-weight:600">'+c.xl+'</text><text x="12" y="'+(T+ph/2)+'" text-anchor="middle" transform="rotate(-90 12 '+(T+ph/2)+')" style="font-weight:600">FC (bat/min)</text>';
+  h+='<g id="'+box.id+'_cur"><line id="'+box.id+'_cl" x1="'+X(c.t0)+'" x2="'+X(c.t0)+'" y1="'+T+'" y2="'+(T+ph)+'" stroke="var(--accent)" stroke-width="2"/>';
+  c.series.forEach(function(s,i){h+='<circle id="'+box.id+'_d'+i+'" r="5" fill="'+s.col+'" stroke="var(--surface)" stroke-width="2" cx="'+X(c.t0)+'" cy="'+Y(s.p[0][1])+'"/>';});
+  h+='</g></svg>';
+  h+='<div class="row"><label>Cursor (minut) <input type="range" id="'+box.id+'_r" min="'+c.t0+'" max="'+c.t1+'" step="'+c.rs+'" value="'+c.t0+'" aria-label="Cursor de temps"></label><output id="'+box.id+'_o" aria-live="polite"><b>Mou el cursor o toca la gràfica per llegir valors.</b></output></div>';
+  box.innerHTML=h;
+  var r=$('#'+box.id+'_r'),o=$('#'+box.id+'_o'),svg=$('svg',box);
+  function upd(t){t=+t;$('#'+box.id+'_cl').setAttribute('x1',X(t));$('#'+box.id+'_cl').setAttribute('x2',X(t));
+    var txt='Minut '+t+': ';c.series.forEach(function(s,i){var v=Math.round(interp(s.p,t));var d=$('#'+box.id+'_d'+i);d.setAttribute('cx',X(t));d.setAttribute('cy',Y(v));txt+=(i?' · ':'')+s.n+' '+v+' bat/min';});o.innerHTML='<b>'+txt+'</b>';}
+  r.addEventListener('input',function(){upd(r.value)});
+  svg.addEventListener('pointerdown',function(e){var b=svg.getBoundingClientRect(),x=(e.clientX-b.left)/b.width*W;var t=c.t0+(x-L)/pw*(c.t1-c.t0);t=Math.max(c.t0,Math.min(c.t1,Math.round(t/c.rs)*c.rs));r.value=t;upd(t);});
+}
+chart($('#g1chart'),{aria:'Gràfica G1: FC de la Mercè durant una cursa de 10 km',t0:0,t1:80,ts:10,f0:60,f1:200,fs:20,rs:1,thr:175,xl:"Temps des de l'escalfament (minuts)",
+  zones:[{a:175,b:200,fill:'var(--bad)',t:'ZONA ANAERÒBICA (>175)'},{a:124,b:175,fill:'var(--ok)',t:'ZONA AERÒBICA'}],
+  marks:[{t:5,l:'Inici cursa'},{t:55,l:'Meta (10 km)',dx:-4,an:'end'}],series:[{n:'FC',p:G1,col:'var(--bad)'}]});
+chart($('#g2chart'),{aria:'Gràfica G2: FC d\'un esportista d\'elit i una persona sedentària',t0:0,t1:20,ts:2,f0:40,f1:200,fs:20,rs:.5,thr:170,xl:'Temps (minuts)',band:[2,7],
+  zones:[{a:170,b:200,fill:'var(--bad)',t:'ZONA ANAERÒBICA (>170)'}],
+  series:[{n:'Esportista',p:SE.length&&EL,col:'#2f9a5a'},{n:'Sedentari',p:SE,col:'#7B68C8',dash:true}]});
+
+/* comprovacions G1 */
+$('#b_g1a').addEventListener('click',function(){
+  var fb=$('#fb_g1a'),m=num(S.f.g1_min),v=num(S.f.g1_fc),d=norm(S.f.g1_do),out=[],ok=true;
+  if(m==null||v==null){show(fb,'Escriu el minut i el valor de FC.','warn');return;}
+  if(m!==55){ok=false;out.push('Minut: busca el punt més alt de tota la línia i baixa en vertical fins a l\'eix del temps.');}else out.push('Minut 55 ✓');
+  if(v!==185){ok=false;out.push(m===55?'Valor: llegeix l\'alçada del pic a l\'eix vertical (compte, cada ratlla són 20).':'Llegeix el valor quan hagis trobat bé el minut.');}else out.push('185 bat/min ✓');
+  var act=/meta|esprint|sprint|final|arribada|creu|acab|ultim|accel/.test(d);
+  if(!act){ok=false;out.push('Què feia? Mira l\'etiqueta de la gràfica just en aquest moment.');}else out.push('Activitat ✓ (arribant a la meta, esprint final)');
+  if(ok){S.f.g1a_ok=true;save();progress();}
+  show(fb,out.join('<br>'),ok?'ok':'warn');
+});
+$('#b_g1b').addEventListener('click',function(){
+  var fb=$('#fb_g1b'),m=num(S.f.g1_m80),d=num(S.f.g1_dur),out=[],ok=true;
+  if(m==null||d==null){show(fb,'Escriu el minut i la durada.','warn');return;}
+  if(m===70){out.push('Minut 70 ✓ (a 70 la FC val exactament 80 i després ja és per sota)');}
+  else if(m>=71&&m<=72){out.push('Minut '+m+' és acceptable, però llegint amb cura, la línia creua els 80 just al minut 70.');}
+  else{ok=false;out.push(m>72?'Massa tard: mira la gràfica una mica abans. A quin minut la línia passa els 80?':'Massa aviat: al minut '+m+' la FC encara és més alta de 80.');}
+  var ref=m-55;
+  if(d===ref||d===15){out.push('Durada ✓ ('+d+' min des de la meta fins que baixa de 80)');}
+  else{ok=false;out.push('Durada: és el minut en què baixa de 80 menys el minut de la meta (55).');}
+  if(ok){S.f.g1b_ok=true;save();progress();}
+  show(fb,out.join('<br>'),ok?'ok':'warn');
+});
+$('#b_g1fast').addEventListener('click',function(){var fb=$('#fb_g1fast'),z=S.f.g1_fast;
+  if(!z){show(fb,'Marca una opció.','warn');return;}
+  show(fb,z==='pujada'?'Correcte: puja en pocs minuts (del minut 5 al 12 passa de 70 a 148), mentre que la recuperació triga uns 15 minuts.':'Torna-ho a mirar: compara quants minuts triga a pujar i quants a baixar.',z==='pujada'?'ok':'warn');});
+
+/* comprovacions G2 */
+$('#b_g2a').addEventListener('click',function(){
+  var fb=$('#fb_g2a'),out=[],ok=true,g=function(k){return num(S.f[k])};
+  if(g('g2_em')==null||g('g2_ef')==null||g('g2_sm')==null||g('g2_sf')==null){show(fb,'Escriu els quatre números dels punts més alts (minut i FC de cada persona).','warn');return;}
+  if(g('g2_ef')===150&&g('g2_em')===7)out.push('Esportista: minut 7, 150 ✓');else{ok=false;out.push('Esportista: busca el punt més alt de la línia verda contínua (llegeix bé el minut i l\'alçada).');}
+  if(g('g2_sf')===182&&g('g2_sm')===7)out.push('Sedentari: minut 7, 182 ✓');else{ok=false;out.push('Sedentari: busca el punt més alt de la línia lila discontínua.');}
+  var f=S.f.g2_first;
+  if(!f){ok=false;out.push('Tria qui arriba abans al seu màxim.');}
+  else if(f==='tots')out.push('Tots dos arriben al màxim al mateix moment (minut 7, quan s\'acaba l\'esforç). La diferència no és <i>quan</i>, sinó <i>fins on</i>: 150 contra 182.');
+  else{ok=false;out.push('Fixa\'t en el minut exacte de cada màxim. El sedentari puja més de pressa (ja és a 180 al minut 5), però compara els minuts dels dos pics.');}
+  if(!S.f.g2_over){ok=false;out.push('Tria qui supera els 170.');}
+  else if(S.f.g2_over==='sed')out.push('Només el sedentari supera els 170 ✓ (l\'esportista no passa de 150).');
+  else{ok=false;out.push('Compara cada pic amb la ratlla vermella dels 170: qui la creua?');}
+  var a=g('g2_from'),b=g('g2_to');
+  if(a==null||b==null){ok=false;out.push('Digues entre quins minuts el sedentari és per damunt dels 170.');}
+  else{if(a>=4&&a<=4.5)out.push('Comença a superar-los cap al minut 4 ✓');else{ok=false;out.push('Quan puja per sobre de la ratlla? Mira entre els minuts 3 i 5.');}
+    if(b>=8&&b<=8.5)out.push('Torna a baixar de 170 cap al minut 8 ✓');else{ok=false;out.push('Quan torna a baixar? Mira entre els minuts 7 i 9.');}}
+  if(ok){S.f.g2a_ok=true;save();progress();}
+  show(fb,out.join('<br>'),ok?'ok':'warn');
+});
+$('#b_g2c').addEventListener('click',function(){
+  var fb=$('#fb_g2c'),d=dataVals();
+  if(!allData()){show(fb,'Per comparar necessites la teva taula completa.','warn');return;}
+  var rest=(d[0]+d[1]+d[2])/3,pk=d[3],rec2=d[5],frac=(pk-rec2)/(pk-rest);
+  var ef=(150-95)/(150-45),sf=(182-158)/(182-78);
+  var hint=Math.abs(rest-45)<Math.abs(rest-78)?'esportista':'sedentari';
+  var hint2=Math.abs(frac-ef)<Math.abs(frac-sf)?'esportista':'sedentari';
+  show(fb,'<b>Les teves dades:</b> repòs mitjà ≈ '+Math.round(rest)+' bat/min (esportista 45, sedentari 78). A 2 minuts de parar, has recuperat ≈ '+Math.round(frac*100)+' % de la pujada; a G2, dos minuts després del pic, l\'esportista n\'ha recuperat ≈ '+Math.round(ef*100)+' % i el sedentari ≈ '+Math.round(sf*100)+' %.<br>Pel repòs, t\'assembles més a l\'<b>'+hint+'</b>; per la recuperació, al <b>'+hint2+'</b>.<br><span class="small">Aquests dos criteris no sempre coincideixen, i el teu exercici (2 min) no és el de G2 (5 min). Quina conseqüència té això en la teva hipòtesi?</span>','');
+});
+$('#b_q').addEventListener('click',function(){
+  var fb=$('#fb_q'),exp={q_sr:5.46,q_sm:18.2,q_er:4.95,q_em:25.5},bad=[],miss=0;
+  Object.keys(exp).forEach(function(k){var v=num(S.f[k]);if(v==null){miss++;return;}if(Math.abs(v-exp[k])>.06)bad.push(k);});
+  if(miss){show(fb,'Calcula els quatre valors.','warn');return;}
+  if(bad.length)show(fb,'Revisa aquests càlculs: volum (mL) × FC, i passa de mL a L dividint per 1000. Hi ha '+bad.length+' valors per corregir.','warn');
+  else{S.f.q_ok=true;save();show(fb,'Tot correcte. Fixa\'t: en repòs els dos mouen ≈5 L/min; a l\'esforç, l\'esportista (25,5) mou més que el sedentari (18,2) amb una FC més baixa.','ok');}
+});
+
+/* ---------- Tasca per a casa ---------- */
+(function(){var tb=$('#homet');S.home=S.home||[{},{},{}];
+  for(var i=0;i<3;i++){(function(i){var tr=document.createElement('tr');tr.innerHTML='<td>Matí '+(i+1)+'</td><td><input type="text" style="width:6.5em" data-h="d" aria-label="Data, matí '+(i+1)+'"></td><td><input type="text" style="width:5.5em" data-h="h" aria-label="Hora, matí '+(i+1)+'"></td><td><input type="number" data-h="fc" aria-label="FC en repòs, matí '+(i+1)+'"></td><td><input type="text" style="width:100%;min-width:8em" data-h="n" aria-label="Notes, matí '+(i+1)+'"></td>';tb.appendChild(tr);
+    $$('input',tr).forEach(function(inp){var k=inp.dataset.h;if(S.home[i]&&S.home[i][k]!=null)inp.value=S.home[i][k];inp.addEventListener('input',function(){S.home[i]=S.home[i]||{};S.home[i][k]=inp.value;save();});});})(i);}
+})();
+
+/* ---------- Comparació final ---------- */
+function recMin(){var d=dataVals();if(!allData())return null;var rest=(d[0]+d[1]+d[2])/3;for(var i=4;i<9;i++){if(d[i]<=rest+rest*.1)return i-3;}return '>5';}
+function cmp(){
+  var d=dataVals(),el=$('#cmp');if(!allData()){el.textContent='Quan tinguis la taula completa, aquí veuràs la comparació.';return;}
+  var rest=Math.round((d[0]+d[1]+d[2])/3),pk=peak(),rm=recMin();
+  el.innerHTML='FC en repòs: tu vas estimar <b>'+(S.f.est_rep||'?')+'</b> i has mesurat <b>'+rest+'</b>.<br>FC màxima: estimada <b>'+(S.f.est_max||'?')+'</b>; mesurada <b>'+pk+'</b> (la teòrica és '+(ageV()?220-ageV():'?')+').<br>Minuts per tornar al repòs: estimats <b>'+(S.f.est_rec||'?')+'</b>; mesurats <b>'+(rm==='>5'?'més de 5 (no ha tornat al repòs en els 5 min mesurats)':rm)+'</b> (FC dins del 10 % de la de repòs).';
+}
+
+/* ---------- Progrés ---------- */
+function progress(){
+  var done={};
+  done[0]=!!(S.f.hip&&S.f.hip.length>9&&S.f.est_rep&&S.f.est_max&&S.f.est_rec);
+  done[1]=allData()&&!!S.f.f_max&&!!S.f.zona;
+  done[2]=!!S.f.ptsok;
+  done[3]=!!(S.f.g1a_ok&&S.f.g1b_ok&&S.f.oqok_g1q3);
+  done[4]=!!(S.f.g2a_ok&&S.f.oqok_g2q2);
+  done[5]=!!(S.f.ob1||S.f.ob2||S.f.ob3||S.f.ob4);
+  $$('#stepbar a').forEach(function(a){a.classList.toggle('done',!!done[a.dataset.s]);});
+  cmp();
+}
+
+/* ---------- Resum ---------- */
+function V(k){var v=S.f[k];return (v==null||v==='')?'—':v;}
+function buildSummary(){
+  var L=[],d=dataVals(),mn={sed:'alumne/a virtual sedentari/ària',act:'alumne/a virtual actiu/va',real:'les meves dades reals'}[S.f.mode]||'—';
+  L.push('SESSIÓ 5 · Respiració i esforç: la FC (nivell '+S.level+')');L.push('');
+  L.push('0 · IDEES PRÈVIES');L.push('Hipòtesi: '+V('hip'));
+  L.push('Estimacions: FC repòs '+V('est_rep')+' bat/min · FC màx '+V('est_max')+' bat/min · recuperació '+V('est_rec')+' min');L.push('');
+  L.push('1 · MESURA LA TEVA FC (dades de: '+mn+'; edat '+V('age')+')');
+  L.push('Moment | Temps | La teva FC | FC company/a | Diferència');
+  STEPS.forEach(function(st){if(st.ex){L.push('— EXERCICI (2 minuts) —');return;}var r=S.rows[st.row]||{};L.push(st.lab+' | '+st.tm+' | '+(r.fc!=null?r.fc:'—')+' | '+(r.cp!=null?r.cp:'—')+' | '+(r.df!=null?r.df:(r.fc!=null&&r.cp!=null?r.fc-r.cp:'—')));});
+  L.push('FCmàx estimada (220 − edat): '+V('f_max')+' bat/min · Llindar anaeròbic (0,85 × FCmàx): '+V('f_thr')+' bat/min');
+  L.push('Durant l\'exercici: '+(peak()!=null?peak():'—')+' bat/min · Zona: '+({aer:'aeròbica',ana:'anaeròbica'}[S.f.zona]||'—'));
+  L.push('① (pulmons): '+V('oq_pulm1'));L.push('② (cor i respiració): '+V('oq_pulm2'));
+  var ep=window.__ep.filter(function(it){return S.f[it[0]]}).map(function(it){return it[1]});
+  L.push('Reflexió científica — problemes marcats: '+(ep.length?ep.join('; '):'—')+' · El més greu: '+V('ep_txt'));L.push('');
+  L.push('2 · LA GRÀFICA DE LA TEVA FC');
+  var s=sc();L.push('Escala de l\'eix vertical: de '+(s.min!=null?s.min:'—')+' a '+(s.max!=null?s.max:'—')+', cada '+(s.step!=null?s.step:'—')+' bat/min');
+  L.push('Punts situats: '+ROWNAMES.map(function(n,i){return n+'='+(S.pts[i]!=null?S.pts[i]:'—')}).join(', '));
+  L.push('FC màxima assolida: '+V('g_max')+' bat/min · He entrat a zona anaeròbica? '+({si:'Sí',no:'No',nosap:'No ho puc saber'}[S.f.ana]||'—'));L.push('');
+  L.push('3 · G1 — LA MERCÈ');
+  L.push('① Màxim al minut '+V('g1_min')+', '+V('g1_fc')+' bat/min. Feia: '+V('g1_do'));
+  L.push('② Per sota de 80 bat/min des del minut '+V('g1_m80')+'; ha trigat '+V('g1_dur')+' min a recuperar-se.');
+  L.push('③ '+V('oq_g1q3'));
+  if(S.level==='C'){L.push('④ Més ràpid: '+V('g1_fast'));L.push('⑥ Cas nou (esprint de 30 s): '+V('oq_g1c6'));}
+  if(S.level==='A')L.push('Informe breu: '+V('oq_g1inf'));
+  L.push('');L.push('4 · G2 — ESPORTISTA D\'ELIT VS. SEDENTÀRIA');
+  L.push('① Esportista: pic al minut '+V('g2_em')+' ('+V('g2_ef')+'); sedentari/ària: pic al minut '+V('g2_sm')+' ('+V('g2_sf')+'). Arriba abans: '+({elit:'l\'esportista',sed:'el sedentari',tots:'tots dos alhora'}[S.f.g2_first]||'—')+'. Supera els 170: '+({elit:'només l\'esportista',sed:'només el sedentari',tots:'tots dos',cap:'cap'}[S.f.g2_over]||'—')+' (del minut '+V('g2_from')+' al '+V('g2_to')+').');
+  L.push('② '+V('oq_g2q2'));
+  L.push('③ M\'assemblo més a: '+({elit:'l\'esportista d\'elit',sed:'la persona sedentària',cap:'cap dels dos'}[S.f.g2_prof]||'—')+'. Hipòtesi: '+V('g2_hyp'));
+  if(S.level==='C')L.push('⑥ Conclusió: '+V('oq_g2c6'));
+  if(S.level==='A'){L.push('Ampliació — Q (L/min): sedentari repòs '+V('q_sr')+', esforç '+V('q_sm')+'; esportista repòs '+V('q_er')+', esforç '+V('q_em'));L.push('Explicació: '+V('oq_qa1')+' / '+V('oq_qa2'));L.push('Marc Fontana: '+V('oq_marc'));}
+  L.push('');L.push('POSADA EN COMÚ');
+  L.push('Objectius assolits: '+[1,2,3,4].filter(function(i){return S.f['ob'+i]}).join(', ')+' (de 4)');
+  L.push('La meva hipòtesi era encertada?: '+V('meta1'));L.push('Encara em pregunto: '+V('meta2'));
+  L.push('');L.push('TASCA PER A CASA (3 matins)');
+  S.home.forEach(function(h,i){L.push('Matí '+(i+1)+': data '+(h.d||'—')+', hora '+(h.h||'—')+', FC repòs '+(h.fc||'—')+' bat/min, notes: '+(h.n||'—'));});
+  L.push('Pregunta d\'investigació: '+V('pregunta'));
+  return L.join('\n');
+}
+$('#b_sum').addEventListener('click',function(){$('#sumbox').value=buildSummary();});
+$('#b_copy').addEventListener('click',function(){
+  var ta=$('#sumbox'),fb=$('#copyfb');ta.value=buildSummary();
+  function fall(){ta.focus();ta.select();var ok=false;try{ok=document.execCommand('copy');}catch(e){}fb.textContent=ok?'Copiat.':'Selecciona el text i copia\'l manualment (Ctrl+C).';}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ta.value).then(function(){fb.textContent='Copiat.';},fall);}else fall();
+});
+$('#b_reset').addEventListener('click',function(){
+  if(!this.dataset.sure){this.dataset.sure=1;this.textContent='Segur? Torna a clicar per esborrar-ho tot';return;}
+  try{localStorage.removeItem(KEY);}catch(e){}
+  location.reload();
+});
+
+/* ---------- Init ---------- */
+bindFields();
+if(!S.f.age)S.f.age=15,$$('[data-k="age"]').forEach(function(e){e.value=15;});
+renderOQ();epRefresh();
+S.pts=S.pts||[];
+setLevel(S.level||'B');
+modeChanged();refreshPeak();drawMy();progress();
+if(S.sim){var c=savedCount();simT=c<=0?0:c<3?STEPS[c-1].t0+15:c===3?E1:STEPS[Math.min(9,c)].t0+15;if(c>=3&&c<9)simT=STEPS[c+0].t0>0?STEPS[c].t0-45+0:simT;}
+updateBench();
+})();
+</script>
+</body>
+</html>

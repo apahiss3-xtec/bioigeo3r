@@ -5,8 +5,8 @@ export const sa2s1 = {
   engageImage: "/images/sa2-s1-nutrients.jpg",
 
   // Repte oral curt abans d'escriure: presentació col·lectiva dels dos enigmes que pengen a la paret tota la SA.
-  engageChallenge: "Mirem els dos enigmes que penjaran a la paret tota la SA: la gràfica de FC d'una corredora (per quina raó canvia tant?) i una analítica de sang amb valors alterats (per quina raó?). Avui no els podeu resoldre — al final de la SA, sí.",
-  engageQuestion: "Mireu els dos enigmes a la paret. No els podeu resoldre encara. Al final de la SA, sí. Comencen avui: quin nutrient creus que és el combustible principal del corredor?",
+  engageChallenge: "Aquests dos enigmes ens acompanyaran tota la SA: la gràfica de FC d'una corredora (per quina raó canvia tant?) i una analítica de sang amb valors alterats (per quina raó?). Avui encara no els pots resoldre; al final de la SA, sí.",
+  engageQuestion: "Mira els dos enigmes de la paret. Encara no els pots resoldre; al final de la SA, sí. Comencem avui: quin nutrient creus que és el combustible principal del corredor?",
   engageContext: "Els dos enigmes queden penjats a la paret tota la situació: la gràfica de freqüència cardíaca de la Mercè i l'analítica de sang. Avui encara no els pots resoldre; comences a construir les eines. Primera pregunta: quina diferència hi ha entre un aliment i un nutrient?",
 
   // NO es renderitza al web: guió del docent (logística, temps,
@@ -18,14 +18,14 @@ export const sa2s1 = {
     A: [
       "Explico, en termes de flux d'energia, per quina raó un atleta de velocitat usa sobretot hidrats i un de marató usa greixos als últims kilòmetres.",
       "Raono per quina raó la manca de ferro causa fatiga seguint la cadena causal: ferro → hemoglobina → O₂ als músculs → ATP disponible.",
-      "Dissenyo un test alternatiu al de iode per detectar hidrats, especificant el control positiu, el negatiu i les variables.",
+      "Dissenyo un test alternatiu al del iode per detectar hidrats, especificant el control positiu, el negatiu i les variables.",
       "Argumento per quina raó el test de lugol és un test de midó, no de sucre, i quines conseqüències té per a la interpretació de resultats."
     ],
     B: [
       "Identifico els 4 macronutrients (hidrats, greixos, proteïnes, vitamines/minerals) i la seva funció principal al cos.",
       "Explico la cadena glucosa → mitocondri → ATP i per quina raó mengem hidrats com a combustible ràpid.",
       "Relaciono el ferro amb la hemoglobina i la hemoglobina amb el transport d'O₂.",
-      "Interpreto el resultat del test de lugol i explico per quina raó dona fals negatiu amb la fructosa."
+      "Interpreto el resultat del test de lugol i explico per quina raó dóna fals negatiu amb la fructosa."
     ],
     C: [
       "Nomeno 3 nutrients i associo cada un a un aliment concret.",
@@ -38,8 +38,8 @@ export const sa2s1 = {
   // ── BASTIMENT/REPTE PER APARTAT ──────────────────────────
   apartatExtras: {
     "1": {
-      scaffold: "Completa la taula: si el lugol canvia a blau-negre → hi ha ______. Si NO canvia → no hi ha ______. La poma dona negatiu perquè la fructosa és un sucre ______ (no un polímer) i no reacciona amb el iode.",
-      challenge: "Dissenya un test diferent del de iode per detectar greixos sense paper de cuina. Defineix: (a) control positiu, (b) control negatiu, (c) variable que mesuraràs. Quines limitacions tindria el teu test?"
+      scaffold: "Completa la taula: si el lugol canvia a blau-negre → hi ha ______. Si NO canvia → no hi ha ______. La poma dóna negatiu perquè la fructosa és un sucre ______ (no un polímer) i no reacciona amb el iode.",
+      challenge: "Dissenya un test diferent del del iode per detectar greixos sense paper de cuina. Defineix: (a) control positiu, (b) control negatiu, (c) variable que mesuraràs. Quines limitacions tindria el teu test?"
     },
     "2": {
       scaffold: "Fes servir el patró: «[Nutrient] serveix per a ___». Hidrats: ___·  Greixos: ___ · Proteïnes: ___ · Ferro: ___.",
@@ -65,17 +65,17 @@ export const sa2s1 = {
   },
 
   exploreActivity: {
-    what: "Escriu una hipòtesi (midó? greix?) per a cada aliment i comprova-la amb el test de iode (midó) i el test de paper (greixos).",
+    what: "Escriu una hipòtesi (midó? greix?) per a cada aliment i comprova-la amb el test del iode (midó) i el test de paper (greixos).",
     who: { mode: "grup4", label: "Grups de 4" },
     time: 35,
-    note: "Hipòtesi ABANS de cada test, sense excepcions. Al final: per quina raó el test de iode dona fals negatiu amb la poma?"
+    note: "Escriu la hipòtesi ABANS de fer cada test. Al final: per quina raó el test del iode no detecta res amb la poma?"
   },
   exploreInstructions: [
     "Hipòtesi individual (escrita): 'Creus que en un pa hi ha midó? En una ametlla, greix? Com ho comprovaries?'",
     "Test midó (iode): posa una gota de lugol sobre cada aliment → blau-negre = midó present",
     "Test greixos: frega sobre paper de cuina, aixeca al llum → taca translúcida = greix",
     "Registra els resultats a la taula de la fitxa",
-    "Moment epistèmic: 'El test de iode falla amb la poma. Per quina raó?' (la poma té fructosa, no midó)"
+    "Per acabar: el test del iode no detecta res amb la poma. Per quina raó?"
   ],
   exploreDuration: "35 min",
   exploreMaterials: ["Lugol en comptagotes", "Paper de cuina", "Patata crua, pa, pasta, clara d'ou, rovell, poma, ametlles"],
@@ -115,20 +115,21 @@ export const sa2s1 = {
   fitxaUrl: { A: "/fitxes/sa2-s1-fitxa-A.html", B: "/fitxes/sa2-s1-fitxa-B.html", C: "/fitxes/sa2-s1-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s1-teoria.pdf",
 
   sessionMaterials: [
-    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s1-exit-ticket.html", who: "docent" },
-    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s1-exit-ticket-C.html", who: "docent" },
-    { id: "posterEnigma1", title: "Pòster de paret · Enigma 1, la gràfica de la Mercè (A2 = 2 fulls A3)", url: "/fitxes/sa2-s1-poster-enigma1.pdf", who: "docent" },
-    { id: "posterEnigma2", title: "Pòster de paret · Enigma 2, l'analítica del Marc (A2 = 2 fulls A3)", url: "/fitxes/sa2-s1-poster-enigma2.pdf", who: "docent" },
-    { id: "etiquetes", title: "10 etiquetes nutricionals per a «Detectius d'etiquetes» (A4, 4 per full, per retallar)", url: "/fitxes/sa2-s1-etiquetes-nutricionals.pdf", who: "docent" }
+    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s1-exit-ticket.html", who: "per al final de la sessió" },
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s1-exit-ticket-C.html", who: "per al final de la sessió" },
+    { id: "posterEnigma1", title: "Pòster de paret · Enigma 1, la gràfica de la Mercè", url: "/fitxes/sa2-s1-poster-enigma1.pdf", who: "per penjar a la paret de l'aula" },
+    { id: "posterEnigma2", title: "Pòster de paret · Enigma 2, l'analítica del Marc", url: "/fitxes/sa2-s1-poster-enigma2.pdf", who: "per penjar a la paret de l'aula" },
+    { id: "etiquetes", title: "10 etiquetes nutricionals per a «Detectius d'etiquetes»", url: "/fitxes/sa2-s1-etiquetes-nutricionals.pdf", who: "per treballar en grup" },
+    { id: "labVirtual", title: "Laboratori virtual (si has faltat a la pràctica)", url: "/labs/sa2/lab_s1_nutrients.html", who: "per fer a casa si no vas poder fer la pràctica" }
   ],
 
   fitxaGuide: {
     fitxaName: "Fitxa S1 — Nutrients",
     steps: [
       { apartat: "0", title: "Idees prèvies", time: "10 min", phase: "engage", instruction: "Omple l'apartat 0 — Idees prèvies del full: quins nutrients coneixes? Quina diferència hi ha entre nutrient i aliment? No es corregeix.", hints: [] },
-      { apartat: "1", title: "Pràctica de laboratori", time: "35 min", phase: "explore", instruction: "Durant els tests, omple la taula de l'apartat 1 del full: resultat del test de iode (midó) i del paper (greixos) per a cada aliment.", hints: [
+      { apartat: "1", title: "Pràctica de laboratori", time: "35 min", phase: "explore", instruction: "Durant els tests, omple la taula de l'apartat 1 del full: resultat del test del iode (midó) i del paper (greixos) per a cada aliment.", hints: [
         "Anota la teva hipòtesi ABANS de fer cada test: després compara-la amb el resultat.",
-        "Si un aliment dona un resultat que no esperaves, no l'esborris: aquest és el cas interessant per pensar-hi."
+        "Si un aliment dóna un resultat que no esperaves, no l'esborris: aquest és el cas interessant per pensar-hi."
       ] },
       { apartat: "2", title: "Els cinc nutrients i per a què serveixen", time: "25 min", phase: "explica", instruction: "Omple els espais en blanc de l'apartat 2 del full: cada nutrient amb la seva funció.", hints: [
         "Per a cada nutrient pensa la FUNCIÓ al cos, no només exemples d'aliments.",
@@ -140,7 +141,7 @@ export const sa2s1 = {
   exitTicketType: "paper",
   exitTicketQuestions: [
     { id: "q1", type: "open", text: "La Mercè corre 10 km. Explica per quina raó necessita sobretot hidrats durant la cursa. Usa la connexió glucosa → mitocondri → ATP.", hint: "Estructura: comença per «Quan la Mercè corre, els seus músculs…» i acaba dient què obté la cèl·lula al final." },
-    { id: "q2", type: "open", text: "El test de iode dona negatiu amb la poma. Significa que no té hidrats? Explica per quina raó sí o per quina raó no.", hint: "Estructura: digues primer què detecta el test i després què té la poma. La resposta és «sí» o «no» + una raó." },
+    { id: "q2", type: "open", text: "El test del iode dóna negatiu amb la poma. Significa que no té hidrats? Explica per quina raó sí o per quina raó no.", hint: "Estructura: digues primer què detecta el test i després què té la poma. La resposta és «sí» o «no» + una raó." },
     { id: "q3", type: "multiple", text: "Quin és el nutrient que fabrica la membrana cel·lular?", options: ["Greixos (fosfolípids)", "Hidrats de carboni", "Proteïnes", "Vitamines"], correct: 0 }
   ],
 
@@ -151,14 +152,16 @@ export const sa2s1 = {
       pdfUrl: "/lectures/sa2-s2-lectura.pdf",
     },
     description: "Fotografiar els 3 productes que realment menges (no els que creus que hauries de menjar). Classifica'ls per nutrient dominant i anota si és ultraprocessat. Es defensarà oralment a S2.",
-    note: "No realitzable amb IA si cal explicar-ho en veu alta.",
+    note: "L'hauràs d'explicar en veu alta: no es pot fer amb IA.",
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina, especialment l'equació central (glucosa + O₂ → ATP)",
     "Fes el test de lugol a casa: iode antisèptic marró + pa, patata, poma, ametlla",
+    "Fes la pràctica al laboratori virtual (botó de sota) i copia el resum a la fitxa",
     "Omple la fitxa S1 seccions 0–2",
     "Prepara igualment els 3 productes fotografiats — es defensarà oralment a S2",
     "Exit tiquet en paper a S2 o fes-lo online a l'acordió de sota"
   ],
+  recoveryLinks: [{ label: "Laboratori virtual de la pràctica", url: "/labs/sa2/lab_s1_nutrients.html", icon: "🧪" }],
   oaLinks: ["OA2"], competencies: ["CE1", "CE2", "CE3"]
 }

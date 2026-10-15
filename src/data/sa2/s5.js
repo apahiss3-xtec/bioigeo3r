@@ -6,7 +6,7 @@ export const sa2s5 = {
   isKeySession: true,
 
   // Repte oral curt: resolució parcial dels enigmes, abans d'escriure les idees prèvies de FC.
-  engageChallenge: "Traiem els enigmes de la paret un moment: avui finalment podeu començar a respondre per quina raó la gràfica de la Mercè té aquesta forma, i per quina raó algú amb hemoglobina baixa es fatiga molt més. Ho veureu en acció avui — no us ho revelem encara.",
+  engageChallenge: "Tornem als enigmes de la paret: avui comences a respondre per quina raó la gràfica de la Mercè té aquesta forma i per quina raó algú amb hemoglobina baixa es fatiga molt més. Ho veuràs en acció avui, amb les teves pròpies dades.",
   engageQuestion: "Per quina raó creus que la FC augmenta quan fas exercici? Escriu-ho ara. Al final de la sessió compararàs amb el que has après.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
@@ -21,7 +21,7 @@ export const sa2s5 = {
       "Explico la cadena causal: exercici → músculs necessiten ATP → necessiten O₂ → hemoglobina circula més ràpid → FC augmenta.",
       "Calculo la meva FCmàx (220 − edat) i distingeixo zona aeròbica (≤85%) de zona anaeròbica (>85%).",
       "Interpreto la gràfica de la Mercè identificant els 3 trams (pujada / pic / recuperació lenta) i la causa de cadascun.",
-      "Relaciono la FC elevada de Marc Fontana (Hb 9.2) amb la seva anèmia ferropènica."
+      "Relaciono la FC elevada de Marc Fontana (Hb 9,2) amb la seva anèmia ferropènica."
     ],
     C: [
       "Mesuro el meu pols: compto els batecs en _____ seg i multiplico per _____ per tenir bat/min.",
@@ -74,16 +74,16 @@ export const sa2s5 = {
     "Exercici 2 min: salt a peu coix. Mesura immediatament al parar.",
     "Recuperació 5 min: mesura FC cada 30 seg fins als 5 minuts.",
     "Registra les dades del/de la company/a de costat",
-    "Moment epistèmic NDC: 'Les nostres dades podrien sortir en una revista científica? Quins problemes tindria la nostra investigació?'"
+    "Per acabar: les nostres dades podrien sortir en una revista científica? Quins problemes tindria la nostra investigació?"
   ],
   exploreDuration: "35 min",
-  exploreMaterials: ["Rellotge de paret o del professor. Cada alumne mesura el seu pols."],
+  exploreMaterials: ["Rellotge de paret o de l'aula. Cada alumne mesura el seu pols."],
 
   theoryPoints: [
     { id: "t1", apartat: "2", heading: "Per quina raó augmenta la ==FC==", text: "Exercici → músculs necessiten més ==ATP|g== → necessiten més ==O₂|b== → ==hemoglobina== ha de circular més ràpid → ==cor== batega més de pressa i més fort. La cadena sencera des del ==mitocondri== fins al cor.", type: "keyequation", video: "/animacions/sa2-s5-t1.mp4" },
     { id: "t2", apartat: "2", heading: "Zones de ==FC==", text: "==FCmàx== estimada: 220 − edat. ==Zona aeròbica|g== (≤85% FCmàx): usa greixos + glucosa, pot mantenir-se molt de temps. ==Zona anaeròbica|r== (>85%): crema glucosa sense O₂ i acumula ==lactat i acidesa|r==, que fan abaixar el ritme; insostenible.", type: "concept" },
     { id: "t3", apartat: "3", heading: "Connexió enigma 1: La gràfica de la Mercè", text: "Puja ràpid (==sistema simpàtic== + ==adrenalina== actius). ==Pic== de 185 bat/min just a la ==meta== (minut 55). ==Recuperació lenta|o== (el cos ha de netejar ==àcid làctic==, normalitzar hormones). Per quina raó és ==asimètrica==: baixar és sempre més lent que pujar.", type: "keyequation", badge: "🔗 Enigma 1 — resolució parcial" },
-    { id: "t4", apartat: "3", heading: "Connexió enigma 2: Marc Fontana amb anèmia", text: "Amb ==Hb = 9.2 g/dL|r==, cada litre de sang porta molt menys ==O₂|b==. El ==cor== ha de compensar batent molt més de pressa. Per quina raó s'esgota: entra en ==zona anaeròbica|r== molt abans que una persona sana.", type: "keyequation", badge: "🔗 Enigma 2 — resolució parcial" },
+    { id: "t4", apartat: "3", heading: "Connexió enigma 2: Marc Fontana amb anèmia", text: "Amb ==Hb = 9,2 g/dL|r==, cada litre de sang porta molt menys ==O₂|b==. El ==cor== ha de compensar batent molt més de pressa. Per quina raó s'esgota: entra en ==zona anaeròbica|r== molt abans que una persona sana.", type: "keyequation", badge: "🔗 Enigma 2 — resolució parcial" },
     { id: "t5", apartat: "1", heading: "D'on surt l'==O₂== que la sang reparteix", text: "L'aire baixa per ==tràquea== → ==bronquis== → ==bronquíols== → ==alvèols|b==. A l'==alvèol== la paret té el gruix d'==una sola cèl·lula==: l'==O₂|b== hi passa a la sang i el ==CO₂|r== fa el camí contrari. Per això l'esforç accelera ==dos sistemes alhora==: el cor i la respiració.", type: "concept", image: "/imatges-cientifiques/s5_respiratori_alveols.png" }
   ],
 
@@ -91,8 +91,9 @@ export const sa2s5 = {
   fitxaUrl: { A: "/fitxes/sa2-s5-fitxa-A.html", B: "/fitxes/sa2-s5-fitxa-B.html", C: "/fitxes/sa2-s5-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s5-teoria.pdf",
 
   sessionMaterials: [
-    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s5-exit-ticket.html", who: "docent" },
-    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s5-exit-ticket-C.html", who: "docent" }
+    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s5-exit-ticket.html", who: "per al final de la sessió" },
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s5-exit-ticket-C.html", who: "per al final de la sessió" },
+    { id: "labVirtual", title: "Laboratori virtual (si has faltat a la pràctica)", url: "/labs/sa2/lab_s5_fc.html", who: "per fer a casa si no vas poder fer la pràctica" }
   ],
 
   fitxaGuide: {
@@ -118,8 +119,8 @@ export const sa2s5 = {
   },
 
   graphicResources: [
-    { id: "G1", title: "Gràfica FC corredor Mercè", src: "/images/sa2-g1-merce.svg", note: "Per a interpretació col·lectiva guiada" },
-    { id: "G2", title: "Esportista elit vs. sedentari", src: "/images/sa2-g2-elit-sedentari.svg", note: "Per a treball en parelles" }
+    { id: "G1", title: "Gràfica FC corredor Mercè", src: "/images/sa2-g1-merce.svg", note: "La gràfica de la FC de la Mercè durant la cursa: la de l'enigma 1." },
+    { id: "G2", title: "Esportista elit vs. sedentari", src: "/images/sa2-g2-elit-sedentari.svg", note: "Compara l'esportista d'elit amb el sedentari: mateix esforç, respostes diferents." }
   ],
 
   exitTicketType: "paper",
@@ -142,9 +143,11 @@ export const sa2s5 = {
   recoveryInstructions: [
     "Mesura la teva FC a casa: (a) Reposa 3 min assegut/da. Mesura el pols 30 seg × 2. (b) Salta a peu coix 2 min, mesura immediatament. (c) Mesura cada 30 seg durant 5 min de recuperació.",
     "Llegeix la teoria d'aquesta pàgina",
+    "Fes la pràctica al laboratori virtual (botó de sota) i copia el resum a la fitxa",
     "Analitza les gràfiques G1 i G2 (a la secció EXPLICA) i respon les preguntes de la fitxa",
     "La feina a casa de FC en repòs 3 matins és IGUALMENT OBLIGATÒRIA — necessites les dades per a S6",
     "Fes l'exit tiquet online a l'acordió de sota"
   ],
+  recoveryLinks: [{ label: "Laboratori virtual de la pràctica", url: "/labs/sa2/lab_s5_fc.html", icon: "🧪" }],
   oaLinks: ["OA3"], competencies: ["CE1", "CE4"]
 }

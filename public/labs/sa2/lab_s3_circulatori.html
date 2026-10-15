@@ -1,0 +1,904 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laboratori de la sang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@600;700&family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8f6;--surface:#ffffff;--ink:#16241c;--muted:#5b6b62;--line:#d5ded8;
+      --green:#1f5a3c;--green-2:#2f7a52;--accent:#d98a1e;--ok:#2e7d4f;--warn:#b7791f;--bad:#b23b3b;
+      --blood:#c8333a;--vein:#2f6fb0;--plasma:#f0cf6a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1712;--surface:#16211a;--ink:#e6efe9;
+      --muted:#9fb1a6;--line:#2a3a30;--green:#7cc39a;--green-2:#5fae82;--accent:#f0a945;--ok:#6fcf97;--warn:#e0b252;--bad:#ef7b7b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1712;--surface:#16211a;--ink:#e6efe9;
+      --muted:#9fb1a6;--line:#2a3a30;--green:#7cc39a;--green-2:#5fae82;--accent:#f0a945;--ok:#6fcf97;--warn:#e0b252;--bad:#ef7b7b;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Fira Sans",system-ui,sans-serif;font-size:16px;line-height:1.5}
+h1,h2,h3{font-family:"Fira Sans Extra Condensed",system-ui,sans-serif;font-weight:700;line-height:1.15;margin:0 0 .4em}
+h1{font-size:2rem;color:var(--green)}
+h2{font-size:1.55rem;color:var(--green)}
+h3{font-size:1.2rem}
+p{margin:.4em 0 .7em}
+a{color:var(--green-2)}
+.wrap{max-width:900px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left)) 60px max(16px,env(safe-area-inset-right))}
+.back{display:inline-block;margin:12px 0 4px;font-weight:500}
+.tag{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+header.top{border-bottom:2px solid var(--green);padding-bottom:10px;margin-bottom:12px}
+.sub{color:var(--muted);margin:0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+.lvl{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:10px 0 0}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;background:var(--surface);color:var(--ink);padding:9px 14px;min-height:44px;font:inherit;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--green);color:var(--surface);font-weight:600}
+.stepper{display:flex;gap:6px;overflow-x:auto;padding:6px 0 10px;margin:0 0 6px;scrollbar-width:thin}
+.stepper button{flex:0 0 auto;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 14px;min-height:44px;font:inherit;font-size:.9rem;cursor:pointer;white-space:nowrap}
+.stepper button[aria-current="step"]{background:var(--green);color:var(--surface);border-color:var(--green);font-weight:600}
+.stepper button .n{font-weight:700;margin-right:5px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+.card.info{border-left:5px solid var(--green-2)}
+.card.warn{border-left:5px solid var(--warn)}
+.card.key{border-left:5px solid var(--accent)}
+.cl{font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 6px}
+.instr{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:10px;padding:10px 14px;margin:10px 0;font-weight:500}
+.bench{background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:14px;margin:12px 0}
+.btn{border:1px solid var(--green);background:var(--green);color:var(--surface);border-radius:10px;padding:10px 16px;min-height:44px;font:inherit;font-weight:600;cursor:pointer}
+.btn.sec{background:var(--surface);color:var(--green)}
+.btn.sm{padding:6px 12px;min-height:40px;font-size:.9rem}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+textarea,input[type=text],input[type=number],input[type=time],select{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;min-height:44px}
+textarea{resize:vertical;min-height:84px}
+input.short{width:110px}
+label{display:block;font-weight:500;margin:0 0 4px}
+.q{margin:14px 0}
+.qb{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.fb{margin-top:6px;font-size:.95rem}
+.fb .h{background:var(--bg);border-left:4px solid var(--warn);padding:6px 10px;margin:4px 0;border-radius:6px}
+.fb .m{background:var(--bg);border-left:4px solid var(--ok);padding:6px 10px;margin:4px 0;border-radius:6px}
+.ok{color:var(--ok);font-weight:600}.bad{color:var(--bad);font-weight:600}.warnc{color:var(--warn);font-weight:600}
+.nav{display:flex;justify-content:space-between;gap:10px;margin:22px 0}
+.lA,.lB,.lC,.lAB,.lBC{}
+body:not([data-lvl="A"]) .lA{display:none!important}
+body:not([data-lvl="B"]) .lB{display:none!important}
+body:not([data-lvl="C"]) .lC{display:none!important}
+body[data-lvl="C"] .lAB{display:none!important}
+body[data-lvl="A"] .lBC{display:none!important}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:640px){.grid2{grid-template-columns:1fr}h1{font-size:1.7rem}}
+svg{max-width:100%;height:auto}
+.legend{font-size:.9rem;color:var(--muted)}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:middle;margin-right:4px}
+details{margin:8px 0}summary{cursor:pointer;font-weight:600;min-height:32px}
+/* targetes */
+.deck{display:flex;gap:8px;flex-wrap:wrap}
+.tc{width:56px;height:56px;border-radius:8px;border:2px solid var(--line);background:#fbf3e4;padding:2px;cursor:grab;touch-action:manipulation}
+.tc.sel{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent)}
+.tc.shake{animation:shk .35s}
+@keyframes shk{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:12px}
+.bin{border:2px dashed var(--green-2);border-radius:12px;min-height:110px;padding:8px;background:var(--bg)}
+.bin h4{margin:0 0 6px;font-family:"Fira Sans Extra Condensed",sans-serif;font-size:1.05rem}
+.bin .cnt{font-weight:700}
+.bin.over{background:var(--surface);border-style:solid}
+.bin .deck .tc{width:26px;height:26px;border-width:1px;padding:0;cursor:default}
+/* cor */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.chip{border:1px solid var(--green);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 14px;min-height:44px;font:inherit;cursor:grab}
+.chip.sel{background:var(--accent);color:#16241c;border-color:var(--accent);font-weight:600}
+.chip.used{opacity:.35;pointer-events:none}
+.plate{background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px}
+.plate img{display:block;width:100%;height:auto;border-radius:4px}
+.himg{position:relative}
+.grid1{display:grid;gap:14px}
+.mk{position:absolute;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;border:3px solid #16241c;background:#fff;color:#16241c;font:700 16px "Fira Sans",sans-serif;cursor:pointer;padding:0;line-height:1}
+.mk.placed{background:var(--green-2);color:#fff}
+.mk.okk{background:var(--ok);color:#fff}
+.mk.nok{background:var(--bad);color:#fff}
+.mk.hot{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent)}
+.mk:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+#valves{position:absolute;inset:0;pointer-events:none;display:none}
+.vv{position:absolute;transform:translate(-50%,-50%);background:var(--accent);color:#16241c;border:2px solid #16241c;border-radius:6px;padding:1px 6px;font:600 12px "Fira Sans",sans-serif;white-space:nowrap}
+#circSvg{position:absolute;inset:4px;width:calc(100% - 8px);height:calc(100% - 8px);pointer-events:none}
+table.t{width:100%;border-collapse:collapse;font-size:.95rem}
+table.t th,table.t td{border-bottom:1px solid var(--line);padding:6px 6px;text-align:left;vertical-align:middle}
+table.t td.nm button{border:1px dashed var(--line);background:var(--bg);color:var(--ink);padding:6px 10px;min-height:40px;border-radius:8px;font:inherit;width:100%;text-align:left;cursor:pointer}
+table.t td.nm button.has{border-style:solid;border-color:var(--green-2);font-weight:600}
+table.t td.nm button.over{background:var(--surface)}
+.ox label{display:inline-flex;gap:4px;align-items:center;margin-right:10px;font-weight:400;min-height:40px}
+.rb{display:inline-flex;gap:6px;align-items:center;margin:0 12px 0 0;font-weight:400;min-height:40px}
+input[type=radio],input[type=checkbox]{width:22px;height:22px;accent-color:var(--green-2)}
+/* circulacio */
+.seq{list-style:none;padding:0;margin:8px 0;display:flex;flex-direction:column;gap:6px;counter-reset:s}
+.seq li{counter-increment:s}
+.seq button{width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:9px 12px;min-height:44px;font:inherit;cursor:pointer}
+.seq.built button{border-color:var(--green-2)}
+.seq.built li::before{content:counter(s)". ";font-weight:700;color:var(--green)}
+.seq.built li{display:flex;gap:6px;align-items:center}
+.seq.built li.good button{border-color:var(--ok);background:rgba(46,125,79,.12)}
+.seq.built li.badd button{border-color:var(--bad)}
+.seq button.taken{opacity:.35}
+/* analitica */
+.an{border:1px solid var(--line);border-radius:12px;padding:12px;margin:10px 0;background:var(--surface)}
+.an .hd{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.an .val{font-weight:700;font-size:1.15rem}
+.an.okk{border-color:var(--ok)}.an.nok{border-color:var(--bad)}
+.blank{display:inline-block;width:150px;vertical-align:baseline}
+.pulse-spot{cursor:pointer}
+.big{font-size:2.2rem;font-family:"Fira Sans Extra Condensed",sans-serif;font-weight:700;color:var(--green)}
+.timer{font-size:2.6rem;font-family:"Fira Sans Extra Condensed",sans-serif;font-weight:700}
+.copybox{width:100%;min-height:260px;font-family:ui-monospace,Consolas,monospace;font-size:.85rem}
+.sum h3{margin-top:14px;border-bottom:1px solid var(--line);padding-bottom:3px}
+.sum dl{margin:0}.sum dt{font-weight:600;margin-top:6px}.sum dd{margin:0 0 4px 0;white-space:pre-wrap}
+.sum .empty{color:var(--muted);font-style:italic}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body data-lvl="B">
+<div class="wrap">
+<a class="back" href="index.html">← Laboratoris SA2</a>
+<header class="top">
+  <div class="tag">SA2 · Sessió 3</div>
+  <h1>El Sistema Circulatori i la Sang</h1>
+  <p class="sub">Laboratori virtual · Per quina raó la sang sembla vermella si el 55% és groga?</p>
+  <div class="lvl"><span class="tag">Nivell</span>
+    <div class="seg" role="group" aria-label="Nivell de la fitxa">
+      <button type="button" data-lvl="A" aria-pressed="false">A · Repte</button>
+      <button type="button" data-lvl="B" aria-pressed="true">B · Estàndard</button>
+      <button type="button" data-lvl="C" aria-pressed="false">C · Amb suport</button>
+    </div>
+    <button type="button" class="btn sec sm" id="resetAll">Esborra el progrés</button>
+  </div>
+</header>
+<nav class="stepper" id="stepper" aria-label="Apartats de la fitxa"></nav>
+<main id="main"></main>
+</div>
+
+<script>
+"use strict";
+/* ============ Estat i desat ============ */
+var KEY="lab_s3_circulatori_v1";
+var S={lvl:"B",step:0,f:{},h:{},m:{},heart:{place:{},tries:{},rev:{},ok:null},cards:null,circ:{ord:null,seq:{sys:[],pul:[]},tries:{sys:0,pul:0}},an:{tries:0},civ:{tries:0},pulse:{},goals:{}};
+try{var raw=localStorage.getItem(KEY);if(raw){var o=JSON.parse(raw);for(var k in o)S[k]=o[k];}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+var REG=[]; // registre per al resum
+var REDUCED=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+function $(s,r){return (r||document).querySelector(s);}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function norm(t){return String(t||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9₂ ]/g,"").trim();}
+function lvc(lv){return lv==="A"?"lA":lv==="B"?"lB":lv==="C"?"lC":lv==="AB"?"lAB":lv==="BC"?"lBC":"";}
+function inLv(lv){return lv.indexOf(S.lvl)>=0;}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+/* ============ Components de pregunta oberta ============ */
+function Q(id,lv,sec,label,o){
+  o=o||{};REG.push({sec:sec,lv:lv,label:label,get:function(){return S.f[id]||"";}});
+  var hints=o.hints||[];Q.cfg=Q.cfg||{};Q.cfg[id]={hints:hints,model:o.model||""};
+  return '<div class="q '+lvc(lv)+'"><label for="'+id+'">'+label+'</label>'+
+   '<textarea id="'+id+'" data-save="f" rows="'+(o.rows||3)+'"'+(o.starter?' data-starter="'+esc(o.starter)+'"':'')+'></textarea>'+
+   ((hints.length||o.model)?'<div class="qb"><button type="button" class="btn sec sm" data-hint="'+id+'">Una pista</button><button type="button" class="btn sec sm" data-model="'+id+'">Compara amb una resposta model</button></div>':'')+
+   '<div class="fb" id="fb_'+id+'" aria-live="polite"></div></div>';
+}
+function renderFb(id){
+  var c=Q.cfg&&Q.cfg[id];if(!c)return;var el=$("#fb_"+id);if(!el)return;
+  var n=Math.min(S.h[id]||0,c.hints.length),h="";
+  for(var i=0;i<n;i++)h+='<div class="h"><b>Pista '+(i+1)+':</b> '+c.hints[i]+'</div>';
+  if(S.m[id])h+='<div class="m"><b>Resposta model:</b> '+c.model+'<br><i>Compara-la amb la teva i corregeix el que calgui amb un altre color.</i></div>';
+  el.innerHTML=h;
+}
+function NOTE(t){return '<div class="card info"><div class="cl">Abans de començar</div>'+t+'</div>';}
+
+/* ============ Dades de la fitxa ============ */
+var NAMES={1:"Vena cava superior",2:"Aorta",3:"Artèria pulmonar",4:"Venes pulmonars",5:"Aurícula dreta",6:"Aurícula esquerra",7:"Ventricle dret",8:"Ventricle esquerre",9:"Vena cava inferior"};
+var OXY={1:0,2:1,3:0,4:1,5:0,6:1,7:0,8:1,9:0};
+var BANK=["Vena cava superior","Vena cava inferior","Artèria pulmonar","Aurícula dreta","Ventricle dret","Aorta","Venes pulmonars","Aurícula esquerra","Ventricle esquerre"];
+var HHINT={
+1:["És una vena: porta la sang cap al cor. Ve de la part alta del cos (cap i braços).","Desemboca a la part de dalt de la cavitat de l'esquerra del dibuix (que és la dreta de la persona)."],
+2:["És l'artèria més gran: surt del cor i porta sang a tot el cos.","Surt del ventricle de la banda esquerra de la persona i fa un arc cap amunt."],
+3:["Surt del cor cap als pulmons. «Artèria» vol dir que SURT del cor.","Surt del ventricle de la banda dreta de la persona i es divideix en dues branques."],
+4:["Són venes: ARRIBEN al cor. Venen dels pulmons.","Desemboquen a l'aurícula de la banda esquerra de la persona, per la dreta del dibuix."],
+5:["És una cavitat de dalt (aurícula) que rep la sang desoxigenada del cos.","Rep les dues venes caves. Mira quina cavitat de dalt té vasos blaus que hi arriben."],
+6:["És una cavitat de dalt (aurícula) que rep la sang oxigenada dels pulmons.","Està a la banda esquerra de la persona (dreta del dibuix) i hi arriben les venes pulmonars."],
+7:["És una cavitat de baix (ventricle) que envia la sang als pulmons.","Està a sota de l'aurícula dreta i té la paret més fina."],
+8:["És una cavitat de baix (ventricle) que envia la sang a TOT el cos.","Té la paret més gruixuda i és el ventricle de la banda esquerra de la persona."],
+9:["És una vena: porta la sang de la part baixa del cos (cames i tronc) cap al cor.","Entra a l'aurícula dreta per sota."]
+};
+
+/* ============ Construcció de la pàgina ============ */
+var STEPS=["Idees prèvies","Targetes de la sang","Etiqueta el cor","Doble circulació","Analítica del Marc","Pols en repòs","Resum"];
+
+function heartHTML(){
+ var P={1:[26,20],2:[45,20],3:[61,30],4:[82,38.5],5:[23,53],6:[64,44],7:[41,70],8:[67,76],9:[24.5,82]};
+ var h='<div class="plate himg" id="heartBox"><img src="img/cor_seccio_mut.webp" width="570" height="740" alt="Cor humà obert en secció, vista anterior, amb els vasos i les quatre cavitats">';
+ for(var n=1;n<=9;n++)h+='<button type="button" class="mk" data-n="'+n+'" aria-label="Marcador '+n+'" style="left:'+P[n][0]+'%;top:'+P[n][1]+'%">'+n+'</button>';
+ h+='<div id="valves"><span class="vv" style="left:29%;top:66%">tricúspide</span><span class="vv" style="left:64%;top:60%">mitral</span><span class="vv" style="left:38%;top:50%">semilunar</span></div></div>';
+ return h;
+}
+function cellSVG(t){
+ if(t==="P")return '<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="3" y="3" width="34" height="34" rx="6" fill="#f0cf6a" stroke="#c8960a" stroke-width="2"/></svg>';
+ if(t==="E")return '<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="3" y="3" width="34" height="34" rx="6" fill="#c8333a" stroke="#8a1f25" stroke-width="2"/><ellipse cx="20" cy="20" rx="9" ry="9" fill="#e06a70"/></svg>';
+ return '<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="3" y="3" width="34" height="34" rx="6" fill="#f4f1fa" stroke="#8a79b8" stroke-width="2"/><path d="M11 17 q3-7 8-3 q3 3 7-2 q6 4 3 10 q-3 5-8 3 q-4 3-8-1 q-5-3-2-7z" fill="#6a4fa6"/></svg>';
+}
+function vesselsSVG(){
+ return '<svg viewBox="0 0 420 150" role="img" aria-label="Tall transversal d\'una artèria (paret gruixuda), una vena (paret més fina, amb vàlvula) i un capil·lar (una sola capa de cèl·lules)">'+
+ '<g transform="translate(70 70)"><circle r="48" fill="#a45d5d" stroke="var(--ink)" stroke-width="2"/><circle r="32" fill="#8e4a4a"/><circle r="20" fill="#d14b4b"/></g><text x="70" y="140" font-size="13" text-anchor="middle" fill="var(--ink)" font-family="Fira Sans,sans-serif">Artèria</text>'+
+ '<g transform="translate(210 70)"><circle r="42" fill="#8fa3c9" stroke="var(--ink)" stroke-width="2"/><circle r="36" fill="#3b7dc4"/><path d="M-24 16 Q0 -2 24 16" fill="none" stroke="#fff" stroke-width="4"/></g><text x="210" y="140" font-size="13" text-anchor="middle" fill="var(--ink)" font-family="Fira Sans,sans-serif">Vena (amb vàlvula)</text>'+
+ '<g transform="translate(350 70)"><circle r="14" fill="#c9a0a0" stroke="var(--ink)" stroke-width="2"/><circle r="10" fill="#d14b4b"/></g><text x="350" y="140" font-size="13" text-anchor="middle" fill="var(--ink)" font-family="Fira Sans,sans-serif">Capil·lar</text></svg>';
+}
+function circOverlay(){
+ var st='fill="none" stroke="var(--accent)" stroke-width="14" stroke-linecap="round" opacity="0"';
+ return '<img src="img/circulacio_doble.webp" width="1200" height="833" alt="Doble circulació: circuit pulmonar a dalt, cor al centre, resta del cos a baix">'+
+ '<svg id="circSvg" viewBox="0 0 1200 833" aria-hidden="true">'+
+ '<path id="sg0" d="M590 420 L592 340 Q590 300 540 288 L300 280 Q235 275 238 215 L238 190 Q240 135 300 133 L470 133" '+st+'/>'+
+ '<path id="sg1" d="M760 133 L890 133 Q955 135 955 195 L955 330 Q955 405 880 410 L690 412 L650 432" '+st+'/>'+
+ '<path id="sg2" d="M630 400 L620 360 Q625 325 680 325 L870 325 Q925 328 925 385 L925 640 Q925 735 850 740 L720 745" '+st+'/>'+
+ '<path id="sg3" d="M520 745 L350 735 Q268 730 268 650 L268 480 Q268 410 340 410 L470 410 Q520 410 545 440" '+st+'/>'+
+ '<circle id="cdot" r="16" fill="#3b7dc4" stroke="#16241c" stroke-width="4" cx="590" cy="420" opacity="0"/></svg>';
+}
+function build(){
+ REG=[];
+ var h="";
+ /* ---- Pas 0 ---- */
+ h+='<section class="step" id="st0"><h2>Idees prèvies</h2><p class="sub">Activa el que ja saps. No hi ha respostes dolentes.</p>'+
+ '<div class="card info"><div class="cl">Objectius d\'aprenentatge d\'avui</div><ul id="objs"></ul></div>'+
+ '<details class="card"><summary>Vocabulari clau d\'avui</summary><div id="vocab"></div></details>'+
+ Q("ip_transport","ABC","Idees prèvies","Escriu tot el que creus que la sang transporta pel cos"+(S.lvl==="B"?" (oxigen, nutrients, cèl·lules de defensa, deixalles…)":":"),{starter:"La sang transporta…"})+
+ '<div class="lA">'+Q("ip_esquema","A","Idees prèvies","Dibuixa la teva hipòtesi: descriu amb paraules i fletxes (→) com creus que la sang va del cor a tot el cos i torna",{rows:4})+'<p class="legend">A la fitxa fas un esquema amb fletxes. Aquí escriu-ne el recorregut. Al final el compararàs amb el model real (apartat 3).</p></div>'+
+ '<div class="card info"><div class="cl">Connexió amb la S2 (digestió)</div><p>Els nutrients absorbits a l\'intestí prim passen a la sang. Avui descobrim com la sang els transporta fins a cada cèl·lula, i per quina raó el Marc Fontana s\'acaba el combustible a mig camí tot i menjar correctament.</p></div></section>';
+
+ /* ---- Pas 1 targetes ---- */
+ h+='<section class="step" id="st1" hidden><h2>Les targetes de la sang: composició real</h2>'+
+ '<p class="sub">El sobre té 100 targetes que simulen la proporció real de la sang.</p>'+
+ '<div class="card key"><div class="cl">Hipòtesi prèvia</div><p>De cada 100 targetes, quantes creus que seran eritròcits (glòbuls vermells)? I quants leucòcits?</p>'+
+ '<div class="row"><label for="hip_e" style="margin:0">Eritròcits:</label><input id="hip_e" data-save="f" class="short" type="number" min="0" max="100" inputmode="numeric"><label for="hip_l" style="margin:0">Leucòcits:</label><input id="hip_l" data-save="f" class="short" type="number" min="0" max="100" inputmode="numeric"></div></div>'+
+ '<div class="instr">1. Treu targetes del sobre i classifica-les per color: grogues (plasma), vermelles (eritròcits) i blanques (leucòcits i plaquetes). Toca una targeta i després la caixa, o arrossega-la.</div>'+
+ '<div class="bench" id="cardBench"></div>'+
+ '<div class="instr">2. Observa el frotis de sang al microscopi i identifica cada cèl·lula.</div>'+
+ '<div class="bench"><div class="grid1"><div><div class="plate"><img src="img/frotis_sang.webp" width="1121" height="699" alt="Frotis de sang al microscopi òptic amb tres tipus de cèl·lules assenyalades"></div><p class="legend">Frotis de sang (imatge IE Temple). ① eritròcits · ② leucòcits · ③ plaquetes</p></div><div>'+
+ '<label for="fr1">① Cèl·lules bicòncaves, vermelles, sense nucli →</label><select id="fr1" data-save="f"><option value="">Tria…</option><option>eritròcits</option><option>leucòcits</option><option>plaquetes</option></select>'+
+ '<label for="fr2" style="margin-top:8px">② Cèl·lules irregulars amb nucli lobulat →</label><select id="fr2" data-save="f"><option value="">Tria…</option><option>eritròcits</option><option>leucòcits</option><option>plaquetes</option></select>'+
+ '<label for="fr3" style="margin-top:8px">③ Fragments petits, irregulars →</label><select id="fr3" data-save="f"><option value="">Tria…</option><option>eritròcits</option><option>leucòcits</option><option>plaquetes</option></select>'+
+ '<div class="qb"><button type="button" class="btn sec sm" id="frCheck">Comprova</button></div><div class="fb" id="fb_fr" aria-live="polite"></div></div></div>'+
+ '<details><summary>Glossari: paraules de la imatge</summary><p><b>Cèl·lula bicòncava:</b> cèl·lula aplanada i enfonsada pel centre per les dues cares (com un disc xafat al mig). Aquesta forma li dóna més superfície per agafar i deixar oxigen. És la forma dels eritròcits.</p><p><b>Nucli lobulat:</b> nucli dividit en diversos lòbuls (trossos units) en comptes de ser rodó. És típic de molts leucòcits, les cèl·lules de defensa.</p></details></div>'+
+ '<div class="instr">3. Contrasta les targetes amb les proporcions reals.</div>'+
+ '<div class="bench"><div class="grid2"><div id="compImg"></div><div>'+
+ '<div id="compTxt" hidden>'+
+ '<p><span class="dot" style="background:#f0cf6a;border:1px solid #c8960a"></span><b>55% Plasma:</b> aigua + nutrients + hormones + proteïnes.</p>'+
+ '<p><span class="dot" style="background:#c8333a"></span><b>44% Eritròcits:</b> transport d\'O₂ via hemoglobina. Sense nucli, vida d\'uns 120 dies.</p>'+
+ '<p><span class="dot" style="background:#9080c0"></span><b>&lt;1% Leucòcits + plaquetes:</b> defensa immunològica + coagulació.</p>'+
+ '</div><label for="prop1">Proporcions reals: 99% glòbuls vermells, i el que falta (glòbuls blancs i plaquetes) és…</label><input id="prop1" data-save="f" type="text" placeholder="menys de l\'1 %, …"></div></div></div>'+
+ Q("pk_vermella","ABC","Les targetes de la sang","Pregunta clau: per quina raó la sang sembla completament vermella si el 55% és de color groc (plasma)?",{starter:"La sang sembla vermella perquè els eritròcits tenen…",
+  hints:["Compara quantes cèl·lules vermelles hi ha en una gota amb el que has vist a les targetes.","Pensa en el color de l'hemoglobina i en si les cèl·lules deixen passar la llum.","El plasma és un líquid groc pàl·lid i transparent; els eritròcits són opacs i hi ha uns 5 milions per µL."],
+  model:"Perquè hi ha moltíssims eritròcits (uns 5 milions per µL) i cada un és vermell per l'hemoglobina. Són opacs i tapen el plasma, que és groc pàl·lid i transparent."})+
+ '</section>';
+
+ /* ---- Pas 2 cor ---- */
+ h+='<section class="step" id="st2" hidden><h2>Etiqueta el cor</h2><p class="sub">Posa cada nom del banc al seu marcador. Diagrama en secció (vista anterior).</p>'+
+ '<div class="card warn"><div class="cl">Compte amb una trampa</div><p>Al dibuix veuràs que l\'artèria pulmonar és blava i les venes pulmonars són vermelles. No és cap error. <b>Artèria</b> vol dir «vas que SURT del cor» i <b>vena</b> vol dir «vas que ARRIBA al cor»: el nom depèn del sentit del corrent, no de si la sang porta oxigen o no.</p></div>'+
+ '<div class="instr lAB">Toca un nom del banc i després el marcador del dibuix (o arrossega el nom). Cada nom s\'usa una sola vegada. Toca un marcador ple per treure\'n el nom.</div>'+
+ '<div class="instr lC">Escriu al costat de cada nom el número del marcador que li correspon. El color del dibuix et diu si la sang porta oxigen (vermell) o no (blau).</div>'+
+ '<div class="bench"><div class="chips lAB" id="bank" aria-label="Banc de paraules"></div><div id="nameList" class="lC"></div>'+
+ '<div style="max-width:440px;margin:0 auto">'+heartHTML()+'</div>'+
+ '<p class="legend">A la imatge, el costat esquerre és el costat dret de la persona (com si la miressis de cara).<br><span class="dot" style="background:#d14b4b"></span>vermell/rosat = sang oxigenada &nbsp; <span class="dot" style="background:#3b7dc4"></span>blau = sang desoxigenada</p></div>'+
+ '<div class="lAB"><table class="t"><thead><tr><th>#</th><th>Nom (banc de paraules)</th><th>Quina sang hi passa?</th></tr></thead><tbody id="heartRows"></tbody></table></div>'+
+ '<div class="qb"><button type="button" class="btn" id="heartCheck">Comprova el cor</button></div><div class="fb" id="fb_heart" aria-live="polite"></div>'+
+ '<div class="q lBC"><div class="cl">Observació</div></div>'+
+ '<div class="lAB">'+Q("ob_ventricle","AB","Etiqueta el cor","Observació: el ventricle esquerre (8) té la paret molt més gruixuda que el dret (7). Per quina raó?",{
+   hints:["Pensa fins on ha d'enviar la sang cada ventricle.","Un ventricle envia la sang als pulmons (a prop). L'altre l'envia a tot el cos, fins als peus.","Més distància vol dir que cal més força, i més força vol dir més múscul."],
+   model:"El ventricle esquerre ha d'enviar la sang a tot el cos (molt lluny) i necessita més força; per això té més múscul i la paret més gruixuda. El dret només la porta als pulmons, que són a prop."})+'</div>'+
+ '<div class="lC card"><div class="cl">Observo · Em pregunto · Connecto · Dedueixo</div>'+
+ '<p><b>Observo:</b> mira el gruix de la paret del ventricle esquerre (8) i la del dret (7). Quina és més gruixuda?</p>'+
+ '<p><b>Em pregunto:</b> per quina raó no són iguals?</p>'+
+ '<p><b>Connecto:</b> el ventricle dret només ha d\'enviar la sang als pulmons, que són aquí mateix. L\'esquerre l\'ha d\'enviar a tot el cos, fins als dits dels peus.</p>'+
+ '<p><b>Dedueixo:</b> encercla la conclusió correcta.</p>'+
+ '<label class="rb"><input type="radio" name="c_vent" value="a" data-save="r"> Com més lluny ha d\'arribar la sang, més força cal, i més múscul té la paret</label>'+
+ '<label class="rb"><input type="radio" name="c_vent" value="b" data-save="r"> El costat esquerre és més gran perquè sí</label>'+
+ '<label class="rb"><input type="radio" name="c_vent" value="c" data-save="r"> El costat esquerre guarda més sang</label>'+
+ '<div class="qb"><button type="button" class="btn sec sm" data-mc="c_vent" data-ans="a">Comprova</button></div><div class="fb" id="fb_c_vent" aria-live="polite"></div></div>'+
+ /* valvules */
+ '<div class="card"><div class="cl">Les vàlvules cardíaques</div><p>Les vàlvules són portes que només deixen passar la sang en un sentit. Quan es tanquen de cop, les làmines xoquen i fan soroll: és el «lub-dub» que se sent amb el fonendoscopi. El «lub» és el tancament de les vàlvules d\'entrada als ventricles (tricúspide i mitral) i el «dub», el de les semilunars, a la sortida.</p>'+
+ '<ul><li><b>Tricúspide:</b> entre aurícula i ventricle dret, 3 làmines.</li><li><b>Mitral (bicúspide):</b> entre aurícula i ventricle esquerre, 2 làmines.</li><li><b>Semilunars (×2):</b> a la sortida dels ventricles, eviten el reflux, 3 làmines.</li></ul>'+
+ '<div class="row"><button type="button" class="btn sec sm" id="showValves" aria-pressed="false">Mostra les vàlvules al cor</button>'+
+ '<label style="margin:0" for="hearType">Escolta:</label><select id="hearType" style="width:auto"><option value="sa">Un cor sa</option><option value="bufec">Una vàlvula que no tanca del tot</option></select>'+
+ '<button type="button" class="btn sm" id="hearBtn">Escolta el cor</button></div>'+
+ '<svg viewBox="0 0 420 60" role="img" aria-label="Línia de temps d\'un batec: lub, silenci o bufec, dub" style="margin-top:8px"><rect x="10" y="20" width="400" height="20" rx="6" fill="var(--bg)" stroke="var(--line)"/><rect id="tl_lub" x="30" y="14" width="40" height="32" rx="6" fill="var(--line)"/><text x="50" y="35" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Fira Sans,sans-serif">lub</text><rect id="tl_buf" x="85" y="22" width="150" height="16" rx="6" fill="none" stroke="var(--line)" stroke-dasharray="4 3"/><text x="160" y="52" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Fira Sans,sans-serif">entre el lub i el dub</text><rect id="tl_dub" x="250" y="14" width="40" height="32" rx="6" fill="var(--line)"/><text x="270" y="35" text-anchor="middle" font-size="13" fill="var(--ink)" font-family="Fira Sans,sans-serif">dub</text></svg>'+
+ '<div class="lAB">'+Q("ob_bufec","AB","Etiqueta el cor","Un cor sa fa «lub-dub». Si una vàlvula no tanca del tot i deixa passar una mica de sang cap enrere, el metge hi sent un bufec. Per quina raó el bufec se sent entre el «lub» i el «dub», i no en el moment del «lub»?",{
+   hints:["Escolta la versió amb bufec i mira on cau el soroll a la línia de temps.","Què fa el ventricle just després del «lub»? Pensa en quan empeny la sang.","El «lub» és quan les vàlvules d'entrada es tanquen. Després, el ventricle es contreu (empeny). Si una vàlvula no tanca bé, què passa durant aquest moment?"],
+   model:"El «lub» passa quan es tanquen les vàlvules d'entrada. Just després, el ventricle es contreu i empeny la sang. Si la vàlvula no tanca del tot, una mica de sang s'escapa cap enrere durant aquesta contracció, és a dir, entre el «lub» i el «dub»."})+'</div>'+
+ '<div class="lC"><p>El so del cor es produeix quan les vàlvules es tanquen. Encercla la resposta que ho explica millor:</p>'+
+ '<label class="rb"><input type="radio" name="c_bufec" value="a" data-save="r"> Perquè en tancar-se les làmines xoquen entre elles</label><label class="rb"><input type="radio" name="c_bufec" value="b" data-save="r"> Perquè la sang és molt sorollosa</label><label class="rb"><input type="radio" name="c_bufec" value="c" data-save="r"> Perquè el cor crida</label>'+
+ '<div class="qb"><button type="button" class="btn sec sm" data-mc="c_bufec" data-ans="a">Comprova</button></div><div class="fb" id="fb_c_bufec" aria-live="polite"></div></div></div>'+
+ /* CIV */
+ '<div class="card warn"><div class="cl">Cas clínic: Comunicació Interventricular (CIV)</div><p>El <b>septe (envà) interventricular</b> és la paret que separa els dos ventricles. El ventricle esquerre empeny amb molta més força que el dret. Per això, si aquesta paret té un forat (CIV), part de la sang ja oxigenada passa de l\'esquerre al dret i torna als pulmons una segona vegada, sense haver arribat al cos. El cor dret i els pulmons han de moure molta més sang de la que els tocaria.</p>'+
+ '<p><b>Quins símptomes esperes?</b> Marca\'ls'+(S.lvl==="C"?" a partir del text de dalt":" i, a sota, justifica\'n un")+'.</p>'+
+ '<label class="rb"><input type="checkbox" id="civ1" data-save="c"> Es cansa de seguida quan fa esforç</label><br>'+
+ '<label class="rb"><input type="checkbox" id="civ2" data-save="c"> El costat dret del cor s\'engrandeix</label><br>'+
+ '<label class="rb"><input type="checkbox" id="civ3" data-save="c"> Febre alta</label><br>'+
+ '<label class="rb"><input type="checkbox" id="civ4" data-save="c"> Cap símptoma, si el forat és molt petit</label>'+
+ '<div class="qb"><button type="button" class="btn sec sm" id="civCheck">Comprova</button></div><div class="fb" id="fb_civ" aria-live="polite"></div>'+
+ '<div class="lAB">'+Q("civ_just","AB","Etiqueta el cor","Justifica un dels símptomes que has marcat",{
+   hints:["Tria només un símptoma i explica'n la causa, no el repeteixis.","Pensa en quanta sang ha de moure el cor dret i en quanta O₂ arriba realment al cos."],
+   model:"Per exemple: es cansa de seguida perquè part de la sang ja oxigenada torna als pulmons en comptes d'anar al cos, i els músculs reben menys oxigen. O: el cor dret s'engrandeix perquè ha de moure més sang de la normal."})+'</div></div>'+
+ '<p class="legend">Quan hagis acabat d\'etiquetar el cor pel teu compte, a la fitxa demanes la clau d\'autocorrecció al professor. Aquí el botó «Comprova el cor» fa aquest paper, amb pistes per anar fent.</p></section>';
+
+ /* ---- Pas 3 doble circulació ---- */
+ h+='<section class="step" id="st3" hidden><h2>La doble circulació: per quina raó en calen dues?</h2>'+
+ '<p>La sang passa dos cops pel cor a cada volta. El <b>circuit pulmonar</b> (cor ↔ pulmons): la sang agafa O₂. El <b>circuit sistèmic</b> (cor ↔ resta del cos): la sang lliura O₂.</p>'+
+ '<div class="instr">Ordena el recorregut de cada circuit: toca els passos en l\'ordre correcte. Toca un pas de la teva llista per treure\'l.</div>'+
+ '<div class="grid2"><div class="bench"><h3 style="color:var(--blood)">Circulació gran (sistèmica)</h3><div id="seqSys"></div></div><div class="bench"><h3 style="color:var(--vein)">Circulació petita (pulmonar)</h3><div id="seqPul"></div></div></div>'+
+ '<div class="instr">Mira el recorregut animat.</div>'+
+ '<div class="bench" id="circBox"><p id="circLock" class="legend">Ordena bé els dos recorreguts (a dalt) i comprova-los. Llavors veuràs l\'esquema real i l\'animació.</p><div id="circShow" hidden><div class="plate himg" style="max-width:640px;margin:0 auto">'+circOverlay()+'</div><p id="circCap" aria-live="polite"><b>Prem «Pas següent» per seguir la sang.</b></p><div class="row"><button type="button" class="btn sm" id="circStep">Pas següent</button><button type="button" class="btn sec sm" id="circPlay">Reprodueix</button></div></div></div>'+
+ '<div class="lBC">'+Q("dc_reflex","BC","La doble circulació","Reflexiona: per quina raó calen dues circulacions separades i no una de sola?"+(S.lvl==="B"?" Pista: pensa en la pressió necessària per arribar als peus vs. la que aguanten els delicats alvèols pulmonars.":""),{rows:4,starter:"Crec que calen dues circulacions perquè…",
+   hints:["Quina pressió cal per arribar fins als peus? I quina aguanten els alvèols dels pulmons?","Si la sang passés per tot el cos a pressió alta, també passaria pels pulmons…","El cor dret empeny a pressió baixa (pulmons) i l'esquerre a pressió alta (cos)."],
+   model:"Per arribar a tot el cos cal molta pressió, però els alvèols dels pulmons són molt fins i delicats i no l'aguantarien. Per això hi ha dues circulacions: el cor dret empeny a pressió baixa cap als pulmons i l'esquerre a pressió alta cap al cos."})+'</div>'+
+ '<div class="lA">'+Q("dc_reflexA","A","La doble circulació","Per quina raó calen dues circulacions separades i no una de sola? Justifica-ho amb el gruix de les parets del cor i amb la fragilitat dels alvèols, i digues quin dels dos circuits fallaria primer si el cor només en tingués un.",{rows:5,
+   hints:["Relaciona el gruix del ventricle esquerre i el del dret amb la pressió de cada circuit.","Quin dels dos circuits té les parets més delicades?"],
+   model:"El ventricle esquerre és molt gruixut perquè fa pressió alta per arribar a tot el cos; el dret és fi i fa pressió baixa. Si només hi hagués un circuit, la pressió alta arribaria als alvèols, que són molt fins. Fallaria primer el circuit pulmonar: els alvèols es malmetrien i s'hi acumularia líquid."})+'</div>'+
+ '<div class="card info"><div class="cl">Reflexió científica: William Harvey (1628)</div><p>Harvey va calcular que el cor bombeja tant de volum per hora que és impossible que el fetge el produís contínuament (com creia Galè). Va demostrar la circulació tancada amb càlcul <b>abans</b> que existís el microscopi. <b>Lliçó:</b> la raó pot precedir l\'observació directa.</p></div>'+
+ '<div class="card"><div class="cl">Els tres tipus de vasos: artèria · vena · capil·lar</div>'+
+ '<p>Les artèries surten del cor i han d\'aguantar la sang que hi arriba de cop: tenen la paret gruixuda i elàstica. Les venes tornen al cor amb poca pressió i porten vàlvules perquè la sang no caigui cap avall. Els capil·lars tenen la paret d\'una sola capa de cèl·lules: és allà on l\'O₂ i els nutrients passen a les cèl·lules.</p>'+vesselsSVG()+
+ Q("dc_vasos","ABC","La doble circulació","Fixa\'t en la imatge: quin dels tres vasos té la paret més gruixuda, i quina relació té això amb la pressió que hi ha a dins?",{
+   hints:["Compara el gruix de les parets dels tres dibuixos.","Quin vas rep la sang quan el cor l'expulsa de cop?"],
+   model:"L'artèria té la paret més gruixuda i elàstica perquè aguanta la pressió alta de la sang que surt del cor de cop. Les venes i els capil·lars tenen pressió baixa i parets més fines."})+
+ '<div class="lA">'+Q("dc_varius","A","La doble circulació","Prediu: una cambrera passa vuit hores dreta cada dia i, amb els anys, se li inflen les venes de les cames (varius). Quina peça de les venes creus que ha deixat de fer bé la seva feina, i per quina raó el problema apareix a les cames i no als braços?",{rows:4,
+   hints:["Quina peça de les venes impedeix que la sang caigui cap avall?","Quina part del cos té la sang que pujar contra la gravetat?"],
+   model:"Han deixat de funcionar bé les vàlvules de les venes: la sang es queda enrere i infla la vena. Passa a les cames perquè la sang ha de pujar contra la gravetat cap al cor, sobretot si estàs dret moltes hores."})+'</div></div></section>';
+
+ /* ---- Pas 4 analítica ---- */
+ h+='<section class="step" id="st4" hidden><h2>Desxifra l\'analítica del Marc</h2><p class="sub">Marc Fontana, 28 anys, corredor. Analítica de sang (fictícia però realista).</p>'+
+ '<div class="card info lC"><div class="cl">Per llegir</div><p>El «rang de referència» és el marge de valors normals en una persona sana. Si el valor del Marc és més baix que el rang, marca «Baix». Si hi cau dins, marca «Correcte». La fila de l\'hemoglobina ja està feta com a exemple.</p></div>'+
+ '<div id="anRows"></div><div class="qb"><button type="button" class="btn" id="anCheck">Comprova la taula</button></div><div class="fb" id="fb_an" aria-live="polite"></div>'+
+ '<div class="card key"><div class="cl lAB">Completa el diagnòstic</div>'+
+ '<div class="lBC"><p class="lC"><b>Paraules per omplir els buits:</b> ferro · hemoglobina · oxigen (O₂)</p>'+
+ '<p>La peça que falla és <input id="dg1" data-save="f" type="text" class="blank" aria-label="La peça que falla"> perquè el ferro baix provoca que la <input id="dg2" data-save="f" type="text" class="blank" aria-label="què baixa"> baixi, i per tant els músculs reben menys <input id="dg3" data-save="f" type="text" class="blank" aria-label="què reben menys"> → fatiga precoç.</p>'+
+ '<div class="qb"><button type="button" class="btn sec sm" id="dgCheck">Comprova</button></div><div class="fb" id="fb_dg" aria-live="polite"></div>'+
+ '<p><b>Diagnòstic:</b> anèmia ferropènica. <b>Tractament:</b> suplements de ferro + vitamina C (millora l\'absorció intestinal del ferro).</p></div>'+
+ '<div class="lA">'+Q("dgA1","A","Desxifra l'analítica del Marc","Escriu el diagnòstic complet. Construeix tota la cadena causal amb aquests termes, en ordre: ferro → hemoglobina → eritròcits → transport d'O₂ → mitocondri → fatiga.",{rows:5,
+   hints:["Comença pel ferro: de què és un component?","Cada pas ha de ser conseqüència de l'anterior (fes servir «per tant», «perquè»).","Acaba amb el mitocondri: què li falta per fer energia?"],
+   model:"Al Marc li falta ferro, i el ferro és necessari per fer hemoglobina; per això en té poca. Amb menys hemoglobina, els eritròcits transporten menys O₂. Als músculs arriba menys oxigen als mitocondris, que en necessiten per produir energia, i per tant es cansa abans (fatiga). Diagnòstic: anèmia ferropènica."})+
+ Q("dgA2","A","Desxifra l'analítica del Marc","Prediu i posa a prova: el metge li recepta ferro amb vitamina C i el torna a analitzar al cap de dos mesos. Si el teu diagnòstic és correcte, quins dos valors de la taula esperes que hagin canviat, i en quin sentit?",{
+   hints:["Pensa en els valors de la taula directament lligats al ferro i a l'hemoglobina."],model:"Hauria de pujar el ferro sèric i la hemoglobina (també poden pujar els eritròcits i el VCM cap als rangs normals)."})+
+ Q("dgA3","A","Desxifra l'analítica del Marc","I quin resultat et faria pensar que el problema del Marc no era (només) el ferro?",{
+   hints:["Què passaria si, amb més ferro, la hemoglobina continués igual de baixa?"],model:"Si després del tractament el ferro pujava però l'hemoglobina continuava baixa, la causa podria ser una altra (per exemple, falta de vitamina B12 o una altra malaltia)."})+'</div></div>'+
+ '<div class="lA card"><div class="cl">Ampliació: fes parlar els números</div>'+
+ '<p><b>A1 · Refés el càlcul de Harvey (1628).</b> El ventricle esquerre expulsa uns 70 mL a cada batec i hi ha unes 70 pulsacions per minut.</p>'+
+ '<div class="row"><label for="hv1" style="margin:0">En 1 minut (mL):</label><input id="hv1" data-save="f" class="short" type="number" inputmode="decimal"><label for="hv2" style="margin:0">En 1 hora (L):</label><input id="hv2" data-save="f" class="short" type="number" inputmode="decimal"><label for="hv3" style="margin:0">Vegades el pes de 70 kg:</label><input id="hv3" data-save="f" class="short" type="number" inputmode="decimal" step="0.1"></div>'+
+ '<div class="qb"><button type="button" class="btn sec sm" id="hvCheck">Comprova</button></div><div class="fb" id="fb_hv" aria-live="polite"></div>'+
+ Q("hv_frase","A","Ampliació","Un cos humà conté uns 5 L de sang. Escriu l'argument de Harvey en una sola frase: per quina raó aquests números fan impossible que el fetge fabriqui sang nova contínuament?",{hints:["Compara els litres que passen pel cor en una hora amb els 5 L que té el cos."],model:"El cor mou unes 294 litres per hora, moltíssim més que els 5 L del cos i que el pes d'una persona; el fetge no podria fabricar tanta sang nova, per tant la mateixa sang ha de circular en circuit tancat."})+
+ Q("a2","A","Ampliació","A2 · L'hematòcrit és el percentatge del volum de sang ocupat per eritròcits (normal en un home adult: 40–50 %). Per quina raó un hematòcrit del 65 % és perillós i no un avantatge? Dóna dues raons (una fisiològica i una altra ètica) per les quals el Marc no s'hauria d'injectar EPO.",{rows:4,
+   hints:["Pensa en què li passa a un líquid quan hi poses moltes partícules sòlides, i en la feina que ha de fer el cor per moure'l."],model:"Amb tants eritròcits la sang és més espessa (viscosa): el cor ha de fer més força i hi ha risc de coàguls. Raó fisiològica: sobrecarrega el cor i pot provocar trombosi. Raó ètica: és dopatge, fa trampa i posa en risc la salut."})+
+ Q("a3","A","Ampliació","A3 · La glucosa que el Marc va absorbir a l'intestí arriba al múscul per la mateixa via. Per quina raó, si li sobra glucosa però li falta oxigen, el múscul igualment es queda sense energia?",{
+   hints:["Quin és el paper de l'oxigen als mitocondris quan «es crema» la glucosa?"],model:"Perquè els mitocondris necessiten oxigen per obtenir molta energia de la glucosa (respiració cel·lular). Sense O₂ la glucosa no es pot aprofitar bé."})+'</div>'+
+ '<div class="card"><div class="cl">Torna als objectius del principi: marca el que has après avui</div><div id="goals"></div>'+
+ '<div class="row" style="margin-top:8px"><label for="encara" style="margin:0">Encara em pregunto…</label></div><textarea id="encara" data-save="f" rows="2"></textarea></div>'+
+ '</section>';
+
+ /* ---- Pas 5 pols ---- */
+ h+='<section class="step" id="st5" hidden><h2>Tasca per a casa: el pols en repòs</h2>'+
+ '<p class="sub">Mesura el teu pols en repòs. Posa els dits índex i mig al coll o al canell, compta les pulsacions durant 30 segons i multiplica per 2.</p>'+
+ '<div class="instr">1. Tria on busques el pols. Posa-hi l\'índex i el mig, mai el polze (el polze té el seu propi pols). Al coll, no prem fort i només d\'un costat.</div>'+
+ '<div class="bench"><div class="row"><div class="seg" role="group" aria-label="On busques el pols"><button type="button" data-site="canell" aria-pressed="true">Canell</button><button type="button" data-site="coll" aria-pressed="false">Coll</button></div></div>'+
+ '<div style="max-width:420px;margin:8px auto"><svg viewBox="0 0 420 220" role="img" aria-label="Avantbraç i coll amb el punt on es nota el pols">'+
+  '<g id="siteCanell"><path d="M20 130 Q120 90 250 110 L330 100 Q390 110 395 140 Q390 170 330 170 L250 160 Q120 170 20 150 Z" fill="#e8bd9a" stroke="var(--ink)" stroke-width="2"/><text x="60" y="205" font-size="13" fill="var(--muted)" font-family="Fira Sans,sans-serif">Canell, per sota del polze (artèria radial)</text></g>'+
+  '<g id="siteColl" style="display:none"><path d="M150 20 Q210 0 270 20 L290 210 L130 210 Z" fill="#e8bd9a" stroke="var(--ink)" stroke-width="2"/><text x="60" y="215" font-size="13" fill="var(--muted)" font-family="Fira Sans,sans-serif">Coll, al costat de la nou (artèria caròtida)</text></g>'+
+  '<g id="spotWrap"><circle id="spotRing" cx="250" cy="135" r="12" fill="none" stroke="var(--blood)" stroke-width="3" opacity="0"/><circle id="spot" class="pulse-spot" cx="250" cy="135" r="20" fill="rgba(200,51,58,.12)" stroke="var(--blood)" stroke-dasharray="4 3" tabindex="0" role="button" aria-label="Punt del pols: posa-hi els dits"/></g></svg></div>'+
+ '<p id="spotMsg" class="legend" aria-live="polite">Toca el cercle de línia discontínua per posar-hi els dits.</p></div>'+
+ '<div class="instr">2. Quan notis el pols, prem «Un batec» cada cop que el notis. Tens 30 segons.</div>'+
+ '<div class="bench"><div class="row"><div><div class="tag">Temps</div><div class="timer" id="pTime" aria-live="off">30</div></div><div><div class="tag">Batecs comptats</div><div class="timer" id="pCount">0</div></div></div>'+
+ '<div class="row" style="margin-top:8px"><button type="button" class="btn" id="pStart" disabled>Comença a comptar (30 s)</button><button type="button" class="btn sec" id="pBeat" disabled>Un batec</button><label class="rb" style="margin:0"><input type="checkbox" id="pSound" data-save="c"> So de cada batec</label></div></div>'+
+ '<div class="instr">3. Calcula els batecs per minut (ppm).</div>'+
+ '<div class="bench"><div class="row"><label for="pCnt" style="margin:0">Batecs en 30 s:</label><input id="pCnt" data-save="f" class="short" type="number" min="0" inputmode="numeric"><span>× 2 =</span><input id="pPpm" data-save="f" class="short" type="number" min="0" inputmode="numeric" aria-label="ppm"><span>ppm</span></div>'+
+ '<div class="row" style="margin-top:8px"><label for="pHora" style="margin:0">Hora de la mesura:</label><input id="pHora" data-save="f" type="time" style="width:auto"></div>'+
+ '<div class="qb"><button type="button" class="btn sec sm" id="pCheck">Comprova</button></div><div class="fb" id="fb_pulse" aria-live="polite"></div></div>'+
+ '<p class="legend">Dada per portar a la S4. Un pols de repòs habitual en una persona jove és d\'uns 60–100 ppm. Al teu cos real el mesuraràs de veritat.</p></section>';
+
+ /* ---- Pas 6 resum ---- */
+ h+='<section class="step" id="st6" hidden><h2>Copia-ho a la teva fitxa</h2><p class="sub">Aquest resum agrupa les teves dades i respostes per apartat, amb els mateixos títols que la fitxa.</p>'+
+ '<div class="qb"><button type="button" class="btn" id="copyBtn">Copia el resum</button><span id="copyMsg" aria-live="polite"></span></div>'+
+ '<div class="card sum" id="sumView"></div>'+
+ '<details><summary>Text per copiar (si el botó no funciona, selecciona i copia)</summary><textarea id="copyBox" class="copybox" readonly></textarea></details></section>';
+
+ h+='<div class="nav"><button type="button" class="btn sec" id="prevBtn">← Anterior</button><button type="button" class="btn" id="nextBtn">Següent →</button></div>';
+ $("#main").innerHTML=h;
+}
+
+/* ============ Objectius / vocabulari per nivell ============ */
+var OBJ={
+A:["Relaciono la composició de la sang amb la seva funció i justifico per quina raó cada component és necessari.","Construeixo el camí complet ferro → hemoglobina → eritròcit → O₂ → mitocondri muscular i el faig servir per explicar la fatiga.","Argumento per quina raó la circulació doble (4 cavitats, dues pressions) és més eficient que una de simple.","Interpreto autònomament una analítica de sang, formulo el diagnòstic i proposo com el comprovaria."],
+B:["Sé la composició de la sang (plasma, eritròcits, leucòcits i plaquetes) i les seves proporcions aproximades.","Puc explicar com l'hemoglobina i el ferro transporten l'oxigen fins als músculs.","Sé situar les cavitats del cor i entenc per quina raó la circulació humana és doble (per què calen 4 cavitats).","Començo a interpretar una analítica de sang real i relaciono l'anèmia ferropènica amb la fatiga del corredor."],
+C:["Sé que la sang té plasma (groc) i cèl·lules: eritròcits, leucòcits i plaquetes.","Sé que els eritròcits porten hemoglobina i que l'hemoglobina necessita ferro per agafar l'oxigen.","Sé anomenar les 4 cavitats del cor (2 aurícules i 2 ventricles).","Entenc que hi ha dues circulacions: la gran (cap al cos) i la petita (cap als pulmons).","Sé que si falta ferro, hi ha menys oxigen als músculs i ve la fatiga (anèmia del Marc)."]};
+var VOC={
+A:["hemoglobina = proteïna amb ferro que fixa l'O₂","anèmia ferropènica = manca de ferro → menys hemoglobina","hipòxia = aport insuficient d'O₂ als teixits"],
+B:["plasma = part líquida groga de la sang","eritròcit = glòbul vermell, transporta oxigen","leucòcit = glòbul blanc, defensa del cos","plaqueta = ajuda a tapar ferides (coagulació)","hemoglobina = proteïna amb ferro que agafa l'O₂","hematòcrit = proporció de glòbuls vermells a la sang","anèmia = poca hemoglobina o pocs eritròcits","circulació sistèmica = la que va a tot el cos","circulació pulmonar = la que va als pulmons"],
+C:["sang = líquid que transporta tot pel cos","plasma = part líquida groga","eritròcit = glòbul vermell","hemoglobina = proteïna que agafa l'O₂","ferro = mineral que necessita l'hemoglobina","leucòcit = glòbul blanc, defensa","plaqueta = tapa les ferides","anèmia = falta de ferro / hemoglobina"]};
+
+function renderLevelParts(){
+ $("#objs").innerHTML=OBJ[S.lvl].map(function(t){return "<li>"+esc(t)+"</li>";}).join("");
+ $("#vocab").innerHTML="<ul>"+VOC[S.lvl].map(function(t){return "<li>"+esc(t)+"</li>";}).join("")+"</ul>";
+ $("#goals").innerHTML=OBJ[S.lvl].map(function(t,i){var id="goal_"+S.lvl+i;return '<label class="rb" style="align-items:flex-start"><input type="checkbox" id="'+id+'" data-save="c"> <span>'+esc(t)+'</span></label><br>';}).join("");
+ $$("textarea[data-starter]").forEach(function(t){t.placeholder=S.lvl==="C"?t.getAttribute("data-starter"):"";});
+ restoreInputs();
+}
+
+/* ============ Persistència d'inputs ============ */
+function restoreInputs(){
+ $$("[data-save]").forEach(function(el){
+  var t=el.getAttribute("data-save");
+  if(t==="f"&&S.f[el.id]!=null)el.value=S.f[el.id];
+  else if(t==="c")el.checked=!!S.goals[el.id];
+  else if(t==="r")el.checked=(S.f["r_"+el.name]===el.value);
+ });
+}
+document.addEventListener("input",function(e){
+ var el=e.target,t=el.getAttribute&&el.getAttribute("data-save");if(!t)return;
+ if(t==="f")S.f[el.id]=el.value;
+ else if(t==="c")S.goals[el.id]=el.checked;
+ else if(t==="r"&&el.checked)S.f["r_"+el.name]=el.value;
+ save();
+ if(el.id==="pCnt"){var v=parseInt(el.value,10);if(!isNaN(v)){S.f.pPpm=String(v*2);$("#pPpm").value=S.f.pPpm;save();}}
+});
+
+/* ============ Navegació ============ */
+function renderStepper(){
+ $("#stepper").innerHTML=STEPS.map(function(n,i){return '<button type="button" data-step="'+i+'"'+(i===S.step?' aria-current="step"':'')+'><span class="n">'+(i<6?i:"")+'</span>'+(i<6?"":"")+n+'</button>';}).join("");
+}
+function goStep(i){
+ S.step=Math.max(0,Math.min(6,i));
+ $$(".step").forEach(function(s,k){s.hidden=(k!==S.step);});
+ renderStepper();
+ $("#prevBtn").style.visibility=S.step===0?"hidden":"visible";
+ $("#nextBtn").style.visibility=S.step===6?"hidden":"visible";
+ if(S.step===6)renderSummary();
+ window.scrollTo(0,0);save();
+}
+function setLevel(l){
+ S.lvl=l;document.body.setAttribute("data-lvl",l);
+ $$(".seg button[data-lvl]").forEach(function(b){b.setAttribute("aria-pressed",String(b.getAttribute("data-lvl")===l));});
+ save();build();init();goStep(S.step);
+}
+
+/* ============ Targetes ============ */
+function initCards(){
+ if(!S.cards||!S.cards.deck||S.cards.deck.length!==100||!S.cards.bins||!S.cards.bins.P){
+  var d=[],i;for(i=0;i<55;i++)d.push("P");for(i=0;i<44;i++)d.push("E");d.push("L");
+  S.cards={deck:shuffle(d),drawn:0,hand:[],bins:{P:[],E:[],L:[]},sel:null,msg:""};
+ }
+}
+function renderCards(){
+ var c=S.cards,el=$("#cardBench");if(!el)return;
+ var left=100-c.drawn;
+ var h='<div class="row"><button type="button" class="btn sm" id="drawBtn"'+((c.hand.length>0||left===0)?' disabled':'')+'>Treu '+Math.min(25,left)+' targetes del sobre</button><span class="legend">Al sobre queden '+left+' targetes. Mà actual: '+c.hand.length+'.</span></div>';
+ h+='<div class="deck" id="hand" style="margin-top:8px;min-height:60px" aria-label="Targetes a la mà">';
+ c.hand.forEach(function(id){h+='<button type="button" class="tc'+(c.sel===id?' sel':'')+'" draggable="true" data-id="'+id+'" aria-label="Targeta '+(id+1)+'">'+cellSVG(c.deck[id])+'</button>';});
+ h+='</div>';
+ if(c.hand.length)h+='<div class="qb"><button type="button" class="btn sec sm" id="selSame"'+(c.sel==null?' disabled':'')+'>Selecciona les targetes iguals que la marcada</button></div>';
+ var BN=[["P","Plasma (targetes grogues)"],["E","Eritròcits (targetes vermelles)"],["L","Leucòcits + plaquetes (targetes blanques)"]];
+ h+='<div class="bins">'+BN.map(function(b){return '<div class="bin" data-bin="'+b[0]+'" tabindex="0" role="button" aria-label="Caixa: '+b[1]+'"><h4>'+b[1]+': <span class="cnt">'+c.bins[b[0]].length+'</span></h4><div class="deck">'+c.bins[b[0]].map(function(){return '<span class="tc">'+cellSVG(b[0])+'</span>';}).join("")+'</div></div>';}).join("")+'</div>';
+ h+='<div class="fb" aria-live="polite">'+(c.msg||"")+'</div>';
+ var tot=c.bins.P.length+c.bins.E.length+c.bins.L.length;
+ if(tot===100)h+='<div class="m fbbox" style="margin-top:8px"><b>Sobre acabat.</b> Has classificat: <b>'+c.bins.P.length+'</b> de plasma, <b>'+c.bins.E.length+'</b> d\'eritròcits i <b>'+c.bins.L.length+'</b> de leucòcits + plaquetes, de 100. Són les capes del tub centrifugat: 55 % plasma (groc, a dalt), 44 % eritròcits (vermell, a baix) i una línia fina blanca al mig, d\'aproximadament l\'1 % (leucòcits + plaquetes). Cada targeta representa un 1 % del volum de la sang.</div>';
+ el.innerHTML=h;
+ var done=(tot===100&&c.bins.P.length===55&&c.bins.E.length===44&&c.bins.L.length===1);
+ var ci=$("#compImg"),ct=$("#compTxt");
+ if(ci){ci.innerHTML=done?'<div class="plate"><img src="img/composicio_sang.webp" width="953" height="927" alt="Composició de la sang en volum: tub centrifugat amb 55 % de plasma i 45 % de cèl·lules, de les quals més del 99 % són glòbuls vermells"></div><p class="legend">Sang centrifugada, en volum. Compara-la amb les teves caixes: 55 grogues, 44 vermelles i 1 blanca.</p>':'<p class="legend">Classifica les 100 targetes i comprova el recompte 55 / 44 / 1. Llavors veuràs la imatge de la sang centrifugada.</p>';}
+ if(ct)ct.hidden=!done;
+}
+function moveCard(id,bin){
+ var c=S.cards;if(c.hand.indexOf(id)<0)return;
+ var t=c.deck[id];
+ if(t!==bin){c.msg='<span class="warnc">Aquesta targeta no va aquí. Mira el color: groc = plasma, vermell = eritròcits, blanca = leucòcits i plaquetes.</span>';c.sel=id;renderCards();var b=$('.tc[data-id="'+id+'"]');if(b&&!REDUCED)b.classList.add("shake");save();return;}
+ c.hand.splice(c.hand.indexOf(id),1);c.bins[bin].push(id);c.sel=null;c.msg="";
+ 
+ renderCards();save();
+}
+function cardEvents(){
+ var el=$("#cardBench");if(!el)return;
+ el.addEventListener("click",function(e){
+  var c=S.cards,t=e.target.closest("button,.bin");if(!t)return;
+  if(t.id==="drawBtn"){var n=Math.min(25,100-c.drawn);for(var i=0;i<n;i++)c.hand.push(c.drawn+i);c.drawn+=n;c.sel=null;c.msg="";renderCards();save();return;}
+  if(t.id==="selSame"){return;}
+  if(t.classList.contains("tc")&&t.hasAttribute("data-id")){var id=+t.getAttribute("data-id");c.sel=(c.sel===id)?null:id;c.msg="";renderCards();return;}
+  if(t.classList.contains("bin")&&c.sel!=null){moveCard(c.sel,t.getAttribute("data-bin"));}
+ });
+ el.addEventListener("keydown",function(e){var t=e.target;if((e.key==="Enter"||e.key===" ")&&t.classList&&t.classList.contains("bin")){e.preventDefault();var c=S.cards;if(c.sel!=null)moveCard(c.sel,t.getAttribute("data-bin"));}});
+ el.addEventListener("dragstart",function(e){var t=e.target.closest(".tc[data-id]");if(t){e.dataTransfer.setData("text/plain",t.getAttribute("data-id"));}});
+ el.addEventListener("dragover",function(e){var b=e.target.closest(".bin");if(b){e.preventDefault();b.classList.add("over");}});
+ el.addEventListener("dragleave",function(e){var b=e.target.closest(".bin");if(b)b.classList.remove("over");});
+ el.addEventListener("drop",function(e){var b=e.target.closest(".bin");if(b){e.preventDefault();b.classList.remove("over");var id=parseInt(e.dataTransfer.getData("text/plain"),10);if(!isNaN(id))moveCard(id,b.getAttribute("data-bin"));}});
+}
+
+/* ============ Cor ============ */
+var selChip=null;
+function placedOf(name){for(var n in S.heart.place)if(S.heart.place[n]===name)return +n;return 0;}
+function placeName(n,name){
+ var H=S.heart;
+ var old=placedOf(name);if(old)delete H.place[old];
+ H.place[n]=name;selChip=null;H.ok=null;renderHeart();save();
+}
+function renderHeart(){
+ var H=S.heart;
+ var bank=$("#bank");
+ if(bank)bank.innerHTML=BANK.map(function(nm){var used=placedOf(nm)>0;return '<button type="button" class="chip'+(selChip===nm?' sel':'')+(used?' used':'')+'" draggable="true" data-name="'+esc(nm)+'">'+esc(nm)+'</button>';}).join("");
+ // llista C
+ var nl=$("#nameList");
+ if(nl){nl.innerHTML='<table class="t"><thead><tr><th>Nom de l\'estructura</th><th>Quin número és?</th></tr></thead><tbody>'+BANK.map(function(nm,i){var cur=placedOf(nm);return '<tr><td><label for="nl'+i+'" style="margin:0">'+esc(nm)+'</label></td><td><select id="nl'+i+'" data-nm="'+esc(nm)+'" style="width:90px"><option value="">—</option>'+[1,2,3,4,5,6,7,8,9].map(function(k){return '<option value="'+k+'"'+(cur===k?' selected':'')+'>'+k+'</option>';}).join("")+'</select></td></tr>';}).join("")+'</tbody></table>';}
+ // taula
+ var tb=$("#heartRows");
+ if(tb)tb.innerHTML=[1,2,3,4,5,6,7,8,9].map(function(n){var nm=H.place[n];var oxv=S.f["ox"+n]||"";var r=H.res&&H.res[n];
+  return '<tr data-n="'+n+'"><td><b>'+n+'</b></td><td class="nm"><button type="button" class="'+(nm?"has":"")+'" data-row="'+n+'">'+(nm?esc(nm):"Toca o arrossega aquí")+'</button></td><td class="ox"><label><input type="radio" name="ox'+n+'" value="o" data-save="r"'+(oxv==="o"?" checked":"")+'> oxigenada</label><label><input type="radio" name="ox'+n+'" value="d" data-save="r"'+(oxv==="d"?" checked":"")+'> desoxigenada</label></td></tr>';}).join("");
+ // marcadors
+ $$("#heartBox .mk").forEach(function(g){var n=+g.getAttribute("data-n");g.setAttribute("class","mk"+(H.place[n]?" placed":"")+(selChip?" hot":"")+(H.res&&H.res[n]==="ok"?" okk":"")+(H.res&&H.res[n]==="bad"?" nok":""));g.setAttribute("aria-label","Marcador "+n+(H.place[n]?": "+H.place[n]:": buit"));});
+ // restaura radios de la taula amb la clau antiga
+ $$("#heartRows input[type=radio]").forEach(function(r){r.checked=(S.f["r_"+r.name]===r.value);});
+}
+function heartEvents(){
+ var st=$("#st2");
+ st.addEventListener("click",function(e){
+  var chip=e.target.closest(".chip");
+  if(chip){var nm=chip.getAttribute("data-name");selChip=(selChip===nm)?null:nm;renderHeart();return;}
+  var mk=e.target.closest(".mk");
+  if(mk){var n=+mk.getAttribute("data-n");heartTarget(n);return;}
+  var row=e.target.closest("button[data-row]");
+  if(row){heartTarget(+row.getAttribute("data-row"));return;}
+ });
+ st.addEventListener("keydown",function(e){var mk=e.target.closest&&e.target.closest(".mk");if(mk&&(e.key==="Enter"||e.key===" ")){e.preventDefault();heartTarget(+mk.getAttribute("data-n"));}});
+ st.addEventListener("change",function(e){var s=e.target;if(s.id&&s.id.indexOf("nl")===0&&s.hasAttribute("data-nm")){var nm=s.getAttribute("data-nm");var H=S.heart;var old=placedOf(nm);if(old)delete H.place[old];if(s.value){var n=+s.value;H.place[n]=nm;// si el número estava ocupat per un altre nom, queda lliure
+  }H.ok=null;renderHeart();save();}});
+ st.addEventListener("dragstart",function(e){var c=e.target.closest(".chip");if(c){e.dataTransfer.setData("text/plain",c.getAttribute("data-name"));selChip=null;}});
+ st.addEventListener("dragover",function(e){if(e.target.closest(".mk,button[data-row]")){e.preventDefault();}});
+ st.addEventListener("drop",function(e){var t=e.target.closest(".mk,button[data-row]");if(t){e.preventDefault();var nm=e.dataTransfer.getData("text/plain");var n=+(t.getAttribute("data-n")||t.getAttribute("data-row"));if(nm)placeName(n,nm);}});
+}
+function heartTarget(n){
+ var H=S.heart;
+ if(selChip){placeName(n,selChip);return;}
+ if(H.place[n]){delete H.place[n];H.ok=null;H.res=null;renderHeart();save();}
+}
+function checkHeart(){
+ var H=S.heart,fb=$("#fb_heart");H.res={};
+ var okc=0,empty=0,html="";
+ for(var n=1;n<=9;n++){
+  if(!H.place[n]){empty++;continue;}
+  if(H.place[n]===NAMES[n]){H.res[n]="ok";okc++;}
+  else{H.res[n]="bad";H.tries[n]=(H.tries[n]||0)+1;}
+ }
+ // oxigenada (nivells A/B)
+ var oxbad=[];
+ if(S.lvl!=="C"){for(var m=1;m<=9;m++){var v=S.f["r_ox"+m];if(!v)continue;if((v==="o")!==!!OXY[m])oxbad.push(m);}}
+ if(empty)html+='<p class="warnc">Et falten '+empty+' marcador(s) per etiquetar.</p>';
+ html+='<p><b>'+okc+' de 9</b> etiquetes ben posades.</p>';
+ var bads=[];for(var k=1;k<=9;k++)if(H.res[k]==="bad")bads.push(k);
+ if(bads.length){html+='<p class="bad">Revisa els marcadors en vermell: '+bads.join(", ")+'.</p>';
+  bads.forEach(function(k){var t=H.tries[k]||0;
+   html+='<div class="h"><b>Marcador '+k+':</b> '+HHINT[k][Math.min(t,2)-1<0?0:Math.min(t,2)-1];
+   if(t>=3){html+=' <button type="button" class="btn sec sm" data-reveal="'+k+'">Mostra\'m la resposta</button>';}
+   html+='</div>';});}
+ if(S.lvl!=="C"){
+  var oxdone=0;for(var q=1;q<=9;q++)if(S.f["r_ox"+q])oxdone++;
+  if(oxdone<9)html+='<p class="warnc">Falta marcar la sang (oxigenada o desoxigenada) a '+(9-oxdone)+' fila(es).</p>';
+  if(oxbad.length)html+='<div class="h">Revisa la sang dels números <b>'+oxbad.join(", ")+'</b>. Recorda: el color del dibuix et dóna la pista; la trampa són els vasos dels pulmons.</div>';
+  else if(oxdone===9)html+='<p class="ok">Tota la sang ben classificada.</p>';
+ }
+ if(okc===9&&(S.lvl==="C"||!oxbad.length))html+='<p class="ok">Cor etiquetat. Ara mostra les vàlvules i escolta el «lub-dub» més avall.</p>';
+ fb.innerHTML=html;renderHeart();save();
+}
+function revealHeart(k){var H=S.heart;H.place[k]=NAMES[k];H.res=H.res||{};H.res[k]="ok";renderHeart();checkHeart();}
+
+/* so */
+var AC=null;
+function ctx(){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==="suspended")AC.resume();}catch(e){AC=null;}return AC;}
+function thump(t,f,dur,vol){var a=ctx();if(!a)return;try{var o=a.createOscillator(),g=a.createGain();o.type="sine";o.frequency.setValueAtTime(f,a.currentTime+t);o.frequency.exponentialRampToValueAtTime(Math.max(30,f*0.5),a.currentTime+t+dur);g.gain.setValueAtTime(0.0001,a.currentTime+t);g.gain.exponentialRampToValueAtTime(vol,a.currentTime+t+0.01);g.gain.exponentialRampToValueAtTime(0.0001,a.currentTime+t+dur);o.connect(g);g.connect(a.destination);o.start(a.currentTime+t);o.stop(a.currentTime+t+dur+0.05);}catch(e){}}
+function noise(t,dur,vol){var a=ctx();if(!a)return;try{var b=a.createBuffer(1,Math.floor(a.sampleRate*dur),a.sampleRate),d=b.getChannelData(0);for(var i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*(1-i/d.length);var s=a.createBufferSource();s.buffer=b;var f=a.createBiquadFilter();f.type="bandpass";f.frequency.value=300;var g=a.createGain();g.gain.value=vol;s.connect(f);f.connect(g);g.connect(a.destination);s.start(a.currentTime+t);}catch(e){}}
+function flash(id,on){var e=$(id);if(e)e.setAttribute("fill",on?"var(--accent)":"var(--line)");}
+function playBeat(bufec){
+ thump(0,70,0.14,0.9);setTimeout(function(){flash("#tl_lub",1);},0);setTimeout(function(){flash("#tl_lub",0);},180);
+ if(bufec){noise(0.2,0.3,0.5);setTimeout(function(){$("#tl_buf").setAttribute("fill","var(--warn)");},200);setTimeout(function(){$("#tl_buf").setAttribute("fill","none");},520);}
+ thump(0.55,55,0.12,0.7);setTimeout(function(){flash("#tl_dub",1);},550);setTimeout(function(){flash("#tl_dub",0);},720);
+}
+
+/* ============ Doble circulació ============ */
+var SEQ={sys:["Cor esquerre","Aorta","Tot el cos (músculs, òrgans, cervell)","Intercanvi d'O₂ i CO₂","Venes caves","Cor dret"],
+         pul:["Cor dret","Artèria pulmonar","Pulmons (alvèols: l'O₂ entra, el CO₂ surt)","Sang oxigenada","Venes pulmonars","Cor esquerre"]};
+function initCirc(){
+ if(!S.circ.ord||!S.circ.ord.sys){S.circ.ord={sys:shuffle([0,1,2,3,4,5]),pul:shuffle([0,1,2,3,4,5])};}
+}
+function renderSeq(k,elId){
+ var C=S.circ,list=SEQ[k],seq=C.seq[k],el=$(elId);
+ var h='<p class="tag">El teu ordre</p><ol class="seq built" aria-label="El teu ordre">'+seq.map(function(i,pos){var cls=(C.res&&C.res[k])?(C.res[k][pos]?"good":"badd"):"";return '<li class="'+cls+'"><button type="button" data-k="'+k+'" data-un="'+pos+'">'+esc(list[i])+'</button></li>';}).join("")+'</ol>';
+ h+='<p class="tag">Passos per ordenar</p><ul class="seq">'+C.ord[k].map(function(i){var taken=seq.indexOf(i)>=0;return '<li><button type="button" data-k="'+k+'" data-add="'+i+'"'+(taken?' class="taken" disabled':'')+'>'+esc(list[i])+'</button></li>';}).join("")+'</ul>';
+ h+='<div class="qb"><button type="button" class="btn sec sm" data-chk="'+k+'">Comprova</button><button type="button" class="btn sec sm" data-clr="'+k+'">Torna a començar</button></div><div class="fb" id="fb_seq_'+k+'" aria-live="polite">'+((C.fb&&C.fb[k])||"")+'</div>';
+ el.innerHTML=h;
+}
+function circDone(){var r=S.circ.res;return !!(r&&r.sys&&r.pul&&r.sys.length&&r.pul.length&&r.sys.every(Boolean)&&r.pul.every(Boolean));}
+function renderCirc(){renderSeq("sys","#seqSys");renderSeq("pul","#seqPul");var d=circDone();$("#circShow").hidden=!d;$("#circLock").hidden=d;}
+function circEvents(){
+ $("#st3").addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b)return;var C=S.circ;
+  if(b.hasAttribute("data-add")){var k=b.getAttribute("data-k");C.seq[k].push(+b.getAttribute("data-add"));C.res=C.res||{};C.res[k]=null;C.fb=C.fb||{};C.fb[k]="";renderCirc();save();}
+  else if(b.hasAttribute("data-un")){var k2=b.getAttribute("data-k");C.seq[k2].splice(+b.getAttribute("data-un"),1);C.res=C.res||{};C.res[k2]=null;C.fb=C.fb||{};C.fb[k2]="";renderCirc();save();}
+  else if(b.hasAttribute("data-clr")){var k3=b.getAttribute("data-clr");C.seq[k3]=[];C.res=C.res||{};C.res[k3]=null;C.fb=C.fb||{};C.fb[k3]="";renderCirc();save();}
+  else if(b.hasAttribute("data-chk")){checkSeq(b.getAttribute("data-chk"));}
+ });
+}
+function checkSeq(k){
+ var C=S.circ,seq=C.seq[k];C.res=C.res||{};C.fb=C.fb||{};
+ if(seq.length<6){C.fb[k]='<p class="warnc">Encara et falten '+(6-seq.length)+' pas(sos).</p>';renderCirc();return;}
+ C.tries[k]=(C.tries[k]||0)+1;
+ var res=seq.map(function(v,i){return v===i;});C.res[k]=res;
+ var n=res.filter(Boolean).length,h="";
+ if(n===6){h='<p class="ok">Recorregut correcte.</p>';if(k==="sys")h+='<p>La sang oxigenada surt pel ventricle esquerre, lliura O₂ al cos i torna desoxigenada.</p>';else h+='<p>La sang desoxigenada surt del cor dret, agafa O₂ als pulmons i torna oxigenada.</p>';}
+ else{h='<p class="bad">'+n+' de 6 passos ben col·locats.</p>';var t=C.tries[k];
+  if(t===1)h+='<div class="h">Mira els passos en vermell. Comença per saber d\'on SURT la sang: '+(k==="sys"?"del cor esquerre.":"del cor dret.")+'</div>';
+  else{var first=res.indexOf(false);h+='<div class="h">El pas '+(first+1)+' no és aquest. Pensa què ve just després del pas '+(first)+'.'+(first===0?' Comença pel cor.':'')+'</div>';
+   if(t>=3)h+='<div class="h">Ordre correcte: '+SEQ[k].map(esc).join(" → ")+'</div>';}}
+ C.fb[k]=h;renderCirc();save();
+}
+/* animació */
+var segs=[{id:"sg0",col:"#3b7dc4",cap:"Cor dret → artèria pulmonar → pulmons: porta sang desoxigenada (blava)."},{id:"sg1",col:"#d14b4b",cap:"Pulmons → venes pulmonars → cor esquerre: porta sang oxigenada (vermella). Als pulmons l'O₂ entra i el CO₂ surt."},{id:"sg2",col:"#d14b4b",cap:"Cor esquerre → aorta → cos: porta sang oxigenada a pressió alta."},{id:"sg3",col:"#3b7dc4",cap:"Cos → venes caves → cor dret: porta sang desoxigenada (l'O₂ s'ha lliurat als músculs i òrgans)."}];
+var anim={seg:-1,t:0,playing:false,raf:0,last:0};
+function dotAt(si,t){var p=$("#"+segs[si].id);var L=p.getTotalLength();var pt=p.getPointAtLength(L*t);var d=$("#cdot");d.setAttribute("cx",pt.x);d.setAttribute("cy",pt.y);d.setAttribute("fill",segs[si].col);d.setAttribute("opacity","1");}
+function hilite(si){segs.forEach(function(s,i){$("#"+s.id).setAttribute("opacity",i===si?".55":"0");});$("#circCap").innerHTML="<b>Pas "+(si+1)+" de 4:</b> "+segs[si].cap;}
+function circStep(){stopAnim();anim.seg=(anim.seg+1)%4;hilite(anim.seg);if(REDUCED){dotAt(anim.seg,1);}else{anim.t=0;runOnce(function(){});}}
+function runOnce(done){
+ var si=anim.seg;var start=null;
+ function f(ts){if(start==null)start=ts;var t=Math.min(1,(ts-start)/1600);dotAt(si,t);if(t<1&&anim.running!==false)anim.raf=requestAnimationFrame(f);else done();}
+ anim.raf=requestAnimationFrame(f);
+}
+function stopAnim(){anim.playing=false;cancelAnimationFrame(anim.raf);$("#circPlay").textContent="Reprodueix";}
+function circPlay(){
+ if(anim.playing){stopAnim();return;}
+ if(REDUCED){circStep();return;}
+ anim.playing=true;$("#circPlay").textContent="Atura";
+ (function next(){if(!anim.playing)return;anim.seg=(anim.seg+1)%4;hilite(anim.seg);runOnce(function(){if(anim.playing)setTimeout(next,300);});})();
+}
+
+/* ============ Analítica ============ */
+var ROWS=[
+ {k:"hb",lv:"ABC",n:"Hemoglobina (Hb)",v:"9,2 g/dL",r:"13,5–17,5 g/dL (home adult)",ans:"b",m:"Hemoglobina baixa: la sang pot portar menys oxigen.",h:["Compara 9,2 amb el límit inferior del rang."]},
+ {k:"eri",lv:"ABC",n:"Eritròcits",v:"3,8×10⁶/µL",r:"4,5–5,5×10⁶/µL",ans:"b",m:"Té menys glòbuls vermells del normal, per tant menys transport d'O₂.",h:["Mira si 3,8 és més petit que 4,5."]},
+ {k:"vcm",lv:"AB",n:"VCM (mida eritròcit)",v:"68 fL",r:"80–100 fL",ans:"b",m:"Els eritròcits són més petits del normal i amb poca hemoglobina, típic quan falta ferro.",h:["VCM vol dir mida de l'eritròcit. Compara 68 amb 80."]},
+ {k:"fe",lv:"ABC",n:"Ferro sèric",v:"38 µg/dL",r:"60–180 µg/dL",ans:"b",m:"Falta ferro, que és necessari per fabricar hemoglobina.",h:["Compara 38 amb 60."]},
+ {k:"leu",lv:"AB",n:"Leucòcits",v:"6.200/µL",r:"4.000–11.000/µL",ans:"c",m:"",h:["Mira si 6.200 és dins del marge entre 4.000 i 11.000."]},
+ {k:"glu",lv:"AC",n:"Glucosa"+"",v:"94 mg/dL",r:"70–100 mg/dL",ans:"c",m:"",h:["Mira si 94 és dins del marge entre 70 i 100."]}
+];
+function renderAn(){
+ var box=$("#anRows");var h="";
+ ROWS.forEach(function(r){
+  if(!inLv(r.lv))return;
+  var nm=r.n;if(r.k==="glu"&&S.lvl==="C")nm="Glucosa (control)";
+  var cur=S.f["r_an_"+r.k]||"";var ex=(S.lvl==="C"&&r.k==="hb");
+  if(ex)cur="b";
+  var res=S.an.res&&S.an.res[r.k];
+  h+='<div class="an'+(res==="ok"?" okk":res==="bad"?" nok":"")+'" id="an_'+r.k+'"><div class="hd"><div><b>'+esc(nm)+'</b><br><span class="legend">Rang de referència: '+esc(r.r)+'</span></div><div class="val">'+esc(r.v)+'</div></div>'+
+  '<div role="radiogroup" aria-label="Nivell de '+esc(nm)+'" style="margin-top:6px"><span class="legend">Nivell? (compara amb el rang i marca)</span><br>'+
+  '<label class="rb"><input type="radio" name="an_'+r.k+'" value="b"'+(cur==="b"?" checked":"")+(ex?" disabled":"")+'> Baix</label>'+
+  '<label class="rb"><input type="radio" name="an_'+r.k+'" value="c"'+(cur==="c"?" checked":"")+(ex?" disabled":"")+'> Correcte</label>'+
+  '<label class="rb lAB"><input type="radio" name="an_'+r.k+'" value="a"'+(cur==="a"?" checked":"")+'> Alt</label>'+(ex?' <span class="ok">Exemple ja fet</span>':'')+'</div>';
+  if(r.m){h+='<div class="lAB">'+Q("an_m_"+r.k,"AB","Desxifra l'analítica del Marc","Què vol dir? (només si està fora del rang)",{rows:2,hints:r.h.concat(["Pensa en què fa aquesta peça de la sang."]),model:r.m})+'</div>';}
+  h+='</div>';
+ });
+ box.innerHTML=h;
+ renderLevelRestoreAn();
+}
+function renderLevelRestoreAn(){$$("#anRows [data-save]").forEach(function(el){if(S.f[el.id]!=null)el.value=S.f[el.id];});$$("#anRows .fb").forEach(function(f){var id=f.id.replace("fb_","");renderFb(id);});}
+function anRadioEvents(){
+ $("#st4").addEventListener("change",function(e){var el=e.target;if(el.type==="radio"&&el.name&&el.name.indexOf("an_")===0){S.f["r_"+el.name]=el.value;S.an.res=null;save();}});
+}
+function checkAn(){
+ var A=S.an;A.res={};var wrong=[],empty=0,html="";
+ ROWS.forEach(function(r){if(!inLv(r.lv))return;var v=S.f["r_an_"+r.k]||(S.lvl==="C"&&r.k==="hb"?"b":"");
+  if(!v){empty++;return;}
+  if(v===r.ans)A.res[r.k]="ok";else{A.res[r.k]="bad";wrong.push(r);}});
+ A.tries=(A.tries||0)+1;
+ if(empty)html+='<p class="warnc">Et falten '+empty+' fila(es) per marcar.</p>';
+ if(wrong.length){html+='<p class="bad">Revisa '+wrong.length+' fila(es) marcades en vermell.</p>';
+  wrong.forEach(function(r){html+='<div class="h"><b>'+esc(r.n)+':</b> '+(A.tries<3?"compara el valor "+esc(r.v)+" amb el rang. Està per sota, a dins o per sobre?":"el valor "+esc(r.v)+" i el rang "+esc(r.r)+": "+(r.ans==="b"?"és més petit que el mínim, per tant és «Baix».":"cau dins del rang, per tant és «Correcte»."))+'</div>';});}
+ else if(!empty)html+='<p class="ok">Taula ben llegida. Tres valors de la sang apunten al mateix lloc: poc ferro, poca hemoglobina i eritròcits petits i escassos.</p>';
+ $("#fb_an").innerHTML=html;
+ $$("#anRows .an").forEach(function(d){var k=d.id.replace("an_","");d.className="an"+(A.res[k]==="ok"?" okk":A.res[k]==="bad"?" nok":"");});
+ save();
+}
+function checkDg(){
+ var a=norm(S.f.dg1),b=norm(S.f.dg2),c=norm(S.f.dg3);var fb=$("#fb_dg"),h="";
+ var o1=a.indexOf("ferro")>=0,o2=b.indexOf("hemoglobina")>=0,o3=(c.indexOf("oxigen")>=0||c.indexOf("o₂")>=0||c==="o2");
+ if(!a&&!b&&!c){fb.innerHTML='<p class="warnc">Omple els buits.</p>';return;}
+ h+='<p>'+(o1?'<span class="ok">1r buit correcte.</span> ':'<span class="bad">1r buit: pensa quina peça falta a la sang del Marc (mira la taula).</span> ')+(o2?'<span class="ok">2n correcte.</span> ':'<span class="bad">2n buit: quina proteïna porta el ferro i agafa l\'O₂?</span> ')+(o3?'<span class="ok">3r correcte.</span>':'<span class="bad">3r buit: què és el que porta l\'hemoglobina als músculs?</span>')+'</p>';
+ if(o1&&o2&&o3)h+='<p class="ok">Diagnòstic ben construït: anèmia ferropènica.</p>';
+ fb.innerHTML=h;
+}
+function checkHv(){
+ var a=parseFloat(String(S.f.hv1||"").replace(",",".")),b=parseFloat(String(S.f.hv2||"").replace(",",".")),c=parseFloat(String(S.f.hv3||"").replace(",","."));
+ var h="";
+ h+=(Math.abs(a-4900)<1?'<span class="ok">1 minut: correcte (70 × 70).</span> ':'<span class="bad">1 minut: multiplica 70 mL per 70 batecs.</span> ');
+ h+=(Math.abs(b-294)<1?'<span class="ok">1 hora: correcte.</span> ':'<span class="bad">1 hora: passa els mL de 1 minut a 60 minuts i després a litres (1 L = 1000 mL).</span> ');
+ h+=(Math.abs(c-4.2)<0.15?'<span class="ok">Vegades el pes: correcte (294 ÷ 70 ≈ 4,2).</span>':'<span class="bad">Divideix els litres entre 70 (1 L de sang pesa aprox. 1 kg).</span>');
+ $("#fb_hv").innerHTML="<p>"+h+"</p>";
+}
+
+/* ============ CIV ============ */
+function checkCiv(){
+ var v=[1,2,3,4].map(function(i){return !!S.goals["civ"+i];}),fb=$("#fb_civ");
+ S.civ.tries=(S.civ.tries||0)+1;var h="";
+ if(v[2])h+='<div class="h">La febre alta és un símptoma d\'infecció, no d\'un forat al cor. Rellegeix què passa amb la sang quan passa pel forat.</div>';
+ if(!v[0]&&!v[1])h+='<div class="h">Pensa on va la sang oxigenada que passa pel forat, i què arriba als músculs i què ha de moure el cor dret.</div>';
+ if(v[0]&&v[1]&&!v[2])h+='<p class="ok">Molt bé: es cansa perquè arriba menys O₂ als músculs, i el costat dret s\'engrandeix perquè mou més sang. També és cert que si el forat és molt petit pot no donar cap símptoma.</p>';
+ else if(!v[2]&&(v[0]||v[1]||v[3]))h+='<p class="warnc">Vas bé. Repassa si t\'ha quedat algun símptoma més que sigui coherent amb el text.</p>';
+ if(S.civ.tries>=3&&(v[2]||(!v[0]||!v[1])))h+='<div class="h">Resposta: són coherents «es cansa de seguida», «el costat dret s\'engrandeix» i «cap símptoma si el forat és molt petit». La febre no té relació.</div>';
+ fb.innerHTML=h||'<p class="warnc">Marca els símptomes que esperes.</p>';
+}
+
+/* ============ Pols ============ */
+var P={site:"canell",placed:false,running:false,timer:0,left:30,beats:[],count:0,target:0,t0:0,timeouts:[]};
+function setSite(s){
+ P.site=s;$$("[data-site]").forEach(function(b){b.setAttribute("aria-pressed",String(b.getAttribute("data-site")===s));});
+ $("#siteCanell").style.display=s==="canell"?"":"none";$("#siteColl").style.display=s==="coll"?"":"none";
+ var sp=$("#spot"),rg=$("#spotRing");var x=s==="canell"?250:228,y=s==="canell"?135:110;
+ sp.setAttribute("cx",x);sp.setAttribute("cy",y);rg.setAttribute("cx",x);rg.setAttribute("cy",y);
+ P.placed=false;$("#pStart").disabled=true;$("#spotMsg").textContent="Toca el cercle de línia discontínua per posar-hi els dits.";
+}
+function placeFingers(){
+ if(P.running)return;P.placed=true;$("#pStart").disabled=false;$("#spot").setAttribute("fill","rgba(200,51,58,.3)");
+ $("#spotMsg").textContent="Dits posats. Nota el batec: l'anell vermell ho il·lustra. Prem «Comença a comptar» quan estiguis a punt.";
+ // prova sense comptar: batecs visuals
+ previewBeats();
+}
+function pulseVisual(){var rg=$("#spotRing");rg.setAttribute("opacity","1");rg.setAttribute("r","12");if(!REDUCED){var t0=performance.now();(function g(ts){var k=Math.min(1,(ts-t0)/350);rg.setAttribute("r",String(12+14*k));rg.setAttribute("opacity",String(1-k));if(k<1)requestAnimationFrame(g);})(t0);}else{setTimeout(function(){rg.setAttribute("opacity","0");},250);}
+ if($("#pSound").checked){thump(0,95,0.09,0.5);}}
+var prevT=0;
+function previewBeats(){clearTimeout(prevT);var n=0;(function b(){if(P.running||!P.placed||n>5)return;pulseVisual();n++;prevT=setTimeout(b,60000/P.target);})();}
+function startPulse(){
+ if(!P.placed||P.running)return;
+ clearTimeout(prevT);
+ // freqüència de repòs oculta amb variació individual
+ P.target=P.target||Math.round(62+Math.random()*22);
+ // coll: es nota una mica més fort però igual de ràpid; el comptatge manual té error
+ P.running=true;P.count=0;P.left=30;P.t0=performance.now();
+ $("#pCount").textContent="0";$("#pTime").textContent="30";$("#pStart").disabled=true;$("#pBeat").disabled=false;$("#pBeat").focus();
+ // programar batecs amb petita variabilitat (arítmia sinusal)
+ var t=0,i=0;P.timeouts=[];P.real=0;
+ while(true){var iv=60000/P.target*(1+(Math.random()-0.5)*0.08);t+=iv;if(t>30000)break;(function(tt){P.timeouts.push(setTimeout(function(){pulseVisual();P.real++;},tt));})(t);}
+ P.timer=setInterval(function(){var el=(performance.now()-P.t0)/1000;P.left=Math.max(0,30-Math.floor(el));$("#pTime").textContent=String(P.left);if(el>=30)endPulse();},200);
+}
+function beatTap(){if(!P.running)return;P.count++;$("#pCount").textContent=String(P.count);}
+function endPulse(){
+ clearInterval(P.timer);P.running=false;$("#pBeat").disabled=true;$("#pStart").disabled=false;$("#pTime").textContent="0";
+ S.f.pCnt=String(P.count);S.f.pPpm=String(P.count*2);$("#pCnt").value=S.f.pCnt;$("#pPpm").value=S.f.pPpm;
+ var d=new Date();S.f.pHora=("0"+d.getHours()).slice(-2)+":"+("0"+d.getMinutes()).slice(-2);$("#pHora").value=S.f.pHora;
+ $("#spotMsg").textContent="Temps! Has comptat "+P.count+" batecs. Revisa els números de sota.";save();
+}
+function checkPulse(){
+ var c=parseInt(S.f.pCnt,10),p=parseInt(S.f.pPpm,10),h="";
+ if(isNaN(c)||isNaN(p)){$("#fb_pulse").innerHTML='<p class="warnc">Mesura el pols primer (pas 2) o escriu-hi els valors.</p>';return;}
+ if(p!==c*2)h+='<div class="h">Els ppm són els batecs de 30 s multiplicats per 2. '+c+' × 2 = ?</div>';
+ else h+='<p class="ok">Càlcul correcte: '+c+' × 2 = '+p+' ppm.</p>';
+ if(p<50||p>110)h+='<div class="h">Aquest valor surt de l\'habitual en repòs (60–100 ppm). Pot ser que hagis perdut algun batec o que no estiguessis en repòs. Repeteix la mesura.</div>';
+ else h+='<p>Valor dins de l\'habitual en repòs. Comptar a mà té un error d\'uns ±2–4 batecs: per això es repeteix la mesura.</p>';
+ if(P.real!=null&&P.real>0&&Math.abs(P.real-c)>4)h+='<div class="h">Has comptat uns quants batecs menys o més dels que hi havia. Torna-ho a provar amb més calma.</div>';
+ $("#fb_pulse").innerHTML=h;
+}
+
+/* ============ Frotis ============ */
+function checkFr(){
+ var a=S.f.fr1,b=S.f.fr2,c=S.f.fr3,h="";
+ if(!a||!b||!c){$("#fb_fr").innerHTML='<p class="warnc">Contesta les tres.</p>';return;}
+ var ok=[a==="eritròcits",b==="leucòcits",c==="plaquetes"];
+ h+=ok.map(function(o,i){return o?'<span class="ok">'+"①②③"[i]+" correcte.</span>":'<span class="bad">'+"①②③"[i]+": "+["els eritròcits són els discs vermells, sense nucli.","els leucòcits tenen un nucli lobulat fosc.","les plaquetes són fragments petits."][i]+"</span>";}).join(" ");
+ $("#fb_fr").innerHTML="<p>"+h+"</p>";
+}
+
+/* ============ Resum ============ */
+var SECS=["Idees prèvies","Les targetes de la sang","Etiqueta el cor","La doble circulació","Desxifra l'analítica del Marc","Ampliació","Tasca per a casa: pols en repòs","Objectius i dubtes"];
+function collect(){
+ var out={};SECS.forEach(function(s){out[s]=[];});
+ function add(s,l,v){out[s].push({l:l,v:(v===undefined||v===null||String(v).trim()==="")?"":String(v)});}
+ // idees / preguntes obertes per ordre de REG
+ var ord={};REG.forEach(function(r){if(!inLv(r.lv))return;if(r.sec==="Etiqueta el cor"||r.sec==="La doble circulació"||r.sec==="Idees prèvies"||r.sec==="Desxifra l'analítica del Marc"||r.sec==="Ampliació"||r.sec==="Les targetes de la sang"){(ord[r.sec]=ord[r.sec]||[]).push(r);}});
+ (ord["Idees prèvies"]||[]).forEach(function(r){add("Idees prèvies",r.label,r.get());});
+ add("Les targetes de la sang","Hipòtesi: eritròcits de cada 100",S.f.hip_e);add("Les targetes de la sang","Hipòtesi: leucòcits de cada 100",S.f.hip_l);
+ add("Les targetes de la sang","Recompte real (de 100 targetes): plasma / eritròcits / leucòcits+plaquetes",S.cards?(S.cards.bins.P.length+" / "+S.cards.bins.E.length+" / "+S.cards.bins.L.length):"");
+ add("Les targetes de la sang","① Cèl·lules bicòncaves, vermelles, sense nucli →",S.f.fr1);add("Les targetes de la sang","② Cèl·lules irregulars amb nucli lobulat →",S.f.fr2);add("Les targetes de la sang","③ Fragments petits, irregulars →",S.f.fr3);
+ add("Les targetes de la sang","Proporcions reals: 99% glòbuls vermells, i…",S.f.prop1);
+ (ord["Les targetes de la sang"]||[]).forEach(function(r){add("Les targetes de la sang",r.label,r.get());});
+ // cor
+ var lines=[];for(var n=1;n<=9;n++){var nm=S.heart.place[n]||"";var ox=S.lvl==="C"?"":(S.f["r_ox"+n]==="o"?"oxigenada":S.f["r_ox"+n]==="d"?"desoxigenada":"");lines.push(n+" · "+(nm||"(sense posar)")+(ox?" · "+ox:""));}
+ add("Etiqueta el cor","Marcadors"+(S.lvl==="C"?" (nom i número)":" (número · nom · sang)"),lines.join("\n"));
+ if(S.lvl==="C"){add("Etiqueta el cor","Conclusió escollida: ventricle esquerre",({a:"Com més lluny ha d'arribar la sang, més força cal, i més múscul té la paret",b:"El costat esquerre és més gran perquè sí",c:"El costat esquerre guarda més sang"})[S.f.r_c_vent]||"");add("Etiqueta el cor","So del cor: resposta escollida",({a:"Perquè en tancar-se les làmines xoquen entre elles",b:"Perquè la sang és molt sorollosa",c:"Perquè el cor crida"})[S.f.r_c_bufec]||"");}
+ (ord["Etiqueta el cor"]||[]).forEach(function(r){add("Etiqueta el cor",r.label,r.get());});
+ var civ=[["Es cansa de seguida quan fa esforç",1],["El costat dret del cor s'engrandeix",2],["Febre alta",3],["Cap símptoma, si el forat és molt petit",4]].filter(function(x){return S.goals["civ"+x[1]];}).map(function(x){return x[0];});
+ add("Etiqueta el cor","CIV: símptomes marcats",civ.join("; "));
+ // doble circulació
+ var sq=function(k){return S.circ.seq[k].map(function(i){return SEQ[k][i];}).join(" → ");};
+ add("La doble circulació","Recorregut circulació gran",sq("sys"));add("La doble circulació","Recorregut circulació petita",sq("pul"));
+ (ord["La doble circulació"]||[]).forEach(function(r){add("La doble circulació",r.label,r.get());});
+ // analitica
+ ROWS.forEach(function(r){if(!inLv(r.lv))return;var v=S.f["r_an_"+r.k]||(S.lvl==="C"&&r.k==="hb"?"b":"");var t=v==="b"?"Baix":v==="c"?"Correcte":v==="a"?"Alt":"";add("Desxifra l'analítica del Marc",r.n+" ("+r.v+"; rang "+r.r+")",t+(S.f["an_m_"+r.k]?" · Què vol dir: "+S.f["an_m_"+r.k]:""));});
+ if(S.lvl!=="A")add("Desxifra l'analítica del Marc","Diagnòstic: la peça que falla és… / la … baixi / els músculs reben menys…",[S.f.dg1,S.f.dg2,S.f.dg3].join(" / "));
+ (ord["Desxifra l'analítica del Marc"]||[]).filter(function(r){return r.label.indexOf("Què vol dir")!==0;}).forEach(function(r){add("Desxifra l'analítica del Marc",r.label,r.get());});
+ if(S.lvl==="A"){add("Ampliació","A1 · 1 minut (mL) / 1 hora (L) / vegades el pes",[S.f.hv1,S.f.hv2,S.f.hv3].join(" / "));(ord["Ampliació"]||[]).forEach(function(r){add("Ampliació",r.label,r.get());});}
+ add("Tasca per a casa: pols en repòs","El meu pols en repòs (batecs en 30 s · ppm)",(S.f.pCnt||"")+" · "+(S.f.pPpm||"")+" ppm");
+ add("Tasca per a casa: pols en repòs","Hora",S.f.pHora);
+ OBJ[S.lvl].forEach(function(t,i){add("Objectius i dubtes",(S.goals["goal_"+S.lvl+i]?"[x] ":"[ ] ")+t,"_");});
+ add("Objectius i dubtes","Encara em pregunto…",S.f.encara);
+ return out;
+}
+function renderSummary(){
+ var o=collect(),html="",txt="FITXA S3 · El Sistema Circulatori i la Sang · Nivell "+S.lvl+"\n";
+ SECS.forEach(function(s){var it=o[s];if(!it.length)return;html+='<h3>'+esc(s)+'</h3><dl>';txt+="\n== "+s+" ==\n";
+  it.forEach(function(x){var v=x.v==="_"?"":x.v;html+='<dt>'+esc(x.l)+'</dt><dd'+(v||x.v==="_"?'':' class="empty"')+'>'+(v?esc(v):(x.v==="_"?"":"(encara buit)"))+'</dd>';txt+="- "+x.l+(v?": "+v:(x.v==="_"?"":": (buit)"))+"\n";});
+  html+='</dl>';});
+ $("#sumView").innerHTML=html;$("#copyBox").value=txt;
+}
+function copySummary(){
+ renderSummary();var txt=$("#copyBox").value,msg=$("#copyMsg");
+ function fb(){var ta=$("#copyBox");ta.closest("details").open=true;ta.focus();ta.select();try{var ok=document.execCommand("copy");msg.textContent=ok?" Copiat.":" Selecciona el text de sota i copia'l.";}catch(e){msg.textContent=" Selecciona el text de sota i copia'l.";}}
+ try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){msg.textContent=" Copiat.";},fb);}else fb();}catch(e){fb();}
+}
+
+/* ============ Inicialització ============ */
+function init(){
+ renderLevelParts();
+ initCards();renderCards();
+ renderHeart();
+ initCirc();renderCirc();
+ renderAn();
+ Object.keys(Q.cfg||{}).forEach(renderFb);
+ setSite(P.site);
+ $("#hearType").value="sa";
+}
+var bound=false;
+function bindOnce(){
+ if(bound)return;bound=true;
+ document.addEventListener("click",function(e){
+  var t=e.target.closest("button,summary");if(!t)return;
+  if(t.hasAttribute("data-hint")){var id=t.getAttribute("data-hint"),c=Q.cfg[id];S.h[id]=Math.min((S.h[id]||0)+1,c.hints.length||1);renderFb(id);save();return;}
+  if(t.hasAttribute("data-model")){var id2=t.getAttribute("data-model");var tx=(S.f[id2]||"").trim();var fb=$("#fb_"+id2);if(tx.length<10){fb.innerHTML='<div class="h">Escriu primer la teva resposta (encara que sigui breu) i després compara-la amb el model.</div>';return;}S.m[id2]=1;renderFb(id2);save();return;}
+  if(t.hasAttribute("data-step")){goStep(+t.getAttribute("data-step"));return;}
+  if(t.hasAttribute("data-lvl")&&t.closest(".seg")){setLevel(t.getAttribute("data-lvl"));return;}
+  if(t.hasAttribute("data-reveal")){revealHeart(+t.getAttribute("data-reveal"));return;}
+  if(t.hasAttribute("data-mc")){var nme=t.getAttribute("data-mc"),ans=t.getAttribute("data-ans"),v=S.f["r_"+nme],f2=$("#fb_"+nme);f2.innerHTML=!v?'<div class="h">Tria una opció.</div>':(v===ans?'<p class="ok">Correcte.</p>':'<div class="h">Rellegeix el text de dalt i torna-ho a provar.</div>');return;}
+  if(t.hasAttribute("data-site")){setSite(t.getAttribute("data-site"));return;}
+  switch(t.id){
+   case "prevBtn":goStep(S.step-1);break;
+   case "nextBtn":goStep(S.step+1);break;
+   case "heartCheck":checkHeart();break;
+   case "frCheck":checkFr();break;
+   case "civCheck":checkCiv();break;
+   case "anCheck":checkAn();break;
+   case "dgCheck":checkDg();break;
+   case "hvCheck":checkHv();break;
+   case "circStep":circStep();break;
+   case "circPlay":circPlay();break;
+   case "hearBtn":playBeat($("#hearType").value==="bufec");break;
+   case "showValves":var vs=$("#valves"),on=vs.style.display==="none";vs.style.display=on?"":"none";t.setAttribute("aria-pressed",String(on));t.textContent=on?"Amaga les vàlvules":"Mostra les vàlvules al cor";break;
+   case "pStart":startPulse();break;
+   case "pBeat":beatTap();break;
+   case "pCheck":checkPulse();break;
+   case "copyBtn":copySummary();break;
+   case "resetAll":try{localStorage.removeItem(KEY);}catch(e){}location.reload();break;
+  }
+ });
+ document.addEventListener("keydown",function(e){
+  if(e.target&&e.target.id==="spot"&&(e.key==="Enter"||e.key===" ")){e.preventDefault();placeFingers();}
+  if(S.step===5&&P.running&&(e.key==="b"||e.key==="B")&&e.target.tagName!=="INPUT"&&e.target.tagName!=="TEXTAREA"){beatTap();}
+ });
+ document.addEventListener("click",function(e){if(e.target.id==="spot")placeFingers();});
+ $("#main").addEventListener("change",function(e){if(e.target.id==="hip_e"||e.target.id==="hip_l")save();});
+ // clic a «selSame»
+ document.addEventListener("click",function(e){var t=e.target.closest("#selSame");if(t&&S.cards&&S.cards.sel!=null){var typ=S.cards.deck[S.cards.sel];S.cards.msg='<span class="legend">Marcada. Ara toca la caixa.</span>';var ids=S.cards.hand.filter(function(i){return S.cards.deck[i]===typ;});S.cards.multi=ids;renderCards();$$("#hand .tc").forEach(function(b){if(S.cards.multi.indexOf(+b.getAttribute("data-id"))>=0)b.classList.add("sel");});}});
+ $$(".seg button[data-lvl]").forEach(function(b){b.setAttribute("aria-pressed",String(b.getAttribute("data-lvl")===S.lvl));});
+}
+function main(){
+ document.body.setAttribute("data-lvl",S.lvl);
+ build();init();bindOnce();cardEvents();heartEvents();circEvents();anRadioEvents();
+ goStep(S.step||0);
+}
+/* en canviar de nivell es reconstrueix: els listeners delegats a #st* s'han de tornar a lligar */
+var _setLevel=setLevel;
+setLevel=function(l){S.lvl=l;document.body.setAttribute("data-lvl",l);$$(".seg button[data-lvl]").forEach(function(b){b.setAttribute("aria-pressed",String(b.getAttribute("data-lvl")===l));});save();build();init();cardEvents();heartEvents();circEvents();anRadioEvents();goStep(S.step);};
+main();
+</script>
+</body>
+</html>

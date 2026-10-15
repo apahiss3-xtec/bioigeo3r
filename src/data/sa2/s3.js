@@ -5,8 +5,8 @@ export const sa2s3 = {
   engageImage: "/images/sa2-s3-circulatori.jpg",
 
   // Repte oral curt: hook visual del tub de sang centrifugada, abans d'escriure les idees prèvies.
-  engageChallenge: "Ensenyem un tub de sang centrifugada: es veuen 3 capes (plasma groc 55%, eritròcits vermells 44%, leucòcits i plaquetes <1%). Per quina raó la sang sembla vermella si la majoria és plasma groc?",
-  engageQuestion: "Avui comencem a desxifrar l'analítica de sang de la paret. La hemoglobina és baixa: 9.2 g/dL. Però primer: saps de quines coses es compon la sang?",
+  engageChallenge: "Observem un tub de sang centrifugada: es veuen 3 capes (plasma groc 55%, eritròcits vermells 44%, leucòcits i plaquetes <1%). Per quina raó la sang sembla vermella si la majoria és plasma groc?",
+  engageQuestion: "Avui comencem a desxifrar l'analítica de sang de la paret. La hemoglobina és baixa: 9,2 g/dL. Però primer: saps de quines coses es compon la sang?",
   engageContext: "Un tub de sang centrifugada es parteix en tres capes ben visibles, i la més gran és groga. Si el 55 % de la sang és plasma groc, per quina raó la veiem vermella?",
 
   // NO es renderitza al web: guió del docent (logística, temps,
@@ -43,11 +43,11 @@ export const sa2s3 = {
     },
     "2": {
       scaffold: "Usa el banc de paraules: aurícola · ventricle · tabi · pulmons · cos · vena cava · aorta. Les cavitats de DALT _______ sang (aurí______). Les de BAIX _______ sang (ven_______). El tabi separa dreta (sang _______ d'O₂) d'esquerra (sang _______ d'O₂).",
-      challenge: "Harvey va calcular: 70 mL/batec × 70 bat/min × 30 min = _______ litres bombejats en mitja hora. El cos té ~5 L de sang. Quina conclusió hi dedueixes? Aplica el mateix mètode hipoteticodeductiu a un cas nou: ¿pot una persona tenir 6 L de sang als vasos si el cor en bomba 7.000 L al dia?"
+      challenge: "Harvey va calcular: 70 mL/batec × 70 bat/min × 30 min = _______ litres bombejats en mitja hora. El cos té ~5 L de sang. Quina conclusió hi dedueixes? Aplica el mateix mètode hipoteticodeductiu a un cas nou: una persona pot tenir només 6 L de sang als vasos si el cor en bombeja 7.000 L al dia?"
     },
     "4": {
       scaffold: "Mira la taula de valors normals. Omple: Hb del Marc = ___ g/dL (normal: ___). Ferro = ___ (normal: ___). Eritròcits = ___ (normals: petits o grans?). El problema és que el Marc té MASSA _______ o MASSA POC _______?",
-      challenge: "Raona la cadena causal COMPLETA de l'enigma 2: Ferro baix → _______ → eritròcits petits → _______ per litre de sang → cor _______ → fatiga precoç. Connecto-ho: si el Marc prengués ferro, en quines setmanes esperaries que millorés la Hb? Per quina raó no immediat?"
+      challenge: "Raona la cadena causal COMPLETA de l'enigma 2: Ferro baix → _______ → eritròcits petits → _______ per litre de sang → cor _______ → fatiga precoç. Connecta-ho: si el Marc prengués ferro, en quines setmanes esperaries que millorés la Hb? Per quina raó no immediat?"
     }
   },
 
@@ -78,20 +78,20 @@ export const sa2s3 = {
     "Obre el sobre: 100 targetes per grup (55 grogues = plasma, 44 vermelles = eritròcits, 1 blanca = leucòcits+plaquetes)",
     "Ordena, compta i calcula els percentatges",
     "Per quina raó la sang sembla vermella si el 55% és plasma groc?",
-    "Anèmia: quines targetes estaran afectades? (pensa-ho, no t'ho diem)",
+    "Anèmia: quines targetes estarien afectades? Pensa-hi abans de mirar l'app.",
     "Amb l'app de sistema circulatori: segueix l'O₂ des de l'alvèol fins al mitocondri del peu del corredor"
   ],
   exploreDuration: "35 min",
   exploreMaterials: ["Sobre amb 100 targetes de colors (55 grogues, 44 vermelles, 1 blanca)"],
   appSrc: "/apps/app_sistema_circulatori.html",
-  exploreNote: "App interactiva: segueix una molècula d'O₂ per 7 estacions (alvèol → hemoglobina → cor esquerre → aorta → capil·lar → mitocondri → tornada). Botó 'Mode anèmia' connecta amb l'enigma 2 del Marc. Inclou Simplifica + ajuda àrab/castellà/urdú i quiz autocorrectiu de 3 preguntes.",
+  exploreNote: "App interactiva: segueix una molècula d'O₂ per 7 estacions (alvèol → hemoglobina → cor esquerre → aorta → capil·lar → mitocondri → tornada). Prova el botó «Mode anèmia»: t'ajudarà a entendre l'enigma 2 del Marc. Inclou el mode Simplifica, ajuda en àrab, castellà i urdú, i un quiz autocorrectiu de 3 preguntes.",
 
   theoryPoints: [
-    { id: "t5", apartat: "1", heading: "Harvey (1628): la deducció matemàtica", text: "William Harvey va calcular que si el ==cor== bomba ~70 mL per batec × 70 batecs/min, en mitja hora hauria bombejat més sang de la que hi ha al cos. Va concloure que la ==sang circula==. Va precedir el microscopi per 30 anys.", type: "epistemic", badge: "🔬 Com funciona la ciència" },
+    { id: "t5", apartat: "1", heading: "Harvey (1628): la deducció matemàtica", text: "William Harvey va calcular que si el ==cor== bombeja ~70 mL per batec × 70 batecs/min, en mitja hora hauria bombejat més sang de la que hi ha al cos. Va concloure que la ==sang circula==. Va precedir el microscopi per 30 anys.", type: "epistemic", badge: "🔬 Com funciona la ciència" },
     { id: "t1", apartat: "2", heading: "Composició de la sang", text: "==55% plasma|o== (groc): transport de nutrients, hormones, CO₂. ==44% eritròcits|r== (vermells): transport ==O₂|b== via ==hemoglobina==. ==<1% leucòcits i plaquetes==: defensa i coagulació.", type: "concept" },
     { id: "t2", apartat: "2", heading: "==Hemoglobina==: la proteïna que porta l'O₂", text: "L'==hemoglobina== és una proteïna dels ==eritròcits|r== que conté ==ferro==. Als ==pulmons|b==, el ferro s'uneix a l'==O₂|b== (es torna vermell brillant). Als ==teixits==, el cedeix. Sense ferro → no es forma hemoglobina → menys O₂ als músculs.", type: "concept", video: "/animacions/sa2-s3-t2.mp4" },
     { id: "t3", apartat: "3", heading: "Per quina raó la circulació és doble", text: "==Petita circulació|b==: cor → pulmons → cor (oxigenació). ==Gran circulació|o==: cor → tot el cos → cor (distribució). Calen ==4 cavitats== per mantenir les pressions separades. Si es barregen ==sang oxigenada i desoxigenada|r== → menys eficiència.", type: "concept" },
-    { id: "t4", apartat: "4", heading: "Primera lectura de l'analítica", text: "Marc Fontana: ==Hb 9.2 g/dL|r== (normal >13), ==eritròcits petits|r==, ==ferro baix|r==. Diagnòstic parcial: ==anèmia ferropènica==. Per quina raó es fatiga tant? Porta menys ==O₂|b== per litre de sang → els músculs no reben prou combustible.", type: "keyequation", badge: "🔗 Enigma 2 — segon pas" }
+    { id: "t4", apartat: "4", heading: "Primera lectura de l'analítica", text: "Marc Fontana: ==Hb 9,2 g/dL|r== (normal >13), ==eritròcits petits|r==, ==ferro baix|r==. Diagnòstic parcial: ==anèmia ferropènica==. Per quina raó es fatiga tant? Porta menys ==O₂|b== per litre de sang → els músculs no reben prou combustible.", type: "keyequation", badge: "🔗 Enigma 2 — segon pas" }
   ],
 
   graphicResources: [
@@ -104,8 +104,9 @@ export const sa2s3 = {
   fitxaUrl: { A: "/fitxes/sa2-s3-fitxa-A.html", B: "/fitxes/sa2-s3-fitxa-B.html", C: "/fitxes/sa2-s3-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s3-teoria.pdf",
 
   sessionMaterials: [
-    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s3-exit-ticket.html", who: "docent" },
-    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s3-exit-ticket-C.html", who: "docent" }
+    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s3-exit-ticket.html", who: "per al final de la sessió" },
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s3-exit-ticket-C.html", who: "per al final de la sessió" },
+    { id: "labVirtual", title: "Laboratori virtual (si has faltat a la pràctica)", url: "/labs/sa2/lab_s3_circulatori.html", who: "per fer a casa si no vas poder fer la pràctica" }
   ],
 
   fitxaGuide: {
@@ -115,7 +116,7 @@ export const sa2s3 = {
       { apartat: "0", title: "Idees prèvies", time: "10 min", phase: "engage", instruction: "Omple l'apartat 0 — Idees prèvies del full: escriu tot el que creus que la sang transporta pel cos.", hints: [] },
       { apartat: "1", title: "Les targetes de la sang", time: "15 min", phase: "explore", instruction: "Amb les 100 targetes del sobre, omple l'apartat 1 del full: compta i calcula els percentatges de cada component.", hints: [
         "100 targetes fan fàcil el percentatge: el nombre de targetes d'un color JA és el seu %.",
-        "Si la sang és majoritàriament plasma groc, per què la veiem vermella? Pensa quin component li dona el color."
+        "Si la sang és majoritàriament plasma groc, per què la veiem vermella? Pensa quin component li dóna el color."
       ] },
       { apartat: "2", title: "Etiqueta el cor", time: "25 min", phase: "explica", instruction: "Amb el banc de paraules, omple l'apartat 2 del full: el diagrama del cor porta 9 marcadors numerats i el banc té exactament 9 noms — cada nom s'usa una sola vegada.", hints: [
         "Les cavitats de dalt reben (aurícules); les de baix bomben (ventricles). Dreta i esquerra no es barregen.",
@@ -148,7 +149,9 @@ export const sa2s3 = {
     "Fes Part A amb paper i tisores: 100 quadradets (55 grocs, 44 vermells, 1 blanc). Observa els percentatges.",
     "Mira el diagrama de doble circulació d'aquesta pàgina",
     "Llegeix la teoria (apartat EXPLICA)",
+    "Fes la pràctica al laboratori virtual (botó de sota) i copia el resum a la fitxa",
     "Omple la fitxa S3 i fes l'exit tiquet online a l'acordió de sota"
   ],
+  recoveryLinks: [{ label: "Laboratori virtual de la pràctica", url: "/labs/sa2/lab_s3_circulatori.html", icon: "🧪" }],
   oaLinks: ["OA1"], competencies: ["CE1", "CE2", "CE4"]
 }

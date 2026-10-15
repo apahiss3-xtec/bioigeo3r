@@ -4,9 +4,9 @@ export const sa2s2 = {
   sessionNumber: 2, biome: "sa2", duration: "2h",
   engageImage: "/images/sa2-s2-digestiu.jpg",
 
-  // Repte oral curt: demo física de l'ovillo + "el titular", abans d'escriure les idees prèvies.
-  engageChallenge: "Desenrotllem l'ovillo de llana pels 9 metres de l'aula (esòfag, intestí prim, intestí gros). Després, en veu alta: 'Avui farem caca a classe.'",
-  engageQuestion: "Tens 9 metres de tub digestiu dins teu. Avui el convertirem en l'aula. I sí: al final farem 'caca a classe'.",
+  // Repte oral curt: demo física del cabdell de llana + "el titular", abans d'escriure les idees prèvies.
+  engageChallenge: "Aquest cabdell de llana fa 9 metres, com el teu tub digestiu. Anem a desenrotllar-lo per tota l'aula: esòfag, intestí prim, intestí gros... i, al final del recorregut, què hi trobarem?",
+  engageQuestion: "Tens 9 metres de tub digestiu dins teu. Avui el convertirem en l'aula i seguirem el menjar fins al final del recorregut. I sí: parlarem de la caca.",
   engageContext: "Nou metres de tub digestiu caben dins teu, i avui els desplegarem per tota l'aula amb un cabdell de llana: 25 cm d'esòfag, uns 6 m d'intestí prim i 1,5 m d'intestí gros.",
 
   // NO es renderitza al web: guió del docent (logística, temps,
@@ -70,29 +70,29 @@ export const sa2s2 = {
     what: "Simuleu la digestió completa amb materials de cuina, fase a fase: boca, esòfag, estómac, duodè, intestí prim, intestí gros, fins al producte final.",
     who: { mode: "classe", label: "Tota la classe (voluntaris roten per fases)" },
     time: 55,
-    note: "Moment de modelització final: què fa bé aquest model i què NO reflecteix de la digestió real?"
+    note: "Per acabar: què fa bé aquest model i què NO reflecteix de la digestió real?"
   },
   exploreInstructions: [
-    "Voluntaris amb bata, guants i ulleres per a cada fase de la simulació",
+    "Cada fase la fa un voluntari amb bata, guants i ulleres",
     "Boca: tisores (incisius), morter (molars), pinces (ullals), sabó escumós (saliva) → bolo alimentici",
     "Esòfag: bossa allargada → peristaltisme (com un tub de pasta de dents)",
-    "Estómac: vinagre (HCl), Pepsi (pepsina=mnemotècnic), gel (mucositat) → quimo",
+    "Estómac: vinagre (HCl), Pepsi (representa la pepsina, l'enzim de l'estómac), gel (mucositat) → quimo",
     "Duodè: bicarbonat+gel (neutralització), sabó groc (bilis), suc pancreàtic. Per quina raó cal neutralitzar?",
     "Intestí prim: mitja de niló + got amb aigua vermella (sang) → nutrients travessen la mitja = absorció",
-    "Intestí gros: drap vell (escórrer) → absorció d'aigua → massa fecal",
+    "Intestí gros: drap vell (per escórrer l'aigua) → absorció d'aigua → massa fecal",
     "Anus: bossa amb forat → producte final 💩",
-    "Moment modelització: Quines coses fa bé aquest model i quines NO reflecteix de la digestió real?"
+    "Per acabar: quines coses fa bé aquest model i quines NO reflecteix de la digestió real?"
   ],
   exploreDuration: "55 min",
-  exploreMaterials: ["Bol, pa, plàtan, mantequilla, tisores, morter, pinces, sabó, vinagre, Pepsi, bicarbonat, mitja de niló, drap vell, bossa zip", "Bates, guants, ulleres"],
-  exploreNote: "Simulació adaptada de © Fátima Miró (larubiscoeslomas.com) — citar autoria a la fitxa i al portal.",
+  exploreMaterials: ["Bol, pa, plàtan, mantega, tisores, morter, pinces, sabó, vinagre, Pepsi, bicarbonat, mitja de niló, drap vell, bossa zip", "Bates, guants, ulleres"],
+  exploreNote: "Simulació adaptada de © Fátima Miró (larubiscoeslomas.com).",
 
   theoryPoints: [
-    { id: "t5", apartat: "1", heading: "Límits del model de simulació", text: "La simulació NO reprodueix: la temperatura (37ºC), la pressió de l'estómac, la velocitat real (~24h), la ==selectivitat molecular|o== de les ==vellositats==. Tot ==model== simplifica la realitat.", type: "epistemic", badge: "🔬 Límits del model" },
+    { id: "t5", apartat: "1", heading: "Límits del model de simulació", text: "La simulació NO reprodueix: la temperatura (37 °C), la pressió de l'estómac, la velocitat real (~24h), la ==selectivitat molecular|o== de les ==vellositats==. Tot ==model== simplifica la realitat.", type: "epistemic", badge: "🔬 Límits del model" },
     { id: "t1", apartat: "3", heading: "Per quina raó l'absorció és a l'==intestí prim== i no a l'==estómac==", text: "L'==intestí prim== té ==vellositats|o== que multipliquen la ==superfície d'absorció|o== (~30–40 m²). El ==pH== és neutre (favorable per a ==enzims==). L'estómac té ==pH àcid (2–3)|r== que ==desnaturalitza|r== enzims però mata bacteris.", type: "concept" },
-    { id: "t2", apartat: "3", heading: "Per quina raó el ==pàncrees== secreta ==bicarbonat==", text: "El ==quimo== que arriba del estómac és molt àcid. El ==bicarbonat pancreàtic== el neutralitza fins a ==pH 7–8|g== perquè els ==enzims intestinals== (lipasa, proteasa) funcionin. Sense neutralització, els enzims no funcionen.", type: "concept" },
+    { id: "t2", apartat: "3", heading: "Per quina raó el ==pàncrees== secreta ==bicarbonat==", text: "El ==quimo== que arriba de l'estómac és molt àcid. El ==bicarbonat pancreàtic== el neutralitza fins a ==pH 7–8|g== perquè els ==enzims intestinals== (lipasa, proteasa) funcionin. Sense neutralització, els enzims no funcionen.", type: "concept" },
     { id: "t3", apartat: "4", heading: "Connexió central: ==glucosa== → ==sang== → ==mitocondri==", text: "La ==glucosa|o== absorbida a l'==intestí prim== passa als ==capil·lars== de les vellositats → ==vena porta== → circulació general → ==mitocondri== de cada cèl·lula (connexió SA1 i S1).", type: "transfer", badge: "🔗 Connexió SA1", video: "/animacions/sa2-s2-t3.mp4" },
-    { id: "t4", apartat: "4", heading: "==Microbiota==: els 0.5 kg de bacteris que t'ajuden", text: "El teu intestí conté >100 bilions de bacteris (==microbiota==). Produeixen ==vitamines|g==, protegeixen de ==patògens|r== i regulen el ==sistema immunitari==. Per quina raó els ==antibiòtics== causen diarrea? Maten els bacteris dolents però també els ==bacteris bons|g==.", type: "concept" }
+    { id: "t4", apartat: "4", heading: "==Microbiota==: els 0,5 kg de bacteris que t'ajuden", text: "El teu intestí conté >100 bilions de bacteris (==microbiota==). Produeixen ==vitamines|g==, protegeixen de ==patògens|r== i regulen el ==sistema immunitari==. Per quina raó els ==antibiòtics== causen diarrea? Maten els bacteris dolents però també els ==bacteris bons|g==.", type: "concept" }
   ],
 
   graphicResources: [
@@ -104,8 +104,9 @@ export const sa2s2 = {
   fitxaUrl: { A: "/fitxes/sa2-s2-fitxa-A.html", B: "/fitxes/sa2-s2-fitxa-B.html", C: "/fitxes/sa2-s2-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s2-teoria.pdf",
 
   sessionMaterials: [
-    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s2-exit-ticket.html", who: "docent" },
-    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s2-exit-ticket-C.html", who: "docent" }
+    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s2-exit-ticket.html", who: "per al final de la sessió" },
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s2-exit-ticket-C.html", who: "per al final de la sessió" },
+    { id: "labVirtual", title: "Laboratori virtual (si has faltat a la pràctica)", url: "/labs/sa2/lab_s2_digestiu.html", who: "per fer a casa si no vas poder fer la pràctica" }
   ],
 
   fitxaGuide: {
@@ -117,8 +118,8 @@ export const sa2s2 = {
         "Segueix el recorregut del menjar de dalt a baix: boca, esòfag, estómac, intestins.",
         "Per a la funció pensa què hi PASSA al menjar a cada òrgan, no només com es diu."
       ] },
-      { apartat: "2", title: "L'ovillo de llana — longitud real", time: "15 min", phase: "explore", instruction: "Completa la taula d'escala 1:100 de l'apartat 2 del full (cada metre real = 1 cm a l'ovillo).", hints: [
-        "Escala 1:100 vol dir dividir per 100. 6 metres reals → quants centímetres a l'ovillo?"
+      { apartat: "2", title: "El cabdell de llana — longitud real", time: "15 min", phase: "explore", instruction: "Completa la taula d'escala 1:100 de l'apartat 2 del full (cada metre real = 1 cm al cabdell).", hints: [
+        "Escala 1:100 vol dir dividir per 100. 6 metres reals → quants centímetres al cabdell?"
       ] },
       { apartat: "3", title: "Simulació de la digestió pas a pas", time: "30 min", phase: "explica", instruction: "Mentre observes la simulació de taula, completa les columnes buides de l'apartat 3 del full.", hints: [
         "Per a cada fase, relaciona la substància simulada amb la real (vinagre = àcid de l'estómac, sabó groc = bilis...).",
@@ -132,7 +133,7 @@ export const sa2s2 = {
         "Pensa per què prendre antibiòtics molt sovint pot causar problemes digestius."
       ] },
       { apartat: "5", title: "L'escala de Bristol", time: "10 min", phase: "elabora", instruction: "A l'apartat 5 del full, relaciona cada tipus amb la dieta o la salut.", hints: [
-        "Connecta-ho amb l'aigua: l'intestí gros n'absorbeix. Massa o massa poca, com afecta el resultat?"
+        "Connecta-ho amb l'aigua: l'intestí gros n'absorbeix. Massa aigua o massa poca, com afecta el resultat?"
       ] }
     ]
   },
@@ -154,8 +155,10 @@ export const sa2s2 = {
     "Pots fer la simulació a casa (és divertida): necessites bol, pa, plàtan, vinagre, bicarbonat, mitja de niló, drap vell",
     "Segueix la guia de la simulació (descàrrega aquí — © Fátima Miró, citat)",
     "Mira l'animació del sistema digestiu d'aquesta pàgina",
+    "Fes la pràctica al laboratori virtual (botó de sota) i copia el resum a la fitxa",
     "Omple la fitxa S2 seccions 1–3",
     "Fes l'exit tiquet online a l'acordió de sota"
   ],
+  recoveryLinks: [{ label: "Laboratori virtual de la pràctica", url: "/labs/sa2/lab_s2_digestiu.html", icon: "🧪" }],
   oaLinks: ["OA2"], competencies: ["CE1", "CE2", "CE4"]
 }

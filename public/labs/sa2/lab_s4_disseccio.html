@@ -1,0 +1,1781 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dissecció del cor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Sans+Extra+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8f6;--surface:#ffffff;--ink:#16241c;--muted:#5b6b62;--line:#d5ded8;
+      --green:#1f5a3c;--green-2:#2f7a52;--accent:#d98a1e;--ok:#2e7d4f;--warn:#b7791f;--bad:#b23b3b;
+      --tray:#e3e8e5;--tray-2:#cdd5d0;--soft:#eef3ef}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1712;--surface:#16211a;--ink:#e6efe9;
+      --muted:#9fb1a6;--line:#2a3a30;--green:#7cc39a;--green-2:#5fae82;--accent:#f0a945;--ok:#6fcf97;--warn:#e0b252;--bad:#ef7b7b;
+      --tray:#27322b;--tray-2:#34423a;--soft:#1b2820;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1712;--surface:#16211a;--ink:#e6efe9;--muted:#9fb1a6;--line:#2a3a30;--green:#7cc39a;--green-2:#5fae82;
+      --accent:#f0a945;--ok:#6fcf97;--warn:#e0b252;--bad:#ef7b7b;--tray:#27322b;--tray-2:#34423a;--soft:#1b2820;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Fira Sans",system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3,.cond{font-family:"Fira Sans Extra Condensed","Fira Sans",system-ui,sans-serif;font-weight:700;line-height:1.15}
+a{color:var(--green-2)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left)) 48px max(16px,env(safe-area-inset-right))}
+.back{display:inline-block;margin:12px 0 4px;font-weight:600;text-decoration:none}
+header.top{border-bottom:2px solid var(--green);padding:6px 0 12px;margin-bottom:12px}
+.tag{display:inline-block;font:600 13px/1 "Fira Sans",sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--surface);background:var(--green);padding:5px 8px;border-radius:4px}
+h1{font-size:clamp(28px,6vw,40px);margin:8px 0 2px;color:var(--green)}
+.sub{margin:0;color:var(--muted)}
+.toprow{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;margin-top:10px}
+.lvl{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.lvl span{color:var(--muted);font-size:14px;margin-right:4px}
+button{font:inherit;color:inherit;cursor:pointer}
+.btn{min-height:44px;padding:8px 14px;border-radius:8px;border:1.5px solid var(--green-2);background:var(--surface);color:var(--green);font-weight:600}
+.btn:hover{background:var(--soft)}
+.btn.pri{background:var(--green);color:var(--surface);border-color:var(--green)}
+.btn.pri:hover{background:var(--green-2)}
+.btn.sm{min-height:36px;padding:5px 10px;font-size:14px}
+.btn[aria-pressed="true"]{background:var(--green);color:var(--surface)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+nav.steps{position:sticky;top:0;z-index:20;background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin}
+nav.steps button{flex:0 0 auto;min-height:44px;border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:14px;font-weight:600;color:var(--muted)}
+nav.steps button .n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--soft);color:var(--ink);margin-right:6px;font-size:12px}
+nav.steps button[aria-current="step"]{border-color:var(--green);color:var(--green)}
+nav.steps button[aria-current="step"] .n{background:var(--green);color:var(--surface)}
+nav.steps button.done .n{background:var(--ok);color:var(--surface)}
+section.step{display:none}
+section.step.on{display:block}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+h2{font-size:clamp(24px,5vw,32px);margin:18px 0 2px;color:var(--green)}
+h2 .num{display:inline-grid;place-items:center;width:1.3em;height:1.3em;border-radius:8px;background:var(--green);color:var(--surface);margin-right:8px;font-size:.85em}
+.meta{color:var(--muted);font-size:14px;margin:0 0 8px}
+h3{font-size:22px;margin:0 0 8px;color:var(--green)}
+.instr{border-left:4px solid var(--accent);padding:8px 12px;background:var(--soft);border-radius:0 8px 8px 0;margin:10px 0}
+.box{border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;margin:12px 0;background:var(--surface)}
+.box.read{border-color:var(--green-2)}
+.box.warn{border-color:var(--bad)}
+.box.check{border-color:var(--ok);background:var(--soft)}
+.box h3{font-size:19px}
+.q{margin:16px 0;padding-top:4px}
+.q label,.q .lab{display:block;font-weight:600;margin-bottom:6px}
+textarea,input[type=text],input[type=number],select{font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:8px;padding:8px 10px;max-width:100%}
+textarea{width:100%;min-height:84px;resize:vertical}
+input[type=number]{width:6.5em}
+select{min-height:44px}
+textarea:focus,input:focus,select:focus{border-color:var(--green-2)}
+.qbtns{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.fb{margin-top:6px;font-size:15px}
+.fb:empty{display:none}
+.fb .ok{color:var(--ok);font-weight:600}
+.fb .bad{color:var(--bad);font-weight:600}
+.fb .hint{display:block;margin-top:4px;padding:6px 10px;border-radius:6px;background:var(--soft);border-left:3px solid var(--accent)}
+.starter{font-size:14px;color:var(--muted);font-style:italic;margin:2px 0 6px}
+.radios{display:flex;gap:10px;flex-wrap:wrap}
+.radios label{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:4px 12px;border:1.5px solid var(--line);border-radius:8px;font-weight:500;cursor:pointer}
+input[type=radio],input[type=checkbox]{width:20px;height:20px;accent-color:var(--green-2)}
+ul.clean{list-style:none;padding:0;margin:0}
+.checklist li{display:flex;gap:8px;align-items:flex-start;padding:4px 0}
+.checklist li label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+.tasks li{display:flex;gap:8px;align-items:flex-start;padding:3px 0;font-size:15px;color:var(--muted)}
+.tasks li::before{content:"";flex:0 0 16px;height:16px;margin-top:3px;border:2px solid var(--line);border-radius:4px}
+.tasks li.ok{color:var(--ink)}
+.tasks li.ok::before{background:var(--ok);border-color:var(--ok);box-shadow:inset 0 0 0 2px var(--surface)}
+.gap{line-height:2.4}
+.gap select{min-height:38px;padding:4px 8px}
+.navbtns{display:flex;justify-content:space-between;gap:8px;margin:24px 0 8px;flex-wrap:wrap}
+.cols{display:grid;gap:12px}
+@media(min-width:760px){.cols.two{grid-template-columns:1fr 1fr}}
+/* --- Banc de treball --- */
+.bench{display:grid;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;margin:14px 0}
+@media(min-width:880px){.bench{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}.bench .tools{grid-column:1 / -1}}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.tools .tl{font-size:13px;color:var(--muted);margin-right:2px}
+.tool{display:inline-flex;align-items:center;gap:6px;min-height:46px;padding:6px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);font-weight:600;font-size:14px}
+.tool svg{width:24px;height:24px;flex:0 0 24px}
+.tool[aria-pressed="true"]{border-color:var(--green);background:var(--green);color:var(--surface)}
+.tool:disabled{opacity:.4;cursor:not-allowed}
+.views{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.stage{position:relative}
+#heart{display:block;width:100%;height:auto;max-height:72vh;touch-action:none;user-select:none;-webkit-user-select:none}
+#heart .flipping{transition:transform .22s ease;transform-box:fill-box;transform-origin:center}
+#heart .flipping.out{transform:scaleX(0)}
+#heart .pressable{transition:transform .18s ease;transform-origin:200px 300px}
+#heart .pressable.press{transform:scale(.975,.955)}
+.gloves{font-size:13px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--soft);color:var(--muted)}
+.gloves.on{background:var(--ok);color:var(--surface)}
+.panel{display:flex;flex-direction:column;gap:10px;min-width:0}
+#info{min-height:120px;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--soft)}
+#info b.nm{color:var(--green);font-size:17px}
+#info .opts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+#info .opts button{min-height:40px;padding:4px 10px;border-radius:8px;border:1.5px solid var(--line);background:var(--surface);font-size:14px;font-weight:600}
+.imgplate{position:relative;background:#fff;border:1.5px solid var(--line);border-radius:8px;overflow:hidden;max-width:470px;margin:0 auto;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.imgplate img{display:block;width:100%;height:auto}
+.imgplate>svg{position:absolute;inset:0;width:100%;height:100%}
+#openSvg .z.flash{fill:rgba(217,138,30,.22)}
+#openSvg .z:focus-visible{stroke-width:4}
+#openSvg .cover{fill:#7a2a2a;stroke:#4a1418;stroke-width:3;opacity:.93}
+#openSvg .coverlab{font-size:20px}
+#openSvg .blood{opacity:.8}
+.pinc{stroke:#111;stroke-width:2}
+.pinn{font:800 17px "Fira Sans",sans-serif;fill:#111;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.pinlist{margin:6px 0 0;padding-left:0;list-style:none;display:flex;flex-wrap:wrap;gap:4px 12px;font-size:14px}
+.pinlist li{display:flex;align-items:center;gap:5px}
+.pinlist i{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1.5px solid #111;font:800 12px "Fira Sans",sans-serif;font-style:normal;color:#111}
+.wallmark{fill:none;stroke:#e23b2e;stroke-width:4;stroke-linecap:round}
+.rulimg{fill:#f4e7b8;stroke:#8a7a3a;stroke-width:1.5}
+.legend{font-size:14px;color:var(--muted);margin:6px 0 0}
+.tasks-wrap h4{margin:0 0 4px;font:700 16px "Fira Sans Extra Condensed",sans-serif;color:var(--green)}
+/* SVG peces del cor (colors científics literals) */
+.t{fill:none;stroke-linecap:butt;stroke-linejoin:round}
+.art-o{stroke:#8f6a5c}.art{stroke:#ecd0bf}.pt{stroke:#e0bca8}
+.vein-o{stroke:#3f1b26}.vein{stroke:#7c3a4e}
+.lumen{fill:#2b0b10}
+.atr{fill:#7e2a35;stroke:#4a1820;stroke-width:2}
+.ven{fill:#93302f;stroke:#5a1b1d;stroke-width:2.5}
+.fat{fill:none;stroke:#efd9a0;stroke-linecap:round}
+.cor{fill:none;stroke:#c8322d;stroke-width:3.5;stroke-linecap:round}
+.cor.thin{stroke-width:2.2}
+.cutsurf{fill:#b4494b;stroke:#5a1b1d;stroke-width:3}
+.cav{fill:#4e1418}
+.leaf{fill:#ead2c4;stroke:#a88272;stroke-width:1}
+.chord{stroke:#f6efe8;stroke-width:1.5;fill:none}
+.pap{fill:#a03c3e;stroke:#6e2224;stroke-width:1.2}
+.trab{fill:none;stroke:#6b2024;stroke-width:2.2;stroke-linecap:round}
+.cover{fill:#8e2c2c;stroke:#5a1b1d;stroke-width:2.5}
+.blood{fill:#8a0e16;opacity:.72}
+.clot{fill:#33080c;stroke:#1c0306;stroke-width:1}
+.z{fill:transparent;stroke:none;cursor:pointer;pointer-events:all}
+.zs{fill:none;stroke:transparent;cursor:pointer;pointer-events:stroke}
+.z:focus,.zs:focus{outline:none}
+.z:focus-visible{stroke:var(--accent);stroke-width:3;stroke-dasharray:6 4}
+.zs:focus-visible{stroke:rgba(217,138,30,.45)}
+.z.flash{fill:rgba(255,255,255,.18)}
+.zs.flash{stroke:rgba(255,255,255,.3)}
+.numc{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}
+.numt{fill:var(--ink);font:700 13px "Fira Sans",sans-serif;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.cutline{fill:none;stroke:#111;stroke-width:3;stroke-dasharray:1 7;stroke-linecap:round;pointer-events:none}
+.cutline.red{stroke:#e23b2e}
+.incision{fill:none;stroke:#2a0508;stroke-width:4;stroke-linecap:round;pointer-events:none}
+.cuthit{fill:none;stroke:transparent;stroke-width:30;pointer-events:none;cursor:crosshair}
+svg.tool-tisores .cuthit{pointer-events:stroke}
+.pin rect{stroke:#000;stroke-opacity:.35;stroke-width:1}
+.pin text{font:700 11px "Fira Sans",sans-serif;fill:#111;dominant-baseline:central;pointer-events:none}
+.pin{pointer-events:none}
+.trayt{fill:var(--muted);font:600 12px "Fira Sans",sans-serif}
+.coverlab{fill:#f3d9cf;font:600 12px "Fira Sans",sans-serif;text-anchor:middle;pointer-events:none}
+/* mesura */
+.meas svg{width:100%;height:auto;display:block;background:var(--surface);border-radius:8px;border:1px solid var(--line)}
+.meas input[type=range]{width:100%;min-height:44px;accent-color:var(--accent)}
+.rul{fill:none;stroke:var(--ink);stroke-width:1}
+.rult{fill:var(--ink);font:500 9px "Fira Sans",sans-serif;text-anchor:middle}
+/* simuladors */
+.sim svg{width:100%;height:auto;display:block}
+.simt{fill:#fff;font:600 12px "Fira Sans",sans-serif;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.simt2{fill:var(--ink);font:600 11px "Fira Sans",sans-serif;text-anchor:middle}
+canvas.draw{width:100%;height:auto;aspect-ratio:4/3;background:#fff;border:1.5px solid var(--line);border-radius:10px;touch-action:none;display:block}
+.drawbar{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+.swatch{width:40px;height:40px;border-radius:50%;border:3px solid var(--line)}
+.swatch[aria-pressed="true"]{border-color:var(--accent)}
+table.dt{border-collapse:collapse;width:100%;font-size:15px}
+table.dt th,table.dt td{border:1px solid var(--line);padding:6px 8px;text-align:left}
+table.dt th{background:var(--soft)}
+.tablewrap{overflow-x:auto}
+#sumtext{width:100%;min-height:360px;font:14px/1.45 ui-monospace,Consolas,monospace}
+.cmp{display:grid;gap:12px}
+@media(min-width:700px){.cmp{grid-template-columns:1fr 1fr}}
+.cmp figure{margin:0;border:1px solid var(--line);border-radius:10px;padding:8px;background:var(--surface)}
+.cmp img,.cmp svg{width:100%;height:auto;display:block;background:#fff;border-radius:6px}
+.cmp figcaption{font-size:14px;color:var(--muted);margin-top:4px}
+.small{font-size:14px;color:var(--muted)}
+.foot{margin-top:30px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body data-level="B">
+<div class="wrap">
+<a class="back" href="index.html">← Laboratoris SA2</a>
+
+<header class="top">
+  <span class="tag">SA2 · Sessió 4</span>
+  <h1>El cor per dins</h1>
+  <p class="sub">Laboratori virtual de dissecció · Una bomba doble a les teves mans — per quina raó 4 cavitats i no 2</p>
+  <div class="toprow">
+    <div class="lvl" role="group" aria-label="Nivell de la fitxa">
+      <span>Nivell de la fitxa:</span>
+      <button class="btn sm" data-level="A" aria-pressed="false">A · repte</button>
+      <button class="btn sm" data-level="B" aria-pressed="true">B · estàndard</button>
+      <button class="btn sm" data-level="C" aria-pressed="false">C · guiat</button>
+    </div>
+    <button class="btn sm" id="resetBtn" type="button">Comença de nou</button>
+  </div>
+</header>
+
+<nav class="steps" aria-label="Apartats de la fitxa" id="stepsNav"></nav>
+
+<details class="card">
+  <summary class="cond" style="font-size:19px;cursor:pointer;min-height:32px">Objectius i vocabulari clau d'avui</summary>
+  <h3 style="margin-top:10px">Objectius d'aprenentatge</h3>
+  <ul>
+    <li>Situo i anomeno les cavitats del cor i els grans vasos (aorta, artèria pulmonar i venes caves).</li>
+    <li>Explico per quina raó el septe ha de ser complet i què permet tenir dos costats separats.</li>
+    <li>Explico la funció de les vàlvules i del miocardi, i per quina raó el cor necessita les artèries coronàries.</li>
+    <li>Justifico per quina raó el ventricle esquerre té la paret més gruixuda (doble circulació, dues pressions).</li>
+    <li>Explico el mecanisme d'un cas clínic del cor a partir del que he vist a la dissecció.</li>
+  </ul>
+  <h3>Vocabulari</h3>
+  <ul>
+    <li><b>aurícula</b> = cavitat de dalt; rep la sang que torna al cor</li>
+    <li><b>ventricle</b> = cavitat de baix; expulsa la sang amb força</li>
+    <li><b>septe</b> (o envà) = paret que separa el costat dret de l'esquerre</li>
+    <li><b>vàlvula</b> = porta d'un sol sentit; evita que la sang torni enrere</li>
+    <li><b>miocardi</b> = el múscul del cor</li>
+    <li><b>artèries coronàries</b> = vasos que porten sang al propi cor</li>
+    <li><b>vena cava</b> = vena molt gruixuda que torna la sang al cor</li>
+    <li><b>artèria pulmonar</b> = artèria que porta la sang del cor als pulmons</li>
+    <li><b>aorta</b> = l'artèria gran que surt del ventricle esquerre</li>
+    <li><b>hemoglobina</b> = la proteïna del glòbul vermell que transporta l'oxigen</li>
+    <li><b>bufec</b> = soroll estrany que se sent al cor quan la sang passa per on no toca</li>
+  </ul>
+</details>
+
+<!-- ============ 0 · PREDICCIÓ ============ -->
+<section class="step" data-step="0" id="s0">
+  <h2><span class="num">0</span>La teva predicció — el cor per dins</h2>
+  <p class="meta">Individual · 8 min · No es corregeix: el compararàs amb el cor real al final</p>
+  <div class="instr">Abans d'obrir res, dibuixa el cor tal com te l'imagines per dins. No passa res si t'equivoques: per això és una predicció.</div>
+  <div class="card">
+    <div class="lab cond" style="font-size:18px">Dibuixa el cor tal com te l'imagines per dins</div>
+    <div class="drawbar" data-canvas="d0"></div>
+    <canvas class="draw" id="d0" width="800" height="600" aria-label="Espai per dibuixar la teva predicció"></canvas>
+    <div class="q">
+      <span class="lab">Crec que el cor té <input type="number" id="p0_cav" min="0" max="12" data-save data-sum="Crec que el cor té (cavitats)" aria-label="Nombre de cavitats"> cavitats (cambres) per dins.</span>
+    </div>
+    <div class="q">
+      <span class="lab" id="p0_mix_l">Hi ha algun punt on la sang neta i la sang bruta es barregen?</span>
+      <div class="radios" role="radiogroup" aria-labelledby="p0_mix_l">
+        <label><input type="radio" name="p0_mix" id="p0_mix_si" value="Sí" data-save data-sum="Es barregen?"> Sí</label>
+        <label><input type="radio" name="p0_mix" id="p0_mix_no" value="No" data-save data-sum="Es barregen?"> No</label>
+      </div>
+    </div>
+    <div class="q">
+      <label for="p0_why">Per què ho creus?</label>
+      <p class="starter" data-lv="C">Pots començar així: «Crec que … perquè …»</p>
+      <textarea id="p0_why" data-save data-sum="Per què ho creus?"></textarea>
+    </div>
+    <button class="btn pri" type="button" id="savePred">Desa la predicció</button>
+    <div class="fb" id="fb_pred" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ============ 1 · OBSERVACIÓ EXTERIOR ============ -->
+<section class="step" data-step="1" id="s1">
+  <h2><span class="num">1</span>Observació exterior</h2>
+  <p class="meta">En grups de 4 · 15 min · El cor per fora, abans d'obrir-lo</p>
+  <div class="box read">
+    <b>Recorda la Sessió 3 (la sang):</b> ja saps que la sang fa una circulació doble — una volta pels pulmons i una per la resta del cos. Avui obriràs la bomba que fa possible aquestes dues voltes, i veuràs amb les teves mans quantes cambres té i per quina raó.
+  </div>
+  <div class="q">
+    <span class="lab" id="htype_l">Quin cor tens a la safata?</span>
+    <div class="radios" role="radiogroup" aria-labelledby="htype_l">
+      <label><input type="radio" name="htype" id="htype_porc" value="porc"> Cor de porc</label>
+      <label><input type="radio" name="htype" id="htype_xai" value="xai"> Cor de xai</label>
+    </div>
+  </div>
+  <div class="instr">
+    Tria l'eina <b>Dit</b> o <b>Sonda</b> i toca les parts del cor. Fes servir <b>Gira el cor</b> per veure la cara del davant (anterior) i la del darrere (posterior). Els 4 números marquen els vasos grans que entren i surten del cor. Amb les <b>Etiquetes</b> pots marcar el nom de cada estructura.
+  </div>
+  <div class="benchslot" data-bench="1"></div>
+  <p class="legend">Esquema del cor per fora: els vasos vermells que hi corren per damunt són les artèries coronàries, que reguen el múscul del propi cor.</p>
+
+  <div class="card">
+    <h3>Llegenda dels 4 vasos</h3>
+    <p class="small">Paraules per triar (n'hi ha una per número): aorta · artèria pulmonar · vena cava inferior · vena cava superior</p>
+    <div class="cols two" id="vesselSelects"></div>
+    <div class="qbtns"><button class="btn" type="button" id="checkVessels">Comprova la llegenda</button><button class="btn" type="button" id="hintVessels">Pista</button></div>
+    <div class="fb" id="fb_vessels" aria-live="polite"></div>
+  </div>
+
+  <div class="card">
+    <h3>Repte del banc: quin costat és l'esquerre?</h3>
+    <p>Mirant la <b>cara anterior</b>, prem els dos ventricles amb el <b>Dit</b> i compara'ls. Fixa't també en quin ventricle fa la punta del cor.</p>
+    <div class="q">
+      <label for="obs_lv">Mirant la cara anterior, el ventricle esquerre és…</label>
+      <select id="obs_lv" data-save data-sum="Ventricle esquerre (cara anterior)">
+        <option value="">— tria —</option>
+        <option value="dreta">a la meva dreta (la paret és més ferma i fa la punta)</option>
+        <option value="esquerra">a la meva esquerra (la paret és més tova)</option>
+      </select>
+      <div class="fb" id="fb_obs_lv" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Observa i anota</h3>
+    <div class="q" data-q="q1_1">
+      <label for="q1_1">① Escriu el nom dels 4 vasos grans a la llegenda de la foto. Quins entren sang al cor i quins la treuen? Com ho saps?</label>
+      <p class="starter" data-lv="C">Pots començar així: «Les venes … porten la sang cap al cor. … la treuen. Ho sé perquè …»</p>
+      <textarea id="q1_1" data-save data-sum="① Vasos que entren i surten"></textarea>
+    </div>
+    <div class="q" data-q="q1_2">
+      <label for="q1_2">② Prem el cor amb el dit i deixa'l anar. La paret és tova com un fetge o ferma i elàstica com un múscul? Per quina raó el cor ha de ser múscul i no un tub rígid?</label>
+      <p class="starter" data-lv="C">Pots començar així: «La paret és … Ha de ser un múscul perquè …»</p>
+      <textarea id="q1_2" data-save data-sum="② Textura i per què múscul"></textarea>
+    </div>
+    <div class="q" data-q="q1_3">
+      <label for="q1_3">③ El cor batega tota la vida sense parar. Per quina raó necessita el seu propi reg de sang (les coronàries), si per dins ja hi passa sang contínuament?</label>
+      <p class="starter" data-lv="C">Pots començar així: «El múscul del cor necessita … La sang de dins no li serveix perquè …»</p>
+      <textarea id="q1_3" data-save data-sum="③ Per què calen les coronàries"></textarea>
+    </div>
+
+    <div data-lv="C" class="box read">
+      <h3>Per llegir — el cor és un múscul, i els músculs mengen</h3>
+      <p>El cor no és una bossa buida: és múscul de dalt a baix. Aquest múscul es diu <b>miocardi</b>. Com qualsevol múscul, necessita oxigen i menjar per treballar — i el cor treballa tota la vida, sense parar. Per això té uns vasos propis que li porten sang a ell mateix: les <b>artèries coronàries</b>, que corren per fora del cor.</p>
+    </div>
+    <div data-lv="C" data-gapgroup="g1">
+      <p class="small">Paraules per triar: ferma · miocardi · coronàries</p>
+      <p class="gap" data-sum="Completa">Quan toco el cor per fora, la textura és <select id="g1a" data-save data-ans="ferma" aria-label="paraula"><option value="">…</option><option>ferma</option><option>miocardi</option><option>coronàries</option></select> i elàstica, com un múscul.</p>
+      <p class="gap" data-sum="Completa">Tot el cor és un múscul que es diu <select id="g1b" data-save data-ans="miocardi" aria-label="paraula"><option value="">…</option><option>ferma</option><option>miocardi</option><option>coronàries</option></select>.</p>
+      <p class="gap" data-sum="Completa">Els vasos que corren per fora del cor i el reguen es diuen artèries <select id="g1c" data-save data-ans="coronàries" aria-label="paraula"><option value="">…</option><option>ferma</option><option>miocardi</option><option>coronàries</option></select>.</p>
+      <p class="gap" data-sum="Encercla">Les artèries coronàries porten sang <select id="g1d" data-save data-ans="al múscul del propi cor" aria-label="opció"><option value="">…</option><option>al múscul del propi cor</option><option>als pulmons</option></select>.</p>
+      <div class="qbtns"><button class="btn" type="button" data-gapcheck="g1">Comprova</button></div>
+      <div class="fb" id="fb_g1" aria-live="polite"></div>
+      <div class="q"><label for="q1C_why">Per què ho has triat?</label><textarea id="q1C_why" data-save data-sum="Per què ho has triat? (coronàries)"></textarea></div>
+    </div>
+
+    <div data-lv="A" class="box">
+      <h3>Repte A — identifica i argumenta</h3>
+      <div class="q" data-q="q1A_1"><label for="q1A_1">A① Amb quin criteri físic pots distingir una artèria d'una vena tocant-les? Quin dels 4 vasos t'ha costat més de decidir i per què?</label><textarea id="q1A_1" data-save data-sum="A① Criteri artèria/vena"></textarea></div>
+      <div class="q" data-q="q1A_2"><label for="q1A_2">A② Argumenta per quina raó al cor no li serveix la sang que li passa per dins de les cavitats. (Pensa en el gruix de la paret i en com arriba l'oxigen a una cèl·lula.)</label><textarea id="q1A_2" data-save data-sum="A② Sang de dins no serveix"></textarea></div>
+      <div class="q" data-q="q1A_3"><label for="q1A_3">A③ Recorda la Sessió 1: el miocardi és un dels teixits amb més mitocondris del cos. Dedueix què implica això sobre el consum d'oxigen del cor, i quina conseqüència té si la sang porta poca hemoglobina.</label><textarea id="q1A_3" data-save data-sum="A③ Mitocondris i oxigen"></textarea></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 · OBRIM EL COR ============ -->
+<section class="step" data-step="2" id="s2">
+  <h2><span class="num">2</span>Obrim el cor — les cavitats per dins</h2>
+  <p class="meta">En grups de 4 · 35 min · Tall guiat, cavitats, septe i vàlvules</p>
+
+  <div class="box warn">
+    <h3>Material i com fer el tall — llegeix-ho TOT abans de començar</h3>
+    <p><b>Material per grup:</b> 1 cor de porc o de xai · safata de dissecció · guants · bisturí o tisores de punta rodona · pinces · sonda · regle · etiquetes de colors · paper absorbent (de cuina).</p>
+    <ol id="procList">
+      <li data-task="gloves">Poseu-vos els guants. El cor es queda SEMPRE dins de la safata.</li>
+      <li data-task="ext">Abans de tallar, feu la secció 1: mireu-lo per fora i toqueu-lo.</li>
+      <li data-task="sulc">Localitzeu el solc (la ratlla de greix que baixa en diagonal per davant): separa els dos ventricles. NO talleu just a sobre del solc.</li>
+      <li data-task="cut1">Feu el primer tall a un costat del solc, seguint una de les dues línies de punts. Talleu de dalt a baix, poc a poc, sense arribar a la punta.</li>
+      <li data-task="open1">Obriu-lo com un llibre i mireu-hi dins. Buideu els coàguls amb les pinces si cal.</li>
+      <li data-task="cut2">Feu el segon tall a l'altre costat del solc i obriu l'altre ventricle.</li>
+      <li data-task="tags4">Poseu una etiqueta de color a cada cavitat que trobeu.</li>
+      <li data-task="clean">En acabar: el cor a la bossa de residus, safata i eines a la pica, guants fora i mans amb sabó. <span class="small">(Al laboratori virtual ho faràs al final de la secció 3.)</span></li>
+    </ol>
+    <p><b>Seguretat:</b> talleu sempre allunyant el fil de les vostres mans i de les dels companys. Mai amb el cor a la mà: sempre a la safata. Res de menjar ni beure a la taula. Si us talleu, aviseu de seguida.</p>
+    <ul class="clean checklist">
+      <li><label><input type="checkbox" id="safe_read" data-save data-sum="He llegit les normes de seguretat"> He llegit el material i les normes de seguretat.</label></li>
+    </ul>
+    <div class="qbtns"><button class="btn pri" type="button" id="glovesBtn" aria-pressed="false">Posa't els guants</button></div>
+  </div>
+
+  <div class="instr">Tria l'eina <b>Sonda</b> i localitza el solc a la cara anterior. Després agafa el <b>Bisturí / tisores</b> i ressegueix una línia de punts de dalt a baix (arrossegant o tocant-la diverses vegades). Quan l'hagis obert, eixuga la sang amb el <b>Paper absorbent</b>, treu els coàguls amb les <b>Pinces</b> i marca cada cavitat amb una <b>Etiqueta</b> de color.</div>
+  <div class="benchslot" data-bench="2"></div>
+  <p class="legend">Les dues línies de punts marquen els DOS talls que fareu: un per obrir cada ventricle. En obrir-los tots dos podreu comparar el gruix de les dues parets — i descobrir quin dels dos és el ventricle esquerre.</p>
+  <p class="legend">Com funciona una vàlvula: quan està oberta deixa passar la sang; quan està tancada no la deixa tornar enrere. És una porta d'un sol sentit. (Prova-ho amb les pinces sobre una vàlvula.)</p>
+
+  <div data-lv="C" class="box read">
+    <h3>Per llegir — què hi trobaràs a dins</h3>
+    <p>A dins el cor no és buit: està dividit en cambres. N'hi ha dues a dalt, que reben la sang que torna al cor: es diuen <b>aurícules</b>. I dues a baix, més grosses i musculoses, que l'expulsen: es diuen <b>ventricles</b>.</p>
+    <p>Pel mig hi ha una paret sencera, el <b>septe</b> (també se'n diu envà), que separa el costat dret del costat esquerre. Com que és sencera, la sang d'un costat no passa a l'altre. I entre les cambres hi ha les <b>vàlvules</b>: portes que només s'obren en un sentit.</p>
+  </div>
+  <div class="box read">
+    <h3>Per llegir — d'on surt el so «lub-dub»</h3>
+    <p>Quan escoltes un batec no sents un cop, sinó dos: <b>lub — dub</b>. El so no el fa la sang movent-se: el fan les vàlvules en tancar-se de cop, com una porta que peta.</p>
+    <p>El <b>lub</b> són les vàlvules d'entrada (les que hi ha entre cada aurícula i el seu ventricle) quan es tanquen, just quan el ventricle comença a estrènyer. El <b>dub</b> són les vàlvules de sortida (a la boca de l'aorta i de l'artèria pulmonar) quan es tanquen, just quan el ventricle acaba d'estrènyer.</p>
+    <div class="qbtns"><button class="btn sm" type="button" id="lubdub">Escolta el ritme (animació)</button></div>
+    <div id="lubdubOut" class="small" aria-live="polite"></div>
+  </div>
+
+  <div class="card">
+    <h3>Anota el que veus al tall</h3>
+    <div class="q" data-q="q2_1">
+      <label for="q2_1">① Quantes cavitats comptes? Com es diuen les de dalt i com les de baix?</label>
+      <p class="starter" data-lv="C">Pots començar així: «He comptat … cavitats. Les de dalt es diuen … i les de baix …»</p>
+      <textarea id="q2_1" data-save data-sum="① Cavitats"></textarea>
+    </div>
+    <div class="q" data-q="q2_2">
+      <label for="q2_2">② Passa el dit pel septe. Què separa exactament, i per quina raó és important que no tingui cap forat?</label>
+      <p class="starter" data-lv="C">Pots començar així: «El septe separa … Si tingués un forat …»</p>
+      <textarea id="q2_2" data-save data-sum="② Septe"></textarea>
+    </div>
+    <div class="q" data-q="q2_3">
+      <label for="q2_3">③ Busca les vàlvules amb les pinces i mou-les. Què impedeixen que passi? I quina de les dues (entrada o sortida) fa el so «lub»?</label>
+      <p class="starter" data-lv="C">Pots començar així: «Les vàlvules impedeixen que … El so lub el fan les vàlvules d'…»</p>
+      <textarea id="q2_3" data-save data-sum="③ Vàlvules i lub"></textarea>
+    </div>
+
+    <div data-lv="C" data-gapgroup="g2">
+      <h3>Compta i completa (mira dins del cor obert)</h3>
+      <p class="small">Paraules i números per triar: 2 · 2 · 4 · septe · vàlvules · entrada · sortida</p>
+      <p class="gap" data-sum="Completa">He comptat <select id="g2a" data-save data-ans="4" aria-label="número"><option value="">…</option><option>2</option><option>4</option></select> cavitats: <select id="g2b" data-save data-ans="2" aria-label="número"><option value="">…</option><option>2</option><option>4</option></select> aurícules a dalt i <select id="g2c" data-save data-ans="2" aria-label="número"><option value="">…</option><option>2</option><option>4</option></select> ventricles a baix.</p>
+      <p class="gap" data-sum="Completa">La paret del mig que separa el costat dret de l'esquerre es diu el <select id="g2d" data-save data-ans="septe" aria-label="paraula"><option value="">…</option><option>septe</option><option>vàlvules</option></select>.</p>
+      <p class="gap" data-sum="Completa">Les portes que deixen passar la sang en un sol sentit es diuen <select id="g2e" data-save data-ans="vàlvules" aria-label="paraula"><option value="">…</option><option>septe</option><option>vàlvules</option></select>.</p>
+      <p class="gap" data-sum="Completa">El so «lub» el fan les vàlvules d'<select id="g2f" data-save data-ans="entrada" aria-label="paraula"><option value="">…</option><option>entrada</option><option>sortida</option></select> i el so «dub», les de <select id="g2g" data-save data-ans="sortida" aria-label="paraula"><option value="">…</option><option>entrada</option><option>sortida</option></select>.</p>
+      <p class="gap" data-sum="Encercla">Per funcionar bé, el septe ha de tenir <select id="g2h" data-save data-ans="cap forat" aria-label="opció"><option value="">…</option><option>un forat petit</option><option>cap forat</option></select>.</p>
+      <div class="qbtns"><button class="btn" type="button" data-gapcheck="g2">Comprova</button></div>
+      <div class="fb" id="fb_g2" aria-live="polite"></div>
+      <div class="q"><label for="q2C_why">Per què ho has triat?</label><textarea id="q2C_why" data-save data-sum="Per què ho has triat? (septe)"></textarea></div>
+    </div>
+
+    <div data-lv="A" class="box">
+      <h3>Repte A — reconstrueix i argumenta</h3>
+      <div class="q" data-q="q2A_1"><label for="q2A_1">A① Anomena les 4 cavitats i escriu, amb fletxes, el recorregut complet de la sang: des que torna pobra en O₂ fins que surt cap al cos. Indica en cada pas per quina vàlvula passa.</label><textarea id="q2A_1" data-save data-sum="A① Recorregut amb vàlvules"></textarea></div>
+      <div class="q" data-q="q2A_2"><label for="q2A_2">A② El septe complet té dues conseqüències diferents: (a) evita que es barregin dues sangs de composició diferent i (b) permet mantenir dues pressions diferents al mateix òrgan. Argumenta quina de les dues et sembla més decisiva i per què.</label><textarea id="q2A_2" data-save data-sum="A② Dues conseqüències del septe"></textarea></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="lab cond" style="font-size:18px">Dibuixa el cor OBERT tal com el veus ara i posa-hi els noms de totes les cavitats que hi trobis</div>
+    <p class="small">Escriu el nom al costat de cada cambra, amb una fletxa. Si no recordes un nom, mira el vocabulari de dalt de tot. (A la fitxa en paper, copia aquest dibuix.)</p>
+    <div class="drawbar" data-canvas="d2"></div>
+    <canvas class="draw" id="d2" width="800" height="600" aria-label="Espai per dibuixar el cor obert"></canvas>
+  </div>
+</section>
+
+<!-- ============ 3 · DUES BOMBES ============ -->
+<section class="step" data-step="3" id="s3">
+  <h2><span class="num">3</span>Dues bombes en un sol cor</h2>
+  <p class="meta">Individual · 20 min · Per quina raó una paret és més gruixuda que l'altra</p>
+  <div class="instr">Mira el cor obert. Amb el <b>Dit</b>, toca la paret dels dos ventricles. Després agafa el <b>Regle</b>, toca cada paret i mesura'n el gruix: posa el zero a la vora de fora i mou el cursor fins a la vora de dins.</div>
+  <div class="benchslot" data-bench="3"></div>
+
+  <div class="card">
+    <h3>Les teves mesures</h3>
+    <p>Gruix de la paret del <b>ventricle dret</b>: <input type="number" step="0.5" min="0" max="30" id="m_vd" data-save data-sum="Gruix paret ventricle dret (mm)" aria-label="Gruix ventricle dret en mm"> mm</p>
+    <p>Gruix de la paret del <b>ventricle esquerre</b>: <input type="number" step="0.5" min="0" max="30" id="m_ve" data-save data-sum="Gruix paret ventricle esquerre (mm)" aria-label="Gruix ventricle esquerre en mm"> mm</p>
+    <p class="small">Cada cor és diferent: és normal que el teu valor no coincideixi exactament amb el dels companys. Si mesures dues vegades, tampoc no et donarà exactament igual (error de mesura).</p>
+  </div>
+
+  <div class="card">
+    <div class="q" data-q="q3_1">
+      <label for="q3_1">① Toca la paret dels dos ventricles i compara-les. Quina és més gruixuda? Explica per quina raó, pensant fins on ha d'arribar la sang de cadascun.</label>
+      <p class="starter" data-lv="C">Pots començar així: «La paret més gruixuda és la del ventricle … perquè envia la sang …»</p>
+      <textarea id="q3_1" data-save data-sum="① Quina paret és més gruixuda i per què"></textarea>
+    </div>
+    <div class="box check" id="nowCheck" hidden>
+      <h3>Ara comprova-ho — Dues bombes, dues forces</h3>
+      <p>El cor són, de fet, dues bombes dins del mateix òrgan. La dreta envia la sang als pulmons, que són a tocar i tenen capil·lars finíssims: necessita poca força. L'esquerra l'envia a tot el cos, fins al dit del peu i fins al cap: per això la seva paret és molt més gruixuda. Ho havies dit així?</p>
+    </div>
+    <div class="q" data-q="q3_2">
+      <label for="q3_2">② Ara que ja saps quin costat empeny més fort: quin dels dos bufa la sang cap als pulmons? Escriu el nom de l'artèria per on surt.</label>
+      <textarea id="q3_2" data-save data-sum="② Costat que envia als pulmons i artèria"></textarea>
+    </div>
+    <div class="q">
+      <span class="lab">Posa els números 1-2-3-4 per ordenar les dues voltes de la sang</span>
+      <p class="small">Comença pel número 1 allà on la sang arriba al cor pobra en oxigen.</p>
+      <div id="orderBox"></div>
+      <div class="qbtns"><button class="btn" type="button" id="checkOrder">Comprova l'ordre</button></div>
+      <div class="fb" id="fb_order" aria-live="polite"></div>
+    </div>
+
+    <div data-lv="C">
+      <div class="box read">
+        <h3>Per llegir — un múscul es fa fort segons la feina que fa</h3>
+        <p>Pensa en la teva cama: el múscul de la cuixa és molt més gros que el del dit petit, perquè ha d'empènyer molt més pes. Amb el cor passa el mateix: el costat que ha d'empènyer la sang més lluny té la paret més gruixuda.</p>
+        <p>Un dels dos costats del cor fa un viatge molt curt: la sang només ha d'anar fins als pulmons, que són just al costat. L'altre l'ha d'enviar fins al cap i fins als dits dels peus, i tornar.</p>
+      </div>
+      <div data-gapgroup="g3">
+        <p class="gap" data-sum="Encercla">La paret més gruixuda és la del ventricle <select id="g3a" data-save data-ans="esquerre" aria-label="opció"><option value="">…</option><option>dret</option><option>esquerre</option></select>.</p>
+        <p class="gap" data-sum="Encercla">I aquest ventricle envia la sang <select id="g3b" data-save data-ans="a tot el cos, fins als peus" aria-label="opció"><option value="">…</option><option>als pulmons, que són a prop</option><option>a tot el cos, fins als peus</option></select>.</p>
+        <div class="qbtns"><button class="btn" type="button" data-gapcheck="g3">Comprova</button></div>
+        <div class="fb" id="fb_g3" aria-live="polite"></div>
+        <div class="q"><label for="q3C_how">Explica com ho has decidit tocant el cor:</label><textarea id="q3C_how" data-save data-sum="Com ho he decidit tocant el cor"></textarea></div>
+      </div>
+    </div>
+
+    <div data-lv="A" class="box">
+      <h3>Repte A — les dades de pressió</h3>
+      <div class="tablewrap"><table class="dt">
+        <tr><th>Dada mesurada en una persona sana</th><th>Ventricle dret</th><th>Ventricle esquerre</th></tr>
+        <tr><td>Pressió màxima que genera</td><td>~25 mmHg</td><td>~120 mmHg</td></tr>
+        <tr><td>Gruix de la paret</td><td>~4 mm</td><td>~12 mm</td></tr>
+        <tr><td>Volum que expulsa a cada batec</td><td>~70 mL</td><td>~70 mL</td></tr>
+      </table></div>
+      <p class="small">Totes tres dades són reals i les tres et fan falta.</p>
+      <div class="q" data-q="q3A_1"><label for="q3A_1">A① Les dues bombes mouen el mateix volum de sang, però amb pressions molt diferents. Argumenta què determina el gruix de la paret d'un ventricle: el volum que mou o la pressió que ha de generar? Justifica-ho amb les tres files de la taula.</label><textarea id="q3A_1" data-save data-sum="A① Volum o pressió"></textarea></div>
+      <div class="q" data-q="q3A_2"><label for="q3A_2">A② Prediu — la Rosa té hipertensió: durant anys, el seu ventricle esquerre ha hagut d'empènyer la sang a 160 mmHg en lloc de 120. Fent servir la taula, prediu què li haurà passat a la paret d'aquest ventricle. Després connecta-ho amb la secció 1 (mitocondris i coronàries): per quina raó aquest canvi, que sembla una adaptació, pot acabar sent un problema?</label><textarea id="q3A_2" data-save data-sum="A② Rosa i la hipertensió"></textarea></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>En acabar la dissecció</h3>
+    <ul class="clean checklist" id="cleanList">
+      <li><label><input type="checkbox" id="cl1" data-save> El cor a la bossa de residus.</label></li>
+      <li><label><input type="checkbox" id="cl2" data-save> Safata i eines a la pica.</label></li>
+      <li><label><input type="checkbox" id="cl3" data-save> Guants fora i mans amb sabó.</label></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 4 · CAS CLÍNIC ============ -->
+<section class="step" data-step="4" id="s4">
+  <h2><span class="num">4</span>Cas clínic — quan el cor falla</h2>
+  <p class="meta">En parelles · 15 min · Aplica el que has vist a un cas real</p>
+  <div class="cols two">
+    <div class="box"><h3>Cas A · Arnau — un forat al septe</h3>
+      <p>L'Arnau té 14 anys i va néixer amb un forat al septe que separa els dos ventricles. Símptomes: corrent es queda enrere molt abans que els companys i respira molt de pressa; en repòs està perfectament bé. El metge li sent un bufec (un soroll de sang que passa per on no hauria de passar). Els llavis i les ungles li tenen el color normal: no es posa blau.</p></div>
+    <div class="box"><h3>Cas B · Nadia — coronàries tapades</h3>
+      <p>La Nadia té 58 anys i té les artèries coronàries parcialment tapades per plaques de greix. Símptomes: quan puja escales li fa un dolor opressiu al pit i s'ha d'aturar; en aturar-se, al cap d'un parell de minuts el dolor desapareix del tot.</p></div>
+  </div>
+  <div class="q">
+    <span class="lab" id="case_l">Tria UN dels dos casos i respon només aquell.</span>
+    <div class="radios" role="radiogroup" aria-labelledby="case_l">
+      <label><input type="radio" name="case" id="case_A" value="A" data-save data-sum="Cas triat"> Cas A (Arnau)</label>
+      <label><input type="radio" name="case" id="case_B" value="B" data-save data-sum="Cas triat"> Cas B (Nadia)</label>
+    </div>
+  </div>
+
+  <div class="card sim" id="simA" hidden>
+    <h3>Simulador · el cor de l'Arnau</h3>
+    <p>Abans de mirar: segons les pressions dels dos ventricles, cap a on creus que passa la sang pel forat?</p>
+    <div class="qbtns"><button class="btn" type="button" id="dirLR">De l'esquerre cap al dret</button><button class="btn" type="button" id="dirRL">Del dret cap a l'esquerre</button></div>
+    <div class="fb" id="fb_dir" aria-live="polite"></div>
+    <svg viewBox="0 0 320 230" id="simAsvg" role="img" aria-label="Esquema del cor amb un forat al septe interventricular"></svg>
+    <div class="qbtns"><button class="btn sm" type="button" id="aRest" aria-pressed="true">En repòs</button><button class="btn sm" type="button" id="aEff" aria-pressed="false">Corrent (esforç)</button></div>
+    <div id="simAout" class="small" aria-live="polite"></div>
+  </div>
+
+  <div class="card sim" id="simB" hidden>
+    <h3>Simulador · les coronàries de la Nadia</h3>
+    <p>Tria quant està tapada la coronària i compara l'oxigen que <b>necessita</b> el múscul del cor amb el que li <b>arriba</b>.</p>
+    <div class="qbtns" role="group" aria-label="Obstrucció de la coronària">
+      <button class="btn sm" type="button" data-obs="0">0 %</button><button class="btn sm" type="button" data-obs="50">50 %</button><button class="btn sm" type="button" data-obs="70">70 % (Nadia)</button><button class="btn sm" type="button" data-obs="90">90 %</button><button class="btn sm" type="button" data-obs="100">100 %</button>
+    </div>
+    <svg viewBox="0 0 320 210" id="simBsvg" role="img" aria-label="Coronària amb placa i barres d'oxigen"></svg>
+    <div class="qbtns"><button class="btn sm" type="button" id="bRest" aria-pressed="true">En repòs</button><button class="btn sm" type="button" id="bEff" aria-pressed="false">Pujant escales</button></div>
+    <div id="simBout" class="small" aria-live="polite"></div>
+  </div>
+
+  <div data-lv="C" class="box read">
+    <h3>Per llegir — què passa de debò a cada cas</h3>
+    <p><b>Cas A (forat al septe).</b> El costat esquerre empeny molt més fort que el dret (ho has comprovat tocant les parets). Per això, pel forat, la sang passa de l'esquerre al dret, i no al contrari. Resultat: una part de la sang que ja portava oxigen torna als pulmons una segona vegada, sense haver anat al cos. El costat dret i els pulmons han de moure molta més sang del que els toca, i s'esgoten. Quan l'Arnau corre i necessita molt més cabal, el sistema no dona més de si: es cansa i respira ràpid. La sang que surt cap al cos porta l'oxigen normal — per això no es posa blau.</p>
+    <p><b>Cas B (coronàries tapades).</b> Les coronàries reguen el múscul del propi cor. Si estan mig tapades, en repòs encara hi passa prou sang. Però pujant escales el cor ha de treballar molt més i necessita més oxigen del que li arriba: el múscul es queixa i fa mal. En aturar-se, el cor torna a necessitar poc i el dolor marxa.</p>
+  </div>
+  <div data-lv="C" data-gapgroup="g4" class="card">
+    <p class="small">Escriu A o B a la primera línia. Paraules per triar a les altres dues: oxigen · miocardi</p>
+    <p class="gap" data-sum="Completa">He triat el cas <select id="g4a" data-save data-ans="*case" aria-label="cas"><option value="">…</option><option>A</option><option>B</option></select>.</p>
+    <p class="gap" data-sum="Completa">Si he triat el cas A: al costat dret del cor i als pulmons hi arriba massa sang, i el que NO canvia és l'<select id="g4b" data-save data-ans="oxigen" aria-label="paraula"><option value="">…</option><option>oxigen</option><option>miocardi</option></select> que surt cap al cos.</p>
+    <p class="gap" data-sum="Completa">Si he triat el cas B: al múscul del cor (el <select id="g4c" data-save data-ans="miocardi" aria-label="paraula"><option value="">…</option><option>oxigen</option><option>miocardi</option></select>) li arriba menys sang de la que necessita quan fa esforç.</p>
+    <p class="gap" data-sum="Encercla">Els dos casos tenen els símptomes <select id="g4d" data-save data-ans="només quan fan esforç" aria-label="opció"><option value="">…</option><option>només quan fan esforç</option><option>tot el dia igual</option></select>.</p>
+    <div class="qbtns"><button class="btn" type="button" data-gapcheck="g4">Comprova</button></div>
+    <div class="fb" id="fb_g4" aria-live="polite"></div>
+    <div class="q"><label for="q4C_why">Per què ho has triat?</label><textarea id="q4C_why" data-save data-sum="Per què ho has triat? (esforç)"></textarea></div>
+  </div>
+
+  <div class="card">
+    <h3>Explica el cas que has triat</h3>
+    <div class="q" data-q="q4_1">
+      <label for="q4_1">① Per quina raó aquesta persona té aquests símptomes, i per quina raó apareixen fent esforç i no en repòs? Explica el mecanisme, no el símptoma.</label>
+      <textarea id="q4_1" data-save data-sum="① Mecanisme"></textarea>
+    </div>
+    <div class="q" data-q="q4_2">
+      <label for="q4_2">② Al cas A hi ha una dada que sorprèn: l'Arnau no es posa blau, tot i tenir els dos costats connectats. Quin costat del cor empeny més fort? Cap a on ha de passar la sang pel forat, doncs? (Si has triat el cas B, respon què passaria si una coronària es tapés del tot.)</label>
+      <textarea id="q4_2" data-save data-sum="② Pregunta 2 del cas"></textarea>
+    </div>
+    <div data-lv="C" class="box">
+      <h3>Escriu el teu raonament pas a pas</h3>
+      <p class="small">Fes servir els 4 passos de sempre: «Observo que…», «Em pregunto per quina raó…», «Això té a veure amb…», «Per tant…». Per quina raó la persona que has triat es troba malament quan fa esforç i bé en repòs?</p>
+      <div class="q"><label for="q4C_o">OBSERVO:</label><textarea id="q4C_o" data-save data-sum="OBSERVO"></textarea></div>
+      <div class="q"><label for="q4C_p">EM PREGUNTO:</label><textarea id="q4C_p" data-save data-sum="EM PREGUNTO"></textarea></div>
+      <div class="q"><label for="q4C_c">CONNECTO:</label><textarea id="q4C_c" data-save data-sum="CONNECTO"></textarea></div>
+      <div class="q"><label for="q4C_d">DEDUEIXO:</label><textarea id="q4C_d" data-save data-sum="DEDUEIXO"></textarea></div>
+    </div>
+    <div data-lv="A" class="box">
+      <h3>Repte A — diagnostica, i comprova què NO encaixa</h3>
+      <div class="q" data-q="q4A_2"><label for="q4A_2">A② Refuta una explicació falsa. Molta gent diu que un forat al septe fa que «la sang bruta es barregi amb la neta i el pacient es posi blau». Els símptomes de l'Arnau ho desmenteixen. Fes servir les dades de pressió de la secció 3 per demostrar per quina raó aquesta explicació no pot ser correcta, i digues què passaria d'especial per arribar realment a posar-se blau.</label><textarea id="q4A_2" data-save data-sum="A② Refuta l'explicació falsa"></textarea></div>
+      <div class="q" data-q="q4A_3"><label for="q4A_3">A③ Proposa una intervenció per a la persona que has triat i explica per quin mecanisme milloraria. Digues també quin efecte NO tindrà.</label><textarea id="q4A_3" data-save data-sum="A③ Intervenció"></textarea></div>
+    </div>
+  </div>
+
+  <div data-lv="A" class="card">
+    <h3>★ Ampliació — compara i mesura</h3>
+    <div class="tablewrap"><table class="dt">
+      <tr><th>Animal</th><th>Cavitats del cor</th><th>Es barreja la sang?</th><th>Temperatura del cos</th></tr>
+      <tr><td>Peix</td><td>2</td><td>No (un sol circuit)</td><td>La de l'aigua</td></tr>
+      <tr><td>Granota</td><td>3 (1 ventricle)</td><td>Sí, una part</td><td>La de l'ambient</td></tr>
+      <tr><td>Gos, humà</td><td>4</td><td>No</td><td>Constant, ~37 °C</td></tr>
+    </table></div>
+    <div class="q" data-q="qX_1"><label for="qX_1">① Per quina raó 4 i no 3? Una granota viu perfectament amb la sang parcialment barrejada; un gos no ho sobreviuria. Argumenta quina relació hi ha entre mantenir la temperatura constant i necessitar 4 cavitats.</label><textarea id="qX_1" data-save data-sum="Ampliació ① 4 i no 3"></textarea></div>
+    <p><b>② Com ho mesuraries de debò?</b> Avui has comparat les parets tocant-les i amb un regle en un sol cor. Dissenya com comprovaries objectivament, amb els cors de tots els grups, que el ventricle esquerre té la paret més gruixuda.</p>
+    <div class="q"><label for="qX_vi">Variable que fas variar (VI):</label><input type="text" id="qX_vi" data-save data-sum="VI" style="width:100%"></div>
+    <div class="q"><label for="qX_vd">Variable que mesures (VD) i amb quin instrument:</label><input type="text" id="qX_vd" data-save data-sum="VD i instrument" style="width:100%"></div>
+    <div class="q"><label for="qX_ctl">Què mantens igual i quantes rèpliques fas:</label><input type="text" id="qX_ctl" data-save data-sum="Control i rèpliques" style="width:100%"></div>
+    <div class="q"><label for="qX_ref">Quin resultat refutaria la teva hipòtesi:</label><input type="text" id="qX_ref" data-save data-sum="Resultat que refutaria" style="width:100%"></div>
+  </div>
+</section>
+
+<!-- ============ 5 · POSEM-HO EN COMÚ ============ -->
+<section class="step" data-step="5" id="s5">
+  <h2><span class="num">5</span>Posem-ho en comú — es resol el repte del principi</h2>
+  <p class="meta">Tota la classe · 10 min + 7 min de full de sortida (te'l donen a part) · Recollida i tancament</p>
+  <div class="card">
+    <div class="q" data-q="q5_1">
+      <label for="q5_1">Un portaveu de cada grup diu una cosa que ha vist al cor i que no s'esperava. Després tornem a la pregunta del principi: per quina raó el cor té 4 cavitats i no 2? Escriu aquí la resposta de la classe, amb les teves paraules:</label>
+      <p class="starter" data-lv="C">Pots començar així: «El cor té 4 cavitats perquè …»</p>
+      <textarea id="q5_1" data-save data-sum="Per què 4 cavitats i no 2"></textarea>
+    </div>
+  </div>
+  <div class="card">
+    <h3 data-lv="BC">Torna als objectius del principi — Marca el que has après avui</h3>
+    <h3 data-lv="A">Què he après avui? Marca els objectius que ja domines</h3>
+    <ul class="clean checklist" data-lv="B">
+      <li><label><input type="checkbox" id="ob_b1" data-save data-sum="Objectiu"> Situo i anomeno les cavitats del cor i els grans vasos (aorta, artèria pulmonar i venes caves).</label></li>
+      <li><label><input type="checkbox" id="ob_b2" data-save data-sum="Objectiu"> Explico per quina raó el septe ha de ser complet i què permet tenir dos costats separats.</label></li>
+      <li><label><input type="checkbox" id="ob_b3" data-save data-sum="Objectiu"> Explico la funció de les vàlvules i del miocardi, i per quina raó el cor necessita les artèries coronàries.</label></li>
+      <li><label><input type="checkbox" id="ob_b4" data-save data-sum="Objectiu"> Justifico per quina raó el ventricle esquerre té la paret més gruixuda (doble circulació, dues pressions).</label></li>
+      <li><label><input type="checkbox" id="ob_b5" data-save data-sum="Objectiu"> Explico el mecanisme d'un cas clínic del cor a partir del que he vist a la dissecció.</label></li>
+    </ul>
+    <ul class="clean checklist" data-lv="A">
+      <li><label><input type="checkbox" id="ob_a1" data-save data-sum="Objectiu"> Relaciono cada estructura del cor amb la seva funció i ho argumento amb dades de pressió i de distància.</label></li>
+      <li><label><input type="checkbox" id="ob_a2" data-save data-sum="Objectiu"> Dedueixo el recorregut complet de la sang i el justifico amb les dues pressions del sistema.</label></li>
+      <li><label><input type="checkbox" id="ob_a3" data-save data-sum="Objectiu"> Analitzo un cas clínic i en dedueixo el mecanisme, distingint què canvia i què NO canvia.</label></li>
+      <li><label><input type="checkbox" id="ob_a4" data-save data-sum="Objectiu"> Predic com canvia el cor quan canvien les condicions (més pressió, més demanda d'oxigen) i ho comparo amb altres animals.</label></li>
+      <li><label><input type="checkbox" id="ob_a5" data-save data-sum="Objectiu"> Proposo una manera de mesurar objectivament una diferència anatòmica (variables, control, rèpliques).</label></li>
+    </ul>
+    <ul class="clean checklist" data-lv="C">
+      <li><label><input type="checkbox" id="ob_c1" data-save data-sum="Objectiu"> Sé com es diuen les cavitats del cor: les aurícules són a dalt i els ventricles a baix.</label></li>
+      <li><label><input type="checkbox" id="ob_c2" data-save data-sum="Objectiu"> Sé que una paret, el septe, separa el costat dret de l'esquerre i que la sang dels dos costats no es barreja.</label></li>
+      <li><label><input type="checkbox" id="ob_c3" data-save data-sum="Objectiu"> Sé que les vàlvules deixen passar la sang en un sol sentit i que el so «lub-dub» el fan elles en tancar-se.</label></li>
+      <li><label><input type="checkbox" id="ob_c4" data-save data-sum="Objectiu"> Sé quin ventricle té la paret més gruixuda i sé dir per quina raó.</label></li>
+      <li><label><input type="checkbox" id="ob_c5" data-save data-sum="Objectiu"> Sé ordenar les dues voltes de la sang: una als pulmons i una a tot el cos.</label></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Compara el dibuix de la secció 0 amb el cor real</h3>
+    <div class="cmp">
+      <figure><div id="cmpPred"></div><figcaption>El cor imaginat (secció 0)</figcaption></figure>
+      <figure><div id="cmpReal"></div><figcaption>El cor real obert, amb les teves etiquetes (secció 2)</figcaption></figure>
+    </div>
+    <div class="q" data-q="q5_2">
+      <label for="q5_2">Compara el dibuix de la secció 0 (el cor imaginat) amb el de la secció 2 (el cor real): en què tenies raó? En què t'equivocaves?</label>
+      <textarea id="q5_2" data-save data-sum="En què tenia raó / m'equivocava"></textarea>
+    </div>
+    <div class="q" data-lv="BC">
+      <label for="q5_3">Encara em pregunto…</label>
+      <textarea id="q5_3" data-save data-sum="Encara em pregunto"></textarea>
+    </div>
+  </div>
+  <div class="box read"><b>Per a la propera sessió:</b> avui no hi ha tasca per a casa. La setmana que ve resoldrem l'enigma de la gràfica del cor del Marc Fontana, el corredor.</div>
+</section>
+
+<!-- ============ RESUM ============ -->
+<section class="step" data-step="6" id="s6">
+  <h2><span class="num">✓</span>Copia-ho a la teva fitxa</h2>
+  <p class="meta">Aquí tens les teves dades i respostes, ordenades pels apartats de la fitxa en paper.</p>
+  <div class="card">
+    <div class="qbtns" style="margin-bottom:8px"><button class="btn pri" type="button" id="copyBtn">Copia el resum</button><button class="btn" type="button" id="refreshSum">Actualitza</button></div>
+    <div class="fb" id="fb_copy" aria-live="polite"></div>
+    <label for="sumtext" class="small">Resum (el pots seleccionar i copiar també a mà):</label>
+    <textarea id="sumtext" readonly></textarea>
+  </div>
+</section>
+
+<div class="navbtns"><button class="btn" type="button" id="prevBtn">← Anterior</button><button class="btn pri" type="button" id="nextBtn">Següent →</button></div>
+
+<!-- ============ BANC DE TREBALL (es mou entre seccions 1, 2 i 3) ============ -->
+<div id="bench" class="bench">
+  <div class="tools" role="toolbar" aria-label="Eines de dissecció">
+    <span class="tl">Eines:</span>
+    <button class="tool" type="button" data-tool="dit" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21v-7.5L6.6 11a1.6 1.6 0 0 1 2.3-2.2L10 10V4a1.5 1.5 0 0 1 3 0v5l4.3.9c1 .2 1.7 1.1 1.7 2.1V16c0 2.8-2 5-5 5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>Dit</button>
+    <button class="tool" type="button" data-tool="sonda" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21 17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="18.5" cy="5.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>Sonda</button>
+    <button class="tool" type="button" data-tool="tisores" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="6" cy="6" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 7.5 21 18M8.5 16.5 21 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Bisturí / tisores</button>
+    <button class="tool" type="button" data-tool="paper" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4 10h16M4 14h16" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/></svg>Paper absorbent</button>
+    <button class="tool" type="button" data-tool="pinces" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3l7 18M12 3l-1 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 8h4.5" stroke="currentColor" stroke-width="1.4"/></svg>Pinces</button>
+    <button class="tool" type="button" data-tool="etiquetes" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="7.5" cy="8.5" r="1.6" fill="currentColor"/></svg>Etiquetes</button>
+    <button class="tool" type="button" data-tool="regle" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9h20v6H2z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M6 9v3M10 9v2M14 9v3M18 9v2" stroke="currentColor" stroke-width="1.4"/></svg>Regle</button>
+    <span class="gloves" id="glovesBadge">Sense guants</span>
+  </div>
+  <div class="stage">
+    <div class="views" role="group" aria-label="Vista del cor">
+      <button class="btn sm" type="button" id="flipBtn">Gira el cor</button>
+      <button class="btn sm" type="button" data-view="ant" aria-pressed="true">Cara anterior</button>
+      <button class="btn sm" type="button" data-view="post" aria-pressed="false">Cara posterior</button>
+      <button class="btn sm" type="button" data-view="open" aria-pressed="false">Cor obert</button>
+    </div>
+    <svg id="heart" viewBox="0 0 400 470" role="group" aria-label="Cor sobre la safata de dissecció">
+      <rect x="6" y="6" width="388" height="458" rx="26" fill="var(--tray-2)"/>
+      <rect x="16" y="16" width="368" height="438" rx="20" fill="var(--tray)"/>
+      <text x="30" y="448" class="trayt" id="viewLabel">Cara anterior</text>
+      <g class="pressable" id="pressG"><g class="flipping" id="flipG">
+
+      <!-- ===== VISTA ANTERIOR ===== -->
+      <g id="vAnt">
+        <path class="t vein-o" stroke-width="34" d="M96 200 L78 254"/><path class="t vein" stroke-width="30" d="M96 200 L78 254"/>
+        <ellipse cx="78" cy="254" rx="15" ry="6" transform="rotate(18 78 254)" class="lumen"/>
+        <path class="t vein-o" stroke-width="36" d="M114 160 L110 30"/><path class="t vein" stroke-width="32" d="M114 160 L110 30"/>
+        <ellipse cx="110" cy="30" rx="16" ry="6" class="lumen"/>
+        <path class="atr" d="M70 205 C 55 170, 70 125, 110 122 C 140 120, 160 140, 165 170 C 168 195, 150 212, 120 214 C 95 215, 78 212, 70 205 Z"/>
+        <path class="t art-o" stroke-width="24" d="M262 120 C 245 110, 225 106, 200 106"/><path class="t pt" stroke-width="20" d="M262 120 C 245 110, 225 106, 200 106"/>
+        <path class="t art-o" stroke-width="22" d="M205 62 L196 14"/><path class="t art" stroke-width="18" d="M205 62 L196 14"/>
+        <ellipse cx="196" cy="14" rx="9" ry="4" class="lumen"/>
+        <path class="t art-o" stroke-width="18" d="M238 50 L248 12"/><path class="t art" stroke-width="14" d="M238 50 L248 12"/>
+        <ellipse cx="248" cy="12" rx="7" ry="3" class="lumen"/>
+        <path class="t art-o" stroke-width="44" d="M189 215 L189 100 C 190 45, 262 38, 302 88"/><path class="t art" stroke-width="40" d="M189 215 L189 100 C 190 45, 262 38, 302 88"/>
+        <ellipse cx="302" cy="88" rx="20" ry="8" transform="rotate(141 302 88)" class="lumen"/>
+        <path class="ven" d="M88 205 C 75 265, 120 365, 245 428 C 300 385, 326 300, 318 212 C 250 196, 150 196, 88 205 Z"/>
+        <path d="M262 200 C 258 280, 245 360, 228 414 C 236 420, 241 425, 245 428 C 300 385, 326 300, 318 212 C 300 206, 280 202, 262 200 Z" fill="rgba(0,0,0,.10)"/>
+        <ellipse cx="150" cy="285" rx="34" ry="60" fill="rgba(255,255,255,.07)" transform="rotate(-25 150 285)"/>
+        <path class="fat" stroke-width="16" d="M90 206 C 150 197, 250 197, 318 213"/>
+        <path class="fat" stroke-width="18" d="M262 202 C 258 280, 245 360, 228 414"/>
+        <path class="fat" stroke-width="9" d="M92 214 C 88 260, 100 305, 125 350"/>
+        <path class="cor" d="M182 208 C 140 204, 108 206, 94 216 C 88 258, 100 304, 125 350"/>
+        <path class="cor" d="M262 204 C 258 280, 245 360, 228 414"/>
+        <path class="cor thin" d="M256 270 C 270 290, 285 305, 298 318"/>
+        <path class="cor thin" d="M249 330 C 262 345, 272 360, 282 372"/>
+        <path class="cor" d="M264 204 C 290 205, 306 208, 320 220"/>
+        <path class="t art-o" stroke-width="44" d="M222 224 C 224 178, 240 142, 262 120"/><path class="t pt" stroke-width="40" d="M222 224 C 224 178, 240 142, 262 120"/>
+        <path class="t art-o" stroke-width="26" d="M262 120 C 285 106, 312 102, 338 108"/><path class="t pt" stroke-width="22" d="M262 120 C 285 106, 312 102, 338 108"/>
+        <ellipse cx="338" cy="108" rx="11" ry="5" transform="rotate(100 338 108)" class="lumen"/>
+        <path class="atr" d="M152 142 C 172 128, 196 136, 192 156 C 190 168, 178 166, 176 178 C 170 188, 156 180, 152 168 Z"/>
+        <path class="atr" d="M262 180 C 268 162, 298 158, 312 172 C 322 186, 306 202, 290 199 C 276 201, 264 195, 262 180 Z"/>
+        <g id="incisions"></g>
+        <g class="zones" id="zAnt">
+          <path class="z" data-z="rv" d="M88 205 C 75 265, 120 365, 245 428 C 300 385, 326 300, 318 212 C 250 196, 150 196, 88 205 Z"/>
+          <path class="z" data-z="lv" d="M262 200 C 258 280, 245 360, 228 414 C 236 420, 241 425, 245 428 C 300 385, 326 300, 318 212 C 300 206, 280 202, 262 200 Z"/>
+          <path class="zs" data-z="fat" stroke-width="16" d="M90 206 C 150 197, 250 197, 318 213"/>
+          <path class="zs" data-z="sulc" stroke-width="24" d="M262 202 C 258 280, 245 360, 228 414"/>
+          <path class="zs" data-z="cor" stroke-width="14" d="M94 216 C 88 258, 100 304, 125 350"/>
+          <path class="z" data-z="ra" d="M70 205 C 55 170, 70 125, 110 122 C 140 120, 160 140, 165 170 C 168 195, 150 212, 120 214 C 95 215, 78 212, 70 205 Z"/>
+          <path class="zs" data-z="v4" stroke-width="34" d="M96 205 L78 256"/>
+          <path class="zs" data-z="v1" stroke-width="36" d="M114 150 L110 26"/>
+          <path class="zs" data-z="v2" stroke-width="44" d="M189 190 L189 100 C 190 45, 262 38, 302 88"/>
+          <path class="zs" data-z="v2" stroke-width="20" d="M205 62 L196 12 M238 50 L248 10"/>
+          <path class="zs" data-z="v3" stroke-width="44" d="M222 224 C 224 178, 240 142, 262 120"/>
+          <path class="zs" data-z="v3" stroke-width="26" d="M262 120 C 285 106, 312 102, 340 108"/>
+          <path class="z" data-z="ra" d="M152 142 C 172 128, 196 136, 192 156 C 190 168, 178 166, 176 178 C 170 188, 156 180, 152 168 Z"/>
+          <path class="z" data-z="la" d="M262 180 C 268 162, 298 158, 312 172 C 322 186, 306 202, 290 199 C 276 201, 264 195, 262 180 Z"/>
+        </g>
+        <g id="nums">
+          <circle class="numc" cx="110" cy="78" r="11"/><text class="numt" x="110" y="78">1</text>
+          <circle class="numc" cx="189" cy="128" r="11"/><text class="numt" x="189" y="128">2</text>
+          <circle class="numc" cx="236" cy="166" r="11"/><text class="numt" x="236" y="166">3</text>
+          <circle class="numc" cx="56" cy="238" r="11"/><text class="numt" x="56" y="238">4</text>
+        </g>
+        <g id="cuts" style="display:none">
+          <path class="cutline" id="cutLineR" d="M224 214 L196 372"/>
+          <path class="cutline red" id="cutLineL" d="M292 222 L266 390"/>
+          <path class="incision" id="incR" d="M224 214 L196 372" pathLength="1" stroke-dasharray="0 1"/>
+          <path class="incision" id="incL" d="M292 222 L266 390" pathLength="1" stroke-dasharray="0 1"/>
+          <path class="cuthit" data-cut="R" d="M224 214 L196 372" tabindex="0" role="button" aria-label="Línia de punts negra (a l'esquerra del solc a la imatge)"/>
+          <path class="cuthit" data-cut="L" d="M292 222 L266 390" tabindex="0" role="button" aria-label="Línia de punts vermella (a la dreta del solc a la imatge)"/>
+        </g>
+      </g>
+
+      <!-- ===== VISTA POSTERIOR ===== -->
+      <g id="vPost" style="display:none">
+        <path class="t art-o" stroke-width="22" d="M225 54 L232 14"/><path class="t art" stroke-width="18" d="M225 54 L232 14"/>
+        <ellipse cx="232" cy="14" rx="9" ry="4" class="lumen"/>
+        <path class="t art-o" stroke-width="18" d="M188 46 L180 12"/><path class="t art" stroke-width="14" d="M188 46 L180 12"/>
+        <ellipse cx="180" cy="12" rx="7" ry="3" class="lumen"/>
+        <path class="t art-o" stroke-width="44" d="M262 100 C 240 40, 160 40, 126 90"/><path class="t art" stroke-width="40" d="M262 100 C 240 40, 160 40, 126 90"/>
+        <ellipse cx="126" cy="90" rx="20" ry="8" transform="rotate(34 126 90)" class="lumen"/>
+        <path class="t art-o" stroke-width="24" d="M128 122 C 170 110, 235 110, 268 118"/><path class="t pt" stroke-width="20" d="M128 122 C 170 110, 235 110, 268 118"/>
+        <ellipse cx="128" cy="122" rx="10" ry="4" transform="rotate(80 128 122)" class="lumen"/>
+        <path class="t vein-o" stroke-width="36" d="M300 150 L304 28"/><path class="t vein" stroke-width="32" d="M300 150 L304 28"/>
+        <ellipse cx="304" cy="28" rx="16" ry="6" class="lumen"/>
+        <path class="t vein-o" stroke-width="18" d="M130 152 L84 138 M128 186 L84 194 M234 150 L262 140 M236 182 L262 180"/>
+        <path class="t vein" stroke-width="14" d="M130 152 L84 138 M128 186 L84 194 M234 150 L262 140 M236 182 L262 180"/>
+        <ellipse cx="84" cy="138" rx="7" ry="3" transform="rotate(75 84 138)" class="lumen"/>
+        <ellipse cx="84" cy="194" rx="7" ry="3" transform="rotate(100 84 194)" class="lumen"/>
+        <path class="atr" d="M120 200 C 110 165, 130 128, 180 125 C 225 122, 245 150, 240 185 C 238 205, 200 212, 165 212 C 140 212, 125 208, 120 200 Z"/>
+        <path class="atr" d="M255 210 C 248 175, 262 135, 295 132 C 325 130, 338 160, 335 190 C 332 210, 310 218, 285 218 C 268 218, 258 215, 255 210 Z"/>
+        <path class="ven" d="M312 205 C 325 265, 280 365, 155 428 C 100 385, 74 300, 82 212 C 150 196, 250 196, 312 205 Z"/>
+        <path d="M82 212 C 74 300, 100 385, 155 428 C 162 424, 170 420, 176 416 C 200 360, 228 280, 236 202 C 180 198, 120 202, 82 212 Z" fill="rgba(0,0,0,.10)"/>
+        <ellipse cx="250" cy="290" rx="30" ry="55" fill="rgba(255,255,255,.06)" transform="rotate(25 250 290)"/>
+        <path class="fat" stroke-width="14" d="M84 210 C 150 198, 250 198, 312 207"/>
+        <path class="fat" stroke-width="16" d="M236 204 C 228 280, 200 360, 176 416"/>
+        <path class="t vein-o" stroke-width="14" d="M100 212 C 160 202, 230 202, 290 214"/><path class="t" stroke="#6a3446" stroke-width="11" d="M100 212 C 160 202, 230 202, 290 214"/>
+        <path class="cor" d="M236 206 C 228 280, 200 360, 176 416"/>
+        <path class="t" stroke="#6a3446" stroke-width="2.5" d="M244 210 C 238 280, 212 356, 186 410"/>
+        <path class="t vein-o" stroke-width="34" d="M300 212 L316 262"/><path class="t vein" stroke-width="30" d="M300 212 L316 262"/>
+        <ellipse cx="316" cy="262" rx="15" ry="6" transform="rotate(-18 316 262)" class="lumen"/>
+        <g class="zones" id="zPost">
+          <path class="z" data-z="rv" d="M312 205 C 325 265, 280 365, 155 428 C 100 385, 74 300, 82 212 C 150 196, 250 196, 312 205 Z"/>
+          <path class="z" data-z="lv" d="M82 212 C 74 300, 100 385, 155 428 C 162 424, 170 420, 176 416 C 200 360, 228 280, 236 202 C 180 198, 120 202, 82 212 Z"/>
+          <path class="zs" data-z="sulcp" stroke-width="22" d="M236 204 C 228 280, 200 360, 176 416"/>
+          <path class="zs" data-z="cs" stroke-width="16" d="M100 212 C 160 202, 230 202, 290 214"/>
+          <path class="zs" data-z="aop" stroke-width="44" d="M262 100 C 240 40, 160 40, 126 90"/>
+          <path class="zs" data-z="aop" stroke-width="20" d="M225 54 L232 12 M188 46 L180 10"/>
+          <path class="zs" data-z="pap" stroke-width="22" d="M128 122 C 170 110, 235 110, 268 118"/>
+          <path class="z" data-z="lap" d="M120 200 C 110 165, 130 128, 180 125 C 225 122, 245 150, 240 185 C 238 205, 200 212, 165 212 C 140 212, 125 208, 120 200 Z"/>
+          <path class="zs" data-z="pv" stroke-width="18" d="M130 152 L84 138 M128 186 L84 194 M234 150 L258 141 M236 182 L258 180"/>
+          <path class="z" data-z="rap" d="M255 210 C 248 175, 262 135, 295 132 C 325 130, 338 160, 335 190 C 332 210, 310 218, 285 218 C 268 218, 258 215, 255 210 Z"/>
+          <path class="zs" data-z="v1" stroke-width="36" d="M300 135 L304 26"/>
+          <path class="zs" data-z="v4" stroke-width="34" d="M300 214 L316 264"/>
+        </g>
+      </g>
+
+      </g></g>
+      <g id="pinsG"></g>
+    </svg>
+    <div id="openWrap" class="imgplate" hidden>
+      <img src="img/cor_seccio_mut.webp" width="570" height="740" alt="Cor tallat de dalt a baix: es veuen les quatre cavitats, el septe, les vàlvules i les cordes tendinoses">
+      <svg id="openSvg" viewBox="0 0 570 740" role="group" aria-label="Zones del cor obert">
+        <g id="bloodG"></g>
+        <g id="clotsG"></g>
+        <g class="zones" id="zOpen">
+          <path class="z" data-z="oSVC" d="M122 45 L195 40 L200 285 L130 290 Z"/>
+          <path class="z" data-z="oIVC" d="M122 600 L178 600 L178 652 L122 652 Z"/>
+          <path class="z" data-z="oAo" d="M195 175 C 200 110, 250 85, 300 85 C 345 88, 380 120, 382 190 L 335 215 C 330 160, 310 140, 290 140 C 260 140, 245 165, 245 200 L 230 290 L 200 290 Z"/>
+          <path class="z" data-z="oPT" d="M215 300 C 235 260, 270 215, 320 200 L 455 205 L 462 245 L 340 250 C 310 260, 300 290, 300 330 L 290 365 L 225 365 Z"/>
+          <path class="z" data-z="ora" d="M80 330 C 90 300, 120 290, 170 290 C 190 295, 198 320, 198 360 L 196 420 C 190 455, 172 478, 135 482 C 100 478, 82 450, 76 400 Z"/>
+          <path class="z" data-z="ola" d="M318 300 C 330 278, 360 268, 395 270 C 428 275, 448 300, 446 335 C 442 365, 420 382, 385 385 C 350 385, 325 365, 318 335 Z"/>
+          <path class="z" data-z="orv" d="M132 505 C 150 492, 175 488, 196 498 L 205 400 L 285 400 C 292 450, 300 520, 322 585 C 335 615, 350 640, 352 648 C 330 652, 300 642, 255 625 C 215 612, 175 605, 150 580 C 135 560, 128 530, 132 505 Z"/>
+          <path class="z" data-z="olv" d="M335 455 C 350 440, 380 432, 420 435 C 450 440, 470 470, 470 520 C 468 580, 450 625, 410 648 C 385 652, 372 640, 365 620 C 352 580, 340 520, 335 455 Z"/>
+          <path class="z" data-z="sept" d="M290 410 L 330 450 C 340 520, 355 590, 372 645 L 356 652 C 345 615, 330 585, 320 555 C 305 510, 296 460, 290 410 Z"/>
+          <path class="z" data-z="wallR" d="M100 470 L 128 500 C 125 535, 135 570, 160 600 C 200 625, 260 640, 330 662 L 338 690 C 260 676, 190 652, 140 622 C 110 595, 95 560, 92 520 Z"/>
+          <path class="z" data-z="wallL" d="M455 395 C 480 420, 495 470, 494 530 C 492 600, 465 660, 410 698 L 360 700 L 372 655 C 420 640, 460 590, 470 520 C 472 470, 460 430, 438 405 Z"/>
+          <path class="z" data-z="tri" d="M165 420 L 210 415 L 212 470 L 200 500 L 165 520 L 130 512 C 140 490, 160 470, 165 450 Z"/>
+          <path class="z" data-z="chordR" d="M188 500 L 225 495 L 245 540 L 215 548 Z"/>
+          <path class="z" data-z="mit" d="M345 385 L 415 385 L 412 430 L 395 445 L 362 445 L 348 420 Z"/>
+          <path class="z" data-z="chordL" d="M358 445 L 400 445 L 398 510 L 360 510 Z"/>
+          <path class="z" data-z="papL" d="M350 540 L 430 535 L 432 625 L 390 630 L 355 600 Z"/>
+          <ellipse class="z" data-z="outR" cx="250" cy="385" rx="32" ry="17"/>
+          <ellipse class="z" data-z="outL" cx="325" cy="396" rx="26" ry="15"/>
+        </g>
+        <g id="coverR">
+          <path class="cover" d="M52 300 C 80 285, 150 280, 210 290 L 300 290 L 300 400 C 315 480, 335 570, 365 650 L 372 706 C 300 700, 230 676, 165 642 C 115 610, 100 560, 92 520 C 70 480, 50 420, 52 300 Z"/>
+          <text class="coverlab" x="190" y="470">Encara sense obrir</text>
+        </g>
+        <g id="coverL">
+          <path class="cover" d="M300 290 L 345 268 C 400 255, 450 270, 462 320 C 470 360, 465 385, 470 400 C 495 440, 500 520, 494 570 C 486 640, 450 690, 400 706 L 372 706 L 365 650 C 335 570, 315 480, 300 400 Z"/>
+          <text class="coverlab" x="400" y="500">Encara sense obrir</text>
+        </g>
+        <g id="rulerG"></g>
+        <g id="pinsO"></g>
+      </svg>
+    </div>
+    <p class="legend" id="openCap" hidden>Cor tallat de dalt a baix, vist pel davant: el costat dret del cor queda a l'esquerra de la imatge. Els números de colors són les teves etiquetes.</p>
+    <ol class="pinlist" id="pinList" hidden></ol>
+  </div>
+  <div class="panel">
+    <div id="info" aria-live="polite"></div>
+    <div class="tasks-wrap"><h4>Feina al banc</h4><ul class="clean tasks" id="benchTasks"></ul></div>
+  </div>
+</div>
+
+<p class="foot">IE Temple · Biologia i Geologia 3r ESO · El nostre cos en marxa · Sessió 4 · Laboratori virtual (els dibuixos són esquemes propis; el cor real pot variar una mica).</p>
+</div>
+
+<script>
+"use strict";
+/* ================= ESTAT ================= */
+const LS = "lab_s4_disseccio_v2";
+function defaults(){
+  return {level:"B", step:0, visited:[0], ans:{}, hints:{}, draw:{}, heart:null, view:"ant", tool:"dit",
+    gloves:false, cut:{R:0,L:0}, opened:{R:false,L:false}, blotted:{R:false,L:false}, clots:null,
+    tags:{ant:{},post:{},open:{}}, t:{}, probed:[], found:[], meas:{}, measT:{}, shunt:null, aEff:false, bEff:false, obs:70, checked:{}};
+}
+let S = defaults();
+try{ const raw = localStorage.getItem(LS); if(raw){ const o = JSON.parse(raw); S = Object.assign(defaults(), o); S.tags = Object.assign({ant:{},post:{},open:{}}, o.tags||{}); } }catch(e){}
+let saveTimer = null;
+function save(){ clearTimeout(saveTimer); saveTimer = setTimeout(()=>{ try{ localStorage.setItem(LS, JSON.stringify(S)); }catch(e){} }, 150); }
+const $ = (s, r=document)=>r.querySelector(s);
+const $$ = (s, r=document)=>Array.from(r.querySelectorAll(s));
+const norm = s => (s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/·/g,"");
+const esc = s => String(s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* Cor: tipus i valors reals amb variabilitat */
+function rnd(a,b){ return a + Math.random()*(b-a); }
+function half(x){ return Math.round(x*2)/2; }
+function makeHeart(type){
+  const pig = type !== "xai";
+  const h = {type, tLV: half(pig ? rnd(12,15.5) : rnd(9.5,12.5)), tRV: half(pig ? rnd(4,6.5) : rnd(3,5))};
+  // coàguls: 1 a cada ventricle i, de vegades, un a una aurícula
+  // coordenades sobre img/cor_seccio_mut.webp (570x740)
+  const c = [{id:"c1",side:"R",vent:true,x:rnd(205,250),y:rnd(565,590),r:rnd(18,23)},{id:"c2",side:"L",vent:true,x:rnd(425,445),y:rnd(470,500),r:rnd(14,17)}];
+  if(Math.random()<.6) c.push({id:"c3",side:"R",x:rnd(115,160),y:rnd(345,395),r:rnd(14,18)});
+  if(Math.random()<.5) c.push({id:"c4",side:"L",x:rnd(365,405),y:rnd(315,345),r:rnd(13,16)});
+  h.clots = c.map(o=>Object.assign(o,{seed:Math.random()}));
+  return h;
+}
+if(!S.heart){ S.heart = makeHeart("porc"); }
+
+/* ================= NIVELL ================= */
+function applyLevel(){
+  document.body.dataset.level = S.level;
+  $$("[data-lv]").forEach(el=>{ el.hidden = !el.dataset.lv.includes(S.level); });
+  $$(".lvl [data-level]").forEach(b=>b.setAttribute("aria-pressed", b.dataset.level===S.level ? "true":"false"));
+}
+$$(".lvl [data-level]").forEach(b=>b.addEventListener("click", ()=>{ S.level=b.dataset.level; applyLevel(); save(); }));
+
+/* ================= PASSOS ================= */
+const STEPS = [["0","Predicció"],["1","Per fora"],["2","Obrim el cor"],["3","Dues bombes"],["4","Cas clínic"],["5","En comú"],["✓","Resum"]];
+const nav = $("#stepsNav");
+STEPS.forEach((s,i)=>{ const b=document.createElement("button"); b.type="button"; b.dataset.go=i; b.innerHTML=`<span class="n">${s[0]}</span>${s[1]}`; b.addEventListener("click",()=>go(i)); nav.appendChild(b); });
+function go(i){
+  S.step = Math.max(0, Math.min(6, i));
+  if(!S.visited.includes(S.step)) S.visited.push(S.step);
+  $$("section.step").forEach(sec=>sec.classList.toggle("on", +sec.dataset.step===S.step));
+  $$("#stepsNav button").forEach((b,k)=>{ if(k===S.step) b.setAttribute("aria-current","step"); else b.removeAttribute("aria-current"); b.classList.toggle("done", stepDone(k)); });
+  const slot = $(`.benchslot[data-bench="${S.step}"]`);
+  if(slot) slot.appendChild($("#bench"));
+  if(S.step===1 && S.view==="open" && !S.opened.R && !S.opened.L) S.view="ant";
+  if(S.step===3 && (S.opened.R||S.opened.L)) S.view="open";
+  $("#prevBtn").disabled = S.step===0;
+  $("#nextBtn").textContent = S.step===5 ? "Veure el resum →" : "Següent →";
+  $("#nextBtn").disabled = S.step===6;
+  if(S.step===5) renderCompare();
+  if(S.step===6) buildSummary();
+  renderBench(); save();
+  const cur = $("#stepsNav button[aria-current]"); if(cur && cur.scrollIntoView) cur.scrollIntoView({block:"nearest",inline:"center"});
+}
+function stepDone(k){
+  const t=S.t;
+  switch(k){
+    case 0: return !!(S.ans.p0_cav && S.ans.p0_why);
+    case 1: return !!(t.vesselsOK && t.pressed && S.ans.q1_1);
+    case 2: return !!(t.cutR && t.cutL && Object.keys(S.tags.open).filter(k=>["ora","ola","orv","olv"].includes(k)).length===4);
+    case 3: return !!(S.meas.R && S.meas.L && S.ans.q3_1);
+    case 4: return !!(S.ans.case && S.ans.q4_1);
+    case 5: return !!S.ans.q5_1;
+    default: return false;
+  }
+}
+$("#prevBtn").addEventListener("click",()=>{ go(S.step-1); window.scrollTo({top:0}); });
+$("#nextBtn").addEventListener("click",()=>{ go(S.step+1); window.scrollTo({top:0}); });
+
+/* ================= DESAR INPUTS ================= */
+function bindInputs(){
+  $$("[data-save]").forEach(el=>{
+    const id = el.type==="radio" ? el.name : el.id;
+    const v = S.ans[id];
+    if(el.type==="checkbox") el.checked = !!v;
+    else if(el.type==="radio") el.checked = (v===el.value);
+    else if(v!=null) el.value = v;
+    const h = ()=>{ S.ans[id] = el.type==="checkbox" ? el.checked : el.value; save(); onAnswer(id); };
+    el.addEventListener(el.tagName==="SELECT"||el.type==="radio"||el.type==="checkbox" ? "change" : "input", h);
+  });
+}
+function onAnswer(id){
+  if(id==="case") showCase();
+  if(id==="obs_lv") checkObsLV();
+  if(id==="safe_read") renderBench();
+  $$("#stepsNav button").forEach((b,k)=>b.classList.toggle("done", stepDone(k)));
+}
+
+/* ================= PREGUNTES OBERTES: idees clau i pistes ================= */
+const IDEAS = {
+  q1_1:[
+    {re:/(cav\w*[^.]*(entr|arrib|torn|cap al cor|al cor))|((entr|arrib|torn)\w*[^.]*cav)/, topic:"quins vasos porten la sang CAP AL cor", hints:["Fes servir la sonda als vasos 1 i 4: on arriba, a una aurícula o a un ventricle?","Les venes porten la sang cap al cor. Quins dels quatre vasos són venes?"]},
+    {re:/((aort|pulmonar)[^.]*(surt|treu|fora|se.?n van|cap als? (pulmo|cos)))|((surt|treu)\w*[^.]*(aort|pulmonar))/, topic:"quins vasos treuen la sang del cor", hints:["Amb la sonda, mira on porten els vasos 2 i 3: a una aurícula o a un ventricle?","Les artèries treuen la sang dels ventricles. Quins dos vasos tenen la paret gruixuda?"]},
+    {re:/gruix|grues|ferm|elastic|prim|tou|tova|flacc|aplan|ventricl|auricul|sonda/, topic:"com ho saps (una prova que has observat)", hints:["Toca els vasos amb la sonda o el dit: tots tenen la mateixa paret?","Fixa't també on arriba la sonda: els vasos que surten d'un ventricle són artèries; els que arriben a una aurícula, venes."]}
+  ],
+  q1_2:[
+    {re:/ferm|elastic|muscul|dur/, topic:"com és la textura", hints:["Fes servir l'eina Dit i prem el cor. Es queda enfonsat o torna a la seva forma?"]},
+    {re:/contr|estren|bomb|empeny|impuls|batec|bategar|expuls|prem/, topic:"per què ha de ser múscul", hints:["Un tub rígid pot canviar de mida? Què ha de fer el cor amb la sang a cada batec?","El cor s'ha d'estrènyer (contraure) per empènyer la sang. Qui pot fer això: un tub rígid o un múscul?"]}
+  ],
+  q1_3:[
+    {re:/oxigen|nutrient|aliment|energ|menjar|glucosa/, topic:"què necessita el múscul del cor", hints:["El miocardi és un múscul que treballa sense parar. Què necessita qualsevol cèl·lula per poder fer feina?"]},
+    {re:/gruix|no arriba|no hi arriba|massa rapid|de pressa|lluny|capil|per dins no|no pot agafar/, topic:"per què no li serveix la sang de dins", hints:["Recorda que la paret del cor és gruixuda. L'oxigen de la sang de dins pot arribar fins a les cèl·lules de la part de fora de la paret?","La sang de dins passa de pressa i l'oxigen només arriba a les cèl·lules molt properes. Les cèl·lules del múscul necessiten capil·lars a tocar."]}
+  ],
+  q2_1:[
+    {re:/\b4\b|quatre/, topic:"quantes cavitats", hints:["Compta les cavitats als dos costats del cor obert, a dalt i a baix."]},
+    {re:/auricul/, topic:"el nom de les de dalt", hints:["Mira el vocabulari: com es diu la cavitat de dalt, que rep la sang?"]},
+    {re:/ventricl/, topic:"el nom de les de baix", hints:["Mira el vocabulari: com es diu la cavitat de baix, que expulsa la sang?"]}
+  ],
+  q2_2:[
+    {re:/dret|esquerr/, topic:"quins dos costats separa", hints:["Amb el Dit, passa pel septe: què queda a cada banda?"]},
+    {re:/barrej|mescl|neta|bruta|oxigen|passar d.un costat|d.un costat a l.altre|pressio/, topic:"per què no pot tenir cap forat", hints:["Quina sang hi ha al costat dret i quina al costat esquerre? Són iguals?","Si hi hagués un forat, la sang podria passar d'un costat a l'altre. Què passaria amb la sang rica i la sang pobra en oxigen?"]}
+  ],
+  q2_3:[
+    {re:/enrere|tornar|torni|retroc|un sol sentit|reflu/, topic:"què impedeixen les vàlvules", hints:["Fes la prova de la vàlvula amb les pinces: què passa quan la sang empeny des del ventricle?"]},
+    {re:/(lub[^.]*(entrad|auricul|tricusp|mitral))|((entrad|tricusp|mitral)[^.]*lub)/, topic:"quina vàlvula fa el «lub»", hints:["Torna a llegir «d'on surt el so lub-dub». El lub sona quan el ventricle COMENÇA a estrènyer.","Quan el ventricle comença a estrènyer, quines portes s'han de tancar perquè la sang no torni a l'aurícula: les d'entrada o les de sortida?"]}
+  ],
+  q3_1:[
+    {re:/esquerr/, topic:"quin ventricle té la paret més gruixuda", hints:["Compara les dues mesures del regle. Quin ventricle és el de paret gruixuda?"]},
+    {re:/tot el cos|cos|lluny|peu|cap\b|cervell|tot arreu/, topic:"fins on envia la sang aquest ventricle", hints:["Per l'aorta, fins on ha d'arribar la sang? I per l'artèria pulmonar?"]},
+    {re:/forc|pressio|empeny|fort|treball/, topic:"què necessita per arribar-hi", hints:["Per enviar la sang molt lluny, la bomba necessita més… què?"]}
+  ],
+  q3_2:[
+    {re:/dret/, topic:"quin costat", hints:["Quin dels dos ventricles té menys força? Els pulmons són a prop o lluny?"]},
+    {re:/pulmonar/, topic:"per quina artèria surt", hints:["És el vas número 3 de la cara anterior."]}
+  ],
+  q4_1A:[
+    {re:/esquerr[^.]*dret/, topic:"cap a on passa la sang pel forat", hints:["Mira el simulador: quin ventricle fa més pressió? La sang va d'on hi ha més pressió a on n'hi ha menys."]},
+    {re:/pulmo|costat dret|mes sang|sobrecarreg|treball|cansa|esgot|cabal/, topic:"qui ha de treballar de més", hints:["La sang que passa pel forat torna als pulmons sense haver anat al cos. Qui ha de moure aquesta sang de més?"]},
+    {re:/esforc|corre|exercici|necessit|repos/, topic:"per què només fent esforç", hints:["En repòs el cos necessita poca sang. I corrent? El costat dret pot moure encara més sang?"]}
+  ],
+  q4_1B:[
+    {re:/coronar|tapad|placa|estret|obstru/, topic:"la causa: com estan les coronàries", hints:["On són les plaques de greix de la Nadia? Quina feina fan aquests vasos?"]},
+    {re:/((oxigen|sang)[^.]*(miocard|muscul|cor))|((miocard|muscul)[^.]*(oxigen|sang))/, topic:"què li falta al múscul del cor", hints:["Al simulador, compara l'oxigen que necessita el miocardi amb el que li arriba."]},
+    {re:/esforc|escal|treball|necessit|demand|repos/, topic:"per què només fent esforç", hints:["Pujant escales el cor batega més ràpid i més fort. Necessita més o menys oxigen que en repòs?"]}
+  ],
+  q4_2A:[
+    {re:/esquerr/, topic:"quin costat empeny més fort", hints:["Recorda les dues parets que has mesurat: quin ventricle és més fort?"]},
+    {re:/esquerr[^.]*dret|cap al dret|cap a la dreta/, topic:"cap a on passa la sang pel forat", hints:["La sang va del ventricle que fa més pressió cap al que en fa menys."]},
+    {re:/no[^.]*barrej|ja porta oxigen|oxigen normal|rica en oxigen|neta|no[^.]*blau|no arriba sang pobra/, topic:"per què no es posa blau", hints:["La sang que passa pel forat, és rica o pobra en oxigen? I la que surt cap al cos, quant oxigen porta al simulador?"]}
+  ],
+  q4_2B:[
+    {re:/mor|necrosi|sense oxigen|no arriba|no li arriba/, topic:"què li passaria al múscul", hints:["Al simulador, posa la coronària tapada al 100 %. Quant oxigen arriba al múscul?"]},
+    {re:/infart|atac|aturar|para|deixa de bategar|greu|perill/, topic:"la conseqüència per a la persona", hints:["Si una part del miocardi es mor, el cor pot continuar bombant bé? Com es diu això?"]}
+  ],
+  q5_1:[
+    {re:/separ|no es barreg|no barreg|dues sangs|oxigen/, topic:"separar la sang rica i la pobra en oxigen", hints:["Què aconsegueix el septe complet?"]},
+    {re:/dues bombes|pressio|forc|dos circuits|dues voltes|doble|pulmo[^.]*cos|cos[^.]*pulmo/, topic:"dues bombes per a dues voltes", hints:["Pensa en la secció 3: quantes bombes hi ha dins el cor i on envia la sang cadascuna?"]}
+  ]
+};
+const OPEN_HINTS = {
+  q1A_1:["Toca un vas amb paret gruixuda i un de paret prima: quin queda obert i quin s'aplana?","Les artèries suporten la pressió del ventricle: tenen una paret gruixuda i elàstica. Les venes, prima."],
+  q1A_2:["Quina distància pot recórrer l'oxigen per difusió? Unes quantes cèl·lules.","Si la paret del ventricle esquerre fa més d'1 cm, les cèl·lules de fora queden massa lluny de la sang de dins."],
+  q1A_3:["Els mitocondris fan la respiració cel·lular. Què consumeixen?","Si el cor consumeix molt oxigen i la sang en porta poc (poca hemoglobina), el cor ha de bategar més ràpid o es queda curt d'oxigen."],
+  q2A_1:["Comença a les venes caves → aurícula dreta → …","Vàlvules: tricúspide (dreta), pulmonar, mitral (esquerra), aòrtica. Entremig, els pulmons."],
+  q2A_2:["Què passaria amb una sola pressió: es pot enviar sang a 120 mmHg als capil·lars finíssims dels pulmons sense trencar-los?"],
+  q3A_1:["Mira la fila del volum: és igual o diferent? I la de la pressió? Quina de les dues s'assembla a la del gruix?"],
+  q3A_2:["Un múscul que treballa més es fa més gruixut. Però un múscul més gruixut necessita més… (pensa en les coronàries)."],
+  q4A_2:["Recorda les pressions: 120 mmHg i 25 mmHg. Cap a on pot anar la sang pel forat?","Perquè es posés blau, sang pobra en oxigen hauria d'anar cap al cos. Això només passaria si el costat dret arribés a empènyer més fort que l'esquerre."],
+  q4A_3:["Cas A: tancar el forat. Cas B: obrir o fer un pont a la coronària. Què canvia i què no?"],
+  qX_1:["Mantenir 37 °C gasta molta energia. Què cal per fer la respiració cel·lular?"]
+};
+function ideasFor(id){
+  if(id==="q4_1") return S.ans.case==="B" ? IDEAS.q4_1B : (S.ans.case==="A" ? IDEAS.q4_1A : null);
+  if(id==="q4_2") return S.ans.case==="B" ? IDEAS.q4_2B : (S.ans.case==="A" ? IDEAS.q4_2A : null);
+  return IDEAS[id];
+}
+function setupQuestions(){
+  $$(".q[data-q]").forEach(q=>{
+    const id = q.dataset.q;
+    const box = document.createElement("div"); box.className="qbtns";
+    const hasIdeas = !!(IDEAS[id] || id==="q4_1" || id==="q4_2");
+    if(hasIdeas){ const c=document.createElement("button"); c.type="button"; c.className="btn sm"; c.textContent="Comprova"; c.addEventListener("click",()=>checkQ(id)); box.appendChild(c); }
+    const h=document.createElement("button"); h.type="button"; h.className="btn sm"; h.textContent="Pista"; h.addEventListener("click",()=>hintQ(id)); box.appendChild(h);
+    const fb=document.createElement("div"); fb.className="fb"; fb.id="fb_"+id; fb.setAttribute("aria-live","polite");
+    q.appendChild(box); q.appendChild(fb);
+  });
+}
+function checkQ(id){
+  const fb = $("#fb_"+id), txt = norm($("#"+id).value);
+  const ideas = ideasFor(id);
+  if(!ideas){ fb.innerHTML = `<span class="bad">Primer tria un cas (A o B) a dalt.</span>`; return; }
+  if(txt.trim().length < 15){ fb.innerHTML = `<span class="bad">Escriu una mica més: com a mínim una frase sencera.</span>`; return; }
+  const ok = ideas.map(i=>i.re.test(txt));
+  const n = ok.filter(Boolean).length;
+  let h = n===ideas.length ? `<span class="ok">Molt bé! Hi has posat les ${n} idees clau.</span>` : `<span>Hi has posat ${n} de ${ideas.length} idees clau.</span>`;
+  ideas.forEach((i,k)=>{ if(ok[k]) h += `<br><span class="ok">Bé:</span> parles de ${i.topic}.`; });
+  const miss = ideas.find((i,k)=>!ok[k]);
+  if(miss) h += `<br><span class="bad">Et falta:</span> ${miss.topic}. Si t'encalles, prem «Pista».`;
+  fb.innerHTML = h;
+  S.checked[id]=true; save();
+  if(id==="q3_1") $("#nowCheck").hidden = false;
+}
+function hintQ(id){
+  const fb = $("#fb_"+id);
+  const ideas = ideasFor(id);
+  let list;
+  if(ideas){
+    const txt = norm($("#"+id).value);
+    const miss = ideas.filter(i=>!i.re.test(txt));
+    if(!miss.length){ fb.innerHTML = `<span class="ok">Ja hi tens totes les idees clau. Revisa que s'entengui bé.</span>`; return; }
+    list = miss.flatMap(i=>i.hints);
+  } else list = OPEN_HINTS[id] || ["Rellegeix la pregunta i mira el banc de treball."];
+  if(id==="q4_1"||id==="q4_2"){ if(!S.ans.case){ fb.innerHTML=`<span class="bad">Primer tria un cas (A o B).</span>`; return; } }
+  const k = (S.hints[id]||0);
+  const hint = list[Math.min(k, list.length-1)];
+  S.hints[id] = k+1; save();
+  fb.innerHTML = `<span class="hint"><b>Pista ${Math.min(k+1,list.length)}:</b> ${esc(hint)}</span>`;
+}
+
+/* Frases per completar (nivell C) */
+$$("[data-gapcheck]").forEach(b=>b.addEventListener("click",()=>{
+  const g=b.dataset.gapcheck, grp=$(`[data-gapgroup="${g}"]`);
+  let bad=0, tot=0;
+  $$("select[data-ans]", grp).forEach(s=>{
+    let ans = s.dataset.ans; if(ans==="*case") ans = S.ans.case||"";
+    if(g==="g4" && ((s.id==="g4b" && S.ans.g4a!=="A") || (s.id==="g4c" && S.ans.g4a!=="B"))){ s.style.borderColor=""; return; }
+    tot++; const ok = s.value===ans; if(!ok) bad++;
+    s.style.borderColor = s.value ? (ok?"var(--ok)":"var(--bad)") : "var(--warn)";
+  });
+  $("#fb_"+g).innerHTML = bad ? `<span class="bad">${bad} de ${tot} encara no encaixen</span> (marcades en vermell o taronja). Torna a mirar el text de lectura i el banc.` : `<span class="ok">Tot correcte!</span>`;
+}));
+
+/* ================= DIBUIX ================= */
+function setupCanvas(id){
+  const cv=$("#"+id), ctx=cv.getContext("2d"), bar=$(`[data-canvas="${id}"]`);
+  let color="#16241c", drawing=false, last=null;
+  const cols=[["#16241c","Negre"],["#c0392b","Vermell"],["#2f6fb5","Blau"]];
+  cols.forEach(([c,n],i)=>{ const b=document.createElement("button"); b.type="button"; b.className="swatch"; b.style.background=c; b.setAttribute("aria-label","Llapis "+n); b.setAttribute("aria-pressed", i===0?"true":"false"); b.addEventListener("click",()=>{ color=c; $$(".swatch",bar).forEach(x=>x.setAttribute("aria-pressed","false")); b.setAttribute("aria-pressed","true"); }); bar.appendChild(b); });
+  const clr=document.createElement("button"); clr.type="button"; clr.className="btn sm"; clr.textContent="Esborra-ho tot";
+  let armed=false;
+  clr.addEventListener("click",()=>{ if(!armed){ armed=true; clr.textContent="Segur? Torna a prémer"; setTimeout(()=>{armed=false; clr.textContent="Esborra-ho tot";},3000); return; } armed=false; clr.textContent="Esborra-ho tot"; ctx.clearRect(0,0,cv.width,cv.height); delete S.draw[id]; save(); });
+  bar.appendChild(clr);
+  if(S.draw[id]){ const im=new Image(); im.onload=()=>ctx.drawImage(im,0,0); im.src=S.draw[id]; }
+  const pos=e=>{ const r=cv.getBoundingClientRect(); return [(e.clientX-r.left)*cv.width/r.width,(e.clientY-r.top)*cv.height/r.height]; };
+  cv.addEventListener("pointerdown",e=>{ drawing=true; last=pos(e); cv.setPointerCapture(e.pointerId); ctx.fillStyle=color; ctx.beginPath(); ctx.arc(last[0],last[1],2.5,0,7); ctx.fill(); });
+  cv.addEventListener("pointermove",e=>{ if(!drawing) return; const p=pos(e); ctx.strokeStyle=color; ctx.lineWidth=5; ctx.lineCap="round"; ctx.beginPath(); ctx.moveTo(last[0],last[1]); ctx.lineTo(p[0],p[1]); ctx.stroke(); last=p; });
+  const end=()=>{ if(!drawing) return; drawing=false; try{ S.draw[id]=cv.toDataURL("image/png"); }catch(e){} save(); };
+  cv.addEventListener("pointerup",end); cv.addEventListener("pointercancel",end);
+}
+$("#savePred").addEventListener("click",()=>{
+  const d0 = !!S.draw.d0;
+  $("#fb_pred").innerHTML = (S.ans.p0_cav && S.ans.p0_why) ? `<span class="ok">Predicció desada.</span> No es corregeix: la compararàs amb el cor real a la secció 5.${d0?"":" (Encara no has dibuixat res.)"}` : `<span class="bad">Et falta dir quantes cavitats creus que té i per què.</span>`;
+});
+
+/* ================= BANC DE TREBALL ================= */
+const svg = $("#heart");
+const TOOLNAME = {dit:"Dit",sonda:"Sonda",tisores:"Bisturí / tisores",paper:"Paper absorbent",pinces:"Pinces",etiquetes:"Etiquetes",regle:"Regle"};
+function say(html){ $("#info").innerHTML = html; }
+function sayKeep(html){ say(html); }
+function addFound(k){ if(!S.found.includes(k)){ S.found.push(k); save(); } }
+function flagT(k){ if(!S.t[k]){ S.t[k]=true; save(); } }
+
+$$(".tool").forEach(b=>b.addEventListener("click",()=>{
+  S.tool=b.dataset.tool; save(); renderBench();
+  const msgs = {dit:"Toca una part del cor per prémer-la.",sonda:"Toca una part del cor: la sonda t'explica què és i on porta.",tisores:"Ressegueix una línia de punts de dalt a baix.",paper:"Toca la sang d'una cavitat oberta per eixugar-la.",pinces:"Toca un coàgul per treure'l, o una vàlvula per moure-la.",etiquetes:"Toca una estructura i tria quina etiqueta li poses.",regle:"Toca la paret d'un ventricle obert per mesurar-ne el gruix."};
+  say(`<b class="nm">${TOOLNAME[S.tool]}</b><br>${msgs[S.tool]}`);
+}));
+$$(".views [data-view]").forEach(b=>b.addEventListener("click",()=>setView(b.dataset.view)));
+$("#flipBtn").addEventListener("click",()=>setView(S.view==="ant" ? "post" : "ant"));
+function setView(v){
+  if(v==="open" && !S.opened.R && !S.opened.L){ say("Encara no has obert el cor. Primer cal fer el tall (secció 2)."); return; }
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const g=$("#flipG");
+  const swap=()=>{ S.view=v; if(v==="ant") flagT("seenAnt"); if(v==="post") flagT("seenPost"); renderBench(); save(); };
+  if(reduce || v==="open" || S.view==="open"){ swap(); return; }
+  g.classList.add("out"); setTimeout(()=>{ swap(); g.classList.remove("out"); }, 220);
+}
+function press(){ const g=$("#pressG"); g.classList.add("press"); setTimeout(()=>g.classList.remove("press"),260); }
+function flash(el){ el.classList.add("flash"); setTimeout(()=>el.classList.remove("flash"),350); }
+
+function toolsAllowed(){
+  if(S.step===1) return ["dit","sonda","etiquetes","tisores","pinces","paper","regle"];
+  return Object.keys(TOOLNAME);
+}
+function renderBench(){
+  // eines
+  $$(".tool").forEach(b=>{ b.setAttribute("aria-pressed", b.dataset.tool===S.tool?"true":"false"); });
+  svg.setAttribute("class", "tool-"+S.tool);
+  const gb=$("#glovesBadge"); gb.textContent = S.gloves ? "Guants posats" : "Sense guants"; gb.classList.toggle("on", S.gloves);
+  $("#glovesBtn").setAttribute("aria-pressed", S.gloves?"true":"false"); $("#glovesBtn").textContent = S.gloves ? "Guants posats ✓" : "Posa't els guants";
+  // vistes
+  $("#vAnt").style.display = S.view==="ant" ? "" : "none";
+  $("#vPost").style.display = S.view==="post" ? "" : "none";
+  const isOpen = S.view==="open";
+  svg.style.display = isOpen ? "none" : "";
+  $("#openWrap").hidden = !isOpen; $("#openCap").hidden = !isOpen; $("#pinList").hidden = !isOpen || !Object.keys(S.tags.open).length;
+  $("#openSvg").setAttribute("class", "tool-"+S.tool);
+  if(!isOpen) $("#rulerG").innerHTML="";
+  $$(".views [data-view]").forEach(b=>b.setAttribute("aria-pressed", b.dataset.view===S.view?"true":"false"));
+  $('.views [data-view="open"]').disabled = !(S.opened.R||S.opened.L);
+  $("#flipBtn").disabled = S.view==="open";
+  $("#viewLabel").textContent = {ant:"Cara anterior (del davant)",post:"Cara posterior (del darrere)",open:"Cor obert"}[S.view] + " · cor de " + S.heart.type;
+  const sc = S.heart.type==="xai" ? .9 : 1;
+  $("#pressG").setAttribute("transform", sc===1 ? "" : `translate(${200*(1-sc)} ${235*(1-sc)}) scale(${sc})`);
+  // talls
+  $("#cuts").style.display = (S.step>=2 && S.t.sulc) || S.cut.R || S.cut.L ? "" : "none";
+  $("#incR").setAttribute("stroke-dasharray", `${S.cut.R} 1`);
+  $("#incL").setAttribute("stroke-dasharray", `${S.cut.L} 1`);
+  // obert
+  $("#coverR").style.display = S.opened.R ? "none" : "";
+  $("#coverL").style.display = S.opened.L ? "none" : "";
+  renderBlood(); renderClots(); renderPins(); renderTasks();
+  $$("#procList li").forEach(li=>{ const k=li.dataset.task; const ok = k==="gloves" ? (S.gloves && S.ans.safe_read) : k==="ext" ? !!(S.t.pressed && S.t.vesselsOK) : k==="open1" ? (S.opened.R||S.opened.L) : k==="cut1" ? (S.t.cutR||S.t.cutL) : k==="cut2" ? (S.t.cutR&&S.t.cutL) : k==="tags4" ? tags4() : k==="clean" ? !!(S.ans.cl1&&S.ans.cl2&&S.ans.cl3) : !!S.t[k]; li.style.color = ok ? "var(--ok)" : ""; li.style.fontWeight = ok ? "600" : ""; });
+}
+function tags4(){ return ["ora","ola","orv","olv"].every(k=>S.tags.open[k]); }
+function renderBlood(){
+  const g=$("#bloodG"); g.innerHTML="";
+  const ns="http://www.w3.org/2000/svg";
+  const zd=k=>$(`#zOpen [data-z="${k}"]`).getAttribute("d");
+  [["R",zd("ora")+" "+zd("orv")],["L",zd("ola")+" "+zd("olv")]].forEach(([s,d])=>{
+    if(S.opened[s] && !S.blotted[s]){ const p=document.createElementNS(ns,"path"); p.setAttribute("d",d); p.setAttribute("class","blood"); p.dataset.blood=s; p.style.cursor="pointer"; g.appendChild(p); }
+  });
+}
+function blobPath(x,y,r,seed){
+  let d=""; const n=9;
+  for(let i=0;i<=n;i++){ const a=i/n*Math.PI*2; const rr=r*(0.75+0.35*Math.abs(Math.sin(seed*13+i*1.7))); const px=x+Math.cos(a)*rr, py=y+Math.sin(a)*rr*0.8; d += (i?" L":"M")+px.toFixed(1)+" "+py.toFixed(1); }
+  return d+" Z";
+}
+function renderClots(){
+  const g=$("#clotsG"); g.innerHTML="";
+  const ns="http://www.w3.org/2000/svg";
+  S.heart.clots.forEach(c=>{
+    if(!S.opened[c.side] || c.gone) return;
+    const p=document.createElementNS(ns,"path"); p.setAttribute("d",blobPath(c.x,c.y,c.r,c.seed)); p.setAttribute("class","clot"); p.dataset.clot=c.id; p.setAttribute("tabindex","0"); p.setAttribute("role","button"); p.setAttribute("aria-label","Coàgul de sang"); p.style.cursor="pointer";
+    g.appendChild(p);
+  });
+}
+const TAGCOL = ["#f2c230","#5aa0e6","#58c27d","#ef7fb0","#f29a4a","#b49cf0","#7fd6d0","#e8e26a"];
+const ANCHOR = {
+  ant:{ra:[118,168],la:[300,178],rv:[160,300],lv:[288,300],v1:[110,100],v2:[175,150],v3:[256,140],v4:[70,276],sulc:[250,340],fat:[150,200],cor:[100,282]},
+  post:{rap:[300,176],lap:[180,170],rv:[262,300],lv:[130,300],v1:[304,90],v4:[318,286],sulcp:[214,330],cs:[170,206],aop:[190,46],pap:[200,112],pv:[92,166]},
+  // coordenades de la imatge real (570x740)
+  open:{ora:[132,375],ola:[385,325],orv:[255,575],olv:[440,540],sept:[318,520],tri:[175,470],mit:[380,412],chordR:[215,522],chordL:[380,478],papL:[392,585],outR:[250,385],outL:[326,397],wallR:[112,545],wallL:[480,520],oSVC:[160,160],oIVC:[150,625],oAo:[292,120],oPT:[400,228]}
+};
+function renderOpenPins(){
+  const g=$("#pinsO"); g.innerHTML=""; const ns="http://www.w3.org/2000/svg"; const list=[]; let i=0;
+  Object.keys(S.tags.open).forEach(z=>{ const a=ANCHOR.open[z]; if(!a) return; const col=TAGCOL[i%TAGCOL.length]; i++;
+    const gp=document.createElementNS(ns,"g"); gp.setAttribute("class","pin");
+    gp.innerHTML=`<circle class="pinc" cx="${a[0]}" cy="${a[1]}" r="15" fill="${col}"/><text class="pinn" x="${a[0]}" y="${a[1]+1}">${i}</text>`;
+    g.appendChild(gp); list.push(`<li><i style="background:${col}">${i}</i>${esc(S.tags.open[z])}</li>`); });
+  $("#pinList").innerHTML=list.join("");
+}
+function renderPins(){
+  renderOpenPins();
+  const g=$("#pinsG"); g.innerHTML=""; const ns="http://www.w3.org/2000/svg";
+  if(S.view==="open") return;
+  const tags=S.tags[S.view]||{}; let i=0;
+  const sc = S.heart.type==="xai" ? .9 : 1;
+  Object.keys(tags).forEach(z=>{
+    const a=(ANCHOR[S.view]||{})[z]; if(!a) return;
+    const x=200+(a[0]-200)*sc, y=235+(a[1]-235)*sc;
+    const label=tags[z]; const w=label.length*6.1+14;
+    const gp=document.createElementNS(ns,"g"); gp.setAttribute("class","pin");
+    const xx=Math.max(20, Math.min(380-w, x-w/2));
+    gp.innerHTML=`<rect x="${xx}" y="${y-10}" width="${w}" height="20" rx="4" fill="${TAGCOL[i%TAGCOL.length]}"/><text x="${xx+7}" y="${y}">${esc(label)}</text>`;
+    g.appendChild(gp); i++;
+  });
+}
+function renderTasks(){
+  const t=S.t, ul=$("#benchTasks"); let items=[];
+  if(S.step<=1) items=[
+    [t.seenAnt && t.seenPost,"Gira el cor i mira les dues cares"],
+    [t.pressed,"Prem el cor amb el dit"],
+    [["v1","v2","v3","v4"].every(v=>S.probed.includes(v)),"Explora els 4 vasos amb la sonda"],
+    [t.vesselsOK,"Posa nom als 4 vasos (etiquetes o llegenda)"],
+    [S.found.includes("fat") && S.found.includes("cor"),"Troba el greix i una artèria coronària"],
+    [t.pressLV && t.pressRV,"Prem els dos ventricles i compara'ls"]];
+  else if(S.step===2) items=[
+    [S.gloves && S.ans.safe_read,"Guants posats i normes llegides"],
+    [t.sulc,"Localitza el solc (sonda o dit)"],
+    [t.cutR||t.cutL,"Primer tall, de dalt a baix"],
+    [S.opened.R||S.opened.L,"Obre'l com un llibre"],
+    [t.cutR&&t.cutL,"Segon tall i obre l'altre ventricle"],
+    [S.blotted.R&&S.blotted.L,"Eixuga la sang amb paper absorbent"],
+    [(S.opened.R&&S.opened.L) && S.heart.clots.every(c=>c.gone),"Treu els coàguls amb les pinces"],
+    [tags4(),"Etiqueta les 4 cavitats"],
+    [S.found.includes("sept") && (S.found.includes("tri")||S.found.includes("mit")) && S.found.includes("chord"),"Troba el septe, una vàlvula i les cordes"],
+    [t.valve,"Mou una vàlvula amb les pinces"]];
+  else items=[
+    [t.touchR && t.touchL,"Toca la paret dels dos ventricles"],
+    [!!S.meas.R,"Mesura la paret del ventricle de paret prima"],
+    [!!S.meas.L,"Mesura la paret del ventricle de paret gruixuda"]];
+  ul.innerHTML = items.map(([ok,txt])=>`<li class="${ok?"ok":""}">${txt}</li>`).join("");
+}
+
+/* ---- Informació de les zones ---- */
+const EXT = {
+  ra:{name:"Aurícula dreta (amb l'orelleta)", sonda:"Paret prima i tova, una mica arrugada. Hi arriben les venes caves. L'orelleta és el plec en forma d'orella que queda al davant.", dit:"Molt tova: és una paret prima. Les aurícules només empenyen la sang fins al ventricle de sota, que és a tocar."},
+  la:{name:"Orelleta de l'aurícula esquerra", sonda:"És l'única part de l'aurícula esquerra que es veu per davant. La resta de l'aurícula esquerra queda al darrere (gira el cor).", dit:"Tova i prima, com l'altra aurícula."},
+  rv:{name:"Un ventricle", sonda:"Cavitat de baix, de paret muscular. Per saber quin ventricle és, prem-lo amb el Dit i compara'l amb l'altre.", dit:"Cedeix quan prems: la paret és força prima. Aquest ventricle no arriba a la punta del cor."},
+  lv:{name:"Un ventricle", sonda:"Cavitat de baix, de paret muscular. Per saber quin ventricle és, prem-lo amb el Dit i compara'l amb l'altre.", dit:"Molt ferm: costa d'enfonsar-lo, la paret és gruixuda. Aquest ventricle forma la punta del cor."},
+  sulc:{name:"Solc interventricular anterior", sonda:"La ratlla de greix que baixa en diagonal per davant. Separa els dos ventricles. Per dins del greix hi corre una artèria coronària: no s'ha de tallar just a sobre.", dit:"Toves el greix groguenc. A sota notes un vas fi: una coronària."},
+  fat:{name:"Greix del solc coronari", sonda:"Greix groguenc que fa la volta al cor, entre les aurícules i els ventricles. Protegeix les artèries coronàries que hi passen.", dit:"Tou i una mica greixós."},
+  cor:{name:"Artèria coronària", sonda:"Vas vermell que corre per damunt del cor, dins del greix. Porta sang amb oxigen al múscul del propi cor (el miocardi).", dit:"Un vas fi i ferm, enganxat a la superfície."},
+  v1:{name:"Vas número 1", sonda:"Paret prima i tova: s'aplana fàcilment. Ve de dalt (del cap i els braços). Si hi fiques la sonda cap avall, arribes a una aurícula: la dreta.", dit:"S'aplana com un globus desinflat: paret prima.", vein:true},
+  v2:{name:"Vas número 2", sonda:"Paret molt gruixuda, blanquinosa i elàstica: el forat es manté obert. Fa un arc i en surten branques cap amunt (cap i braços). Si hi fiques la sonda cap avall, arribes al ventricle de paret gruixuda.", dit:"Ferm i elàstic: no s'aplana.", art:true},
+  v3:{name:"Vas número 3", sonda:"Paret gruixuda (una mica menys que el 2) i elàstica. És el vas que queda més al davant de tots. Es divideix en dues branques, una cap a cada pulmó. Si hi fiques la sonda cap avall, arribes al ventricle de paret prima.", dit:"Ferm i elàstic: no s'aplana.", art:true},
+  v4:{name:"Vas número 4", sonda:"Paret prima i tova. Ve de baix (de la part inferior del cos). La sonda arriba a l'aurícula dreta.", dit:"S'aplana fàcilment: paret prima.", vein:true},
+  rap:{name:"Aurícula dreta", sonda:"Paret prima. Per darrere veus com hi arriben les dues venes caves, una per dalt i una per baix.", dit:"Molt tova."},
+  lap:{name:"Aurícula esquerra", sonda:"Paret prima. Hi arriben diverses venes petites que venen dels pulmons (venes pulmonars).", dit:"Molt tova."},
+  pv:{name:"Venes pulmonars", sonda:"Venes curtes que porten sang rica en oxigen des dels pulmons fins a l'aurícula esquerra.", dit:"Paret prima: s'aplanen."},
+  cs:{name:"Si coronari", sonda:"Vena ampla, al darrere, que recull la sang que ja ha passat pel múscul del cor i la buida a l'aurícula dreta.", dit:"Paret prima."},
+  sulcp:{name:"Solc interventricular posterior", sonda:"Ratlla de greix del darrere que separa els dos ventricles. També hi passen una artèria coronària i una vena.", dit:"Greix tou."},
+  aop:{name:"Arc de l'aorta (vas número 2)", sonda:"Per darrere veus l'arc del vas número 2 i les seves branques.", dit:"Ferm i elàstic.", art:true},
+  pap:{name:"Branques del vas número 3", sonda:"Les dues branques del vas número 3, una cap a cada pulmó.", dit:"Ferm i elàstic.", art:true}
+};
+const VESSEL_NAMES = ["vena cava superior","aorta","artèria pulmonar","vena cava inferior"];
+const VESSEL_ANS = {v1:"vena cava superior",v2:"aorta",v3:"artèria pulmonar",v4:"vena cava inferior"};
+const EXT_TAG_ANS = {ant:{ra:"aurícula dreta",la:"aurícula esquerra",rv:"ventricle dret",lv:"ventricle esquerre",sulc:"solc amb greix",fat:"solc amb greix",cor:"artèria coronària",v1:"vena cava superior",v2:"aorta",v3:"artèria pulmonar",v4:"vena cava inferior"},
+  post:{rap:"aurícula dreta",lap:"aurícula esquerra",rv:"ventricle dret",lv:"ventricle esquerre",sulcp:"solc amb greix",cs:"vena (si coronari)",pv:"venes pulmonars",aop:"aorta",pap:"artèria pulmonar",v1:"vena cava superior",v4:"vena cava inferior"}};
+const EXT_TAG_OPTS = {ant:["aurícula dreta","aurícula esquerra","ventricle dret","ventricle esquerre","aorta","artèria pulmonar","vena cava superior","vena cava inferior","artèria coronària","solc amb greix"],
+  post:["aurícula dreta","aurícula esquerra","ventricle dret","ventricle esquerre","aorta","artèria pulmonar","vena cava superior","vena cava inferior","venes pulmonars","vena (si coronari)","solc amb greix"]};
+const OPEN_TAG_ANS = {ora:"aurícula dreta",ola:"aurícula esquerra",orv:"ventricle dret",olv:"ventricle esquerre",sept:"septe",tri:"vàlvula d'entrada",mit:"vàlvula d'entrada",chordR:"cordes tendinoses",chordL:"cordes tendinoses",papR:"músculs papil·lars",papL:"músculs papil·lars",outR:"vàlvula de sortida",outL:"vàlvula de sortida"};
+const OPEN_TAG_OPTS = ["aurícula dreta","aurícula esquerra","ventricle dret","ventricle esquerre","septe","vàlvula d'entrada","vàlvula de sortida","cordes tendinoses","músculs papil·lars"];
+const TAG_HINT = {
+  rv:"Prem els dos ventricles amb el Dit: el de paret prima i tova és el dret.", lv:"El ventricle esquerre és el de paret ferma i gruixuda, i fa la punta del cor.",
+  orv:"Compara el gruix de les dues parets (Dit o Regle). El ventricle de paret prima envia la sang a prop, als pulmons.", olv:"El ventricle de paret gruixuda envia la sang a tot el cos.",
+  ora:"Cada aurícula està connectada amb el ventricle del seu costat per una vàlvula. Quin ventricle té a sota?", ola:"Cada aurícula està connectada amb el ventricle del seu costat per una vàlvula. Quin ventricle té a sota?",
+  v1:"Mira on arriba la sonda i si la paret és prima o gruixuda. Ve de dalt.", v2:"Té la paret més gruixuda i fa un arc amb branques cap amunt.", v3:"És el vas que queda més al davant i es divideix en dues branques, una per a cada pulmó.", v4:"És una vena que ve de baix.",
+  sept:"És la paret del mig, entre els dos ventricles.", tri:"Són les valves primes entre l'aurícula i el ventricle.", mit:"Són les valves primes entre l'aurícula i el ventricle.", outR:"És el forat per on la sang SURT del ventricle cap a una artèria.", outL:"És el forat per on la sang SURT del ventricle cap a una artèria."
+};
+function lvKnown(){ return S.ans.obs_lv==="dreta"; }
+function sideTagged(side){ return side==="R" ? !!S.tags.open.orv : !!S.tags.open.olv; }
+
+/* ---- Interacció ---- */
+function svgPoint(e){ const pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY; const m=(S.view==="open" ? $("#openSvg") : $("#pressG")).getScreenCTM(); return m ? pt.matrixTransform(m.inverse()) : {x:0,y:0}; }
+function onBenchClick(e){
+  const z = e.target.closest("[data-z]"), cl = e.target.closest("[data-clot]"), bl = e.target.closest("[data-blood]");
+  if(e.target.closest(".cuthit")) return;
+  if(cl){ clotAction(cl.dataset.clot); return; }
+  if(bl){ bloodAction(bl.dataset.blood); return; }
+  if(!z) { if(S.tool==="tisores" && S.view==="ant") scissorsElsewhere(null); return; }
+  flash(z);
+  const p = svgPoint(e);
+  if(S.view==="open") openAction(z.dataset.z, p); else extAction(z.dataset.z);
+}
+function onBenchKey(e){
+  if(e.key!=="Enter" && e.key!==" ") return;
+  const el=e.target;
+  if(el.classList && el.classList.contains("cuthit")){ e.preventDefault(); cutKey(el.dataset.cut); return; }
+  if(el.dataset && el.dataset.clot){ e.preventDefault(); clotAction(el.dataset.clot); return; }
+  if(el.dataset && el.dataset.z){ e.preventDefault(); flash(el); const a=(ANCHOR[S.view]||{})[el.dataset.z]||[200,300]; if(S.view==="open") openAction(el.dataset.z,{x:a[0],y:a[1]}); else extAction(el.dataset.z); }
+}
+[svg, $("#openSvg")].forEach(el=>{ el.addEventListener("click", onBenchClick); el.addEventListener("keydown", onBenchKey); });
+function prepZones(){
+  const lab = {rv:"Ventricle (part esquerra de la imatge)",lv:"Ventricle (part dreta de la imatge)",fat:"Greix entre aurícules i ventricles",sulc:"Ratlla de greix en diagonal",cor:"Vas vermell fi",ra:"Cavitat de dalt a l'esquerra de la imatge",la:"Plec de dalt a la dreta de la imatge",v1:"Vas número 1",v2:"Vas número 2",v3:"Vas número 3",v4:"Vas número 4",
+    sulcp:"Ratlla de greix del darrere",cs:"Vena ampla del darrere",aop:"Arc del vas 2",pap:"Branques del vas 3",lap:"Cavitat de dalt al mig",pv:"Venes petites",rap:"Cavitat de dalt a la dreta de la imatge",
+    wallR:"Paret de fora del ventricle (esquerra de la imatge)",wallL:"Paret de fora del ventricle (dreta de la imatge)",ora:"Cavitat de dalt, esquerra de la imatge",ola:"Cavitat de dalt, dreta de la imatge",orv:"Cavitat de baix, esquerra de la imatge",olv:"Cavitat de baix, dreta de la imatge",sept:"Paret del mig",chordR:"Fils blancs (esquerra)",chordL:"Fils blancs (dreta)",papL:"Columnetes de múscul (dreta)",tri:"Valves primes (esquerra)",mit:"Valves primes (dreta)",outR:"Vàlvula de sortida (esquerra)",outL:"Vàlvula de sortida (dreta)",oSVC:"Vas gran de dalt, a l'esquerra",oIVC:"Vas gran de baix, a l'esquerra",oAo:"Vas gran que fa un arc",oPT:"Vas que surt cap a la dreta"};
+  $$("#heart [data-z], #openSvg [data-z]").forEach(z=>{ z.setAttribute("tabindex","0"); z.setAttribute("role","button"); z.setAttribute("aria-label", lab[z.dataset.z]||"Estructura"); });
+}
+
+function extAction(z){
+  const info = EXT[z]; if(!info) return;
+  const t=S.tool;
+  if(t==="tisores"){ scissorsElsewhere(z); return; }
+  if(t==="pinces"){ say("Les pinces les faràs servir quan el cor sigui obert, per treure coàguls i moure les vàlvules."); return; }
+  if(t==="paper"){ say("Per fora el cor ja és net. El paper absorbent el faràs servir quan l'obris i surti sang."); return; }
+  if(t==="regle"){ say("El gruix de la paret es mesura al tall, amb el cor obert (secció 3)."); return; }
+  if(t==="etiquetes"){ tagChooser(S.view, z, EXT_TAG_OPTS[S.view]); return; }
+  let name = info.name;
+  if((z==="rv"||z==="lv") && lvKnown()) name = z==="lv" ? "Ventricle esquerre" : "Ventricle dret";
+  if(t==="dit"){
+    press(); flagT("pressed");
+    if(z==="lv") flagT("pressLV"); if(z==="rv") flagT("pressRV");
+    let extra = "";
+    if(!S.t.pressMsg && (z==="rv"||z==="lv")){ extra = "<br><br>En deixar-lo anar, el cor torna a la seva forma: és ferm i elàstic, com un múscul."; S.t.pressMsg=true; }
+    if(z==="sulc"){ flagT("sulc"); addFound("sulc"); }
+    say(`<b class="nm">Dit</b><br>${info.dit}${extra}`);
+  } else {
+    if(/^v[1-4]$/.test(z) && !S.probed.includes(z)){ S.probed.push(z); }
+    if(z==="sulc"||z==="sulcp"){ if(z==="sulc") flagT("sulc"); addFound("sulc"); }
+    if(z==="fat"||z==="sulc"||z==="sulcp") addFound("fat");
+    if(z==="cor"||z==="sulc") addFound("cor");
+    let nm = name;
+    if(/^v[1-4]$/.test(z) && S.t.vesselsOK) nm += " · " + VESSEL_ANS[z];
+    say(`<b class="nm">${nm}</b><br>${info.sonda}`);
+  }
+  renderBench(); save();
+}
+
+function tagChooser(view, z, opts){
+  const btns = opts.map((o,i)=>`<button type="button" data-opt="${i}">${esc(o)}</button>`).join("");
+  say(`<b class="nm">Etiquetes</b><br>Quina etiqueta poses aquí?<div class="opts">${btns}</div>`);
+  $$("#info [data-opt]").forEach(b=>b.addEventListener("click",()=>{
+    const choice = opts[+b.dataset.opt];
+    const ans = view==="open" ? OPEN_TAG_ANS[z] : EXT_TAG_ANS[view][z];
+    if(choice===ans){
+      S.tags[view][z]=choice;
+      if(view==="ant" && /^v[1-4]$/.test(z)){ S.ans[z]=choice; const sel=$("#sel_"+z); if(sel) sel.value=choice; checkVesselsSilent(); }
+      if(view!=="open" && (z==="rv"||z==="lv")){ flagT(z==="lv"?"pressLV":"pressRV"); }
+      if(view==="open"){ const map={sept:"sept",tri:"tri",mit:"mit",chordR:"chord",chordL:"chord",papR:"pap",papL:"pap",outR:"out",outL:"out"}; if(map[z]) addFound(map[z]); }
+      say(`<span class="ok" style="color:var(--ok);font-weight:600">Correcte!</span> Has posat l'etiqueta «${esc(choice)}».`);
+      save(); renderBench(); $$("#stepsNav button").forEach((b,k)=>b.classList.toggle("done", stepDone(k)));
+    } else {
+      const k="tag_"+view+"_"+z; S.hints[k]=(S.hints[k]||0)+1; save();
+      const hint = TAG_HINT[z] || "Torna a mirar-la amb la sonda abans de decidir.";
+      say(`<span style="color:var(--bad);font-weight:600">Aquesta etiqueta no encaixa aquí.</span><br>${S.hints[k]>=1 ? "Pista: "+esc(hint) : ""}`);
+    }
+  }));
+}
+
+/* ---- Talls ---- */
+const CUT = {R:[[224,214],[196,372]], L:[[292,222],[266,390]]};
+function canCut(){
+  if(S.step<2){ say("Primer has d'observar el cor per fora. Els talls es fan a la secció 2."); return false; }
+  if(!S.gloves || !S.ans.safe_read){ say("<b>Abans de tallar:</b> posa't els guants i llegeix el material i les normes de seguretat (a dalt de la secció 2)."); return false; }
+  if(S.view!=="ant"){ say("Gira el cor: els talls es fan per la cara anterior (la del davant)."); return false; }
+  if(!S.t.sulc){ say("Primer localitza el solc amb la Sonda o el Dit: la ratlla de greix que baixa en diagonal per davant."); return false; }
+  return true;
+}
+function scissorsElsewhere(z){
+  if(!canCut()) return;
+  if(z==="sulc"||z==="cor") say("<b>Compte!</b> Estàs just a sobre del solc. Allà hi passen el greix i una artèria coronària. Talla a un costat del solc, seguint una de les dues línies de punts.");
+  else if(/^v/.test(z||"")) say("No talleu els vasos. Talla el ventricle seguint una línia de punts.");
+  else say("Talla seguint una de les dues línies de punts, de dalt a baix.");
+}
+function proj(side, p){ const [a,b]=CUT[side]; const dx=b[0]-a[0], dy=b[1]-a[1]; const t=((p.x-a[0])*dx+(p.y-a[1])*dy)/(dx*dx+dy*dy); return Math.max(0,Math.min(1,t)); }
+let cutting=null;
+function cutStep(side, t){
+  if(S.cut[side]>=1){ return; }
+  const other = side==="R" ? "L" : "R";
+  if(S.cut[other]>=1 && !S.opened[other]){ say("Abans del segon tall, obre el primer com un llibre i mira-hi dins."); return; }
+  if(S.cut[other]>0 && S.cut[other]<1){ say("Acaba primer el tall que ja has començat."); return; }
+  if(S.cut[side]===0 && t>0.3){ say("Comença el tall per dalt, a prop de la base del cor, i baixa poc a poc."); return; }
+  if(t <= S.cut[side]+0.18){
+    S.cut[side] = Math.max(S.cut[side], t);
+    if(S.cut[side] >= 0.96){ finishCut(side); return; }
+    say(`<b class="nm">Tallant…</b> ${Math.round(S.cut[side]*100)} % · Continua de dalt a baix, poc a poc. Allunya el fil de les mans.`);
+    renderBench();
+  }
+}
+function finishCut(side){
+  S.cut[side]=1; flagT("cut"+side); save(); renderBench();
+  say(`<b class="nm">Tall fet!</b> Has tallat de dalt a baix sense arribar a la punta.<div class="opts"><button type="button" id="openBook">Obre'l com un llibre</button></div>`);
+  $("#openBook").addEventListener("click",()=>{ S.opened[side]=true; save(); S.view="open"; renderBench();
+    say("Has obert el ventricle com un llibre. Hi ha sang que no et deixa veure bé: <b>eixuga-la amb el paper absorbent</b>. Després treu els coàguls amb les <b>pinces</b>.");
+    $$("#stepsNav button").forEach((b,k)=>b.classList.toggle("done", stepDone(k)));
+  });
+}
+function cutKey(side){ if(S.tool!=="tisores"){ say("Agafa el bisturí o les tisores per tallar."); return; } if(!canCut()) return; cutStep(side, Math.min(1, S.cut[side]+0.17)); }
+$$(".cuthit").forEach(h=>{
+  h.addEventListener("pointerdown", e=>{ if(S.tool!=="tisores") return; e.preventDefault(); if(!canCut()) return; cutting=h.dataset.cut; try{ h.setPointerCapture(e.pointerId); }catch(_){}
+    const t = proj(cutting, svgPoint(e)); cutStep(cutting, S.cut[cutting]===0 ? t : Math.min(t, S.cut[cutting]+0.12)); });
+  h.addEventListener("pointermove", e=>{ if(cutting!==h.dataset.cut) return; cutStep(cutting, proj(cutting, svgPoint(e))); });
+  const end=()=>{ if(cutting){ save(); } cutting=null; };
+  h.addEventListener("pointerup", end); h.addEventListener("pointercancel", end);
+});
+
+/* ---- Cor obert ---- */
+function bloodAction(side){
+  if(S.tool==="paper"){ S.blotted[side]=true; save(); renderBench(); say("Has eixugat la sang amb el paper absorbent. Ara es veu millor l'interior. Si queden coàguls (grumolls foscos), treu-los amb les pinces."); }
+  else say("Hi ha sang líquida que no et deixa veure. Agafa el <b>paper absorbent</b> i toca-la per eixugar-la.");
+}
+function clotAction(id){
+  const c=S.heart.clots.find(x=>x.id===id); if(!c) return;
+  if(S.tool==="pinces"){ c.gone=true; save(); renderBench(); const left=S.heart.clots.filter(x=>S.opened[x.side]&&!x.gone).length; say(`Has tret un coàgul de sang amb les pinces.${left? " Encara en queda algun." : " Ja no en queda cap al costat obert."}`); }
+  else say("És un coàgul (sang quallada). Treu-lo amb les <b>pinces</b>.");
+}
+function sideOf(z,p){
+  if(/R$/.test(z)||["ora","orv","tri","oSVC","oIVC","oPT"].includes(z)) return "R";
+  if(/L$/.test(z)||["ola","olv","mit","oAo"].includes(z)) return "L";
+  // el septe va en diagonal: de (292,410) a (360,650)
+  return p.x < 292 + (p.y-410)*0.28 ? "R" : "L";
+}
+function openAction(z,p){
+  const side = sideOf(z,p);
+  if(z!=="sept" && !S.opened[side]){ say("Aquest costat encara està tancat. Fes el tall de l'altra línia de punts (cara anterior)."); return; }
+  if(z==="sept" && !(S.opened.R||S.opened.L)) return;
+  const t=S.tool;
+  if(t==="tisores"){ say("Ja està tallat. Ara observa: no cal tallar més."); return; }
+  if(t==="paper"){ if(S.opened[side] && !S.blotted[side]) bloodAction(side); else say("Aquí ja està eixut."); return; }
+  const inner = ["tri","mit","chordR","chordL","papR","papL","outR","outL"].includes(z);
+  if(inner && !S.blotted[side]){ say("Hi ha massa sang per veure-ho bé. Eixuga-la primer amb el paper absorbent."); return; }
+  if(inner && S.heart.clots.some(c=>c.side===side && !c.gone && c.vent)){ say("Un coàgul tapa l'interior del ventricle. Treu-lo amb les pinces."); return; }
+  if(t==="etiquetes"){ if(/^o[A-Z]/.test(z)){ say("Els vasos ja els has etiquetat a la secció 1. Aquí etiqueta les cavitats, el septe i les vàlvules."); return; } tagChooser("open", z==="wallR"?"orv":z==="wallL"?"olv":z, OPEN_TAG_OPTS); return; }
+  if(t==="regle"){
+    if(z==="sept"){ say("Mesura la paret de fora de cada ventricle (no el septe). Toca la paret a l'esquerra o a la dreta de la imatge."); return; }
+    measure(side); return;
+  }
+  const tagged = sideTagged(side);
+  const vname = side==="R" ? (tagged?"ventricle dret":"ventricle de l'esquerra de la imatge") : (tagged?"ventricle esquerre":"ventricle de la dreta de la imatge");
+  switch(z){
+    case "oSVC": case "oIVC": case "oAo": case "oPT": {
+      const n = {oSVC:1,oAo:2,oPT:3,oIVC:4}[z]; const vn = S.t.vesselsOK ? ` (${VESSEL_ANS["v"+n]})` : "";
+      const txt = {oSVC:"Entra per dalt a l'aurícula de l'esquerra de la imatge. Porta sang pobra en oxigen.",oIVC:"Entra per baix a la mateixa aurícula. Porta sang pobra en oxigen.",oAo:"Surt del ventricle de paret gruixuda i fa un arc amb branques cap al cap i els braços.",oPT:"Surt del ventricle de paret prima i es divideix cap als dos pulmons."}[z];
+      say(`<b class="nm">Vas número ${n}${vn}</b><br>${txt}`); return; }
+    case "wallR": case "wallL": case "orv": case "olv":
+      if(t==="dit"){ press(); flagT(side==="R"?"touchR":"touchL"); say(side==="R" ? `<b class="nm">Paret del ${vname}</b><br>Paret prima: la prems i s'enfonsa de seguida.` : `<b class="nm">Paret del ${vname}</b><br>Paret gruixuda i ferma: costa molt de prémer.`); }
+      else if(t==="pinces") say("Amb les pinces pots tocar les vàlvules i les cordes. Prova-ho.");
+      else say(/^wall/.test(z) ? "Miocardi tallat: el múscul del cor. Fixa't en el gruix de la paret de cada costat." : `<b class="nm">Cavitat de baix: un ventricle</b><br>Per saber quin és, compara el gruix de la paret (Dit o Regle) i posa-hi una etiqueta.`);
+      break;
+    case "ora": case "ola":
+      say(t==="dit" ? "Paret molt prima i tova." : `<b class="nm">Cavitat de dalt: una aurícula</b><br>Té la paret molt prima. Està connectada amb el ventricle de sota per una vàlvula d'entrada. Posa-hi una etiqueta.`); break;
+    case "sept":
+      addFound("sept");
+      say(`<b class="nm">Septe (envà)</b><br>${t==="dit"?"Passes el dit pel septe: ":""}és una paret sencera i gruixuda, sense cap forat, que separa el costat dret del costat esquerre del cor.`); break;
+    case "tri": case "mit": {
+      addFound(z); const nv = z==="tri" ? 3 : 2; const nm = sideTagged(side) ? (z==="tri"?" (tricúspide)":" (mitral)") : "";
+      if(t==="pinces"){ valveDemo(z); }
+      else say(`<b class="nm">Vàlvula d'entrada${nm}</b><br>Separa l'aurícula del ventricle d'aquest costat. Té ${nv} valves primes i blanquinoses. Mou-la amb les <b>pinces</b> per veure com funciona.`);
+      break; }
+    case "chordR": case "chordL":
+      addFound("chord");
+      say(t==="pinces" ? "Estires una corda tendinosa: és forta, com un fil de pescar. Lliga la valva al múscul papil·lar." : `<b class="nm">Cordes tendinoses</b><br>Fils blancs i forts que lliguen les valves als músculs papil·lars. Quan el ventricle estreny, impedeixen que la vàlvula es giri cap a l'aurícula, com les cordes d'un paracaigudes.`); break;
+    case "papR": case "papL":
+      addFound("pap"); say(`<b class="nm">Músculs papil·lars</b><br>Columnetes de múscul de la paret del ventricle. Hi estan enganxades les cordes tendinoses.`); break;
+    case "outR": case "outL": {
+      addFound("out"); const n = z==="outR" ? 3 : 2;
+      const vn = S.t.vesselsOK ? ` (${VESSEL_ANS["v"+n]})` : "";
+      say(`<b class="nm">Vàlvula de sortida (semilunar)</b><br>És la boca per on la sang surt del ventricle. Si hi passes la sonda, surt pel <b>vas número ${n}</b>${vn}. A la boca hi ha 3 valves en forma de butxaca o mitja lluna:${semilunarSVG()}Quan el ventricle s'afluixa, les butxaques s'omplen de sang i es tanquen («dub»).`);
+      break; }
+  }
+  renderBench(); save();
+}
+function semilunarSVG(){
+  return `<svg viewBox="0 0 120 120" width="120" height="120" style="display:block;margin:6px auto" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="#ecd0bf" stroke="#8f6a5c" stroke-width="3"/><circle cx="60" cy="60" r="44" fill="#2b0b10"/><path d="M60 60 L60 16 A44 44 0 0 1 98 82 Z" fill="#ead2c4" stroke="#a88272"/><path d="M60 60 L98 82 A44 44 0 0 1 22 82 Z" fill="#e3c6b6" stroke="#a88272"/><path d="M60 60 L22 82 A44 44 0 0 1 60 16 Z" fill="#ead2c4" stroke="#a88272"/></svg>`;
+}
+function valveDemo(z){
+  flagT("valve");
+  say(`<b class="nm">Mou la vàlvula amb les pinces</b><br>Tria cap on empeny la sang:
+  <svg viewBox="0 0 200 150" width="100%" style="max-width:260px;display:block;margin:6px auto" aria-hidden="true">
+    <rect x="0" y="0" width="200" height="60" fill="#4e1418"/><text x="100" y="18" fill="#f3d9cf" font-size="11" text-anchor="middle">aurícula</text>
+    <rect x="0" y="62" width="200" height="88" fill="#4e1418"/><text x="100" y="142" fill="#f3d9cf" font-size="11" text-anchor="middle">ventricle</text>
+    <rect x="0" y="56" width="50" height="10" fill="#b4494b"/><rect x="150" y="56" width="50" height="10" fill="#b4494b"/>
+    <g id="vflaps"><path id="vfl" d="M50 60 L98 62" stroke="#ead2c4" stroke-width="6" stroke-linecap="round"/><path id="vfr" d="M150 60 L102 62" stroke="#ead2c4" stroke-width="6" stroke-linecap="round"/></g>
+    <path id="vch" d="M98 62 L80 120 M102 62 L120 120" stroke="#f6efe8" stroke-width="1.5"/>
+    <g id="varrow"></g>
+  </svg>
+  <div class="opts"><button type="button" id="vDown">La sang empeny des de l'aurícula</button><button type="button" id="vUp">La sang empeny des del ventricle</button></div>
+  <div id="vOut" style="margin-top:6px"></div>`);
+  const setV=(open)=>{
+    $("#vfl").setAttribute("d", open ? "M50 60 L70 104" : "M50 60 L98 62");
+    $("#vfr").setAttribute("d", open ? "M150 60 L130 104" : "M150 60 L102 62");
+    $("#vch").setAttribute("d", open ? "M70 104 L80 120 M130 104 L120 120" : "M98 62 L80 120 M102 62 L120 120");
+    $("#varrow").innerHTML = open ? `<path d="M100 20 L100 120" stroke="#e23b2e" stroke-width="5"/><path d="M92 110 L100 124 L108 110 Z" fill="#e23b2e"/>` : `<path d="M100 120 L100 72" stroke="#e23b2e" stroke-width="5"/><path d="M92 80 L100 66 L108 80 Z" fill="#e23b2e"/><path d="M86 52 L114 36 M86 36 L114 52" stroke="#fff" stroke-width="3"/>`;
+    $("#vOut").innerHTML = open ? "Les valves s'obren cap avall: la sang passa de l'aurícula al ventricle." : "Les valves es tanquen de cop i les cordes tendinoses les aguanten: la sang <b>no pot tornar</b> a l'aurícula. És una porta d'un sol sentit.";
+  };
+  $("#vDown").addEventListener("click",()=>setV(true));
+  $("#vUp").addEventListener("click",()=>setV(false));
+  renderTasks(); save();
+}
+
+/* ---- Regle ---- */
+function measure(side){
+  const T = side==="L" ? S.heart.tLV : S.heart.tRV;
+  const k = 12, x0 = 20;
+  const tagged = sideTagged(side);
+  const nm = side==="R" ? (tagged?"ventricle dret":"ventricle de l'esquerra de la imatge") : (tagged?"ventricle esquerre":"ventricle de la dreta de la imatge");
+  // vora interior irregular (trabècules)
+  let pts=[]; for(let y=20;y<=80;y+=6){ const b = Math.sin(y*0.7+T)*0.6 + (y%18===2?0.9:0); pts.push(`${(x0+(T+b)*k).toFixed(1)},${y}`); }
+  const inner = pts.join(" ");
+  let ticks=""; for(let mm=0; mm<=22; mm++){ const x=x0+mm*k; const L = mm%5===0 ? 10 : 5; ticks += `<path class="rul" d="M${x} 96 v${L}"/>`; if(mm%5===0) ticks += `<text class="rult" x="${x}" y="118">${mm}</text>`; }
+  const cur = S.measT[side] != null ? S.measT[side] : 0;
+  // regle superposat a la imatge real, a la paret de fora del ventricle
+  const W = side==="R" ? {y:548, out:98, inn:127} : {y:515, out:492, inn:452};
+  const dir = side==="R" ? 1 : -1, rx0 = W.out - dir*6, rlen = 64;
+  let rt=""; for(let i=0;i<=16;i++){ const x=W.out+dir*i*4; rt+=`<path class="rul" d="M${x} ${W.y+14} v${i%5===0?9:5}"/>`; }
+  $("#rulerG").innerHTML = `<rect class="rulimg" x="${Math.min(rx0, rx0+dir*rlen)}" y="${W.y+12}" width="${rlen}" height="18" rx="2"/>${rt}<path class="wallmark" d="M${W.out} ${W.y} L${W.inn} ${W.y}"/><path class="wallmark" d="M${W.out} ${W.y-8} v16 M${W.inn} ${W.y-8} v16"/>`;
+  say(`<b class="nm">Regle · paret del ${nm}</b><br>El regle és sobre la paret marcada en vermell a la imatge. Aquí tens la paret ampliada del teu cor real (el dibuix no és a escala; la mesura sí). El zero del regle ja és a la vora de fora (on hi ha el greix). Mou el cursor fins a la vora de dins, on comença la cavitat.
+  <div class="meas"><svg viewBox="0 0 300 126" aria-hidden="true">
+    <rect x="0" y="14" width="300" height="72" fill="#4e1418"/>
+    <rect x="${x0-7}" y="14" width="7" height="72" fill="#efd9a0"/>
+    <polygon points="${x0},14 ${x0},86 ${pts.length? pts[pts.length-1].split(",")[0]:x0},86 ${inner.split(" ").reverse().join(" ")} ${pts[0].split(",")[0]},14" fill="#b4494b"/>
+    <text x="${x0+2}" y="10" font-size="9" fill="currentColor">fora</text><text x="290" y="10" font-size="9" text-anchor="end" fill="currentColor">cavitat (dins)</text>
+    <rect x="${x0-2}" y="88" width="${22*k+6}" height="34" fill="#f4e7b8" stroke="#8a7a3a"/>
+    ${ticks}
+    <line id="curLine" x1="${x0+cur*k}" x2="${x0+cur*k}" y1="10" y2="104" stroke="#e23b2e" stroke-width="2"/>
+  </svg>
+  <label for="measRange" class="small">Cursor del regle: <b id="measVal">${cur.toFixed(1)}</b> mm</label>
+  <input type="range" id="measRange" min="0" max="22" step="0.5" value="${cur}">
+  <div class="opts"><button type="button" id="measSave">Anota la mesura</button></div>
+  <div id="measOut"></div></div>`);
+  const r=$("#measRange");
+  r.addEventListener("input",()=>{ const v=+r.value; S.measT[side]=v; $("#measVal").textContent=v.toFixed(1); $("#curLine").setAttribute("x1",x0+v*k); $("#curLine").setAttribute("x2",x0+v*k); });
+  $("#measSave").addEventListener("click",()=>{
+    const v=+r.value; if(v===0){ $("#measOut").innerHTML="Primer mou el cursor fins a la vora de dins."; return; }
+    const err=Math.abs(v-T);
+    S.meas[side]=v; const id = side==="R" ? "m_vd" : "m_ve";
+    if(tagged){ S.ans[id]=String(v); $("#"+id).value=v; }
+    save(); renderTasks(); $$("#stepsNav button").forEach((b,k2)=>b.classList.toggle("done", stepDone(k2)));
+    $("#measOut").innerHTML = (err<=1 ? `<span style="color:var(--ok);font-weight:600">Bona mesura: ${v} mm.</span>` : `<span style="color:var(--bad);font-weight:600">Has anotat ${v} mm, però sembla que el cursor no és just a la vora de dins.</span> Mira on comença la cavitat fosca i torna-ho a provar.`)
+      + (tagged ? ` L'he copiada a «Les teves mesures».` : ` Quan sàpigues quin ventricle és (posa-hi l'etiqueta), copia-la a «Les teves mesures».`)
+      + (S.meas.R && S.meas.L ? `<br>Ara compara: ${S.meas.L} mm contra ${S.meas.R} mm. Quantes vegades més gruixuda és una paret que l'altra?` : "");
+  });
+}
+
+/* ================= SECCIÓ 1: llegenda de vasos ================= */
+function setupVessels(){
+  const box=$("#vesselSelects");
+  ["v1","v2","v3","v4"].forEach((v,i)=>{
+    const d=document.createElement("div");
+    d.innerHTML=`<label for="sel_${v}" style="font-weight:600">Vas número ${i+1}</label><br><select id="sel_${v}" data-sum="Vas número ${i+1}"><option value="">— tria —</option>${VESSEL_NAMES.map(n=>`<option>${n}</option>`).join("")}</select>`;
+    box.appendChild(d);
+    const s=$("select",d); if(S.ans[v]) s.value=S.ans[v];
+    s.addEventListener("change",()=>{ S.ans[v]=s.value; save(); });
+  });
+}
+function checkVesselsSilent(){ const ok=["v1","v2","v3","v4"].every(v=>S.ans[v]===VESSEL_ANS[v]); if(ok){ flagT("vesselsOK"); } return ok; }
+$("#checkVessels").addEventListener("click",()=>{
+  const wrong=["v1","v2","v3","v4"].filter(v=>S.ans[v]!==VESSEL_ANS[v]);
+  ["v1","v2","v3","v4"].forEach(v=>{ const s=$("#sel_"+v); s.style.borderColor = S.ans[v] ? (S.ans[v]===VESSEL_ANS[v]?"var(--ok)":"var(--bad)") : "var(--warn)"; });
+  if(!wrong.length){ flagT("vesselsOK"); $("#fb_vessels").innerHTML=`<span class="ok">Llegenda correcta!</span> Les venes caves (1 i 4) porten la sang cap al cor; l'aorta (2) i l'artèria pulmonar (3) la treuen.`; }
+  else $("#fb_vessels").innerHTML=`<span class="bad">Revisa ${wrong.map(v=>"el "+v.slice(1)).join(", ")}.</span> Fes servir la sonda: mira el gruix de la paret i on arriba cada vas. Si cal, prem «Pista».`;
+  renderBench(); $$("#stepsNav button").forEach((b,k)=>b.classList.toggle("done", stepDone(k)));
+});
+$("#hintVessels").addEventListener("click",()=>{
+  const wrong=["v1","v2","v3","v4"].filter(v=>S.ans[v]!==VESSEL_ANS[v]);
+  if(!wrong.length){ $("#fb_vessels").innerHTML=`<span class="ok">Ja els tens tots bé.</span>`; return; }
+  const v=wrong[0]; $("#fb_vessels").innerHTML=`<span class="hint"><b>Pista (vas ${v.slice(1)}):</b> ${esc(TAG_HINT[v])}</span>`;
+});
+function checkObsLV(){
+  const fb=$("#fb_obs_lv"); const v=S.ans.obs_lv;
+  if(!v){ fb.innerHTML=""; return; }
+  if(v==="dreta") fb.innerHTML=`<span class="ok">Correcte.</span> Mirant el cor per davant, el seu costat esquerre queda a la teva dreta (com quan mires una persona de cara). El ventricle esquerre té la paret més ferma i fa la punta.`;
+  else fb.innerHTML=`<span class="bad">Torna-ho a provar.</span> Prem els dos ventricles amb el Dit: quin és més ferm? Quin fa la punta? Recorda: quan mires una persona de cara, el seu costat esquerre queda a la teva dreta.`;
+  renderBench();
+}
+
+/* ================= SECCIÓ 2: guants, lub-dub ================= */
+$("#glovesBtn").addEventListener("click",()=>{ S.gloves=!S.gloves; if(S.gloves) say("Guants posats. Recorda: el cor sempre dins la safata, i talla allunyant el fil de les mans."); save(); renderBench(); });
+$("#lubdub").addEventListener("click",()=>{
+  const out=$("#lubdubOut"); const seq=["LUB — es tanquen les vàlvules d'entrada (el ventricle comença a estrènyer)","…","DUB — es tanquen les vàlvules de sortida (el ventricle acaba d'estrènyer)","… (pausa) …"];
+  let i=0; out.textContent=seq[0];
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce){ out.textContent = seq[0]+" → "+seq[2]; return; }
+  const iv=setInterval(()=>{ i++; if(i>=8){ clearInterval(iv); out.textContent=seq[0]+" → "+seq[2]; return; } out.textContent=seq[i%4]; }, 420);
+});
+
+/* ================= SECCIÓ 3: ordre ================= */
+const ORDER = ["Arriba al costat dret del cor, pobra en oxigen","Va als pulmons i hi carrega oxigen","Torna al costat esquerre del cor, rica en oxigen","Surt cap a tot el cos per l'aorta"];
+function setupOrder(){
+  const box=$("#orderBox");
+  ORDER.forEach((txt,i)=>{
+    const id="ord"+i; const p=document.createElement("p"); p.style.margin="6px 0";
+    p.innerHTML=`<select id="${id}" data-save data-sum="${esc(txt)}" aria-label="Número per a: ${esc(txt)}"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option></select> ${esc(txt)}`;
+    box.appendChild(p);
+  });
+}
+$("#checkOrder").addEventListener("click",()=>{
+  const vals=ORDER.map((_,i)=>S.ans["ord"+i]);
+  if(vals.some(v=>!v)){ $("#fb_order").innerHTML=`<span class="bad">Posa un número a cada frase.</span>`; return; }
+  const ok = vals.every((v,i)=>+v===i+1);
+  ORDER.forEach((_,i)=>{ $("#ord"+i).style.borderColor = +vals[i]===i+1 ? "var(--ok)" : "var(--bad)"; });
+  $("#fb_order").innerHTML = ok ? `<span class="ok">Correcte!</span> Cor dret → pulmons → cor esquerre → tot el cos (i torna al cor dret).` : `<span class="bad">Encara no.</span> Pista: el número 1 és on la sang arriba pobra en oxigen. On va després a buscar l'oxigen?`;
+});
+
+/* ================= SECCIÓ 4: simuladors ================= */
+function showCase(){
+  $("#simA").hidden = S.ans.case!=="A"; $("#simB").hidden = S.ans.case!=="B";
+  if(S.ans.case==="A") drawA(); if(S.ans.case==="B") drawB();
+}
+let animA=null;
+function drawA(){
+  const s=$("#simAsvg");
+  const dirKnown = !!S.shunt;
+  s.innerHTML = `
+    <rect x="10" y="10" width="138" height="62" rx="10" fill="#6a3446"/><text class="simt" x="79" y="41">aurícula dreta</text>
+    <rect x="172" y="10" width="138" height="62" rx="10" fill="#b23b3b"/><text class="simt" x="241" y="41">aurícula esquerra</text>
+    <rect x="10" y="80" width="138" height="120" rx="12" fill="#6a3446"/><text class="simt" x="79" y="110">ventricle dret</text><text class="simt" x="79" y="128">màx. ~25 mmHg</text>
+    <rect x="172" y="80" width="138" height="120" rx="12" fill="#b23b3b"/><text class="simt" x="241" y="110">ventricle esquerre</text><text class="simt" x="241" y="128">màx. ~120 mmHg</text>
+    <rect x="148" y="80" width="24" height="120" fill="#7a2a2c"/><rect x="148" y="150" width="24" height="16" fill="#2b0b10"/>
+    <text class="simt2" x="160" y="216">forat al septe</text>
+    <g id="dotsA"></g>`;
+  if(dirKnown){ animateA(); }
+  updateA();
+}
+function animateA(){
+  const g=$("#dotsA"); if(!g) return; const ns="http://www.w3.org/2000/svg";
+  g.innerHTML=""; const dots=[];
+  for(let i=0;i<5;i++){ const c=document.createElementNS(ns,"circle"); c.setAttribute("r","4"); c.setAttribute("fill","#ff6a5c"); c.setAttribute("stroke","#fff"); g.appendChild(c); dots.push(c); }
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  cancelAnimationFrame(animA);
+  const place=(ph)=>dots.forEach((c,i)=>{ const f=((ph+i/5)%1); c.setAttribute("cx", (250 - f*170).toFixed(1)); c.setAttribute("cy", (158 + Math.sin(f*Math.PI)*0).toFixed(1)); c.setAttribute("opacity", f<0.05||f>0.95?0:1); });
+  if(reduce){ place(0.1); g.insertAdjacentHTML("beforeend",`<path d="M240 172 L90 172" stroke="#ff6a5c" stroke-width="3"/><path d="M98 166 L86 172 L98 178 Z" fill="#ff6a5c"/>`); return; }
+  let t0=null; const step=(ts)=>{ if(!t0) t0=ts; const sp = S.aEff ? 1400 : 2600; place(((ts-t0)/sp)%1); if(!$("#simA").hidden) animA=requestAnimationFrame(step); };
+  animA=requestAnimationFrame(step);
+}
+function updateA(){
+  $("#aRest").setAttribute("aria-pressed", S.aEff?"false":"true"); $("#aEff").setAttribute("aria-pressed", S.aEff?"true":"false");
+  if(!S.shunt){ $("#simAout").innerHTML="Tria primer una direcció a dalt."; return; }
+  $("#simAout").innerHTML = S.aEff
+    ? `<b>Corrent:</b> el cos necessita uns 15 L de sang per minut. Per culpa del forat, el costat dret i els pulmons haurien de moure 15 + 7 = 22 L/min, i no donen més de ~17 L/min. Resultat: no arriba prou sang al cos i els pulmons es carreguen: l'Arnau es cansa i respira molt de pressa.<br>Sang que surt cap al cos: <b>98 % d'oxigen</b> (normal).`
+    : `<b>En repòs:</b> el cos necessita uns 5 L de sang per minut. Pel forat passen 3 L/min més cap al costat dret, que ha de moure 8 L/min cap als pulmons. Encara pot: en repòs no nota res.<br>Sang que surt cap al cos: <b>98 % d'oxigen</b> (normal).`;
+  $("#simAout").insertAdjacentHTML("beforeend",`<br><span class="small">(Xifres aproximades, per entendre el mecanisme.)</span>`);
+}
+$("#dirLR").addEventListener("click",()=>{ S.shunt="LR"; save(); $("#fb_dir").innerHTML=`<span class="ok">Ben pensat.</span> La sang va sempre d'on hi ha més pressió a on n'hi ha menys: del ventricle esquerre al dret.`; drawA(); });
+$("#dirRL").addEventListener("click",()=>{ $("#fb_dir").innerHTML=`<span class="bad">Mira les pressions.</span> La sang sempre va d'on hi ha més pressió cap a on n'hi ha menys. Quin ventricle en fa més?`; });
+$("#aRest").addEventListener("click",()=>{ S.aEff=false; save(); updateA(); });
+$("#aEff").addEventListener("click",()=>{ S.aEff=true; save(); updateA(); });
+
+function drawB(){
+  const obs=S.obs, eff=S.bEff;
+  const cap = {0:110,50:95,70:55,90:25,100:0}[obs];
+  const need = eff ? 100 : 30;
+  const got = Math.min(need, cap);
+  const H=120, sc=H/110;
+  const lumen = 26*(1-obs/100);
+  const s=$("#simBsvg");
+  s.innerHTML = `
+    <text class="simt2" x="75" y="14">artèria coronària</text>
+    <rect x="10" y="40" width="130" height="34" rx="6" fill="#ecd0bf" stroke="#8f6a5c"/>
+    <rect x="12" y="${57-13}" width="126" height="26" fill="#b23b3b"/>
+    ${obs>0 ? `<path d="M55 44 Q75 ${44+ (26-lumen)} 95 44 Z" fill="#efd9a0" stroke="#c9ad62"/>` : ""}
+    ${obs>=100 ? `<rect x="55" y="44" width="40" height="26" fill="#efd9a0" stroke="#c9ad62"/>` : ""}
+    <text class="simt2" x="75" y="92">${obs} % tapada</text>
+    <rect x="190" y="${180-need*sc}" width="44" height="${need*sc}" fill="var(--muted)" opacity=".55"/>
+    <rect x="250" y="${180-got*sc}" width="44" height="${got*sc}" fill="${got<need?"#b23b3b":"#2e7d4f"}"/>
+    <line x1="182" x2="302" y1="180" y2="180" stroke="var(--ink)"/>
+    <text class="simt2" x="212" y="196">necessita</text><text class="simt2" x="272" y="196">li arriba</text>
+    <text class="simt2" x="245" y="20">oxigen per al miocardi</text>`;
+  $("#bRest").setAttribute("aria-pressed", eff?"false":"true"); $("#bEff").setAttribute("aria-pressed", eff?"true":"false");
+  $$("[data-obs]").forEach(b=>b.setAttribute("aria-pressed", +b.dataset.obs===obs ? "true":"false"));
+  let msg;
+  if(cap===0) msg="La coronària està tapada del tot: a la part del múscul que rega no hi arriba gens d'oxigen. Aquelles cèl·lules del miocardi comencen a morir en pocs minuts: és un <b>infart</b>.";
+  else if(got<need) msg=`Al múscul del cor li arriba menys oxigen del que necessita: <b>dolor opressiu al pit</b> (angina). Si s'atura, la necessitat baixa i el dolor marxa.`;
+  else msg = eff ? "Fins i tot fent esforç arriba prou oxigen: cap dolor." : "En repòs el cor necessita poc oxigen i n'hi arriba prou: cap dolor.";
+  $("#simBout").innerHTML = msg + `<br><span class="small">(Valors aproximats, per entendre el mecanisme.)</span>`;
+}
+$$("[data-obs]").forEach(b=>b.addEventListener("click",()=>{ S.obs=+b.dataset.obs; save(); drawB(); }));
+$("#bRest").addEventListener("click",()=>{ S.bEff=false; save(); drawB(); });
+$("#bEff").addEventListener("click",()=>{ S.bEff=true; save(); drawB(); });
+
+/* ================= SECCIÓ 5: comparació ================= */
+function renderCompare(){
+  $("#cmpPred").innerHTML = S.draw.d0 ? `<img alt="El teu dibuix de predicció" src="${S.draw.d0}">` : `<p class="small">Encara no has fet el dibuix de la secció 0.</p>`;
+  if(!(S.opened.R||S.opened.L)){ $("#cmpReal").innerHTML = `<p class="small">Encara no has obert el cor (secció 2).</p>`; return; }
+  renderOpenPins();
+  $("#cmpReal").innerHTML = `<div class="imgplate"><img src="img/cor_seccio_mut.webp" width="570" height="740" alt="El cor obert amb les teves etiquetes"><svg viewBox="0 0 570 740" aria-hidden="true">${$("#pinsO").innerHTML}</svg></div><ol class="pinlist">${$("#pinList").innerHTML}</ol>`
+    + (Object.keys(S.tags.open).length ? "" : `<p class="small">Encara no has posat etiquetes al cor obert.</p>`);
+}
+
+/* ================= RESUM ================= */
+function valOf(el){
+  if(el.tagName==="SELECT") return el.value;
+  return (el.value||"").trim();
+}
+function buildSummary(){
+  const L=[]; const lvlName={A:"A (repte)",B:"B (estàndard)",C:"C (guiat)"}[S.level];
+  L.push("SESSIÓ 4 · EL COR PER DINS — Laboratori virtual de dissecció");
+  L.push("Nivell de la fitxa: "+lvlName+" · Cor de "+S.heart.type);
+  L.push("");
+  const secTitles={0:"0 · LA TEVA PREDICCIÓ",1:"1 · OBSERVACIÓ EXTERIOR",2:"2 · OBRIM EL COR",3:"3 · DUES BOMBES EN UN SOL COR",4:"4 · CAS CLÍNIC",5:"5 · POSEM-HO EN COMÚ"};
+  for(let k=0;k<=5;k++){
+    const sec=$(`section[data-step="${k}"]`);
+    L.push("== "+secTitles[k]+" ==");
+    if(k===0) L.push("Dibuix: "+(S.draw.d0?"fet al laboratori (copia'l a la fitxa)":"no fet"));
+    if(k===1){
+      L.push("Llegenda dels vasos: 1 = "+(S.ans.v1||"—")+" · 2 = "+(S.ans.v2||"—")+" · 3 = "+(S.ans.v3||"—")+" · 4 = "+(S.ans.v4||"—")+(S.t.vesselsOK?" (comprovat)":""));
+      L.push("Observacions del banc: textura ferma i elàstica (múscul); artèries de paret gruixuda que no s'aplanen, venes de paret prima; greix als solcs amb les artèries coronàries; el ventricle esquerre és més ferm i fa la punta.");
+    }
+    if(k===2){
+      L.push("Talls fets: "+((S.t.cutR?1:0)+(S.t.cutL?1:0))+" de 2 · Cavitats etiquetades: "+["ora","ola","orv","olv"].filter(z=>S.tags.open[z]).map(z=>S.tags.open[z]).join(", "));
+      const fn={sept:"septe sencer",tri:"vàlvula d'entrada amb 3 valves (tricúspide)",mit:"vàlvula d'entrada amb 2 valves (mitral)",chord:"cordes tendinoses",pap:"músculs papil·lars",out:"vàlvules de sortida (semilunars)"};
+      const f=S.found.filter(x=>fn[x]).map(x=>fn[x]); if(f.length) L.push("Estructures trobades: "+f.join(", "));
+      if(S.t.valve) L.push("Prova de la vàlvula: s'obre quan la sang empeny des de l'aurícula i es tanca quan empeny des del ventricle.");
+      L.push("Dibuix del cor obert: "+(S.draw.d2?"fet al laboratori (copia'l a la fitxa)":"no fet"));
+    }
+    if(k===3){ L.push("Mesures amb el regle: paret de paret prima = "+(S.meas.R!=null?S.meas.R+" mm":"—")+" · paret de paret gruixuda = "+(S.meas.L!=null?S.meas.L+" mm":"—")); }
+    if(k===4){ if(S.ans.case==="A" && S.shunt) L.push("Simulador: la sang passa pel forat del ventricle esquerre (~120 mmHg) al dret (~25 mmHg); la sang que va al cos porta 98 % d'oxigen."); if(S.ans.case==="B") L.push("Simulador: amb la coronària tapada al 70 %, en repòs arriba prou oxigen, però pujant escales el miocardi en necessita més del que li arriba."); }
+    const seen=new Set();
+    $$("[data-sum]", sec).forEach(el=>{
+      if(el.closest("[hidden]")) return;
+      if(el.classList.contains("gap")){
+        let s=""; el.childNodes.forEach(n=>{ s += n.nodeType===3 ? n.textContent : (n.tagName==="SELECT" ? "["+(n.value||"…")+"]" : n.textContent); });
+        L.push(s.replace(/\s+/g," ").trim()); return;
+      }
+      if(el.type==="radio"){ if(seen.has(el.name)) return; seen.add(el.name); const v=S.ans[el.name]; L.push(el.dataset.sum+": "+(v||"—")); return; }
+      if(el.type==="checkbox"){ if(el.id.startsWith("ob_")){ L.push((el.checked?"[x] ":"[ ] ")+el.parentElement.textContent.trim()); } else if(el.checked) L.push(el.dataset.sum); return; }
+      if(/^sel_v/.test(el.id)) return;
+      const v=valOf(el); L.push(el.dataset.sum+": "+(v||"—"));
+    });
+    L.push("");
+  }
+  $("#sumtext").value=L.join("\n");
+}
+$("#refreshSum").addEventListener("click",buildSummary);
+$("#copyBtn").addEventListener("click",()=>{
+  buildSummary(); const ta=$("#sumtext"); const txt=ta.value; const fb=$("#fb_copy");
+  const fallback=()=>{ ta.focus(); ta.select(); let ok=false; try{ ok=document.execCommand("copy"); }catch(e){} fb.innerHTML = ok ? `<span class="ok">Copiat!</span>` : `<span class="bad">No s'ha pogut copiar sol.</span> El text ja està seleccionat: prem Ctrl+C (o mantén premut i «Copia»).`; };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(()=>{ fb.innerHTML=`<span class="ok">Copiat!</span> Enganxa-ho on vulguis o copia-ho a mà a la fitxa.`; }, fallback); }
+  else fallback();
+});
+
+/* ================= TIPUS DE COR I REINICI ================= */
+$$('input[name="htype"]').forEach(r=>{ r.checked = (S.heart.type===r.value); r.addEventListener("change",()=>{ if(S.t.cutR||S.t.cutL){ r.checked=false; $(`#htype_${S.heart.type}`).checked=true; say("Ja has començat a tallar aquest cor: no el pots canviar. Si vols, prem «Comença de nou»."); return; } S.heart=makeHeart(r.value); save(); renderBench(); say(r.value==="xai" ? "Cor de xai: és més petit que el de porc i sol tenir més greix blanc." : "Cor de porc: de mida i forma molt semblants al cor humà."); }); });
+let resetArmed=false;
+$("#resetBtn").addEventListener("click",()=>{
+  const b=$("#resetBtn");
+  if(!resetArmed){ resetArmed=true; b.textContent="Segur? Es perdrà tot. Torna a prémer"; setTimeout(()=>{ resetArmed=false; b.textContent="Comença de nou"; },4000); return; }
+  try{ localStorage.removeItem(LS); }catch(e){}
+  location.reload();
+});
+
+/* ================= INICI ================= */
+setupVessels(); setupOrder(); setupQuestions(); bindInputs(); prepZones();
+setupCanvas("d0"); setupCanvas("d2");
+applyLevel(); showCase(); checkObsLV();
+if(S.checked.q3_1) $("#nowCheck").hidden=false;
+say("<b class=\"nm\">Banc de treball</b><br>Tria una eina i toca el cor. Comença per la cara anterior.");
+go(S.step||0);
+</script>
+</body>
+</html>

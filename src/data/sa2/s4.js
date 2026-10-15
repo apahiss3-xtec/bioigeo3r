@@ -5,8 +5,8 @@ export const sa2s4 = {
   engageImage: "/images/sa2-s4-disseccio.jpg",
 
   // Repte oral curt: pregunta causal oberta (connexió amb S3), deixada penjada fins a l'Explica.
-  engageChallenge: "Sabem que el cor té 4 cavitats. Però per quina raó 4 i no 2? Per quina raó no es pot barrejar la sang oxigenada amb la desoxigenada? (Pregunta oberta — la respondreu al final de l'Explica.)",
-  engageQuestion: "Dibuixa el cor per dins tal com te l'imagines. Quantes cambres té? Hi ha algun punt on la sang oxigenada i la desoxigenada es barregen?",
+  engageChallenge: "Sabem que el cor té 4 cavitats. Però per quina raó 4 i no 2? Per quina raó no es pot barrejar la sang oxigenada amb la desoxigenada? (És una pregunta oberta: la respondràs al final de l'Explica.)",
+  engageQuestion: "Dibuixa el cor per dins tal com te l'imagines. Quantes cavitats té? Hi ha algun punt on la sang oxigenada i la desoxigenada es barregen?",
   engageContext: "Escriu la teva predicció abans de veure el cor real: al final de la sessió la compararàs amb el que hauràs observat amb les teves mans.",
 
   // NO es renderitza al web: guió del docent (logística, temps,
@@ -17,7 +17,7 @@ export const sa2s4 = {
   levelObjectives: {
     A: [
       "Dedueixo, a partir de les pressions dels dos ventricles, cap a quin costat passa la sang per un forat al septe (CIV) i per quina raó el pacient es cansa en esforç PERÒ no es posa cianòtic.",
-      "Explico per quina raó les cèl·les del miocardi necessiten molts mitocondris i com l'anèmia les afecta específicament.",
+      "Explico per quina raó les cèl·lules del miocardi necessiten molts mitocondris i com l'anèmia les afecta específicament.",
       "Argumento per quina raó Harvey va poder deduir la circulació sense microscopi, 30 anys ABANS que es veiessin els capil·lars.",
       "Analitzo un cas clínic cardiovascular relacionant el símptoma amb l'estructura anatòmica afectada (ventricle, vàlvula o coronària)."
     ],
@@ -30,7 +30,7 @@ export const sa2s4 = {
     C: [
       "Nomeno les 4 cavitats del cor i el seu paper: les de dalt _______ i les de baix _______.",
       "Completo: «les artèries coronàries porten _______ al _______ perquè és un múscul que necessita _______».",
-      "Associo infart = obstrucció de _______ → el miocardi no rep _______ → mort de cèl·les.",
+      "Associo infart = obstrucció de _______ → el miocardi no rep _______ → mort de cèl·lules.",
       "Reconec en el diagrama del cor quin ventricle té la paret més gruixuda i per quina raó."
     ]
   },
@@ -38,16 +38,16 @@ export const sa2s4 = {
   // ── BASTIMENT/REPTE PER APARTAT ──────────────────────────
   apartatExtras: {
     "1": {
-      scaffold: "Les coronàries envolten el cor com una corona (d'aquí el nom). Completa: les coronàries porten _______ al _______ (el múscul del cor). Si s'obstrueixen → el miocardi no rep _______ → les cèl·les moren. Això és un _______.",
+      scaffold: "Les coronàries envolten el cor com una corona (d'aquí el nom). Completa: les coronàries porten _______ al _______ (el múscul del cor). Si s'obstrueixen → el miocardi no rep _______ → les cèl·lules moren. Això és un _______.",
       challenge: "Harvey va demostrar la circulació SENSE veure els capil·lars. Com? Usant matemàtiques. Aplica el seu mètode: si el cor de porc que teniu bat 90 vegades/min i cada batec expulsa 40 mL, en 1 hora quants litres bombejaria? Un porc té ~3 L de sang al cos. Quina conclusió n'extreus?"
     },
     "2": {
-      scaffold: "Completa: el ventricle DRET bomba sang cap als _______ (distància: petita, pressió baixa). El ventricle ESQUERRE bomba cap a _______ (distància: gran, pressió alta). Per tant, la paret del ventricle _______ ha de ser 3× més gruixuda.",
+      scaffold: "Completa: el ventricle DRET bombeja sang cap als _______ (distància: petita, pressió baixa). El ventricle ESQUERRE bombeja cap a _______ (distància: gran, pressió alta). Per tant, la paret del ventricle _______ ha de ser 3× més gruixuda.",
       challenge: "Imagina un forat al septe interventricular (CIV). El ventricle esquerre genera ~120 mmHg i el dret ~25 mmHg: cap a quin costat passarà la sang pel forat? Quin circuit rep, doncs, més sang del que li toca? Explica per quina raó el pacient es cansa en esforç i, en canvi, la sang que surt cap al cos NO porta menys oxigen (i per tant no es posa blau)."
     },
     "3": {
-      scaffold: "Connecta miocardi i SA1: el cor és un múscul que mai para. Les cèl·les musculars necessiten moltíssim _______ (via hemoglobina) per fabricar _______ als mitocondris. Per quina raó el Marc (Hb 9.2) nota el cor treballar tant fins i tot en repòs?",
-      challenge: "Raona: si el Marc tingués 0.5 g/dL de Hb (cas extrem), quin efecte tindria sobre la FC en repòs? I sobre la pressió arterial? Usa el concepte de compensació cardíaca (el cor batega més de pressa per compensar la manca de O₂ per litre)."
+      scaffold: "Connecta miocardi i SA1: el cor és un múscul que mai para. Les cèl·lules musculars necessiten moltíssim _______ (via hemoglobina) per fabricar _______ als mitocondris. Per quina raó el Marc (Hb 9,2) nota el cor treballar tant fins i tot en repòs?",
+      challenge: "Raona: si el Marc tingués 0,5 g/dL de Hb (cas extrem), quin efecte tindria sobre la FC en repòs? I sobre la pressió arterial? Usa el concepte de compensació cardíaca (el cor batega més de pressa per compensar la manca de O₂ per litre)."
     }
   },
 
@@ -57,7 +57,7 @@ export const sa2s4 = {
     prompts: [
       {
         kind: "draw",
-        text: "Dibuixa el cor per dins tal com te l'imagines. Quantes cambres té? On creus que entra i on surt la sang?"
+        text: "Dibuixa el cor per dins tal com te l'imagines. Quantes cavitats té? On creus que entra i on surt la sang?"
       },
       {
         kind: "write",
@@ -79,18 +79,17 @@ export const sa2s4 = {
     "Fase 3 — Vàlvules: localitzar les vàlvules mitral, tricúspide, semilunars. Per quina raó existeixen?",
     "Fase 4 — Ventricles: mesurar amb el dit el gruix de la paret. Comparar dret i esquerre. Per quina raó és diferent?",
     "Fase 5 — Vasos: identificar l'aorta (gruixuda, rígida) vs artèria pulmonar",
-    "Moment epistèmic (ètica): 'Usar models animals en ciència és èticament acceptable? On estan els límits?'"
+    "Per acabar, debat: usar models animals en ciència és èticament acceptable? On són els límits?"
   ],
   exploreDuration: "50 min",
   exploreMaterials: ["Cor de porc o xai (1 per grup)", "Safata, guants, pinces, bisturí o tisores"],
-  exploreNote: "Alumnes que no volen participar: vídeo de dissecció disponible al portal. Mateixa fitxa d'observació. No es penalitza.",
 
   theoryPoints: [
     { id: "t5", apartat: "1", heading: "Harvey (1628): la demostració matemàtica", text: "Harvey va deduir la ==circulació== sense microscopi, únicament amb ==càlculs de volum==. La matemàtica com a eina científica, 30 anys abans de veure els ==capil·lars==.", type: "epistemic", badge: "🔬 Com funciona la ciència" },
     { id: "t1", apartat: "2", heading: "Per quina raó calen ==4 cavitats==", text: "==Petita circulació|b== (pulmons): ==pressió baixa== → no trenca els ==alvèols==. ==Gran circulació|o== (cos): ==pressió alta== → arriba al peu. Calen dues bombes separades. El ==septe== impedeix que es barregin.", type: "concept" },
     { id: "t2", apartat: "2", heading: "Arquitectura del ==cor==", text: "4 cavitats = ==2 aurícules== (reben) + ==2 ventricles== (bomben). ==Ventricle esquerre==: paret ==3× més gruixuda|o== perquè ha de bombar a tot el cos (pressió alta). ==Ventricle dret==: paret prima, pressió baixa cap als pulmons.", type: "concept" },
     { id: "t3", apartat: "3", heading: "El cor necessita la seva pròpia sang", text: "Les ==artèries coronàries|o== porten sang oxigenada al ==múscul cardíac (miocardi)==. Un ==infart|r== és l'==obstrucció d'una coronària|r== → el miocardi no rep O₂ → ==mort cel·lular|r==. Per quina raó és tan greu: el cor no pot aturar-se.", type: "concept", video: "/animacions/sa2-s4-t3.mp4" },
-    { id: "t4", apartat: "3", heading: "Connexió SA1: ==miocardi== i ==mitocondris==", text: "Les cèl·les del ==miocardi== són musculars i contenen molt de ==mitocondris== → necessiten molt ==ATP|g== → molt ==O₂|b== → per quina raó el cor es ressent tant amb l'==anèmia|r==.", type: "transfer", badge: "🔗 Connexió SA1" }
+    { id: "t4", apartat: "3", heading: "Connexió SA1: ==miocardi== i ==mitocondris==", text: "Les cèl·lules del ==miocardi== són musculars i contenen molts ==mitocondris== → necessiten molt ==ATP|g== → molt ==O₂|b== → per quina raó el cor es ressent tant amb l'==anèmia|r==.", type: "transfer", badge: "🔗 Connexió SA1" }
   ],
 
   graphicResources: [
@@ -101,8 +100,9 @@ export const sa2s4 = {
   fitxaUrl: { A: "/fitxes/sa2-s4-fitxa-A.html", B: "/fitxes/sa2-s4-fitxa-B.html", C: "/fitxes/sa2-s4-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s4-teoria.pdf",
 
   sessionMaterials: [
-    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s4-exit-ticket.html", who: "docent" },
-    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s4-exit-ticket-C.html", who: "docent" }
+    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s4-exit-ticket.html", who: "per al final de la sessió" },
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s4-exit-ticket-C.html", who: "per al final de la sessió" },
+    { id: "labVirtual", title: "Laboratori virtual (si has faltat a la pràctica)", url: "/labs/sa2/lab_s4_disseccio.html", who: "per fer a casa si no vas poder fer la pràctica" }
   ],
 
   fitxaGuide: {
@@ -117,9 +117,9 @@ export const sa2s4 = {
         "Per quina raó el septe ha de ser complet? Pensa en dues coses alhora: evita que es barregin dues sangs diferents I permet mantenir dues pressions diferents al mateix òrgan."
       ] },
       { apartat: "3", title: "Dues bombes en un sol cor", time: "20 min", phase: "explore", instruction: "Durant la fase 4, omple l'apartat 3 del full: mesura i compara el gruix de la paret dels dos ventricles.", hints: [
-        "Un ventricle bomba només als pulmons (a prop); l'altre, a tot el cos (lluny). Quin necessita més força de paret?"
+        "Un ventricle bombeja només als pulmons (a prop); l'altre, a tot el cos (lluny). Quin necessita més força de paret?"
       ] },
-      { apartat: "4", title: "Cas clínic — Elaborate", time: "15 min", phase: "elabora", instruction: "En parelles, trieu un cas (A o B) i resoleu-lo a l'apartat 4 del full.", hints: [
+      { apartat: "4", title: "Cas clínic", time: "15 min", phase: "elabora", instruction: "En parelles, trieu un cas (A o B) i resoleu-lo a l'apartat 4 del full.", hints: [
         "Connecta el problema del cas amb el que has vist disseccionant: gruix de paret, vàlvules, septe o coronàries."
       ] }
     ]
@@ -127,7 +127,7 @@ export const sa2s4 = {
 
   exitTicketType: "paper",
   exitTicketQuestions: [
-    { id: "q1", type: "open", text: "Per quina raó el ventricle esquerre té la paret molt més gruixuda que el dret? Explica la connexió amb la doble circulació.", hint: "L'esquerre bomba a tot el cos (gran circulació, pressió alta); el dret només als pulmons. Més distància i pressió → més múscul." },
+    { id: "q1", type: "open", text: "Per quina raó el ventricle esquerre té la paret molt més gruixuda que el dret? Explica la connexió amb la doble circulació.", hint: "L'esquerre bombeja a tot el cos (gran circulació, pressió alta); el dret només als pulmons. Més distància i pressió → més múscul." },
     { id: "q2", type: "open", text: "Si el septe interventricular tingués un forat (comunicació interventricular), cap a quin costat passaria la sang pel forat i quina part del cor hauria de moure més sang del que li toca? Digues també què NO canviaria.", hint: "Un dels dos ventricles empeny molt més fort que l'altre, i la sang sempre va del lloc amb més pressió al lloc amb menys. Pensa què implica això per a la sang que surt cap al cos." },
     { id: "q3", type: "open", text: "Marc Fontana té anèmia. Usa el que has vist avui per explicar per quina raó el seu cor ha de treballar més dur.", hint: "Si cada litre de sang porta menys O₂ (poca hemoglobina), com pot el cor fer arribar el mateix O₂ als músculs? Què ha d'augmentar?" }
   ],
@@ -140,8 +140,10 @@ export const sa2s4 = {
     }, description: "Cap." },
   recoveryInstructions: [
     "Mira el vídeo de dissecció de cor de porc (link a la secció EXPLICA, ~15 min)",
+    "Fes la pràctica al laboratori virtual (botó de sota) i copia el resum a la fitxa",
     "Omple la fitxa S4 seccions 1–4 basant-te en el vídeo",
     "Exit tiquet en paper a S5 o fes-lo online a l'acordió de sota"
   ],
+  recoveryLinks: [{ label: "Laboratori virtual de la pràctica", url: "/labs/sa2/lab_s4_disseccio.html", icon: "🧪" }],
   oaLinks: ["OA2"], competencies: ["CE1", "CE2", "CE4"]
 }
