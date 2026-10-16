@@ -39,7 +39,7 @@ body{font-family:'Fira Sans Extra Condensed',sans-serif; background:#b0a8c8; col
 .header-emoji-box{width:46px; height:46px; border-radius:11px; background:rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center; font-size:26px;}
 .header-sa{font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; opacity:.55; margin-bottom:4px;}
 .header-title{font-size:21px; font-weight:900; line-height:1.05;}
-/* Crimson Pro italica dona 0,59 em d'avanc a U+00B7 i la ela geminada
+/* Crimson Pro italica dóna 0,59 em d'avanc a U+00B7 i la ela geminada
    surt separada (Fira la fa a 0,045 em). Nomes el punt volat canvia de
    font; la resta del subtitol es queda en Crimson Pro italica. */
 .header-subtitle .pv{font-family:'Fira Sans Extra Condensed',sans-serif; font-style:normal;}
@@ -117,8 +117,7 @@ body{font-family:'Fira Sans Extra Condensed',sans-serif; background:#b0a8c8; col
 <body>
 
 <div id="toolbar">
-  <div class="tb-tip"><strong>Targetes per classificar · Sessió 3</strong> · retalla per les vores · 8 targetes a mida de la casella de la fitxa + solucionari</div>
-  <button class="tb-btn tb-key" onclick="toggleKey()">Solucionari ON/OFF</button>
+  <div class="tb-tip"><strong>Targetes per classificar · Sessió 3</strong> · retalla per les vores · 8 targetes a mida de la casella de la fitxa</div>
   <button class="tb-btn tb-print" onclick="window.print()">🖨️ Imprimir</button>
 </div>
 
@@ -143,29 +142,6 @@ body{font-family:'Fira Sans Extra Condensed',sans-serif; background:#b0a8c8; col
     <div class="cards-grid" id="grid1"></div>
     <div class="cut-note"><span></span>RETALLA PER LES VORES DE CADA TARGETA<span></span></div>
     <div class="cut-foot">IE Temple · Biologia i Geologia 3r ESO &nbsp;·&nbsp; CC BY-NC-SA 4.0 &nbsp;·&nbsp; 8 targetes · full únic</div>
-  </div>
-</div>
-
-<!-- ===== SOLUCIONARI (professor) ===== -->
-<div class="page-wrap key-page-wrap hide-key" id="keyPage">
-  <div class="key-page">
-    <div class="key-title">🔑 Solucionari — per al professor</div>
-    <div class="key-sub">No cal repartir-lo a l'alumnat. Recordatori 3r ESO: parlem de "còpies idèntiques" i "la meitat", <strong>sense</strong> noms de fases ni notació 2n/n.</div>
-    <div class="key-grid">
-      <div class="key-col ident">
-        <h3>👯 Filles IDÈNTIQUES a la mare</h3>
-        <h4 style="font-size:10px;color:var(--teal);font-weight:700;margin:-2px 0 6px">= divisió per fer còpies (mitosi)</h4>
-        <ul id="keyIdent"></ul>
-      </div>
-      <div class="key-col half">
-        <h3>½ Filles amb LA MEITAT</h3>
-        <h4 style="font-size:10px;color:var(--purple-ink);font-weight:700;margin:-2px 0 6px">= divisió per fer cèl·lules sexuals (meiosi)</h4>
-        <ul id="keyHalf"></ul>
-      </div>
-    </div>
-    <div class="key-note">
-      <strong>Idea clau a destacar:</strong> les targetes amb filles idèntiques serveixen per a <strong>créixer, reparar i substituir</strong> cèl·lules (mateixa quantitat de material). Les de "la meitat" només apareixen en la <strong>formació de cèl·lules sexuals</strong> (òvuls, espermatozoides, pol·len), perquè en ajuntar-se dues cèl·lules sexuals es torna a la quantitat sencera. Es reprèn a la unitat de reproducció (gàmetes i herència).
-    </div>
   </div>
 </div>
 
@@ -239,18 +215,6 @@ function cardHTML(c){
 
 const g1=document.getElementById('grid1');
 CARDS.forEach(c=>g1.insertAdjacentHTML('beforeend',cardHTML(c)));
-
-// solucionari
-const ki=document.getElementById('keyIdent'), kh=document.getElementById('keyHalf');
-CARDS.forEach(c=>{
-  const li=`<li><b>${c.id}</b> ${c.emoji} ${c.scene}</li>`;
-  if(c.tipus==='ident') ki.insertAdjacentHTML('beforeend',li);
-  else kh.insertAdjacentHTML('beforeend',li);
-});
-
-function toggleKey(){
-  document.getElementById('keyPage').classList.toggle('hide-key');
-}
 </script>
 </body>
 </html>

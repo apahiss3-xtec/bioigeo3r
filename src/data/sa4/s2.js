@@ -96,7 +96,7 @@ export const sa4s2 = {
     "Tasca 3: repetiu-ho tres vegades més i compareu els quatre gàmetes que us han sortit",
     "Tasca 4: ajunteu les vostres quatre targetes amb les quatre d'una altra parella de treball i compteu els cromosomes del zigot: això és el que passa a la fecundació",
     "PART B — Recorregut guiat de les figures F1 (aparell femení), F2 (aparell masculí) i F4 (el cicle): cada resposta de la fitxa s'ha de LOCALITZAR a la figura, no recordar",
-    "Moment epistèmic: les targetes són un model i, com tot model, simplifica. Què no mostra? (Pista per al debat: què passa dins de cada parell abans de repartir-lo.)"
+    "Reflexió científica: les targetes són un model i, com tot model, simplifica. Què no mostra? (Pista per al debat: què passa dins de cada parell abans de repartir-lo.)"
   ],
   exploreDuration: "35 min (repartits dins dels apartats 1 i 2 de la fitxa, que hi afegeixen l'explicació)",
   exploreMaterials: [
@@ -104,11 +104,9 @@ export const sa4s2 = {
     "Fitxa de la teva versió, amb la taula dels quatre intents i les figures F1, F2 i F4"
   ],
 
-  // Material físic que la sessió dona per existent (comprovació transversal 'ah').
+  // Material físic que la sessió dóna per existent (comprovació transversal 'ah').
   sessionMaterials: [
-    { id: "M1", title: "Targetes de cromosomes (8 targetes + plantilles de gàmeta i zigot)", url: "/fitxes/sa4-s2-targetes-cromosomes.html", who: "docent imprimeix tants jocs com parelles hi hagi: 1 joc per parella" },
-    { id: "M1b", title: "Guió i solucionari del docent (targetes)", url: null, who: "només docent, en paper (no es publica a la web)" }, // Font: SA4-creixer-reproduir/S2-com-funcionem/targetes_cromosomes_sessio2_DOCENT.html (no es publica: URL endevinable, 27/08)
-    { id: "M2", title: "Preguntes de la bústia transcrites a màquina", url: null, who: "docent. Es transcriuen fora de classe: mai es llegeix el paper original" },
+    { id: "M1", title: "Targetes de cromosomes (8 targetes + plantilles de gàmeta i zigot)", url: "/fitxes/sa4-s2-targetes-cromosomes.html", who: "1 joc per parella" },
     { id: "M3", title: "Full de sortida (versions A i B)", url: "/fitxes/sa4-s2-full-sortida.html", who: "es reparteix als últims 7 minuts" },
     { id: "M4", title: "Full de sortida (versió C)", url: "/fitxes/sa4-s2-full-sortida-C.html", who: "es reparteix als últims 7 minuts" }
   ],
@@ -147,11 +145,11 @@ export const sa4s2 = {
   appApartat: "3",
   appNote: "Fes-ho DESPRÉS d'haver resolt l'enigma de la Laia a la fitxa. Tria una durada del cicle (26-32 dies), escriu quin dia creus que ovula i comprova-ho: veuràs com pugen i baixen la FSH, la LH, els estrògens i la progesterona. Repte: encerta tres durades i escriu la regla.",
   graphicResources: [
-    { id: "F1", apartat: "2", title: "Aparell reproductor femení (esquema)", src: "/images/sa4-s2-aparell-femeni.svg", note: "Tall esquemàtic amb marcadors numerats ①-⑤. Cap paraula dins la imatge: les etiquetes en català són la llegenda numerada de la fitxa. Mateix codi F1 a les tres versions." },
-    { id: "F2", apartat: "2", title: "Aparell reproductor masculí (esquema)", src: "/images/sa4-s2-aparell-masculi.svg", note: "Tall esquemàtic amb marcadors numerats ①-④, amb el mateix criteri que F1." },
-    { id: "F3", apartat: "1", title: "De la cèl·lula amb dos parells als quatre tipus de gàmeta", src: "/images/sa4-s2-meiosi-2parells.svg", note: "Es dibuixen només DOS parells (no els 23 humans) perquè les quatre combinacions es puguin veure alhora. El pas ② mostra les dues alineacions possibles: és on viu l'atzar." },
-    { id: "F4", apartat: "2", title: "El cicle menstrual, dia a dia", src: "/images/sa4-s2-cicle-menstrual.svg", note: "Eix de 28 dies, gruix de l'endometri, marca d'ovulació i acotació del tram ovulació→regla. És la figura amb què es resol l'enigma de la Laia: cal poder llegir-hi els dies amb precisió." },
-    { id: "F5", apartat: "2", title: "De la fecundació a la implantació", src: "/images/sa4-s2-fecundacio.svg", note: "Quatre vinyetes seguides. A ③ les divisions són per mitosi: connexió explícita amb la primera unitat." }
+    { id: "F1", apartat: "2", title: "Aparell reproductor femení (esquema)", src: "/images/sa4-s2-aparell-femeni.svg", caption: "Esquema de l'aparell reproductor femení amb marcadors numerats ①-⑤; el nom de cada part és a la llegenda de la fitxa.", note: "Tall esquemàtic amb marcadors numerats ①-⑤. Cap paraula dins la imatge: les etiquetes en català són la llegenda numerada de la fitxa. Mateix codi F1 a les tres versions." },
+    { id: "F2", apartat: "2", title: "Aparell reproductor masculí (esquema)", src: "/images/sa4-s2-aparell-masculi.svg", caption: "Esquema de l'aparell reproductor masculí amb marcadors numerats ①-④; el nom de cada part és a la llegenda de la fitxa.", note: "Tall esquemàtic amb marcadors numerats ①-④, amb el mateix criteri que F1." },
+    { id: "F3", apartat: "1", title: "De la cèl·lula amb dos parells als quatre tipus de gàmeta", src: "/images/sa4-s2-meiosi-2parells.svg", caption: "De la cèl·lula amb només dos parells de cromosomes als quatre tipus de gàmeta possibles. Al pas ② hi ha dues alineacions possibles: és on actua l'atzar.", note: "Es dibuixen només DOS parells (no els 23 humans) perquè les quatre combinacions es puguin veure alhora. El pas ② mostra les dues alineacions possibles: és on viu l'atzar." },
+    { id: "F4", apartat: "2", title: "El cicle menstrual, dia a dia", src: "/images/sa4-s2-cicle-menstrual.svg", caption: "El cicle menstrual dia a dia (28 dies): gruix de l'endometri, ovulació i tram entre l'ovulació i la regla. Hi has de poder llegir els dies amb precisió per resoldre l'enigma de la Laia.", note: "Eix de 28 dies, gruix de l'endometri, marca d'ovulació i acotació del tram ovulació→regla. És la figura amb què es resol l'enigma de la Laia: cal poder llegir-hi els dies amb precisió." },
+    { id: "F5", apartat: "2", title: "De la fecundació a la implantació", src: "/images/sa4-s2-fecundacio.svg", caption: "Quatre vinyetes seguides, de la fecundació a la implantació. A ③ les divisions són per mitosi, com a la primera unitat.", note: "Quatre vinyetes seguides. A ③ les divisions són per mitosi: connexió explícita amb la primera unitat." }
   ],
 
   fitxaUrl: {
@@ -186,7 +184,7 @@ export const sa4s2 = {
   },
 
   exitTicketType: "paper",
-  exitTicketNote: "El full de sortida va en un FULL A PART (no és dins la fitxa), es fa individualment i sense ajuda els últims 7 minuts, i es recull. Porta les mateixes tres preguntes a les tres versions; la versió C les té bastides (amb els mateixos quatre passos OBSERVO→EM PREGUNTO→CONNECTO→DEDUEIXO que la fitxa) i la versió A hi afegeix una quarta pregunta. Els tres casos són NOUS (una espècie de 5 parells, una de 6 parells i la Núria amb cicles de 25 dies): cap resposta no és a la fitxa, i la versió A té un quart cas de dades irregulars. Les pistes d'aquestes preguntes NO es publiquen a la vista de l'alumnat: el full es fa sense ajuda i es recull.",
+  exitTicketNote: "El full de sortida va en un FULL A PART (no és dins la fitxa), es fa individualment i sense ajuda els últims 7 minuts, i es recull. Porta les mateixes tres preguntes a les tres versions; la versió C les té bastides (amb els mateixos quatre passos OBSERVO→EM PREGUNTO→CONNECTO→DEDUEIXO que la fitxa) i la versió A hi afegeix una quarta pregunta. Els tres casos són NOUS (una espècie de 5 parells, una de 6 parells i la Núria amb cicles de 25 dies): cap resposta no és a la fitxa, i la versió A té un quart cas de dades irregulars.",
   exitTicketQuestions: [
     { id: "q1", type: "open", text: "Una espècie té 10 cromosomes (5 parells) a les cèl·lules del cos. Escriu quants en tindria cada generació si el gàmeta en portés 10 en comptes de 5: l'individu, els seus fills i els seus néts. Després explica per quina raó això no passa a la realitat.", hint: null },
     { id: "q2", type: "open", text: "En una espècie imaginària, les cèl·lules del cos tenen 12 cromosomes, és a dir 6 parells. Quants cromosomes tindrà un gàmeta? I el zigot que es formi quan dos gàmetes s'uneixin? D'on ve cada meitat?", hint: null },

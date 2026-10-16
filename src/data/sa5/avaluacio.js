@@ -37,7 +37,7 @@ export const sa5Avaluacio = {
           as: "Al Pirineu hi ha terratrèmols perquè hi va haver una col·lisió entre plaques i hi queden falles actives. A la Garrotxa hi ha volcans perquè la litosfera s'està estirant i el magma pot pujar.",
           ae: "Són dos fenòmens de la mateixa història. El Pirineu es va formar per la col·lisió alpina entre la placa Ibèrica i l'Euroasiàtica: una col·lisió aixeca muntanyes i deixa un sistema de falles que encara avui es reajusten, i per això hi ha sismicitat, però en una col·lisió no s'introdueix escorça freda i hidratada a l'interior del mantell, que és el que genera magma a les zones de subducció; per això no hi ha volcans. A la Garrotxa, en canvi, un cop acabada la compressió la litosfera va entrar en extensió (rift postalpí): en estirar-se s'aprima, el mantell de sota ascendeix i es fon per descompressió, i aquest magma troba fractures per pujar. Volcanisme sense subducció, doncs, però no sense explicació."
         },
-        aeWhy: "L'AE diu explícitament per què una col·lisió NO genera volcans i anomena el mecanisme de fusió per descompressió. L'AS descriu; l'AE dona la causa.",
+        aeWhy: "L'AE diu explícitament per què una col·lisió NO genera volcans i anomena el mecanisme de fusió per descompressió. L'AS descriu; l'AE dóna la causa.",
         must: [
           "Has explicat la sismicitat del Pirineu amb la col·lisió i les falles.",
           "Has dit per què una col·lisió no produeix volcans.",

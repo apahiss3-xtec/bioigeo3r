@@ -165,9 +165,9 @@ export const sa1s3 = {
   fitxaUrl: { A: "/fitxes/sa1-s3-fitxa-A.html", B: "/fitxes/sa1-s3-fitxa-B.html", C: "/fitxes/sa1-s3-fitxa-C.html" },
   teoriaPdfUrl: "/teoria/sa1-s3-teoria.pdf",
 
-  // Material físic que la sessió dona per existent (comprovació transversal 'ah').
+  // Material físic que la sessió dóna per existent (comprovació transversal 'ah').
   sessionMaterials: [
-    { id: "M1", title: "Targetes de card-sort (per retallar)", url: "/fitxes/sa1-s3-targetes-cardsort.html", who: "docent imprimeix i retalla, un sobre per grup" }
+    { id: "M1", title: "Targetes de card-sort (per retallar)", url: "/fitxes/sa1-s3-targetes-cardsort.html", who: "un sobre per grup" }
   ],
 
   // ── GUIA DE LA FITXA (apartats reals del full imprès) ────

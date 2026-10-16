@@ -116,17 +116,17 @@ export const sa3s4 = {
         "El cervell allibera endorfines quan espera millorar: per això cap fàrmac es valida sense grup placebo.",
         "La grip dura uns 5-7 dies: la Yasmina podria haver-se curat igualment."
       ] },
-      { apartat: "Final", title: "Full de sortida i metacognició", time: "13 min", phase: "elabora", instruction: "Full de sortida (10 min): sol/a i sense ajuda, tres preguntes de cas; el lliures a la professora. Després, metacognició (3 min): torna als objectius del principi, marca el que has après i apunta què et continues preguntant.", hints: [] }
+      { apartat: "Final", title: "Full de sortida i metacognició", time: "13 min", phase: "elabora", instruction: "Full de sortida (10 min): sol/a i sense ajuda, tres preguntes de cas; lliura'l a la professora. Després, metacognició (3 min): torna als objectius del principi, marca el que has après i apunta què et continues preguntant.", hints: [] }
     ]
   },
 
   exitTicketType: "paper",
   exitTicketQuestions: [
     { id: "q1", type: "open", text: "La Laia té el turmell inflat i adolorit. Pot triar entre paracetamol i ibuprofèn. Quin li convindria més? Justifica-ho explicant què atura aquest fàrmac dins el cos (enzim COX).", hint: "Ibuprofèn: bloqueja l'enzim COX → menys prostaglandines → menys inflamació i dolor. El paracetamol no és antiinflamatori." },
-    { id: "q2", type: "open", text: "En Pau té mal de coll víric i es pren un antibiòtic que li va sobrar. Dona dues raons per les quals és una mala decisió per a la seva salut.", hint: "(1) L'antibiòtic no té diana en un virus. (2) L'ús innecessari afavoreix les resistències bacterianes (i pot fer efectes adversos)." },
+    { id: "q2", type: "open", text: "En Pau té mal de coll víric i es pren un antibiòtic que li va sobrar. Dóna dues raons per les quals és una mala decisió per a la seva salut.", hint: "(1) L'antibiòtic no té diana en un virus. (2) L'ús innecessari afavoreix les resistències bacterianes (i pot fer efectes adversos)." },
     { id: "q3", type: "open", text: "La iaia diu: «em vaig prendre una til·la i el mal de cap va marxar, així que la til·la cura el mal de cap». Per quina raó això no és una prova? Com ho comprovaries de debò? Fes servir un grup control i digues què vol dir que sigui doble cec.", hint: "El mal de cap també hauria pogut marxar sol. Caldria un assaig amb grup control (placebo): til·la real vs. til·la «buida», i en doble cec: ni qui la pren ni qui avalua sap qui pren què. (OA4)" }
   ],
-  exitTicketNote: "Avaluació formativa. Criteris avaluats: 5.3 (OA3, preguntes 1 i 2) i 4.2 i 1.1 (OA4, pregunta 3). Les tres preguntes són de cas i es responen sol/a i sense ajuda. Es fa en un full a part: /fitxes/sa3-s4-exit-ticket.html (versions A i B) i /fitxes/sa3-s4-exit-ticket-C.html (versió C, amb bastida). Qui ha faltat pot respondre-les en línia.",
+  exitTicketNote: "Les tres preguntes són de cas i es responen sol/a i sense ajuda. Es fa en un full a part (versions A i B, i versió C amb bastida). Qui ha faltat pot respondre-les en línia.",
 
   homework: { description: "Pensa en una substància que creus que pot generar dependència i una raó. Ho comentareu en veu alta a l'inici de S5 (no cal recerca)." },
   recoveryInstructions: [

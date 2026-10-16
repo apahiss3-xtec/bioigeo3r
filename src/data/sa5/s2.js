@@ -128,10 +128,10 @@ export const sa5s2 = {
   },
   teoriaPdfUrl: null,
   sessionMaterials: [
-    { id: "sortida", title: "Full de sortida (versions A i B)", url: "/fitxes/sa5-s2-full-sortida.html", who: "docent" },
-    { id: "sortidaC", title: "Full de sortida (versió C)", url: "/fitxes/sa5-s2-full-sortida-C.html", who: "docent" },
-    { id: "mapes", title: "Dos mapes impresos per grup: límits de plaques i sismicitat global (M>4, 50 anys). Un dels dos en paper prim o transparència per superposar-los", who: "docent" },
-    { id: "mapacat", title: "Mapa de sismicitat de Catalunya i la Mediterrània occidental (ICGC)", who: "docent" }
+    { id: "sortida", title: "Full de sortida (versions A i B)", url: "/fitxes/sa5-s2-full-sortida.html", who: "es reparteix al final de la sessió" },
+    { id: "sortidaC", title: "Full de sortida (versió C)", url: "/fitxes/sa5-s2-full-sortida-C.html", who: "es reparteix al final de la sessió" },
+    { id: "mapes", title: "Dos mapes impresos per grup: límits de plaques i sismicitat global (M>4, 50 anys). Un dels dos en paper prim o transparència per superposar-los", who: "material de la sessió" },
+    { id: "mapacat", title: "Mapa de sismicitat de Catalunya i la Mediterrània occidental (ICGC)", who: "material de la sessió" }
   ],
 
   fitxaGuide: {

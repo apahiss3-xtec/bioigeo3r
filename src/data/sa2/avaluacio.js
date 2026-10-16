@@ -130,7 +130,7 @@ export const sa2Avaluacio = {
         text: "Per quina raó els primers dies la Júlia té la freqüència cardíaca alta fins i tot en repòs?",
         options: [
           "Perquè a l'altitud fa més fred i el cor s'accelera per escalfar tot el cos",
-          "Perquè la pressió baixa fa que el cor s'encongeixi i hagi de batre més sovint",
+          "Perquè la pressió baixa fa que el cor s'encongeixi i hagi de bategar més sovint",
           "Perquè cada batec porta menys O₂ i el cor ho compensa",
           "Perquè en repòs el cos gasta més oxigen que quan es fa un esforç moderat"
         ],

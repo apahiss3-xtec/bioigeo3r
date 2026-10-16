@@ -19,7 +19,7 @@ export const sa4 = {
     { id: "OA1", text: "Qui som? Taxonomia i Homo", desc: "Situar l'ésser humà com a organisme viu i única espècie del gènere Homo, justificant-ho amb caràcters compartits i funcions vitals, i reconèixer que les classificacions científiques són provisionals" },
     { id: "OA2", text: "La biologia de la reproducció", desc: "Explicar que els gàmetes es formen per meiosi amb una sola còpia de cada cromosoma i que la fecundació recompon les parelles, identificar els aparells reproductors en clau de funció i interpretar el cicle menstrual com una resposta hormonal, predint el dia d'ovulació en cicles de durada diferent" },
     { id: "OA3", text: "Sexualitat, identitat i gènere", desc: "Distingir el sexe biològic, la sexualitat com a conjunt de pràctiques i experiències vitals, la identitat sexual com a sentiment subjectiu i el gènere com a construcció social; i separar el que la ciència descriu (definició biològica d'embrió) del que decideixen les persones i la societat" },
-    { id: "OA4", text: "Decisions informades (CE1+CE5)", desc: "Conèixer els mètodes anticonceptius principals, les ITS i els factors que protegeixen la salut sexual i afectiva, i desmuntar amb evidència una afirmació viral" }
+    { id: "OA4", text: "Decisions informades ", desc: "Conèixer els mètodes anticonceptius principals, les ITS i els factors que protegeixen la salut sexual i afectiva, i desmuntar amb evidència una afirmació viral" }
   ],
   competencies: ["CE1", "CE2", "CE5"],
   flippedClassroom: false

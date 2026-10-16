@@ -71,10 +71,10 @@ export const sa4s4 = {
   apartatExtras: {
     "1": {
       scaffold: "Tres caselles en comptes de sis, i amb un exemple ja resolt sencer al davant (l'aigua amb llimona): qui ho diu · quines dades hi posa · es pot comprovar i com. Després, dues preguntes d'encerclar entre dues opcions que totes dues sonen raonables.",
-      challenge: "Dissenya la comprovació sencera de l'afirmació: quina és la pregunta investigable, quina és la variable independent, quina la dependent, amb quin grup es compara i durant quant de temps. I el cas de la IA que dona una font que existeix però que no diu el que ella deia."
+      challenge: "Dissenya la comprovació sencera de l'afirmació: quina és la pregunta investigable, quina és la variable independent, quina la dependent, amb quin grup es compara i durant quant de temps. I el cas de la IA que dóna una font que existeix però que no diu el que ella deia."
     },
     "2": {
-      scaffold: "La graella ja porta escrites tres respostes, una de cada columna, com a exemple; la del mètode del calendari no s'hi dona, perquè és el descobriment de l'activitat. La columna d'ITS és una taula a part que només s'omple DESPRÉS d'haver llegit per quina raó la barrera protegeix i la resta no. La pregunta d'escriptura porta els quatre passos OBSERVO → EM PREGUNTO → CONNECTO → DEDUEIXO.",
+      scaffold: "La graella ja porta escrites tres respostes, una de cada columna, com a exemple; la del mètode del calendari no s'hi dóna, perquè és el descobriment de l'activitat. La columna d'ITS és una taula a part que només s'omple DESPRÉS d'haver llegit per quina raó la barrera protegeix i la resta no. La pregunta d'escriptura porta els quatre passos OBSERVO → EM PREGUNTO → CONNECTO → DEDUEIXO.",
       challenge: "Calcula quantes vegades és més gran el nombre d'embarassos amb ús real que amb ús perfecte per a cada mètode i ordena'ls. Després comprova que el mètode amb la diferència més gran en nombre d'embarassos NO és el mateix que el de la raó més gran, i explica per quina raó passa això."
     },
     "3": {
@@ -115,7 +115,7 @@ export const sa4s4 = {
     "Dins de la casella d'Informació hi va també la pregunta de la IA: si li preguntes a una intel·ligència artificial, d'on treu ella la resposta? Es pot equivocar? Com ho comprovaries?",
     "PART B (15 min) · En grups de 3: vuit targetes de mètodes, i a cap no hi diu de quina família és. Col·loqueu cadascuna sota la columna del seu mecanisme. Les tres columnes es diuen igual a la fitxa, a les targetes i aquí: hormonal · de barrera · actua dins de l'úter",
     "ATENCIÓ: una de les vuit no encaixa a cap columna. Quan la trobeu, deixeu-la a part i escriviu per quina raó no hi encaixa. No és cap error: és el punt de l'activitat",
-    "Moment epistèmic: «a una amiga meva li va passar» — quantes amigues fan una prova? Què hauria de tenir una comprovació perquè te la creguessis?"
+    "Reflexió científica: «a una amiga meva li va passar» — quantes amigues fan una prova? Què hauria de tenir una comprovació perquè te la creguessis?"
   ],
   exploreDuration: "50 min en total: 15 min de CRITIC (apartat 1) + 35 min d'apartat 2, dels quals els primers 15 són les targetes en grup",
   exploreMaterials: [
@@ -124,17 +124,12 @@ export const sa4s4 = {
     "Fitxa de la teva versió, amb la graella CRITIC i la graella de mètodes"
   ],
 
-  // Material físic que la sessió dona per existent (comprovació transversal 'ah').
+  // Material físic que la sessió dóna per existent (comprovació transversal 'ah').
   sessionMaterials: [
-    { id: "M1", title: "Targetes de mètodes (8 targetes retallables)", url: "/fitxes/sa4-s4-targetes-metodes.html", who: "docent imprimeix un joc per grup de 3" },
-    { id: "M1b", title: "Clau del docent de les vuit targetes", url: null, who: "només docent, en paper (no es publica a la web)" }, // Font: SA4-creixer-reproduir/_NO-PUBLICAR/targetes_metodes_sessio4_DOCENT.html (no es publica: URL endevinable)
+    { id: "M1", title: "Targetes de mètodes (8 targetes retallables)", url: "/fitxes/sa4-s4-targetes-metodes.html", who: "un joc per grup de 3" },
     { id: "M2", title: "Plantilla del producte final (versions B i A)", url: "/fitxes/sa4-s4-plantilla-producte.html", who: "una per parella, es reparteix a l'inici de l'apartat 3" },
     { id: "M3", title: "Plantilla del producte final (versió C, guiada frase a frase)", url: "/fitxes/sa4-s4-plantilla-producte-C.html", who: "una per parella" },
-    { id: "M4", title: "Rúbrica del producte final", url: "/fitxes/sa4-s4-rubrica-producte.html", who: "la té l'alumnat AL DAVANT des del primer minut de l'apartat 3, no en acabar" },
-    { id: "M5", title: "Les tres preguntes de la bústia, transcrites a màquina", url: null, who: "docent. Es transcriuen i es reformulen en tercera persona fora de classe; mai el paper original. Són les MATEIXES per a tota la classe" },
-    { id: "M6", title: "Vídeo viral (o la seva transcripció impresa)", url: null, who: "docent. Es projecta un sol cop i no es deixa enllaçat enlloc: l'objecte d'estudi és l'afirmació, no el canal" },
-    { id: "M7", title: "Formulari Google de la unitat", url: null, who: "docent. L'enllaç es comparteix JUST en el moment de respondre'l, els últims 10 minuts" },
-    { id: "M8", title: "Full de sortida en paper (versions B i C) — mateixes preguntes que el formulari", url: null, who: "docent, en paper, per a qui no pot fer el formulari en línia" } // Fonts: SA4-creixer-reproduir/S4-decisions-informades/full_sortida_s4_VISUAL.html (A/B) i full_sortida_s4_C_VISUAL.html (C); no es publica: portaria les preguntes sumatives
+    { id: "M4", title: "Rúbrica del producte final", url: "/fitxes/sa4-s4-rubrica-producte.html", who: "la tens al davant des del primer minut de l'apartat 3, no en acabar" },
   ],
 
   theoryPoints: [
@@ -142,14 +137,14 @@ export const sa4s4 = {
       id: "t1",
       apartat: "1",
       heading: "==CRITIC==: com es mira una afirmació que corre",
-      text: "Davant d'una afirmació no cal ==creure-se-la ni rebutjar-la de cop|o==: es mira amb sis caselles. ==C==onsigna — quina és ==exactament== l'afirmació? · ==R==ol — qui ho diu i ==què hi guanya|o==? · ==I==dees — quin ==mecanisme|g== proposa? En proposa cap? · ==T==est — ==es podria comprovar|g==, i com? · ==I==nformació — quines ==dades== hi posa? Un cas que algú explica és una ==anècdota|r==, i una anècdota ==no és una dada|r==: sempre n'hi haurà alguna en cada direcció. · ==C==onclusions — què en puc dir ara i ==què em falta saber==? I una advertència sobre la ==IA|r==: no és una font, és un programa que ==redacta==. Pot donar-te una font que ==no diu el que ell diu==, o que no existeix. Si te'n dona una, ==ves a mirar-la|g==.",
+      text: "Davant d'una afirmació no cal ==creure-se-la ni rebutjar-la de cop|o==: es mira amb sis caselles. ==C==onsigna — quina és ==exactament== l'afirmació? · ==R==ol — qui ho diu i ==què hi guanya|o==? · ==I==dees — quin ==mecanisme|g== proposa? En proposa cap? · ==T==est — ==es podria comprovar|g==, i com? · ==I==nformació — quines ==dades== hi posa? Un cas que algú explica és una ==anècdota|r==, i una anècdota ==no és una dada|r==: sempre n'hi haurà alguna en cada direcció. · ==C==onclusions — què en puc dir ara i ==què em falta saber==? I una advertència sobre la ==IA|r==: no és una font, és un programa que ==redacta==. Pot donar-te una font que ==no diu el que ell diu==, o que no existeix. Si te'n dóna una, ==ves a mirar-la|g==.",
       type: "concept"
     },
     {
       id: "t2",
       apartat: "2",
       heading: "La ==cadena de quatre baules== i on talla cada família",
-      text: "Perquè hi hagi un embaràs han de passar ==quatre coses seguides|o==: ==① el cervell dona l'ordre d'ovular== (les hormones de la hipòfisi) → ==② surt l'òvul== de l'ovari → ==③ els gàmetes es troben== a la trompa → ==④ l'embrió s'implanta== a la paret de l'úter. ==Si en falla una, no hi ha embaràs|g==. Per això cada família de mètodes ==talla la cadena en un punt diferent==. ==Hormonals|o== (píndola combinada, pegat transdèrmic, implant subcutani): aporten hormones que fan que ==no arribi l'ordre d'ovular== → tallen a ==①-②==. Gairebé tots els mètodes fan ==més d'una cosa alhora|g== —els hormonals també espesseixen el moc del coll de l'úter, que és una segona tanca a ③—, però la figura marca ==on talla principalment== cada família, que és el que se't demanarà. ==De barrera|b== (preservatiu extern i intern): impedeixen físicament que el semen entri en contacte amb la vagina → tallen a ==③==. ==DIU de coure|g==: els ions de coure fan l'ambient ==tòxic per als espermatozoides== —això és el principal— i, si tot i així hi ha fecundació, dificulten la implantació → talla a ==③ i ④==. I el ==mètode del calendari|r== ==no talla res==: no fa res al cos, només intenta endevinar quins dies són fèrtils.",
+      text: "Perquè hi hagi un embaràs han de passar ==quatre coses seguides|o==: ==① el cervell dóna l'ordre d'ovular== (les hormones de la hipòfisi) → ==② surt l'òvul== de l'ovari → ==③ els gàmetes es troben== a la trompa → ==④ l'embrió s'implanta== a la paret de l'úter. ==Si en falla una, no hi ha embaràs|g==. Per això cada família de mètodes ==talla la cadena en un punt diferent==. ==Hormonals|o== (píndola combinada, pegat transdèrmic, implant subcutani): aporten hormones que fan que ==no arribi l'ordre d'ovular== → tallen a ==①-②==. Gairebé tots els mètodes fan ==més d'una cosa alhora|g== —els hormonals també espesseixen el moc del coll de l'úter, que és una segona tanca a ③—, però la figura marca ==on talla principalment== cada família, que és el que se't demanarà. ==De barrera|b== (preservatiu extern i intern): impedeixen físicament que el semen entri en contacte amb la vagina → tallen a ==③==. ==DIU de coure|g==: els ions de coure fan l'ambient ==tòxic per als espermatozoides== —això és el principal— i, si tot i així hi ha fecundació, dificulten la implantació → talla a ==③ i ④==. I el ==mètode del calendari|r== ==no talla res==: no fa res al cos, només intenta endevinar quins dies són fèrtils.",
       type: "concept",
       image: "/images/sa4-s4-cadena-metodes.svg",
       imageCaption: "A dalt, les quatre baules: ① l'ordre d'ovular · ② surt l'òvul · ③ els gàmetes es troben a la trompa · ④ l'embrió s'implanta. A baix, cada família amb la seva lletra en un quadrat de color: [A] hormonals · [B] de barrera · [C] DIU de coure · [D] mètode del calendari. Cada ✗ cau just sota la baula que aquella família talla principalment, i les línies verticals de punts serveixen per comprovar-ho. La fila [D] no té cap ✗: aquest buit és la resposta, no un oblit."
@@ -184,9 +179,9 @@ export const sa4s4 = {
       heading: "El mite, ==desmuntat==",
       text: "«Els anticonceptius et fan infèrtil per sempre.» Mirem-ho amb el que sabem. ==Què diu l'evidència|g==: quan es deixa un anticonceptiu hormonal, ==el cicle es restableix==, i els estudis que han seguit ==molta gent durant anys== no troben que la fertilitat quedi tocada a llarg termini. ==I per quina raó l'afirmació no s'aguanta?== Per tres coses alhora: ==(a)== no proposa ==cap mecanisme|r== — no diu ==què== faria l'hormona per espatllar res; ==(b)== no aporta ==cap dada|r==, només casos que algú explica; i ==(c)== confon ==una cosa que passa després== amb ==una cosa que passa per culpa de|r==. Si algú deixa la píndola als 34 anys i triga a tenir un embaràs, la píndola no és l'única cosa que ha canviat: ==també ha canviat l'edat|o==. Això té nom: la ==tercera variable|o== — una cosa que ha canviat alhora i que ningú no havia mirat, i que pot estar causant les altres dues. *(A la fitxa de la versió A hi ha una figura que ho dibuixa; a la resta n'hi ha prou amb aquest exemple.)* I sobre el «la píndola engreixa»: aquí no es discuteix el cos de ningú, es discuteix ==fins on arriba l'afirmació==. Els efectes secundaris ==existeixen== i són ==diferents en cada persona== — per això això es parla amb un professional. El que no té base és el salt de «a algunes persones els passa» a ==«això li passa a tothom, sempre»|r==.",
       type: "concept",
-      badge: "🔬 El nucli epistèmic del dia",
+      badge: "🔬 La reflexió científica del dia",
       image: "/images/sa4-s4-tercera-variable.svg",
-      imageCaption: "Rètols en lletra dins d'un quadrat buit: X deixar l'anticonceptiu · Y trigar a tenir un embaràs · Z l'edat, que ha canviat alhora. La fletxa de guions amb el ? vermell és la conclusió que la gent dona per bona i que no està demostrada; les dues fletxes taronges són l'explicació alternativa, que Z causa X i Y a la vegada."
+      imageCaption: "Rètols en lletra dins d'un quadrat buit: X deixar l'anticonceptiu · Y trigar a tenir un embaràs · Z l'edat, que ha canviat alhora. La fletxa de guions amb el ? vermell és la conclusió que la gent dóna per bona i que no està demostrada; les dues fletxes taronges són l'explicació alternativa, que Z causa X i Y a la vegada."
     },
     {
       id: "t7",
@@ -199,9 +194,9 @@ export const sa4s4 = {
   ],
 
   graphicResources: [
-    { id: "F1", apartat: "2", title: "La cadena i on talla cada família", src: "/images/sa4-s4-cadena-metodes.svg", note: "A dalt, les quatre baules amb marcadors ①-④. A baix, quatre files amb marcadors [A]-[D] en QUADRAT DE COLOR PLE (sistema diferent del rodó de les baules, perquè no es confonguin) i una ✗ sota cada baula que talla aquella família. La fila [D] no en té cap: aquest buit és el missatge, no un oblit. Cap paraula dins la imatge; les etiquetes són la llegenda de la fitxa." },
-    { id: "F2", apartat: "2", title: "Ús perfecte contra ús real", src: "/images/sa4-s4-eficacia-us-real.svg", note: "Barres aparellades: embarassos no buscats per cada 100 persones en un any. Les dues barres del mateix mètode són del MATEIX color: el que es mira no és el color sinó l'emplenat — barra buida per dins = ús perfecte, barra plena = ús real. (i) implant · (ii) píndola · (iii) preservatiu · (iv) calendari · (v) cap mètode. Marcadors en NÚMERO ROMÀ dins d'un rètol arrodonit i buit, perquè a la mateixa pàgina F1 ja fa servir els ①-④ (baules) i els [A]-[D] (famílies): tres sistemes, tres significats. Xifres aproximades d'organismes de salut: serveixen per comparar mètodes, no per predir res d'una persona concreta." },
-    { id: "F3", apartat: "3", title: "La tercera variable", src: "/images/sa4-s4-tercera-variable.svg", note: "Rètols en LLETRA dins d'un quadrat buit, que és el sistema que es fa servir per parlar de causes: X deixar l'anticonceptiu · Y trigar a tenir un embaràs · Z l'edat, que ha canviat alhora. La fletxa de punts entre X i Y, amb un ? vermell al mig, és la conclusió que la gent dona per bona i que no està demostrada; les dues fletxes taronges són l'explicació alternativa (Z causa X i Y alhora). Només és a la fitxa de la versió A: a les altres dues versions la idea es treballa amb text, sense la figura." }
+    { id: "F1", apartat: "2", title: "La cadena i on talla cada família", src: "/images/sa4-s4-cadena-metodes.svg", caption: "A dalt, les quatre baules de la cadena (①-④). A baix, les quatre famílies de mètodes ([A]-[D]), amb una ✗ sota cada baula que talla aquella família. Fixa't en la fila [D]: no en té cap, i aquest buit és el missatge.", note: "A dalt, les quatre baules amb marcadors ①-④. A baix, quatre files amb marcadors [A]-[D] en QUADRAT DE COLOR PLE (sistema diferent del rodó de les baules, perquè no es confonguin) i una ✗ sota cada baula que talla aquella família. La fila [D] no en té cap: aquest buit és el missatge, no un oblit. Cap paraula dins la imatge; les etiquetes són la llegenda de la fitxa." },
+    { id: "F2", apartat: "2", title: "Ús perfecte contra ús real", src: "/images/sa4-s4-eficacia-us-real.svg", caption: "Barres aparellades: embarassos no buscats per cada 100 persones en un any. Barra buida per dins = ús perfecte; barra plena = ús real. (i) implant · (ii) píndola · (iii) preservatiu · (iv) calendari · (v) cap mètode. Xifres aproximades: serveixen per comparar mètodes, no per predir res d'una persona concreta.", note: "Barres aparellades: embarassos no buscats per cada 100 persones en un any. Les dues barres del mateix mètode són del MATEIX color: el que es mira no és el color sinó l'emplenat — barra buida per dins = ús perfecte, barra plena = ús real. (i) implant · (ii) píndola · (iii) preservatiu · (iv) calendari · (v) cap mètode. Marcadors en NÚMERO ROMÀ dins d'un rètol arrodonit i buit, perquè a la mateixa pàgina F1 ja fa servir els ①-④ (baules) i els [A]-[D] (famílies): tres sistemes, tres significats. Xifres aproximades d'organismes de salut: serveixen per comparar mètodes, no per predir res d'una persona concreta." },
+    { id: "F3", apartat: "3", title: "La tercera variable", src: "/images/sa4-s4-tercera-variable.svg", caption: "X: deixar l'anticonceptiu · Y: trigar a tenir un embaràs · Z: l'edat, que ha canviat alhora. La fletxa de punts amb un ? vermell és la conclusió que la gent dóna per bona i que no està demostrada; les dues fletxes taronges són l'explicació alternativa (Z causa X i Y alhora).", note: "Rètols en LLETRA dins d'un quadrat buit, que és el sistema que es fa servir per parlar de causes: X deixar l'anticonceptiu · Y trigar a tenir un embaràs · Z l'edat, que ha canviat alhora. La fletxa de punts entre X i Y, amb un ? vermell al mig, és la conclusió que la gent dóna per bona i que no està demostrada; les dues fletxes taronges són l'explicació alternativa (Z causa X i Y alhora). Només és a la fitxa de la versió A: a les altres dues versions la idea es treballa amb text, sense la figura." }
   ],
 
   fitxaUrl: {
@@ -237,7 +232,7 @@ export const sa4s4 = {
   },
 
   exitTicketType: "form",
-  exitTicketNote: "L'avaluació d'aquesta sessió és el formulari de tota la unitat: quatre preguntes que es corregeixen soles i una d'oberta que llegeix el professor. Es respon els últims 10 minuts, aquí a classe, tot sol/a i sense mirar la fitxa. Aquí tampoc no s'hi pregunta res sobre tu: la pregunta oberta demana què li diries a una altra persona. Criteri avaluat: 1.2 (preguntes 1-2), 2.2 (3-4) i 5.3 (5).",
+  exitTicketNote: "L'avaluació d'aquesta sessió és el formulari de tota la unitat: quatre preguntes que es corregeixen soles i una d'oberta que llegeix el professor. Es respon els últims 10 minuts, aquí a classe, tot sol/a i sense mirar la fitxa. Aquí tampoc no s'hi pregunta res sobre tu: la pregunta oberta demana què li diries a una altra persona.",
   exitTicketConfidential: true,
   exitTicketConfidentialNote: "Aquest formulari compta per a la nota i es fa a classe sense ajuda, i per això les preguntes no es publiquen aquí. Si has faltat, passa pel despatx a fer-lo.",
 
@@ -246,7 +241,7 @@ export const sa4s4 = {
   exitTicketQuestions: [
     // Mateixes preguntes que script_formulari_google_sa4.js (sense la Q6, personal, que es queda NOMÉS al Form).
     // Sense `correct`: el formulari és sumatiu i el solucionari no va al paquet web.
-    { id: "q1", type: "multiple", text: "El pegat transdèrmic s'enganxa a la pell i es canvia un cop per setmana. En quina part de la cadena actua? (La cadena: ① el cervell dona l'ordre d'ovular → ② surt l'òvul → ③ els gàmetes es troben → ④ l'embrió s'implanta.)", options: [
+    { id: "q1", type: "multiple", text: "El pegat transdèrmic s'enganxa a la pell i es canvia un cop per setmana. En quina part de la cadena actua? (La cadena: ① el cervell dóna l'ordre d'ovular → ② surt l'òvul → ③ els gàmetes es troben → ④ l'embrió s'implanta.)", options: [
       "A la ①: el que passa a la pell arriba a la sang, i fa que no arribi l'ordre d'ovular",
       "A la ③: fa de barrera i impedeix que els gàmetes es trobin a la trompa",
       "A la ④: deixa la paret de l'úter de manera que l'embrió no s'hi pot implantar",

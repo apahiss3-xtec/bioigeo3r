@@ -15,7 +15,7 @@ export const sa2s7 = {
       "Quantifico l'enigma 2: calculo quant oxigen porta cada litre de sang del Marc i quanta sang més ha de moure el seu cor per compensar-ho.",
       "Argumento si la recomanació del metge (ferro i tres mesos sense córrer) és adequada, separant-ne les dues parts.",
       "Formulo una hipòtesi sobre el cas nou (G3) amb evidència numèrica i dic quin resultat la refutaria.",
-      "Prediuo com canviaria la gràfica del cas nou després del tractament i justifico quins dos trets han de canviar.",
+      "Predic com canviaria la gràfica del cas nou després del tractament i justifico quins dos trets han de canviar.",
       "Integro els quatre aparells en una sola cadena funcional i mostro com un sol paràmetre (el ferro) els afecta tots."
     ],
     B: [
@@ -55,7 +55,7 @@ export const sa2s7 = {
     what: "En parelles, compareu el gràfic G2 (esportista d'elit vs. sedentari) i n'escriviu 3 conclusions en forma d'afirmació científica. Després, individualment i sense ajuda, analitzeu el gràfic G3 (en Nil, 14 anys, el mateix eix de temps que la gràfica de la Mercè) per formular-ne una hipòtesi.",
     who: { mode: "parelles+individual", label: "Parelles (G2) i després individual (G3, avaluació sumativa)" },
     time: 40,
-    note: "L'apartat 2 (G3) es recull al final per avaluar individualment (CE4): no es pot demanar ajuda. 18 min de G2 en parelles + 22 min de G3 individual."
+    note: "L'apartat 2 (G3) és individual: no pots demanar ajuda. Comptem uns 18 min per a G2 en parelles i uns 22 min per a G3 sol o sola."
   },
 
   theoryPoints: [
@@ -65,9 +65,9 @@ export const sa2s7 = {
   ],
 
   graphicResources: [
-    { id: "G1", apartat: "2", title: "Gràfica FC de la Mercè (referència)", src: "/images/sa2-g1-merce.svg", note: "Enigma 1, ja resolt. És EXACTAMENT la gràfica de la sessió 5 (repòs 65, meta al minut 55 a 185, per sota de 80 al minut 70). Es manté a la vista per comparar-la amb G3 sense haver de recordar-la." },
-    { id: "G2", apartat: "1", title: "Gràfica G2 — esportista d'elit vs. sedentari", src: "/images/sa2-g2-elit-sedentari.svg", note: "Treball en parelles (Explore) i base de comparació per a la Discussió de l'informe. Els dos subjectes tenen 20 anys i fan el mateix esforç." },
-    { id: "G3", apartat: "2", title: "Gràfica del cas nou — en Nil, 14 anys", src: "/images/sa2-g3-cas-nou.svg", note: "Avaluació sumativa individual. Mateixa edat que la Mercè, mateixos eixos i mateix llindar que G1: la comparació és legítima. El protocol de cadascú és a la franja de notes de la seva gràfica." }
+    { id: "G1", apartat: "2", title: "Gràfica FC de la Mercè (referència)", src: "/images/sa2-g1-merce.svg", note: "Enigma 1, ja resolt: és la gràfica de la Mercè de la sessió 5 (repòs 65, 185 al minut 55, per sota de 80 al minut 70). La tens a la vista per comparar-la amb G3." },
+    { id: "G2", apartat: "1", title: "Gràfica G2 — esportista d'elit vs. sedentari", src: "/images/sa2-g2-elit-sedentari.svg", note: "Es treballa en parelles i serveix de base de comparació per a la Discussió de l'informe. Els dos subjectes tenen 20 anys i fan el mateix esforç." },
+    { id: "G3", apartat: "2", title: "Gràfica del cas nou — en Nil, 14 anys", src: "/images/sa2-g3-cas-nou.svg", note: "Aquesta gràfica és individual. Té la mateixa edat que la Mercè, els mateixos eixos i el mateix llindar que G1: la comparació és legítima. El teu protocol és a la franja de notes de la gràfica." }
   ],
 
   // 2026-08-20: la fitxa impresa A/B/C ja existeix (abans NO n'hi havia cap
@@ -75,9 +75,9 @@ export const sa2s7 = {
   fitxaUrl: { A: "/fitxes/sa2-s7-fitxa-A.html", B: "/fitxes/sa2-s7-fitxa-B.html", C: "/fitxes/sa2-s7-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s7-teoria.pdf",
 
   sessionMaterials: [
-    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s7-exit-ticket.html", who: "docent" },
-    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s7-exit-ticket-C.html", who: "docent" },
-    { id: "rubrica", title: "Rúbrica de l'informe FC", url: "/fitxes/sa2-s7-rubrica-informe.html", who: "la té l'alumnat al davant des del primer minut de l'apartat 4" }
+    { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s7-exit-ticket.html", who: "per al final de la sessió" },
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s7-exit-ticket-C.html", who: "per al final de la sessió" },
+    { id: "rubrica", title: "Rúbrica de l'informe FC", url: "/fitxes/sa2-s7-rubrica-informe.html", who: "consulta-la des del primer minut de l'apartat 4" }
   ],
 
   fitxaGuide: {
@@ -111,7 +111,7 @@ export const sa2s7 = {
     { id: "q1", type: "open", text: "Mira la gràfica G3 (a sobre). Descriu el que veus i formula una hipòtesi: per quina raó aquesta persona té un patró tan diferent de la Mercè? Quin valor de l'analítica creus que estaria alterat?", hint: "Compara la forma amb la de la Mercè: puja igual? Recupera igual de ràpid? Lliga la diferència amb un valor concret de l'analítica." },
     { id: "q2", type: "open", text: "El metge recomana a Marc Fontana que prengui ferro i deixi de córrer 3 mesos. A partir del que has après, per quina raó creus que és (o no és) una recomanació adequada?", hint: "Pensa en les dues parts per separat: el ferro ataca la causa (l'anèmia)? I deixar de córrer del tot, ajuda o no a recuperar-se?" }
   ],
-  exitTicketNote: "Avaluació sumativa CE1 + CE4. Individual, sense ajuda. Hi ha versió EN PAPER per a qui no tingui dispositiu: exit_ticket_s7_VISUAL.html (A i B) i exit_ticket_s7_C_VISUAL.html (C). Per cabre en mig full A4, el full de paper porta NOMÉS la pregunta q1 d'aquí (gràfica G3 del Nil + hipòtesi): és la que millor recull la idea central de la sessió (el cicle complet i com un valor alterat ho explica tot).",
+  exitTicketNote: "Aquest exit tiquet és individual i sense ajuda. Si no tens dispositiu, tens la versió en paper a l'apartat de materials; porta només la pregunta q1 (gràfica G3 del Nil + hipòtesi).",
 
   deliverables: [
     { name: "Informe FC en parelles (Rols A + B)", note: "Entrega a Classroom. Termini 1 setmana si no s'acaba a classe. Rúbrica: /fitxes/sa2-s7-rubrica-informe.html" }

@@ -15,7 +15,7 @@ export const sa5s3 = {
     A: [
       "Explico les 3 etapes del procés de formació del carbó (etapificació: torba → lignit → hulla → antracita) i del petroli (origen biogènic, migració, trampa geològica) i argumento per quina raó són «no renovables» en l'escala de temps humana tot i que es renoven en l'escala geològica.",
       "Calculo l'impacte de CO₂ del ciment (extracció del calcari → descarbonatació: CaCO₃ → CaO + CO₂, ≈8% de les emissions globals) i el comparo amb l'impacte de l'acer i l'alumini. Argumento quin material és més «sostenible» tenint en compte el reciclatge.",
-      "Avaluo l'impacte paisatgístic i ambiental d'una pedrera de calcari usant els criteris de CE6 (paisatge / biodiversitat / contaminació hídrica / rehabilitació) i proposo mesures de minimització de l'impacte.",
+      "Avaluo l'impacte paisatgístic i ambiental d'una pedrera de calcari usant els criteris (paisatge / biodiversitat / contaminació hídrica / rehabilitació) i proposo mesures de minimització de l'impacte.",
       "Relaciono el cicle del carboni geològic amb la formació de roques calcàries: el CO₂ atmosfèric fixat per organismes marins fa 100 Ma és el calcari de Cardona; quan el cremem (ciment) el retornem a l'atmosfera en qüestió de mesos."
     ],
     B: [
@@ -35,7 +35,7 @@ export const sa5s3 = {
   apartatExtras: {
     "2": {
       scaffold: "Omple la taula de recursos geològics: recurs / tipus (mineral/roca/fòssil) / on s'extreu / ús principal / és renovable? (sí/no / a quina escala?). Afegeix: calcari, pissarra, potassa, granit, carbó, petroli, sorra de quars.",
-      challenge: "La mina de potassa de Sallent (Bages) genera una muntanya de sal blanca visible des de l'autovia. La potassa s'usa com a adob agrícola i s'exporta a tot el món. Investiga: quin és el cicle de vida de la potassa (des de la mina fins al camp)? Quin impacte paisatgístic té la muntanya de sal? Quines mesures de rehabilitació s'han proposat? Avalua si l'activitat és ambientalment sostenible o no (usa criteris CE6 i CE2)."
+      challenge: "La mina de potassa de Sallent (Bages) genera una muntanya de sal blanca visible des de l'autovia. La potassa s'usa com a adob agrícola i s'exporta a tot el món. Investiga: quin és el cicle de vida de la potassa (des de la mina fins al camp)? Quin impacte paisatgístic té la muntanya de sal? Quines mesures de rehabilitació s'han proposat? Avalua si l'activitat és ambientalment sostenible o no (usa criteris ambientals, socials i de sostenibilitat)."
     },
     "3": {
       scaffold: "Llegeix el text de la teoria sobre l'impacte del ciment. Respon: 1. Per quina raó el ciment emet CO₂ (quin procés químic)? 2. Quin percentatge de les emissions globals de CO₂ representa? 3. Quines alternatives existeixen per reduir l'impacte? Escriu les respostes en frases curtes.",
@@ -100,7 +100,7 @@ export const sa5s3 = {
       id: "t4",
       apartat: "3",
       heading: "Impacte ambiental de l'extracció: el ==paisatge ferit==",
-      text: "L'extracció de roques i minerals genera impactes ambientals significatius (CE6): 1) ==Impacte paisatgístic|r==: les pedreres obertes alteren de forma dràstica el relleu i la vegetació. Les mines de cel obert (com la de potassa de Sallent) generen terrenys de color i morfologia artificials visibles des de quilòmetres. 2) ==Contaminació hídrica|r==: els lixiviats de les escombreres i els pols de les pedreres contaminen sòls i aqüífers. Les mines de sal de Sallent generen salmorres que han afectat el ==riu Llobregat|o==. 3) ==Emissions de CO₂|r==: el ciment requereix calcinar calcari a 1.450 °C (==descarbonatació|r==: CaCO₃ → CaO + CO₂). Representa el ==8% de les emissions globals de CO₂|r==. 4) ==Rehabilitació==: la llei minera obliga les empreses a elaborar un pla de restauració del paisatge. Algunes pedreres abandonades s'han convertit en reserves naturals o espais de lleure (ex: pedreres de Montjuïc → Parc de Montjuïc). La ==economia circular|g== (reutilitzar els residus de construcció i demolició) és una alternativa de futur.",
+      text: "L'extracció de roques i minerals genera impactes ambientals significatius: 1) ==Impacte paisatgístic|r==: les pedreres obertes alteren de forma dràstica el relleu i la vegetació. Les mines de cel obert (com la de potassa de Sallent) generen terrenys de color i morfologia artificials visibles des de quilòmetres. 2) ==Contaminació hídrica|r==: els lixiviats de les escombreres i els pols de les pedreres contaminen sòls i aqüífers. Les mines de sal de Sallent generen salmorres que han afectat el ==riu Llobregat|o==. 3) ==Emissions de CO₂|r==: el ciment requereix calcinar calcari a 1.450 °C (==descarbonatació|r==: CaCO₃ → CaO + CO₂). Representa el ==8% de les emissions globals de CO₂|r==. 4) ==Rehabilitació==: la llei minera obliga les empreses a elaborar un pla de restauració del paisatge. Algunes pedreres abandonades s'han convertit en reserves naturals o espais de lleure (ex: pedreres de Montjuïc → Parc de Montjuïc). La ==economia circular|g== (reutilitzar els residus de construcció i demolició) és una alternativa de futur.",
       type: "concept"
     },
     {
@@ -129,8 +129,8 @@ export const sa5s3 = {
 
   sessionMaterials: [
     { id: "m1", title: "Targetes de recurs A-E + targeta de dades de la pedrera", url: "/fitxes/sa5-s3-targetes-recursos.html", who: "1 targeta per grup (n'hi ha 5 de diferents) + la de la pedrera per a tothom" },
-    { id: "m2", title: "Full de sortida (versions A i B)", url: "/fitxes/sa5-s3-full-sortida.html", who: "docent · 2 còpies per full A4" },
-    { id: "m3", title: "Full de sortida (versió C)", url: "/fitxes/sa5-s3-full-sortida-C.html", who: "docent · 2 còpies per full A4" }
+    { id: "m2", title: "Full de sortida (versions A i B)", url: "/fitxes/sa5-s3-full-sortida.html", who: "2 còpies per full A4" },
+    { id: "m3", title: "Full de sortida (versió C)", url: "/fitxes/sa5-s3-full-sortida-C.html", who: "2 còpies per full A4" }
   ],
 
   fitxaGuide: {
@@ -165,7 +165,7 @@ export const sa5s3 = {
   // on viu l'alumne i que, a més, és el punt de partida de la guia geològica de S4.
   homework: {
     description: "Busca un lloc del teu poble o barri on es vegi la roca despullada: un talús de carretera, un marge, una cala, un penya-segat o la llera d'un riu. Ha de ser roca de debò, no una paret construïda. Fes-ne una foto o dibuixa-la, apunta on és exactament, i escriu tres coses que hi observis (color, capes, si està trencada, si hi creix res) i una pregunta que et facis mirant-la.",
-    note: "No delegable a IA: és el teu lloc i és el que hi veus tu. A la sessió 4 serà el punt de partida de la guia geològica, i te la faré explicar en veu alta.",
+    note: "No delegable a IA: és el teu lloc i és el que hi veus tu. A la sessió 4 serà el punt de partida de la guia geològica, i l'hauràs d'explicar en veu alta.",
   },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (minerals vs roques, combustibles fòssils, recursos geològics de Catalunya, impacte ambiental)",

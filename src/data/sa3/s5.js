@@ -98,7 +98,7 @@ export const sa3s5 = {
   ],
 
   sessionMaterials: [
-    { name: "Targetes de substàncies (20 targetes retallables + solucionari docent)", url: "/fitxes/sa3-s5-targetes-substancies.html" },
+    { name: "Targetes de substàncies (20 targetes retallables)", url: "/fitxes/sa3-s5-targetes-substancies.html" },
     { name: "Rúbrica de la campanya de comunicació científica", url: "/fitxes/sa3-s5-rubrica-campanya.html" },
     { name: "Full de sortida — versions A i B", url: "/fitxes/sa3-s5-full-sortida.html" },
     { name: "Full de sortida — versió C (amb bastida)", url: "/fitxes/sa3-s5-full-sortida-C.html" }
@@ -132,11 +132,11 @@ export const sa3s5 = {
 
   exitTicketType: "paper",
   exitTicketQuestions: [
-    { id: "q1", type: "open", text: "Resol l'enigma A: per quina raó la Martina (no vacunada) i la seva àvia (vacunada) van escapar de la grip de novembre? Dona almenys 2 explicacions fonamentades per a la Martina.", hint: "Per a la Martina hi ha dos camins possibles i tots dos són compatibles: un depèn del SEU cos i l'altre de la gent del SEU VOLTANT. Per a l'àvia n'hi ha prou amb el mecanisme de la Sessió 3." },
+    { id: "q1", type: "open", text: "Resol l'enigma A: per quina raó la Martina (no vacunada) i la seva àvia (vacunada) van escapar de la grip de novembre? Dóna almenys 2 explicacions fonamentades per a la Martina.", hint: "Per a la Martina hi ha dos camins possibles i tots dos són compatibles: un depèn del SEU cos i l'altre de la gent del SEU VOLTANT. Per a l'àvia n'hi ha prou amb el mecanisme de la Sessió 3." },
     { id: "q2", type: "open", text: "L'article de Wakefield afirmava que les vacunes causen autisme. Per quina raó la revista científica el va retirar? Cita almenys 2 raons concretes.", hint: "Repassa els 6 criteris de la Sessió 3 i mira quins incompleix l'article. La caixa «Dades per a l'Enigma B» de la teva fitxa té els números." },
     { id: "q3", type: "open", text: "Per quina raó l'addicció NO és «només qüestió de voluntat»? Usa les paraules dopamina i receptors.", hint: "Comença pel que passa als receptors quan la droga hi arriba, i segueix amb el que fa el cervell si això es repeteix cada dia. La figura dels quatre quadres de l'apartat 2 explica tota la cadena." }
   ],
-  exitTicketNote: "Avaluació sumativa CE1 + CE2 + CE5 (resolució dels dos enigmes de la unitat). Individual, sense ajuda, i es recull. Es pot respondre a l'ordinador o en paper: el full imprès porta les mateixes tres preguntes. /fitxes/sa3-s5-full-sortida.html (versions A i B) i /fitxes/sa3-s5-full-sortida-C.html (versió C, amb bastida).",
+  exitTicketNote: "Avaluació de la unitat (resolució dels dos enigmes). Individual, sense ajuda, i es recull. Es pot respondre a l'ordinador o en paper: el full imprès porta les mateixes tres preguntes (versions A i B, i versió C amb bastida).",
 
   deliverables: [
     { name: "Campanya de comunicació científica (cartell o vídeo de 60 s)", note: "Es comença a classe a l'apartat 4 i s'acaba a casa. Entrega a Classroom, termini 1 setmana. Desmunta un mite sobre salut aplicant els 6 criteris de qualitat. Rúbrica: /fitxes/sa3-s5-rubrica-campanya.html" }

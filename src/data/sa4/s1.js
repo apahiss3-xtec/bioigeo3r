@@ -97,7 +97,7 @@ export const sa4s1 = {
     "Tasca 2: ordeneu les espècies de més a menys properes a l'humà segons quants caràcters comparteixen",
     "Tasca 3: dibuixeu l'arbre a la fitxa seguint el format de la figura F4 (exemple mínim amb tres espècies alienes a l'activitat) — cada branca marca on apareix un caràcter nou — i situeu-hi l'humà justificant-ho amb un caràcter, no amb una impressió",
     "Posada en comú: tots els grups heu obtingut el mateix arbre? On difereix? Per quina raó?",
-    "Moment epistèmic: dos casos us hauran fet dubtar (la serp i l'empat goril·la/ximpanzé). Quin tipus de prova és més fiable, la forma del cos o l'ADN? Pot canviar un arbre que avui sembla segur?"
+    "Reflexió científica: dos casos us hauran fet dubtar (la serp i l'empat goril·la/ximpanzé). Quin tipus de prova és més fiable, la forma del cos o l'ADN? Pot canviar un arbre que avui sembla segur?"
   ],
   exploreDuration: "35 min",
   exploreMaterials: [
@@ -105,10 +105,9 @@ export const sa4s1 = {
     "Fitxa de la teva versió, amb la pregunta investigadora i l'espai per dibuixar l'arbre"
   ],
 
-  // Material físic que la sessió dona per existent (comprovació transversal 'ah').
+  // Material físic que la sessió dóna per existent (comprovació transversal 'ah').
   sessionMaterials: [
-    { id: "M1", title: "Targetes del cladograma (10 espècies + 9 caràcters + solucionari docent)", url: "/fitxes/sa4-s1-targetes-cladograma.html", who: "docent imprimeix, 1 joc per grup de 4" },
-    { id: "M2", title: "Bústia de preguntes anònimes: caixa + papers petits + cartell de l'acord d'aula", url: null, who: "docent. El dia 1 només es RECULLEN; es transcriuen i es trien fora de classe i es responen a partir de la sessió 2" },
+    { id: "M1", title: "Targetes del cladograma (10 espècies + 9 caràcters)", url: "/fitxes/sa4-s1-targetes-cladograma.html", who: "1 joc per grup de 4" },
     { id: "M3", title: "Full de sortida (versions A i B)", url: "/fitxes/sa4-s1-full-sortida.html", who: "es reparteix als últims 7 minuts" },
     { id: "M4", title: "Full de sortida (versió C)", url: "/fitxes/sa4-s1-full-sortida-C.html", who: "es reparteix als últims 7 minuts" }
   ],
@@ -136,17 +135,17 @@ export const sa4s1 = {
       id: "t3",
       apartat: "2",
       heading: "La ==ciència canvia==: classificacions provisionals",
-      text: "Els dos casos que us han fet dubtar amb les targetes es resolen aquí. (a) La ==serp== no té quatre extremitats, però els seus avantpassats sí que en tenien: les va ==perdre|o==, i algunes serps encara conserven un trosset d'os de la pelvis. Un caràcter que es perd pot enganyar si només mires la forma del cos. (b) ==Goril·la o ximpanzé?== Amb les targetes queden ==empatats|o==; el desempat el dona l'==ADN|p==. Quan es va poder llegir l'ADN, molts arbres construïts només amb morfologia ==van canviar|o==. No és que abans estiguessin 'malament': és que la ciència ==millora amb proves noves|g==.",
+      text: "Els dos casos que us han fet dubtar amb les targetes es resolen aquí. (a) La ==serp== no té quatre extremitats, però els seus avantpassats sí que en tenien: les va ==perdre|o==, i algunes serps encara conserven un trosset d'os de la pelvis. Un caràcter que es perd pot enganyar si només mires la forma del cos. (b) ==Goril·la o ximpanzé?== Amb les targetes queden ==empatats|o==; el desempat el dóna l'==ADN|p==. Quan es va poder llegir l'ADN, molts arbres construïts només amb morfologia ==van canviar|o==. No és que abans estiguessin 'malament': és que la ciència ==millora amb proves noves|g==.",
       type: "epistemic",
-      badge: "🔬 Moment epistèmic"
+      badge: "🔬 Reflexió científica"
     }
   ],
 
   graphicResources: [
-    { id: "F1", apartat: "2", title: "Les tres funcions vitals en tres éssers vius", src: "/images/sa4-s1-funcions-vitals.svg", note: "Bacteri / pi / humà × nutrició / relació / reproducció, amb un exemple per casella. Mateix codi F1 a les tres fitxes." },
-    { id: "F2", apartat: "2", title: "Línia temporal del gènere Homo", src: "/images/sa4-s1-linia-temps-homo.svg", note: "Quatre espècies del gènere Homo amb la seva durada real. L'eix està partit i la ruptura d'escala hi va marcada." },
-    { id: "F3", apartat: "1", title: "L'arbre a mig fer (versió C)", src: "/images/sa4-s1-arbre-semiconstruit.svg", note: "Cladograma amb el pi, la formiga i l'humà ja col·locats i set caixes buides; les branques van numerades i els caràcters, a la llegenda de sota. Només s'usa a la fitxa de la versió C." },
-    { id: "F4", apartat: "1", title: "Exemple de com es dibuixa un arbre", src: "/images/sa4-s1-exemple-arbre.svg", note: "Cladograma mínim de tres espècies (pi, formiga, gat) que NO són a l'activitat. Serveix per modelar el format abans de demanar que en dibuixin un: cap versió no n'havia vist mai cap. Fitxes A i B." }
+    { id: "F1", apartat: "2", title: "Les tres funcions vitals en tres éssers vius", src: "/images/sa4-s1-funcions-vitals.svg", caption: "Bacteri, pi i humà comparats en les tres funcions vitals (nutrició, relació i reproducció), amb un exemple a cada casella.", note: "Bacteri / pi / humà × nutrició / relació / reproducció, amb un exemple per casella. Mateix codi F1 a les tres fitxes." },
+    { id: "F2", apartat: "2", title: "Línia temporal del gènere Homo", src: "/images/sa4-s1-linia-temps-homo.svg", caption: "Quatre espècies del gènere Homo amb la seva durada real. L'eix està partit: fixa't en la ruptura d'escala abans de comparar les barres.", note: "Quatre espècies del gènere Homo amb la seva durada real. L'eix està partit i la ruptura d'escala hi va marcada." },
+    { id: "F3", apartat: "1", title: "L'arbre a mig fer (versió C)", src: "/images/sa4-s1-arbre-semiconstruit.svg", caption: "Cladograma a mig fer: el pi, la formiga i l'humà ja hi són i falta col·locar-hi la resta d'espècies a les set caixes buides. Les branques van numerades i els caràcters són a la llegenda de sota.", note: "Cladograma amb el pi, la formiga i l'humà ja col·locats i set caixes buides; les branques van numerades i els caràcters, a la llegenda de sota. Només s'usa a la fitxa de la versió C." },
+    { id: "F4", apartat: "1", title: "Exemple de com es dibuixa un arbre", src: "/images/sa4-s1-exemple-arbre.svg", caption: "Exemple de com es dibuixa un cladograma amb tres espècies (pi, formiga i gat) que no surten a l'activitat. Fixa't en el format abans de dibuixar-ne un.", note: "Cladograma mínim de tres espècies (pi, formiga, gat) que NO són a l'activitat. Serveix per modelar el format abans de demanar que en dibuixin un: cap versió no n'havia vist mai cap. Fitxes A i B." }
   ],
 
   fitxaUrl: {
@@ -165,7 +164,7 @@ export const sa4s1 = {
         "Compta quants caràcters comparteix cada espècie amb l'humà abans de decidir l'ordre.",
         "Si hi ha una espècie que no us encaixa, no la forceu: anoteu quina és i per quina raó. Es parla a la posada en comú."
       ] },
-      { apartat: "2", title: "Funcions vitals i gènere Homo", time: "20 min", phase: "explica", instruction: "Apartat 2: treballa les funcions vitals amb la figura F1 i el gènere Homo amb la figura F2 i la caixa de teoria. Després respon les dues preguntes del moment epistèmic (la serp i l'empat goril·la/ximpanzé). El format concret canvia segons la teva versió.", hints: [
+      { apartat: "2", title: "Funcions vitals i gènere Homo", time: "20 min", phase: "explica", instruction: "Apartat 2: treballa les funcions vitals amb la figura F1 i el gènere Homo amb la figura F2 i la caixa de teoria. Després respon les dues preguntes de la reflexió científica (la serp i l'empat goril·la/ximpanzé). El format concret canvia segons la teva versió.", hints: [
         "Omple la taula de funcions vitals sense mirar la figura F1 i després compara-la: on t'has quedat curt?",
         "A la figura F2 (la línia del temps), «avui» és a la dreta i com més cap a l'esquerra, més enrere en el temps. Mira quines barres es toquen.",
         "Compte amb la marca // de la figura F2: l'escala canvia i les llargades de les barres no es poden comparar a ull."
@@ -183,7 +182,7 @@ export const sa4s1 = {
   exitTicketType: "paper",
   exitTicketNote: "El full de sortida va en un FULL A PART (no és dins la fitxa), es fa individualment i sense ajuda els últims 7 minuts, i es recull. Porta les mateixes tres preguntes a les tres versions; la versió C les té bastides (amb els mateixos quatre passos OBSERVO→EM PREGUNTO→CONNECTO→DEDUEIXO que la fitxa) i la versió A hi afegeix una quarta pregunta. NO hi ha cap pregunta sobre el contingut de la bústia: el full porta el nom i es recull, i la bústia és anònima.",
   exitTicketQuestions: [
-    { id: "q1", type: "open", text: "Dona dos caràcters que compartim amb un ximpanzé i un que ens diferencia. Per quina raó l'humà és un animal?", hint: "Pensa en els caràcters de les targetes que compartim amb la resta d'animals i que el pi no té. (Compte: les tres funcions vitals no serveixen per a aquesta pregunta — també les fa el pi.)" },
+    { id: "q1", type: "open", text: "Dóna dos caràcters que compartim amb un ximpanzé i un que ens diferencia. Per quina raó l'humà és un animal?", hint: "Pensa en els caràcters de les targetes que compartim amb la resta d'animals i que el pi no té. (Compte: les tres funcions vitals no serveixen per a aquesta pregunta — també les fa el pi.)" },
     { id: "q2", type: "open", text: "Uns científics llegeixen l'ADN d'un animal que avui hem col·locat molt lluny de nosaltres i descobreixen que és un parent proper. Què li passa a l'arbre que has fet avui? Vol dir que l'has fet malament?", hint: "Pensa en què va passar amb la serp i amb l'empat goril·la/ximpanzé." },
     { id: "q3", type: "open", text: "De dues preguntes-model impreses al full («per quina raó surten grans a la cara a la nostra edat?» i «a quina edat és millor tenir la primera parella?»), quina pot respondre la ciència i quina no? Com ho has decidit?", hint: "Pregunta't si es podria comprovar amb una dada o un experiment." }
   ],
@@ -192,7 +191,7 @@ export const sa4s1 = {
     description: "Cap deures obligatoris. Si et ve una pregunta al cap durant la setmana, escriu-la i posa-la a la bústia el proper dia. I fixa't en algun animal que vegis pel carrer o en una sèrie: quins dels nou caràcters d'avui tindria?",
   },
   recoveryInstructions: [
-    "Llegeix la teoria d'aquesta pàgina: funcions vitals compartides, taxonomia i gènere Homo, i el moment epistèmic",
+    "Llegeix la teoria d'aquesta pàgina: funcions vitals compartides, taxonomia i gènere Homo, i la reflexió científica",
     "Mira les figures F1 (funcions vitals) i F2 (línia temporal del gènere Homo)",
     "Descarrega la fitxa de la teva versió i fes els apartats 1, 2 i 3. Per a l'apartat 1 pots fer servir el full de targetes imprès (M1) o dibuixar l'arbre directament a partir dels nou caràcters",
     "Passa pel despatx a fer el full de sortida abans de la sessió següent"

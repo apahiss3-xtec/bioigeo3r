@@ -17,7 +17,7 @@ export const sa3s3 = {
       "Explico el mecanisme d'acció de les vacunes (antigen atenuat → resposta adaptativa → memòria) i calculo el llindar d'immunitat de grup per a una malaltia donada.",
       "Analitzo l'article de Wakefield aplicant els 6 criteris de qualitat i identifico exactament quins criteris va incomplir i com.",
       "Dissenyo una campanya de comunicació que distingeixi pseudociència de ciència real, citant evidències concretes i anticipant contrarguments.",
-      "Evaluo per quina raó l'immunitat de grup és un fenomen de solidaritat col·lectiva, no individual (CE5)."
+      "Evaluo per quina raó l'immunitat de grup és un fenomen de solidaritat col·lectiva, no individual."
     ],
     B: [
       "Explico com funciona una vacuna (antigen → resposta adaptativa → memòria) i el concepte d'immunitat de grup.",
@@ -36,7 +36,7 @@ export const sa3s3 = {
   // ── BASTIMENT/REPTE PER APARTAT ──────────────────────────
   apartatExtras: {
     "1": {
-      scaffold: "Per a cada font (article Wakefield / estudi 2019), omple la graella: ¿Publicada en revista científica revisada per parells? (sí/no) · ¿Mida de la mostra? (nombre de participants) · ¿Hi ha conflicte d'interès del autor? (sí/no/desconegut) · ¿Ha estat replicat per altres grups? (sí/no). Puntua cada font de 0 a 4.",
+      scaffold: "Per a cada font (article Wakefield / estudi 2019), omple la graella: Publicada en revista científica revisada per parells? (sí/no) · Mida de la mostra? (nombre de participants) · Hi ha conflicte d'interès de l'autor? (sí/no/desconegut) · Ha estat replicat per altres grups? (sí/no). Puntua cada font de 0 a 4.",
       challenge: "L'article de Wakefield va ser retirat el 2010. Però molts pares no van llegir la retractació. Quins factors psicològics expliquen per quina raó la gent recorda millor la notícia original que la correcció posterior? Proposa una estratègia de comunicació que tingui en compte aquest biaix."
     },
     "2": {
@@ -71,7 +71,7 @@ export const sa3s3 = {
     "Per grups de 3: apliqueu la graella dels 6 criteris (puntuant de 0 a 2) als tres articles (10 min)",
     "Posada en comú: cada grup comparteix la puntuació i el criteri decisiu (5 min)",
     "Es revela per quina raó The Lancet va retirar l'article: conflicte d'interès econòmic + dades manipulades + mostra massa petita",
-    "Moment epistèmic: 'Un sol article, per gran que sigui la revista, mai és suficient. La ciència funciona per replicació.'"
+    "Reflexió científica: 'Un sol article, per gran que sigui la revista, mai és suficient. La ciència funciona per replicació.'"
   ],
   exploreDuration: "30 min",
   exploreMaterials: ["Full dels articles A, B i C (imprès, un per grup)", "Graella dels 6 criteris (fitxa S3)"],
@@ -91,7 +91,7 @@ export const sa3s3 = {
       heading: "==Immunitat de grup==: per quina raó TOTS hem de vacunar-nos",
       text: "Si prou persones estan immunitzades, el virus ==no pot circular|g== i protegeix fins i tot els que NO es poden vacunar (bebès <6 mesos, immunodeprimits, persones al·lèrgiques). ==Llindar d'immunitat de grup== = 1 − 1/R₀. Per a la ==grip (R₀≈2,5)|o== el llindar és 1 − 1/2,5 = ==60%|g==; per al ==xarampió (R₀≈15)|r== cal vacunar el ==93%|g== de la població. Per sota del llindar: risc de brots.",
       type: "concept",
-      badge: "🤝 CE5 — Salut col·lectiva"
+      badge: "🤝 Salut col·lectiva"
     },
     {
       id: "t3",
@@ -104,10 +104,10 @@ export const sa3s3 = {
     {
       id: "t4",
       apartat: "3",
-      heading: "Com avaluar una font: 6 criteris (==CE2==)",
+      heading: "Com avaluar una font: 6 criteris",
       text: "1. ==Qui ho signa?|o== (autor/a i credencials: és especialista en el tema?). 2. ==On es publica?|o== (revista científica revisada per parells vs blog o xarxes). 3. ==Estudis originals verificables|g== (cita estudis que pots trobar i comprovar? Un sol estudi no és suficient: cal que altres grups independents arribin al mateix resultat). 4. ==Mida de la mostra|o== (n=12 vs n=1.200.000 → la mida importa). 5. ==Conflicte d'interès|r== (qui ho diu en treu profit econòmic?). 6. ==Titular i contingut|g== (el titular diu el mateix que el cos de l'article?). Cada criteri es puntua de 0 a 2: ==més de 8 sobre 12 = font fiable|g==.",
       type: "concept",
-      badge: "🔬 CE2 — Avaluació de fonts"
+      badge: "🔬 Avaluació de fonts"
     },
     {
       id: "t5",
@@ -152,7 +152,7 @@ export const sa3s3 = {
         "Els antígens HLA del donant i del receptor han d'encaixar, com el model clau-pany.",
         "Escriu la resposta en una frase i digues per què es pot confiar en les dades."
       ] },
-      { apartat: "Final", title: "Full de sortida i metacognició", time: "13 min", phase: "elabora", instruction: "Full de sortida (10 min): sol/a i sense ajuda, tres preguntes de cas; el lliures a la professora. Després, metacognició (3 min): torna als objectius del principi, marca el que has après i apunta què et continues preguntant.", hints: [] }
+      { apartat: "Final", title: "Full de sortida i metacognició", time: "13 min", phase: "elabora", instruction: "Full de sortida (10 min): sol/a i sense ajuda, tres preguntes de cas; lliura'l a la professora. Després, metacognició (3 min): torna als objectius del principi, marca el que has après i apunta què et continues preguntant.", hints: [] }
     ]
   },
 
@@ -162,7 +162,7 @@ export const sa3s3 = {
     { id: "q2", type: "open", text: "Un brot de xarampió (R₀ = 12) arriba a una ciutat on el 90 % de la població està vacunada. Calcula el llindar d'immunitat de grup (1 − 1/R₀) i digues si la ciutat està protegida. Justifica-ho.", hint: "Llindar = 1 − 1/12 ≈ 0,92 → 92 %. 90 % és inferior: el brot encara es podria estendre." },
     { id: "q3", type: "open", text: "Et passen aquest missatge: «Un estudi amb 15 persones demostra que el suc X cura la grip». L'autor és l'empresari que ven el suc. Aplica dos criteris de fiabilitat d'una font i digues si hi confiaries.", hint: "Criteris: mostra (15 és molt petita), conflicte d'interès (ven el producte), on es publica (un blog no és una revista científica), estudis originals verificables (n'hi ha?)." }
   ],
-  exitTicketNote: "Avaluació formativa. Criteri avaluat: 2.2 (OA2). Les tres preguntes són de cas i es responen sol/a i sense ajuda. Es fa en un full a part: /fitxes/sa3-s3-exit-ticket.html (versions A i B) i /fitxes/sa3-s3-exit-ticket-C.html (versió C, amb bastida). Qui ha faltat pot respondre-les en línia.",
+  exitTicketNote: "Les tres preguntes són de cas i es responen sol/a i sense ajuda. Es fa en un full a part (versions A i B, i versió C amb bastida). Qui ha faltat pot respondre-les en línia.",
 
   homework: { description: "Reflexió: pensa en una substància que modifica el cos o el comportament (un medicament, una beguda energètica, l'alcohol, el tabac, el cafè...). A S4 hauràs de dir per quina raó creus que és o no és una «droga». No cal recerca: cal pensar-hi." },
   recoveryInstructions: [

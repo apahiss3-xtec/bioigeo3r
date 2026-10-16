@@ -111,7 +111,7 @@ export const sa4s3 = {
     "AVÍS de l'enunciat: algun cas pot tocar DUES finestres. Si us passa, digueu quines dues i per quina raó — no és cap error vostre, és el punt de l'activitat",
     "Es parla d'un en un seguint la pauta impresa: «la meva idea és… / la raó és… / una idea contrària podria ser…»",
     "Totes les persones dels casos són inventades. Ningú no ha de parlar de si mateix, i es pot dir «no ho sé» o passar el torn",
-    "Moment epistèmic: quan algú diu «això és natural» o «això sempre ha estat així», en què s'està basant — en una prova, en un costum o en una creença? Com ho podries comprovar?"
+    "Reflexió científica: quan algú diu «això és natural» o «això sempre ha estat així», en què s'està basant — en una prova, en un costum o en una creença? Com ho podries comprovar?"
   ],
   exploreDuration: "30 min (apartat 1 de la fitxa, que hi afegeix la càpsula de teoria i la graella)",
   exploreMaterials: [
@@ -120,12 +120,10 @@ export const sa4s3 = {
     "Fitxa de la teva versió, amb la graella de casos i la figura F1"
   ],
 
-  // Material físic que la sessió dona per existent (comprovació transversal 'ah').
+  // Material físic que la sessió dóna per existent (comprovació transversal 'ah').
   sessionMaterials: [
-    { id: "M1", title: "Targetes de casos (8 casos retallables)", url: "/fitxes/sa4-s3-targetes-casos.html", who: "docent imprimeix un joc per grup de 3-4" },
-    { id: "M1b", title: "Clau del docent dels vuit casos", url: null, who: "només docent, en paper (no es publica a la web)" }, // Font: SA4-creixer-reproduir/S3-ciencia-i-societat/targetes_casos_sessio3_DOCENT.html (no es publica: URL endevinable, 27/08)
-    { id: "M2", title: "Cartell: acord d'aula + pauta d'argumentació", url: "/fitxes/sa4-s3-cartell-acord.html", who: "docent el penja abans de començar i el deixa visible tota la sessió" },
-    { id: "M3", title: "Preguntes de la bústia transcrites a màquina (dues)", url: null, who: "docent. Es transcriuen fora de classe: mai es llegeix el paper original" },
+    { id: "M1", title: "Targetes de casos (8 casos retallables)", url: "/fitxes/sa4-s3-targetes-casos.html", who: "un joc per grup de 3-4" },
+    { id: "M2", title: "Cartell: acord d'aula + pauta d'argumentació", url: "/fitxes/sa4-s3-cartell-acord.html", who: "es penja a l'aula i queda visible tota la sessió" },
     { id: "M4", title: "Full de sortida (versions A i B)", url: "/fitxes/sa4-s3-full-sortida.html", who: "es reparteix als últims 7 minuts" },
     { id: "M5", title: "Full de sortida (versió C)", url: "/fitxes/sa4-s3-full-sortida-C.html", who: "es reparteix als últims 7 minuts" }
   ],
@@ -144,7 +142,7 @@ export const sa4s3 = {
       id: "t2",
       apartat: "2",
       heading: "La ciència ==descriu==; la societat ==decideix==",
-      text: "La ciència dona una ==definició biològica== d'embrió: l'estadi que va del ==zigot== fins a la ==vuitena setmana==; a partir d'aquí se'n diu ==fetus==. El que la ciència ==SÍ que pot dir|g==: quantes cèl·lules hi ha el cinquè dia, quan es tanca el tub neural, quan comença a bategar el cor. Tot això es pot ==mirar i comprovar==. El que la ciència ==NO pot dir|r==: ==quan comença a haver-hi una «persona»==, ni si l'avortament és acceptable o no ho és. «Persona» ==no és cap mesura biològica|o==: és una ==valoració==, i és de cada persona i de la societat, que ho debat i ho decideix ==amb lleis, no amb un microscopi==. Aquí ningú no et dirà què has de pensar: el que s'aprèn és a reconèixer ==quin tipus de pregunta|g== tens al davant.",
+      text: "La ciència dóna una ==definició biològica== d'embrió: l'estadi que va del ==zigot== fins a la ==vuitena setmana==; a partir d'aquí se'n diu ==fetus==. El que la ciència ==SÍ que pot dir|g==: quantes cèl·lules hi ha el cinquè dia, quan es tanca el tub neural, quan comença a bategar el cor. Tot això es pot ==mirar i comprovar==. El que la ciència ==NO pot dir|r==: ==quan comença a haver-hi una «persona»==, ni si l'avortament és acceptable o no ho és. «Persona» ==no és cap mesura biològica|o==: és una ==valoració==, i és de cada persona i de la societat, que ho debat i ho decideix ==amb lleis, no amb un microscopi==. Aquí ningú no et dirà què has de pensar: el que s'aprèn és a reconèixer ==quin tipus de pregunta|g== tens al davant.",
       type: "concept",
       image: "/images/sa4-s3-frontera-ciencia-valors.svg",
       imageCaption: "La fletxa taronja va en un sol sentit: les dades entren al debat i el fan millor, però no el decideixen. No hi ha cap fletxa de tornada."
@@ -170,10 +168,10 @@ export const sa4s3 = {
   ],
 
   graphicResources: [
-    { id: "F1", apartat: "1", title: "Les quatre finestres", src: "/images/sa4-s3-quatre-finestres.svg", note: "Quatre panells amb marcadors ①-④ i cap paraula dins la imatge: les etiquetes en català són la llegenda numerada de la fitxa. La versió C té una edició pròpia (menys detall, marcadors al doble de mida, colors molt més contrastats)." },
-    { id: "F1C", apartat: "1", title: "Les quatre finestres — versió C", src: "/images/sa4-s3-quatre-finestres-C.svg", note: "Un sol pictograma per panell i un color de fons per finestra. És la que porta la fitxa C." },
-    { id: "F2", apartat: "2", title: "On passa la ratlla: ciència / societat", src: "/images/sa4-s3-frontera-ciencia-valors.svg", note: "Ⓐ instruments de mesura · Ⓑ balança, mans alçades i converses · Ⓒ la ratlla · Ⓓ la fletxa d'un sol sentit. Marcadors amb LLETRA i no amb número (27/08): compartia els ①-④ i els mateixos colors amb F1, que es compara amb ella a la mateixa pàgina. És la figura que sosté tot l'apartat 3." },
-    { id: "F3", apartat: "2", title: "Els primers dies (escala esquemàtica)", src: "/images/sa4-s3-primers-dies.svg", note: "Deliberadament sòbria: cercles del mateix diàmetre sobre un eix de temps. Serveix per concretar el «què SÍ que pot dir la ciència», no per il·lustrar emotivament." }
+    { id: "F1", apartat: "1", title: "Les quatre finestres", src: "/images/sa4-s3-quatre-finestres.svg", caption: "Les quatre finestres, amb marcadors ①-④; el nom de cada una és a la llegenda de la fitxa.", note: "Quatre panells amb marcadors ①-④ i cap paraula dins la imatge: les etiquetes en català són la llegenda numerada de la fitxa. La versió C té una edició pròpia (menys detall, marcadors al doble de mida, colors molt més contrastats)." },
+    { id: "F1C", apartat: "1", title: "Les quatre finestres — versió C", src: "/images/sa4-s3-quatre-finestres-C.svg", caption: "Les quatre finestres, en versió simplificada: un sol pictograma per panell i un color de fons per finestra.", note: "Un sol pictograma per panell i un color de fons per finestra. És la que porta la fitxa C." },
+    { id: "F2", apartat: "2", title: "On passa la ratlla: ciència / societat", src: "/images/sa4-s3-frontera-ciencia-valors.svg", caption: "Ⓐ instruments de mesura · Ⓑ balança, mans alçades i converses · Ⓒ la ratlla · Ⓓ la fletxa d'un sol sentit.", note: "Ⓐ instruments de mesura · Ⓑ balança, mans alçades i converses · Ⓒ la ratlla · Ⓓ la fletxa d'un sol sentit. Marcadors amb LLETRA i no amb número (27/08): compartia els ①-④ i els mateixos colors amb F1, que es compara amb ella a la mateixa pàgina. És la figura que sosté tot l'apartat 3." },
+    { id: "F3", apartat: "2", title: "Els primers dies (escala esquemàtica)", src: "/images/sa4-s3-primers-dies.svg", caption: "Els primers dies de l'embrió: cercles del mateix diàmetre sobre un eix de temps. Només mostra l'ordre, no la mida real.", note: "Deliberadament sòbria: cercles del mateix diàmetre sobre un eix de temps. Serveix per concretar el «què SÍ que pot dir la ciència», no per il·lustrar emotivament." }
   ],
 
   fitxaUrl: {

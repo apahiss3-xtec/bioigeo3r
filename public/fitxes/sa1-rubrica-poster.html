@@ -594,7 +594,7 @@ function flattenDoc(){
     content.remove();
   }
   /* S4-poster: les seccions van dins d'un .inner que nomes hi posa padding;
-     el padding ja el dona .sheet-body, aixi que el desembolicem. */
+     el padding ja el dóna .sheet-body, aixi que el desembolicem. */
   const inner=doc.querySelector(':scope > .inner');
   if(inner){ while(inner.firstChild){ doc.insertBefore(inner.firstChild, inner); } inner.remove(); }
   const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();

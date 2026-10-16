@@ -67,7 +67,7 @@ export const sa3s2 = {
     "Pregunta't: si la placa bruta té tants microbis, per què no ens posem malalts cada cop que toquem alguna cosa?",
     "Part B: amb plastilina, modela antígens i els anticossos que hi encaixen (model clau-pany)",
     "Intercanvia els antígens amb un altre grup: per què no encaixen els anticossos del teu grup?",
-    "Moment epistèmic: una clau no canvia de forma, però un virus sí que muta. Això explica que cada any hi hagi noves soques de grip?"
+    "Reflexió científica: una clau no canvia de forma, però un virus sí que muta. Això explica que cada any hi hagi noves soques de grip?"
   ],
   exploreDuration: "30 min",
   exploreMaterials: ["Plaques de Petri de S1 (mà bruta / mà rentada)", "Plastilina de colors", "Fitxa S2 per anotar les observacions"],
@@ -140,7 +140,7 @@ export const sa3s2 = {
       { apartat: "3", title: "La memòria del sistema immunitari", time: "15 min", phase: "explica", instruction: "Apartat 3: formula una hipòtesi per a l'enigma A i resol el cas de la Júlia (varicel·la) amb les paraules memòria immunològica i anticossos.", hints: [
         "Les cèl·lules de memòria són la clau de la 2a resposta: més ràpida i més intensa."
       ] },
-      { apartat: "Final", title: "Full de sortida i metacognició", time: "13 min", phase: "elabora", instruction: "Full de sortida (10 min): sol/a i sense ajuda, tres preguntes de cas; el lliures a la professora. Després, metacognició (3 min): torna als objectius del principi, marca el que has après i apunta què et continues preguntant.", hints: [] }
+      { apartat: "Final", title: "Full de sortida i metacognició", time: "13 min", phase: "elabora", instruction: "Full de sortida (10 min): sol/a i sense ajuda, tres preguntes de cas; lliura'l a la professora. Després, metacognició (3 min): torna als objectius del principi, marca el que has après i apunta què et continues preguntant.", hints: [] }
     ]
   },
 
@@ -150,7 +150,7 @@ export const sa3s2 = {
     { id: "q2", type: "open", text: "Un laboratori disposa d'un anticòs que reconeix l'antigen del virus del xarampió. Prediu si protegirà també contra el virus de la grip. Justifica-ho amb el model clau-pany.", hint: "Cada anticòs encaixa amb un sol antigen (clau-pany). L'antigen de la grip és diferent del del xarampió: no encaixa." },
     { id: "q3", type: "open", text: "En Marc s'infecta amb un virus que el seu cos no havia vist mai i es cura al cap d'uns dies. Mesos després es torna a exposar al mateix virus i ni se n'adona. Compara les dues respostes i explica quina cèl·lula ho fa possible.", hint: "1a resposta: lenta, dies. Queden limfòcits de memòria → 2a resposta ràpida i intensa, abans dels símptomes." }
   ],
-  exitTicketNote: "Avaluació formativa. Criteri avaluat: 1.2 (OA1). Les tres preguntes són de cas i es responen sol/a i sense ajuda. Es fa en un full a part: /fitxes/sa3-s2-exit-ticket.html (versions A i B) i /fitxes/sa3-s2-exit-ticket-C.html (versió C, amb bastida). Qui ha faltat pot respondre-les en línia.",
+  exitTicketNote: "Les tres preguntes són de cas i es responen sol/a i sense ajuda. Es fa en un full a part (versions A i B, i versió C amb bastida). Qui ha faltat pot respondre-les en línia.",
 
   homework: { description: "Porta un titular real (retallat, captura o imprès) sobre una malaltia, una vacuna o un medicament. A S3 explicaràs per quina raó l'has triat i si la font et sembla fiable. Repàs: mira la teoria del sistema immunitari d'aquesta pàgina i apunta una cosa que t'hagi sorprès." },
   recoveryInstructions: [

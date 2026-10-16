@@ -71,7 +71,7 @@ export const sa3s1 = {
     "Activitat 1 (5 min): lliure circulació per l'aula — doneu la mà o parleu cara a cara amb 4 persones (simuleu interaccions normals)",
     "Activitat 2 (5 min): segona ronda — ara podeu 'posar-vos mascareta' (doblar el paper) si voleu. Seguiu interactuant",
     "Revelació: qui tenia el virus s'asseu; els que van interactuar amb ells (sense mascareta) s'assenten amb una creu",
-    "Moment epistèmic: recompte a la pissarra → quants infectats per 'cas 0'? → aquest és el R₀ de la simulació"
+    "Reflexió científica: recompte a la pissarra → quants infectats per 'cas 0'? → aquest és el R₀ de la simulació"
   ],
   exploreDuration: "25 min",
   exploreMaterials: ["Targetes (1 per alumne, 2-3 marcades 'VIRUS')", "Llista de contactes buida (per anotar interaccions)", "Pissarra per recompte col·lectiu"],
@@ -148,7 +148,7 @@ export const sa3s1 = {
         "Cada via suggereix una mesura: aire → mascareta o ventilació; contacte → rentar mans; superfícies → netejar.",
         "Pensa què li fa la temperatura alta al patogen i a les defenses del cos."
       ] },
-      { apartat: "Final", title: "Full de sortida i metacognició", time: "13 min", phase: "elabora", instruction: "Full de sortida (10 min): sol/a i sense ajuda, tres preguntes de cas; el lliures a la professora. Després, metacognició (3 min): torna als objectius del principi, marca el que has après i apunta què et continues preguntant.", hints: [] }
+      { apartat: "Final", title: "Full de sortida i metacognició", time: "13 min", phase: "elabora", instruction: "Full de sortida (10 min): sol/a i sense ajuda, tres preguntes de cas; lliura'l a la professora. Després, metacognició (3 min): torna als objectius del principi, marca el que has après i apunta què et continues preguntant.", hints: [] }
     ]
   },
 
@@ -158,7 +158,7 @@ export const sa3s1 = {
     { id: "q2", type: "open", text: "Tres malalties inventades tenen aquests R₀: X = 0,8 · Y = 2,5 · Z = 15. Quina s'extingiria sola i quina s'estendria més de pressa? Justifica-ho amb el significat de R₀.", hint: "R₀ < 1 → l'epidèmia s'extingeix (X). R₀ gran → s'estén més de pressa (Z)." },
     { id: "q3", type: "open", text: "La Nora té 38,3 °C de febre. La seva àvia diu: «cal baixar-la ara mateix, la febre és dolenta». Hi estàs d'acord? Justifica-ho explicant què li fa la temperatura al patogen.", hint: "Febre moderada (37,5–39 °C): dificulta la reproducció del patogen i accelera les defenses; no sempre cal baixar-la." }
   ],
-  exitTicketNote: "Avaluació formativa. Criteri avaluat: 1.1 (OA1). Les tres preguntes són de cas i es responen sol/a i sense ajuda. Es fa en un full a part: /fitxes/sa3-s1-exit-ticket.html (versions A i B) i /fitxes/sa3-s1-exit-ticket-C.html (versió C, amb bastida). Qui ha faltat pot respondre-les en línia.",
+  exitTicketNote: "Les tres preguntes són de cas i es responen sol/a i sense ajuda. Es fa en un full a part (versions A i B, i versió C amb bastida). Qui ha faltat pot respondre-les en línia.",
 
   homework: null, // S1 no té feina a casa — decisió de disseny (spec SA3-S1, 02/07/2026)
   recoveryInstructions: [

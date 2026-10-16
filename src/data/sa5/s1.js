@@ -16,7 +16,7 @@ export const sa5s1 = {
       "Identifico qualsevol mostra de roca pel seu origen (ígnia/sedimentària/metamòrfica) usant almenys 3 criteris d'observació (textura, mida de cristalls, presència de fòssils, laminació, reacció amb HCl) i argumento per quina raó cada característica és una evidència del procés de formació.",
       "Explico el cicle de les roques de forma completa: magma → roca ígnia → erosió → sediment → roca sedimentària → metamorfisme → roca metamòrfica → fusió → magma. Identifico en quin punt del cicle estan les roques del laboratori.",
       "Connecto els tipus de roca amb els processos geològics de la SA: per quina raó el basalt de la Garrotxa és extrusiu i no intrusiu, i quina diferència hi ha en la mida dels cristalls.",
-      "Dissenyo un protocol d'identificació de roques desconegudes amb almenys 5 proves ordenades de menys a més destructiva. Justifique l'ordre amb criteris de metodologia científica (CE3)."
+      "Dissenyo un protocol d'identificació de roques desconegudes amb almenys 5 proves ordenades de menys a més destructiva. Justifico l'ordre amb criteris de metodologia científica."
     ],
     B: [
       "Identifico les 6 mostres de roca del laboratori per les seves característiques observables i les classifico en les 3 famílies (ígnia / sedimentària / metamòrfica).",
@@ -127,10 +127,10 @@ export const sa5s1 = {
   },
   teoriaPdfUrl: null,
   sessionMaterials: [
-    { id: "sortida", title: "Full de sortida (versions A i B)", url: "/fitxes/sa5-s1-full-sortida.html", who: "docent" },
-    { id: "sortidaC", title: "Full de sortida (versió C)", url: "/fitxes/sa5-s1-full-sortida-C.html", who: "docent" },
-    { id: "mostres", title: "Sis mostres de roca per grup, HCl diluït, lupa i clau de coure", who: "docent" },
-    { id: "ceres", title: "Ceres de 3 colors, full d'alumini i font de calor (demostració del cicle)", who: "docent" }
+    { id: "sortida", title: "Full de sortida (versions A i B)", url: "/fitxes/sa5-s1-full-sortida.html", who: "es reparteix al final de la sessió" },
+    { id: "sortidaC", title: "Full de sortida (versió C)", url: "/fitxes/sa5-s1-full-sortida-C.html", who: "es reparteix al final de la sessió" },
+    { id: "mostres", title: "Sis mostres de roca per grup, HCl diluït, lupa i clau de coure", who: "material de la sessió" },
+    { id: "ceres", title: "Ceres de 3 colors, full d'alumini i font de calor (demostració del cicle)", who: "material de la sessió" }
   ],
 
   fitxaGuide: {
