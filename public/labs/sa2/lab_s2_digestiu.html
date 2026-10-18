@@ -25,9 +25,6 @@ h1,h2,h3{font-family:"Fira Sans Extra Condensed",system-ui,sans-serif;font-weigh
 header.top{border-bottom:3px solid var(--green);padding-bottom:12px;margin-bottom:12px}
 header.top h1{font-size:34px;margin:8px 0 2px;color:var(--green)}
 header.top p{margin:0;color:var(--muted)}
-.lvl{display:flex;gap:6px;align-items:center;margin-top:10px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
-.lvl button{min-height:36px;min-width:44px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:6px;font:inherit;font-weight:600;cursor:pointer}
-.lvl button[aria-pressed="true"]{background:var(--green);color:var(--surface);border-color:var(--green)}
 nav.steps{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;margin:0 -2px;position:sticky;top:0;background:var(--bg);z-index:5}
 nav.steps button{flex:0 0 auto;min-height:44px;padding:4px 12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;font:inherit;font-size:14px;cursor:pointer;text-align:left;line-height:1.15}
 nav.steps button b{display:block;font-family:"Fira Sans Extra Condensed",system-ui,sans-serif;font-size:15px}
@@ -43,8 +40,6 @@ section.panel.on{display:block}
 label.f{display:block;font-weight:600;margin:10px 0 4px}
 textarea,input[type=text],select{width:100%;font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:6px;padding:8px 10px;min-height:44px}
 textarea{min-height:76px;resize:vertical}
-textarea[readonly],input[readonly]{background:color-mix(in srgb,var(--green) 7%,var(--surface));color:var(--muted)}
-textarea:disabled{opacity:.55}
 :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .btn{min-height:44px;padding:8px 16px;border:0;border-radius:8px;background:var(--green);color:var(--surface);font:inherit;font-weight:600;cursor:pointer}
 .btn.sec{background:var(--surface);color:var(--green);border:1.5px solid var(--green)}
@@ -100,11 +95,6 @@ input[type=range]{width:100%;min-height:44px;accent-color:var(--green-2)}
 .log div{padding:1px 0}
 .ph{display:inline-flex;align-items:center;gap:8px;font-weight:600}
 .phsw{width:44px;height:20px;border-radius:4px;border:1px solid var(--line)}
-.pcard{border:1.5px solid var(--line);border-radius:8px;padding:10px;margin:8px 0;background:var(--surface)}
-.pcard.lock{opacity:.7}
-.pcard h4{margin:0 0 4px;font-family:"Fira Sans Extra Condensed",sans-serif;font-size:20px;color:var(--green)}
-.pcard .meta{font-size:15px;color:var(--muted)}
-.meta b{color:var(--ink)}
 .mini{font-size:14px;color:var(--muted)}
 .bagq{transition:transform .25s}
 .squish{animation:sq .35s ease}
@@ -114,8 +104,20 @@ input[type=range]{width:100%;min-height:44px;accent-color:var(--green-2)}
 .drip{animation:dr 1.1s linear infinite}
 @keyframes dr{0%{transform:translateY(0);opacity:1}100%{transform:translateY(26px);opacity:0}}
 @media(prefers-reduced-motion:reduce){.squish,.bub,.drip{animation:none}*{scroll-behavior:auto!important;transition:none!important}}
-#sumtxt{width:100%;min-height:340px;font-family:ui-monospace,Consolas,monospace;font-size:14px;line-height:1.45}
 .miss{margin:8px 0;padding-left:20px;color:var(--warn)}
+.pn{display:flex;justify-content:space-between;gap:8px;margin-top:14px}
+.hide{display:none!important}
+#sumtxt{width:100%;min-height:300px;font-family:ui-monospace,Consolas,monospace;font-size:14px;line-height:1.45}
+.note{margin:12px 0 0;padding:10px 12px;border:2px solid var(--accent);border-radius:8px;background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+.note b{font-family:"Fira Sans Extra Condensed",system-ui,sans-serif;font-size:18px;color:var(--ink)}
+.note ul{margin:4px 0 0;padding-left:20px}
+.dtab{width:100%;border-collapse:collapse;font-size:15px}
+.dtab th,.dtab td{border:1.5px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.dtab th{background:color-mix(in srgb,var(--green) 9%,var(--surface))}
+.sel2{display:grid;grid-template-columns:36px 1fr;gap:8px;align-items:center;margin:6px 0}
+.sel2 .num{width:32px;height:32px;border-radius:50%;background:var(--green);color:var(--surface);display:flex;align-items:center;justify-content:center;font-family:"Fira Sans Extra Condensed",sans-serif;font-weight:700;font-size:18px}
+.sel2.ok .num{background:var(--ok)}
+.sel2.bad .num{background:var(--bad)}
 .pn{display:flex;justify-content:space-between;gap:8px;margin-top:14px}
 .hide{display:none!important}
 </style>
@@ -125,69 +127,40 @@ input[type=range]{width:100%;min-height:44px;accent-color:var(--green-2)}
 <a class="back" href="index.html">← Laboratoris SA2</a>
 <header class="top">
   <span class="tag">SA2 · Sessió 2</span>
-  <h1>El Sistema Digestiu · laboratori virtual</h1>
-  <p>Fes la pràctica pas a pas i omple els mateixos apartats que la fitxa impresa.</p>
-  <div class="lvl" role="group" aria-label="Nivell">Nivell:
-    <button type="button" data-lv="A" aria-pressed="false">A</button>
-    <button type="button" data-lv="B" aria-pressed="true">B</button>
-    <button type="button" data-lv="C" aria-pressed="false">C</button>
-    <span id="lvinfo"></span>
-  </div>
+  <h1>El Sistema Digestiu · laboratori</h1>
+  <p>Fes les tres pràctiques, obté les dades i anota-les a la fitxa impresa.</p>
 </header>
 
-<nav class="steps" id="steps" aria-label="Apartats de la fitxa"></nav>
-
-<!-- 0 IDEES PRÈVIES -->
-<section class="panel on" id="sec0">
-  <div class="card">
-    <h2>Idees prèvies</h2>
-    <p class="lead">Activa el que ja saps — no hi ha respostes dolentes.</p>
-    <div class="instr">Escriu les parts del sistema digestiu que recordes i, si pots, per a què serveix cadascuna.</div>
-    <label class="f" for="idees">Les teves idees</label>
-    <textarea id="idees" data-save="1" rows="5"></textarea>
-    <p class="mini">Escriu-ho abans de començar. Al final podràs comparar-ho amb el que has après.</p>
-  </div>
-  <div class="pn"><span></span><button class="btn" type="button" data-go="1">Comença la pràctica 1 →</button></div>
-</section>
+<nav class="steps" id="steps" aria-label="Pràctiques"></nav>
 
 <!-- 1 POSA NOM -->
-<section class="panel" id="sec1">
+<section class="panel on" id="sec0">
   <div class="card">
     <h2>1 · Posa nom al sistema digestiu</h2>
-    <p class="lead">Al dibuix hi ha 7 parts marcades amb un número, en l'ordre pel qual passa el menjar.</p>
-    <div class="instr"><b>Com fer-ho:</b> toca un número del dibuix i després una paraula del banc. També pots triar el nom a la llista de la taula. Després escriu què hi passa.</div>
-    <h3>Banc de paraules</h3>
-    <div class="chips" id="bank"></div>
+    <p class="lead">Què volem esbrinar: quines són les 7 parts del tub digestiu, en l'ordre pel qual passa el menjar.</p>
+    <div class="instr"><b>Com fer-ho:</b> toca un número del dibuix i després una paraula del banc. També pots triar el nom a la llista.</div>
+    <div class="chips" id="bank" aria-label="Banc de paraules"></div>
     <div class="two">
       <div>
         <div class="imgbox" id="tract"><img src="img/digestiu_mut.webp" width="800" height="1200" alt="Cos humà amb el tub digestiu: boca, esòfag, estómac, intestins i recte"><button type="button" class="pin" data-n="1" style="left:33.5%;top:19%" aria-label="Part 1">1</button><button type="button" class="pin" data-n="2" style="left:49.5%;top:35%" aria-label="Part 2">2</button><button type="button" class="pin" data-n="3" style="left:57.5%;top:51%" aria-label="Part 3">3</button><button type="button" class="pin" data-n="4" style="left:40%;top:57%" aria-label="Part 4">4</button><button type="button" class="pin" data-n="5" style="left:50%;top:69%" aria-label="Part 5">5</button><button type="button" class="pin" data-n="6" style="left:67%;top:69%" aria-label="Part 6">6</button><button type="button" class="pin" data-n="7" style="left:50%;top:84%" aria-label="Part 7">7</button></div>
-        <p class="mini">Il·lustració del tub digestiu · els números marquen les 7 parts per les quals passa el menjar, en ordre · les glàndules annexes es treballen a la secció 3.</p>
       </div>
       <div>
-        <div class="tbl" id="nametbl"></div>
-        <div class="row"><button class="btn" type="button" id="chkNames">Comprova els noms</button><button class="btn sec" type="button" id="chkFns">Comprova les funcions</button></div>
+        <div id="nametbl"></div>
+        <div class="row"><button class="btn" type="button" id="chkNames">Comprova els noms</button></div>
         <div class="fb" id="fbNames" aria-live="polite"></div>
-        <div class="fb" id="fbFns" aria-live="polite"></div>
       </div>
     </div>
+    <div class="note"><b>Anota-ho a la fitxa → apartat 1 (taula)</b><ul><li>El nom de cada òrgan (1 a 7) a la columna «Nom de l'òrgan».</li></ul></div>
   </div>
-  <div class="card">
-    <h3>Pregunta clau</h3>
-    <p>A l'estómac el menjar ja està desfet i convertit en quimo. Per quina raó, doncs, els nutrients NO passen a la sang allà i sí que ho fan a l'intestí prim? Dóna dos motius diferents.</p>
-    <label class="f" for="pk">La teva resposta</label>
-    <textarea id="pk" data-save="1" rows="4"></textarea>
-    <div class="row"><button class="btn sec" type="button" id="chkPk">Comprova</button></div>
-    <div class="fb" id="fbPk" aria-live="polite"></div>
-  </div>
-  <div class="pn"><button class="btn sec" type="button" data-go="0">← Enrere</button><button class="btn" type="button" data-go="2">Pràctica 2: el cabdell →</button></div>
+  <div class="pn"><span></span><button class="btn" type="button" data-go="1">Pràctica 2: el cabdell →</button></div>
 </section>
 
 <!-- 2 CABDELL -->
-<section class="panel" id="sec2">
+<section class="panel" id="sec1">
   <div class="card">
-    <h2>2 · El cabdell de llana — longitud real</h2>
-    <p class="lead">Activitat d'escala 1:100 · cada metre real = 1 cm de llana.</p>
-    <div class="instr"><b>Com fer-ho:</b> estira cada fil amb el control lliscant fins al final. Després llegeix la seva longitud a la regla (en mm) i omple la taula. Mira com de llarg és el tub comparat amb una persona.</div>
+    <h2>2 · El cabdell de llana</h2>
+    <p class="lead">Què volem esbrinar: quant mesura el tub digestiu. Escala 1:100, cada metre real = 1 cm de llana.</p>
+    <div class="instr"><b>Com fer-ho:</b> estira cada fil amb el control lliscant. Llegeix la longitud a la regla (en mm) i escriu-la a la taula.</div>
     <div class="slider-row"><label for="s_eso"><span>Fil de l'esòfag (~25 cm)</span><span id="v_eso" class="mini"></span></label><input type="range" id="s_eso" min="0" max="100" value="0"></div>
     <div class="slider-row"><label for="s_pri"><span>Fil de l'intestí prim (~6 m)</span><span id="v_pri" class="mini"></span></label><input type="range" id="s_pri" min="0" max="100" value="0"></div>
     <div class="slider-row"><label for="s_gro"><span>Fil de l'intestí gros (~1,5 m)</span><span id="v_gro" class="mini"></span></label><input type="range" id="s_gro" min="0" max="100" value="0"></div>
@@ -195,23 +168,23 @@ input[type=range]{width:100%;min-height:44px;accent-color:var(--green-2)}
     <div class="fb" id="cmp" aria-live="polite"></div>
   </div>
   <div class="card">
-    <h3>Taula del cabdell</h3>
+    <h3>Les teves mesures</h3>
     <div class="tbl" id="yarntbl"></div>
-    <div class="row"><button class="btn" type="button" id="chkYarn">Comprova la taula</button></div>
+    <div class="row"><button class="btn" type="button" id="chkYarn">Comprova les mesures</button></div>
     <div class="fb" id="fbYarn" aria-live="polite"></div>
+    <div class="note"><b>Anota-ho a la fitxa → apartat 2 (taula del cabdell)</b><ul><li>La longitud al cabdell (mm) de cada tram i el total.</li></ul></div>
   </div>
-  <div class="pn"><button class="btn sec" type="button" data-go="1">← Enrere</button><button class="btn" type="button" data-go="3">Pràctica 3: simulació →</button></div>
+  <div class="pn"><button class="btn sec" type="button" data-go="0">← Enrere</button><button class="btn" type="button" data-go="2">Pràctica 3: simulació →</button></div>
 </section>
 
 <!-- 3 SIMULACIÓ -->
-<section class="panel" id="sec3">
+<section class="panel" id="sec2">
   <div class="card">
-    <h2>3 · Simulació de la digestió pas a pas</h2>
-    <p class="lead">Observa l'experiment de taula i completa les columnes buides.</p>
-    <div class="instr"><b>El model:</b> un bol fa d'estómac, el pa o el plàtan és el menjar, el vinagre amb colorant fa d'àcid de l'estómac, el sabó groc fa de bilis, el bicarbonat neutralitza l'àcid, la mitja de niló fa de paret de l'intestí i el drap fa de sang. Executa els passos en ordre i escriu què veus a cada targeta. <b>Compte:</b> la bilis NO és un enzim: només trenca el greix en gotetes, com fa el sabó.</div>
+    <h2>3 · Simulació de la digestió</h2>
+    <p class="lead">Què volem esbrinar: què li passa al menjar a cada fase del tub digestiu.</p>
+    <div class="instr"><b>El model:</b> un bol fa d'estómac, el pa és el menjar, el vinagre amb colorant fa d'àcid, el sabó groc fa de bilis (NO és un enzim: només trenca el greix en gotetes), el bicarbonat neutralitza l'àcid, la mitja de niló fa de paret de l'intestí i el drap fa de sang. Fes els passos en ordre.</div>
     <details class="card" style="margin:8px 0"><summary style="cursor:pointer;min-height:44px;font-weight:600">Consulta: com és la paret de l'intestí prim (vellositats)</summary>
-      <div class="imgbox" style="max-width:640px;margin-top:8px"><img src="img/vellositats.webp" width="1200" height="655" alt="Paret de l'intestí prim amb plecs, vellositats i capil·lars"></div>
-      <p class="mini">La mitja de niló fa de paret amb vellositats: deixa passar el líquid i reté els trossos.</p></details>
+      <div class="imgbox" style="max-width:640px;margin-top:8px"><img src="img/vellositats.webp" width="1200" height="655" alt="Paret de l'intestí prim amb plecs, vellositats i capil·lars"></div></details>
     <div class="bench">
       <div class="stg" id="stg"></div>
       <svg id="bag" viewBox="0 0 300 270" role="img" aria-label="Bol amb el model de digestió"></svg>
@@ -219,39 +192,30 @@ input[type=range]{width:100%;min-height:44px;accent-color:var(--green-2)}
       <div class="row">
         <button class="btn sec" type="button" id="phBtn" disabled>Mesura el pH (tira)</button>
         <span class="ph" id="phOut" aria-live="polite"></span>
+        <button class="btn sec" type="button" id="rstSim">Repeteix la simulació</button>
       </div>
       <div class="log" id="log" aria-live="polite"></div>
     </div>
   </div>
   <div class="card">
-    <h3>Taula de la simulació</h3>
-    <p class="mini">Cada fase es desbloqueja quan has fet els seus passos.</p>
-    <div id="simcards"></div>
+    <h3>Resultats de la simulació</h3>
+    <p class="mini">Cada fase s'omple quan l'has acabada.</p>
+    <div id="simres"></div>
+    <div class="note"><b>Anota-ho a la fitxa → apartat 3 (taula), columna «La teva observació»</b><ul><li>Què has vist a cada fase: boca, estómac, duodè i intestí prim.</li><li>Els valors de pH i, al final, els mL de líquid i els grams de residu.</li></ul></div>
   </div>
-  <div class="card">
-    <h3>Valoració del model</h3>
-    <label class="f" for="mb">✔ El model representa bé…</label>
-    <textarea id="mb" data-save="1" rows="3"></textarea>
-    <label class="f" for="mn">✘ El model NO reflecteix…</label>
-    <textarea id="mn" data-save="1" rows="3"></textarea>
-    <div class="row"><button class="btn sec" type="button" id="chkModel">Comprova</button></div>
-    <div class="fb" id="fbModel" aria-live="polite"></div>
-  </div>
-  <div class="pn"><button class="btn sec" type="button" data-go="2">← Enrere</button><button class="btn" type="button" data-go="4">Veure el resum →</button></div>
+  <div class="pn"><button class="btn sec" type="button" data-go="1">← Enrere</button><button class="btn" type="button" data-go="3">Els teus resultats →</button></div>
 </section>
 
 <!-- 4 RESUM -->
-<section class="panel" id="sec4">
+<section class="panel" id="sec3">
   <div class="card">
-    <h2>Copia-ho a la teva fitxa</h2>
-    <p class="lead">Aquí tens les teves dades i respostes agrupades per apartat de la fitxa. Copia-ho i passa-ho a la fitxa impresa.</p>
-    <div id="miss"></div>
-    <label class="f" for="sumtxt">Resum</label>
+    <h2>Els teus resultats</h2>
+    <p class="lead">Només les dades que has obtingut. Copia-les i passa-les a la fitxa impresa.</p>
+    <label class="f" for="sumtxt">Resum de dades</label>
     <textarea id="sumtxt" readonly></textarea>
-    <div class="row"><button class="btn" type="button" id="copyBtn">Copia el resum</button><span id="copyMsg" class="mini" aria-live="polite"></span></div>
-    <p class="mini">Les seccions «Del budell al mitocondri», «La microbiota», «L'escala de Bristol» i els objectius finals les fas directament a la fitxa.</p>
+    <div class="row"><button class="btn" type="button" id="copyBtn">Copia les dades</button><span id="copyMsg" class="mini" aria-live="polite"></span></div>
   </div>
-  <div class="pn"><button class="btn sec" type="button" data-go="3">← Enrere</button><button class="btn sec" type="button" id="resetBtn">Torna a començar</button></div>
+  <div class="pn"><button class="btn sec" type="button" data-go="2">← Enrere</button><button class="btn sec" type="button" id="resetBtn">Torna a començar</button></div>
 </section>
 </div>
 
@@ -261,20 +225,19 @@ input[type=range]{width:100%;min-height:44px;accent-color:var(--green-2)}
 var $=function(s,r){return (r||document).querySelector(s)};
 var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-var KEY="lab_s2_digestiu_v1";
-var S={level:"B",sec:0,vals:{},names:{},tries:{},yarn:{eso:0,pri:0,gro:0},ycheck:{},ph:[],meas:null};
+var KEY="lab_s2_digestiu_v2";
+var S={sec:0,vals:{},names:{},tries:0,yarn:{eso:0,pri:0,gro:0},ycheck:{},ph:[],meas:null,obs:{}};
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 function load(){try{var r=localStorage.getItem(KEY);if(r){var o=JSON.parse(r);for(var k in o)S[k]=o[k]}}catch(e){}}
 load();
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function val(id){var e=document.getElementById(id);return e?e.value.trim():""}
 function setFb(id,msg,cls){var e=document.getElementById(id);e.className="fb"+(cls?" "+cls:"");e.textContent=msg}
-function tryN(k){S.tries[k]=(S.tries[k]||0)+1;save();return S.tries[k]}
 function num(s){s=String(s).replace(",",".").replace(/[^0-9.\-]/g,"");var v=parseFloat(s);return isNaN(v)?null:v}
 function fmt(v){return String(v).replace(".",",")}
 
 /* ---------- navegació ---------- */
-var SECS=[["Idees prèvies","Abans de començar"],["1 · Posa nom","Les 7 parts"],["2 · Cabdell","Longitud real"],["3 · Simulació","Pas a pas"],["Resum","Copia-ho a la fitxa"]];
+var SECS=[["1 · Posa nom","Les 7 parts"],["2 · Cabdell","Longitud real"],["3 · Simulació","Pas a pas"],["Resultats","Per a la fitxa"]];
 function buildSteps(){
   var h="";SECS.forEach(function(s,i){h+='<button type="button" data-go="'+i+'"><b>'+s[0]+'</b>'+s[1]+'</button>'});
   $("#steps").innerHTML=h;
@@ -283,49 +246,23 @@ function showSec(i){
   S.sec=i;save();
   $$("section.panel").forEach(function(p,k){p.classList.toggle("on",k===i)});
   $$("#steps button").forEach(function(b,k){if(k===i)b.setAttribute("aria-current","step");else b.removeAttribute("aria-current")});
-  if(i===4)buildSummary();
+  if(i===3)buildSummary();
   window.scrollTo(0,0);
 }
 document.addEventListener("click",function(e){
   var g=e.target.closest("[data-go]");if(g){showSec(parseInt(g.getAttribute("data-go"),10))}
 });
-
-/* ---------- nivell ---------- */
-var LV_INFO={A:"A: sense ajudes escrites i amb un repte de predicció.",B:"B: estàndard.",C:"C: amb inicis de frase i pistes visibles."};
-function setLevel(l){
-  S.level=l;save();
-  $$(".lvl button").forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-lv")===l?"true":"false")});
-  $("#lvinfo").textContent=LV_INFO[l];
-  buildNameTable();buildYarnTable();buildSimCards();buildBank();paintPins();restoreVals();
-  $$(".pred").forEach(function(e){e.classList.toggle("hide",l!=="A")});
-}
-$$(".lvl button").forEach(function(b){b.addEventListener("click",function(){setLevel(b.getAttribute("data-lv"))})});
-
-/* ---------- persistència d'inputs ---------- */
 document.addEventListener("input",function(e){
   var t=e.target;if(t.getAttribute&&t.getAttribute("data-save")==="1"&&t.id){S.vals[t.id]=t.value;save()}
 });
 function restoreVals(){
-  $$("[data-save='1']").forEach(function(e){if(S.vals[e.id]!=null&&!e.readOnly)e.value=S.vals[e.id]});
+  $$("[data-save='1']").forEach(function(e){if(S.vals[e.id]!=null)e.value=S.vals[e.id]});
 }
 
 /* ---------- 1. NOMS ---------- */
 var NAMES=["Boca","Esòfag","Estómac","Duodè","Intestí prim","Intestí gros","Recte i anus"];
-var FN_PRE={1:"Masticació + amilasa salival",3:"Àcid (HCl) + pepsina → quimo",4:"Neutralitza l'àcid (bicarbonat) i hi arriba la bilis",6:"Absorbeix aigua · microbiota"};
-var FN_KW={1:/mastic|mastega|tritur|amilasa|saliva|midó|trosse|dent|mord/i,
- 2:/baix|transport|porta|camí|passa|peristalt|empeny|tub|connecta|arriba/i,
- 3:/àcid|hcl|pepsina|quimo|proteïn|desf|bat|remena/i,
- 4:/neutral|bicarbonat|bilis|àcid|greix|pàncrees|fetge|enzim/i,
- 5:/absor|nutrient|sang|vellositat|enzim|superfície|digest/i,
- 6:/aigua|absor|microbiota|femta|bacteri|fibra/i,
- 7:/femta|elimin|expuls|excre|sort|defec|residu|anus|emmagatzem|recte/i};
-var FN_H1={2:"Pensa què fa l'esòfag amb el menjar mastegat: d'on a on l'ha de portar?",5:"Aquest és el tram on passen els nutrients cap a un altre lloc. Cap a on?",7:"Què queda al final del camí, després d'absorbir l'aigua? Què se'n fa?"};
-var FN_H2={2:"Les parets de l'esòfag es contrauen (moviment peristàltic) i empenyen el menjar. Escriu-ho amb les teves paraules.",5:"Aquí es completa la digestió i els nutrients passen a la sang a través de les vellositats.",7:"El recte guarda la femta i l'anus l'expulsa. Escriu què fa la part 7."};
-var FN_EX={2:"Exemple: Transporta el menjar fins a l'estómac (peristaltisme).",5:"Exemple: Acaba la digestió i absorbeix els nutrients cap a la sang.",7:"Exemple: Emmagatzema i expulsa la femta (residus)."};
-var order=[0,1,2,3,4,5,6];
-function bankOrder(){return S.level==="A"?[4,0,6,2,5,1,3]:order}
 function buildBank(){
-  var h="";bankOrder().forEach(function(i){h+='<button type="button" class="chip" data-name="'+i+'">'+NAMES[i]+'</button>'});
+  var h="";NAMES.forEach(function(n,i){h+='<button type="button" class="chip" data-name="'+i+'">'+n+'</button>'});
   $("#bank").innerHTML=h;updateChips();
 }
 function updateChips(){
@@ -335,27 +272,20 @@ function updateChips(){
 function buildNameTable(){
   var h="";
   for(var n=1;n<=7;n++){
-    var pre=(S.level!=="A")&&FN_PRE[n];
-    var ph="";
-    if(S.level==="C"&&!pre){ph=({2:"Comença així: «L'esòfag porta el menjar fins…»",5:"Comença així: «A l'intestí prim passen…»",7:"Comença així: «La part 7 serveix per…»"})[n]||""}
-    h+='<div class="tr" id="tr'+n+'"><div class="num">'+n+'</div><div class="cells">'
-      +'<div><label class="mini" for="nm'+n+'">Nom de l\'òrgan</label><select id="nm'+n+'" data-n="'+n+'"><option value="">— tria —</option>';
+    h+='<div class="sel2" id="tr'+n+'"><div class="num">'+n+'</div><div><label class="mini" for="nm'+n+'">Nom de la part '+n+'</label><select id="nm'+n+'" data-n="'+n+'"><option value="">— tria —</option>';
     for(var i=0;i<7;i++)h+='<option value="'+i+'">'+NAMES[i]+'</option>';
-    h+='</select></div><div><label class="mini" for="fn'+n+'">Funció principal</label>';
-    if(pre)h+='<textarea id="fn'+n+'" rows="2" readonly>'+esc(pre)+'</textarea>';
-    else h+='<textarea id="fn'+n+'" data-save="1" rows="2" placeholder="'+esc(ph)+'"></textarea>';
-    h+='</div></div></div>';
+    h+='</select></div></div>';
   }
   $("#nametbl").innerHTML=h;
   for(var k=1;k<=7;k++){var s=document.getElementById("nm"+k);if(S.names[k]!=null)s.value=S.names[k]}
   $$("#nametbl select").forEach(function(s){s.addEventListener("change",function(){
-    var n=s.getAttribute("data-n");assign(n,s.value)})});
+    var n=s.getAttribute("data-n");delete S.ycheck["n"+n];assign(n,s.value)})});
 }
 var selPin=null;
 function assign(n,idx){
   n=String(n);
   if(idx===""||idx==null){delete S.names[n]}
-  else{for(var k in S.names){if(S.names[k]===String(idx)&&k!==n){delete S.names[k];var o=document.getElementById("nm"+k);if(o)o.value=""}}
+  else{for(var k in S.names){if(S.names[k]===String(idx)&&k!==n){delete S.names[k];delete S.ycheck["n"+k];var o=document.getElementById("nm"+k);if(o)o.value=""}}
     S.names[n]=String(idx)}
   var s=document.getElementById("nm"+n);if(s)s.value=S.names[n]==null?"":S.names[n];
   save();updateChips();paintPins();
@@ -369,12 +299,8 @@ function paintPins(){
   });
   for(var n=1;n<=7;n++){var t=document.getElementById("tr"+n);if(t){t.classList.remove("ok","bad");var r=S.ycheck["n"+n];if(r)t.classList.add(r)}}
 }
-function selectPin(n){
-  selPin=n;paintPins();var s=document.getElementById("nm"+n);if(s&&window.innerWidth<720){}
-}
 $$("#tract .pin").forEach(function(p){
-  p.addEventListener("click",function(){selectPin(p.getAttribute("data-n"))});
-  p.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();selectPin(p.getAttribute("data-n"))}});
+  p.addEventListener("click",function(){selPin=p.getAttribute("data-n");paintPins()});
 });
 $("#bank").addEventListener("click",function(e){
   var c=e.target.closest(".chip");if(!c)return;
@@ -382,7 +308,7 @@ $("#bank").addEventListener("click",function(e){
   var n=selPin;
   if(!n){for(var k=1;k<=7;k++){if(S.names[k]==null){n=k;break}}}
   if(!n){setFb("fbNames","Tots els números tenen nom. Toca un número per canviar-ne un.","warn");return}
-  assign(n,idx);delete S.ycheck["n"+n];selPin=null;
+  assign(n,idx);delete S.ycheck["n"+n];
   var nx=null;for(var j=1;j<=7;j++){if(S.names[j]==null){nx=j;break}}
   selPin=nx;paintPins();
 });
@@ -395,65 +321,25 @@ $("#chkNames").addEventListener("click",function(){
   save();paintPins();
   if(empty){setFb("fbNames","Encara et falten "+empty+" número(s) per posar nom.","warn");return}
   if(!bad.length){setFb("fbNames","Molt bé! Les 7 parts estan en l'ordre correcte.","ok");return}
-  var t=tryN("names");
-  if(t===1)setFb("fbNames","Hi ha "+bad.length+" part(s) que no van aquí. Recorda: el menjar entra per la boca i surt per l'anus.","bad");
-  else if(t===2)setFb("fbNames","Revisa els números "+bad.join(", ")+". Segueix el camí del menjar i fixa't en la posició de cada part al dibuix.","bad");
+  S.tries++;save();
+  if(S.tries===1)setFb("fbNames","Hi ha "+bad.length+" part(s) que no van aquí. Recorda: el menjar entra per la boca i surt per l'anus.","bad");
   else{var hints={1:"1 és per on entra el menjar.",2:"2 és el tub llarg i estret que baixa del coll.",3:"3 és la bossa gran amb àcid.",4:"4 és el primer tros, curt, de l'intestí prim.",5:"5 és el tub molt llarg i enrotllat.",6:"6 és el tub gruixut que envolta l'intestí prim.",7:"7 és el final del camí."};
     setFb("fbNames","Pistes: "+bad.map(function(n){return hints[n]}).join(" "),"bad")}
 });
-$("#chkFns").addEventListener("click",function(){
-  var msgs=[],ok=0,tot=0;
-  for(var n=1;n<=7;n++){
-    var e=document.getElementById("fn"+n);if(e.readOnly)continue;tot++;
-    var v=e.value.trim();
-    if(v.length<6){msgs.push(n+": escriu què hi passa.");continue}
-    if(FN_KW[n].test(v)){ok++;continue}
-    var t=tryN("fn"+n);
-    if(t===1)msgs.push(n+": "+(FN_H1[n]||"Torna-hi a pensar i fixa't en el dibuix."));
-    else if(t===2)msgs.push(n+": "+(FN_H2[n]||"Mira la funció de les altres files i fes servir la mateixa idea."));
-    else msgs.push(n+": "+(FN_EX[n]||"Mira l'exemple de les altres files."));
-  }
-  if(!msgs.length)setFb("fbFns","Funcions completes i coherents. Molt bé!","ok");
-  else setFb("fbFns",msgs.join(" "),"warn");
-});
-$("#chkPk").addEventListener("click",function(){
-  var v=val("pk");
-  if(v.length<15){setFb("fbPk","Escriu la teva resposta primer. Cal donar dos motius diferents.","warn");return}
-  var a=/encara no|molècul|petit|digerit|acab|bilis|bicarbonat|pàncrees|falta|enzim|trossos|completa/i.test(v);
-  var b=/superfície|vellositat|llarg|capil|absor|paret|plec/i.test(v);
-  var t=tryN("pk");
-  if(a&&b){setFb("fbPk","Bona resposta: has donat un motiu sobre l'estat del menjar i un sobre l'estructura de l'intestí. Comprova que cadascun és diferent i està explicat.","ok");return}
-  if(!a&&!b){
-    if(t===1)setFb("fbPk","Pensa en dues coses: com està el menjar a l'estómac (ja són molècules petites?) i com és la paret de l'intestí prim.","bad");
-    else setFb("fbPk","Un motiu parla del menjar (què li falta encara) i l'altre de l'intestí (com és de llarg i què té a dins).","bad");
-    return}
-  if(a&&!b){
-    if(t<3)setFb("fbPk","Tens un motiu sobre el menjar. Ara falta un motiu diferent: fixa't en com és la paret de l'intestí prim (longitud, vellositats).","warn");
-    else setFb("fbPk","Pista final: l'intestí prim és molt llarg i té vellositats, per això té molta superfície per absorbir.","warn");
-  }else{
-    if(t<3)setFb("fbPk","Tens un motiu sobre l'intestí. Ara falta un motiu diferent: pensa en el menjar: a l'estómac, la digestió ja ha acabat?","warn");
-    else setFb("fbPk","Pista final: a l'estómac el menjar encara no és en molècules prou petites; falten la bilis i els enzims del pàncrees al duodè.","warn");
-  }
-});
 
 /* ---------- 2. CABDELL ---------- */
-var YN=[{id:"eso",name:"Esòfag",real:"~25 cm",cm:25,mm:2.5,fn:null,kw:/transport|baix|empeny|peristalt|camí|porta|passa|arriba/i,fnh:"Pensa què fa el tub que va de la boca a l'estómac."},
- {id:"pri",name:"Intestí prim",real:"~6 m",cm:600,mm:60,fn:"Absorció de nutrients"},
- {id:"gro",name:"Intestí gros",real:"~1,5 m",cm:150,mm:15,fn:null,kw:/aigua|absor|microbiota|femta|bacteri|fibra/i,fnh:"Al final del camí s'absorbeix una cosa que el cos necessita molt. Quina?"}];
+var YN=[{id:"eso",name:"Esòfag",real:"~25 cm"},{id:"pri",name:"Intestí prim",real:"~6 m"},{id:"gro",name:"Intestí gros",real:"~1,5 m"}];
 var PPM=4.4,X0=10;
 function buildYarnTable(){
   var h="";
   YN.forEach(function(t){
-    h+='<div class="tr" style="grid-template-columns:1fr"><div class="cells"><div><span class="cellname">'+t.name+'</span><small>Longitud real: '+t.real+'</small></div><div>';
-    h+='<label class="mini" for="y_'+t.id+'_mm">Longitud al cabdell (mm)</label>';
+    h+='<div class="tr" style="grid-template-columns:1fr"><div class="cells"><div><span class="cellname">'+t.name+'</span><small>Longitud real: '+t.real+'</small></div><div>'
+      +'<label class="mini" for="y_'+t.id+'_mm">Longitud al cabdell (mm)</label>';
     if(t.id==="eso")h+='<input type="text" id="y_eso_mm" value="2,5" readonly>';
     else h+='<input type="text" inputmode="decimal" id="y_'+t.id+'_mm" data-save="1">';
-    h+='<label class="mini" for="y_'+t.id+'_fn">Funció principal</label>';
-    if(t.fn)h+='<input type="text" id="y_'+t.id+'_fn" value="'+esc(t.fn)+'" readonly>';
-    else h+='<input type="text" id="y_'+t.id+'_fn" data-save="1" placeholder="'+(S.level==="C"?(t.id==="eso"?"Comença així: «L\\'esòfag…»":"Comença així: «L\\'intestí gros…»"):"")+'">';
     h+='</div></div></div>';
   });
-  h+='<div class="tr" style="grid-template-columns:1fr"><div class="cells"><div><span class="cellname">TOTAL</span><small>Longitud real: —</small></div><div><label class="mini" for="y_tot_mm">Longitud al cabdell (mm)</label><input type="text" inputmode="decimal" id="y_tot_mm" data-save="1"></div></div></div>';
+  h+='<div class="tr" style="grid-template-columns:1fr"><div class="cells"><div><span class="cellname">TOTAL</span><small>Suma dels tres trams</small></div><div><label class="mini" for="y_tot_mm">Longitud al cabdell (mm)</label><input type="text" inputmode="decimal" id="y_tot_mm" data-save="1"></div></div></div>';
   $("#yarntbl").innerHTML=h;
   restoreVals();
 }
@@ -471,11 +357,11 @@ function drawRuler(){
     if(m%10===0){s+='<text x="'+x+'" y="38" font-size="10" text-anchor="middle" fill="var(--ink)">'+m+'</text>';
       s+='<line x1="'+x+'" y1="42" x2="'+x+'" y2="265" stroke="var(--line)" stroke-width=".6" stroke-dasharray="2 3"/>'}}
   s+='<text x="'+(X0+86*PPM-4)+'" y="10" font-size="10" text-anchor="end" fill="var(--muted)">mm</text>';
-  function thread(y,lab,mm,col,off){
+  function thread(y,lab,mm,col){
     var L=mm*PPM;
     s+='<text x="'+X0+'" y="'+(y-8)+'" font-size="12" fill="var(--ink)">'+lab+'</text>';
-    if(L>0){s+='<path d="'+wave(X0+(off||0),y,L)+'" fill="none" stroke="'+col+'" stroke-width="3" stroke-linecap="round"/>';
-      s+='<circle cx="'+(X0+(off||0))+'" cy="'+y+'" r="3.5" fill="'+col+'"/>'}
+    if(L>0){s+='<path d="'+wave(X0,y,L)+'" fill="none" stroke="'+col+'" stroke-width="3" stroke-linecap="round"/>';
+      s+='<circle cx="'+X0+'" cy="'+y+'" r="3.5" fill="'+col+'"/>'}
   }
   thread(78,"Esòfag",e,"#d9826a");
   thread(115,"Intestí prim",p,"#e5a55c");
@@ -491,102 +377,63 @@ function drawRuler(){
   s+='<rect x="'+X0+'" y="236" width="'+ph+'" height="14" rx="3" fill="var(--green-2)" opacity=".85"/>';
   s+='<circle cx="'+(X0+ph+10)+'" cy="243" r="6" fill="var(--green-2)"/><path d="M'+(X0+ph+16)+' 243 h8" stroke="var(--green-2)" stroke-width="3"/>';
   $("#ruler").innerHTML=s;
-  $("#v_eso").textContent=S.yarn.eso===100?"estirat":S.yarn.eso+" %";
-  $("#v_pri").textContent=S.yarn.pri===100?"estirat":S.yarn.pri+" %";
-  $("#v_gro").textContent=S.yarn.gro===100?"estirat":S.yarn.gro+" %";
+  ["eso","pri","gro"].forEach(function(k){$("#v_"+k).textContent=S.yarn[k]===100?"estirat":S.yarn[k]+" %"});
   if(all){var r=(7.75/1.7).toFixed(1).replace(".",",");
-    setFb("cmp","Compara: el tub que has estirat és uns "+r+" cops més llarg que l'alçada d'una persona de 1,70 m. Tot això cap dins del cos, enrotllat!","ok")}
+    setFb("cmp","El tub que has estirat és uns "+r+" cops més llarg que l'alçada d'una persona de 1,70 m. Tot això cap dins del cos, enrotllat!","ok")}
   else setFb("cmp","");
 }
 ["eso","pri","gro"].forEach(function(id){
   var e=$("#s_"+id);e.value=S.yarn[id]||0;
   e.addEventListener("input",function(){S.yarn[id]=parseInt(e.value,10);save();drawRuler()});
 });
+var yt={};
 $("#chkYarn").addEventListener("click",function(){
   var msgs=[],good=0;
-  var checks=[["pri",60,0.6],["gro",15,0.6],["tot",77.5,1.2]];
-  checks.forEach(function(c){
-    var v=num(val("y_"+c[0]+"_mm")),nm=c[0]==="pri"?"Intestí prim":c[0]==="gro"?"Intestí gros":"Total";
-    if(v==null){msgs.push(nm+": escriu el valor en mm.");return}
+  [["pri",60,0.6,"Intestí prim"],["gro",15,0.6,"Intestí gros"],["tot",77.5,1.2,"Total"]].forEach(function(c){
+    var v=num(val("y_"+c[0]+"_mm"));
+    if(v==null){msgs.push(c[3]+": escriu el valor en mm.");return}
     if(Math.abs(v-c[1])<=c[2]){good++;return}
-    var t=tryN("y"+c[0]);
-    if(t===1)msgs.push(nm+": recorda que 1 m real = 1 cm de llana. Torna a fer el càlcul.");
-    else if(t===2)msgs.push(nm+": passa la longitud real a metres; aquests metres són cm de llana. Després passa de cm a mm (1 cm = 10 mm).");
-    else msgs.push(nm+": "+(c[0]==="pri"?"6 m → 6 cm → 60 mm.":c[0]==="gro"?"1,5 m → 1,5 cm → 15 mm.":"suma les tres longituds al cabdell: 2,5 + 60 + 15."));
+    yt[c[0]]=(yt[c[0]]||0)+1;
+    if(yt[c[0]]===1)msgs.push(c[3]+": recorda que 1 m real = 1 cm de llana. Torna a mesurar a la regla.");
+    else msgs.push(c[3]+": "+(c[0]==="pri"?"6 m → 6 cm → 60 mm.":c[0]==="gro"?"1,5 m → 1,5 cm → 15 mm.":"suma les tres longituds: 2,5 + 60 + 15."));
   });
-  var fe=val("y_eso_fn"),fg=val("y_gro_fn");
-  if(fe.length<5)msgs.push("Esòfag: escriu-ne la funció.");else if(!YN[0].kw.test(fe))msgs.push("Esòfag: "+YN[0].fnh);
-  if(fg.length<5)msgs.push("Intestí gros: escriu-ne la funció.");else if(!YN[2].kw.test(fg))msgs.push("Intestí gros: "+YN[2].fnh);
-  if(!msgs.length)setFb("fbYarn","Tot correcte! Comprova-ho amb la regla: els fils coincideixen amb els teus valors.","ok");
+  if(!msgs.length)setFb("fbYarn","Tot correcte! Les mesures coincideixen amb la regla.","ok");
   else setFb("fbYarn",msgs.join(" "),good===3?"warn":"bad");
 });
 
 /* ---------- 3. SIMULACIÓ ---------- */
 var ST=[
- {id:"boca",model:"Pa o plàtan esclafat amb una forquilla i una mica d'aigua. Al cos real, l'amilasa de la saliva trenca el midó en maltosa.",name:"Boca",subs:"Amilasa salival + masticació",fn:"Midó → maltosa",
+ {id:"boca",name:"Boca",subs:"Amilasa salival + masticació",
   acts:[{k:"galeta",t:"Posa un tros de pa (o mig plàtan) dins el bol"},{k:"saliva",t:"Afegeix una mica d'aigua (la saliva)"},{k:"press",t:"Mastega: esclafa el pa amb una forquilla",n:6},{k:"wait",t:"Deixa reposar 2 minuts",w:"2 min"}],
-  kw:/trenc|tros|past|humi|mulla|bol|petit|moll|trit|aixaf|esclaf|puré/i,
-  h1:"Fixa't en el pa: com era al principi i com és ara? I la textura de la barreja?",
-  h2:"Compara la mida dels trossos abans i després d'esclafar. Com és la barreja amb l'aigua?",
-  ex:"Exemple: El pa s'ha esclafat i s'ha fet una pasta humida."},
- {id:"estomac",model:"Vinagre amb colorant (àcid) i remenar. Al cos real, l'àcid (HCl) i la pepsina desfan sobretot les proteïnes.",name:"Estómac",subs:"HCl + pepsina",fn:null,fkw:/proteïn|àcid|desf|quimo|mata|bacteri|barreja|remena|tritur/i,
-  fh:"Pensa en què fa l'àcid de l'estómac (i la pepsina al cos real) i en què converteix el menjar.",
-  fex:"Exemple: Desfà el menjar (proteïnes) amb àcid i pepsina i el converteix en quimo.",
+  res:"El pa s'ha convertit en una pasta humida amb trossos petits."},
+ {id:"estomac",name:"Estómac",subs:"HCl + pepsina",
   acts:[{k:"hcl",t:"Afegeix vinagre amb colorant (l'àcid de l'estómac)"},{k:"press",t:"Remena amb la cullera com fa l'estómac",n:8},{k:"wait",t:"Deixa reposar 30 minuts (temps accelerat)",w:"30 min"}],
-  kw:/líquid|quimo|past|desf|àcid|vinagre|colorant|ph|fluid|tou|espès|sopa|barreja|color|rosa|vermell/i,
-  h1:"Mira com ha canviat la pasta respecte a la boca: és més sòlida o més líquida? I el color i el pH?",
-  h2:"La pasta s'ha fet més fluida i s'ha tenyit amb el colorant: això s'assembla al quimo. Digues també si el pH és àcid o neutre.",
-  ex:"Exemple: La pasta s'ha fet més líquida i de color (quimo) i el pH és molt àcid."},
- {id:"dode",model:"Bicarbonat (neutralitza) i sabó groc (fa de bilis: NO és un enzim, només trenca el greix en gotetes).",name:"Duodè",subs:"Bicarbonat + bilis",fn:"Neutralitza l'àcid; emulsiona greixos",
-  acts:[{k:"oli",t:"Afegeix unes gotes d'oli (el greix del menjar)"},{k:"bilis",t:"Afegeix sabó groc (fa de bilis, que NO és un enzim)"},{k:"bicarb",t:"Afegeix una culleradeta de bicarbonat"},{k:"press",t:"Remena la barreja",n:5}],
-  kw:/bombolle|efervesc|oli|greix|gotes|petit|emuls|ph|neutral|sabó|bilis|gas/i,
-  h1:"Fixa't en l'oli: què feia abans del sabó i després de remenar? I què ha passat en afegir el bicarbonat?",
-  h2:"Mira les bombolles quan entra el bicarbonat (l'àcid es neutralitza) i la mida de les gotes d'oli.",
-  ex:"Exemple: Surten bombolles amb el bicarbonat i el sabó trenca l'oli en gotetes petites."},
- {id:"prim",model:"Mitja de niló (paret amb vellositats) i drap (fa de sang). Al cos real, els nutrients passen a la sang.",name:"Intestí prim",subs:"Paret amb vellositats",fn:null,fkw:/absor|nutrient|sang|passa|vellositat|digest/i,
-  fh:"Pensa què passa a l'intestí prim amb el que es pot aprofitar del menjar.",
-  fex:"Exemple: Absorbeix els nutrients cap a la sang a través de les vellositats.",
+  res:"La pasta s'ha fet fluida i s'ha tenyit de rosa (quimo)."},
+ {id:"dode",name:"Duodè",subs:"Bicarbonat + bilis",
+  acts:[{k:"oli",t:"Afegeix unes gotes d'oli (el greix del menjar)"},{k:"bilis",t:"Afegeix sabó groc (fa de bilis)"},{k:"bicarb",t:"Afegeix una culleradeta de bicarbonat"},{k:"press",t:"Remena la barreja",n:5}],
+  res:"Surten bombolles amb el bicarbonat i l'oli es reparteix en gotetes petites."},
+ {id:"prim",name:"Intestí prim",subs:"Paret amb vellositats",
   acts:[{k:"mitja",t:"Estira la mitja de niló sobre un bol net"},{k:"aboca",t:"Aboca la barreja dins la mitja"},{k:"press",t:"Prem la mitja suaument",n:4},{k:"drap",t:"Posa el drap al líquid: l'absorbeix (com la sang)"}],
-  kw:/líquid|passa|mitja|niló|filtr|queda|residu|sòlid|bol|gotes|trossos|drap|absor/i,
-  h1:"Què passa pels forats de la mitja i què hi queda? I què fa el drap amb el líquid?",
-  h2:"El líquid passa al bol (com els nutrients cap a la sang), els trossos grans es queden a la mitja i el drap absorbeix el líquid.",
-  ex:"Exemple: El líquid passa per la mitja, els trossos hi queden i el drap absorbeix el líquid."}];
+  res:"El líquid passa pels forats de la mitja al bol net, els trossos grans hi queden i el drap absorbeix el líquid."}];
 var L=null;
 function rnd(a,b){return a+Math.random()*(b-a)}
 function newSim(){
   L={stage:0,step:0,cnt:0,done:{},biscuit:false,sf:1,liq:0,col:"#efe6cc",oil:0,emul:0,bub:0,acid:false,neut:false,scene:"bag",filt:0,fdrip:false,
-     gal:true,drap:false,log:[],ph:[],meas:null,pcs:[]};
+     drap:false,log:[],ph:[],pcs:[]};
   for(var i=0;i<14;i++)L.pcs.push({x:rnd(.08,.92),y:rnd(0,1),a:rnd(0,360),k:rnd(.7,1.15)});
-  S.ph=[];S.meas=null;save();
+  S.ph=[];S.meas=null;S.obs={};save();
 }
 function logAdd(t){L.log.push(t);var l=$("#log");l.innerHTML=L.log.slice().reverse().map(function(x){return"<div>"+esc(x)+"</div>"}).join("")}
-function buildSimCards(){
-  var h="";
-  ST.forEach(function(s,i){
-    var ofn=S.level==="C"&&!s.fn;
-    var pr=S.level==="A"?'<label class="f pred" for="pred_'+s.id+'">Repte: què creus que passarà? (opcional)</label><textarea class="pred" id="pred_'+s.id+'" data-save="1" rows="2"></textarea>':'';
-    h+='<div class="pcard lock" id="pc_'+s.id+'"><h4>'+(i+1)+'. '+s.name+'</h4>'
-     +'<div class="meta"><b>Substàncies:</b> '+esc(s.subs)+'</div><div class="meta"><b>Al model:</b> '+esc(s.model)+'</div>'+pr
-     +'<label class="f" for="fn_'+s.id+'">Funció</label>';
-    if(s.fn)h+='<textarea id="fn_'+s.id+'" rows="2" readonly>'+esc(s.fn)+'</textarea>';
-    else h+='<textarea id="fn_'+s.id+'" data-save="1" rows="2" placeholder="'+(ofn?(s.id==="estomac"?"Comença així: «Desfà el menjar amb…»":"Comença així: «Absorbeix…»"):"")+'"></textarea>';
-    h+='<label class="f" for="ob_'+s.id+'">La teva observació</label>';
-    if(s.id==="boca"&&S.level==="C")h+='<p class="mini">Exemple: «El midó del pa comença a fer-se sucre.» Ara escriu què veus tu a la bossa.</p>';
-    h+='<textarea id="ob_'+s.id+'" data-save="1" rows="3" placeholder="'+(S.level==="C"?"Comença així: «Veig que…»":"")+'"></textarea>'
-     +'<div class="row"><button type="button" class="btn sec" data-chk="'+s.id+'">Comprova</button></div><div class="fb" id="fb_'+s.id+'" aria-live="polite"></div></div>';
-  });
-  $("#simcards").innerHTML=h;restoreVals();
-  ST.forEach(function(s){lockCard(s.id)});
-}
 function stageDone(i){return L&&L.done[ST[i].id]}
-function lockCard(id){
-  var i=ST.map(function(s){return s.id}).indexOf(id);
-  var has=(S.vals["ob_"+id]||"").length>0;
-  var open=(L&&stageDone(i))||has;
-  var c=$("#pc_"+id);c.classList.toggle("lock",!open);
-  var ob=$("#ob_"+id);ob.disabled=!open;
-  var fn=$("#fn_"+id);if(!fn.readOnly)fn.disabled=!open;
-  $$("button[data-chk]",c).forEach(function(b){b.disabled=!open});
+function drawRes(){
+  var h='<table class="dtab"><thead><tr><th>Fase</th><th>Substàncies</th><th>Què has vist</th></tr></thead><tbody>';
+  ST.forEach(function(s,i){
+    var phs=S.ph.filter(function(p){return p.st===s.name}).map(function(p){return fmt(p.v)});
+    var o=S.obs[s.id]?esc(S.obs[s.id])+(phs.length?" pH: "+phs.join("; ")+".":""):'<span class="mini">(pendent)</span>';
+    if(s.id==="prim"&&S.meas&&S.obs.prim)o+=" Al final: uns "+S.meas.ml+" mL de líquid al bol net i un residu humit d'uns "+fmt(S.meas.g)+" g a la mitja.";
+    h+='<tr><td><b>'+s.name+'</b></td><td>'+esc(s.subs)+'</td><td>'+o+'</td></tr>';
+  });
+  $("#simres").innerHTML=h+'</tbody></table>';
 }
 function drawStg(){
   var h="";ST.forEach(function(s,i){h+='<span class="'+(stageDone(i)?"dn":(i===L.stage?"cur":""))+'">'+(i+1)+'. '+s.name+'</span>'});
@@ -601,7 +448,7 @@ function drawActs(){
   });
   if(stageDone(L.stage)){
     if(L.stage<ST.length-1)h+='<li><span class="n">→</span><button type="button" id="nextStage" class="btn" style="text-align:center">Passa a la fase: '+ST[L.stage+1].name+'</button></li>';
-    else h+='<li><span class="n">✓</span><span>Simulació acabada. Completa la taula de sota.</span></li>';
+    else h+='<li><span class="n">✓</span><span>Simulació acabada. Mira els resultats de sota.</span></li>';
   }
   $("#acts").innerHTML=h;
   $("#phBtn").disabled=!(L.liq>0&&L.scene==="bag");
@@ -614,9 +461,10 @@ function phColor(v){return v<3?"#d6403a":v<5?"#e98a3b":v<6.5?"#e6d24a":v<7.5?"#6
 $("#phBtn").addEventListener("click",function(){
   var v=phNow();L.ph.push({st:ST[L.stage].name,v:v});S.ph=L.ph.slice();save();
   $("#phOut").innerHTML='<span class="phsw" style="background:'+phColor(v)+'"></span> pH ≈ '+fmt(v);
-  logAdd("Has mesurat el pH a la fase «"+ST[L.stage].name+"»: "+fmt(v)+".");
+  logAdd("Has mesurat el pH a la fase «"+ST[L.stage].name+"»: "+fmt(v)+".");drawRes();
 });
 function squish(){var g=$("#bagg");if(!g||reduce)return;g.classList.remove("squish");void g.getBoundingClientRect();g.classList.add("squish")}
+function mixCol(p){return p<.5?"#e8a0a8":"#dc8e9b"}
 function act(i){
   var st=ST[L.stage],a=st.acts[i];if(i!==L.step)return;
   var adv=true;
@@ -646,24 +494,22 @@ function act(i){
   }
   if(adv){L.step++;L.cnt=0}
   if(L.step>=st.acts.length){
-    L.done[st.id]=true;
+    L.done[st.id]=true;S.obs[st.id]=st.res;
     if(st.id==="prim"){
       var f=Math.round(rnd(40,48)),r=Math.round(rnd(6.5,9.5)*10)/10;
-      L.meas={ml:f,g:r};S.meas=L.meas;save();
+      S.meas={ml:f,g:r};
       logAdd("Al bol net hi ha uns "+f+" mL de líquid i a la mitja queda un residu humit d'uns "+fmt(r)+" g.");
     }
-    lockCard(st.id);
+    save();drawRes();
   }
   drawStg();drawActs();drawBag();
 }
-function mixCol(p){
-  return p<.5?"#e8a0a8":"#dc8e9b";
-}
 $("#acts").addEventListener("click",function(e){
   var b=e.target.closest("button");if(!b)return;
-  if(b.id==="nextStage"){L.stage++;L.step=0;L.cnt=0;if(ST[L.stage].id==="prim"){L.fdrip=false}drawStg();drawActs();drawBag();$("#phOut").textContent="";return}
+  if(b.id==="nextStage"){L.stage++;L.step=0;L.cnt=0;L.fdrip=false;drawStg();drawActs();drawBag();$("#phOut").textContent="";return}
   var a=b.getAttribute("data-act");if(a!=null)act(parseInt(a,10));
 });
+$("#rstSim").addEventListener("click",function(){newSim();$("#phOut").textContent="";$("#log").innerHTML="";drawRes();drawStg();drawActs();drawBag()});
 function drawBag(){
   var s='';
   s+='<defs><clipPath id="bagclip"><path d="M36 62 L264 62 Q258 228 150 242 Q42 228 36 62 Z"/></clipPath>'
@@ -678,7 +524,7 @@ function drawBag(){
       if(L.oil&&!L.emul)s+='<rect x="40" y="'+top+'" width="220" height="9" fill="#f2c230"/>';
       s+=pieces(top);
       if(L.emul){for(var i=0;i<26;i++){var px=62+((i*37)%170),py=top+8+((i*53)%Math.max(30,240-top-16));s+='<circle cx="'+px+'" cy="'+py+'" r="'+(2+(i%3))+'" fill="#f2c230" fill-opacity=".85"/>'}}
-      if(L.bub&&!reduce||L.bub){for(var j=0;j<10;j++){s+='<circle class="bub" cx="'+(70+j*17)+'" cy="'+(top+30+((j*29)%60))+'" r="'+(3+(j%3))+'" fill="none" stroke="#fff" stroke-width="1.6" style="animation-delay:'+(j*0.2)+'s"/>'}}
+      if(L.bub){for(var j=0;j<10;j++){s+='<circle class="bub" cx="'+(70+j*17)+'" cy="'+(top+30+((j*29)%60))+'" r="'+(3+(j%3))+'" fill="none" stroke="#fff" stroke-width="1.6" style="animation-delay:'+(j*0.2)+'s"/>'}}
     }else if(L.biscuit){
       s+='<g transform="translate(150 205) rotate(-4)"><rect x="-48" y="-22" width="96" height="44" rx="8" fill="#d8a95e" stroke="#a97a30" stroke-width="2"/>';
       for(var q=0;q<10;q++)s+='<circle cx="'+(-36+(q%5)*18)+'" cy="'+(-9+Math.floor(q/5)*18)+'" r="2.2" fill="#a97a30"/>';
@@ -697,7 +543,6 @@ function drawBag(){
     }
     s+='</g></g>';
     s+='<text x="150" y="30" text-anchor="middle" font-size="13" fill="var(--muted)">Mitja = paret amb vellositats</text>';
-    // vas
     s+='<path d="M92 205 L96 262 L204 262 L208 205" fill="var(--surface)" fill-opacity=".5" stroke="var(--muted)" stroke-width="2.5"/>';
     if(L.filt>0){var h2=L.filt*44;s+='<rect x="98" y="'+(262-h2)+'" width="104" height="'+h2+'" fill="#efe6cc" fill-opacity=".85"/>'}
     if(L.drap){s+='<rect x="84" y="236" width="132" height="26" rx="4" fill="#9fc7e8" stroke="#5f8fb8" stroke-width="2"/><rect x="98" y="'+(262-L.filt*44)+'" width="104" height="'+(L.filt*44)+'" fill="#e8a0a8" fill-opacity=".5"/><text x="150" y="254" text-anchor="middle" font-size="11" fill="#16241c">drap</text>'}
@@ -708,7 +553,7 @@ function drawBag(){
 }
 function pieces(top){
   var s="";
-  L.pcs.forEach(function(p,i){
+  L.pcs.forEach(function(p){
     var sz=22*p.k*L.sf,x=62+p.x*176,y=top+10+p.y*Math.max(20,230-top-20);
     if(y>228)y=228;
     var op=L.sf<.2?.55:.95;
@@ -716,66 +561,25 @@ function pieces(top){
   });
   return s;
 }
-/* comprovació targetes */
-$("#simcards").addEventListener("click",function(e){
-  var b=e.target.closest("button[data-chk]");if(!b)return;
-  var id=b.getAttribute("data-chk"),s=ST.filter(function(x){return x.id===id})[0];
-  var ob=val("ob_"+id),msgs=[],cls="ok";
-  if(ob.length<12){setFb("fb_"+id,"Escriu què has observat en aquesta fase (almenys una frase).","warn");return}
-  var t=tryN("ob"+id);
-  if(!s.kw.test(ob)){cls="warn";msgs.push(t===1?s.h1:t===2?s.h2:s.ex)}
-  if(!s.fn){var f=val("fn_"+id);
-    if(f.length<6){cls="warn";msgs.push("Escriu la funció d'aquesta fase.")}
-    else if(!s.fkw.test(f)){cls="warn";msgs.push(s.fh)}}
-  if(!msgs.length)msgs.push("Molt bé! Observació i funció coherents amb l'experiment.");
-  setFb("fb_"+id,msgs.join(" "),cls);
-});
-$("#chkModel").addEventListener("click",function(){
-  var a=val("mb"),b=val("mn"),m=[];
-  if(a.length<15||b.length<15){setFb("fbModel","Escriu almenys una idea a cada casella.","warn");return}
-  var t=tryN("model");
-  if(!/mastic|trit|aixaf|àcid|ph|mescl|filtr|mitja|vellositat|ordre|fases|neutral|bilis|oli|passa|separa|remena/i.test(a))m.push(t<2?"El model representa bé: pensa en què fa la bossa, l'àcid o la mitja que s'assembli al cos.":"Per exemple: l'ordre de les fases, el pH àcid o neutre, o la mitja que deixa passar només el líquid.");
-  if(!/sang|capil|peristalt|múscul|viu|temps|real|només|galeta|microbiota|activ|cèl|enzim|fetge|pàncrees|moc/i.test(b))m.push(t<2?"El model no reflecteix: pensa en què té el cos que la bossa i la mitja no tenen.":"Per exemple: el cos té sang que recull els nutrients, músculs que empenyen el menjar i òrgans (fetge, pàncrees) que fan els sucs.");
-  if(!m.length)setFb("fbModel","Bona valoració: has trobat semblances i diferències entre el model i el cos real.","ok");
-  else setFb("fbModel",m.join(" "),"warn");
-});
 
-/* ---------- RESUM ---------- */
+/* ---------- RESUM (només dades) ---------- */
 function buildSummary(){
-  var L2=[],miss=[];
-  function g(id){return val(id)||"(sense respondre)"}
-  L2.push("SA2 · Sessió 2 · El Sistema Digestiu (laboratori virtual, nivell "+S.level+")","");
-  L2.push("IDEES PRÈVIES",g("idees"),"");
-  L2.push("1. POSA NOM AL SISTEMA DIGESTIU");
-  for(var n=1;n<=7;n++){
-    var nm=S.names[n]!=null?NAMES[S.names[n]]:"(sense nom)";
-    var fe=document.getElementById("fn"+n);var fv=fe?fe.value.trim():"";
-    L2.push(n+". "+nm+" — "+(fv||"(sense funció)"));
-    if(S.names[n]==null)miss.push("Apartat 1: falta el nom de la part "+n+".");
-  }
-  L2.push("Pregunta clau: "+g("pk"),"");
-  if(!val("pk"))miss.push("Apartat 1: falta la pregunta clau.");
-  L2.push("2. EL CABDELL DE LLANA (escala 1:100)");
-  L2.push("Esòfag (~25 cm): 2,5 mm · funció: "+(val("y_eso_fn")||"(sense respondre)"));
-  L2.push("Intestí prim (~6 m): "+(val("y_pri_mm")||"?")+" mm · funció: Absorció de nutrients");
-  L2.push("Intestí gros (~1,5 m): "+(val("y_gro_mm")||"?")+" mm · funció: "+(val("y_gro_fn")||"(sense respondre)"));
-  L2.push("TOTAL: "+(val("y_tot_mm")||"?")+" mm","");
-  if(!val("y_pri_mm")||!val("y_gro_mm")||!val("y_tot_mm"))miss.push("Apartat 2: falten valors a la taula del cabdell.");
-  L2.push("3. SIMULACIÓ DE LA DIGESTIÓ PAS A PAS");
+  var o=[];
+  o.push("SA2 · Sessió 2 · El Sistema Digestiu — les meves dades","");
+  o.push("APARTAT 1 · NOMS");
+  for(var n=1;n<=7;n++)o.push(n+". "+(S.names[n]!=null?NAMES[S.names[n]]:"(sense nom)"));
+  o.push("","APARTAT 2 · CABDELL (escala 1:100)");
+  o.push("Esòfag (~25 cm): 2,5 mm");
+  o.push("Intestí prim (~6 m): "+(val("y_pri_mm")||"?")+" mm");
+  o.push("Intestí gros (~1,5 m): "+(val("y_gro_mm")||"?")+" mm");
+  o.push("TOTAL: "+(val("y_tot_mm")||"?")+" mm","");
+  o.push("APARTAT 3 · SIMULACIÓ");
   ST.forEach(function(s){
-    var f=s.fn||val("fn_"+s.id)||"(sense funció)",o=val("ob_"+s.id)||"(sense observació)";
-    L2.push(s.name+" | "+s.subs+" | Funció: "+f+" | Observació: "+o);
-    if(!val("ob_"+s.id))miss.push("Apartat 3: falta l'observació de la fase «"+s.name+"».");
-    if(!s.fn&&!val("fn_"+s.id))miss.push("Apartat 3: falta la funció de la fase «"+s.name+"».");
-    if(S.level==="A"&&val("pred_"+s.id))L2.push("   (Predicció: "+val("pred_"+s.id)+")");
+    var phs=S.ph.filter(function(p){return p.st===s.name}).map(function(p){return fmt(p.v)});
+    o.push(s.name+": "+(S.obs[s.id]||"(no feta)")+(phs.length?" pH: "+phs.join("; ")+".":""));
   });
-  if(S.ph&&S.ph.length)L2.push("Mesures de pH: "+S.ph.map(function(p){return p.st+" "+fmt(p.v)}).join("; "));
-  if(S.meas)L2.push("Final: ~"+S.meas.ml+" mL de líquid al bol i residu d'uns "+fmt(S.meas.g)+" g a la mitja.");
-  L2.push("✔ El model representa bé… "+g("mb"));
-  L2.push("✘ El model NO reflecteix… "+g("mn"));
-  if(!val("mb")||!val("mn"))miss.push("Apartat 3: falta la valoració del model.");
-  $("#sumtxt").value=L2.join("\n");
-  $("#miss").innerHTML=miss.length?'<p><b>Encara et falta:</b></p><ul class="miss">'+miss.map(function(m){return"<li>"+esc(m)+"</li>"}).join("")+'</ul>':'<div class="fb ok">Has completat tots els apartats.</div>';
+  if(S.meas&&S.obs.prim)o.push("Final: uns "+S.meas.ml+" mL de líquid al bol net i un residu d'uns "+fmt(S.meas.g)+" g a la mitja.");
+  $("#sumtxt").value=o.join("\n");
 }
 $("#copyBtn").addEventListener("click",function(){
   var ta=$("#sumtxt"),txt=ta.value,msg=$("#copyMsg");
@@ -783,24 +587,21 @@ $("#copyBtn").addEventListener("click",function(){
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){msg.textContent="Copiat!"},fallback)}else fallback();
 });
 $("#resetBtn").addEventListener("click",function(){
-  if(!document.getElementById("rstArm")){
-    var b=$("#resetBtn");b.id="rstArm";b.textContent="Segur? Toca un altre cop per esborrar-ho tot";
-    setTimeout(function(){b.id="resetBtn";b.textContent="Torna a començar"},4000);
-    b.addEventListener("click",function once(){
-      if(b.id!=="rstArm")return;
-      try{localStorage.removeItem(KEY)}catch(e){}
-      location.reload();
-    });
+  var b=$("#resetBtn");
+  if(b.getAttribute("data-arm")!=="1"){
+    b.setAttribute("data-arm","1");b.textContent="Segur? Toca un altre cop per esborrar-ho tot";
+    setTimeout(function(){b.removeAttribute("data-arm");b.textContent="Torna a començar"},4000);
+  }else{
+    try{localStorage.removeItem(KEY)}catch(e){}
+    location.reload();
   }
 });
 
 /* ---------- init ---------- */
 buildSteps();
 newSim();
-S.yarn=S.yarn||{eso:0,pri:0,gro:0};
-$("#s_eso").value=S.yarn.eso;$("#s_pri").value=S.yarn.pri;$("#s_gro").value=S.yarn.gro;
-setLevel(S.level||"B");
-drawRuler();drawStg();drawActs();drawBag();
+buildBank();buildNameTable();paintPins();buildYarnTable();
+drawRuler();drawRes();drawStg();drawActs();drawBag();
 showSec(S.sec||0);
 })();
 </script>

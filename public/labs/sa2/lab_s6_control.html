@@ -24,51 +24,34 @@ a{color:var(--green-2)}
 .top{padding:14px 0 6px}
 .tag{display:inline-block;font-family:'Fira Sans Extra Condensed',sans-serif;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-size:.95rem}
 .sub{color:var(--muted);margin:.2em 0 .6em}
-.lv{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:8px 0}
-.lv span{color:var(--muted);font-size:.9rem}
 nav.steps{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 0}
 nav.steps ol{display:flex;gap:6px;list-style:none;margin:0;padding:0;overflow-x:auto}
 nav.steps a{display:block;white-space:nowrap;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);text-decoration:none;color:var(--ink);font-size:.92rem;min-height:40px}
-nav.steps a.done::after{content:" ✓";color:var(--ok)}
 nav.steps a:hover{border-color:var(--green-2)}
 :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 section.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 16px;margin:18px 0}
-.meta{color:var(--muted);font-size:.92rem;margin:-.2em 0 .8em}
 .box{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:14px 0;background:var(--bg)}
 .box h3{color:var(--green)}
+.note{border:2px solid var(--accent);border-radius:12px;padding:10px 14px;margin:14px 0;background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+.note h3{color:var(--ink);font-size:1.1rem;margin-bottom:.3em}
+.note ul{margin:.2em 0;padding-left:1.2em}
 .btn{font:inherit;font-weight:500;min-height:44px;padding:8px 16px;border-radius:10px;border:1px solid var(--green);background:var(--green);color:#fff;cursor:pointer}
 :root[data-theme="dark"] .btn{color:#0f1712}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#0f1712}}
 .btn.ghost{background:transparent;color:var(--green)}
 .btn.small{min-height:40px;padding:6px 12px;font-size:.95rem}
-.btn.lvb[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#16241c}
 .btn:disabled{opacity:.45;cursor:not-allowed}
-textarea,input[type=text],input[type=number],select{font:inherit;width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
-textarea{resize:vertical;min-height:84px}
-input.num{width:100%;min-width:60px;text-align:center}
+select{font:inherit;width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
 label{font-weight:500}
-.q{margin:14px 0}
 .qbar{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
 .fb{font-size:.95rem;margin:6px 0;min-height:1.2em}
 .fb.ok{color:var(--ok)} .fb.warn{color:var(--warn)} .fb.bad{color:var(--bad)}
-.hintbox{border-left:4px solid var(--accent);padding:6px 10px;margin:6px 0;background:var(--bg);font-size:.95rem;border-radius:0 8px 8px 0}
-.starter,.repte{font-size:.93rem;color:var(--muted);margin:4px 0}
-.repte{border:1px dashed var(--accent);border-radius:10px;padding:8px 10px;color:var(--ink)}
-.only-a,.only-c{display:none}
-[data-level="a"] .only-a{display:block} [data-level="c"] .only-c{display:block}
 .muted{color:var(--muted)}
-.tabs{display:flex;gap:6px;margin:10px 0;flex-wrap:wrap}
-.tabs button{font:inherit;min-height:44px;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font-weight:500}
-.tabs button[aria-selected="true"]{background:var(--green);color:#fff;border-color:var(--green)}
-:root[data-theme="dark"] .tabs button[aria-selected="true"]{color:#0f1712}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button[aria-selected="true"]{color:#0f1712}}
 .panel[hidden]{display:none}
 table{border-collapse:collapse;width:100%;font-size:.95rem}
 th,td{border:1px solid var(--line);padding:6px;text-align:center}
 th{background:var(--bg);font-weight:600}
 .tw{overflow-x:auto}
-td.ok input,td.ok select{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,var(--surface))}
-td.bad input,td.bad select{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,var(--surface))}
 .lab{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
 .lab>.stage{flex:0 0 190px;max-width:100%}
 .lab>.ctl{flex:1 1 240px;min-width:0}
@@ -76,7 +59,6 @@ svg{max-width:100%;height:auto}
 .big{min-height:64px;font-size:1.2rem;width:100%;touch-action:manipulation}
 .status{min-height:3em;padding:8px 10px;border-radius:10px;background:var(--bg);border:1px solid var(--line)}
 .readout{font-family:'Fira Sans Extra Condensed',sans-serif;font-size:1.6rem;color:var(--green)}
-/* cards / ordering */
 .ord-pool,.pool{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
 .card-t{font:inherit;text-align:left;min-height:44px;padding:8px 12px;border-radius:10px;border:2px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;max-width:100%}
 .card-t.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
@@ -92,23 +74,17 @@ svg{max-width:100%;height:auto}
 .slot{min-height:48px;border:2px dashed var(--line);border-radius:10px;padding:4px 6px;margin:5px 0;cursor:pointer;font-size:.92rem;display:flex;align-items:center;background:var(--surface)}
 .slot .ph{color:var(--muted);font-size:.85rem}
 .slot.right{border-color:var(--ok);border-style:solid} .slot.wrong{border-color:var(--bad);border-style:solid}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
-.chip{font:inherit;min-height:44px;padding:6px 14px;border-radius:999px;border:2px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
-.chip[aria-pressed="true"]{border-color:var(--green-2);background:color-mix(in srgb,var(--green-2) 18%,var(--surface));font-weight:600}
 .dots{display:flex;flex-wrap:wrap;gap:4px;min-height:60px;align-content:flex-start}
-.dot{width:14px;height:14px;border-radius:50%;display:inline-block;transition:opacity .4s}
+.dot{width:14px;height:14px;border-radius:50%;display:inline-block}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:560px){.two{grid-template-columns:1fr}}
 .leg{display:flex;flex-wrap:wrap;gap:10px;font-size:.85rem;margin:6px 0}
 .leg i{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:4px}
 pre.out{white-space:pre-wrap;word-break:break-word;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;font-family:'Fira Sans',monospace;font-size:.92rem;max-height:60vh;overflow:auto}
-.svgt{fill:var(--ink);font-family:'Fira Sans',sans-serif}
-.num-m{fill:var(--accent)}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.flow{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 .plate{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;max-width:100%}
 .plate img{display:block;width:100%;height:auto}
 .plate svg{position:absolute;left:0;top:0;width:100%;height:100%;max-width:none}
-.mk{position:absolute;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;background:#fff;border:3px solid var(--accent);color:#16241c;font:700 17px 'Fira Sans Extra Condensed',sans-serif;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.35)}
 footer{padding:20px 0 40px;color:var(--muted);font-size:.9rem}
 </style>
 </head>
@@ -117,276 +93,143 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:.9rem}
 <div class="top">
   <a href="index.html">← Laboratoris SA2</a>
   <div class="tag" style="margin-top:10px">SA2 · Sessió 6</div>
-  <h1>Tres estacions — com dóna ordres el teu cos</h1>
-  <p class="sub">El sistema de control i l'equilibri intern. Fes la pràctica aquí, i després omple la fitxa impresa amb el resum del final.</p>
-  <div class="lv" role="group" aria-label="Nivell de la fitxa"><span>Nivell:</span>
-    <button class="btn small ghost lvb" data-lv="a" aria-pressed="false">A · amb repte</button>
-    <button class="btn small ghost lvb" data-lv="b" aria-pressed="true">B · estàndard</button>
-    <button class="btn small ghost lvb" data-lv="c" aria-pressed="false">C · més guiat</button>
-  </div>
+  <h1>Com dóna ordres el teu cos</h1>
+  <p class="sub">Fes els experiments d'aquí, amb la fitxa impresa al costat. A cada experiment hi ha una caixa que et diu què has d'anotar a la fitxa.</p>
 </div>
 </div>
-<nav class="steps" aria-label="Apartats de la fitxa"><div class="wrap"><ol>
-  <li><a href="#s0" data-s="s0">0 · Idees prèvies</a></li>
-  <li><a href="#s1" data-s="s1">1 · Tres estacions</a></li>
-  <li><a href="#s2" data-s="s2">2 · Dues vies</a></li>
-  <li><a href="#s3" data-s="s3">3 · Excretor</a></li>
-  <li><a href="#s4" data-s="s4">4 · Integració</a></li>
-  <li><a href="#s5" data-s="s5">Resum</a></li>
+<nav class="steps" aria-label="Experiments"><div class="wrap"><ol>
+  <li><a href="#sA">A · Regle</a></li>
+  <li><a href="#sB">B · Arc reflex</a></li>
+  <li><a href="#sC">C · Hormones</a></li>
+  <li><a href="#sD">Filtre del ronyó</a></li>
+  <li><a href="#sR">Els teus resultats</a></li>
 </ol></div></nav>
 
 <main class="wrap">
 
-<!-- 0 -->
-<section class="card" id="s0">
-  <h2>0 · Idees prèvies — qui mana al cos i on van els residus</h2>
-  <p class="meta">Individual · 8 min · No es corregeix ara: ho compararàs al final.</p>
-  <div class="box"><h3>Marca la teva hipòtesi</h3>
-    <p>Per on creus que el cos elimina la urea, les sals i l'aigua que sobren? Marca'n tantes com vulguis (després ho dibuixes a la fitxa).</p>
-    <div class="chips" id="exits"></div>
-    <div class="q"><label for="q0_dib">Descriu el teu esbós (opcional)</label><textarea id="q0_dib" data-save rows="2"></textarea></div>
-  </div>
-  <div class="q" data-q="q0_1"></div>
-  <div class="q" data-q="q0_2"></div>
-  <div class="q" data-q="q0_3"></div>
-  <div class="box">Connexió amb la lectura: hi ha dues vies d'ordre, la dels <b>nervis</b> (elèctrica i rapidíssima) i la de les <b>hormones</b> (per la sang, més lenta però duradora). Avui les compararàs.</div>
-</section>
-
-<!-- 1 -->
-<section class="card" id="s1">
-  <h2>1 · Tres estacions — com dóna ordres el teu cos</h2>
-  <p class="meta">Parelles i grups de 5 · 25 min · Ves passant per A, B i C.</p>
-  <div class="tabs" role="tablist" aria-label="Estacions">
-    <button role="tab" id="tabA" aria-selected="true" aria-controls="pA">Estació A · Regle</button>
-    <button role="tab" id="tabB" aria-selected="false" aria-controls="pB">Estació B · Arc reflex</button>
-    <button role="tab" id="tabC" aria-selected="false" aria-controls="pC">Estació C · Targetes</button>
-  </div>
-
-  <!-- A -->
-  <div class="panel" id="pA" role="tabpanel" aria-labelledby="tabA">
-    <h3>Estació A · Quant triga una ordre a fer el viatge?</h3>
-    <p>A classe, la teva parella subjecta el regle pel 30 i el deixa caure sense avisar. Tu tanques la mà tan de pressa com puguis. Anota en quin número l'has agafat: aquells centímetres són el temps que ha trigat el senyal a anar <b>de l'ull al cervell i del cervell als dits</b>. Aquí el regle el deixa caure l'ordinador.</p>
-    <div class="lab">
-      <div class="stage">
-        <svg id="rulerSvg" viewBox="0 0 190 360" width="190" role="img" aria-label="Regle de 30 cm caient entre dos dits">
-          <defs><clipPath id="rclip"><rect x="0" y="0" width="190" height="360"/></clipPath></defs>
-          <g clip-path="url(#rclip)">
-            <g id="ruler"></g>
-            <g id="fingers">
-              <rect x="38" y="272" width="46" height="26" rx="12" fill="#e0b08a"/>
-              <rect x="106" y="272" width="46" height="26" rx="12" fill="#e0b08a"/>
-              <rect x="20" y="284" width="64" height="70" rx="18" fill="#d9a47c"/>
-              <rect x="106" y="284" width="64" height="70" rx="18" fill="#d9a47c"/>
-            </g>
-            <g id="holder"><rect x="78" y="4" width="34" height="22" rx="8" fill="#d9a47c"/><rect x="82" y="0" width="26" height="10" rx="4" fill="#e0b08a"/></g>
+<!-- A -->
+<section class="card" id="sA">
+  <h2>Estació A · Temps de reacció amb el regle</h2>
+  <p class="muted">Què volem esbrinar: quant triga el senyal a anar de l'ull al cervell i del cervell als dits.</p>
+  <p>A classe, la teva parella subjecta el regle pel 30 i el deixa caure sense avisar. Tu tanques la mà tan de pressa com puguis i anotes en quin número l'has agafat. Aquí el regle el deixa caure l'ordinador. Fes 5 proves amb la mà dominant i 5 amb l'altra.</p>
+  <div class="lab">
+    <div class="stage">
+      <svg id="rulerSvg" viewBox="0 0 190 360" width="190" role="img" aria-label="Regle de 30 cm caient entre dos dits">
+        <defs><clipPath id="rclip"><rect x="0" y="0" width="190" height="360"/></clipPath></defs>
+        <g clip-path="url(#rclip)">
+          <g id="ruler"></g>
+          <g id="fingers">
+            <rect x="38" y="272" width="46" height="26" rx="12" fill="#e0b08a"/>
+            <rect x="106" y="272" width="46" height="26" rx="12" fill="#e0b08a"/>
+            <rect x="20" y="284" width="64" height="70" rx="18" fill="#d9a47c"/>
+            <rect x="106" y="284" width="64" height="70" rx="18" fill="#d9a47c"/>
           </g>
-        </svg>
-      </div>
-      <div class="ctl">
-        <div class="two">
-          <div><label for="domSide">La teva mà dominant és…</label>
-            <select id="domSide" data-save><option value="r">La dreta (tecla L)</option><option value="l">L'esquerra (tecla A)</option></select></div>
-          <div><label for="handNow">Ara fas la prova amb…</label>
-            <select id="handNow"><option value="dom">Mà dominant</option><option value="oth">L'altra mà</option></select></div>
-        </div>
-        <p class="status" id="rStatus" aria-live="polite">Prem «Preparat» i mira el regle. Quan comenci a caure, tanca la mà.</p>
-        <div class="qbar">
-          <button class="btn" id="rStart">Preparat</button>
-          <button class="btn ghost" id="rSim" title="Per si no pots jugar">Simula una prova</button>
-        </div>
-        <button class="btn big" id="rCatch" type="button">Agafa el regle!</button>
-        <p class="muted" id="rKeyHint" style="margin:.4em 0"></p>
-        <div class="readout" id="rRead" aria-live="polite">&nbsp;</div>
-      </div>
+          <g id="holder"><rect x="78" y="4" width="34" height="22" rx="8" fill="#d9a47c"/><rect x="82" y="0" width="26" height="10" rx="4" fill="#e0b08a"/></g>
+        </g>
+      </svg>
     </div>
-    <div class="box">
-      <h3>Taula de conversió</h3>
-      <div class="tw"><table>
-        <tr><th>Distància caiguda</th><td>5 cm</td><td>10 cm</td><td>15 cm</td><td>20 cm</td><td>25 cm</td><td>30 cm</td></tr>
-        <tr><th>Temps de reacció</th><td>101 ms</td><td>143 ms</td><td>175 ms</td><td>202 ms</td><td>226 ms</td><td>247 ms</td></tr>
-      </table></div>
-      <p class="muted" style="margin:.5em 0 0">Fes servir la taula per passar els cm a mil·lisegons. Si el teu valor queda entremig, tria el més proper. (La taula ve de la fórmula d = ½·g·t² de la caiguda lliure.)</p>
-    </div>
-    <div class="tw"><table id="aTable">
-      <tr><th></th><th>Mà dominant · cm</th><th>Mà dominant · ms</th><th>L'altra mà · cm</th><th>L'altra mà · ms</th></tr>
-    </table></div>
-    <div class="qbar"><button class="btn small" id="aChk">Comprova els ms</button><button class="btn small ghost" id="aClr">Esborra les proves</button></div>
-    <div class="fb" id="aFb" aria-live="polite"></div>
-    <p class="muted" id="aCmp"></p>
-    <div class="repte only-a"><label for="a_rep_ms">Repte A · Amb d = ½·g·t² (g = 9,8 m/s²), quin temps de reacció, en ms, correspon a una caiguda de 12 cm?</label>
-      <input type="number" id="a_rep_ms" class="num" data-save inputmode="numeric" style="max-width:140px"> <button class="btn small ghost" id="a_rep_chk">Comprova</button> <span class="fb" id="a_rep_fb"></span></div>
-    <div class="q" data-q="qA1"></div>
-    <div class="q" data-q="qA2"></div>
-  </div>
-
-  <!-- B -->
-  <div class="panel" id="pB" role="tabpanel" aria-labelledby="tabB" hidden>
-    <h3>Estació B · L'arc reflex en directe</h3>
-    <p>A classe, cada persona del grup fa un paper i es passa una pilota o un tap en l'ordre correcte. Aquí, primer <b>ordena els 5 papers</b>. Toca una targeta per posar-la a la llista (o arrossega-la). Toca-la a la llista per treure-la.</p>
-    <div id="ordB"></div>
-    <div class="only-c box">Pista de partida: el senyal comença allà on el dit «sent» la calor i acaba al múscul que mou el braç.</div>
-    <div class="box">
-      <h3>Prova-ho amb la pilota</h3>
-      <p class="muted" id="arcWait">La imatge de l'arc reflex apareix quan l'ordre dels 5 papers és correcte (porta els noms escrits).</p>
-      <div class="plate" id="arcPlate" hidden style="max-width:640px"><img src="img/arc_reflex.webp" width="1200" height="849" alt="Persona que toca una espelma: el senyal puja pel nervi sensitiu fins a la medul·la i baixa pel nervi motor fins al múscul del braç">
-      <svg id="reflexSvg" viewBox="0 0 1200 849" aria-hidden="true">
-        <g id="brainBranch"><path d="M740 225 L690 255 L640 290 L600 320" fill="none" stroke="#d98a1e" stroke-width="5" stroke-dasharray="12 9"/></g>
-        <ellipse id="brainHi" cx="578" cy="335" rx="72" ry="58" fill="none" stroke="#d98a1e" stroke-width="7" style="display:none"/>
-        <g id="brainCover" style="display:none"><ellipse cx="578" cy="335" rx="68" ry="55" fill="#fff" stroke="#888" stroke-width="3" stroke-dasharray="8 6"/><text x="578" y="342" text-anchor="middle" font-size="22" fill="#555" font-family="Fira Sans,sans-serif">sense cervell</text></g>
-        <ellipse id="handRing" cx="500" cy="425" rx="70" ry="85" fill="none" stroke="#d98a1e" stroke-width="7" stroke-dasharray="10 8" style="display:none"/>
-        <circle id="n_r" cx="355" cy="598" r="15" fill="#fff" stroke="#1f5a3c" stroke-width="5"/>
-        <circle id="n_u" cx="640" cy="420" r="15" fill="#fff" stroke="#1f5a3c" stroke-width="5"/>
-        <circle id="n_m" cx="740" cy="225" r="15" fill="#fff" stroke="#1f5a3c" stroke-width="5"/>
-        <circle id="n_d" cx="780" cy="403" r="15" fill="#fff" stroke="#1f5a3c" stroke-width="5"/>
-        <circle id="n_e" cx="620" cy="560" r="15" fill="#fff" stroke="#1f5a3c" stroke-width="5"/>
-        <circle id="ball" cx="355" cy="598" r="18" fill="#d98a1e" stroke="#16241c" stroke-width="4" opacity="0"/>
-      </svg></div>
-      <p class="muted" style="font-size:.88rem">Els cercles verds són els 5 papers: receptor, nervi que puja, medul·la, nervi que baixa i efector. A la fitxa és el peu; la imatge mostra una mà que toca una espelma, però el mecanisme és el mateix.</p>
+    <div class="ctl">
+      <div class="two">
+        <div><label for="domSide">La teva mà dominant és…</label>
+          <select id="domSide"><option value="r">La dreta (tecla L)</option><option value="l">L'esquerra (tecla A)</option></select></div>
+        <div><label for="handNow">Ara fas la prova amb…</label>
+          <select id="handNow"><option value="dom">Mà dominant</option><option value="oth">L'altra mà</option></select></div>
+      </div>
+      <p class="status" id="rStatus" aria-live="polite">Prem «Preparat» i mira el regle. Quan comenci a caure, tanca la mà.</p>
       <div class="qbar">
-        <button class="btn" id="bRun" disabled>Passa la pilota (o el tap)</button>
-        <button class="btn ghost" id="bBrain" disabled aria-pressed="false">Treu el «cervell»</button>
+        <button class="btn" id="rStart">Preparat</button>
+        <button class="btn ghost" id="rSim" title="Per si no pots jugar">Simula una prova</button>
       </div>
-      <p class="status" id="bStatus" aria-live="polite">Primer ordena els 5 papers i comprova l'ordre.</p>
-    </div>
-    <div class="q" data-q="qB1"></div>
-    <div class="repte only-a q"><label for="b_rep">Repte A · El dolor arriba al cervell <i>després</i> que has retirat el peu. Per què creus que el cos ho fa així?</label><textarea id="b_rep" data-save rows="2"></textarea></div>
-  </div>
-
-  <!-- C -->
-  <div class="panel" id="pC" role="tabpanel" aria-labelledby="tabC" hidden>
-    <h3>Estació C · Targetes: qui fabrica cada hormona i què fa</h3>
-    <p>Encaixa cada hormona amb la seva <b>glàndula</b>, la <b>situació</b> en què apareix i l'<b>efecte</b>. Compte: hi ha targetes de més (tiroxina i cortisol) que no van a la taula; i dues glàndules poden ser la mateixa. Toca una targeta i després toca la casella (o arrossega-la). Toca una casella plena per treure'n la targeta.</p>
-    <div class="pool" id="cPool"></div>
-    <div class="hgrid" id="cGrid"></div>
-    <div class="qbar"><button class="btn small" id="cChk">Comprova</button><button class="btn small ghost" id="cRst">Torna a començar</button></div>
-    <div class="fb" id="cFb" aria-live="polite"></div>
-  </div>
-</section>
-
-<!-- 2 -->
-<section class="card" id="s2">
-  <h2>2 · Dues vies de control: el nervi i l'hormona</h2>
-  <p class="meta">Una és ràpida; l'altra, duradora.</p>
-  <div class="box"><h3>Mira-ho en un gràfic (esquema)</h3>
-    <p>Imagina un ensurt. Prem el botó i observa què fa cada via al llarg del temps (temps en minuts, escala d'esquema).</p>
-    <svg id="chart" viewBox="0 0 420 220" width="560" role="img" aria-label="Gràfic: l'efecte nerviós apareix de seguida i dura poc; l'efecte hormonal tarda a arribar i dura molt">
-      <line x1="40" y1="180" x2="410" y2="180" stroke="var(--muted)"/><line x1="40" y1="20" x2="40" y2="180" stroke="var(--muted)"/>
-      <text class="svgt" x="225" y="212" text-anchor="middle" font-size="12">temps (minuts) →</text>
-      <text class="svgt" x="14" y="100" font-size="12" transform="rotate(-90 14 100)" text-anchor="middle">intensitat de l'efecte</text>
-      <text class="svgt" x="40" y="195" font-size="11" text-anchor="middle">0</text><text class="svgt" x="225" y="195" font-size="11" text-anchor="middle">5</text><text class="svgt" x="405" y="195" font-size="11" text-anchor="middle">10</text>
-      <clipPath id="chclip"><rect id="chrect" x="40" y="0" width="0" height="200"/></clipPath>
-      <g clip-path="url(#chclip)">
-        <path d="M40 180 L42 40 C50 40 60 150 78 180" fill="none" stroke="var(--green-2)" stroke-width="3.5"/>
-        <path d="M40 180 L60 178 C100 170 120 60 150 52 C200 46 260 80 330 140 C360 165 385 178 405 180" fill="none" stroke="var(--accent)" stroke-width="3.5"/>
-      </g>
-      <text class="svgt" x="92" y="60" font-size="13" fill="var(--green-2)">Nervi: arriba en mil·lisegons</text>
-      <text class="svgt" x="190" y="38" font-size="13">Hormona (adrenalina): triga, però dura</text>
-    </svg>
-    <div class="qbar"><button class="btn small" id="chPlay">Ensurt!</button></div>
-  </div>
-  <div class="box"><h3>Compara les dues vies</h3>
-    <div class="tw"><table id="cmpT"><tr><th></th><th>Via NERVIOSA</th><th>Via HORMONAL</th></tr></table></div>
-    <div class="qbar"><button class="btn small" id="cmpChk">Comprova</button></div>
-    <div class="fb" id="cmpFb" aria-live="polite"></div>
-  </div>
-  <div class="q" data-q="q2M"></div>
-</section>
-
-<!-- 3 -->
-<section class="card" id="s3">
-  <h2>3 · El sistema excretor: el ronyó et manté net per dins</h2>
-  <p class="meta">De la sang amb residus a l'orina.</p>
-  <div class="box"><h3>El ronyó com a filtre de la sang</h3>
-    <div class="lab">
-      <div class="stage" style="flex-basis:300px">
-        <div class="plate" style="max-width:300px"><img src="img/ronyo_mut.webp" width="800" height="1200" alt="Esquema: artèria que porta sang amb residus fins al ronyó, vena que en surt, urèter i bufeta">
-          <span class="mk" style="left:15%;top:20.5%">1</span><span class="mk" style="left:52.5%;top:21%">2</span><span class="mk" style="left:79%;top:23.5%">3</span><span class="mk" style="left:44%;top:50%">4</span><span class="mk" style="left:48%;top:75%">5</span></div>
-        <p class="muted" style="font-size:.85rem">Els punts foscos de la sang són la urea. Al dibuix n'hi ha un ronyó, però en tens dos, un a cada costat de la columna.</p>
-      </div>
-      <div class="ctl">
-        <p><b>① Posa nom a cada número</b> (apartat «Dibuixa-ho i explica-ho»):</p>
-        <div id="kSel"></div>
-        <div class="qbar"><button class="btn small" id="kChk">Comprova</button></div>
-        <div class="fb" id="kFb" aria-live="polite"></div>
-        <div class="box" style="margin:8px 0">Compte amb «neta»: aquí vol dir <b>sense urea</b>, no «amb oxigen». Al dibuix les dues canonades són vermelles justament per això.</div>
-      </div>
+      <button class="btn big" id="rCatch" type="button">Agafa el regle!</button>
+      <p class="muted" id="rKeyHint" style="margin:.4em 0"></p>
+      <div class="readout" id="rRead" aria-live="polite">&nbsp;</div>
     </div>
   </div>
-
-  <div class="box"><h3>Un filtre selectiu, no un colador</h3>
-    <p>Les cèl·lules aboquen residus a la sang. Fes passar la sang pel ronyó en dos passos.</p>
-    <div class="leg"><span><i style="background:#7b4fa0"></i>proteïnes</span><span><i style="background:#2b1a1a"></i>urea</span><span><i style="background:#e0a82a"></i>sals</span><span><i style="background:#d9532b"></i>glucosa</span><span><i style="background:#3b8fd9"></i>aigua</span></div>
-    <div class="two"><div><b>Sang</b><div class="dots" id="dBlood"></div></div><div><b id="dTitle">Filtrat / orina</b><div class="dots" id="dUrine"></div></div></div>
-    <div class="qbar"><button class="btn small" id="fl1">1 · Filtra</button><button class="btn small" id="fl2" disabled>2 · Recupera</button><button class="btn small ghost" id="flC">Si fos un simple colador…</button><button class="btn small ghost" id="flR">Reinicia</button></div>
-    <p class="status" id="flSt" aria-live="polite">Pas 0: tota la sang és a l'esquerra.</p>
-    <p class="muted" style="font-size:.85rem">Esquema simplificat: les quantitats són il·lustratives.</p>
+  <div class="box">
+    <h3>Taula de conversió</h3>
+    <div class="tw"><table>
+      <tr><th>Distància caiguda</th><td>5 cm</td><td>10 cm</td><td>15 cm</td><td>20 cm</td><td>25 cm</td><td>30 cm</td></tr>
+      <tr><th>Temps de reacció</th><td>101 ms</td><td>143 ms</td><td>175 ms</td><td>202 ms</td><td>226 ms</td><td>247 ms</td></tr>
+    </table></div>
+    <p class="muted" style="margin:.5em 0 0">Si el teu valor queda entremig, tria el més proper. Aquí la taula es fa servir sola: veuràs els ms de cada prova.</p>
   </div>
-  <div class="q" data-q="q3_2"></div>
-  <div class="repte only-a q"><label for="c_rep">Repte A · Si no existís l'ADH, com seria la teva orina i què et passaria amb l'aigua del cos?</label><textarea id="c_rep" data-save rows="2"></textarea></div>
-
-  <div class="box"><h3>Connecta els sistemes — l'homeòstasi</h3>
-    <p>① D'on surt exactament el CO₂ que expulses? Completa la respiració cel·lular:</p>
-    <p><b>glucosa + O₂ →</b> <input type="text" id="resp1" data-save style="width:6em;display:inline-block" aria-label="primer producte"> <b>+</b> <input type="text" id="resp2" data-save style="width:6em;display:inline-block" aria-label="segon producte"> <b>+ ATP</b> <button class="btn small ghost" id="respChk">Comprova</button></p>
-    <div class="fb" id="respFb" aria-live="polite"></div>
-    <div class="q" data-q="q3c1"></div>
-    <div class="q" data-q="q3c2"></div>
-  </div>
-
-  <div class="box"><h3>Les hormones missatgeres del ronyó</h3>
-    <p>L'<b>ADH</b> (del cervell al ronyó) i l'<b>EPO</b> (del ronyó a l'os). Mira el dibuix i després mou el control per veure l'orina.</p>
-    <div class="plate" style="max-width:560px"><img src="img/hormones_missatgers.webp" width="1200" height="800" alt="Cervell que envia un senyal al ronyó, que retorna aigua a la sang; el ronyó envia un altre senyal a l'os, que fabrica eritròcits"></div>
-    <p class="muted" style="font-size:.9rem"><b>Esquerra (ADH):</b> el cervell envia el senyal al ronyó, que no deixa marxar l'aigua i la torna a la sang: surt poca orina. <b>Dreta (EPO):</b> el ronyó envia el senyal a l'interior de l'os (la medul·la òssia), on es fabriquen eritròcits nous que van a la sang.</p>
-    <label for="wSlider">Aigua del cos: de «en falta» a «en sobra»</label>
-    <input type="range" id="wSlider" min="0" max="100" value="50" style="width:100%;min-height:36px">
-    <div class="qbar"><button class="btn small ghost" id="wJ">Cas de la Júlia (2 L d'aigua)</button><button class="btn small ghost" id="wP">Cas del Pau (90 min sense beure)</button></div>
-    <div class="lab" style="align-items:center">
-      <svg viewBox="0 0 120 130" width="110" role="img" aria-label="Got d'orina"><path d="M20 20h80l-10 100H30z" fill="var(--surface)" stroke="var(--muted)" stroke-width="3"/><path id="urineFill" d="M26 60h68l-6 56H32z" fill="#e8c840"/></svg>
-      <div class="ctl" id="wTxt" aria-live="polite"></div>
-    </div>
-  </div>
-  <div class="q" data-q="q3_JP"></div>
-
-  <div class="box"><h3>El gir inesperat: ronyó i anèmia</h3>
-    <p>Ordena la cadena EPO → … → cansament d'una persona amb una malaltia del ronyó.</p>
-    <div id="ordE"></div>
-  </div>
-  <div class="q" data-q="q3_EPO"></div>
+  <h3>Les teves proves</h3>
+  <div class="tw"><table id="aTable"></table></div>
+  <p class="muted" id="aCmp"></p>
+  <div class="qbar"><button class="btn small ghost" id="aClr">Esborra les proves</button></div>
+  <div class="note"><h3>Anota-ho a la fitxa → apartat 1, estació A</h3>
+    <ul><li>La taula de proves: els cm i els ms de les 5 proves de cada mà.</li></ul></div>
 </section>
 
-<!-- 4 -->
-<section class="card" id="s4">
-  <h2>4 · Integració: com es manté estable el medi intern</h2>
-  <p class="meta">Síntesi · Tanquem el cas del corredor.</p>
-  <div class="box"><h3>L'homeòstasi és un bucle</h3>
-    <p>Completa el cercle de l'aigua:</p>
-    <p><b>Bec poca aigua →</b></p>
-    <div class="two">
-      <div><label for="b1">Primer buit</label><select id="b1" data-save></select></div>
-      <div><label for="b2">Segon buit</label><select id="b2" data-save></select></div>
+<!-- B -->
+<section class="card" id="sB">
+  <h2>Estació B · L'arc reflex amb la pilota</h2>
+  <p class="muted">Què volem esbrinar: per on passa el senyal d'un reflex i si cal el cervell perquè funcioni.</p>
+  <p>A classe, cada persona del grup fa un paper i es passa la pilota en l'ordre correcte. Aquí, primer <b>ordena els 5 papers</b>: toca una targeta per posar-la a la llista i toca-la a la llista per treure-la.</p>
+  <div id="ordB"></div>
+  <div class="box">
+    <h3>Passa la pilota</h3>
+    <p class="muted" id="arcWait">La imatge apareix quan l'ordre és correcte.</p>
+    <div class="plate" id="arcPlate" hidden style="max-width:640px"><img src="img/arc_reflex.webp" width="1200" height="849" alt="Persona que toca una espelma: el senyal puja pel nervi sensitiu fins a la medul·la i baixa pel nervi motor fins al múscul del braç">
+    <svg id="reflexSvg" viewBox="0 0 1200 849" aria-hidden="true">
+      <g id="brainBranch"><path d="M740 225 L690 255 L640 290 L600 320" fill="none" stroke="#d98a1e" stroke-width="5" stroke-dasharray="12 9"/></g>
+      <ellipse id="brainHi" cx="578" cy="335" rx="72" ry="58" fill="none" stroke="#d98a1e" stroke-width="7" style="display:none"/>
+      <g id="brainCover" style="display:none"><ellipse cx="578" cy="335" rx="68" ry="55" fill="#fff" stroke="#888" stroke-width="3" stroke-dasharray="8 6"/><text x="578" y="342" text-anchor="middle" font-size="22" fill="#555" font-family="Fira Sans,sans-serif">sense cervell</text></g>
+      <ellipse id="handRing" cx="500" cy="425" rx="70" ry="85" fill="none" stroke="#d98a1e" stroke-width="7" stroke-dasharray="10 8" style="display:none"/>
+      <circle id="n_r" cx="355" cy="598" r="15" fill="#fff" stroke="#1f5a3c" stroke-width="5"/>
+      <circle id="n_u" cx="640" cy="420" r="15" fill="#fff" stroke="#1f5a3c" stroke-width="5"/>
+      <circle id="n_m" cx="740" cy="225" r="15" fill="#fff" stroke="#1f5a3c" stroke-width="5"/>
+      <circle id="n_d" cx="780" cy="403" r="15" fill="#fff" stroke="#1f5a3c" stroke-width="5"/>
+      <circle id="n_e" cx="620" cy="560" r="15" fill="#fff" stroke="#1f5a3c" stroke-width="5"/>
+      <circle id="ball" cx="355" cy="598" r="18" fill="#d98a1e" stroke="#16241c" stroke-width="4" opacity="0"/>
+    </svg></div>
+    <p class="muted" style="font-size:.88rem">Els cercles verds són els 5 papers. A la fitxa és el peu; la imatge mostra una mà que toca una espelma, però el mecanisme és el mateix.</p>
+    <div class="qbar">
+      <button class="btn" id="bRun" disabled>Passa la pilota</button>
+      <button class="btn ghost" id="bBrain" disabled aria-pressed="false">Treu el «cervell»</button>
     </div>
-    <p><b>→ l'aigua de la sang torna a la normalitat →</b></p>
-    <div><label for="b3">Tercer buit</label><select id="b3" data-save></select></div>
-    <div class="qbar"><button class="btn small" id="bucChk">Comprova</button></div>
-    <div class="fb" id="bucFb" aria-live="polite"></div>
+    <p class="status" id="bStatus" aria-live="polite">Primer ordena els 5 papers i comprova l'ordre.</p>
+    <p class="muted" id="bObs" style="margin:0"></p>
   </div>
-  <div class="q" data-q="q4_1"></div>
-  <div class="q" data-q="q4_2"></div>
-  <div class="q" data-q="q4_3"></div>
-  <div class="box"><h3>Torna als objectius — Marca el que has après avui</h3>
-    <div id="objs"></div>
-    <div class="q"><label for="q4_hip">La meva hipòtesi inicial (apartat 0) era encertada? En què m'equivocava?</label><textarea id="q4_hip" data-save rows="3"></textarea></div>
-    <div class="q"><label for="q4_pre">Encara em pregunto…</label><textarea id="q4_pre" data-save rows="2"></textarea></div>
-  </div>
-  <p class="muted">La tasca per a casa (observar durant un dia què beus i com és la teva orina) i les dades de freqüència cardíaca en repòs són observacions del teu cos: es fan a la fitxa impresa.</p>
+  <div class="note"><h3>Anota-ho a la fitxa → apartat 1, estació B</h3>
+    <ul><li>L'ordre dels 5 passos.</li><li>Què ha passat amb el reflex quan has tret la persona que fa de «cervell».</li></ul></div>
 </section>
 
-<!-- 5 -->
-<section class="card" id="s5">
-  <h2>Copia-ho a la teva fitxa</h2>
-  <p>Aquest resum ordena les teves dades i respostes com a la fitxa. Copia'l o llegeix-lo i passa-ho a mà a la fitxa impresa.</p>
-  <div class="qbar"><button class="btn" id="sumBtn">Actualitza el resum</button><button class="btn ghost" id="copyBtn">Copia el text</button><button class="btn ghost small" id="resetAll">Esborra tot el progrés</button></div>
+<!-- C -->
+<section class="card" id="sC">
+  <h2>Estació C · Targetes d'hormones</h2>
+  <p class="muted">Què volem esbrinar: quina glàndula fabrica cada hormona, en quina situació apareix i quin efecte té.</p>
+  <p>Encaixa cada hormona amb la seva <b>glàndula</b>, la <b>situació</b> i l'<b>efecte</b>. Compte: hi ha targetes de més (tiroxina i cortisol) que no van a la taula. Toca una targeta i després la casella. Toca una casella plena per treure'n la targeta.</p>
+  <div class="pool" id="cPool"></div>
+  <div class="hgrid" id="cGrid"></div>
+  <div class="qbar"><button class="btn small" id="cChk">Comprova</button><button class="btn small ghost" id="cRst">Torna a començar</button></div>
+  <div class="fb" id="cFb" aria-live="polite"></div>
+  <div class="note"><h3>Anota-ho a la fitxa → apartat 1, estació C</h3>
+    <ul><li>La taula amb les 4 hormones: glàndula, situació i efecte de cadascuna (quan les tinguis totes ben encaixades).</li></ul></div>
+</section>
+
+<!-- D -->
+<section class="card" id="sD">
+  <h2>El ronyó: un filtre selectiu</h2>
+  <p class="muted">Què volem esbrinar: què passa amb cada tipus de partícula quan la sang passa pel ronyó.</p>
+  <div class="leg"><span><i style="background:#7b4fa0"></i>proteïnes</span><span><i style="background:#2b1a1a"></i>urea</span><span><i style="background:#e0a82a"></i>sals</span><span><i style="background:#d9532b"></i>glucosa</span><span><i style="background:#3b8fd9"></i>aigua</span></div>
+  <div class="two"><div><b>Sang</b><div class="dots" id="dBlood"></div></div><div><b id="dTitle">Filtrat / orina</b><div class="dots" id="dUrine"></div></div></div>
+  <div class="qbar"><button class="btn small" id="fl1">1 · Filtra</button><button class="btn small" id="fl2" disabled>2 · Recupera</button><button class="btn small ghost" id="flC">Prova-ho amb un simple colador</button><button class="btn small ghost" id="flR">Reinicia</button></div>
+  <p class="status" id="flSt" aria-live="polite">Pas 0: tota la sang és a l'esquerra.</p>
+  <h3>Compta els punts</h3>
+  <div class="tw"><table id="flT"></table></div>
+  <p class="muted" style="font-size:.85rem">Esquema simplificat: les quantitats són il·lustratives.</p>
+  <div class="note"><h3>Anota-ho a la fitxa → apartat 3</h3>
+    <ul><li>Quants punts de cada tipus hi ha a la sang, al filtrat (pas 1) i a l'orina final (pas 2).</li><li>Què ha passat amb la glucosa i amb l'aigua quan has provat el colador.</li></ul></div>
+</section>
+
+<!-- Resum -->
+<section class="card" id="sR">
+  <h2>Els teus resultats</h2>
+  <p>Només les dades que has obtingut. Copia'ls o passa'ls a mà a la fitxa impresa.</p>
+  <div class="qbar"><button class="btn" id="sumBtn">Actualitza els resultats</button><button class="btn ghost" id="copyBtn">Copia el text</button><button class="btn ghost small" id="resetAll">Esborra tot el progrés</button></div>
   <div class="fb" id="copyFb" aria-live="polite"></div>
-  <pre class="out" id="sumOut" tabindex="0">Prem «Actualitza el resum».</pre>
+  <pre class="out" id="sumOut" tabindex="0">Prem «Actualitza els resultats».</pre>
 </section>
 <footer>IE Temple · Biologia i Geologia 3r ESO · El nostre cos en marxa · Sessió 6 · Laboratori virtual</footer>
 </main>
@@ -396,113 +239,15 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:.9rem}
 'use strict';
 var $=function(s,r){return (r||document).querySelector(s)};
 var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
-var KEY='sa2_s6_control_v1';
-var S={level:'b',a:{dom:[],oth:[]},ord:{B:[],E:[]},c:{},chips:[],f:{},hints:{},done:{}};
+var KEY='sa2_s6_control_v2';
+var S={a:{dom:[],oth:[]},ord:{B:[]},c:{},fl:{step:0},bObs:''};
 function load(){try{var j=localStorage.getItem(KEY);if(j){var o=JSON.parse(j);for(var k in o)S[k]=o[k];}}catch(e){}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
 load();
 var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[·.]/g,'');}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]});}
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 function fb(el,cls,txt){el.className='fb '+cls;el.textContent=txt;}
-
-/* ---------- level ---------- */
-function setLevel(l){S.level=l;document.documentElement.setAttribute('data-level',l);$$('.lvb').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lv===l?'true':'false');});save();}
-$$('.lvb').forEach(function(b){b.addEventListener('click',function(){setLevel(b.dataset.lv);});});
-
-/* ---------- generic questions ---------- */
-var QS={
- q0_1:{l:'① Quan et poses nerviós/osa o t\'espantes, el cor s\'accelera sense que tu li diguis res. Per quina raó creus que passa?',st:'Crec que el cor s\'accelera perquè…'},
- q0_2:{l:'② La teva orina té sempre el mateix color? Per quina raó creus que alguns dies és molt clara i d\'altres molt fosca?',st:'Alguns dies l\'orina és més fosca perquè…'},
- q0_3:{l:'③ El CO₂ ja saps per on surt: pels pulmons. Però les teves cèl·lules també fabriquen residus líquids (urea, sals, excés d\'aigua). Per on creus que surten del cos?',st:'Els residus líquids surten per…'},
- qA1:{l:'① La 5a prova, ha sortit més ràpida que la 1a? Proposa una explicació.',st:'La 5a prova ha sortit (més ràpida / igual / més lenta) perquè…',
-  kw:'pràctica o costum=practic,costum,aprend,habit,acostum,entren;anticipació=anticip,previst,esperav',
-  h:['Compara la teva prova 1 i la prova 5 (mira la línia de dades de dalt). Són diferents?','Pensa què passa quan repeteixes moltes vegades una mateixa acció: el cos i el cervell s\'hi acostumen?','Potser a la 5a ja saps més o menys quan caurà i t\'avances (anticipació). També pot haver-hi cansament o distracció si ha sortit més lenta.']},
- qA2:{l:'② Per mesurar bé, què heu hagut de mantenir igual a totes les proves?',st:'Hem hagut de mantenir igual…',
-  kw:'posició de la mà=posici,dits,mans;punt de partida del regle=regle,partida,alcada,altura,zero,marca,30',
-  h:['En un experiment només ha de canviar una cosa. Què és el que vols comparar? I tota la resta?','Pensa en el regle: des d\'on cau? I en tu: com tens els dits abans que caigui?','També: la mateixa persona deixa caure el regle, sense avisar, amb les mateixes condicions (soroll, atenció, distància entre els dits).']},
- qB1:{l:'El reflex continua sense «cervell». Quin avantatge té, per al cos, una via que no passa pel cervell?',st:'L\'avantatge és que…',
-  kw:'rapidesa=rapid,pressa,rapidesa,curt;protecció=dany,mal,protegir,cremar,ferir,lesio,salv,evit',
-  h:['Imagina que toques una espelma encesa. Quin és el temps que més t\'interessa estalviar?','Si el senyal ha d\'anar fins al cervell, que decideix i torna, el camí és més curt o més llarg? Què li passa a la mà mentrestant?','Camí més curt = resposta més ràpida = menys dany. I el cervell queda lliure per fer altres coses.']},
- q2M:{l:'La freqüència cardíaca de la Mercè ja pujava abans de fer la primera passa. Explica-ho fent servir les paraules nervi simpàtic i anticipació. Per quina raó no pot ser l\'adrenalina la que ho ha començat?',st:'El cor de la Mercè ja anava ràpid perquè el nervi simpàtic… Això s\'anomena…',
-  kw:'nervi simpàtic=simpatic;anticipació=anticip;adrenalina=adrenalina;és més lenta=lent,triga,minuts,tard,despres,darrere',
-  h:['Qui dóna ordres de pressa i sense que tu ho decideixis: el nervi o l\'hormona?','El cervell «preveu» l\'esforç abans que comenci: com es diu això? I quina branca de nervis envia l\'ordre al cor?','L\'adrenalina viatja per la sang. Compara el temps que triga amb el que triga un nervi: pot haver arribat abans de la primera passa?']},
- q3_2:{l:'② El ronyó és un filtre selectiu: no deixa marxar tot el que és petit, sinó que recupera la glucosa i gairebé tota l\'aigua. Explica per quina raó et convé que sigui així i no un simple colador.',st:'Em convé que sigui selectiu perquè…',
-  kw:'glucosa=glucosa;aigua=aigua;perdre/necessitem=perd,necessit,util,falt,deshidrat,energia',
-  h:['Mira la simulació: què passa amb la glucosa i l\'aigua si el ronyó fos un colador?','La glucosa és el «combustible» de les cèl·lules. I l\'aigua? Què passaria si en perdessis tota?','Un colador deixa sortir tot el que és petit, també el que encara és útil. El ronyó filtra i després recupera el que cal.']},
- q3c1:{l:'D\'on surt exactament el CO₂? Explica-ho amb la reacció.',st:'El CO₂ surt de…',
-  kw:'cèl·lules=cel,mitocon;respiració cel·lular=respiracio;glucosa=glucosa',
-  h:['Mira la reacció: el CO₂ és un reactiu o un producte?','On passa la respiració cel·lular: als pulmons o dins de cada cèl·lula?','El CO₂ es fabrica a les cèl·lules quan «cremen» glucosa amb O₂; la sang el porta als pulmons i el treus amb l\'aire.']},
- q3c2:{l:'② Explica per quina raó diem que els pulmons i el ronyó treballen junts. Què li passaria al teu medi intern si el ronyó deixés de filtrar durant una setmana?',st:'Treballen junts perquè… Si el ronyó deixés de filtrar…',
-  kw:'pulmons=pulm;ronyó=ronyo;acumulació de residus=acumul,enverin,intoxic,urea,residus;medi intern=medi intern,sang,homeostasi',
-  h:['Cada òrgan treu un tipus de residu. Quin treu el pulmó? I el ronyó?','Els dos mantenen estable la composició de la sang. Què passa si un d\'ells falla?','Si el ronyó no filtra, la urea, les sals i l\'excés d\'aigua s\'acumulen a la sang i enverinen el medi intern.']},
- q3_JP:{l:'La Júlia ha begut 2 L d\'aigua al llarg del matí. El Pau ha jugat 90 minuts a bàsquet sense beure res. Descriu com serà l\'orina de cadascú i explica el mecanisme complet que ho provoca.',st:'L\'orina de la Júlia serà… perquè… L\'orina del Pau serà… perquè…',
-  kw:'ADH=adh;ronyó=ronyo;aigua=aigua;clara=clara;fosca=fosca,concentrad',
-  h:['Comença pel que detecta el cos: a la Júlia li sobra aigua; al Pau, li’n falta. (Els dos casos són a la simulació de dalt.)','Qui dóna l\'ordre al ronyó? D\'on surt, per on viatja i què li mana?','Pau: falta aigua → la hipòfisi allibera ADH → el ronyó retén aigua → poca orina i fosca. Júlia: fes el camí contrari.']},
- q3_EPO:{l:'Escriu la cadena completa EPO → … → cansament i explica per quina raó una persona amb una malaltia del ronyó pot acabar tenint anèmia tot i menjar prou ferro.',st:'El ronyó malalt fabrica… Per això la medul·la òssia…',
-  kw:'EPO=epo;medul·la òssia=medul;eritròcits=eritroc,globuls;ordre=ordre,senyal,missatg,hormona;ferro=ferro',
-  h:['Qui fabrica l\'EPO i a qui li dóna l\'ordre?','El ferro és la «matèria primera» dels eritròcits. Però, si no arriba l\'ordre, es fabriquen?','Ronyó malalt → poca EPO → la medul·la fabrica pocs eritròcits → poc oxigen als músculs → cansament. Hi ha ferro, però falta l\'ordre.']},
- q4_1:{l:'Ara digues quin dels dos sistemes de control de l\'apartat 2 fa servir aquest bucle, i per quina raó no li caldria ser més ràpid. Explica també per quina raó, un cop resolt el problema, el senyal s\'atura tot sol.',st:'Aquest bucle fa servir la via… perquè…',
-  kw:'via hormonal=hormon,adh;no cal pressa=lent,pressa,minut,duradora,durad,no cal;s\'atura=baixa,para,atura,normal',
-  h:['L\'ADH és un nervi o una hormona? Per on viatja?','Beure o suar no és una urgència de mil·lisegons: quin tipus de via va bé per ajustar l\'aigua «minut a minut»?','Quan l\'aigua de la sang torna a la normalitat, ja no cal l\'ordre: l\'ADH baixa. El resultat apaga la causa: és un bucle.']},
- q4_2:{l:'Tanquem el cas del Marc Fontana. Amb tot el que saps ara: el problema del Marc, és del ronyó o del ferro? Justifica-ho amb dues dades concretes de la seva analítica i digues què hauries esperat trobar-hi si hagués estat el ronyó.',st:'El problema del Marc és de… Ho sé perquè la seva analítica diu…',
-  kw:'urea=urea;creatinina=creatinina;ronyó=ronyo;ferro=ferro',
-  h:['Les dades són a la teva fitxa de casos (analítica del Marc). Busca la urea, la creatinina i els valors dels eritròcits i el ferro.','Si el ronyó no filtrés bé, la urea i la creatinina quedarien a la sang: serien altes o baixes?','Si fos el ronyó, esperaries urea i creatinina altes (i poca EPO). Si només falta ferro i el ronyó va bé, aquestes dues dades són normals.']},
- q4_3:{l:'Reflexió científica — Per quina raó l\'EPO és dopatge? Als anys 90, en un pilot de ciclistes que es va injectar EPO l\'hematòcrit va passar del 43 % al 56 %. Explica quin avantatge els donava en una cursa de muntanya i quin risc corrien.',st:'L\'avantatge era… i el risc, que…',
-  kw:'més oxigen=oxigen,resistencia,rendiment;sang espessa=espess,viscos;risc=trombe,coagul,infart,ictus,cor,pressio',
-  h:['L\'hematòcrit és el % de la sang ocupat per eritròcits. Què porten els eritròcits?','Més eritròcits: més o menys oxigen als músculs? Què canvia en una pujada llarga?','Més oxigen = més resistència. Però una sang més espessa costa més de bombar i pot formar coàguls: quin òrgan pateix?']}
-};
-function parseKW(s){if(!s)return[];return s.split(';').map(function(p){var i=p.indexOf('=');return{l:p.slice(0,i),a:p.slice(i+1).split(',').map(norm)};});}
-function buildQ(el){
-  var id=el.dataset.q,q=QS[id];
-  var nocheck=!q.kw&&!q.h;
-  el.innerHTML='<label for="'+id+'">'+esc(q.l)+'</label><textarea id="'+id+'" data-save rows="3"></textarea>'+
-   (q.st?'<div class="starter only-c">Comença així: «'+esc(q.st)+'»</div>':'')+
-   (nocheck?'':'<div class="qbar"><button class="btn small ghost hb" type="button">Pista</button><button class="btn small ck" type="button">Comprova</button></div><div class="hints"></div><div class="fb" aria-live="polite"></div>');
-  if(nocheck)return;
-  var n=(S.hints[id]||0),hb=$('.hints',el);
-  function showH(){hb.innerHTML=(q.h||[]).slice(0,S.hints[id]||0).map(function(h,i){return '<div class="hintbox"><b>Pista '+(i+1)+'.</b> '+esc(h)+'</div>';}).join('');}
-  showH();
-  $('.hb',el).addEventListener('click',function(){var c=S.hints[id]||0;if(c<q.h.length){S.hints[id]=c+1;save();showH();}else{hb.insertAdjacentHTML('beforeend','<div class="hintbox">No hi ha més pistes. Pregunta-ho a la persona docent.</div>');}});
-  $('.ck',el).addEventListener('click',function(){
-    var v=$('textarea',el).value,f=$('.fb',el),t=norm(v);
-    if(v.trim().length<15){fb(f,'warn','Escriu una mica més: una o dues frases.');return;}
-    var kws=parseKW(q.kw),found=[],miss=[];
-    kws.forEach(function(k){(k.a.some(function(a){return t.indexOf(a)>=0;})?found:miss).push(k.l);});
-    if(!kws.length){fb(f,'ok','Resposta desada. Rellegeix-la i comprova que té sentit.');return;}
-    if(!miss.length)fb(f,'ok','Molt bé: hi surten tots els conceptes clau ('+found.join(', ')+'). Rellegeix que tingui sentit.');
-    else if(found.length)fb(f,'warn','Vas bé: ja hi surt '+found.join(', ')+'. Revisa si falta: '+miss.join(', ')+'.');
-    else fb(f,'warn','Encara no veig els conceptes clau. Prova amb una pista.');
-  });
-}
-$$('[data-q]').forEach(buildQ);
-
-/* ---------- persistence of fields ---------- */
-function bindFields(){
-  $$('[data-save]').forEach(function(el){
-    var id=el.id;
-    if(S.f[id]!==undefined){if(el.type==='checkbox')el.checked=!!S.f[id];else el.value=S.f[id];}
-    el.addEventListener('input',function(){S.f[id]=el.type==='checkbox'?el.checked:el.value;save();marks();});
-    el.addEventListener('change',function(){S.f[id]=el.type==='checkbox'?el.checked:el.value;save();marks();});
-  });
-}
-function marks(){
-  var secs={s0:['q0_1','q0_2','q0_3'],s1:['qA1','qA2','qB1'],s2:['q2M'],s3:['q3_2','q3c2','q3_JP','q3_EPO'],s4:['q4_1','q4_2','q4_3']};
-  for(var k in secs){var ok=secs[k].every(function(i){return (S.f[i]||'').trim().length>10;});var a=$('nav a[data-s="'+k+'"]');if(a)a.classList.toggle('done',ok);}
-}
-
-/* ---------- chips (0) ---------- */
-var EXITS=['Pulmons','Ronyons','Pell (suor)','Intestí gros','Fetge','Cor','Boca'];
-(function(){var w=$('#exits');EXITS.forEach(function(e){var b=document.createElement('button');b.className='chip';b.type='button';b.textContent=e;b.setAttribute('aria-pressed',S.chips.indexOf(e)>=0?'true':'false');
-  b.addEventListener('click',function(){var i=S.chips.indexOf(e);if(i>=0)S.chips.splice(i,1);else S.chips.push(e);b.setAttribute('aria-pressed',i>=0?'false':'true');save();});w.appendChild(b);});})();
-
-/* ---------- tabs ---------- */
-var tabs=$$('.tabs [role=tab]');
-function showTab(id){tabs.forEach(function(t){var on=t.id===id;t.setAttribute('aria-selected',on?'true':'false');t.tabIndex=on?0:-1;$('#'+t.getAttribute('aria-controls')).hidden=!on;});}
-tabs.forEach(function(t,i){t.addEventListener('click',function(){showTab(t.id);});
- t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];n.focus();showTab(n.id);}});});
-showTab('tabA');
 
 /* ================= STATION A ================= */
 var TAB=[[5,101],[10,143],[15,175],[20,202],[25,226],[30,247]];
@@ -555,8 +300,8 @@ function finish(t){
   S.a[h].push(cm);save();renderA();
   $('#rRead').textContent='L\'has agafat al número '+cm+' cm';
   var n=S.a[h].length;
-  rMsg('Prova '+n+' feta. Passa els '+cm+' cm a mil·lisegons amb la taula i anota-ho a la casella «ms».');
-  if(n===5){if(h==='dom'&&S.a.oth.length<5){rMsg('Ja tens les 5 proves de la mà dominant. Ara canvia de mà (i de tecla) i fes les 5 de l\'altra.');$('#handNow').value='oth';updKeyHint();}}
+  rMsg('Prova '+n+' feta: '+cm+' cm → '+nearest(cm)[1]+' ms.');
+  if(n===5&&h==='dom'&&S.a.oth.length<5){rMsg('Ja tens les 5 proves de la mà dominant. Ara canvia de mà (i de tecla) i fes les 5 de l\'altra.');$('#handNow').value='oth';updKeyHint();}
 }
 $('#rStart').addEventListener('click',function(){rStart(false);});
 $('#rSim').addEventListener('click',function(){rStart(true);});
@@ -564,52 +309,18 @@ $('#rCatch').addEventListener('pointerdown',function(e){e.preventDefault();catch
 document.addEventListener('keydown',function(e){if(e.repeat)return;if(/input|textarea|select/i.test((e.target.tagName||'')))return;if(e.key&&e.key.toLowerCase()===curKey()){catchNow(e.timeStamp);}});
 $('#handNow').addEventListener('change',function(){rReset();updKeyHint();rMsg('Mà canviada. Prem «Preparat».');});
 $('#domSide').addEventListener('change',updKeyHint);
+function ms(h,i){var cm=S.a[h][i];return cm?nearest(cm)[1]:null;}
+function avg(h){var x=S.a[h].map(function(c){return nearest(c)[1];});return x.length?Math.round(x.reduce(function(s,v){return s+v;},0)/x.length):null;}
 function renderA(){
-  var T=$('#aTable'),rows='<tr><th></th><th>Mà dominant · cm</th><th>Mà dominant · ms</th><th>L\'altra mà · cm</th><th>L\'altra mà · ms</th></tr>';
+  var rows='<tr><th></th><th>Mà dominant · cm</th><th>Mà dominant · ms</th><th>L\'altra mà · cm</th><th>L\'altra mà · ms</th></tr>';
   for(var i=0;i<5;i++){
-    rows+='<tr><th>Prova '+(i+1)+'</th><td><input class="num" id="a_dom_cm_'+(i+1)+'" readonly value="'+(S.a.dom[i]||'')+'" aria-label="Mà dominant cm prova '+(i+1)+'"></td>'+
-    '<td id="td_dom_'+i+'"><input class="num" type="text" inputmode="numeric" id="a_dom_ms_'+(i+1)+'" data-save aria-label="Mà dominant ms prova '+(i+1)+'"></td>'+
-    '<td><input class="num" id="a_oth_cm_'+(i+1)+'" readonly value="'+(S.a.oth[i]||'')+'" aria-label="L\'altra mà cm prova '+(i+1)+'"></td>'+
-    '<td id="td_oth_'+i+'"><input class="num" type="text" inputmode="numeric" id="a_oth_ms_'+(i+1)+'" data-save aria-label="L\'altra mà ms prova '+(i+1)+'"></td></tr>';}
-  T.innerHTML=rows;
-  $$('input[data-save]',T).forEach(function(el){if(S.f[el.id]!==undefined)el.value=S.f[el.id];el.addEventListener('input',function(){S.f[el.id]=el.value;save();aCmp();});});
-  aCmp();
+    function c(h){return S.a[h][i]!==undefined?S.a[h][i]:'';}
+    rows+='<tr><th>Prova '+(i+1)+'</th><td>'+c('dom')+'</td><td>'+(ms('dom',i)||'')+'</td><td>'+c('oth')+'</td><td>'+(ms('oth',i)||'')+'</td></tr>';}
+  rows+='<tr><th>Mitjana</th><td></td><td>'+(S.a.dom.length===5?avg('dom'):'')+'</td><td></td><td>'+(S.a.oth.length===5?avg('oth'):'')+'</td></tr>';
+  $('#aTable').innerHTML=rows;
 }
-function aVals(h){var r=[];for(var i=1;i<=5;i++){var v=parseFloat((S.f['a_'+h+'_ms_'+i]||'').replace(',','.'));r.push(isNaN(v)?null:v);}return r;}
-function aCmp(){
-  var d=aVals('dom'),o=aVals('oth'),p=[];
-  if(d[0]!==null&&d[4]!==null)p.push('Mà dominant: prova 1 = '+d[0]+' ms, prova 5 = '+d[4]+' ms.');
-  if(o[0]!==null&&o[4]!==null)p.push('L\'altra mà: prova 1 = '+o[0]+' ms, prova 5 = '+o[4]+' ms.');
-  function avg(a){var x=a.filter(function(v){return v!==null;});return x.length?Math.round(x.reduce(function(s,v){return s+v;},0)/x.length):null;}
-  if(avg(d)!==null&&avg(o)!==null)p.push('Mitjanes: dominant '+avg(d)+' ms · altra mà '+avg(o)+' ms.');
-  $('#aCmp').textContent=p.join(' ');
-}
-var aTry={};
-$('#aChk').addEventListener('click',function(){
-  var msgs=[],bad=0,n=0;
-  ['dom','oth'].forEach(function(h){for(var i=0;i<5;i++){
-    var cm=S.a[h][i],td=$('#td_'+h+'_'+i);if(!cm||!td)continue;
-    var raw=(S.f['a_'+h+'_ms_'+(i+1)]||'').trim();if(!raw)continue;n++;
-    var v=parseFloat(raw.replace(',','.')),exp=nearest(cm),k=h+i;
-    if(v===exp[1]){td.className='ok';}
-    else{td.className='bad';bad++;aTry[k]=(aTry[k]||0)+1;
-      var m='Prova '+(i+1)+' ('+(h==='dom'?'dominant':'altra mà')+'): ';
-      if(aTry[k]===1)m+='torna a mirar la taula: entre quins dos valors de cm queda el teu '+cm+' cm?';
-      else if(aTry[k]===2)m+='el valor de la taula més proper a '+cm+' cm és el de '+exp[0]+' cm. Quants ms té?';
-      else m+='per a '+exp[0]+' cm, la taula diu '+exp[1]+' ms.';
-      msgs.push(m);}
-  }});
-  var f=$('#aFb');
-  if(!n)fb(f,'warn','Fes proves i escriu els ms de cada cm.');
-  else if(!bad)fb(f,'ok','Tots els ms que has escrit són correctes.');
-  else fb(f,'bad',msgs.join(' | '));
-});
-$('#aClr').addEventListener('click',function(){S.a={dom:[],oth:[]};for(var k in S.f){if(/^a_(dom|oth)_ms_/.test(k))delete S.f[k];}aTry={};save();renderA();rReset();$('#rRead').innerHTML='&nbsp;';$('#handNow').value='dom';updKeyHint();$('#aFb').textContent='';rMsg('Proves esborrades. Prem «Preparat».');});
-$('#a_rep_chk').addEventListener('click',function(){var v=parseFloat(($('#a_rep_ms').value||'').replace(',','.')),f=$('#a_rep_fb');
-  if(isNaN(v)){fb(f,'warn','Escriu un número.');return;}
-  if(v>=150&&v<=162)fb(f,'ok','Correcte: t = √(2·0,12/9,8) ≈ 156 ms.');
-  else fb(f,'warn','Pista: aïlla t = √(2d/g), amb d en metres (0,12 m).');});
-updKeyHint();
+$('#aClr').addEventListener('click',function(){S.a={dom:[],oth:[]};save();renderA();rReset();$('#rRead').innerHTML='&nbsp;';$('#handNow').value='dom';updKeyHint();rMsg('Proves esborrades. Prem «Preparat».');});
+updKeyHint();renderA();
 
 /* ================= ordering widget ================= */
 function Order(root,items,key,onOk){
@@ -651,9 +362,10 @@ function Order(root,items,key,onOk){
 
 /* ================= STATION B ================= */
 var BITEMS=[{id:'r',t:'Receptor (la pell del dit)'},{id:'u',t:'Nervi que puja'},{id:'m',t:'Medul·la espinal'},{id:'d',t:'Nervi que baixa'},{id:'e',t:'Efector (el múscul que retira la mà)'}];
-var Bok=false,brainOn=true,bBusy=false;
-var ordB=Order($('#ordB'),BITEMS,'B',function(){Bok=true;$('#arcPlate').hidden=false;$('#arcWait').hidden=true;$('#bRun').disabled=false;$('#bBrain').disabled=false;$('#bStatus').textContent='Ordre correcte. Passa la pilota amb el «cervell» present i després treu-lo.';});
-if(ordB.ok()){Bok=true;$('#arcPlate').hidden=false;$('#arcWait').hidden=true;$('#bRun').disabled=false;$('#bBrain').disabled=false;}
+var Bok=false,brainOn=true,bBusy=false,seenWith=false,seenWithout=false;
+function bUnlock(){Bok=true;$('#arcPlate').hidden=false;$('#arcWait').hidden=true;$('#bRun').disabled=false;$('#bBrain').disabled=false;}
+var ordB=Order($('#ordB'),BITEMS,'B',function(){bUnlock();$('#bStatus').textContent='Ordre correcte. Passa la pilota amb el «cervell» present i després treu-lo.';});
+if(ordB.ok())bUnlock();
 var NODES={r:'#n_r',u:'#n_u',m:'#n_m',d:'#n_d',e:'#n_e'};
 function lit(id,on){var n=$(NODES[id]);if(n)n.style.fill=on?'#d98a1e':'#fff';}
 var SEG={
@@ -662,14 +374,20 @@ var SEG={
  d:[[740,225],[765,240],[800,262],[850,262],[870,290],[870,372],[850,398],[780,403]],
  e:[[780,403],[700,406],[660,440],[640,500],[620,560]],
  b:[[740,225],[690,255],[640,290],[600,320]]};
-function movePoly(ball,pts,ms,cb){
+function movePoly(ball,pts,msd,cb){
   var L=[0],i;for(i=1;i<pts.length;i++)L.push(L[i-1]+Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]));
-  var tot=L[L.length-1],t0=null;ms=reduce?30:ms;
-  function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/ms),d=p*tot,k=1;while(k<L.length-1&&L[k]<d)k++;
+  var tot=L[L.length-1],t0=null;msd=reduce?30:msd;
+  function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/msd),d=p*tot,k=1;while(k<L.length-1&&L[k]<d)k++;
     var f=(d-L[k-1])/((L[k]-L[k-1])||1),a=pts[k-1],b=pts[k];
     ball.setAttribute('cx',a[0]+(b[0]-a[0])*f);ball.setAttribute('cy',a[1]+(b[1]-a[1])*f);
     if(p<1)requestAnimationFrame(step);else cb&&cb();}
   requestAnimationFrame(step);}
+function bObs(){
+  var o=[];
+  if(seenWith)o.push('Amb cervell: la mà es retira i el cervell ho nota després.');
+  if(seenWithout)o.push('Sense cervell: la mà es retira igualment.');
+  $('#bObs').textContent=o.join(' ');
+}
 $('#bRun').addEventListener('click',function(){
   if(bBusy||!Bok)return;bBusy=true;$('#bRun').disabled=true;
   var ball=$('#ball'),seq=['u','m','d','e'],i=0,st=$('#bStatus');
@@ -683,10 +401,11 @@ $('#bRun').addEventListener('click',function(){
       ball.setAttribute('opacity','0');$('#handRing').style.display='';
       st.textContent='La mà s\'ha retirat'+(brainOn?'. Fixa\'t: el cervell encara no ho sap…':' sense passar pel cervell: el reflex funciona igualment.');
       if(brainOn){
+        seenWith=true;
         setTimeout(function(){st.textContent='La medul·la també envia el senyal al cervell: ara «sents» el mal. Primer s\'ha mogut la mà; després has notat el dolor.';
           ball.setAttribute('opacity','1');ball.setAttribute('cx',740);ball.setAttribute('cy',225);
-          movePoly(ball,SEG.b,900,function(){ball.setAttribute('opacity','0');$('#brainHi').style.display='';bBusy=false;$('#bRun').disabled=false;});},reduce?30:500);
-      } else {bBusy=false;$('#bRun').disabled=false;}
+          movePoly(ball,SEG.b,900,function(){ball.setAttribute('opacity','0');$('#brainHi').style.display='';bBusy=false;$('#bRun').disabled=false;bObs();});},reduce?30:500);
+      } else {seenWithout=true;bBusy=false;$('#bRun').disabled=false;bObs();}
       return;}
     var k=seq[i++];
     movePoly(ball,SEG[k],900,function(){lit(k,true);st.textContent='Pilota a: '+names[k]+'.';next();});
@@ -702,19 +421,19 @@ $('#bBrain').addEventListener('click',function(){
 
 /* ================= STATION C ================= */
 var CH=[
- {id:'adr',n:'Adrenalina',h:'Qui l\'anomena «l\'hormona de l\'alerta»? Pensa en un ensurt i en les glàndules damunt dels ronyons.'},
+ {id:'adr',n:'Adrenalina',h:'Pensa en un ensurt i en les glàndules damunt dels ronyons.'},
  {id:'ins',n:'Insulina',h:'Pensa en la glucosa de la sang després de menjar i en la glàndula que hi ha darrere de l\'estómac.'},
- {id:'adh',n:'ADH',h:'Aquesta hormona ordena al ronyó retenir aigua: de quina glàndula del cervell surt i quan té set el cos?'},
- {id:'epo',n:'EPO',h:'És la que fabrica el ronyó i mana fabricar eritròcits: quan en caldrien més?'}];
+ {id:'adh',n:'ADH',h:'Ordena al ronyó retenir aigua: de quina glàndula del cervell surt i quan té set el cos?'},
+ {id:'epo',n:'EPO',h:'La fabrica el ronyó i mana fabricar eritròcits: quan en caldrien més?'}];
 var CT={
  g:{adr:'Glàndules suprarenals (damunt dels ronyons)',ins:'Pàncrees',adh:'Hipòfisi (glàndula del cervell)',epo:'Ronyó'},
  s:{adr:'Ensurt o cursa: cal reaccionar de pressa',ins:'Acabes de menjar i hi ha molta glucosa a la sang',adh:'Fa hores que no beus i has suat',epo:'Hi ha poc oxigen a la sang (pocs eritròcits)'},
  e:{adr:'El cor va més de pressa i la digestió es frena',ins:'Les cèl·lules agafen glucosa i en baixa la de la sang',adh:'El ronyó retén aigua: poca orina i fosca',epo:'La medul·la òssia fabrica més eritròcits'}};
 var CAT={g:'Glàndula',s:'Situació',e:'Efecte'};
 var tiles=[];['g','s','e'].forEach(function(c){CH.forEach(function(h){tiles.push({id:c+'_'+h.id,c:c,h:h.id,t:CT[c][h.id]});});});
-var DIS=[['g_tir','g','tir','Tiroide (al coll)'],['s_tir','s','tir','El cos necessita regular el ritme del metabolisme (l\'energia)'],['e_tir','e','tir','Les cèl·lules gasten l\'energia a un ritme més alt o més baix'],
- ['g_cor','g','cor','Glàndules suprarenals (damunt dels ronyons)'],['s_cor','s','cor','Estrès mantingut durant hores o dies'],['e_cor','e','cor','Posa a disposició glucosa a la sang i prepara el cos per a l\'estrès llarg']];
-DIS.forEach(function(d){tiles.push({id:d[0],c:d[1],h:d[2],t:d[3]});});
+[['g_tir','g','tir','Tiroide (al coll)'],['s_tir','s','tir','El cos necessita regular el ritme del metabolisme (l\'energia)'],['e_tir','e','tir','Les cèl·lules gasten l\'energia a un ritme més alt o més baix'],
+ ['g_cor','g','cor','Glàndules suprarenals (damunt dels ronyons)'],['s_cor','s','cor','Estrès mantingut durant hores o dies'],['e_cor','e','cor','Posa a disposició glucosa a la sang i prepara el cos per a l\'estrès llarg']
+].forEach(function(d){tiles.push({id:d[0],c:d[1],h:d[2],t:d[3]});});
 var tById={};tiles.forEach(function(t){tById[t.id]=t;});
 var cShuf=shuffle(tiles.map(function(t){return t.id;})),cSel=null,cMarks=null,cChecks=0;
 function placedIds(){var r=[];for(var k in S.c)r.push(S.c[k]);return r;}
@@ -754,11 +473,11 @@ function cPlace(key){
   else fb($('#cFb'),'warn','Primer toca una targeta i després la casella.');
 }
 $('#cChk').addEventListener('click',function(){
-  var total=12,right=0,m={},rowBad={};
-  CH.forEach(function(h){['g','s','e'].forEach(function(c){var k=h.id+'_'+c,t=S.c[k];var ok=t&&tById[t].t===CT[c][h.id];m[k]=!!ok;if(ok)right++;else rowBad[h.id]=1;});});
+  var right=0,m={},rowBad={};
   if(Object.keys(S.c).length<12){fb($('#cFb'),'warn','Encara et falten targetes per col·locar ('+Object.keys(S.c).length+' de 12).');return;}
+  CH.forEach(function(h){['g','s','e'].forEach(function(c){var k=h.id+'_'+c,t=S.c[k];var ok=t&&tById[t].t===CT[c][h.id];m[k]=!!ok;if(ok)right++;else rowBad[h.id]=1;});});
   cChecks++;cMarks=m;cRender();
-  if(right===12){fb($('#cFb'),'ok','Perfecte: les 4 hormones estan ben encaixades.');return;}
+  if(right===12){fb($('#cFb'),'ok','Perfecte: les 4 hormones estan ben encaixades. Copia la taula a la fitxa.');return;}
   var msg=right+' de 12 encertades. Les caselles vermelles no són correctes.';
   if(cChecks>=2){msg+=' Pistes: '+CH.filter(function(h){return rowBad[h.id];}).map(function(h){return h.n+' → '+h.h;}).join(' · ');}
   fb($('#cFb'),'bad',msg);
@@ -766,172 +485,56 @@ $('#cChk').addEventListener('click',function(){
 $('#cRst').addEventListener('click',function(){S.c={};cMarks=null;cChecks=0;cSel=null;$('#cFb').textContent='';save();cRender();});
 cRender();
 
-/* ================= SECTION 2 ================= */
-(function(){
-  var ROWS=[['Per on viatja l\'ordre',['Pel nervi (senyal elèctric)','Per la sang (missatger químic)']],
-    ['Quant triga a arribar',['Mil·lisegons','Segons o minuts']],
-    ['Quanta estona dura l\'efecte',['Molt poca estona','Molta més estona']]];
-  var T=$('#cmpT'),h='';
-  ROWS.forEach(function(r,i){h+='<tr><th>'+r[0]+'</th>';['n','h'].forEach(function(c){h+='<td id="td_c_'+i+c+'"><select id="cmp_'+i+c+'" data-save aria-label="'+esc(r[0])+' · via '+(c==='n'?'nerviosa':'hormonal')+'"><option value="">—</option><option value="0">'+esc(r[1][0])+'</option><option value="1">'+esc(r[1][1])+'</option></select></td>';});h+='</tr>';});
-  h+='<tr><th>Un exemple d\'aquesta sessió</th><td id="td_c_3n"><input type="text" id="cmp_3n" data-save aria-label="Exemple via nerviosa"></td><td id="td_c_3h"><input type="text" id="cmp_3h" data-save aria-label="Exemple via hormonal"></td></tr>';
-  T.insertAdjacentHTML('beforeend',h);
-  var tries=0;
-  $('#cmpChk').addEventListener('click',function(){
-    tries++;var bad=0,empty=0;
-    for(var i=0;i<3;i++){['n','h'].forEach(function(c){var el=$('#cmp_'+i+c),td=$('#td_c_'+i+c);if(el.value===''){empty++;td.className='';return;}
-      var exp=(c==='n'?'0':'1');if(el.value===exp)td.className='ok';else{td.className='bad';bad++;}});}
-    var ex=[['n','nervi|reflex|simpati|cor|regle|peu'],['h','adrenalina|adh|epo|insulina|hormon']];
-    var exOk=true;ex.forEach(function(e){var el=$('#cmp_3'+e[0]),td=$('#td_c_3'+e[0]);var ok=new RegExp(e[1]).test(norm(el.value));td.className=el.value?(ok?'ok':'bad'):'';if(!ok)exOk=false;});
-    var f=$('#cmpFb');
-    if(empty)fb(f,'warn','Encara hi ha caselles buides.');
-    else if(bad)fb(f,'bad','Hi ha '+bad+' caselles incorrectes (vermelles).'+(tries>=2?' Pista: la via nerviosa és la ràpida i elèctrica; la hormonal, la lenta i duradora.':''));
-    else if(!exOk)fb(f,'warn','La taula va bé. Per als exemples, pensa en el reflex o el nervi simpàtic (nerviosa) i en l\'adrenalina o l\'ADH (hormonal).');
-    else fb(f,'ok','Molt bé: ho tens tot.');
-  });
-  var chPlaying=false;
-  $('#chPlay').addEventListener('click',function(){
-    if(chPlaying)return;var r=$('#chrect');
-    if(reduce){r.setAttribute('width',370);return;}
-    chPlaying=true;var t0=null;r.setAttribute('width',0);
-    function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/5000);r.setAttribute('width',370*p);if(p<1)requestAnimationFrame(step);else chPlaying=false;}
-    requestAnimationFrame(step);});
-})();
-
-/* ================= SECTION 3 ================= */
-var KN=['Sang que arriba, amb residus','Ronyó','Sang que surt, ja filtrada','Urèter','Bufeta'];
-var KO=shuffle(KN);
-(function(){
-  var w=$('#kSel'),h='';
-  for(var i=0;i<5;i++){h+='<div style="display:flex;gap:8px;align-items:center;margin:4px 0" id="kr'+i+'"><b style="min-width:1.6em">'+(i+1)+'</b><select id="k'+(i+1)+'" data-save aria-label="Nom del número '+(i+1)+'"><option value="">—</option>'+KO.map(function(o){return '<option>'+esc(o)+'</option>';}).join('')+'</select></div>';}
-  w.innerHTML=h;
-  var KH=['Pensa en la sang que ARRIBA al ronyó: porta residus.','És l\'òrgan que filtra, entre les dues canonades.','La sang que SURT: ja no porta urea.','És el tub que baixa del ronyó.','La bossa on s\'acumula l\'orina.'];
-  var tries=0;
-  $('#kChk').addEventListener('click',function(){
-    tries++;var bad=[],empty=0;
-    for(var i=0;i<5;i++){var el=$('#k'+(i+1)),row=$('#kr'+i);if(!el.value){empty++;continue;}
-      var ok=el.value===KN[i];row.style.outline=ok?'2px solid var(--ok)':'2px solid var(--bad)';row.style.borderRadius='8px';if(!ok)bad.push(i);}
-    var f=$('#kFb');
-    if(empty)fb(f,'warn','Posa nom a tots els números.');
-    else if(!bad.length)fb(f,'ok','Tot correcte. Passa-ho al dibuix de la fitxa amb llapis.');
-    else fb(f,'bad',bad.length+' mal posats (vermell).'+(tries>=2?' '+bad.map(function(i){return (i+1)+': '+KH[i];}).join(' '):''));
-  });
-})();
-/* selective filter sim */
-var FL={step:0,coll:false};
-var PART=[['prot','#7b4fa0',4],['urea','#2b1a1a',6],['sals','#e0a82a',6],['glu','#d9532b',5],['aigua','#3b8fd9',18]];
-function dotsHTML(list){return list.map(function(p){var s='';for(var i=0;i<p[1];i++)s+='<span class="dot" title="'+p[0]+'" style="background:'+p[2]+'"></span>';return s;}).join('');}
+/* ================= FILTER ================= */
+var FL=S.fl||{step:0};FL.coll=false;
+var PART=[['prot','proteïnes','#7b4fa0',4],['urea','urea','#2b1a1a',6],['sals','sals','#e0a82a',6],['glu','glucosa','#d9532b',5],['aigua','aigua','#3b8fd9',18]];
+var ST1={prot:0,urea:6,sals:6,glu:5,aigua:18},ST2={prot:0,urea:6,sals:3,glu:0,aigua:1};
+var BL1={prot:4,urea:0,sals:0,glu:0,aigua:0},BL2={prot:4,urea:0,sals:3,glu:5,aigua:17};
+function dotsHTML(cnt){return PART.map(function(p){var s='';for(var i=0;i<(cnt[p[0]]||0);i++)s+='<span class="dot" title="'+p[1]+'" style="background:'+p[2]+'"></span>';return s;}).join('');}
 function flRender(){
-  var P={};PART.forEach(function(p){P[p[0]]=p[2];});
+  var tot={},none={};PART.forEach(function(p){tot[p[0]]=p[3];none[p[0]]=0;});
   var blood,urine;
-  if(FL.step===0){blood=PART.map(function(p){return [p[0],p[2],p[1]];});urine=[];}
-  else if(FL.step===1){blood=[['prot',4,'#7b4fa0']];urine=[['urea',6,'#2b1a1a'],['sals',6,'#e0a82a'],['glu',5,'#d9532b'],['aigua',18,'#3b8fd9']];}
-  else if(FL.coll){blood=[['prot',4,'#7b4fa0']];urine=[['urea',6,'#2b1a1a'],['sals',6,'#e0a82a'],['glu',5,'#d9532b'],['aigua',18,'#3b8fd9']];}
-  else{blood=[['prot',4,'#7b4fa0'],['sals',3,'#e0a82a'],['glu',5,'#d9532b'],['aigua',17,'#3b8fd9']];urine=[['urea',6,'#2b1a1a'],['sals',3,'#e0a82a'],['aigua',1,'#3b8fd9']];}
+  if(FL.step===0){blood=tot;urine=none;}
+  else if(FL.step===1){blood=BL1;urine=ST1;}
+  else if(FL.coll){blood=BL1;urine=ST1;}
+  else{blood=BL2;urine=ST2;}
   $('#dBlood').innerHTML=dotsHTML(blood);$('#dUrine').innerHTML=dotsHTML(urine);
   $('#dTitle').textContent=FL.step===0?'Filtrat / orina':(FL.step===1?'Filtrat (encara no és orina)':(FL.coll?'«Orina» d\'un colador':'Orina'));
   var st=$('#flSt');
   if(FL.step===0)st.textContent='Pas 0: tota la sang és a l\'esquerra.';
-  else if(FL.step===1)st.textContent='Pas 1: passa tot el que és petit (urea, sals, glucosa, aigua). Les proteïnes són massa grosses i es queden a la sang.';
-  else if(FL.coll)st.textContent='Si fos un colador, l\'orina s\'enduria TOTA la glucosa i gairebé tota l\'aigua. Quedaries sense energia i deshidratat/ada.';
-  else st.textContent='Pas 2: el ronyó recupera la glucosa, gairebé tota l\'aigua i part de les sals. A l\'orina queda sobretot urea, i poca aigua.';
+  else if(FL.step===1)st.textContent='Pas 1: passa tot el que és petit. Les proteïnes són massa grosses i es queden a la sang.';
+  else if(FL.coll)st.textContent='Un colador deixa sortir tot el que és petit: l\'orina s\'enduria TOTA la glucosa i gairebé tota l\'aigua.';
+  else st.textContent='Pas 2: el ronyó recupera la glucosa, gairebé tota l\'aigua i part de les sals.';
   $('#fl2').disabled=FL.step!==1;
+  var h='<tr><th></th><th>Sang (abans)</th><th>Filtrat (pas 1)</th><th>Orina (pas 2)</th></tr>';
+  PART.forEach(function(p){var k=p[0];h+='<tr><th>'+p[1]+'</th><td>'+p[3]+'</td><td>'+(FL.step>=1?ST1[k]:'')+'</td><td>'+(FL.step>=2&&!FL.coll?ST2[k]:'')+'</td></tr>';});
+  $('#flT').innerHTML=h;
 }
-$('#fl1').addEventListener('click',function(){FL.step=1;FL.coll=false;flRender();});
-$('#fl2').addEventListener('click',function(){FL.step=2;FL.coll=false;flRender();});
+function flSet(step,coll){FL.step=step;FL.coll=coll;S.fl={step:coll?1:step};save();flRender();}
+$('#fl1').addEventListener('click',function(){flSet(1,false);});
+$('#fl2').addEventListener('click',function(){flSet(2,false);});
 $('#flC').addEventListener('click',function(){FL.step=2;FL.coll=true;flRender();});
-$('#flR').addEventListener('click',function(){FL.step=0;FL.coll=false;flRender();});
+$('#flR').addEventListener('click',function(){flSet(0,false);});
 flRender();
-/* respiració */
-$('#respChk').addEventListener('click',function(){
-  var a=norm($('#resp1').value).replace(/[\s₂2]/g,''),b=norm($('#resp2').value).replace(/[\s₂2]/g,'');
-  var f=$('#respFb'),set=[a,b];
-  var hasC=set.some(function(x){return x==='co'||x==='diooxiddecarboni'||x==='diòxidcarboni'||/carboni/.test(x);}),hasW=set.some(function(x){return x==='h2o'||x==='ho'||x==='aigua';});
-  if(hasC&&hasW)fb(f,'ok','Correcte: glucosa + O₂ → CO₂ + H₂O + ATP. El CO₂ es fabrica dins les cèl·lules.');
-  else if(!a&&!b)fb(f,'warn','Escriu els dos productes.');
-  else fb(f,'warn','Pista: un és el gas que expulses pels pulmons i l\'altre és un líquid que ja coneixes.');
-});
-/* ADH slider */
-function wUpd(){
-  var v=+$('#wSlider').value,adh=100-v,vol=Math.round(0.3+v*0.025*10)/10;
-  // color from dark amber (v=0) to pale (v=100)
-  var r=Math.round(190+(250-190)*v/100),g=Math.round(120+(240-120)*v/100),b=Math.round(20+(190-20)*v/100);
-  $('#urineFill').setAttribute('fill','rgb('+r+','+g+','+b+')');
-  var fillH=Math.round(20+v*0.4);$('#urineFill').setAttribute('d','M'+(26)+' '+(116-fillH)+'h68l-6 '+fillH+'H32z');
-  var txt=adh>66?'Al cos li falta aigua → la hipòfisi allibera molta ADH → el ronyó retén aigua → poca orina i fosca.'
-    :adh<34?'Al cos li sobra aigua → baixa l\'ADH → el ronyó deixa marxar aigua → molta orina i clara.'
-    :'Aigua en equilibri → ADH moderada → orina de color i quantitat normals.';
-  $('#wTxt').innerHTML='<b>ADH:</b> '+(adh>66?'alta':adh<34?'baixa':'mitjana')+'<br><b>Orina:</b> '+(v<34?'poca i fosca':v>66?'molta i clara':'normal')+'<br><span class="muted">'+txt+'</span>';
-}
-$('#wSlider').addEventListener('input',wUpd);
-$('#wJ').addEventListener('click',function(){$('#wSlider').value=92;wUpd();});
-$('#wP').addEventListener('click',function(){$('#wSlider').value=8;wUpd();});
-wUpd();
-/* EPO order */
-var EITEMS=[{id:'1',t:'El ronyó malalt fabrica poca EPO'},{id:'2',t:'La medul·la òssia rep poca ordre i fabrica pocs eritròcits'},{id:'3',t:'Hi ha poca hemoglobina a la sang (anèmia)'},{id:'4',t:'Arriba poc oxigen als músculs i als òrgans'},{id:'5',t:'Cansament'}];
-Order($('#ordE'),EITEMS,'E');
-
-/* ================= SECTION 4 ================= */
-(function(){
-  var OP=['—','La hipòfisi allibera ADH','El ronyó retén aigua i fas poca orina','Baixa l\'ADH i el ronyó deixa de retenir aigua','Augmenta la suor','El cor va més de pressa'];
-  ['b1','b2','b3'].forEach(function(id){$('#'+id).innerHTML=OP.map(function(o,i){return '<option value="'+(i?o:'')+'">'+esc(o)+'</option>';}).join('');});
-  var ANS={b1:OP[1],b2:OP[2],b3:OP[3]},tries=0;
-  $('#bucChk').addEventListener('click',function(){
-    tries++;var bad=0,empty=0;
-    for(var k in ANS){var el=$('#'+k);if(!el.value){empty++;el.style.outline='';continue;}if(el.value===ANS[k])el.style.outline='2px solid var(--ok)';else{el.style.outline='2px solid var(--bad)';bad++;}}
-    var f=$('#bucFb');
-    if(empty)fb(f,'warn','Completa els tres buits.');
-    else if(bad)fb(f,'bad',bad+' buits no són correctes.'+(tries>=2?' Pista: primer actua la glàndula del cervell, després el ronyó, i al final el senyal es calma perquè ja no cal.':''));
-    else fb(f,'ok','Bucle correcte: el resultat apaga la causa.');
-  });
-  var OBJ=['Distingeixo la via nerviosa (elèctrica, mil·lisegons) de la via hormonal (per la sang, minuts) amb un exemple de cadascuna.','Explico per quina raó la freqüència cardíaca de la Mercè ja pujava ABANS d\'arrencar (nervi simpàtic i adrenalina).','Descric com el ronyó filtra la sang i forma l\'orina (ronyó → urèter → bufeta) i per quina raó és un filtre selectiu.','Relaciono les dues portes de sortida dels residus: els pulmons (CO₂) i el ronyó (urea, sals i aigua).','Interpreto la urea i la creatinina d\'una analítica i connecto l\'EPO que fabrica el ronyó amb l\'anèmia.'];
-  $('#objs').innerHTML=OBJ.map(function(o,i){return '<label style="display:flex;gap:10px;align-items:flex-start;margin:8px 0;font-weight:400"><input type="checkbox" id="obj'+i+'" data-save style="width:22px;height:22px;margin-top:3px"> <span>'+esc(o)+'</span></label>';}).join('');
-})();
 
 /* ================= SUMMARY ================= */
-function gf(id){var v=(S.f[id]||'').toString().trim();return v||'—';}
 function buildSummary(){
   var L=[];
-  L.push('SESSIÓ 6 · El sistema de control i l\'equilibri intern');L.push('');
-  L.push('0 · IDEES PRÈVIES');
-  L.push('Hipòtesi (per on surten urea, sals i aigua): '+(S.chips.length?S.chips.join(', '):'—'));
-  if(S.f.q0_dib)L.push('Esbós: '+gf('q0_dib'));
-  L.push('① '+gf('q0_1'));L.push('② '+gf('q0_2'));L.push('③ '+gf('q0_3'));L.push('');
-  L.push('1 · TRES ESTACIONS');L.push('Estació A — Test del regle (cm → ms)');
+  L.push('SESSIÓ 6 · RESULTATS');L.push('');
+  L.push('ESTACIÓ A — Regle (cm → ms)');
   L.push('Prova | Dominant cm | Dominant ms | Altra mà cm | Altra mà ms');
-  for(var i=0;i<5;i++)L.push('Prova '+(i+1)+' | '+(S.a.dom[i]||'—')+' | '+gf('a_dom_ms_'+(i+1))+' | '+(S.a.oth[i]||'—')+' | '+gf('a_oth_ms_'+(i+1)));
-  L.push('① '+gf('qA1'));L.push('② '+gf('qA2'));
-  if(S.f.a_rep_ms)L.push('Repte A (12 cm → ms): '+gf('a_rep_ms'));
-  L.push('');
-  L.push('Estació B — Arc reflex');
+  for(var i=0;i<5;i++)L.push('Prova '+(i+1)+' | '+(S.a.dom[i]||'—')+' | '+(ms('dom',i)||'—')+' | '+(S.a.oth[i]||'—')+' | '+(ms('oth',i)||'—'));
+  L.push('Mitjana (ms) | | '+(S.a.dom.length?avg('dom'):'—')+' | | '+(S.a.oth.length?avg('oth'):'—'));L.push('');
+  L.push('ESTACIÓ B — Arc reflex');
   var ord=(S.ord.B||[]).map(function(id){return BITEMS.filter(function(x){return x.id===id;})[0].t;});
   L.push('Ordre: '+(ord.length?ord.map(function(t,i){return (i+1)+'. '+t;}).join(' → '):'—'));
-  L.push('Avantatge d\'una via sense cervell: '+gf('qB1'));
-  if(S.f.b_rep)L.push('Repte A: '+gf('b_rep'));
-  L.push('');
-  L.push('Estació C — Hormones');L.push('Hormona | Glàndula | Situació | Efecte');
+  L.push('Amb cervell: '+(seenWith?'la mà es retira i el cervell ho nota després':'—'));
+  L.push('Sense cervell: '+(seenWithout?'la mà es retira igualment':'—'));L.push('');
+  L.push('ESTACIÓ C — Hormones');L.push('Hormona | Glàndula | Situació | Efecte');
   CH.forEach(function(h){function g(c){var id=S.c[h.id+'_'+c];return id?tById[id].t:'—';}L.push(h.n+' | '+g('g')+' | '+g('s')+' | '+g('e'));});
   L.push('');
-  L.push('2 · DUES VIES DE CONTROL');L.push('Fila | Via NERVIOSA | Via HORMONAL');
-  var R=[['Per on viatja',['Pel nervi (senyal elèctric)','Per la sang (missatger químic)']],['Quant triga',['Mil·lisegons','Segons o minuts']],['Quanta estona dura',['Molt poca estona','Molta més estona']]];
-  R.forEach(function(r,i){function g(c){var v=S.f['cmp_'+i+c];return v===''||v===undefined?'—':r[1][+v];}L.push(r[0]+' | '+g('n')+' | '+g('h'));});
-  L.push('Exemple | '+gf('cmp_3n')+' | '+gf('cmp_3h'));
-  L.push('Mercè: '+gf('q2M'));L.push('');
-  L.push('3 · EL SISTEMA EXCRETOR');
-  L.push('Dibuix ①–⑤: '+[1,2,3,4,5].map(function(n){return n+' '+gf('k'+n);}).join(' · '));
-  L.push('② Filtre selectiu: '+gf('q3_2'));
-  if(S.f.c_rep)L.push('Repte A: '+gf('c_rep'));
-  L.push('Connecta · ① Reacció: glucosa + O₂ → '+gf('resp1')+' + '+gf('resp2')+' + ATP');
-  L.push('Connecta · ① D\'on surt el CO₂: '+gf('q3c1'));L.push('Connecta · ② '+gf('q3c2'));
-  L.push('Dos casos, dues orines (Júlia i Pau): '+gf('q3_JP'));
-  var eo=(S.ord.E||[]).map(function(id){return EITEMS.filter(function(x){return x.id===id;})[0].t;});
-  L.push('Cadena EPO: '+(eo.length?eo.join(' → '):'—'));
-  L.push('Ronyó i anèmia: '+gf('q3_EPO'));L.push('');
-  L.push('4 · INTEGRACIÓ');
-  L.push('Bucle de l\'aigua: Bec poca aigua → '+gf('b1')+' → '+gf('b2')+' → l\'aigua de la sang torna a la normalitat → '+gf('b3'));
-  L.push('Quin sistema de control i per què: '+gf('q4_1'));L.push('Cas Marc Fontana: '+gf('q4_2'));L.push('Reflexió científica (EPO): '+gf('q4_3'));
-  var oc=[];for(var j=0;j<5;j++)if(S.f['obj'+j])oc.push(j+1);
-  L.push('Objectius assolits: '+(oc.length?oc.join(', ')+' de 5':'—'));
-  L.push('La meva hipòtesi inicial: '+gf('q4_hip'));L.push('Encara em pregunto: '+gf('q4_pre'));
+  L.push('FILTRE DEL RONYÓ (punts)');L.push('Partícula | Sang | Filtrat (pas 1) | Orina (pas 2)');
+  PART.forEach(function(p){var k=p[0];L.push(p[1]+' | '+p[3]+' | '+(FL.step>=1?ST1[k]:'—')+' | '+(FL.step>=2&&!FL.coll?ST2[k]:'—'));});
   return L.join('\n');
 }
 function updSum(){$('#sumOut').textContent=buildSummary();}
@@ -943,10 +546,6 @@ $('#copyBtn').addEventListener('click',function(){
 });
 $('#resetAll').addEventListener('click',function(){var b=this;if(!b.dataset.sure){b.dataset.sure='1';b.textContent='Segur? Torna a prémer';setTimeout(function(){delete b.dataset.sure;b.textContent='Esborra tot el progrés';},3500);return;}
   try{localStorage.removeItem(KEY);}catch(e){}location.reload();});
-
-/* ---------- init ---------- */
-setLevel(S.level||'b');
-renderA();bindFields();marks();
 })();
 </script>
 </body>
