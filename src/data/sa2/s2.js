@@ -96,9 +96,9 @@ export const sa2s2 = {
   ],
 
   graphicResources: [
-    { id: "Fig.1", title: "L'aparell digestiu humà complet", src: "/images/sa2-aparell-digestiu.png", note: "El recorregut del menjar: boca → esòfag → estómac → intestí prim → intestí gros → anus, amb les glàndules (fetge, pàncrees) que hi aboquen sucs." },
-    { id: "Fig.2", title: "Per què s'absorbeix a l'intestí prim", src: "/images/sa2-vellositats.png", note: "Les vellositats i microvellositats multipliquen la superfície fins a uns 30–40 m². Cada vellositat té capil·lars (glucosa, aminoàcids) i vasos limfàtics (greixos)." },
-    { id: "Fig.3", title: "L'escala de Bristol", src: "/images/sa2-escala-bristol.png", note: "Classifica les femtes en 7 tipus segons el temps de trànsit intestinal. La fas servir a l'apartat 5 del full." }
+    { id: "Fig.1", apartat: "1", inExplora: true, caption: "Comprova el teu apartat 1: el recorregut del menjar de la boca a l'anus i les glàndules (fetge, pàncrees) que hi aboquen sucs.", title: "L'aparell digestiu humà complet", src: "/images/sa2-aparell-digestiu.png", note: "El recorregut del menjar: boca → esòfag → estómac → intestí prim → intestí gros → anus, amb les glàndules (fetge, pàncrees) que hi aboquen sucs." },
+    { id: "Fig.2", apartat: "3", before: true, title: "Per què s'absorbeix a l'intestí prim", src: "/images/sa2-vellositats.png", note: "Les vellositats i microvellositats multipliquen la superfície fins a uns 30–40 m². Cada vellositat té capil·lars (glucosa, aminoàcids) i vasos limfàtics (greixos)." },
+    { id: "Fig.3", apartat: "5", title: "L'escala de Bristol", src: "/images/sa2-escala-bristol.png", note: "Classifica les femtes en 7 tipus segons el temps de trànsit intestinal. La fas servir a l'apartat 5 del full." }
   ],
 
   fitxaUrl: { A: "/fitxes/sa2-s2-fitxa-A.html", B: "/fitxes/sa2-s2-fitxa-B.html", C: "/fitxes/sa2-s2-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s2-teoria.pdf",

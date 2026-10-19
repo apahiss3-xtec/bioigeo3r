@@ -166,7 +166,11 @@ export default function SessionPage() {
   const graphicsAfter = (n) => graphicsByApartat(n).filter((g) => !g.before)
   // Apartats de teoria (2, 3, …): exclou l'1 (va dins d'Explora) i ordena.
   const theoryApartatNums = hasApartats
-    ? [...new Set(session.theoryPoints.filter((p) => p.apartat && p.apartat !== '1').map((p) => p.apartat))].sort()
+    ? [...new Set([
+        ...session.theoryPoints.filter((p) => p.apartat && p.apartat !== '1').map((p) => p.apartat),
+        // Apartats que només tenen figura (p. ex. SA2·S2 apartat 5: escala de Bristol)
+        ...(session.graphicResources || []).filter((g) => g.apartat && g.apartat !== '1' && !g.inViz).map((g) => g.apartat),
+      ])].sort()
     : []
   const exploreEpistemic = hasApartats ? theoryByApartat('1') : []
   const looseGraphics = hasApartats
@@ -446,6 +450,15 @@ export default function SessionPage() {
                 {session.exploreNote && (
                   <p className="mt-5 text-sm italic text-[var(--muted)]">{session.exploreNote}</p>
                 )}
+              </div>
+            )}
+
+            {/* Figures de l'apartat 1 que han d'aparèixer a l'Explora (opt-in: `inExplora`) */}
+            {graphicsByApartat('1').filter((g) => g.inExplora).length > 0 && (
+              <div className="mt-6 grid gap-6">
+                {graphicsByApartat('1').filter((g) => g.inExplora).map((g) => (
+                  <GraphicFigure key={g.id} g={g} />
+                ))}
               </div>
             )}
 
