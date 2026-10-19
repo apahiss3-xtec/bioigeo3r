@@ -157,7 +157,9 @@ export default function SessionPage() {
   // Una sessió segueix l'estructura per apartats si la teoria hi està vinculada.
   const hasApartats = session.theoryPoints?.some((p) => p.apartat)
   const theoryByApartat = (n) => session.theoryPoints?.filter((p) => p.apartat === n) || []
-  const graphicsByApartat = (n) => session.graphicResources?.filter((g) => g.apartat === n) || []
+  // `inViz`: la figura ja surt dins l'interactiu d'un punt de teoria → al web
+  // no es repeteix (el PDF de teoria sí que la mostra, estàtica).
+  const graphicsByApartat = (n) => session.graphicResources?.filter((g) => g.apartat === n && !g.inViz) || []
   // Gràfiques que han d'anar ABANS de la teoria de l'apartat (ordre lògic:
   // p. ex. mostrar els nivells d'organització abans de justificar res).
   const graphicsBefore = (n) => graphicsByApartat(n).filter((g) => g.before)

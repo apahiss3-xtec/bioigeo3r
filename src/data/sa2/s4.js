@@ -86,14 +86,15 @@ export const sa2s4 = {
 
   theoryPoints: [
     { id: "t5", apartat: "1", heading: "Harvey (1628): la demostració matemàtica", text: "Harvey va deduir la ==circulació== sense microscopi, únicament amb ==càlculs de volum==. La matemàtica com a eina científica, 30 anys abans de veure els ==capil·lars==.", type: "epistemic", badge: "🔬 Com funciona la ciència" },
-    { id: "t1", apartat: "2", heading: "Per quina raó calen ==4 cavitats==", text: "==Petita circulació|b== (pulmons): ==pressió baixa== → no trenca els ==alvèols==. ==Gran circulació|o== (cos): ==pressió alta== → arriba al peu. Calen dues bombes separades. El ==septe== impedeix que es barregin.", type: "concept" },
-    { id: "t2", apartat: "2", heading: "Arquitectura del ==cor==", text: "4 cavitats = ==2 aurícules== (reben) + ==2 ventricles== (bomben). ==Ventricle esquerre==: paret ==3× més gruixuda|o== perquè ha de bombar a tot el cos (pressió alta). ==Ventricle dret==: paret prima, pressió baixa cap als pulmons.", type: "concept" },
+    { id: "t1", apartat: "2", heading: "Per quina raó calen ==4 cavitats==", text: "==Petita circulació|b== (pulmons): ==pressió baixa== → no trenca els ==alvèols==. ==Gran circulació|o== (cos): ==pressió alta== → arriba al peu. Calen dues bombes separades. El ==septe== impedeix que es barregin.", type: "concept", viz: "cor-pressions" },
+    { id: "t2", apartat: "2", heading: "Arquitectura del ==cor==", text: "4 cavitats = ==2 aurícules== (reben) + ==2 ventricles== (bomben). ==Ventricle esquerre==: paret ==3× més gruixuda|o== perquè ha de bombar a tot el cos (pressió alta). ==Ventricle dret==: paret prima, pressió baixa cap als pulmons.", type: "concept", viz: "cor-cavitats" },
     { id: "t3", apartat: "3", heading: "El cor necessita la seva pròpia sang", text: "Les ==artèries coronàries|o== porten sang oxigenada al ==múscul cardíac (miocardi)==. Un ==infart|r== és l'==obstrucció d'una coronària|r== → el miocardi no rep O₂ → ==mort cel·lular|r==. Per quina raó és tan greu: el cor no pot aturar-se.", type: "concept", video: "/animacions/sa2-s4-t3.mp4" },
     { id: "t4", apartat: "3", heading: "Connexió SA1: ==miocardi== i ==mitocondris==", text: "Les cèl·lules del ==miocardi== són musculars i contenen molts ==mitocondris== → necessiten molt ==ATP|g== → molt ==O₂|b== → per quina raó el cor es ressent tant amb l'==anèmia|r==.", type: "transfer", badge: "🔗 Connexió SA1" }
   ],
 
   graphicResources: [
-    { id: "Fig.1", title: "El cor humà etiquetat (secció)", src: "/images/sa2-cor-etiquetat.png", note: "Aurícules (reben) i ventricles (bomben), les vàlvules i els grans vasos. Localitza-ho mentre disseccionas i compara-ho amb el cor real." },
+    { id: "Fig.0", apartat: "2", inViz: "t1", title: "La doble circulació", src: "/images/sa2-circulacio-doble.png", note: "Petita circulació (ventricle dret → pulmons, pressió baixa) i gran circulació (ventricle esquerre → cos, pressió alta)." },
+    { id: "Fig.1", apartat: "2", inViz: "t2", title: "El cor humà etiquetat (secció)", src: "/images/sa2-cor-etiquetat.png", note: "Aurícules (reben) i ventricles (bomben), les vàlvules i els grans vasos. Localitza-ho mentre disseccionas i compara-ho amb el cor real." },
     { id: "Fig.2", title: "El cor mut — per repassar", src: "/images/sa2-cor-mut.png", note: "El mateix diagrama sense noms: posa-hi les etiquetes de memòria abans de l'exit tiquet." }
   ],
 

@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion'
 import T from '../translate/T.jsx'
 import { asset } from '../utils.js'
+import CorPressions from './viz/CorPressions.jsx'
+import CorCavitats from './viz/CorCavitats.jsx'
+
+// Visualitzacions interactives per punt de teoria (`viz` a les dades).
+const VIZ = { 'cor-pressions': CorPressions, 'cor-cavitats': CorCavitats }
 
 // Targeta de teoria. El tipus decideix l'estil:
 // keyequation → destacada amb fórmula; epistemic/preview → amb badge;
@@ -78,6 +83,8 @@ export default function TheoryCard({ point, index }) {
           {point.image && !point.imageWide && figure}
         </div>
       </div>
+      {/* viz: interactiu a tot l'ample de la targeta */}
+      {point.viz && VIZ[point.viz] && (() => { const Viz = VIZ[point.viz]; return <Viz /> })()}
       {/* imageWide: imatge amb text a dins → a tot l'ample de la targeta (no a la columna del text) */}
       {point.image && point.imageWide && figure}
     </motion.article>

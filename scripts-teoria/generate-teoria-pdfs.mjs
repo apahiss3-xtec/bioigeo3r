@@ -344,11 +344,11 @@ function buildHtml (session) {
 }
 
 const SA_SESSIONS = { sa1: 4, sa2: 7, sa3: 5, sa4: 4 }
-// Ús: node generate-teoria-pdfs.mjs [sa3 sa4 ...]  (sense arguments: totes)
+// Ús: node generate-teoria-pdfs.mjs [sa3 sa4 sa2/s4 ...]  (sense arguments: totes)
 const only = process.argv.slice(2)
 const SESSIONS = Object.entries(SA_SESSIONS)
-  .filter(([saId]) => !only.length || only.includes(saId))
   .flatMap(([saId, n]) => Array.from({ length: n }, (_, i) => ({ saId, id: `s${i + 1}` })))
+  .filter(({ saId, id }) => !only.length || only.includes(saId) || only.includes(`${saId}/${id}`))
 
 async function main () {
   const browser = await chromium.launch()
