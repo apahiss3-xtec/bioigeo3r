@@ -112,6 +112,25 @@ span[contenteditable]{display:inline-block;}
 .crit-bar{display:flex;align-items:baseline;gap:6px;padding:2px 12px;background:#fff;border-bottom:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:8px;color:var(--muted);line-height:1.35;}
 .crit-bar b{font-size:9px;color:var(--purple-ink);letter-spacing:.02em;}
 .crit-bar .ck{font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;}
+
+/* ── LLEGIBILITAT: pistes >=12.5px i gris fosc ── */
+.q-hint{font-size:12.5px!important;color:#333!important;font-style:normal!important;line-height:1.35!important}
+.voc dd,.voc dt,.chip{font-size:12.5px!important;line-height:1.3!important}
+.voc dd{color:#333!important}
+.vk-title,.vd-title{font-size:10px!important;color:#1f5a4d!important}
+.q-tag{font-size:10px!important;color:#444!important}
+.q-tag.real{color:#a8501d!important}.q-tag.repte{color:#6b4d00!important}
+.eh-top .t-sa{font-size:10px!important;color:#444!important}
+.eh-top .t-note{font-size:12.5px!important;color:#444!important}
+.id-bar .aval{font-size:11px!important;color:#444!important}
+.crit-bar{font-size:11px!important;color:#444!important}.crit-bar b{font-size:12.5px!important}
+.cut-line span{font-size:11px!important;color:#444!important}
+.cami{display:flex;flex-wrap:wrap;gap:4px 6px;margin-left:27px;align-items:center}
+.pas{display:inline-flex;align-items:center;gap:4px;border:1.5px solid var(--rule-dark);border-radius:7px;padding:1px 6px 1px 3px;background:#fff;font-size:13px;color:var(--ink-2)}
+.pas .nn{display:inline-block;min-width:22px;height:20px;border:1.5px solid var(--purple);border-radius:5px;text-align:center;font-weight:900;color:var(--purple-ink);background:#fff;line-height:17px}
+.opt{display:flex;gap:6px;align-items:center;margin:1px 0 1px 27px;font-size:13px}
+.opt .bx{flex:0 0 14px;height:14px;border:1.5px solid var(--purple);border-radius:3px;background:#fff}
+.dib{margin:3px 0 0 27px;height:70px;border:1.5px dashed var(--purple-light);border-radius:6px;background:#fff;display:flex;align-items:flex-start;padding:2px 6px;font-size:12.5px;color:#444}
 </style>
 </head>
 <body>
@@ -141,7 +160,7 @@ span[contenteditable]{display:inline-block;}
       <div class="eh-main">
 
         <div class="eh-top">
-          <span class="t-title" contenteditable="true">Del plat al mitocondri</span>
+          <span class="t-title" contenteditable="true">El viatge de la glucosa</span>
           <span class="t-sa" contenteditable="true">El nostre cos en marxa · Sessió 2 de 7 · El sistema digestiu</span>
           <span class="t-note" contenteditable="true">l'únic full que recullo</span>
         </div>
@@ -157,77 +176,34 @@ span[contenteditable]{display:inline-block;}
 
         <div class="exit-body">
 
-          <!-- ── DUA: paraules clau (costat) + definicions en CATALÀ ── -->
           <div class="voc-box deletable">
             <div class="del-btn" onclick="deleteEl(this)">✕</div>
             <div class="voc-keys">
               <span class="vk-title">🧰 Paraules</span>
-              <span class="chip">àcid</span>
-              <span class="chip">bilis</span>
-              <span class="chip">vellositats</span>
-              <span class="chip">glucosa</span>
+              <span class="chip">glucosa</span><span class="chip">capil·lar</span><span class="chip">vena porta</span><span class="chip">mitocondri</span>
             </div>
             <div class="voc-defs">
               <span class="vd-title">Què volen dir</span>
               <dl class="voc">
-                <dt>absorbir</dt><dd>fer passar els nutrients de l'intestí cap a la sang.</dd>
-                <dt>vellositats</dt><dd>plecs petits de l'intestí prim que donen molta superfície.</dd>
-                <dt>bilis</dt><dd>líquid del fetge que trenca el greix en gotetes petites.</dd>
+                <dt>capil·lar</dt><dd>vas sanguini finíssim, de paret d'una sola cèl·lula.</dd>
+                <dt>vena porta</dt><dd>vena que du la sang de l'intestí cap al fetge.</dd>
+                <dt>vellositat</dt><dd>plec petit de l'intestí prim que dona molta superfície.</dd>
               </dl>
             </div>
           </div>
-
-          <!-- P1: recorregut + òrgans (OA2) -->
-          <div class="q deletable">
+<div class="q deletable">
             <div class="del-btn" onclick="deleteEl(this)">✕</div>
-            <div class="q-head">
-              <div class="q-num">1</div>
-              <div class="q-text"><span contenteditable="true">Escriu, <strong>en ordre</strong>, per on passa el menjar. Nomena com a mínim <strong>4 òrgans</strong> del tub digestiu.</span><span class="q-tag">concepte</span></div>
-            </div>
-            <div class="wline" contenteditable="true"></div>
+            <div class="q-head"><div class="q-num">1</div><div class="q-text"><span contenteditable="true"><strong>Ordena el camí</strong> d'una molècula de glucosa del pa fins al múscul de la Mercè (escriu 1 a 5 a cada casella).</span><span class="q-tag ">ordenar</span></div></div>
+            <div class="q-hint" contenteditable="true">Pista: comença a l'intestí prim i acaba a la central d'energia de la cèl·lula.</div><div class="cami"><span class="pas"><span class="nn" contenteditable="true"></span>capil·lar de la vellositat</span><span class="pas"><span class="nn" contenteditable="true"></span>mitocondri de la cèl·lula (s'obté ATP)</span><span class="pas"><span class="nn" contenteditable="true"></span>intestí prim: la glucosa travessa la paret</span><span class="pas"><span class="nn" contenteditable="true"></span>sang → cor → artèries fins al múscul</span><span class="pas"><span class="nn" contenteditable="true"></span>vena porta → fetge</span></div>
           </div>
-
-          <!-- P2: sucs digestius (OA2) -->
-          <div class="q deletable">
+<div class="q deletable">
             <div class="del-btn" onclick="deleteEl(this)">✕</div>
-            <div class="q-head">
-              <div class="q-num">2</div>
-              <div class="q-text"><span contenteditable="true">Escriu amb les teves paraules <strong>què fa</strong> cadascun d'aquests dos sucs digestius:</span></div>
-            </div>
-            <div class="mini3">
-              <div class="lab">🧪 Àcid de l'estómac</div><div class="mini-line" contenteditable="true"></div>
-              <div class="lab">🟡 Bilis (fetge)</div><div class="mini-line" contenteditable="true"></div>
-            </div>
+            <div class="q-head"><div class="q-num">2</div><div class="q-text"><span contenteditable="true">Una molècula de glucosa és dins l'intestí prim. <strong>Per on arriba a la sang?</strong> Marca'n un i digues per què.</span><span class="q-tag ">concepte</span></div></div>
+            <div class="q-hint" contenteditable="true">Pista: la paret de la vellositat i la del capil·lar són tan primes que les molècules petites com la glucosa hi passen.</div><div class="opt"><span class="bx"></span>Travessa la paret i entra al capil·lar sanguini</div><div class="opt"><span class="bx"></span>Es queda a l'intestí i surt amb la femta</div><div class="wline" contenteditable="true" style="width:calc(100% - 27px);margin-left:27px"></div>
           </div>
-
-          <!-- P3: per què s'absorbeix a l'intestí prim (OA2) -->
-          <div class="q deletable">
+<div class="q deletable" style="margin-bottom:2px">
             <div class="del-btn" onclick="deleteEl(this)">✕</div>
-            <div class="q-head">
-              <div class="q-num">3</div>
-              <div class="q-text"><span contenteditable="true">Per quina raó els nutrients <strong>s'absorbeixen a l'intestí prim</strong> i no a l'estómac?</span><span class="q-tag">concepte</span></div>
-            </div>
-            <div class="q-hint" contenteditable="true">Pista: pensa en la longitud i en les vellositats de l'intestí prim.</div>
-            <div class="wline" contenteditable="true"></div>
-          </div>
-
-          <!-- P4: vida real — glucosa → mitocondri (OA2) -->
-          <div class="q deletable">
-            <div class="del-btn" onclick="deleteEl(this)">✕</div>
-            <div class="q-head">
-              <div class="q-num">4</div>
-              <div class="q-text"><span contenteditable="true">La <strong>Mercè</strong> corre una cursa. La <strong>glucosa</strong> que ha absorbit a l'intestí, <strong>on s'utilitza dins la cèl·lula</strong> per donar-li energia? (recorda la SA1)</span><span class="q-tag real">vida real</span></div>
-            </div>
-            <div class="wline" contenteditable="true"></div>
-          </div>
-
-          <!-- P5 ⭐ repte -->
-          <div class="q deletable" style="margin-bottom:2px">
-            <div class="del-btn" onclick="deleteEl(this)">✕</div>
-            <div class="q-head">
-              <div class="q-num star">★</div>
-              <div class="q-text"><span contenteditable="true">L'Aya diu: <em>«Si mastego bé, ja no cal que l'estómac ni l'intestí treballin.»</em> Hi estàs d'acord? Explica per què, parlant del que passa <strong>després</strong> de la boca.</span><span class="q-tag repte">repte</span></div>
-            </div>
+            <div class="q-head"><div class="q-num star">★</div><div class="q-text"><span contenteditable="true">L'Aya diu: <em>«La glucosa del pa passa de l'estómac directament al múscul.»</em> Hi estàs d'acord? Argumenta-ho: per <strong>on</strong> passa realment i <strong>per què</strong> s'absorbeix a l'intestí prim.</span><span class="q-tag repte">repte</span></div></div>
             <div class="wline" contenteditable="true"></div>
           </div>
 

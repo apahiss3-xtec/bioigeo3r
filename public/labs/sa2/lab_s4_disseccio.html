@@ -205,13 +205,12 @@ table.res th{background:var(--soft);font-family:"Fira Sans Extra Condensed",sans
 </div>
 
 <script type="importmap">
-{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+{"imports":{"three":"./lib/three.module.js","three/addons/":"./lib/addons/"}}
 </script>
 <script type="module">
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';
 
 const KEY='lab_s4_disseccio_v2';
 let S={};try{S=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){S={}}
@@ -253,9 +252,10 @@ const parts={};const mats=[];
 function groupOf(n){if(n.startsWith('paret'))return 'miocardi';if(/aorta|arteries_pulm/.test(n))return 'arteria';if(/cava|venes_pulm/.test(n))return 'vena';
   if(/coronaria|circumflexa|marginal/.test(n))return 'coronaria';if(/si_coronari|vena_cardiaca/.test(n))return 'vena_cor';if(n.startsWith('valv'))return 'valvula';if(n.startsWith('papil'))return 'papil';return 'miocardi'}
 
-const draco=new DRACOLoader();draco.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/libs/draco/gltf/');
-const loader=new GLTFLoader();loader.setDRACOLoader(draco);
-loader.load('models/cor_bp3d.gltf.json',g=>{
+const loader=new GLTFLoader();
+const loadCor=(ok,_p,err)=>import('./models/cor_bp3d.glb.js').then(m=>{const s=atob(m.default),u=new Uint8Array(s.length);for(let i=0;i<s.length;i++)u[i]=s.charCodeAt(i);loader.parse(u.buffer,'',ok,err)}).catch(err);
+
+loadCor(g=>{
   const root=g.scene;
   const meshes=[];root.traverse(o=>{if(o.isMesh)meshes.push(o)});
   meshes.forEach(o=>{
@@ -266,7 +266,7 @@ loader.load('models/cor_bp3d.gltf.json',g=>{
     mats.push({n,grp,m,cap,base:COL[grp],mesh:o});
     (parts[grp]=parts[grp]||[]).push(o)});
   scene.add(root);$('load').remove();resetView();applyColors();go(cur)},
-  undefined,err=>{console.error(err);$('load').textContent="No s'ha pogut carregar el model 3D. Torna-ho a provar amb connexió a internet."});
+  undefined,err=>{console.error(err);$('load').textContent="No s'ha pogut carregar el model 3D. Torna a obrir la pàgina. ("+(err&&err.message||err)+")"});
 
 function resize(){const w=viewer.clientWidth,h=viewer.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}
 new ResizeObserver(resize).observe(viewer);resize();

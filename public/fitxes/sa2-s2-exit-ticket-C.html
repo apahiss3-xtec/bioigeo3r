@@ -123,6 +123,25 @@ span[contenteditable]{display:inline-block;}
   line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
 .sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
 .sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
+
+/* ── LLEGIBILITAT: pistes >=12.5px i gris fosc ── */
+.q-hint{font-size:12.5px!important;color:#333!important;font-style:normal!important;line-height:1.35!important}
+.voc dd,.voc dt,.chip{font-size:12.5px!important;line-height:1.3!important}
+.voc dd{color:#333!important}
+.vk-title,.vd-title{font-size:10px!important;color:#1f5a4d!important}
+.q-tag{font-size:10px!important;color:#444!important}
+.q-tag.real{color:#a8501d!important}.q-tag.repte{color:#6b4d00!important}
+.eh-top .t-sa{font-size:10px!important;color:#444!important}
+.eh-top .t-note{font-size:12.5px!important;color:#444!important}
+.id-bar .aval{font-size:11px!important;color:#444!important}
+.crit-bar{font-size:11px!important;color:#444!important}.crit-bar b{font-size:12.5px!important}
+.cut-line span{font-size:11px!important;color:#444!important}
+.cami{display:flex;flex-wrap:wrap;gap:4px 6px;margin-left:27px;align-items:center}
+.pas{display:inline-flex;align-items:center;gap:4px;border:1.5px solid var(--rule-dark);border-radius:7px;padding:1px 6px 1px 3px;background:#fff;font-size:13px;color:var(--ink-2)}
+.pas .nn{display:inline-block;min-width:22px;height:20px;border:1.5px solid var(--purple);border-radius:5px;text-align:center;font-weight:900;color:var(--purple-ink);background:#fff;line-height:17px}
+.opt{display:flex;gap:6px;align-items:center;margin:1px 0 1px 27px;font-size:13px}
+.opt .bx{flex:0 0 14px;height:14px;border:1.5px solid var(--purple);border-radius:3px;background:#fff}
+.dib{margin:3px 0 0 27px;height:70px;border:1.5px dashed var(--purple-light);border-radius:6px;background:#fff;display:flex;align-items:flex-start;padding:2px 6px;font-size:12.5px;color:#444}
 </style>
 </head>
 <body>
@@ -152,7 +171,7 @@ span[contenteditable]{display:inline-block;}
       <div class="eh-main">
 
         <div class="eh-top">
-          <span class="t-title" contenteditable="true">Del plat al mitocondri</span>
+          <span class="t-title" contenteditable="true">El viatge de la glucosa</span>
           <span class="t-sa" contenteditable="true">El nostre cos en marxa · Sessió 2 de 7 · El sistema digestiu</span>
           <span class="t-note" contenteditable="true">l'únic full que recullo</span>
         </div>
@@ -171,41 +190,33 @@ span[contenteditable]{display:inline-block;}
             <div class="del-btn" onclick="deleteEl(this)">✕</div>
             <div class="voc-keys">
               <span class="vk-title">🧰 Paraules</span>
-              <span class="chip">absorbir</span>
-              <span class="chip">vellositats</span>
-              <span class="chip">mitocondri</span>
+              <span class="chip">glucosa</span><span class="chip">capil·lar</span><span class="chip">mitocondri</span>
             </div>
             <div class="voc-defs">
               <span class="vd-title">Què volen dir</span>
               <dl class="voc">
-                <dt>absorbir</dt><dd>fer passar els nutrients de l'intestí cap a la sang.</dd>
-                <dt>vellositats</dt><dd>plecs petits de l'intestí prim que donen molta superfície.</dd>
+                <dt>capil·lar</dt><dd>vas sanguini molt, molt fi.</dd>
+                <dt>vellositats</dt><dd>plecs petits de l'intestí prim.</dd>
                 <dt>mitocondri</dt><dd>part de la cèl·lula on es fa l'energia.</dd>
               </dl>
             </div>
           </div>
 
-          <div class="q deletable">
+<div class="q deletable">
             <div class="del-btn" onclick="deleteEl(this)">✕</div>
-            <div class="q-head"><div class="q-num">1</div><div class="q-text"><span contenteditable="true">Escriu, <strong>en ordre</strong>, per on passa el menjar. Fes servir la caixa d'ajuda.</span><span class="q-tag">concepte</span></div></div>
-<div style="margin:3px 0 3px 27px;display:flex;gap:4px;align-items:center;flex-wrap:wrap"><span class="vk-title" style="margin:0">📦 Caixa d'ajuda</span><span class="chip">esòfag</span><span class="chip">estómac</span><span class="chip">intestí prim</span><span class="chip">intestí gros</span></div>
-            <div style="margin-left:27px;font-size:13.5px;line-height:1.9"><strong>Boca</strong> → <span class="mini-line" contenteditable="true" style="display:inline-block;width:60px;vertical-align:bottom"></span> → <span class="mini-line" contenteditable="true" style="display:inline-block;width:60px;vertical-align:bottom"></span> → <span class="mini-line" contenteditable="true" style="display:inline-block;width:60px;vertical-align:bottom"></span> → <span class="mini-line" contenteditable="true" style="display:inline-block;width:60px;vertical-align:bottom"></span> → <strong>anus</strong></div>
+            <div class="q-head"><div class="q-num">1</div><div class="q-text"><span contenteditable="true"><strong>Completa el camí</strong> de la glucosa del pa fins al múscul de la Mercè. Fes servir la caixa d'ajuda.</span><span class="q-tag ">ordenar</span></div></div>
+            <div style="margin:3px 0 3px 27px;display:flex;gap:4px;align-items:center;flex-wrap:wrap"><span class="vk-title" style="margin:0">📦 Caixa d'ajuda</span><span class="chip">capil·lar</span><span class="chip">sang</span><span class="chip">mitocondri</span></div><div style="margin-left:27px;font-size:13.5px;line-height:1.9">La glucosa passa de l'<strong>intestí prim</strong> → al <span class="mini-line" contenteditable="true" style="display:inline-block;width:80px;vertical-align:bottom"></span> de la vellositat → a la <span class="mini-line" contenteditable="true" style="display:inline-block;width:60px;vertical-align:bottom"></span> → fins a la cèl·lula del múscul → al <span class="mini-line" contenteditable="true" style="display:inline-block;width:80px;vertical-align:bottom"></span>.</div>
           </div>
-
-          <div class="q deletable">
+<div class="q deletable">
             <div class="del-btn" onclick="deleteEl(this)">✕</div>
-            <div class="q-head"><div class="q-num">2</div><div class="q-text"><span contenteditable="true">Per quina raó els nutrients <strong>s'absorbeixen a l'intestí prim</strong> i no a l'estómac?</span><span class="q-tag">concepte</span></div></div>
-<div style="margin:3px 0 3px 27px;display:flex;gap:4px;align-items:center;flex-wrap:wrap"><span class="vk-title" style="margin:0">📦 Caixa d'ajuda</span><span class="chip">llarg</span><span class="chip">vellositats</span><span class="chip">superfície</span></div>
-            <div style="margin-left:27px;font-size:13.5px;line-height:1.9">Perquè l'intestí prim és molt <span class="mini-line" contenteditable="true" style="display:inline-block;width:60px;vertical-align:bottom"></span> i té <span class="mini-line" contenteditable="true" style="display:inline-block;width:80px;vertical-align:bottom"></span> que fan la <span class="mini-line" contenteditable="true" style="display:inline-block;width:70px;vertical-align:bottom"></span> molt gran.</div>
+            <div class="q-head"><div class="q-num">2</div><div class="q-text"><span contenteditable="true">Dins la vellositat, <strong>quin vas</strong> s'endu la glucosa? Marca'n un.</span><span class="q-tag ">concepte</span></div></div>
+            <div class="opt"><span class="bx"></span>El capil·lar (porta la sang)</div><div class="opt"><span class="bx"></span>Un tub on no hi ha sang</div>
           </div>
-
-          <div class="q deletable" style="margin-bottom:2px">
+<div class="q deletable" style="margin-bottom:2px">
             <div class="del-btn" onclick="deleteEl(this)">✕</div>
-            <div class="q-head"><div class="q-num">3</div><div class="q-text"><span contenteditable="true">La <strong>Mercè</strong> corre una cursa. La <strong>glucosa</strong> que ha absorbit arriba a la cèl·lula. On s'utilitza per donar-li energia? (recorda la SA1)</span><span class="q-tag real">vida real</span></div></div>
-<div style="margin:3px 0 3px 27px;display:flex;gap:4px;align-items:center;flex-wrap:wrap"><span class="vk-title" style="margin:0">📦 Caixa d'ajuda</span><span class="chip">mitocondri</span><span class="chip">nucli</span><span class="chip">membrana</span></div>
-            <div style="margin-left:27px;font-size:13.5px;line-height:1.9">La glucosa s'utilitza al <span class="mini-line" contenteditable="true" style="display:inline-block;width:90px;vertical-align:bottom"></span> per fer <span class="mini-line" contenteditable="true" style="display:inline-block;width:70px;vertical-align:bottom"></span>.</div>
+            <div class="q-head"><div class="q-num">3</div><div class="q-text"><span contenteditable="true"><strong>Dibuixa</strong> el camí de la glucosa amb fletxes, de l'intestí fins al mitocondri. Escriu-hi 3 noms.</span><span class="q-tag real">dibuix</span></div></div>
+            <div class="dib" contenteditable="true">Dibuixa aquí...</div>
           </div>
-
 
         </div><!-- .exit-body -->
       </div><!-- .eh-main -->

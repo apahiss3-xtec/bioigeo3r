@@ -177,15 +177,6 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 .exemple-box { background:var(--green-tint); border:1.5px solid var(--green); border-radius:8px; padding:8px 12px; margin-bottom:8px; }
 .exemple-label { font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin-bottom:3px; }
 
-/* ── GRAELLA CANVI D'UNITATS (moure la coma) ── */
-.conv-fila { display:flex; align-items:center; gap:10px; margin:8px 0; flex-wrap:wrap; }
-.conv-pas { display:flex; flex-direction:column; align-items:center; gap:2px; }
-.conv-pas-label { font-size:8.5px; font-weight:800; color:var(--purple-ink); text-transform:uppercase; text-align:center; max-width:90px; }
-.conv-digits { display:flex; }
-.conv-digit { width:22px; height:26px; border:1.5px solid var(--rule-dark); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:14.5px; background:#fff; outline:none; }
-.conv-comma { width:9px; display:flex; align-items:flex-end; justify-content:center; font-weight:900; font-size:17px; padding-bottom:2px; }
-.conv-unit { font-size:8px; color:var(--muted); text-align:center; margin-top:1px; }
-.conv-arrow { font-size:16px; color:var(--purple); font-weight:900; flex-shrink:0; }
 
 /* ── PER LLEGIR ── */
 .perllegir-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:9px 12px; margin-bottom:8px; }
@@ -277,6 +268,135 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
 .sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
 .sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
+
+/* ══════════════════════════════════════════════════════════════
+   C-VISUAL v3 — versió C molt visual: poc text, pictogrames, opcions per
+   encerclar/pintar. Cap text llegible < 13px; pistes en #4a4a5a en requadre.
+   ══════════════════════════════════════════════════════════════ */
+body{font-size:15px}
+.sheet-head-l,.sheet-head-r{font-size:13px;letter-spacing:.05em}
+.sheet-foot{font-size:13px;letter-spacing:.03em;grid-template-columns:auto 1fr auto}.sheet-foot .fl{white-space:nowrap}
+.header-sa{font-size:13px;letter-spacing:.08em}
+.header-subtitle{font-size:15px}
+.header-meta{font-size:13px;letter-spacing:.04em}
+.badge,.temps-badge{font-size:13px}
+.nom-field,.input-span{font-size:14px}
+.input-span:empty::before{font-size:13px;color:#5a5a6e}
+.nivell-badge-small{width:20px;height:20px;font-size:13px}
+.oa-title{font-size:16px}
+.oa-list li{font-size:15px}
+.sec-min{font-family:Inter,sans-serif;font-size:13px;font-weight:700;color:#4a4a5a;letter-spacing:.03em}
+.stitle{font-size:19px}
+.sdesc{font-family:'Fira Sans Condensed',sans-serif;font-style:normal;font-size:14.5px;color:#4a4a5a}
+.snum{width:30px;height:30px;font-size:17px}
+.wline{min-height:30px}
+.card-label,.perllegir-label,.exemple-label,.word-bank-title,.model-col-title{font-size:13px;color:#4a4a5a}
+.exemple-label{color:#2f7a42}
+.word-bank-title{color:var(--purple-ink)}
+.chip{font-size:15px;padding:3px 10px}
+.clau-text{font-size:15.5px}
+
+/* pistes i exemples: requadre visible, contrast alt */
+.pista,.start-hint{display:block;font-size:14px;font-style:normal;color:#4a4a5a;background:#fff8e0;border-left:4px solid #c8960a;border-radius:0 6px 6px 0;padding:4px 9px;margin:6px 0 3px}
+.hint-cell{font-size:14px;color:#4a4a5a}
+.small{font-size:13px;color:#4a4a5a}
+.exemple-box p{font-size:14.5px}
+
+/* frases curtes */
+.frase{font-size:16px;line-height:1.45;font-weight:600;color:var(--ink);margin:2px 0 6px}
+.frase .ico{font-size:22px;margin-right:6px;vertical-align:-2px}
+.frase-box{background:#fff;border:1.5px solid var(--purple-light);border-radius:10px;padding:8px 12px;margin-bottom:8px}
+
+/* paraula nova */
+.mot-nou{display:flex;gap:10px;align-items:center;background:#fffbea;border:2px solid #e0b93a;border-radius:10px;padding:8px 12px;margin-bottom:8px}
+.mot-nou svg{flex-shrink:0}
+.mot-nou .mn-lab{font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#7a5a00;margin-bottom:2px}
+.mot-nou .mn-txt{font-size:15px;line-height:1.4;color:var(--ink)}
+.mots-2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mots-2 .mot-nou{margin-bottom:8px}
+.kw{font-weight:900;padding:0 5px;border-radius:5px}
+.kw-cap{background:#fce8ed;color:#a01e44;border:1px solid #d44a6c}
+.kw-acid{background:#fdf0c8;color:#6b4e00;border:1px solid #c8960a}
+.kw-vel{background:#dff1ec;color:#17604f;border:1px solid #3a9e8c}
+.kw-mit{background:#fde9d9;color:#8a3a0a;border:1px solid #e8834a}
+
+/* opcions per encerclar */
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opt{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:600;padding:5px 11px;border-radius:9999px;background:#fff;border:2px solid var(--rule-dark);color:var(--ink);cursor:pointer;user-select:none;line-height:1.25}
+.opt:hover{border-color:var(--purple)}
+.opt.sel{border-color:#2f7a42;background:#e3f3e6;box-shadow:0 0 0 3px #a9d9b4}
+img.ico{width:1.4em;height:1.4em;object-fit:cover;border-radius:50%;border:1.5px solid var(--rule-dark);vertical-align:middle;background:#fff}
+.opt-card .e img.ico{width:52px;height:52px}.sim-row .fase .e img.ico{width:46px;height:46px;margin:0 auto}
+.org-step .ic img.ico{width:50px;height:50px}svg.drop{vertical-align:middle}
+.opt .e{font-size:20px}
+.opt.ex::after{content:"✓ exemple";font-size:13px;font-weight:700;color:#2f7a42;margin-left:2px}
+.opt-card{flex-direction:column;border-radius:12px;padding:8px 6px;width:100px;text-align:center;justify-content:center}
+.opt-card .e{font-size:34px}
+
+/* sec 1: idees prèvies */
+.prev-grid{display:flex;gap:8px;flex-wrap:wrap}
+
+/* sec 2: recorregut */
+.org-layout{display:grid;grid-template-columns:240px 1fr;gap:16px;align-items:start}
+.org-steps{display:flex;flex-direction:column;gap:7px}
+.org-step{display:grid;grid-template-columns:30px 34px 1fr 130px;gap:8px;align-items:center;background:var(--purple-tint);border:1.5px solid var(--rule);border-radius:10px;padding:6px 8px}
+.org-step .n{width:28px;height:28px;border-radius:50%;background:var(--purple-ink);color:#fff;font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center}
+.org-step .ic{font-size:26px;text-align:center}
+.org-step .ht{font-size:14.5px;line-height:1.3;color:var(--ink-2)}
+.org-step .fill-cell{min-height:30px;font-size:16px;font-weight:700;text-align:center}
+.org-step.ex{background:var(--green-tint);border-color:var(--green)}
+.org-step.ex .fill-cell{color:#2f7a42}
+.org-arrow{text-align:center;font-size:18px;line-height:1;color:var(--purple);margin:-3px 0}
+
+/* sec 3: simulació */
+.sim-row{display:grid;grid-template-columns:104px 1fr;gap:10px;align-items:center;border-bottom:1px solid var(--rule);padding:7px 0}
+.sim-row .fase{font-size:17px;font-weight:900;text-align:center;line-height:1.15}
+.sim-row .fase .e{display:block;font-size:30px}
+
+/* sec 4: viatge glucosa */
+.cami{display:grid;grid-template-columns:1fr 30px 1fr 30px 1fr 30px 1fr 30px 1fr;align-items:stretch;margin:6px 0}
+.est{background:#fff;border:2px solid var(--purple-light);border-radius:12px;padding:5px 5px 7px;text-align:center;position:relative}
+.est .en{position:absolute;top:-11px;left:-8px;width:26px;height:26px;border-radius:50%;background:var(--orange);color:#fff;font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.est svg{width:100%;height:auto;display:block}
+.est .fill-cell{min-height:30px;font-size:15px;font-weight:700;text-align:center;margin:3px 0}
+.est .fill-cell.done{border-bottom-color:transparent;color:#2f7a42}
+.est .cap{font-size:13.5px;line-height:1.3;color:#3a3050}
+.cami-arrow{display:flex;align-items:center;justify-content:center;height:84px;align-self:flex-start}
+.cami-arrow svg{width:30px;height:30px}
+.glu-leg{display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--orange);vertical-align:-2px;margin-right:4px}
+.vell-layout{display:grid;grid-template-columns:440px 1fr;gap:14px;align-items:start}
+.villus-wrap{position:relative;width:100%;max-width:100%}.villus-wrap img.vimg{width:100%;display:block;border:1px solid var(--rule);border-radius:8px;background:#fdfbf4}.vb{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:#fff;border:2.5px solid #4a3b8c;color:#4a3b8c;font:700 14px/21px Inter,sans-serif;text-align:center;box-shadow:0 0 0 2px #fff}.vleg{display:flex;flex-direction:column;gap:3px;margin-top:6px;font-size:13.5px;color:#3a3050}.vleg>span{display:inline-flex;align-items:center;gap:6px}.vrow{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;margin-top:8px}.vrow .vl{position:static;width:auto}.vell-svg .vimg{border:1.5px solid var(--rule-dark);border-radius:10px}
+.vell-etiq{display:flex;flex-direction:column;gap:8px}
+.et-row{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:center}
+.et-row .n{width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid var(--purple-ink);color:var(--purple-ink);font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center}
+.et-row .fill-cell{min-height:32px;font-size:15px;font-weight:700}
+.pinta-box{background:#fff1e6;border:2px solid var(--orange);border-radius:10px;padding:7px 10px;font-size:15px;font-weight:600;line-height:1.35}
+.bank-icons .chip{display:inline-flex;align-items:center;gap:5px}
+.bank-icons .chip .e{font-size:20px}
+
+/* sec 5: microbiota */
+.fets-3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px}
+.fet{background:var(--teal-tint);border:1.5px solid var(--teal);border-radius:10px;padding:8px 6px;text-align:center;font-size:15px;line-height:1.3;font-weight:600}
+.fet .e{display:block;font-size:34px;margin-bottom:2px}
+
+/* sec 6: Bristol */
+.bristol-grid{gap:5px}
+.bristol-item{padding:6px 2px 7px;border-radius:8px;border:1.5px solid var(--rule-dark)}
+.bristol-num{font-size:18px}
+.bristol-emoji{font-size:30px;line-height:1.3}
+.bristol-label{font-size:13px;color:#3a3050;line-height:1.25;min-height:34px}
+.cdot{width:30px;height:30px;border-radius:50%;border:2.5px dashed #6a6a7a;margin:5px auto 0;cursor:pointer;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.cdot.c-g{background:#7fcf93;border:2.5px solid #2f7a42}
+.cdot.c-y{background:#f5d56a;border:2.5px solid #a07800}
+.cdot.c-b{background:#8fc3ee;border:2.5px solid #2a6aa8}
+.leg{display:flex;gap:14px;flex-wrap:wrap;font-size:15px;font-weight:600;margin:4px 0 8px}
+.leg i{display:inline-block;width:18px;height:18px;border-radius:50%;vertical-align:-3px;margin-right:5px;border:2px solid}
+.leg .g i{background:#7fcf93;border-color:#2f7a42}.leg .y i{background:#f5d56a;border-color:#a07800}.leg .b i{background:#8fc3ee;border-color:#2a6aa8}
+
+.meta-oa-text{font-size:15px}
+.meta-oa-check{width:18px;height:18px}
+.meta-open-label{font-size:14px;color:#4a4a5a}
+@media print{ .opt:hover{border-color:var(--rule-dark)} .opt.sel{border-color:#2f7a42} }
 </style>
 </head>
 <body>
@@ -296,7 +416,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <!-- ══ CAPÇALERA ══ -->
 <div class="header-band deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="header-emoji-box">🫃</div>
+  <div class="header-emoji-box">🍞</div>
   <div class="header-center">
     <div class="header-sa" contenteditable="true">SA2 · El nostre cos en marxa · Sessió 2 de 7</div>
     <div class="header-title" contenteditable="true">El Sistema Digestiu</div>
@@ -320,374 +440,330 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <!-- ══ OA ══ -->
 <div class="oa-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="oa-title">🎯 Objectius d'aprenentatge d'avui</div>
+  <div class="oa-title">🎯 Avui aprendré a…</div>
   <ul class="oa-list">
-    <li contenteditable="true">Sé dir el nom de 4 òrgans del sistema digestiu.</li>
-    <li contenteditable="true">Sé per on entra el menjar i per on surt (l'ordre del recorregut).</li>
-    <li contenteditable="true">Sé que l'aliment s'absorbeix a l'intestí prim.</li>
-    <li contenteditable="true">Sé que l'estómac té àcid que ajuda a desfer el menjar.</li>
-    <li contenteditable="true">Sé que la glucosa va a la cèl·lula per donar energia (com a SA1).</li>
+    <li contenteditable="true">Dir el nom de 4 parts del sistema digestiu, en ordre.</li>
+    <li contenteditable="true">Explicar què fa l'àcid de l'estómac.</li>
+    <li contenteditable="true">Seguir la glucosa: del pa fins al múscul.</li>
+    <li contenteditable="true">Dir què és un capil·lar i per què és important.</li>
   </ul>
 </div>
 
 <div class="content">
 
-<!-- ══ 0 · IDEES PRÈVIES ══ -->
+<!-- ══ 1 · IDEES PRÈVIES ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle">Idees prèvies</div><div class="sdesc">Activa el que ja saps — no hi ha respostes dolentes</div></div></div>
+  <div class="section-header"><div class="snum n0">1</div><div><div class="stitle">Què en sé ja?</div><div class="sdesc">Encercla les parts del sistema digestiu. No hi ha respostes dolentes.</div></div></div>
   <div class="divider"></div>
-  <div class="previ-box">
-    <p>Escriu les parts del sistema digestiu que recordes. Pots començar amb aquests inicis:</p>
-    <div class="start-hint">Comença així: «Una part del digestiu que conec és…»</div><div class="wline" contenteditable="true"></div>
-    <div class="start-hint">Comença així: «El menjar primer entra per la…»</div><div class="wline" contenteditable="true"></div>
-    <div class="start-hint">Comença així: «Una altra part que recordo és…»</div><div class="wline" contenteditable="true"></div>
+  <div class="prev-grid opts multi">
+    <div class="opt opt-card sel ex"><span class="e"><img class="ico" src="img/ico_boca.png" alt=""></span>Boca</div>
+    <div class="opt opt-card"><span class="e"><img class="ico" src="img/ico_pulmons.png" alt=""></span>Pulmons</div>
+    <div class="opt opt-card"><span class="e"><img class="ico" src="img/ico_estomac.png" alt=""></span>Estómac</div>
+    <div class="opt opt-card"><span class="e"><img class="ico" src="img/ico_cor.png" alt=""></span>Cor</div>
+    <div class="opt opt-card"><span class="e"><img class="ico" src="img/ico_intesti_prim.png" alt=""></span>Intestí</div>
+    <div class="opt opt-card"><span class="e"><img class="ico" src="img/ico_cervell.png" alt=""></span>Cervell</div>
   </div>
 </div>
 
-<!-- ══ 1 · POSA NOM AL DIGESTIU ══ -->
+<!-- ══ 2 · RECORREGUT ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle">Posa nom al sistema digestiu</div><div class="sdesc">Al dibuix hi ha escrit el nom de cada òrgan. Busca'ls i copia'ls a la taula, seguint l'ordre pel qual passa el menjar.</div></div></div>
+  <div class="section-header"><div class="snum n1">2</div><div><div class="stitle">El camí del menjar</div><div class="sdesc">Escriu el nom de cada part, en ordre. Mira el dibuix.</div></div></div>
   <div class="divider"></div>
 
-  <div class="perllegir-box deletable">
+  <div class="word-bank bank-icons deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="perllegir-label">📖 Per llegir</div>
-    <p style="font-size:13.5px" contenteditable="true">El menjar viatja per un tub llarg que travessa tot el cos. Cada part d'aquest tub fa una feina diferent: unes trossegen el menjar, unes altres el desfan amb sucs, i una part molt llarga (l'intestí prim) el deixa passar cap a la sang. El diagrama numera cada part.</p>
-  </div>
-
-  <div class="word-bank deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="word-bank-title">Banc de paraules (només 4 — les que necessites avui)</div>
+    <div class="word-bank-title">Banc de paraules</div>
     <div class="chips">
-      <span class="chip">Boca — on comences a mastegar</span><span class="chip">Estómac — bossa amb àcid que desfà el menjar</span>
-      <span class="chip">Intestí prim — tub llarg on passen els nutrients a la sang</span><span class="chip">Intestí gros — absorbeix aigua abans de sortir</span>
+      <span class="chip"><span class="e"><img class="ico" src="img/ico_boca.png" alt=""></span>Boca</span>
+      <span class="chip"><span class="e"><img class="ico" src="img/ico_estomac.png" alt=""></span>Estómac</span>
+      <span class="chip"><span class="e"><img class="ico" src="img/ico_intesti_prim.png" alt=""></span>Intestí prim</span>
+      <span class="chip"><span class="e"><img class="ico" src="img/ico_intesti_gros.png" alt=""></span>Intestí gros</span>
     </div>
   </div>
 
-  <div class="diagram-layout deletable">
+  <div class="org-layout deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="diagram-img-wrap">
       <div class="fig-wrap">
         <img src="img/s2_aparell_digestiu_retolat.png" alt="Dibuix de l'aparell digestiu humà amb el nom de cada òrgan escrit">
       </div>
-      <div class="diagram-caption">Aparell digestiu humà · el nom de cada òrgan ja hi és escrit: busca'ls al dibuix per omplir la taula</div>
+      <div class="diagram-caption" style="font-size:13px;color:#4a4a5a">Busca cada nom al dibuix.</div>
     </div>
-    <div>
-      <div class="exemple-box">
-        <div class="exemple-label">✓ Exemple ja fet</div>
-        <p style="font-size:13.5px">La fila 1 (Boca) ja està completa. Fixa-t'hi: així has d'omplir les altres.</p>
-      </div>
-      <table class="label-table">
-        <thead><tr><th>Ordre</th><th>Nom de l'òrgan</th><th>Funció principal</th></tr></thead>
-        <tbody>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">1</td><td><span class="hint-cell" style="font-weight:700">Boca</span></td><td class="hint-cell">Masticació + amilasa salival (una substància de la saliva)</td></tr>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">2</td><td><span class="fill-cell" contenteditable="true"></span></td><td class="hint-cell">Àcid + pepsina: desfan el menjar → es diu "quimo"</td></tr>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">3</td><td><span class="fill-cell" contenteditable="true"></span></td><td class="hint-cell">Aquí passen els nutrients cap a la sang</td></tr>
-          <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="num-cell">4</td><td><span class="fill-cell" contenteditable="true"></span></td><td class="hint-cell">Absorbeix l'aigua que queda · hi viu la microbiota</td></tr>
-        </tbody>
-      </table>
+    <div class="org-steps">
+      <div class="org-step ex"><div class="n">1</div><div class="ic"><img class="ico" src="img/ico_boca.png" alt=""></div><div class="ht">Aquí mastegues el menjar.</div><span class="fill-cell done" contenteditable="true">Boca</span></div>
+      <div class="org-arrow">⬇</div>
+      <div class="org-step"><div class="n">2</div><div class="ic"><img class="ico" src="img/ico_estomac.png" alt=""></div><div class="ht">Bossa amb àcid. Desfà el menjar.</div><span class="fill-cell" contenteditable="true"></span></div>
+      <div class="org-arrow">⬇</div>
+      <div class="org-step"><div class="n">3</div><div class="ic"><img class="ico" src="img/ico_intesti_prim.png" alt=""></div><div class="ht">Tub molt llarg. Els nutrients passen a la sang.</div><span class="fill-cell" contenteditable="true"></span></div>
+      <div class="org-arrow">⬇</div>
+      <div class="org-step"><div class="n">4</div><div class="ic"><img class="ico" src="img/ico_intesti_gros.png" alt=""></div><div class="ht">Tub més ample. Treu l'aigua.</div><span class="fill-cell" contenteditable="true"></span></div>
     </div>
   </div>
-
-
-  <div class="card purple mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label">Ordena el recorregut sencer</div>
-    <p style="font-size:13.5px">Aquestes 6 parts són tot el camí que fa el menjar, de l'entrada a la sortida, però estan desordenades. Escriu 1, 2, 3, 4, 5 i 6 al davant de cadascuna:</p>
-    <table class="data-table mt8">
-      <tbody>
-        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td style="width:34px"><span class="fill-cell" contenteditable="true"></span></td><td>Intestí gros</td></tr>
-        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td><span class="fill-cell" contenteditable="true"></span></td><td>Boca</td></tr>
-        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td><span class="fill-cell" contenteditable="true"></span></td><td>Anus</td></tr>
-        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td><span class="fill-cell" contenteditable="true"></span></td><td>Estómac</td></tr>
-        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td><span class="fill-cell" contenteditable="true"></span></td><td>Esòfag (el tub que baixa des de la boca)</td></tr>
-        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td><span class="fill-cell" contenteditable="true"></span></td><td>Intestí prim</td></tr>
-      </tbody>
-    </table>
-    <p class="start-hint">L'esòfag i l'anus no surten al dibuix de dalt: l'esòfag va just després de la boca i l'anus és el final de tot.</p>
-  </div>
-
-  <div class="raona-box deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="raona-cap">✏️ Raono en 4 passos — Per quina raó l'intestí prim és tan llarg (6 m) si l'esòfag només fa 25 cm?</div>
-    <div class="raona-pas"><div class="raona-pas-lab">👁️ Observo</div><div style="flex:1"><div class="start-hint">Comença així: «A l'intestí prim…»</div><div class="wline" contenteditable="true"></div></div></div>
-    <div class="raona-pas"><div class="raona-pas-lab">❓ Em pregunto</div><div class="wline" contenteditable="true"></div></div>
-    <div class="raona-pas"><div class="raona-pas-lab">🔗 Connecto</div><div class="wline" contenteditable="true"></div></div>
-    <div class="raona-pas"><div class="raona-pas-lab">✅ Dedueixo</div><div style="flex:1"><div class="start-hint">Comença així: «Per tant, l'intestí prim és tan llarg perquè així…»</div><div class="wline" contenteditable="true"></div></div></div>
-  </div>
-</div>
-
-<div class="clau deletable">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="clau-icon">💡</div>
-  <div class="clau-text" contenteditable="true">Idea clau: com més llarg és l'intestí prim, més superfície té per fer passar els nutrients a la sang.</div>
-</div>
-
-<!-- ══ 2 · CABDELL DE LLANA ══ -->
-<div class="section deletable">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n2">2</div><div><div class="stitle">El cabdell de llana — longitud real</div><div class="sdesc">Activitat d'escala 1:100 · cada metre real = 1 cm de llana</div></div></div>
-  <div class="divider"></div>
-
-  <div class="perllegir-box deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="perllegir-label">📖 Per llegir — dos passos per canviar l'escala</div>
-    <p style="font-size:13.5px" contenteditable="true">Per passar d'una longitud real a la mida del cabdell de llana cal fer <strong>dos passos, un darrere l'altre</strong>. Pas 1: redueixo l'escala dividint entre 100 (moc la coma 2 posicions cap a l'esquerra). Pas 2: com que el resultat és molt petit, el passo de cm a mm multiplicant per 10 (moc la coma 1 posició cap a la dreta).</p>
-  </div>
-
-  <div class="exemple-box">
-    <div class="exemple-label">✓ Exemple ja fet — Esòfag (25 cm)</div>
-    <div class="conv-fila">
-      <div class="conv-pas">
-        <div class="conv-pas-label">Longitud real</div>
-        <div class="conv-digits"><div class="conv-digit">2</div><div class="conv-digit">5</div></div>
-        <div class="conv-unit">cm</div>
-      </div>
-      <div class="conv-arrow">÷100 →</div>
-      <div class="conv-pas">
-        <div class="conv-pas-label">Pas 1: moc la coma 2 xifres a l'esquerra</div>
-        <div class="conv-digits"><div class="conv-digit">0</div><div class="conv-comma">,</div><div class="conv-digit">2</div><div class="conv-digit">5</div></div>
-        <div class="conv-unit">cm</div>
-      </div>
-      <div class="conv-arrow">×10 →</div>
-      <div class="conv-pas">
-        <div class="conv-pas-label">Pas 2: de cm a mm, moc la coma 1 xifra a la dreta</div>
-        <div class="conv-digits"><div class="conv-digit">2</div><div class="conv-comma">,</div><div class="conv-digit">5</div></div>
-        <div class="conv-unit">mm ← resultat final</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card orange mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label">Ara tu — Intestí prim (600 cm)</div>
-    <div class="conv-fila">
-      <div class="conv-pas">
-        <div class="conv-pas-label">Longitud real</div>
-        <div class="conv-digits"><div class="conv-digit">6</div><div class="conv-digit">0</div><div class="conv-digit">0</div></div>
-        <div class="conv-unit">cm</div>
-      </div>
-      <div class="conv-arrow">÷100 →</div>
-      <div class="conv-pas">
-        <div class="conv-pas-label">Pas 1</div>
-        <div class="conv-digits"><div class="conv-digit" contenteditable="true"></div><div class="conv-digit" contenteditable="true"></div></div>
-        <div class="conv-unit">cm</div>
-      </div>
-      <div class="conv-arrow">×10 →</div>
-      <div class="conv-pas">
-        <div class="conv-pas-label">Pas 2 · resultat final</div>
-        <div class="conv-digits"><div class="conv-digit" contenteditable="true"></div><div class="conv-digit" contenteditable="true"></div></div>
-        <div class="conv-unit">mm</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card teal mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label">Ara tu — Intestí gros (150 cm)</div>
-    <div class="conv-fila">
-      <div class="conv-pas">
-        <div class="conv-pas-label">Longitud real</div>
-        <div class="conv-digits"><div class="conv-digit">1</div><div class="conv-digit">5</div><div class="conv-digit">0</div></div>
-        <div class="conv-unit">cm</div>
-      </div>
-      <div class="conv-arrow">÷100 →</div>
-      <div class="conv-pas">
-        <div class="conv-pas-label">Pas 1</div>
-        <div class="conv-digits"><div class="conv-digit" contenteditable="true"></div><div class="conv-comma">,</div><div class="conv-digit" contenteditable="true"></div></div>
-        <div class="conv-unit">cm</div>
-      </div>
-      <div class="conv-arrow">×10 →</div>
-      <div class="conv-pas">
-        <div class="conv-pas-label">Pas 2 · resultat final</div>
-        <div class="conv-digits"><div class="conv-digit" contenteditable="true"></div><div class="conv-digit" contenteditable="true"></div></div>
-        <div class="conv-unit">mm</div>
-      </div>
-    </div>
-  </div>
-  <p class="pista mt8">Pista: fixa't en com s'ha mogut la coma a l'exemple de l'esòfag i fes exactament el mateix moviment.</p>
 </div>
 
 <!-- ══ 3 · SIMULACIÓ ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle">Simulació de la digestió pas a pas</div><div class="sdesc">Observa l'experiment de taula i completa les columnes buides</div></div></div>
+  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle">La simulació: què fa cada part?</div><div class="sdesc">Mira l'experiment. A cada fila, encercla què passa.</div></div></div>
   <div class="divider"></div>
 
-  <div class="perllegir-box deletable">
+  <div class="mot-nou deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="perllegir-label">📖 Per llegir</div>
-    <p style="font-size:13.5px" contenteditable="true">A cada part del tub digestiu s'afegeixen substàncies diferents que van desfent el menjar una mica més. La fila de la Boca ja està feta com a exemple, amb l'observació ja escrita: fixa-t'hi per completar la resta. A "La teva observació" escriu, en poques paraules, què li passa al menjar en aquella fase.</p>
-  </div>
-  <p class="pista">Pista Estómac: l'àcid i la pepsina desfan sobretot les proteïnes (com la carn o l'ou). Pista Intestí prim: les vellositats deixen passar més quantitat de nutrients cap a la sang.</p>
-
-  <div class="perllegir-box deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="perllegir-label">📖 Per llegir — dos ajudants que no són tubs</div>
-    <p style="font-size:13.5px" contenteditable="true">A part del tub, hi ha dos òrgans que hi aboquen líquids per ajudar. El <strong>fetge</strong> fabrica la <strong>bilis</strong>, que trenca el greix en gotetes petites perquè es pugui desfer millor (com el sabó amb l'oli d'una paella). El <strong>pàncrees</strong> hi aboca el <strong>bicarbonat</strong>, que treu l'àcid que ve de l'estómac perquè no cremi l'intestí.</p>
-  </div>
-  <table class="data-table">
-    <thead><tr><th>Fase</th><th>Substàncies</th><th>Funció</th><th>La teva observació</th></tr></thead>
-    <tbody>
-      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold" style="color:var(--orange)">Boca</td><td>Amilasa salival + masticació</td><td>Midó (un sucre molt llarg) → maltosa (un sucre curt)</td><td class="hint-cell">Exemple: "El midó del pa comença a fer-se sucre."</td></tr>
-      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold" style="color:var(--rose)">Estómac</td><td>Àcid (HCl) + pepsina</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold" style="color:var(--yellow)">Duodè</td><td>Bicarbonat (pàncrees) + bilis (fetge)</td><td>Neutralitza l'àcid; ajuda a desfer els greixos</td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="bold" style="color:var(--green)">Intestí prim</td><td>Paret amb vellositats (com pèls petits)</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-    </tbody>
-  </table>
-
-  <div class="model-grid deletable" style="margin-top:8px">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="model-col good">
-      <div class="model-col-title">✔ El model representa bé…</div>
-      <div class="start-hint">Comença així: «El model s'assembla a la digestió real perquè…»</div><div class="wline" contenteditable="true" style="border-color:var(--green)"></div>
-      <div class="wline" contenteditable="true" style="border-color:var(--green);margin-top:4px"></div>
+    <svg width="74" height="74" viewBox="0 0 74 74" aria-hidden="true">
+      <path d="M28 6h18v14l12 34a8 8 0 0 1-7.5 11h-27A8 8 0 0 1 16 54l12-34z" fill="#fdf0c8" stroke="#c8960a" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M22 44h30l5 12a4 4 0 0 1-3.8 5.3H21a4 4 0 0 1-3.8-5.3z" fill="#e9d36a" stroke="#c8960a" stroke-width="2"/>
+      <circle cx="30" cy="52" r="3" fill="#fff"/><circle cx="43" cy="55" r="2.5" fill="#fff"/>
+      <rect x="25" y="2" width="24" height="7" rx="3" fill="#c8960a"/>
+    </svg>
+    <div>
+      <div class="mn-lab">📖 Paraula nova</div>
+      <div class="mn-txt"><span class="kw kw-acid">Àcid</span> de l'estómac (<span class="kw kw-acid">HCl</span> = àcid clorhídric).<br>Com el vinagre, però més fort.</div>
     </div>
-    <div class="model-col bad">
-      <div class="model-col-title">✘ El model NO reflecteix…</div>
-      <div class="start-hint">Comença així: «El model NO és igual que el cos real perquè…»</div><div class="wline" contenteditable="true" style="border-color:var(--rose)"></div>
-      <div class="wline" contenteditable="true" style="border-color:var(--rose);margin-top:4px"></div>
+  </div>
+
+  <div class="frase-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="frase" contenteditable="true">Cada part desfà el menjar una mica més.</div>
+    <div>
+      <div class="sim-row">
+        <div class="fase" style="color:var(--orange)"><span class="e"><img class="ico" src="img/ico_boca.png" alt=""></span>Boca</div>
+        <div class="opts"><div class="opt sel ex"><span class="e"><img class="ico" src="img/ico_boca.png" alt=""></span>Tritura el pa</div><div class="opt"><span class="e">🍋</span>Desfà amb àcid</div><div class="opt"><span class="e">💧</span>Treu l'aigua</div></div>
+      </div>
+      <div class="sim-row">
+        <div class="fase" style="color:var(--rose)"><span class="e"><img class="ico" src="img/ico_estomac.png" alt=""></span>Estómac</div>
+        <div class="opts"><div class="opt"><span class="e"><svg class="drop" viewBox="0 0 24 30" width="20" height="25" aria-hidden="true"><path d="M12 1C12 1 3 13 3 19a9 9 0 0 0 18 0C21 13 12 1 12 1z" fill="#c8323c"/></svg></span>Passa glucosa a la sang</div><div class="opt"><span class="e">🍋</span>Desfà amb àcid</div><div class="opt"><span class="e"><img class="ico" src="img/ico_boca.png" alt=""></span>Tritura el pa</div></div>
+      </div>
+      <div class="sim-row">
+        <div class="fase" style="color:#8a6a00"><span class="e"><img class="ico" src="img/ico_intesti_prim.png" alt=""></span>Intestí prim</div>
+        <div class="opts"><div class="opt"><span class="e">🚽</span>Fa la femta</div><div class="opt"><span class="e">🍋</span>Fa àcid</div><div class="opt"><span class="e"><svg class="drop" viewBox="0 0 24 30" width="20" height="25" aria-hidden="true"><path d="M12 1C12 1 3 13 3 19a9 9 0 0 0 18 0C21 13 12 1 12 1z" fill="#c8323c"/></svg></span>Passa nutrients a la sang</div></div>
+      </div>
+      <div class="sim-row">
+        <div class="fase" style="color:var(--green)"><span class="e"><img class="ico" src="img/ico_intesti_gros.png" alt=""></span>Intestí gros</div>
+        <div class="opts"><div class="opt"><span class="e"><img class="ico" src="img/ico_boca.png" alt=""></span>Tritura el pa</div><div class="opt"><span class="e">💧</span>Treu l'aigua</div><div class="opt"><span class="e">🍋</span>Fa àcid</div></div>
+      </div>
     </div>
   </div>
 </div>
 
-
-<!-- ══ 3bis · DEL BUDELL AL MITOCONDRI ══ -->
+<!-- ══ 4 · VIATGE DE LA GLUCOSA ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n4">🔗</div><div><div class="stitle">Del budell al mitocondri</div><div class="sdesc">On acaba el menjar que hem absorbit</div></div></div>
+  <div class="section-header"><div class="snum n4" style="background:var(--orange)">4</div><div><div class="stitle">El viatge de la glucosa</div><div class="sdesc"><span class="glu-leg"></span>= glucosa (el sucre del pa). Segueix-la de l'inici al final.</div></div></div>
   <div class="divider"></div>
-  <div class="perllegir-box deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="perllegir-label">📖 Per llegir</div>
-    <p style="font-size:13.5px" contenteditable="true">Quan la glucosa (un sucre del pa) travessa la paret de l'intestí prim, entra a la sang. La sang la porta fins a totes les cèl·lules del cos. Dins de cada cèl·lula hi ha uns orgànuls molt petits, els <strong>mitocondris</strong>, que ajunten la glucosa amb l'oxigen i n'obtenen energia. Aquesta energia és la que fa que els músculs es puguin moure.</p>
+
+  <div class="mots-2">
+    <div class="mot-nou deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <svg width="96" height="64" viewBox="0 0 96 64" aria-hidden="true">
+        <path d="M4 18H62" stroke="#b98c5a" stroke-width="12" stroke-linecap="round"/>
+        <path d="M4 18H62" stroke="#d9b98c" stroke-width="7" stroke-linecap="round"/>
+        <path d="M4 46H92" stroke="#d44a6c" stroke-width="5" stroke-linecap="round"/>
+        <path d="M4 46H92" stroke="#fbd0da" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="24" cy="46" r="2.2" fill="#d44a6c"/><circle cx="48" cy="46" r="2.2" fill="#d44a6c"/><circle cx="72" cy="46" r="2.2" fill="#d44a6c"/>
+        <circle cx="38" cy="30" r="3.5" fill="#e8834a"/>
+        <path d="M38 34v8" stroke="#e8834a" stroke-width="2" stroke-dasharray="2 2"/>
+      </svg>
+      <div>
+        <div class="mn-lab">📖 Paraula nova</div>
+        <div class="mn-txt"><span class="kw kw-cap">Capil·lar</span> = tub de sang molt, molt prim (més prim que un cabell). Hi passa la glucosa de l'intestí a la sang.</div>
+      </div>
+    </div>
+    <div class="mot-nou deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <svg width="60" height="64" viewBox="0 0 60 64" aria-hidden="true">
+        <path d="M6 62V24Q6 4 20 4Q34 4 34 24V62" fill="#fff3f6" stroke="#e9a3b5" stroke-width="5"/>
+        <path d="M40 62V30Q40 16 48 16Q56 16 56 30V62" fill="#fff3f6" stroke="#e9a3b5" stroke-width="5"/>
+      </svg>
+      <div>
+        <div class="mn-lab">📖 Paraula nova</div>
+        <div class="mn-txt"><span class="kw kw-vel">Vellositat</span> = pèl minúscul de la paret de l'intestí prim.</div>
+      </div>
+    </div>
   </div>
-  <p style="font-size:13.5px;margin:6px 0 4px"><strong>Ordena el recorregut.</strong> Escriu 1, 2, 3, 4 dins de cada quadre segons l'ordre en què passa (el 4 ja hi és):</p>
-  <table class="data-table">
-    <thead><tr><th>Ordre</th><th>Què passa</th></tr></thead>
-    <tbody>
-      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td><span class="fill-cell" contenteditable="true"></span></td><td>La sang porta la glucosa fins al múscul de la cama</td></tr>
-      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td><span class="fill-cell" contenteditable="true"></span></td><td>La glucosa travessa la paret de l'intestí prim i entra a la sang</td></tr>
-      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td><span class="fill-cell" contenteditable="true"></span></td><td>Mastego el pa i comença a fer-se glucosa</td></tr>
-      <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td class="hint-cell">4</td><td>El mitocondri fa servir la glucosa i l'oxigen per donar energia</td></tr>
-    </tbody>
-  </table>
-  <div class="card teal mt8 deletable">
+
+  <div class="frase-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="frase"><span class="ico">🗺️</span><span contenteditable="true">A · Escriu el nom de cada estació. Pinta les fletxes de <span style="color:#b4531a">taronja</span>.</span></div>
+    <div class="word-bank bank-icons">
+      <div class="word-bank-title">Banc de paraules</div>
+      <div class="chips">
+        <span class="chip"><span class="e">🥖</span>Pa</span>
+        <span class="chip"><span class="e"><img class="ico" src="img/ico_estomac.png" alt=""></span>Boca i estómac</span>
+        <span class="chip"><span class="e"><img class="ico" src="img/ico_intesti_prim.png" alt=""></span>Intestí prim</span>
+        <span class="chip"><span class="e"><svg class="drop" viewBox="0 0 24 30" width="20" height="25" aria-hidden="true"><path d="M12 1C12 1 3 13 3 19a9 9 0 0 0 18 0C21 13 12 1 12 1z" fill="#c8323c"/></svg></span>Sang</span>
+        <span class="chip"><span class="e"><img class="ico" src="img/ico_muscul.png" alt=""></span>Múscul</span>
+      </div>
+    </div>
+    <div class="cami">
+      <div class="est">
+        <div class="en">1</div>
+        <svg viewBox="0 0 100 80" aria-hidden="true">
+          <path d="M12 52C8 36 24 22 50 22S92 36 88 52C86 62 14 62 12 52Z" fill="#f2d29c" stroke="#c99a54" stroke-width="3"/>
+          <path d="M34 28l6 14M52 25l5 14M69 29l4 12" stroke="#c99a54" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="22" cy="68" r="4.5" fill="#e8834a"/><circle cx="42" cy="72" r="4.5" fill="#e8834a"/><circle cx="66" cy="70" r="4.5" fill="#e8834a"/><circle cx="84" cy="66" r="4.5" fill="#e8834a"/>
+        </svg>
+        <span class="fill-cell done" contenteditable="true">Pa</span>
+        <div class="cap">El pa té glucosa.</div>
+      </div>
+      <div class="cami-arrow"><svg viewBox="0 0 30 30"><polygon points="2,10 16,10 16,3 28,15 16,27 16,20 2,20" fill="#fff" stroke="#7B68C8" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      <div class="est">
+        <div class="en">2</div>
+        <svg viewBox="0 0 100 80" aria-hidden="true">
+          <ellipse cx="22" cy="12" rx="14" ry="7" fill="#f6a3b4" stroke="#d44a6c" stroke-width="2.5"/>
+          <path d="M10 12H34" stroke="#d44a6c" stroke-width="2"/>
+          <path d="M22 19C22 30 36 28 40 36" fill="none" stroke="#e9a3b5" stroke-width="6" stroke-linecap="round"/>
+          <path d="M40 30C40 20 70 18 76 36C82 56 62 74 44 68C28 62 32 44 40 30Z" fill="#fbd5dc" stroke="#d44a6c" stroke-width="3"/>
+          <circle cx="52" cy="46" r="3.5" fill="#e8834a"/><circle cx="64" cy="54" r="3.5" fill="#e8834a"/>
+          <path d="M56 34q3 6 0 8q-3-2 0-8Z" fill="#c8e040" stroke="#7a8a10"/><path d="M68 40q3 6 0 8q-3-2 0-8Z" fill="#c8e040" stroke="#7a8a10"/>
+        </svg>
+        <span class="fill-cell" contenteditable="true"></span>
+        <div class="cap">L'àcid desfà el pa.</div>
+      </div>
+      <div class="cami-arrow"><svg viewBox="0 0 30 30"><polygon points="2,10 16,10 16,3 28,15 16,27 16,20 2,20" fill="#fff" stroke="#7B68C8" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      <div class="est">
+        <div class="en">3</div>
+        <svg viewBox="0 0 100 80" aria-hidden="true">
+          <path d="M10 14H78C92 14 92 36 78 36H24C8 36 8 60 24 60H88" fill="none" stroke="#3a9e8c" stroke-width="12" stroke-linecap="round"/>
+          <path d="M10 14H78C92 14 92 36 78 36H24C8 36 8 60 24 60H88" fill="none" stroke="#dff1ec" stroke-width="7" stroke-linecap="round"/>
+          <circle cx="34" cy="14" r="3.5" fill="#e8834a"/><circle cx="60" cy="36" r="3.5" fill="#e8834a"/><circle cx="40" cy="60" r="3.5" fill="#e8834a"/>
+          <path d="M20 68v8M44 68v8M68 68v8" stroke="#d44a6c" stroke-width="3" stroke-linecap="round" opacity="0"/>
+        </svg>
+        <span class="fill-cell" contenteditable="true"></span>
+        <div class="cap">La glucosa passa a la sang.</div>
+      </div>
+      <div class="cami-arrow"><svg viewBox="0 0 30 30"><polygon points="2,10 16,10 16,3 28,15 16,27 16,20 2,20" fill="#fff" stroke="#7B68C8" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      <div class="est">
+        <div class="en">4</div>
+        <svg viewBox="0 0 100 80" aria-hidden="true">
+          <rect x="2" y="22" width="96" height="38" rx="19" fill="#fce8ed" stroke="#d44a6c" stroke-width="3"/>
+          <ellipse cx="22" cy="38" rx="8" ry="5" fill="#d44a6c"/><ellipse cx="74" cy="48" rx="8" ry="5" fill="#d44a6c"/>
+          <circle cx="42" cy="42" r="4.5" fill="#e8834a"/><circle cx="58" cy="34" r="4.5" fill="#e8834a"/><circle cx="88" cy="38" r="4.5" fill="#e8834a"/>
+          <path d="M14 70H80" stroke="#d44a6c" stroke-width="3" stroke-linecap="round"/><polygon points="80,64 92,70 80,76" fill="#d44a6c"/>
+        </svg>
+        <span class="fill-cell" contenteditable="true"></span>
+        <div class="cap">La sang la porta.</div>
+      </div>
+      <div class="cami-arrow"><svg viewBox="0 0 30 30"><polygon points="2,10 16,10 16,3 28,15 16,27 16,20 2,20" fill="#fff" stroke="#7B68C8" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      <div class="est">
+        <div class="en">5</div>
+        <svg viewBox="0 0 100 80" aria-hidden="true">
+          <path d="M6 44C6 22 40 14 60 22C70 26 66 40 56 44C44 50 36 62 22 62C10 62 6 54 6 44Z" fill="#f5b8a8" stroke="#c4624a" stroke-width="3"/>
+          <ellipse cx="68" cy="52" rx="24" ry="14" fill="#fde9d9" stroke="#e8834a" stroke-width="3"/>
+          <path d="M52 52l6-6 6 12 6-12 6 12 6-6" fill="none" stroke="#e8834a" stroke-width="2.5" stroke-linejoin="round"/>
+          <polygon points="82,8 70,28 79,28 74,44 92,22 82,22" fill="#ffd84a" stroke="#c8960a" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <span class="fill-cell" contenteditable="true"></span>
+        <div class="cap">El <span class="kw kw-mit" style="padding:0 2px">mitocondri</span> fa energia ⚡</div>
+      </div>
+    </div>
+    <div class="pista" style="margin-top:8px">Mitocondri = la central d'energia de la cèl·lula (ho vas veure a SA1).</div>
+  </div>
+
+  <div class="frase-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="frase"><span class="ico">🔍</span><span contenteditable="true">B · Dins l'intestí prim: una vellositat molt ampliada.</span></div>
+    <div class="vell-layout">
+      <div class="vell-svg"><div class="villus-wrap"><img class="vimg" src="img/vellositat_esquema.png" alt="Vellositat de l'intestí prim en tall, ampliada"><div class="vb" style="left:87.88%;top:9.74%">1</div><div class="vb" style="left:80.68%;top:33.85%">2</div><div class="vb" style="left:64.39%;top:48.21%">3</div><div class="vb" style="left:92.05%;top:84.62%">4</div></div><div class="vleg"><span><svg width="18" height="18" viewBox="-10 -10 20 20"><polygon points="0,-9 8,-4.5 8,4.5 0,9 -8,4.5 -8,-4.5" fill="#f0a830" stroke="#c07a10" stroke-width="1.5"/></svg> <span contenteditable="true">Molècula de glucosa</span></span><span><svg width="30" height="14" viewBox="0 0 30 14"><polygon points="0,4 18,4 18,0 30,7 18,14 18,10 0,10" fill="#d0243a"/></svg> <span contenteditable="true">Sang que arriba</span></span><span><svg width="30" height="14" viewBox="0 0 30 14"><polygon points="0,4 18,4 18,0 30,7 18,14 18,10 0,10" fill="#2a62d0"/></svg> <span contenteditable="true">Sang que se'n va cap al fetge</span></span><span><svg width="30" height="14" viewBox="0 0 30 14"><polygon points="0,4 18,4 18,0 30,7 18,14 18,10 0,10" fill="#d49a1c"/></svg> <span contenteditable="true">Entrada de nutrients</span></span></div></div>
+      <div class="vell-etiq">
+        <div class="word-bank bank-icons" style="margin-bottom:0">
+          <div class="word-bank-title">Banc de paraules</div>
+          <div class="chips" style="flex-direction:column;align-items:flex-start">
+            <span class="chip"><span class="e">🟡</span>Llum de l'intestí (espai buit)</span>
+            <span class="chip"><span class="e">🩷</span>Paret (epiteli)</span>
+            <span class="chip"><span class="e"><svg class="drop" viewBox="0 0 24 30" width="20" height="25" aria-hidden="true"><path d="M12 1C12 1 3 13 3 19a9 9 0 0 0 18 0C21 13 12 1 12 1z" fill="#c8323c"/></svg></span><span class="kw kw-cap" style="padding:0 3px">Capil·lar</span></span>
+            <span class="chip"><span class="e"><svg class="drop" viewBox="0 0 24 30" width="20" height="25" aria-hidden="true"><path d="M12 1C12 1 3 13 3 19a9 9 0 0 0 18 0C21 13 12 1 12 1z" fill="#2a62d0"/></svg></span>Vena porta (cap al fetge)</span>
+          </div>
+        </div>
+        <div class="et-row"><div class="n">1</div><span class="fill-cell" contenteditable="true"></span></div>
+        <div class="et-row"><div class="n">2</div><span class="fill-cell" contenteditable="true"></span></div>
+        <div class="et-row"><div class="n">3</div><span class="fill-cell" contenteditable="true"></span></div>
+        <div class="et-row"><div class="n">4</div><span class="fill-cell" contenteditable="true"></span></div>
+        <div class="pinta-box">🟠 Pinta de taronja el camí d'una glucosa: de la llum fins al <span class="kw kw-cap">capil·lar</span>.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card teal deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label">I ara pensa-hi</div>
-    <p style="font-size:14px;font-weight:700">La Mercè surt a córrer i no ha dinat. Per quina raó li costa tant moure les cames?</p>
-    <p style="font-size:13.5px;color:var(--muted);margin:2px 0 4px">Fixa't en el pas 4 del quadre de dalt: què li falta al mitocondri?</p>
-    <div class="start-hint">Comença així: «Li costa moure les cames perquè…»</div><div class="wline" contenteditable="true"></div>
-  </div>
-</div>
-
-<!-- ══ 4 · MICROBIOTA ══ -->
-<div class="section deletable">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n4">4</div><div><div class="stitle">La microbiota intestinal</div></div></div>
-  <div class="divider"></div>
-  <div class="micro-fact deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="micro-icon">🦠</div>
-    <div class="micro-text"><strong>📖 Per llegir:</strong> Tenim <strong>més de 500 espècies</strong> de bacteris beneficiosos a l'intestí · pes total: <strong>~0,5 kg</strong>.<br>Ajuden a digerir la fibra, produir vitamines i protegir-nos d'altres bacteris que ens fan mal.</div>
-  </div>
-  <div class="card teal mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label">Pregunta competencial</div>
-    <p style="font-size:14px;font-weight:700">Per quina raó prendre antibiòtics pot provocar diarrea?</p>
-    <p class="pista">Pista: els antibiòtics maten bacteris… i a l'intestí n'hi ha de beneficiosos.</p>
-    <div class="start-hint">Comença així: «Els antibiòtics poden provocar diarrea perquè…»</div><div class="wline" contenteditable="true"></div>
+    <p class="frase" style="margin:0 0 6px"><span class="ico">🏃‍♀️</span>La Mercè corre i no ha dinat. Què li falta al mitocondri?</p>
+    <div class="opts"><div class="opt"><span class="e">🍬</span>Glucosa</div><div class="opt"><span class="e">🥤</span>Aigua</div><div class="opt"><span class="e">🧃</span>Vitamines</div></div>
+    <div class="start-hint">Comença així: «Li costa moure les cames perquè no té…»</div>
     <div class="wline" contenteditable="true"></div>
-  </div>
-</div>
-
-<!-- ══ 5 · BRISTOL ══ -->
-<div class="section deletable">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n5">5</div><div><div class="stitle">L'escala de Bristol — indicador de salut intestinal</div><div class="sdesc">Escriu com es relaciona cada tipus amb la dieta o la salut</div></div></div>
-  <div class="divider"></div>
-
-  <div class="perllegir-box deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="perllegir-label">📖 Per llegir</div>
-    <p style="font-size:13.5px" contenteditable="true">Els metges observen la forma de la femta per saber com va l'intestí. El tipus 3-4 és normal. El tipus 1-2 (boletes dures) vol dir poca fibra o poca aigua. El tipus 6-7 (líquida) vol dir diarrea.</p>
-  </div>
-  <p class="pista">Mira bé els dibuixos i els números. Després resol els tres casos que trobaràs a sota: allà hauràs de decidir tu quin tipus li tocaria a cada persona.</p>
-
-  <div class="bristol-grid deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="bristol-item"><div class="bristol-num">1</div><div class="bristol-emoji">⚫</div><div class="bristol-label">Boletes dures separades</div></div>
-    <div class="bristol-item"><div class="bristol-num">2</div><div class="bristol-emoji">🟤</div><div class="bristol-label">Salsitxa grumollosa</div></div>
-    <div class="bristol-item ok"><div class="bristol-num">3</div><div class="bristol-emoji">🌭</div><div class="bristol-label">Salsitxa amb esquerdes</div></div>
-    <div class="bristol-item ok"><div class="bristol-num">4</div><div class="bristol-emoji">🍌</div><div class="bristol-label">Salsitxa suau · ideal ⭐</div></div>
-    <div class="bristol-item"><div class="bristol-num">5</div><div class="bristol-emoji">🫐</div><div class="bristol-label">Trossos tous</div></div>
-    <div class="bristol-item" style="border-color:var(--rose);background:var(--rose-tint)"><div class="bristol-num" style="color:var(--rose)">6</div><div class="bristol-emoji">🌊</div><div class="bristol-label">Massa esponjosa</div></div>
-    <div class="bristol-item" style="border-color:var(--rose);background:var(--rose-tint)"><div class="bristol-num" style="color:var(--rose)">7</div><div class="bristol-emoji">💧</div><div class="bristol-label">Totalment líquida</div></div>
-  </div>
-
-
-  <div class="card teal mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="card-label">Aplica-ho a tres casos</div>
-    <p style="font-size:13.5px">Per a cada persona, escriu quin tipus de Bristol esperaries i per quina raó:</p>
-    <table class="data-table mt8">
-      <thead><tr><th>Cas</th><th>Tipus esperat</th><th>Per quina raó</th></tr></thead>
-      <tbody>
-        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td>La Mercè fa una setmana que quasi no beu aigua i menja poca verdura</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td>En Youssef ha passat tot el cap de setmana amb un virus intestinal</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-        <tr class="deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><td>L'Aya menja fruita, verdura i llegums cada dia i beu 1,5 L d'aigua</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="epist-box deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div style="font-size:22px;flex-shrink:0">🔬</div>
-    <div>
-      <div class="epist-title">Com ho van descobrir? — Beaumont, 1822</div>
-      <div class="epist-text">William Beaumont va poder observar la digestió en directe gràcies a una ferida oberta a l'estómac d'un pacient: Alexis St. Martin, que treballava per a ell i li devia diners. Va ser el primer científic que va veure com actua el suc gàstric.</div>
-      <p class="pista mt8">Avui en dia, un experiment així només és acceptable si el pacient hi consent lliurement: li han explicat bé què se li farà i pot dir que no en qualsevol moment (és el que en diem consentiment informat).</p>
-      <p style="font-size:13.5px;font-weight:700" contenteditable="true">Creus que Alexis St. Martin va poder dir que no lliurement, tenint en compte que depenia econòmicament de Beaumont? Per quina raó?</p>
-      <div class="start-hint">Comença així: «Crec que…»</div><div class="wline" contenteditable="true"></div>
-    </div>
   </div>
 </div>
 
 <div class="clau deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="clau-icon">💡</div>
-  <div class="clau-text" contenteditable="true">Idea clau: com més llarg és l'intestí prim, més superfície té per fer passar els nutrients a la sang.</div>
+  <div class="clau-text" contenteditable="true">Idea clau: la glucosa passa de l'intestí a la sang pel capil·lar.</div>
 </div>
 
-<!-- ══ METACOGNICIÓ OA-BASED ══ -->
+<!-- ══ 5 · MICROBIOTA ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n2">5</div><div><div class="stitle">Els bacteris bons de l'intestí</div><div class="sdesc">Això és la microbiota. Encercla la resposta.</div></div></div>
+  <div class="divider"></div>
+  <div class="fets-3 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="fet"><span class="e">🦠</span>Bacteris bons viuen a l'intestí.</div>
+    <div class="fet"><span class="e">🧩</span>Ens ajuden a digerir.</div>
+    <div class="fet"><span class="e">🛡️</span>Ens protegeixen dels dolents.</div>
+  </div>
+  <div class="card teal deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <p class="frase" style="margin:0 0 6px"><span class="ico">💊</span>Els antibiòtics poden causar diarrea. Per què?</p>
+    <div class="opts"><div class="opt"><span class="e">🦠</span>Maten també els bacteris bons</div><div class="opt"><span class="e">💧</span>Fan beure massa aigua</div><div class="opt"><span class="e">🍽️</span>Fan menjar massa</div></div>
+    <div class="pista">Pista: els antibiòtics maten bacteris… també els bons.</div>
+  </div>
+</div>
+
+<!-- ══ 6 · BRISTOL ══ -->
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n5">6</div><div><div class="stitle">L'escala de Bristol</div><div class="sdesc">La forma de la femta diu com va l'intestí. Pinta cada cercle.</div></div></div>
+  <div class="divider"></div>
+  <div class="leg deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="y"><i></i>Dur (1-2)</span><span class="g"><i></i>Normal (3-4)</span><span class="b"><i></i>Tou o líquid (5-7)</span></div>
+  <div class="bristol-grid deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="bristol-item"><div class="bristol-num">1</div><div class="bristol-emoji">⚫</div><div class="bristol-label">Boletes dures</div><div class="cdot"></div></div>
+    <div class="bristol-item"><div class="bristol-num">2</div><div class="bristol-emoji">🟤</div><div class="bristol-label">Grumollosa</div><div class="cdot"></div></div>
+    <div class="bristol-item"><div class="bristol-num">3</div><div class="bristol-emoji">🌭</div><div class="bristol-label">Amb esquerdes</div><div class="cdot"></div></div>
+    <div class="bristol-item ok"><div class="bristol-num">4</div><div class="bristol-emoji">🍌</div><div class="bristol-label">Suau ⭐ ideal</div><div class="cdot c-g"></div></div>
+    <div class="bristol-item"><div class="bristol-num">5</div><div class="bristol-emoji">🫐</div><div class="bristol-label">Trossos tous</div><div class="cdot"></div></div>
+    <div class="bristol-item"><div class="bristol-num">6</div><div class="bristol-emoji">🌊</div><div class="bristol-label">Molt tova</div><div class="cdot"></div></div>
+    <div class="bristol-item"><div class="bristol-num">7</div><div class="bristol-emoji">💧</div><div class="bristol-label">Líquida</div><div class="cdot"></div></div>
+  </div>
+  <div class="pista">El 4 ja està pintat: és l'exemple.</div>
+
+  <div class="epist-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div style="font-size:26px;flex-shrink:0">🔬</div>
+    <div>
+      <div class="epist-title" style="font-size:13px;color:#7a5a00">Com ho van descobrir? — Beaumont, 1822 <span style="text-transform:none;letter-spacing:0">· opcional</span></div>
+      <div class="epist-text" style="font-size:15px">El metge William Beaumont va poder <b>veure la digestió en directe</b> per una ferida oberta a l'estómac d'un pacient, Alexis St. Martin. St. Martin treballava per a ell i li devia diners.</div>
+      <p class="pista mt8">Avui un experiment així només es pot fer si el pacient diu <b>sí</b> lliurement i pot dir <b>no</b> en qualsevol moment. Això es diu <b>consentiment informat</b>.</p>
+      <p style="font-size:14px;font-weight:700" contenteditable="true">St. Martin va poder dir que no lliurement?</p>
+      <div class="opts" style="display:flex;gap:8px;margin:4px 0"><span class="opt">✅ Sí</span><span class="opt">❌ No</span><span class="opt">🤔 No n'estic segur</span></div>
+      <div class="start-hint">Comença així: «Crec que… perquè…»</div><div class="wline" contenteditable="true"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ METACOGNICIÓ ══ -->
 <div class="meta-oa-box deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="meta-oa-title">🎯 Torna als objectius del principi — Marca el que has après avui:</div>
-  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé dir el nom de 4 òrgans del sistema digestiu.</div></div>
-  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé per on entra el menjar i per on surt (l'ordre del recorregut).</div></div>
-  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que l'aliment s'absorbeix a l'intestí prim.</div></div>
-  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que l'estómac té àcid que ajuda a desfer el menjar.</div></div>
-  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que la glucosa va a la cèl·lula per donar energia (com a SA1).</div></div>
-  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que a l'intestí hi viuen bacteris que ens ajuden i que la forma de la femta diu com va l'intestí.</div></div>
+  <div class="meta-oa-title" style="font-size:16px">🎯 Marca el que has après avui:</div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé dir el nom de 4 parts del sistema digestiu, en ordre.</div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé què fa l'àcid de l'estómac.</div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé seguir la glucosa: del pa fins al múscul.</div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé què és un capil·lar.</div></div>
   <div class="meta-open"><div class="meta-open-label">❓ Encara em pregunto…</div><div class="wline" contenteditable="true" data-hint="Escriu aquí el que et genera dubte…"></div></div>
 </div>
 
-<!-- ══ TASCA CASA ══ -->
-<div class="tasca-box deletable">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="card-label">📚 Tasca per a casa (opcional) — Prepara la Sessió 3</div>
-  <p style="font-size:14px;font-weight:700;color:var(--purple-ink)">Observa la teva femta i memoritza a quin tipus de l'escala de Bristol s'assembla (no cal escriure-ho). A classe ho respondràs de manera anònima.</p>
-  <p class="small mt8">És una observació personal: no es pot fer amb cap IA.</p>
-</div>
-
-<div class="footer deletable">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="footer-l">IE Temple · Biologia i Geologia 3r ESO · El nostre cos en marxa · Sessió 2 · Versió C</div>
-  <div class="footer-r">Curs 2025–2026</div>
-</div>
-
+</div><!-- /content -->
 </div><!-- /doc -->
 </div><!-- /page-wrap -->
 
@@ -920,6 +996,20 @@ async function desaFitxa(){
   _fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');
 }
 document.addEventListener('keydown',e=>{ if(e.key==='s'&&(e.ctrlKey||e.metaKey)){e.preventDefault();desaFitxa();} });
+</script>
+<script>
+/* opcions per encerclar + cercles per pintar */
+document.addEventListener('click',function(e){
+  var o=e.target.closest&&e.target.closest('.opt');
+  if(o&&!o.classList.contains('ex')){
+    var g=o.parentElement;
+    if(!g.classList.contains('multi')) g.querySelectorAll('.opt.sel:not(.ex)').forEach(function(x){ if(x!==o) x.classList.remove('sel'); });
+    o.classList.toggle('sel');
+  }
+  var d=e.target.closest&&e.target.closest('.cdot');
+  if(d){ var seq=['','c-g','c-y','c-b']; var cur=seq.findIndex(function(c){return c&&d.classList.contains(c);}); if(cur<0)cur=0;
+    seq.forEach(function(c){ if(c) d.classList.remove(c); }); var nx=seq[(cur+1)%seq.length]; if(nx) d.classList.add(nx); }
+});
 </script>
 </body>
 </html>
