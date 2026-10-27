@@ -97,7 +97,7 @@ span[contenteditable]{display:inline-block;}
 .spacer-block{position:relative;height:36px;margin:4px 0;border-radius:6px;border:1.5px dashed var(--purple-light);background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px);display:flex;align-items:center;justify-content:center;}
 .spacer-label{font-family:'Inter',sans-serif;font-size:9px;color:var(--purple-light);letter-spacing:.12em;text-transform:uppercase;user-select:none;pointer-events:none;}
 @media print{
-  @page{size:A4;margin:10mm 12mm;}
+  @page{size:A4;margin:5mm 12mm;}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   body{background:white;padding:0;}
   #toolbar,.page-break-line,.del-btn{display:none!important;}
@@ -142,6 +142,10 @@ span[contenteditable]{display:inline-block;}
 .opt{display:flex;gap:6px;align-items:center;margin:1px 0 1px 27px;font-size:13px}
 .opt .bx{flex:0 0 14px;height:14px;border:1.5px solid var(--purple);border-radius:3px;background:#fff}
 .dib{margin:3px 0 0 27px;height:70px;border:1.5px dashed var(--purple-light);border-radius:6px;background:#fff;display:flex;align-items:flex-start;padding:2px 6px;font-size:12.5px;color:#444}
+
+/* ── Compactació perquè hi càpiguen dos tiquets per A4 ── */
+.exit-body{padding:4px 12px 5px!important}.q{margin-bottom:3px!important}.voc-box{margin-bottom:4px!important}
+.content{padding:2px 16px!important}.cut-line{margin:4px 0!important}
 </style>
 </head>
 <body>
@@ -205,7 +209,7 @@ span[contenteditable]{display:inline-block;}
 <div class="q deletable">
             <div class="del-btn" onclick="deleteEl(this)">✕</div>
             <div class="q-head"><div class="q-num">1</div><div class="q-text"><span contenteditable="true"><strong>Completa el camí</strong> de la glucosa del pa fins al múscul de la Mercè. Fes servir la caixa d'ajuda.</span><span class="q-tag ">ordenar</span></div></div>
-            <div style="margin:3px 0 3px 27px;display:flex;gap:4px;align-items:center;flex-wrap:wrap"><span class="vk-title" style="margin:0">📦 Caixa d'ajuda</span><span class="chip">capil·lar</span><span class="chip">sang</span><span class="chip">mitocondri</span></div><div style="margin-left:27px;font-size:13.5px;line-height:1.9">La glucosa passa de l'<strong>intestí prim</strong> → al <span class="mini-line" contenteditable="true" style="display:inline-block;width:80px;vertical-align:bottom"></span> de la vellositat → a la <span class="mini-line" contenteditable="true" style="display:inline-block;width:60px;vertical-align:bottom"></span> → fins a la cèl·lula del múscul → al <span class="mini-line" contenteditable="true" style="display:inline-block;width:80px;vertical-align:bottom"></span>.</div>
+            <div style="margin:3px 0 3px 27px;display:flex;gap:4px;align-items:center;flex-wrap:wrap"><span class="vk-title" style="margin:0">📦 Caixa d'ajuda</span><span class="chip">pulmó</span><span class="chip">mitocondri</span><span class="chip">estómac</span><span class="chip">capil·lar</span><span class="chip">ronyó</span><span class="chip">sang</span></div><div style="margin-left:27px;font-size:13.5px;line-height:1.9">La glucosa passa de l'<strong>intestí prim</strong> → al <span class="mini-line" contenteditable="true" style="display:inline-block;width:80px;vertical-align:bottom"></span> de la vellositat → a la <span class="mini-line" contenteditable="true" style="display:inline-block;width:60px;vertical-align:bottom"></span> → fins a la cèl·lula del múscul → al <span class="mini-line" contenteditable="true" style="display:inline-block;width:80px;vertical-align:bottom"></span>.</div>
           </div>
 <div class="q deletable">
             <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -215,6 +219,7 @@ span[contenteditable]{display:inline-block;}
 <div class="q deletable" style="margin-bottom:2px">
             <div class="del-btn" onclick="deleteEl(this)">✕</div>
             <div class="q-head"><div class="q-num">3</div><div class="q-text"><span contenteditable="true"><strong>Dibuixa</strong> el camí de la glucosa amb fletxes, de l'intestí fins al mitocondri. Escriu-hi 3 noms.</span><span class="q-tag real">dibuix</span></div></div>
+            <div style="margin:3px 0 3px 27px;display:flex;gap:4px;align-items:center;flex-wrap:wrap"><span class="vk-title" style="margin:0">📦 Caixa d'ajuda</span><span class="chip">cor</span><span class="chip">os</span><span class="chip">energia</span><span class="chip">pulmó</span><span class="chip">intestí prim</span><span class="chip">capil·lar</span><span class="chip">mitocondri</span><span class="chip">ronyó</span><span class="chip">sang</span><span class="chip">cervell</span></div>
             <div class="dib" contenteditable="true">Dibuixa aquí...</div>
           </div>
 
@@ -237,7 +242,7 @@ function deleteEl(btn){const t=btn.closest('.deletable');if(!t)return;const p=t.
 function undoDelete(){if(!delStack.length)return;const{el,parent,sibling}=delStack.pop();parent.insertBefore(el,sibling);if(!delStack.length)document.getElementById('btn-undo').classList.remove('active');updatePageBreaks();setTimeout(syncCopy,0);}
 document.addEventListener('keydown',e=>{if(e.key==='z'&&(e.ctrlKey||e.metaKey)){if(document.activeElement&&document.activeElement.contentEditable==='true')return;e.preventDefault();undoDelete();}});
 
-const PAGE_H=1047;let _pbTimer=null;
+const PAGE_H=1085;let _pbTimer=null;
 const PB_OPTS={childList:true,subtree:true,characterData:true,attributes:false};
 function updatePageBreaks(){pbObserver.disconnect();const doc=document.getElementById('doc');
   doc.querySelectorAll('.page-break-line').forEach(n=>n.remove());

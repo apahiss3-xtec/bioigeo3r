@@ -97,7 +97,7 @@ span[contenteditable]{display:inline-block;}
 .spacer-block{position:relative;height:36px;margin:4px 0;border-radius:6px;border:1.5px dashed var(--purple-light);background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px);display:flex;align-items:center;justify-content:center;}
 .spacer-label{font-family:'Inter',sans-serif;font-size:9px;color:var(--purple-light);letter-spacing:.12em;text-transform:uppercase;user-select:none;pointer-events:none;}
 @media print{
-  @page{size:A4;margin:10mm 12mm;}
+  @page{size:A4;margin:5mm 12mm;}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   body{background:white;padding:0;}
   #toolbar,.page-break-line,.del-btn{display:none!important;}
@@ -131,6 +131,13 @@ span[contenteditable]{display:inline-block;}
 .opt{display:flex;gap:6px;align-items:center;margin:1px 0 1px 27px;font-size:13px}
 .opt .bx{flex:0 0 14px;height:14px;border:1.5px solid var(--purple);border-radius:3px;background:#fff}
 .dib{margin:3px 0 0 27px;height:70px;border:1.5px dashed var(--purple-light);border-radius:6px;background:#fff;display:flex;align-items:flex-start;padding:2px 6px;font-size:12.5px;color:#444}
+
+/* ── Compactació perquè hi càpiguen dos tiquets per A4 amb la pregunta ★ ampliada ── */
+.voc-keys{display:grid;grid-template-columns:auto auto;gap:3px 5px;align-content:start}
+.voc-keys .vk-title{grid-column:1/-1}
+.exit-body{padding:4px 12px 5px!important}.q{margin-bottom:3px!important}.voc-box{margin-bottom:4px!important}
+.content{padding:2px 16px!important}.cut-line{margin:4px 0!important}
+.eh-top{padding:3px 12px 2px!important}.id-bar{padding:1px 12px!important}.q-head{margin-bottom:1px!important}.voc-box{padding:3px 9px!important}
 </style>
 </head>
 <body>
@@ -204,7 +211,8 @@ span[contenteditable]{display:inline-block;}
 <div class="q deletable" style="margin-bottom:2px">
             <div class="del-btn" onclick="deleteEl(this)">✕</div>
             <div class="q-head"><div class="q-num star">★</div><div class="q-text"><span contenteditable="true">L'Aya diu: <em>«La glucosa del pa passa de l'estómac directament al múscul.»</em> Hi estàs d'acord? Argumenta-ho: per <strong>on</strong> passa realment i <strong>per què</strong> s'absorbeix a l'intestí prim.</span><span class="q-tag repte">repte</span></div></div>
-            <div class="wline" contenteditable="true"></div>
+            <div class="q-hint" contenteditable="true">Guia: menciona <strong>l'amilasa</strong> (midó), la <strong>pepsina</strong> (proteïnes) i la <strong>bilis</strong> (greixos).</div>
+            <div class="wline" contenteditable="true" style="width:calc(100% - 27px);margin-left:27px;min-height:19px;padding:0 3px"></div><div class="wline" contenteditable="true" style="width:calc(100% - 27px);margin-left:27px;min-height:19px;padding:0 3px"></div><div class="wline" contenteditable="true" style="width:calc(100% - 27px);margin-left:27px;min-height:19px;padding:0 3px"></div>
           </div>
 
         </div><!-- .exit-body -->
@@ -226,7 +234,7 @@ function deleteEl(btn){const t=btn.closest('.deletable');if(!t)return;const p=t.
 function undoDelete(){if(!delStack.length)return;const{el,parent,sibling}=delStack.pop();parent.insertBefore(el,sibling);if(!delStack.length)document.getElementById('btn-undo').classList.remove('active');updatePageBreaks();setTimeout(syncCopy,0);}
 document.addEventListener('keydown',e=>{if(e.key==='z'&&(e.ctrlKey||e.metaKey)){if(document.activeElement&&document.activeElement.contentEditable==='true')return;e.preventDefault();undoDelete();}});
 
-const PAGE_H=1047;let _pbTimer=null;
+const PAGE_H=1085;let _pbTimer=null;
 const PB_OPTS={childList:true,subtree:true,characterData:true,attributes:false};
 function updatePageBreaks(){pbObserver.disconnect();const doc=document.getElementById('doc');
   doc.querySelectorAll('.page-break-line').forEach(n=>n.remove());
