@@ -4,8 +4,9 @@ export const sa2s7 = {
   sessionNumber: 7, biome: "sa2", duration: "2h",
   engageImage: "/images/sa2-s7-corredor-meta.jpg",
   isFinalSession: true,
+  guiaPerApartats: true,
 
-  engageQuestion: "Mireu els dos enigmes a la paret. Han estat aquí tota la SA. Qui pot ara explicar TOTA la gràfica FC de la Mercè, d'inici a fi? I l'analítica del Marc Fontana, per quina raó es fatiga tant?",
+  engageQuestion: "Mireu els dos enigmes a la paret. Han estat aquí tota la unitat. Qui pot ara explicar TOTA la gràfica de freqüència cardíaca de la Mercè, d'inici a fi? I l'analítica del Marc Fontana, per quina raó es fatiga tant?",
 
   // ── OBJECTIUS D'APRENENTATGE PER VERSIÓ (A/B/C) ──────────
   // Han de coincidir LITERALMENT amb els OA impresos a la fitxa de cada versió
@@ -20,13 +21,13 @@ export const sa2s7 = {
     ],
     B: [
       "Explico per quina raó la gràfica de la Mercè puja de pressa i baixa a poc a poc.",
-      "Explico la cadena de l'enigma 2: ferro baix → hemoglobina baixa → menys oxigen per litre de sang → freqüència cardíaca alta → fatiga.",
+      "Explico la cadena de l'enigma 2, del ferro a la fatiga, sense saltar-me cap baula.",
       "Escric tres conclusions científiques comparant l'esportista d'elit amb la persona sedentària.",
       "Interpreto una gràfica de freqüència cardíaca nova i formulo una hipòtesi sobre la causa del patró.",
       "Descric el cicle complet: glucosa i oxigen entren, es fa ATP al mitocondri, i el CO₂ i la urea surten."
     ],
     C: [
-      "Sé completar la cadena del Marc: falta ferro → menys hemoglobina → menys oxigen → el cor batega més ràpid → fatiga.",
+      "Sé completar la cadena del Marc, de la falta de ferro a la fatiga.",
       "Sé mirar una gràfica de freqüència cardíaca i dir si la recuperació és ràpida o lenta.",
       "Sé comparar la gràfica del cas nou (G3) amb la de la Mercè i dir dues diferències.",
       "Sé dir quin aparell aporta la glucosa, quin aporta l'oxigen i quins treuen els residus.",
@@ -34,40 +35,39 @@ export const sa2s7 = {
     ]
   },
 
-  // ── APARTAT 0 · IDEES PRÈVIES ─────────────────────────────
-  ideesPrevies: {
-    startPoint: "Avui és la sessió de síntesi. Els dos enigmes han estat a la paret tota la SA. Abans de resoldre'ls en grup, escriu individualment el que saps ara — compara-ho amb el que vas escriure a S1.",
+  // ── APARTAT 0 · REPÀS DE TOTA LA UNITAT (mateixes preguntes que la fitxa B) ──
+  repas: {
+    startPoint: "Els dos enigmes han estat a la paret tota la unitat i has anat trobant les peces sessió rere sessió. Avui les recuperes de memòria abans de fer-les servir.",
     prompts: [
-      {
-        kind: "write",
-        text: "Per quina raó el Marc Fontana es fatigava tant fent exercici? Escriu tota la cadena causal que recordes, de dalt a baix.",
-        starter: "El Marc es fatigava perquè..."
-      },
-      {
-        kind: "write",
-        text: "La gràfica FC de la Mercè puja molt ràpid i baixa lentament. Per quina raó és asimètrica?",
-        starter: "La recuperació és més lenta perquè..."
-      }
-    ]
+      { text: "La glucosa (sessions 1 i 2). La Mercè ha dinat abans de la cursa. On passa la glucosa a la sang, i què en fa el mitocondri del múscul?" },
+      { text: "Enigma 2, en Marc Fontana (sessions 3 i 4). Escriu tota la cadena que explica per quina raó es fatiga tant: comença pel ferro i acaba a la fatiga. Quina cavitat del cor envia aquesta sang a tot el cos?" },
+      { text: "Enigma 1, la Mercè (sessions 5 i 6). La seva gràfica puja de pressa i baixa a poc a poc. Per quina raó és asimètrica?" },
+      { text: "El ronyó (sessió 6). Mira l'analítica del Marc a la teva fitxa. Què et diuen la urea i la creatinina normals sobre el seu problema?" }
+    ],
+    note: "Primer de memòria. Després comprova-ho a les teves fitxes de les sessions 2, 3, 5 i 6, i ho posem en comú."
   },
 
   exploreActivity: {
     what: "En parelles, compareu el gràfic G2 (esportista d'elit vs. sedentari) i n'escriviu 3 conclusions en forma d'afirmació científica. Després, individualment i sense ajuda, analitzeu el gràfic G3 (en Nil, 14 anys, el mateix eix de temps que la gràfica de la Mercè) per formular-ne una hipòtesi.",
     who: { mode: "parelles+individual", label: "Parelles (G2) i després individual (G3, avaluació sumativa)" },
-    time: 40,
-    note: "L'apartat 2 (G3) és individual: no pots demanar ajuda. Comptem uns 18 min per a G2 en parelles i uns 22 min per a G3 sol o sola."
+    time: 42,
+    note: "L'apartat 2 (G3) és individual: no pots demanar ajuda. Comptem uns 18 min per a G2 en parelles i uns 24 min per a G3 sol o sola."
   },
 
+  // Tota la teoria va a l'apartat 3: l'apartat 0 es fa de memòria i l'apartat 2
+  // (G3) es recull. La cadena del Marc abans del G3 serviria de plantilla per
+  // a la hipòtesi d'en Nil.
   theoryPoints: [
-    { id: "t1", apartat: "2", heading: "El cicle complet: entrada → ús → eliminació", text: "==Glucosa|o== (digestiu) + ==O₂|b== (respiratori) → ==ATP|g== al ==mitocondri muscular== (connexió SA1), i d'aquesta reacció en surten ==CO₂|r== i ==aigua|b==, que marxen pels ==pulmons|b==. La ==urea|o== ve d'una altra banda: de les ==proteïnes|o== que sobren, i surt pel ==ronyó|g== amb les sals. Quatre aparells, una sola feina: la ==nutrició==.", type: "synthesis", video: "/animacions/sa2-s7-t1.mp4" },
-    { id: "t2", apartat: "2", heading: "Resolució enigma 1 — Gràfica Mercè", text: "Puja ràpid: ==SN simpàtic|b== (ms) + ==adrenalina|o== (30 seg) activen. ==Pic==: màxima demanda d'==ATP|g== dels músculs. ==Recuperació lenta|r==: normalitzar hormones, netejar ==lactat|r==, tornar al ==parasimpàtic==. Asimetria: baixar és sempre ==més lent que pujar|r==.", type: "synthesis", badge: "✅ Enigma 1 — resolt" },
+    { id: "t1", apartat: "3", heading: "El cicle complet: entrada → ús → eliminació", text: "==Glucosa|o== (digestiu) + ==O₂|b== (respiratori) → ==ATP|g== al ==mitocondri muscular== (connexió SA1), i d'aquesta reacció en surten ==CO₂|r== i ==aigua|b==, que marxen pels ==pulmons|b==. La ==urea|o== ve d'una altra banda: de les ==proteïnes|o== que sobren, i surt pel ==ronyó|g== amb les sals. Quatre aparells, una sola feina: la ==nutrició==.", type: "synthesis", video: "/animacions/sa2-s7-t1.mp4" },
+    { id: "t2", apartat: "3", heading: "Resolució enigma 1 — Gràfica Mercè", text: "Puja ràpid: ==SN simpàtic|b== (ms) + ==adrenalina|o== (30 seg) activen. ==Pic==: màxima demanda d'==ATP|g== dels músculs. ==Recuperació lenta|r==: normalitzar hormones, netejar ==lactat|r==, tornar al ==parasimpàtic==. Asimetria: baixar és sempre ==més lent que pujar|r==.", type: "synthesis", badge: "✅ Enigma 1 — resolt" },
     { id: "t3", apartat: "3", heading: "Resolució enigma 2 — Analítica Marc", text: "==Ferro baix|r== → menys ==hemoglobina|r== → ==eritròcits petits|r== → cada litre de sang porta molt menys ==O₂|b== → cor compensa amb ==FC alta|r== → els músculs es queden ==sense prou oxigen|r== → ==fatiga precoç|r==. La ==creatinina i urea normals|g== → el ronyó va bé, el problema és el ==ferro|r==.", type: "synthesis", badge: "✅ Enigma 2 — resolt" }
   ],
 
+  // Mateix ordre que la fitxa B: G2 a l'apartat 1; G1 i G3 a l'apartat 2.
   graphicResources: [
-    { id: "G1", apartat: "2", title: "Gràfica FC de la Mercè (referència)", src: "/images/sa2-g1-merce.svg", note: "Enigma 1, ja resolt: és la gràfica de la Mercè de la sessió 5 (repòs 65, 185 al minut 55, per sota de 80 al minut 70). La tens a la vista per comparar-la amb G3." },
-    { id: "G2", apartat: "1", title: "Gràfica G2 — esportista d'elit vs. sedentari", src: "/images/sa2-g2-elit-sedentari.svg", note: "Es treballa en parelles i serveix de base de comparació per a la Discussió de l'informe. Els dos subjectes tenen 20 anys i fan el mateix esforç." },
-    { id: "G3", apartat: "2", title: "Gràfica del cas nou — en Nil, 14 anys", src: "/images/sa2-g3-cas-nou.svg", note: "Aquesta gràfica és individual. Té la mateixa edat que la Mercè, els mateixos eixos i el mateix llindar que G1: la comparació és legítima. El teu protocol és a la franja de notes de la gràfica." }
+    { id: "G2", apartat: "1", before: true, title: "Mateix esforç, dues persones de 20 anys", src: "/images/sa2-g2-elit-sedentari.svg", caption: "Dues persones de 20 anys fan el mateix esforç de 5 minuts. Mireu tres coses: on comença cada corba, on arriba i quanta estona triga a baixar.", note: "Es treballa en parelles i serveix de base de comparació per a la Discussió de l'informe." },
+    { id: "G1", apartat: "2", before: true, title: "La Mercè (14 anys) — cursa de 10 km", src: "/images/sa2-g1-merce.svg", caption: "La gràfica que ja vas analitzar a la sessió 5. La tens aquí per comparar-la amb la d'en Nil: llegeix la franja de sota per saber quin esforç va fer.", note: "Enigma 1: repòs 65, 185 al minut 55, per sota de 80 al minut 70." },
+    { id: "G3", apartat: "2", before: true, title: "Cas nou — en Nil, 14 anys", src: "/images/sa2-g3-cas-nou.svg", caption: "Gràfica nova, mateixos eixos que la de la Mercè. Llegeix la franja de sota per saber quin esforç ha fet en Nil, i busca-hi els números que et demana la fitxa.", note: "Avaluació individual: el peu no ha de dir res de la causa. Mateixa edat, eixos i llindar que G1." }
   ],
 
   // 2026-08-20: la fitxa impresa A/B/C ja existeix (abans NO n'hi havia cap
@@ -84,26 +84,28 @@ export const sa2s7 = {
     fitxaName: "Fitxa Sessió 7 — Síntesi de la unitat",
     steps: [
       { apartat: "—", title: "Formulari de comprensió de la lectura", time: "5 min", phase: "engage", instruction: "Abans de començar la fitxa, fes el formulari de comprensió (Google Forms) de la lectura de la sessió 7 que havies de llegir a casa.", hints: [] },
-      { apartat: "0", title: "Els dos enigmes, resolts", time: "12 min", phase: "engage", instruction: "Apartat 0: escriu la cadena del Marc i per quina raó la gràfica de la Mercè és asimètrica. Fes-ho ABANS de la posada en comú.", hints: [
-        "A l'enigma 1 hi ha DUES coses que expliquen la baixada lenta: les hormones que s'han d'anar normalitzant i el lactat que s'ha de netejar.",
+      { apartat: "0", title: "Repàs — les peces dels dos enigmes", time: "10 min", phase: "engage", instruction: "Apartat 0, sol o sola i sense mirar res: respon de memòria les preguntes que recuperen les peces de les sessions anteriors. Després comprova-ho a les teves fitxes i ho posem en comú.", hints: [
+        "A l'enigma 1 hi ha DUES coses que expliquen la baixada lenta: què ha de fer el cos amb les hormones que ha alliberat, i què ha d'eliminar dels músculs.",
         "A l'enigma 2, comença pel ferro i no et saltis cap baula fins a la fatiga."
       ] },
-      { apartat: "1", title: "Mateix esforç, dos cossos diferents (G2)", time: "18 min", phase: "explora", instruction: "Apartat 1, en parelles: compareu l'esportista d'elit i la persona sedentària i escriviu tres conclusions en forma d'afirmació científica.", hints: [
+      { apartat: "1", title: "Mateix esforç, dos cossos diferents", time: "18 min", phase: "explora", instruction: "Apartat 1, en parelles: compareu l'esportista d'elit i la persona sedentària a la gràfica G2 i escriviu tres conclusions en forma d'afirmació científica: una sobre el repòs, una sobre el pic i una sobre la recuperació.", hints: [
         "Una afirmació científica porta una dada i una explicació: «fa el mateix esforç a 150 i no a 182, perquè…».",
         "Mireu tres coses diferents: on comencen (repòs), on arriben (pic) i quanta estona triguen a baixar."
       ] },
-      { apartat: "2", title: "Un cas que no has vist mai (G3)", time: "22 min", phase: "explora", instruction: "Apartat 2, individual i sense ajuda: analitza la gràfica d'en Nil i formula una hipòtesi. Aquest apartat es recull i s'avalua.", hints: [
+      { apartat: "2", title: "Un cas que no has vist mai", time: "24 min", phase: "explora", instruction: "Apartat 2, individual i sense ajuda: analitza la gràfica d'en Nil (G3) i formula una hipòtesi. Aquest apartat es recull i s'avalua. Ho tens tot a la fitxa: tanca el web fins que l'hagis acabat.", hints: [
         "Llegeix la franja de sota de cada gràfica: hi diu l'edat i quin exercici ha fet cadascú. No és el mateix.",
-        "La creatinina i la urea normals indiquen que el ronyó va bé. Quin altre valor caldria mirar?"
+        "Cada afirmació ha de portar un número llegit a la gràfica. Una hipòtesi ben raonada i equivocada val més que un encert sense arguments."
       ] },
       { apartat: "3", title: "Quatre aparells, una sola feina", time: "18 min", phase: "explica", instruction: "Apartat 3: completa el cicle complet (glucosa i O₂ entren → ATP al mitocondri → CO₂ i urea surten) i explica com una sola mancança, el ferro, acaba afectant-ho tot.", hints: [
         "Quin aparell aporta la glucosa? Quin aporta l'oxigen? Quins dos treuen residus, i quin residu cadascun?",
         "Si un pas de la cadena falla, els altres han de treballar més per compensar-ho. Això és el que li passa al cor del Marc."
       ] },
-      { apartat: "4", title: "L'informe de la vostra freqüència cardíaca", time: "25 min", phase: "elabora", instruction: "Apartat 4, en parelles amb rols: Rol A fa Mètode i Resultats; Rol B fa Discussió i Conclusions; la pregunta d'investigació la feu junts. S'entrega a Classroom.", hints: [
-        "Si no tens les teves dades d'S5, fes servir el joc de reserva (la Berta) que hi ha a la mateixa fitxa i digues-ho a l'informe.",
+      { apartat: "4", title: "L'informe de la vostra freqüència cardíaca", time: "25 min", phase: "elabora", instruction: "Apartat 4, en parelles amb rols: Rol A fa Mètode i Resultats; Rol B fa Discussió i Conclusions; la pregunta d'investigació la feu junts. Llegiu la rúbrica abans de començar (és a «Materials», més avall, amb l'estructura de l'informe). S'entrega a Classroom.", hints: [
+        "Si no tens les teves dades de la sessió 5, fes servir el joc de reserva (la Berta) que hi ha a la mateixa fitxa i digues-ho a l'informe.",
         "Els Resultats són només dades: cap explicació. L'explicació va a la Discussió."
-      ] }
+      ] },
+      { apartat: "—", title: "Final de la unitat: torna als objectius", time: "8 min", phase: "elabora", instruction: "A l'últim full de la fitxa: marca els objectius que has aconseguit i respon les tres preguntes finals. Ves a buscar el que vas escriure el primer dia de la unitat i el dibuix del cor d'abans de la dissecció.", hints: [] },
+      { apartat: "—", title: "Full d'avaluació final", time: "12 min", phase: "elabora", instruction: "Abans de marxar, individual: respon el full d'avaluació final i entrega'l amb l'apartat 2 de la fitxa.", hints: [] }
     ]
   },
   exitTicketType: "paper",
@@ -128,7 +130,7 @@ export const sa2s7 = {
 
   reserveDataset: {
     title: "Joc de dades de reserva — la Berta (14 anys)",
-    when: "Fes-lo servir NOMÉS si vas faltar o no tens les teves dades d'S5/S6. Així tothom pot completar Mètode i Resultats.",
+    when: "Fes-lo servir NOMÉS si vas faltar o no tens les teves dades de les sessions 5 o 6. Així tothom pot completar Mètode i Resultats.",
     subject: "Berta, 14 anys. Sense problemes de salut (patró NORMAL, per contrast amb el Marc).",
     method: "FC en repòs mesurada 3 matins en despertar-se (30 s × 2). Després, prova d'esforç: 3 min de repòs, 2 min de cursa A FONS, 7 min de recuperació asseguda.",
     restingMornings: [
@@ -151,10 +153,12 @@ export const sa2s7 = {
   homework: { description: "Acabar l'informe FC i entregar a Classroom en un termini d'una setmana." },
 
   recoveryInstructions: [
-    "Fes la gràfica G3 individualment (descàrrega a ELABORA): respon les 4 preguntes sense ajuda",
-    "Fes el formulari G3 i analítica online (exit tiquet online, a l'acordió de sota)",
-    "Per a l'informe: contacta amb el/la teu/teva company/a de parella i repartiu-vos les seccions. Entrega les teves seccions a Classroom.",
-    "Si no tens les teves dades de FC (vas faltar a S5/S6): usa el JOC DE DADES DE RESERVA (la Berta) per completar Mètode i Resultats."
+    "Baixa la fitxa i fes l'apartat 0 de memòria; després comprova-ho a les teves fitxes de les sessions anteriors.",
+    "Fes l'apartat 1 amb la gràfica G2 i escriu-ne les tres conclusions.",
+    "Fes l'apartat 2 (gràfica d'en Nil) sol o sola i sense ajuda, i NO miris l'apartat 3 fins que l'hagis acabat. Entrega'l al teu professor o professora.",
+    "Fes l'apartat 3 amb la teoria que hi ha en aquest apartat del web.",
+    "Apartat 4, l'informe: contacta amb el/la teu/teva company/a de parella i repartiu-vos les seccions. Entrega les teves seccions a Classroom. Si vas faltar a les sessions 5 o 6 i no tens dades de freqüència cardíaca, usa el joc de reserva (la Berta) per completar Mètode i Resultats.",
+    "Fes el formulari de la gràfica d'en Nil i l'analítica (l'exit tiquet en línia, a l'acordió de sota)."
   ],
   // CE5: la pregunta 4 del full de sortida (a les TRES versions)
   // demana valorar una recomanació de salut a partir de la fisiologia, que és

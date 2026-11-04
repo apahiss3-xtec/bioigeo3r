@@ -2,16 +2,17 @@ export const sa2s3 = {
   id: "s3", saId: "sa2",
   title: "El Sistema Circulatori i la Sang",
   sessionNumber: 3, biome: "sa2", duration: "2h",
+  guiaPerApartats: true,
   engageImage: "/images/sa2-s3-circulatori.jpg",
 
-  // Repte oral curt: hook visual del tub de sang centrifugada, abans d'escriure les idees prèvies.
+  // Repte oral curt: hook visual del tub de sang centrifugada, abans del repàs i de la fitxa.
   engageChallenge: "Observem un tub de sang centrifugada: es veuen 3 capes (plasma groc 55%, eritròcits vermells 44%, leucòcits i plaquetes <1%). Per quina raó la sang sembla vermella si la majoria és plasma groc?",
-  engageQuestion: "Avui comencem a desxifrar l'analítica de sang de la paret. La hemoglobina és baixa: 9,2 g/dL. Però primer: saps de quines coses es compon la sang?",
+  engageQuestion: "Avui comencem a desxifrar l'analítica de sang de la paret. L'hemoglobina és baixa: 9,2 g/dL. Però primer: saps de quines coses es compon la sang?",
   engageContext: "Un tub de sang centrifugada es parteix en tres capes ben visibles, i la més gran és groga. Si el 55 % de la sang és plasma groc, per quina raó la veiem vermella?",
 
   // NO es renderitza al web: guió del docent (logística, temps,
   // material, revisió de deures). Tasca 2, 09/09/2026.
-  teacherNotes: "Hook visual: tub de sang centrifugada amb les 3 capes. Sessió reformulada (26/10/2026) per cabre en 2h: fora les 100 targetes i l'etiquetatge del cor (ja es fa a S4). L'explora és la coavaluació del pòster de SA1: cal tenir els pòsters a l'aula, la bastida impresa (1 per alumne) i la rúbrica d'EdVoice oberta. L'app de circulació passa a opcional / casa.",
+  teacherNotes: "Hook visual: tub de sang centrifugada amb les 3 capes. Sessió reformulada (26/10/2026) per cabre en 2h: fora les 100 targetes i l'etiquetatge del cor (ja es fa a S4). L'explora és la coavaluació del pòster de SA1: cal tenir els pòsters a l'aula, la bastida impresa (1 per alumne) i la rúbrica d'EdVoice oberta. L'app de circulació passa a opcional / casa. L'apartat 0 és repàs individual de les sessions 1 i 2 (04/11/2026); la hipòtesi de les 100 cèl·lules i l'esquema de la versió A són a l'inici de l'apartat 1. El laboratori virtual antic (targetes i etiquetatge del cor) ja no s'enllaça.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {
@@ -45,26 +46,21 @@ export const sa2s3 = {
       challenge: "Imagina un animal amb un sol circuit: la sang passa pels pulmons i, sense tornar al cor, va a tot el cos. Per quina raó arribaria als músculs amb menys pressió? Quin avantatge té, doncs, la doble circulació per a un corredor com el Marc?"
     },
     "3": {
-      scaffold: "Mira la taula de valors normals. Omple: Hb del Marc = ___ g/dL (normal: ___). Ferro = ___ (normal: ___). Eritròcits = ___ (normals: petits o grans?). El problema és que el Marc té MASSA _______ o MASSA POC _______?",
-      challenge: "Raona la cadena causal COMPLETA de l'enigma 2: Ferro baix → _______ → eritròcits petits → _______ per litre de sang → cor _______ → fatiga precoç. Connecta-ho: si el Marc prengués ferro, en quines setmanes esperaries que millorés la Hb? Per quina raó no immediat?"
+      scaffold: "Mira la taula de l'analítica. Omple: Hb del Marc = ___ g/dL (normal: ___). Ferro = ___ (normal: ___). Eritròcits = ___ (normals: petits o grans?). El problema és que el Marc té MASSA _______ o MASSA POC _______?",
+      challenge: "Raona la cadena causal COMPLETA de l'enigma 2: Ferro baix → _______ → eritròcits petits → _______ per litre de sang → cor _______ → fatiga precoç. Connecta-ho: si el Marc prengués ferro, en quantes setmanes esperaries que millorés la Hb? Per quina raó no és immediat?"
     }
   },
 
-  // ── APARTAT 0 · IDEES PRÈVIES ─────────────────────────────
-  ideesPrevies: {
-    startPoint: "Avui comencem a desxifrar l'analítica de la paret. Però primer anoteu el que ja sabeu sobre la sang — res és incorrecte ara, i no es corregirà.",
+  // ── APARTAT 0 · REPÀS DE LES SESSIONS 1 I 2 ───────────────
+  // Mateixes preguntes que la fitxa B.
+  repas: {
     prompts: [
-      {
-        kind: "write",
-        text: "La sang té molts components. Quins creus que hi ha? Fes una llista de tot el que creus que conté.",
-        starter: "Crec que la sang conté..."
-      },
-      {
-        kind: "write",
-        text: "Quan et fas un tall i sagnes, la sang és vermella. Però si la centrifugues, la part de dalt és groga. Per quina raó creus que passa?",
-        starter: "Crec que és perquè..."
-      }
-    ]
+      { text: "Quin nutrient és el combustible ràpid de la cèl·lula? De quin grup d'aliments l'obtens?" },
+      { text: "En quin òrgan passen els nutrients a la sang? Quines estructures de la seva paret ho fan possible?" },
+      { text: "Escriu el camí de la glucosa des de l'intestí fins a una cèl·lula del múscul. On acaba i què s'hi obté?" },
+      { text: "Per a què serveix el ferro que hi ha al menjar? Digues un aliment que en tingui." }
+    ],
+    note: "Primer de memòria. Després comprova-ho amb les fitxes de les sessions 1 i 2 i la teoria de la sessió 1 al web."
   },
 
   exploreActivity: {
@@ -83,61 +79,64 @@ export const sa2s3 = {
   exploreDuration: "15 min",
   exploreMaterials: ["Pòsters de SA1 de la classe", "Bastida «Coavaluació del pòster» (1 per alumne)", "Rúbrica del pòster a EdVoice (ordinador o mòbil)"],
   appSrc: "/apps/app_sistema_circulatori.html",
-  exploreNote: "Opcional, per a casa o si acabes abans — App interactiva: segueix una molècula d'O₂ per 7 estacions (alvèol → hemoglobina → cor esquerre → aorta → capil·lar → mitocondri → tornada). Prova el botó «Mode anèmia»: t'ajudarà a entendre l'enigma 2 del Marc. Inclou el mode Simplifica, ajuda en àrab, castellà i urdú, i un quiz autocorrectiu de 3 preguntes.",
+  appApartat: "2",
+  appNote: "Opcional, per a casa o si acabes abans: segueix una molècula d'O₂ per 7 estacions (alvèol → hemoglobina → cor esquerre → aorta → capil·lar → mitocondri → tornada). Prova el botó «Mode anèmia»: t'ajudarà a entendre l'enigma 2 del Marc. Inclou el mode Simplifica, ajuda en àrab, castellà i urdú, i un quiz autocorrectiu de 3 preguntes.",
 
   theoryPoints: [
     { id: "t1", apartat: "1", heading: "Composició de la sang", text: "==55% plasma|o== (groc): transport de nutrients, hormones, CO₂. ==44% eritròcits|r== (vermells): transport ==O₂|b== via ==hemoglobina==. ==<1% leucòcits i plaquetes==: defensa i coagulació.", type: "concept" },
     { id: "t2", apartat: "1", heading: "==Hemoglobina==: la proteïna que porta l'O₂", text: "L'==hemoglobina== és una proteïna dels ==eritròcits|r== que conté ==ferro==. Als ==pulmons|b==, el ferro s'uneix a l'==O₂|b== (es torna vermell brillant). Als ==teixits==, el cedeix. Sense ferro → no es forma hemoglobina → menys O₂ als músculs.", type: "concept", video: "/animacions/sa2-s3-t2.mp4" },
     { id: "t3", apartat: "2", heading: "Per quina raó la circulació és doble", text: "==Petita circulació|b==: cor → pulmons → cor (oxigenació). ==Gran circulació|o==: cor → tot el cos → cor (distribució). Dos circuits permeten ==dues pressions==: baixa als pulmons (alvèols delicats) i alta cap al cos. Si es barregen ==sang oxigenada i desoxigenada|r== → menys eficiència.", type: "concept" },
-    { id: "t4", apartat: "3", heading: "Primera lectura de l'analítica", text: "Marc Fontana: ==Hb 9,2 g/dL|r== (normal >13), ==eritròcits petits|r==, ==ferro baix|r==. Diagnòstic parcial: ==anèmia ferropènica==. Per quina raó es fatiga tant? Porta menys ==O₂|b== per litre de sang → els músculs no reben prou combustible.", type: "keyequation", badge: "🔗 Enigma 2 — segon pas" }
+    { id: "t4", apartat: "3", heading: "Com es llegeix una analítica", text: "Cada valor es compara amb el seu ==rang de referència==. Un sol valor fora de rang diu poca cosa: l'important és veure si els que surten del rang ==apunten al mateix==, i els que hi queden dins serveixen de control. Quan falta ferro i per això es fabrica menys hemoglobina, parlem d'==anèmia ferropènica==.", type: "keyequation", badge: "🔗 Enigma 2 — segon pas" }
   ],
 
   graphicResources: [
-    { id: "Fig.1", title: "Composició de la sang (en volum)", src: "/images/sa2-composicio-sang.png", note: "55% plasma (groc) + 45% cèl·lules sanguínies, de les quals >99% són glòbuls vermells. Per això la sang sembla vermella tot i ser majoritàriament plasma groc." },
-    { id: "Fig.2", title: "Frotis de sang al microscopi", src: "/images/sa2-frotis-sang.png", note: "Glòbuls vermells (1), glòbuls blancs (2) i plaquetes (3) tal com es veuen en una analítica real." },
-    { id: "Fig.3", title: "La doble circulació", src: "/images/sa2-circulacio-doble.png", note: "Circuit pulmonar (cor → pulmons → cor, a oxigenar) i circuit general (cor → cos → cor, a repartir). Cada circuit té la seva pressió: baixa als pulmons i alta cap al cos." },
-    { id: "Fig.4", title: "Els tres tipus de vasos sanguinis", src: "/images/sa2-vasos-sanguinis.png", note: "Artèria (paret gruixuda, alta pressió), vena (vàlvules, baixa pressió) i capil·lar (una sola cèl·lula de gruix, on es fa l'intercanvi de substàncies)." }
+    { id: "Fig.1", apartat: "1", before: true, title: "Frotis de sang al microscopi", src: "/images/sa2-frotis-sang.png", caption: "Frotis de sang real al microscopi. Cada número assenyala un tipus de cèl·lula: fixa't en la forma, el color i si tenen nucli.", note: "Glòbuls vermells (1), glòbuls blancs (2) i plaquetes (3) tal com es veuen en una analítica real." },
+    { id: "Fig.2", apartat: "1", before: true, title: "Composició de la sang (en volum)", src: "/images/sa2-composicio-sang.png", caption: "Tub de sang centrifugada: mira quina part ocupa cada capa i contrasta-ho amb la teva hipòtesi.", note: "55% plasma (groc) + 45% cèl·lules sanguínies, de les quals >99% són glòbuls vermells. Per això la sang sembla vermella tot i ser majoritàriament plasma groc." },
+    { id: "Fig.3", apartat: "2", before: true, title: "La doble circulació", src: "/images/sa2-circulacio-doble.png", caption: "Segueix les fletxes des del cor: on agafa O₂ la sang i on el deixa? Compta quantes vegades passa pel cor a cada volta.", note: "Circuit pulmonar (cor → pulmons → cor, a oxigenar) i circuit general (cor → cos → cor, a repartir). Cada circuit té la seva pressió: baixa als pulmons i alta cap al cos." },
+    { id: "Fig.4", apartat: "2", title: "Els tres tipus de vasos sanguinis", src: "/images/sa2-vasos-sanguinis.png", caption: "Compara el gruix de la paret dels tres vasos i busca on hi ha vàlvules.", note: "Artèria (paret gruixuda, alta pressió), vena (vàlvules, baixa pressió) i capil·lar (una sola cèl·lula de gruix, on es fa l'intercanvi de substàncies)." }
   ],
 
   fitxaUrl: { A: "/fitxes/sa2-s3-fitxa-A.html", B: "/fitxes/sa2-s3-fitxa-B.html", C: "/fitxes/sa2-s3-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s3-teoria.pdf",
 
   sessionMaterials: [
-    { id: "bastidaCoav", title: "Bastida per coavaluar el pòster de SA1", url: "/fitxes/sa2-s3-bastida-coavaluacio.html", who: "per a l'explora (1 per alumne), abans d'omplir la rúbrica d'EdVoice" },
+    { id: "bastidaCoav", title: "Bastida per coavaluar el pòster de SA1", url: "/fitxes/sa2-s3-bastida-coavaluacio.html", who: "per a la coavaluació (1 per alumne), abans d'omplir la rúbrica d'EdVoice" },
     { id: "bastidaCoavUR", title: "Bastida per coavaluar el pòster de SA1 · acollida (urdú)", url: "/fitxes/sa2-s3-bastida-coavaluacio-UR.html", who: "alumnat d'acollida que llegeix urdú (català + urdú, 2 fulls)" },
     { id: "bastidaCoavAR", title: "Bastida per coavaluar el pòster de SA1 · acollida (àrab)", url: "/fitxes/sa2-s3-bastida-coavaluacio-AR.html", who: "alumnat d'acollida que llegeix àrab (català + àrab, 2 fulls)" },
     { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s3-exit-ticket.html", who: "per al final de la sessió" },
-    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s3-exit-ticket-C.html", who: "per al final de la sessió" },
-    { id: "labVirtual", title: "Laboratori virtual (si has faltat a la pràctica)", url: "/labs/sa2/lab_s3_circulatori.html", who: "per fer a casa si no vas poder fer la pràctica" }
+    { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s3-exit-ticket-C.html", who: "per al final de la sessió" }
   ],
 
   fitxaGuide: {
-    fitxaName: "Fitxa S3 — La sang i la circulació",
+    fitxaName: "Fitxa de la sessió 3 — La sang i la circulació",
     steps: [
       { apartat: "—", title: "Formulari de comprensió de la lectura", time: "5 min", phase: "engage", instruction: "Abans de començar la fitxa, fes el formulari de comprensió (Google Forms) de la lectura de la sessió 3 que havies de llegir a casa.", hints: [] },
-      { apartat: "0", title: "Idees prèvies", time: "5 min", phase: "engage", instruction: "Omple l'apartat 0 — Idees prèvies del full: escriu tot el que creus que la sang transporta pel cos.", hints: [] },
-      { apartat: "—", title: "Coavalua el pòster de SA1", time: "15 min", phase: "explore", instruction: "Amb la bastida «Coavaluació del pòster», revisa el pòster d'un company criteri a criteri i després omple la rúbrica que t'ha enviat per EdVoice.", hints: [
+      { apartat: "0", title: "Repàs — del menjar a la cèl·lula", time: "5 min", phase: "engage", instruction: "Omple l'apartat 0 de la fitxa, sol o sola: repàs de les sessions 1 i 2.", hints: [] },
+      { apartat: "—", title: "Coavalua el pòster de SA1", time: "15 min", phase: "explore", explora: true, instruction: "Amb la bastida «Coavaluació del pòster», revisa el pòster d'un company criteri a criteri i després omple la rúbrica que t'ha enviat per EdVoice.", hints: [
         "Primer mira el pòster sencer sense escriure. Després busca les pistes ✔ de cada criteri.",
         "Un comentari útil diu QUÈ funciona i QUÈ milloraries, amb un exemple concret del pòster."
       ] },
-      { apartat: "1", title: "Què hi ha dins la sang?", time: "15 min", phase: "explica", instruction: "Omple l'apartat 1 del full: fes la hipòtesi, identifica les cèl·lules del frotis i compara-ho amb el tub de sang centrifugada.", hints: [
+      { apartat: "1", title: "Què hi ha dins la sang?", time: "15 min", phase: "explica", instruction: "A l'apartat 1 de la fitxa: escriu la teva hipòtesi (a la versió A, comença per l'esquema del viatge de la sang), identifica les cèl·lules del frotis, contrasta la hipòtesi amb el tub de sang centrifugada i respon la pregunta clau.", hints: [
+        "Al frotis, fixa't en la forma de cada cèl·lula i en si té nucli. El glossari de la fitxa t'ajuda amb les paraules de la imatge.",
         "Al tub, la part de dalt (groga) és el plasma; la de baix, les cèl·lules.",
-        "Si la sang és majoritàriament plasma groc, per què la veiem vermella? Pensa quin component li dóna el color."
+        "Si la sang és majoritàriament plasma groc, per quina raó la veiem vermella? Pensa quin component li dóna el color."
       ] },
-      { apartat: "2", title: "La doble circulació", time: "20 min", phase: "explica", instruction: "Omple l'apartat 2 del full: per quina raó en calen dues?", hints: [
-        "Un circuit va als pulmons (a buscar O₂); l'altre, a tot el cos (a repartir-lo). Què passaria amb un de sol?"
+      { apartat: "2", title: "La doble circulació — per quina raó en calen dues?", time: "20 min", phase: "explica", instruction: "A l'apartat 2 de la fitxa: segueix el camí de la sang a l'esquema (a la versió A, compara'l amb el teu i corregeix-lo), respon el «Reflexiona» i compara els tres tipus de vasos.", hints: [
+        "Un circuit va als pulmons (a buscar O₂); l'altre, a tot el cos (a repartir-lo). Què passaria amb un de sol?",
+        "Mira el gruix de la paret de cada vas: quin ha d'aguantar més pressió?"
       ] },
-      { apartat: "3", title: "Desxifra l'analítica del Marc", time: "20 min", phase: "elabora", instruction: "A l'apartat 3 del full, analitza els valors de l'analítica de Marc Fontana i marca quins estan fora de rang.", hints: [
-        "Compara cada valor amb el seu rang normal. Tres pistes apunten al mateix problema: hemoglobina, ferro i mida dels eritròcits.",
-        "No diguis encara el diagnòstic complet: només identifica QUÈ està alterat. La causa la lligaràs a S5."
+      { apartat: "3", title: "Desxifra l'analítica del Marc", time: "20 min", phase: "elabora", instruction: "A l'apartat 3 de la fitxa: compara cada valor de l'analítica amb el seu rang, marca Baix, Correcte o Alt, escriu què vol dir cada valor que en surt i acaba amb el diagnòstic.", hints: [
+        "Compara cada valor del Marc amb el rang, número per número. No et fiïs de la impressió general.",
+        "Mira quins valors surten del rang: tenen alguna cosa en comú? Els altres et serveixen de control.",
+        "Per al diagnòstic, pensa què necessita l'hemoglobina i què porta."
       ] }
     ]
   },
 
   exitTicketType: "paper",
   exitTicketQuestions: [
-    { id: "q1", type: "open", text: "Explica la cadena causal: ferro baix → ? → ? → ? → corredor es fatiga molt aviat.", hint: "Cada fletxa és una conseqüència. Ferro → hemoglobina → O₂ que arriba al múscul → energia disponible. Omple els passos." },
-    { id: "q2", type: "open", text: "Per quina raó la circulació humana és doble (petita + gran)? Quin avantatge té respecte una de sola?", hint: "Pensa en les pressions: els pulmons són delicats (pressió baixa) i el cos és gran (pressió alta). Es poden fer alhora amb una sola bomba?" },
-    { id: "q3", type: "multiple", text: "Un esportista d'elit en altitud té l'hematòcrit (% eritròcits) elevat naturalment. Per quina raó és un avantatge?", options: ["Porta més O₂ per litre de sang als músculs", "La sang és més lleuger", "El cor batega menys vegades", "Els músculs necessiten menys ATP"], correct: 0 }
+    { id: "q1", type: "open", text: "Explica la cadena causal: ferro baix → ? → ? → ? → corredor es fatiga molt aviat.", hint: "Cada fletxa és una conseqüència. Pensa què fabrica el cos amb el ferro, què transporta aquesta molècula i per a què la necessita el múscul." },
+    { id: "q2", type: "open", text: "Per quina raó la circulació humana és doble (petita + gran)? Quin avantatge té respecte una de sola?", hint: "Pensa en les pressions: què aguanten els alvèols i què cal per arribar a tot el cos? Es pot fer tot alhora amb una sola volta?" },
+    { id: "q3", type: "multiple", text: "Un esportista d'elit en altitud té l'hematòcrit (% eritròcits) elevat naturalment. Per quina raó és un avantatge?", options: ["Porta més O₂ per litre de sang als músculs", "La sang és més lleugera", "El cor batega menys vegades", "Els músculs necessiten menys ATP"], correct: 0 }
   ],
   homework: {
     readingNext: {
@@ -147,13 +146,13 @@ export const sa2s3 = {
       easyUrl: "/lectures/sa2-s4-lectura-FACIL.pdf",
     }, description: "Prepara la Sessió 4: mesura el teu pols en repòs (sense haver fet exercici l'última hora). Posa els dits índex i mig al coll o al canell, compta les pulsacions durant 30 segons i multiplica per 2. Anota el resultat a la fitxa i porta'l a la Sessió 4. Són 2 minuts; necessites un rellotge i els teus propis dits. No es pot fer amb IA." },
   recoveryInstructions: [
-    "Mira la imatge del tub de sang centrifugada i la del frotis d'aquesta pàgina i omple l'apartat 1 de la fitxa",
+    "Fes el formulari de comprensió de la lectura de la sessió 3",
+    "Omple l'apartat 0 de la fitxa: primer de memòria i després comprova-ho amb les fitxes de les sessions 1 i 2 i la teoria de la sessió 1",
     "Coavalua el pòster de SA1 que et digui el docent amb la bastida i omple la rúbrica que t'ha enviat per EdVoice",
-    "Mira el diagrama de doble circulació d'aquesta pàgina",
-    "Llegeix la teoria (apartat EXPLICA)",
-    "Fes la pràctica al laboratori virtual (botó de sota) i copia el resum a la fitxa",
-    "Omple la fitxa S3 i fes l'exit tiquet online a l'acordió de sota"
+    "Omple l'apartat 1 de la fitxa amb el frotis i el tub de sang centrifugada d'aquesta pàgina",
+    "Omple l'apartat 2 de la fitxa amb la figura de la doble circulació, la dels vasos i la teoria d'aquest apartat",
+    "Omple l'apartat 3 de la fitxa: compara cada valor de l'analítica del Marc amb el seu rang",
+    "Fes l'exit tiquet en paper i dóna'l al docent"
   ],
-  recoveryLinks: [{ label: "Laboratori virtual de la pràctica", url: "/labs/sa2/lab_s3_circulatori.html", icon: "🧪" }],
   oaLinks: ["OA1"], competencies: ["CE1", "CE2", "CE4"]
 }

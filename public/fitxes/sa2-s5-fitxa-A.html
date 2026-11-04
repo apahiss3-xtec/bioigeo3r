@@ -308,11 +308,23 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Idees prèvies — els dos enigmes de la paret</div><div class="sdesc" contenteditable="true">Individual · No es corregeix ara: la compararàs al final</div></div></div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Repàs — la sang i el cor</div><div class="sdesc" contenteditable="true">Individual · Primer de memòria; després comprova-ho a les fitxes de les sessions 3 i 4</div></div></div>
+  <div class="divider"></div>
+  <p style="font-size:11px;margin-top:4px" contenteditable="true"><strong>🛠️ Eina:</strong> respon cada pregunta com una cadena causa → efecte: «Com que…, per tant…».</p>
+  <div style="display:grid;gap:8px;margin-top:6px">
+    <div class="card deletable" style="margin-bottom:0"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true" style="font-size:11px">① El Marc Fontana (sessió 3) té el ferro baix. Per quina raó, si falta ferro, arriba menys O₂ als músculs? Escriu-ne la cadena: ferro → … → múscul.</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div>
+    <div class="card deletable" style="margin-bottom:0"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true" style="font-size:11px">② A la sessió 3 vas veure que la sang surt amb pressió alta cap al cos i amb pressió baixa cap als pulmons. Quina estructura que vas tocar a la sessió 4 ho fa possible, i per quina raó calen dues pressions diferents?</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div>
+    <div class="card deletable" style="margin-bottom:0"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true" style="font-size:11px">③ Si les vàlvules de sortida del ventricle esquerre no tanquessin bé, què passaria amb la sang a cada batec? Per quina raó seria un problema?</div><div class="wline" contenteditable="true"></div></div>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Mesura la teva FC — l'experiment</div><div class="sdesc" contenteditable="true">Tota la classe alhora · Primer, 3 min per a la teva hipòtesi · Sense aparells: només els teus dits i un rellotge</div></div></div>
   <div class="divider"></div>
   <div class="previ-grid">
     <div class="previ-box">
-      <p contenteditable="true"><strong>Per quina raó creus que augmenta la freqüència cardíaca quan fas exercici?</strong> Escriu la teva hipòtesi ara.</p>
+      <p contenteditable="true"><strong>Per quina raó creus que augmenta la freqüència cardíaca quan fas exercici?</strong> Escriu la teva hipòtesi ara. No es corregeix: la compararàs al final.</p>
       <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     </div>
     <div class="draw-box">
@@ -329,12 +341,6 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <p style="font-size:11px;margin-top:3px" contenteditable="true"><strong>Enigma 1 — la Mercè.</strong> La Mercè té 14 anys i corre 10 km. En creuar la meta, el cor li va a 185 bat/min. En mig minut ja n'ha baixat 15… però encara triga un quart d'hora a tornar a la normalitat. <em>Per quina raó puja de pressa i baixa a poc a poc?</em></p>
     <p style="font-size:11px;margin-top:4px" contenteditable="true"><strong>Enigma 2 — el Marc Fontana.</strong> El Marc té 28 anys, corre per afició i últimament s'ofega pujant les escales de casa. A l'analítica li surt l'hemoglobina a <strong>9,2 g/dL</strong> (en un home adult, el normal és <strong>13,5–17,5 g/dL</strong>). <em>Per quina raó, fent el mateix esforç que tu, ell arriba abans al límit?</em></p>
   </div>
-</div>
-
-<div class="section deletable">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Mesura la teva FC — l'experiment</div><div class="sdesc" contenteditable="true">Tota la classe alhora · Sense aparells: només els teus dits i un rellotge</div></div></div>
-  <div class="divider"></div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px">
     <div class="card teal deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -403,13 +409,12 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="info-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="info-label" contenteditable="true">🫁 I els pulmons? — d'on surt l'O₂ que la sang reparteix</div>
-    <p contenteditable="true">La sang no fabrica l'O₂: el recull. Ho fa als <strong>alvèols</strong>, on la paret és tan prima que l'O₂ hi passa a la sang i el CO₂ fa el camí contrari. Per això l'esforç accelera <em>dos</em> sistemes alhora, el cor i la respiració.</p>
-    <figure class="deletable" style="position:relative;margin:6px auto;text-align:center;max-width:330px">
+    <div style="display:grid;grid-template-columns:205px 1fr;gap:12px;align-items:start;margin-top:4px"><figure class="deletable" style="position:relative;margin:0;text-align:center;width:205px">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <img src="s5_respiratori_alveols.png" alt="De la boca als alveols: on passa l'oxigen a la sang" style="max-height:115px;max-width:100%;border:1px solid var(--rule);border-radius:10px;background:#fff" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <div style="display:none;padding:24px;border:1px dashed #bbb;border-radius:10px;color:#888;font-size:11px">🖼️ Aparell respiratori i alvèols</div>
       <figcaption contenteditable="true" style="font-size:10px;color:var(--muted);margin-top:4px;line-height:1.4">Figura. El camí de l'aire: tràquea → bronquis → bronquíols → <strong>alvèols</strong>. A la dreta, un alvèol enganxat a un capil·lar: la sang hi arriba <strong>lila</strong> (sense O₂) i en surt <strong>vermella</strong> (amb O₂).</figcaption>
-    </figure><p style="font-size:11px;margin-top:4px" contenteditable="true">La paret d'un alvèol té el gruix d'<strong>una sola cèl·lula</strong>. Corrent pots multiplicar per 4 la sang que el cor mou cada minut, però la superfície dels teus alvèols no canvia gens. Quin dels dos sistemes marca, doncs, el teu límit? Argumenta-ho.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    </figure><div><p contenteditable="true">La sang no fabrica l'O₂: el recull. Ho fa als <strong>alvèols</strong>, on la paret és tan prima que l'O₂ hi passa a la sang i el CO₂ fa el camí contrari. Per això l'esforç accelera <em>dos</em> sistemes alhora, el cor i la respiració.</p><p style="font-size:11px;margin-top:4px" contenteditable="true">La paret d'un alvèol té el gruix d'<strong>una sola cèl·lula</strong>. Corrent pots multiplicar per 4 la sang que el cor mou cada minut, però la superfície dels teus alvèols no canvia gens. Quin dels dos sistemes marca, doncs, el teu límit? Argumenta-ho.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div>
   </div>
   <div class="epist-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -630,7 +635,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="meta-oa-title" contenteditable="true">🎯 Què he après avui? Marca els objectius que ja domines:</div>
 <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Analitzo críticament la nostra mesura de FC com a investigació científica (mostra, condicions, variabilitat).</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Construeixo la cadena causal completa: esforç → més ATP → més O₂ → el cor i els pulmons s'acceleren.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Interpreto i comparo gràfiques de FC (G1 i G2) i en redacto conclusions argumentades.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Predic com respondrà al mateix esforç el cor d'una persona amb anèmia i ho justifico amb l'hemoglobina.</div></div>
   <div class="meta-open">
-    <div class="meta-open-label" contenteditable="true">🪞 La meva hipòtesi inicial (apartat 0) era encertada? En què m'equivocava?</div>
+    <div class="meta-open-label" contenteditable="true">🪞 La meva hipòtesi inicial (apartat 1) era encertada? En què m'equivocava?</div>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
 </div>

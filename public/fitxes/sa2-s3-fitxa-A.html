@@ -291,7 +291,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <button class="tb-btn" onclick="insertSpacer()" title="Insereix un espai en blanc">＋ Espai</button>
   <button class="tb-btn" onclick="window.print()" title="Imprimeix">🖨️ Imprimeix</button>
   <button class="tb-btn tb-desa" onclick="desaFitxa()" title="Desa els canvis al fitxer (Ctrl+S)">💾 Desa</button>
-  <span class="tb-title">Fitxa S3 · El Sistema Circulatori i la Sang · IE Temple</span>
+  <span class="tb-title">Fitxa de la sessió 3 · El Sistema Circulatori i la Sang · IE Temple</span>
 </div>
 
 <div class="page-wrap">
@@ -347,37 +347,43 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   </div>
 <div class="move-ctrl"><span class="mv" title="Mou amunt" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,-1)">↑</span><span class="mv" title="Mou avall" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,1)">↓</span></div></div>
 
-<!-- ══ 0 · IDEES PRÈVIES ══ -->
+<!-- ══ 0 · REPÀS ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Idees prèvies</div><div class="sdesc" contenteditable="true">Activa el que ja saps — no hi ha respostes dolentes</div></div></div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle">Repàs — del menjar a la cèl·lula</div><div class="sdesc">Sol o sola, primer de memòria. Després, comprova-ho amb les fitxes de les sessions 1 i 2 i la teoria de la sessió 1 al web</div></div></div>
   <div class="divider"></div>
-  <div class="previ-grid" style="grid-template-columns:1fr;gap:10px">
-    <div class="draw-box">
-      <div class="card-label" contenteditable="true">✏️ Dibuixa la teva hipòtesi · el viatge de la sang</div>
-      <p style="font-size:10.5px" contenteditable="true">Sense mirar res, fes un esquema ràpid de com creus que la sang va del <strong>cor</strong> a tot el cos i torna. Posa-hi fletxes. Al final de la sessió el compararàs amb el model real (apartat 3).</p>
-      <div class="draw-area"><span class="draw-hint">el teu esquema</span></div>
-    </div>
-    <div class="previ-box">
-      <p contenteditable="true">Escriu tot el que creus que la <strong>sang</strong> transporta pel cos:</p>
-      <div class="wline" contenteditable="true"><span class="wline-del" contenteditable="false" title="Treu aquesta línia" onmousedown="event.preventDefault();event.stopPropagation();delWline(this)">✕</span></div>
-      <div class="wline" contenteditable="true"><span class="wline-del" contenteditable="false" title="Treu aquesta línia" onmousedown="event.preventDefault();event.stopPropagation();delWline(this)">✕</span></div>
-    </div>
+  <div class="previ-box">
+    <p class="pista" style="margin-bottom:4px">🧰 Eines: el camí de la glucosa és llum intestinal → epiteli → capil·lar → vena porta → fetge → sang → múscul → mitocondri. Al mitocondri: glucosa + O₂ → CO₂ + H₂O + ATP.</p>
+    <p><strong>1.</strong> Per quina raó els nutrients passen a la sang a l'intestí prim i no a l'estómac? Dóna dos motius.</p>
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+    <p style="margin-top:6px"><strong>2.</strong> Connecta les sessions 1 i 2: amb el camí de dalt, explica per quina raó menjar pa acaba donant energia a un múscul.</p>
+    <div class="wline" contenteditable="true"></div>
+    <div class="wline" contenteditable="true"></div>
+    <p style="margin-top:6px"><strong>3.</strong> Els minerals no donen energia. Per quina raó, doncs, el ferro és imprescindible? Digues quina molècula el fa servir.</p>
+    <div class="wline" contenteditable="true"></div>
   </div>
   <div class="connexio-box mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="connexio-icon">🔗</div>
-    <div class="connexio-text" contenteditable="true">
-      <strong>Connexió amb la Sessió 2 (digestió):</strong> a la sessió anterior vam veure que els nutrients absorbits a l'<strong>intestí prim</strong> passen a la sang. Avui descobrim <em>com</em> la sang els transporta fins a cada cèl·lula — i per quina raó el <strong>Marc Fontana</strong> s'acaba el combustible a mig camí tot i menjar correctament.
+    <div class="connexio-text">
+      La glucosa i l'oxigen arriben a les cèl·lules per la <strong>sang</strong>. El <strong>Marc Fontana</strong> menja correctament i, tot i així, s'acaba el combustible a mig camí. Què hi ha dins la seva sang?
     </div>
-  <div class="move-ctrl"><span class="mv" title="Mou amunt" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,-1)">↑</span><span class="mv" title="Mou avall" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,1)">↓</span></div></div>
-<div class="move-ctrl"><span class="mv" title="Mou amunt" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,-1)">↑</span><span class="mv" title="Mou avall" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,1)">↓</span></div></div>
+  </div>
+</div>
 
 <!-- ══ 1 · COMPOSICIÓ DE LA SANG ══ -->
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Què hi ha dins la sang?</div><div class="sdesc" contenteditable="true">Observa una gota de sang al microscopi i compara-la amb el tub centrifugat</div></div></div>
   <div class="divider"></div>
+  <div class="draw-box deletable" style="margin-top:8px">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label">✏️ Dibuixa la teva hipòtesi · el viatge de la sang (2′)</div>
+    <p style="font-size:10.5px">Sense mirar res, fes un esquema ràpid de com creus que la sang va del <strong>cor</strong> a tot el cos i torna. Posa-hi fletxes. A l'apartat 2 el compararàs amb el model real.</p>
+    <div class="draw-area" style="min-height:130px"><span class="draw-hint">el teu esquema</span></div>
+  </div>
+
 
   <div class="card mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -438,7 +444,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="move-ctrl"><span class="mv" title="Mou amunt" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,-1)">↑</span><span class="mv" title="Mou avall" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,1)">↓</span></div></div>
 <div class="move-ctrl"><span class="mv" title="Mou amunt" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,-1)">↑</span><span class="mv" title="Mou avall" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,1)">↓</span></div></div>
 
-<div class="spacer-block deletable spacer-fill"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai · la resta passa a la pàgina següent</span></div>
+
 
 <!-- ══ 2 · DOBLE CIRCULACIÓ ══ -->
 <div class="section deletable">
@@ -450,6 +456,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <img src="../imatges-cientifiques/circulacio_doble.png" alt="Diagrama de la circulació doble: circuit pulmonar (cor-pulmons) i circuit sistèmic (cor-resta del cos), amb intercanvi de gasos a l'alvèol i a la cèl·lula muscular" style="max-width:320px;width:100%;height:auto" onerror="this.style.display='none'">
     <div style="font-size:9px;color:var(--muted);margin-top:2px;line-height:1.4">Circulació <strong>doble</strong>: el <strong>circuit pulmonar</strong> (cor ↔ pulmons, la sang agafa O₂) i el <strong>circuit sistèmic</strong> (cor ↔ resta del cos, la sang lliura O₂). La sang passa <strong>dos cops</strong> pel cor a cada volta. · Imatge pròpia IE Temple</div>
+    <p style="font-size:10.5px;text-align:left;margin-top:5px"><strong>✏️ Compara-ho amb el teu esquema de l'apartat 1</strong> i corregeix-lo amb un altre color.</p>
   <div class="move-ctrl"><span class="mv" title="Mou amunt" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,-1)">↑</span><span class="mv" title="Mou avall" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,1)">↓</span></div></div>
   <div class="card teal mt8 deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -460,7 +467,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <div class="wline" contenteditable="true"><span class="wline-del" contenteditable="false" title="Treu aquesta línia" onmousedown="event.preventDefault();event.stopPropagation();delWline(this)">✕</span></div>
   <div class="move-ctrl"><span class="mv" title="Mou amunt" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,-1)">↑</span><span class="mv" title="Mou avall" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,1)">↓</span></div></div>
 
-<div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">🛤️ Els tres tipus de vasos</div><div style="text-align:center;margin:4px 0"><img src="../imatges-cientifiques/comparacio_vasos_sanguinis.png" alt="Comparació entre artèria, vena i capil·lar: gruix de la paret, llum del vas i vàlvules" style="width:100%;max-width:660px;height:auto" onerror="this.style.display='none'"></div><p style="font-size:10.5px;margin:4px 0 3px"><strong>📖 Per llegir:</strong> les <strong>artèries</strong> surten del cor i han d’aguantar la sang que hi arriba de cop: tenen la paret gruixuda i elàstica. Les <strong>venes</strong> tornen al cor amb poca pressió i porten <strong>vàlvules</strong> perquè la sang no caigui cap avall. Els <strong>capil·lars</strong> tenen la paret d’una sola capa de cèl·lules: és allà on l’O₂ i els nutrients passen a les cèl·lules.</p><p style="font-size:10.5px;margin-top:5px"><strong>Prediu:</strong> una cambrera passa vuit hores dreta cada dia i, amb els anys, se li inflen les venes de les cames (varius). Quina peça de les venes creus que ha deixat de fer bé la seva feina, i per quina raó el problema apareix a les cames i no als braços?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div>
+<div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">🛤️ Els tres tipus de vasos</div><div style="text-align:center;margin:4px 0"><img src="../imatges-cientifiques/comparacio_vasos_sanguinis.png" alt="Comparació entre artèria, vena i capil·lar: gruix de la paret, llum del vas i vàlvules" style="width:100%;max-width:460px;height:auto" onerror="this.style.display='none'"></div><p style="font-size:10.5px;margin:4px 0 3px"><strong>📖 Per llegir:</strong> les <strong>artèries</strong> surten del cor i han d’aguantar la sang que hi arriba de cop: tenen la paret gruixuda i elàstica. Les <strong>venes</strong> tornen al cor amb poca pressió i porten <strong>vàlvules</strong> perquè la sang no caigui cap avall. Els <strong>capil·lars</strong> tenen la paret d’una sola capa de cèl·lules: és allà on l’O₂ i els nutrients passen a les cèl·lules.</p><p style="font-size:10.5px;margin-top:5px"><strong>Prediu:</strong> una cambrera passa vuit hores dreta cada dia i, amb els anys, se li inflen les venes de les cames (varius). Quina peça de les venes creus que ha deixat de fer bé la seva feina, i per quina raó el problema apareix a les cames i no als braços?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div>
 </div>
 
 <!-- ══ 3 · ANALÍTICA DEL MARC ══ -->
@@ -506,7 +513,6 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 <div class="divider"></div>
 <div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">A1 · Refés el càlcul de Harvey (1628)</div><p style="font-size:11px">Harvey no tenia microscopi. Només tenia un cor de porc, una regla i aritmètica. Va mesurar que el ventricle esquerre expulsa uns <strong>70 mL</strong> a cada batec i va comptar unes <strong>70 pulsacions per minut</strong>.</p><p style="font-size:10.5px;margin-top:5px;line-height:2">En <strong>1 minut</strong>: <span class="fill-cell" contenteditable="true" style="display:inline-block;width:70px"></span> mL &nbsp;·&nbsp; En <strong>1 hora</strong>: <span class="fill-cell" contenteditable="true" style="display:inline-block;width:70px"></span> L &nbsp;·&nbsp; Equival a <span class="fill-cell" contenteditable="true" style="display:inline-block;width:70px"></span> vegades el pes d’una persona de 70 kg.</p><p style="font-size:11px;margin-top:6px">Un cos humà conté uns <strong>5 L</strong> de sang. Escriu l’argument de Harvey en una sola frase: per quina raó aquests números fan <strong>impossible</strong> que el fetge fabriqui sang nova contínuament, com deia Galè?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div>
 <div class="card teal mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">A2 · Contrafactual — més eritròcits és sempre millor?</div><p style="font-size:11px">L’<strong>hematòcrit</strong> és el percentatge del volum de sang ocupat per eritròcits (normal en un home adult: <strong>40–50 %</strong>). Un ciclista que s’entrena en altitud pot arribar al <strong>55 %</strong>; amb dopatge s’han arribat a veure valors del <strong>65 %</strong>.</p><p style="font-size:11px;margin-top:5px">Si més eritròcits vol dir més O₂ transportat, per quina raó un hematòcrit del 65 % és <strong>perillós</strong> i no un avantatge? Pensa en què li passa a un líquid quan hi poses moltes partícules sòlides, i en la feina que ha de fer el cor per moure’l.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="font-size:11px;margin-top:6px">I ara la conseqüència pràctica: el Marc té l’hemoglobina <strong>baixa</strong>. Un amic li diu que s’injecti EPO per pujar-la de cop. Dóna-li <strong>dues</strong> raons — una fisiològica i una altra ètica — per no fer-ho.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div>
-<div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label">A3 · Connecta amb la sessió 1</div><p style="font-size:11px">La glucosa que el Marc va absorbir a l’intestí arriba al múscul per la mateixa via. Per quina raó, si li sobra glucosa però li falta oxigen, el múscul <strong>igualment</strong> es queda sense energia?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div>
 </div>
 
 <!-- ══ METACOGNICIÓ OA-BASED ══ -->
@@ -525,29 +531,26 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="card-label" contenteditable="true">📚 Tasca per a casa — Prepara la Sessió 4</div>
   <p style="font-size:12px;font-weight:700;color:var(--purple-ink)" contenteditable="true">Mesura el teu pols en repòs (sense haver fet exercici l'última hora). Posa els dits índex i mig al coll o al canell, compta les pulsacions durant 30 segons i multiplica per 2. Anota el resultat i porta'l a la Sessió 4.</p>
-  <p class="small mt8" contenteditable="true">El meu pols en repòs: ______ ppm · Hora de la mesura: ______</p>
-  <p class="small mt8" contenteditable="true">Necessites un rellotge i els teus propis dits · No es pot fer amb IA.</p>
+  <p class="small mt8" contenteditable="true">El meu pols en repòs: ______ ppm · Hora: ______ · Rellotge i dits · No es pot fer amb IA.</p>
 <div class="move-ctrl"><span class="mv" title="Mou amunt" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,-1)">↑</span><span class="mv" title="Mou avall" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,1)">↓</span></div></div>
 
 <!-- ══ REPÀS A CASA (pràctica de recuperació) ══ -->
 <div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="card-label">🔁 Repassa a casa sense mirar la fitxa · 1/3</div>
   <p contenteditable="true">Un ciclista entrena unes setmanes a gran altitud i el seu hematòcrit puja. Per quina raó això el pot ajudar a la cursa? I quin risc tindria una sang amb massa eritròcits?</p>
-  <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-</div>
+  <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div>
 <div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="card-label">🔁 Repassa a casa sense mirar la fitxa · 2/3</div>
   <p contenteditable="true">Dibuixa l'esquema de la doble circulació i marca-hi on la pressió de la sang és alta i on és baixa. Justifica-ho al costat.</p>
-  <div contenteditable="true" style="min-height:170px;border:1.5px dashed var(--rule-dark);border-radius:8px;background:#fff;margin-top:6px"></div>
+  <div contenteditable="true" style="min-height:110px;border:1.5px dashed var(--rule-dark);border-radius:8px;background:#fff;margin-top:6px"></div>
 </div>
 <div class="card mt8 deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="card-label">🔁 Repassa a casa sense mirar la fitxa · 3/3</div>
   <p contenteditable="true">El Marc comença a prendre suplements de ferro. Quin paràmetre de l'analítica esperes que millori i en quin ordre? Argumenta la teva previsió.</p>
-  <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-</div>
+  <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div>
 <div class="footer deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="footer-l" contenteditable="true">IE Temple · Biologia i Geologia 3r ESO · SA2 S3 · Versió A</div>
+  <div class="footer-l" contenteditable="true">IE Temple · Biologia i Geologia 3r ESO · SA2 · Sessió 3 · Versió A</div>
   <div class="footer-r" contenteditable="true">Biologia i Geologia · 3r ESO</div>
 <div class="move-ctrl"><span class="mv" title="Mou amunt" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,-1)">↑</span><span class="mv" title="Mou avall" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,1)">↓</span></div></div>
 

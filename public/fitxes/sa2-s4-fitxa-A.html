@@ -295,25 +295,40 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">La teva predicció — el cor per dins</div><div class="sdesc" contenteditable="true">Individual · No es corregeix: el compararàs amb el cor real al final</div></div></div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Repàs — la sang, les dues voltes i el Marc</div><div class="sdesc" contenteditable="true">Individual · Primer de memòria; després comprova-ho amb les fitxes de les sessions 2 i 3</div></div></div>
   <div class="divider"></div>
-  <div class="previ-grid" style="grid-template-columns:1fr;gap:10px">
-    <div class="draw-box">
-      <div class="card-label" contenteditable="true">✏️ Dibuixa el cor tal com te l'imagines per dins (no passa res si t'equivoques: per això és una predicció)</div>
-      <div class="draw-area"></div>
-    </div>
-    <div class="previ-box">
-      <p class="frase-completar" contenteditable="false">Crec que el cor té <span class="blank blank-s"></span> cavitats (cambres) per dins.</p>
-      <p contenteditable="true" style="font-size:11.5px;margin-top:6px">Hi ha algun punt on la sang neta i la sang bruta es barregen?&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> Sí</span>&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> No</span></p>
-      <p contenteditable="true" style="font-size:11.5px;margin-top:4px">Per què ho creus?</p>
+  <div class="card deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🔁 Recupera-ho sense mirar i connecta</div>
+    <p class="pista" contenteditable="true">Eina: una explicació causal té tres peces → què canvia, per quin mecanisme, i quin efecte té.</p>
+    <p style="font-size:11px" contenteditable="true">① <strong>Connecta les sessions 2 i 3.</strong> El Marc Fontana menja bé i absorbeix la glucosa pels capil·lars de l'intestí, però es queda sense energia a mig camí. Per quina raó la glucosa sola no n'hi ha prou? Digues quin altre ingredient ha d'arribar a la mateixa cèl·lula i qui l'hi porta.</p>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    </div>
+    <p style="font-size:11px" contenteditable="true">② <strong>Analítica del Marc:</strong> ferro 38 µg/dL · hemoglobina 9,2 g/dL · eritròcits petits (VCM 68 fL). Quina dada és la causa i quines en són conseqüència? Escriu la cadena fins a la fatiga.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">③ <strong>Doble circulació.</strong> Per quina raó calen dues voltes separades i no una de sola? Argumenta-ho amb la pressió que aguanten els alvèols i la que cal per arribar als peus.</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
 </div>
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Observació exterior</div><div class="sdesc" contenteditable="true">En grups de 4 · El cor per fora, abans d'obrir-lo</div></div></div>
+  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Observació exterior</div><div class="sdesc" contenteditable="true">Primer la predicció, individual (3 min); després, en grups de 4, el cor per fora abans d'obrir-lo</div></div></div>
   <div class="divider"></div>
+  <div class="card deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🔮 La teva predicció — abans de tocar el cor · No es corregeix: el compararàs amb el cor real al final</div>
+  <div class="previ-grid" style="grid-template-columns:1fr 1fr;gap:10px">
+    <div class="draw-box">
+      <div class="card-label" contenteditable="true">✏️ Dibuixa el cor tal com te l'imagines per dins (no passa res si t'equivoques: per això és una predicció)</div>
+      <div class="draw-area" style="min-height:165px"></div>
+    </div>
+    <div class="previ-box">
+      <p class="frase-completar" contenteditable="false">Crec que el cor té <span class="blank blank-s"></span> cavitats (cambres) per dins.</p>
+      <p contenteditable="true" style="font-size:11.5px;margin-top:6px">Hi ha algun punt on la sang neta i la sang bruta es barregen?&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> Sí</span>&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> No</span></p>
+      <p contenteditable="true" style="font-size:11.5px;margin-top:4px">Per quina raó ho creus?</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    </div>
+  </div>
+  </div>
 
   <div class="connexio-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -371,7 +386,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="draw-box deletable" style="margin-top:8px">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">✏️ Dibuixa el cor OBERT tal com el veus ara i posa-hi els noms de totes les cavitats que hi trobis</div>
-    <p class="pista" contenteditable="true">Escriu el nom al costat de cada cambra, amb una fletxa. Si no recordes un nom, mira el vocabulari de la primera pàgina.</p>
+    <p class="pista" contenteditable="true">Escriu el nom al costat de cada cambra, amb una fletxa. Si no recordes un nom, mira la lectura de la sessió 4.</p>
     <div class="draw-area"></div>
   </div>
 </div>
@@ -467,7 +482,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="meta-oa-title" contenteditable="true">🎯 Què he après avui? Marca els objectius que ja domines:</div>
 <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Relaciono cada estructura del cor amb la seva funció i ho argumento amb dades de pressió i de distància.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Dedueixo el recorregut complet de la sang i el justifico amb les dues pressions del sistema.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Analitzo un cas clínic i en dedueixo el mecanisme, distingint què canvia i què NO canvia.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Prediu com canvia el cor quan canvien les condicions (més pressió, més demanda d’oxigen) i ho comparo amb altres animals.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Proposo una manera de mesurar objectivament una diferència anatòmica (variables, control, rèpliques).</div></div>
   <div class="meta-open">
-    <div class="meta-open-label" contenteditable="true">🪞 Compara el dibuix de la secció 0 (el cor imaginat) amb el de la secció 2 (el cor real): en què tenies raó? En què t'equivocaves?</div>
+    <div class="meta-open-label" contenteditable="true">🪞 Compara el dibuix de l'apartat 1 (el cor imaginat) amb el de l'apartat 2 (el cor real): en què tenies raó? En què t'equivocaves?</div>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
   </div>
 </div>

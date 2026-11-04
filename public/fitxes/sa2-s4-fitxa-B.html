@@ -283,7 +283,51 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
 <div class="content">
 
-<div class="word-bank deletable" style="margin-top:10px">
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Repàs — la sang, les dues voltes i el Marc</div><div class="sdesc" contenteditable="true">Individual · Primer de memòria; després comprova-ho amb les fitxes de les sessions 2 i 3</div></div></div>
+  <div class="divider"></div>
+  <div class="card deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🔁 Recupera-ho sense mirar</div>
+    <p style="font-size:11px" contenteditable="true">① <strong>Sessió 2.</strong> La glucosa que absorbeix l'intestí prim passa a la sang. A través de quin vas tan fi hi entra?</p>
+<div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">② <strong>Sessió 3.</strong> Quina cèl·lula de la sang transporta l'oxigen, i quina proteïna amb ferro fa aquesta feina?</p>
+<div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">③ <strong>Sessió 3.</strong> La circulació és doble. On va la sang a cada volta, i què li passa a l'oxigen en cadascuna?</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    <p style="font-size:11px" contenteditable="true">④ <strong>L'analítica del Marc Fontana:</strong> hemoglobina 9,2 g/dL (normal: 13,5–17,5). Per quina raó es cansa abans d'hora, tot i menjar bé?</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+  </div>
+</div>
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Observació exterior</div><div class="sdesc" contenteditable="true">Primer la predicció, individual (3 min); després, en grups de 4, el cor per fora abans d'obrir-lo</div></div></div>
+  <div class="divider"></div>
+  <div class="card deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🔮 La teva predicció — abans de tocar el cor · No es corregeix: el compararàs amb el cor real al final</div>
+  <div class="previ-grid" style="grid-template-columns:1fr 1fr;gap:10px">
+    <div class="draw-box">
+      <div class="card-label" contenteditable="true">✏️ Dibuixa el cor tal com te l'imagines per dins (no passa res si t'equivoques: per això és una predicció)</div>
+      <div class="draw-area"></div>
+    </div>
+    <div class="previ-box">
+      <p class="frase-completar" contenteditable="false">Crec que el cor té <span class="blank blank-s"></span> cavitats (cambres) per dins.</p>
+      <p contenteditable="true" style="font-size:11.5px;margin-top:6px">Hi ha algun punt on la sang neta i la sang bruta es barregen?&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> Sí</span>&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> No</span></p>
+      <p contenteditable="true" style="font-size:11.5px;margin-top:4px">Per quina raó ho creus?</p>
+<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    </div>
+  </div>
+  </div>
+
+  <div class="connexio-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="connexio-icon">🔗</div>
+    <div class="connexio-text" contenteditable="true"><strong>Recorda la Sessió 3 (la sang):</strong> ja saps que la sang fa una <strong>circulació doble</strong> — una volta pels pulmons i una per la resta del cos. Avui obriràs la bomba que fa possible aquestes dues voltes, i veuràs amb les teves mans <strong>quantes cambres té i per quina raó</strong>.</div>
+  </div>
+
+  <div class="word-bank deletable" style="margin-top:10px">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
   <div class="word-bank-title" contenteditable="true">📖 Vocabulari clau d'avui</div>
   <div class="chips">
@@ -299,36 +343,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <span class="chip" contenteditable="true">hemoglobina = la proteïna del glòbul vermell que transporta l'oxigen</span>
     <span class="chip" contenteditable="true">bufec = soroll estrany que se sent al cor quan la sang passa per on no toca</span>
   </div>
-</div>
-
-
-<div class="section deletable">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">La teva predicció — el cor per dins</div><div class="sdesc" contenteditable="true">Individual · No es corregeix: el compararàs amb el cor real al final</div></div></div>
-  <div class="divider"></div>
-  <div class="previ-grid" style="grid-template-columns:1fr;gap:10px">
-    <div class="draw-box">
-      <div class="card-label" contenteditable="true">✏️ Dibuixa el cor tal com te l'imagines per dins (no passa res si t'equivoques: per això és una predicció)</div>
-      <div class="draw-area"></div>
-    </div>
-    <div class="previ-box">
-      <p class="frase-completar" contenteditable="false">Crec que el cor té <span class="blank blank-s"></span> cavitats (cambres) per dins.</p>
-      <p contenteditable="true" style="font-size:11.5px;margin-top:6px">Hi ha algun punt on la sang neta i la sang bruta es barregen?&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> Sí</span>&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> No</span></p>
-      <p contenteditable="true" style="font-size:11.5px;margin-top:4px">Per què ho creus?</p>
-<div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-    </div>
-  </div>
-</div>
-<div class="section deletable">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Observació exterior</div><div class="sdesc" contenteditable="true">En grups de 4 · El cor per fora, abans d'obrir-lo</div></div></div>
-  <div class="divider"></div>
-
-  <div class="connexio-box deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="connexio-icon">🔗</div>
-    <div class="connexio-text" contenteditable="true"><strong>Recorda la Sessió 3 (la sang):</strong> ja saps que la sang fa una <strong>circulació doble</strong> — una volta pels pulmons i una per la resta del cos. Avui obriràs la bomba que fa possible aquestes dues voltes, i veuràs amb les teves mans <strong>quantes cambres té i per quina raó</strong>.</div>
-  </div><div class="figbox"><div class="dfig tall deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="figw"><img src="cor_exterior_MUT.png" alt="Cor de porc real, vist per la cara del davant. Els 4 números marquen els vasos grans que entren i surten del cor." onerror="this.style.display='none'"><span class="fig-mark" style="left:19.5%;top:8.0%">1</span><span class="fig-mark" style="left:60.0%;top:9.0%">2</span><span class="fig-mark" style="left:56.5%;top:20.8%">3</span><span class="fig-mark" style="left:83.2%;top:29.1%">4</span></div><div class="fig-cap" contenteditable="true">Cor de porc real, vist per la cara del davant. Els 4 números marquen els vasos grans que entren i surten del cor.</div></div><div><p class="pista" contenteditable="true">Paraules per triar (n'hi ha una per número): aorta · artèria pulmonar · vena cava inferior · vena cava superior</p><ul class="fig-legend"><li><span class="lg-n">1</span><span class="input-span" contenteditable="true" style="min-width:120px"></span></li><li><span class="lg-n">2</span><span class="input-span" contenteditable="true" style="min-width:120px"></span></li><li><span class="lg-n">3</span><span class="input-span" contenteditable="true" style="min-width:120px"></span></li><li><span class="lg-n">4</span><span class="input-span" contenteditable="true" style="min-width:120px"></span></li></ul></div></div><div class="dfig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><img src="coronaries_MUT.png" alt="Esquema del cor per fora: els vasos vermells que hi corren per damunt són les artèries coronàries, que reguen el múscul del propi cor." onerror="this.style.display='none'"><div class="fig-cap" contenteditable="true">Esquema del cor per fora: els vasos vermells que hi corren per damunt són les artèries coronàries, que reguen el múscul del propi cor.</div></div>
+</div><div class="figbox"><div class="dfig tall deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="figw"><img src="cor_exterior_MUT.png" alt="Cor de porc real, vist per la cara del davant. Els 4 números marquen els vasos grans que entren i surten del cor." onerror="this.style.display='none'"><span class="fig-mark" style="left:19.5%;top:8.0%">1</span><span class="fig-mark" style="left:60.0%;top:9.0%">2</span><span class="fig-mark" style="left:56.5%;top:20.8%">3</span><span class="fig-mark" style="left:83.2%;top:29.1%">4</span></div><div class="fig-cap" contenteditable="true">Cor de porc real, vist per la cara del davant. Els 4 números marquen els vasos grans que entren i surten del cor.</div></div><div><p class="pista" contenteditable="true">Paraules per triar (n'hi ha una per número): aorta · artèria pulmonar · vena cava inferior · vena cava superior</p><ul class="fig-legend"><li><span class="lg-n">1</span><span class="input-span" contenteditable="true" style="min-width:120px"></span></li><li><span class="lg-n">2</span><span class="input-span" contenteditable="true" style="min-width:120px"></span></li><li><span class="lg-n">3</span><span class="input-span" contenteditable="true" style="min-width:120px"></span></li><li><span class="lg-n">4</span><span class="input-span" contenteditable="true" style="min-width:120px"></span></li></ul></div></div><div class="dfig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><img src="coronaries_MUT.png" alt="Esquema del cor per fora: els vasos vermells que hi corren per damunt són les artèries coronàries, que reguen el múscul del propi cor." onerror="this.style.display='none'"><div class="fig-cap" contenteditable="true">Esquema del cor per fora: els vasos vermells que hi corren per damunt són les artèries coronàries, que reguen el múscul del propi cor.</div></div>
   <div class="card deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">Observa i anota</div>
@@ -382,7 +397,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="draw-box deletable" style="margin-top:8px">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="card-label" contenteditable="true">✏️ Dibuixa el cor OBERT tal com el veus ara i posa-hi els noms de totes les cavitats que hi trobis</div>
-    <p class="pista" contenteditable="true">Escriu el nom al costat de cada cambra, amb una fletxa. Si no recordes un nom, mira el vocabulari de la primera pàgina.</p>
+    <p class="pista" contenteditable="true">Escriu el nom al costat de cada cambra, amb una fletxa. Si no recordes un nom, mira el vocabulari de l'apartat 1.</p>
     <div class="draw-area"></div>
   </div>
 </div>
@@ -449,7 +464,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="meta-oa-title" contenteditable="true">🎯 Torna als objectius del principi — Marca el que has après avui:</div>
 <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Situo i anomeno les cavitats del cor i els grans vasos (aorta, artèria pulmonar i venes caves).</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Explico per quina raó el septe ha de ser complet i què permet tenir dos costats separats.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Explico la funció de les vàlvules i del miocardi, i per quina raó el cor necessita les artèries coronàries.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Justifico per quina raó el ventricle esquerre té la paret més gruixuda (doble circulació, dues pressions).</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Explico el mecanisme d'un cas clínic del cor a partir del que he vist a la dissecció.</div></div>
   <div class="meta-open">
-    <div class="meta-open-label" contenteditable="true">🪞 Compara el dibuix de la secció 0 (el cor imaginat) amb el de la secció 2 (el cor real): en què tenies raó? En què t'equivocaves?</div>
+    <div class="meta-open-label" contenteditable="true">🪞 Compara el dibuix de l'apartat 1 (el cor imaginat) amb el de l'apartat 2 (el cor real): en què tenies raó? En què t'equivocaves?</div>
 <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     <div class="meta-open-label" style="margin-top:6px" contenteditable="true">❓ Encara em pregunto…</div>
 <div class="wline" contenteditable="true"></div>

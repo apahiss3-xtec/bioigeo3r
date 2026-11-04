@@ -114,7 +114,9 @@ function apartatKey (v) {
 function imageCard (res, accent, session) {
   const url = res.embed ? null : resolveAsset(res.src)
   const titleHtml = renderHighlighted(res.title || '', accent)
-  const noteHtml = res.note ? `<span class="note">${renderHighlighted(res.note, accent)}</span>` : ''
+  // En mode guia, `note` és per al docent: al PDF de l'alumnat només hi va `caption`
+  const noteText = res.caption || (session?.guiaPerApartats ? '' : res.note)
+  const noteHtml = noteText ? `<span class="note">${renderHighlighted(noteText, accent)}</span>` : ''
   return `<figure class="card img-card">
     ${url ? `<img src="${url}" alt="${escapeHtml(res.title || '')}" />` : ''}
     <figcaption><strong>${escapeHtml(res.id || '')}</strong>${res.id ? ' — ' : ''}${titleHtml}${noteHtml ? `<br/>${noteHtml}` : ''}${(res.embed || /animació/i.test(res.title || '')) ? webNote('video', session, '', null) : ''}</figcaption>

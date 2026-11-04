@@ -316,11 +316,23 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
 
 <div class="section deletable">
   <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Idees prèvies — els dos enigmes de la paret</div><div class="sdesc" contenteditable="true">Individual · No es corregeix ara: la compararàs al final</div></div></div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Repàs — la sang i el cor</div><div class="sdesc" contenteditable="true">Individual · Primer de memòria; després comprova-ho a les fitxes de les sessions 3 i 4</div></div></div>
+  <div class="divider"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px">
+    <div class="card deletable" style="margin-bottom:0"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true" style="font-size:11px">① A l'analítica de la sessió 3, el Marc Fontana té l'hemoglobina baixa. Quina feina fa l'hemoglobina, i dins de quines cèl·lules de la sang es troba?</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div>
+    <div class="card deletable" style="margin-bottom:0"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true" style="font-size:11px">② La sang fa dues voltes. Cap a on va cadascuna, i en quina es carrega d'O₂?</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div>
+    <div class="card deletable" style="margin-bottom:0"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true" style="font-size:11px">③ Quin ventricle té la paret més gruixuda? Per quina raó?</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div>
+    <div class="card deletable" style="margin-bottom:0"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="card-label" contenteditable="true" style="font-size:11px">④ Per a què serveixen les vàlvules del cor?</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Mesura la teva FC — l'experiment</div><div class="sdesc" contenteditable="true">Tota la classe alhora · Primer, 3 min per a la teva hipòtesi · Sense aparells: només els teus dits i un rellotge</div></div></div>
   <div class="divider"></div>
   <div class="previ-grid">
     <div class="previ-box">
-      <p contenteditable="true"><strong>Per quina raó creus que augmenta la freqüència cardíaca quan fas exercici?</strong> Escriu la teva hipòtesi ara.</p>
+      <p contenteditable="true"><strong>Per quina raó creus que augmenta la freqüència cardíaca quan fas exercici?</strong> Escriu la teva hipòtesi ara. No es corregeix: la compararàs al final.</p>
       <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
     </div>
     <div class="draw-box">
@@ -337,17 +349,6 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
     <p style="font-size:11px;margin-top:3px" contenteditable="true"><strong>Enigma 1 — la Mercè.</strong> La Mercè té 14 anys i corre 10 km. En creuar la meta, el cor li va a 185 bat/min. En mig minut ja n'ha baixat 15… però encara triga un quart d'hora a tornar a la normalitat. <em>Per quina raó puja de pressa i baixa a poc a poc?</em></p>
     <p style="font-size:11px;margin-top:4px" contenteditable="true"><strong>Enigma 2 — el Marc Fontana.</strong> El Marc té 28 anys, corre per afició i últimament s'ofega pujant les escales de casa. A l'analítica li surt l'hemoglobina a <strong>9,2 g/dL</strong> (en un home adult, el normal és <strong>13,5–17,5 g/dL</strong>). <em>Per quina raó, fent el mateix esforç que tu, ell arriba abans al límit?</em></p>
   </div>
-  <div class="connexio-box mt8 deletable">
-    <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="connexio-icon">🔗</div>
-    <div class="connexio-text" contenteditable="true"><strong>Connexió amb la Sessió 4 (el cor per dins):</strong> vas tenir el cor a les mans i vas veure que el <strong>ventricle esquerre</strong> és el múscul que empeny la sang a tot el cos. Avui mesuraràs com aquest múscul canvia de ritme segons el que el cos necessita — i resoldrem els <strong>dos enigmes</strong> que pengen a la paret des de la Sessió 1.</div>
-  </div>
-</div>
-
-<div class="section deletable">
-  <div class="del-btn" onclick="deleteEl(this)">✕</div>
-  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Mesura la teva FC — l'experiment</div><div class="sdesc" contenteditable="true">Tota la classe alhora · Sense aparells: només els teus dits i un rellotge</div></div></div>
-  <div class="divider"></div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px">
     <div class="card teal deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -402,13 +403,12 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="info-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="info-label" contenteditable="true">🫁 I els pulmons? — d'on surt l'O₂ que la sang reparteix</div>
-    <p contenteditable="true">La sang no fabrica l'O₂: el recull. Ho fa als <strong>alvèols</strong>, on la paret és tan prima que l'O₂ hi passa a la sang i el CO₂ fa el camí contrari. Per això l'esforç accelera <em>dos</em> sistemes alhora, el cor i la respiració.</p>
-    <figure class="deletable" style="position:relative;margin:6px auto;text-align:center;max-width:330px">
+    <div style="display:grid;grid-template-columns:205px 1fr;gap:12px;align-items:start;margin-top:4px"><figure class="deletable" style="position:relative;margin:0;text-align:center;width:205px">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       <img src="s5_respiratori_alveols.png" alt="De la boca als alveols: on passa l'oxigen a la sang" style="max-height:250px;max-width:100%;border:1px solid var(--rule);border-radius:10px;background:#fff" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <div style="display:none;padding:24px;border:1px dashed #bbb;border-radius:10px;color:#888;font-size:11px">🖼️ Aparell respiratori i alvèols</div>
       <figcaption contenteditable="true" style="font-size:10px;color:var(--muted);margin-top:4px;line-height:1.4">Figura. El camí de l'aire: tràquea → bronquis → bronquíols → <strong>alvèols</strong>. A la dreta, un alvèol enganxat a un capil·lar: la sang hi arriba <strong>lila</strong> (sense O₂) i en surt <strong>vermella</strong> (amb O₂).</figcaption>
-    </figure><p style="font-size:11px;margin-top:4px" contenteditable="true">① En quin punt exacte del recorregut de l'aire passa l'O₂ a la sang? I quin gas fa el camí contrari?</p><div class="wline" contenteditable="true"></div><p style="font-size:11px;margin-top:4px" contenteditable="true">② Durant l'esforç s'acceleren alhora el cor i la respiració. Explica per quina raó no serviria de res que només s'accelerés un dels dos.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+    </figure><div><p contenteditable="true">La sang no fabrica l'O₂: el recull. Ho fa als <strong>alvèols</strong>, on la paret és tan prima que l'O₂ hi passa a la sang i el CO₂ fa el camí contrari. Per això l'esforç accelera <em>dos</em> sistemes alhora, el cor i la respiració.</p><p style="font-size:11px;margin-top:4px" contenteditable="true">① En quin punt exacte del recorregut de l'aire passa l'O₂ a la sang? I quin gas fa el camí contrari?</p><div class="wline" contenteditable="true"></div><p style="font-size:11px;margin-top:4px" contenteditable="true">② Durant l'esforç s'acceleren alhora el cor i la respiració. Explica per quina raó no serviria de res que només s'accelerés un dels dos.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div>
   </div>
   <div class="epist-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
@@ -623,7 +623,7 @@ body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; c
   <div class="meta-oa-title" contenteditable="true">🎯 Posada en comú i metacognició — Torna als objectius del principi i marca el que has après avui:</div>
 <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Mesuro la meva FC en repòs, exercici i recuperació, i represento les dades en una gràfica pròpia.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Explico per quina raó augmenta la FC durant l'exercici (més O₂ per als mitocondris dels músculs).</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Calculo la FCmàx (220 − edat) i distingeixo la zona aeròbica de l'anaeròbica.</div></div><div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Interpreto gràfiques de FC reals (la Mercè, esportista vs. sedentari) i explico les diferències.</div></div>
   <div class="meta-open">
-    <div class="meta-open-label" contenteditable="true">🪞 La meva hipòtesi inicial (apartat 0) era encertada? En què m'equivocava?</div>
+    <div class="meta-open-label" contenteditable="true">🪞 La meva hipòtesi inicial (apartat 1) era encertada? En què m'equivocava?</div>
 <div class="wline" contenteditable="true"></div>
     <div class="meta-open-label" style="margin-top:6px" contenteditable="true">❓ Encara em pregunto…</div>
 <div class="wline" contenteditable="true"></div>
