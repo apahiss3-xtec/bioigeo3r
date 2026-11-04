@@ -75,6 +75,8 @@ export const sa2s7 = {
   fitxaUrl: { A: "/fitxes/sa2-s7-fitxa-A.html", B: "/fitxes/sa2-s7-fitxa-B.html", C: "/fitxes/sa2-s7-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s7-teoria.pdf",
 
   sessionMaterials: [
+    { id: "fitxaAcollidaUR", title: "Fitxa de la sessió · acollida (urdú)", url: "/fitxes/sa2-s7-fitxa-acollida-UR.html", who: "alumnat d'acollida: mateixos apartats que la classe" },
+    { id: "fitxaAcollidaAR", title: "Fitxa de la sessió · acollida (àrab)", url: "/fitxes/sa2-s7-fitxa-acollida-AR.html", who: "alumnat d'acollida: mateixos apartats que la classe" },
     { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s7-exit-ticket.html", who: "per al final de la sessió" },
     { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s7-exit-ticket-C.html", who: "per al final de la sessió" },
     { id: "rubrica", title: "Rúbrica de l'informe FC", url: "/fitxes/sa2-s7-rubrica-informe.html", who: "consulta-la des del primer minut de l'apartat 4" }

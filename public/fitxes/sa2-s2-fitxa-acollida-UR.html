@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sessió 2 · El Sistema Digestiu · Acollida (urdú) — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple:       #7B68C8;
+  --purple-ink:   #4a3b8c;
+  --purple-light: #c5b8f0;
+  --purple-tint:  #f0edfb;
+  --ink:          #1A1428;
+  --ink-2:        #3a3050;
+  --muted:        #7a7090;
+  --surface:      #fdfcff; --paper:#ffffff;
+  --rule:         #e8e2f6;
+  --rule-dark:    #c8bfe8;
+  --orange:  #e8834a; --orange-tint:  #fdf0e8;
+  --teal:    #3a9e8c; --teal-tint:    #e6f4f1;
+  --rose:    #d44a6c; --rose-tint:    #fce8ed;
+  --yellow:  #c8960a; --yellow-tint:  #fdf7e2;
+  --green:   #4a9e5c; --green-tint:   #eaf4ec;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:14.5px; line-height:1.5; }
+
+/* ── TOOLBAR ── */
+#toolbar {
+  position:fixed; top:0; left:0; right:0; z-index:9000;
+  background:#2d2347; display:flex; gap:6px; align-items:center;
+  padding:6px 12px; box-shadow:0 2px 10px rgba(0,0,0,.25);
+}
+.tb-btn {
+  font-family:'Inter',sans-serif; font-size:12px; font-weight:600;
+  color:#fff; background:rgba(255,255,255,.12); border:none; cursor:pointer;
+  padding:6px 11px; border-radius:7px;
+}
+.tb-btn:hover { background:rgba(255,255,255,.24); }
+.tb-btn.active { background:var(--purple); }
+.tb-title { font-family:'Inter',sans-serif; font-size:11px; color:#cfc6ec; margin-left:auto; letter-spacing:.04em; }
+
+.page-wrap { width:794px; margin:0 auto; position:relative; }
+#doc { display:none; }
+
+/* ── PAGINADOR A4 REAL ─────────────────────────────── */
+#sheets { display:flex; flex-direction:column; align-items:center; gap:26px; }
+.sheet { width:794px; min-height:1123px; background:var(--paper); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.18); overflow:visible; }
+.sheet-body { padding:36px 46px 18px; position:relative; overflow:visible; }
+.sheet.has-head .sheet-body { padding-top:54px; }
+.sheet-head { position:absolute; left:0; right:0; top:0; height:36px; display:none; justify-content:space-between; align-items:center; padding:0 46px; border-bottom:1.5px solid var(--purple-light); background:var(--paper); }
+.sheet.has-head .sheet-head { display:flex; }
+.sheet-head-l { font-family:'Inter',sans-serif; font-size:8.5px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--purple-ink); }
+.sheet-head-r { font-family:'Inter',sans-serif; font-size:8.5px; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); }
+.sheet-foot { position:absolute; left:0; right:0; bottom:0; height:30px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:0 46px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:600; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; border-top:.5px solid var(--rule); background:var(--paper); }
+.sheet-foot .fc { text-align:center; letter-spacing:.14em; color:var(--purple-ink); }
+.sheet-foot .fr { text-align:right; }
+.sheet-body > .header-band { margin:-36px -46px 0; }
+.sheet-body > .nivell-strip { margin:0 -46px; }
+.sheet-body > .info-strip { margin:0 -46px; padding-left:46px; padding-right:46px; }
+.sheet-body > .oa-box { margin:12px 0 0; }
+
+#doc { position:relative; }
+
+/* ── CAPÇALERA ── */
+.header-band {
+  background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%);
+  color:#fff; padding:14px 18px 12px;
+  display:grid; grid-template-columns:56px 1fr auto; gap:0 14px; align-items:center;
+  position:relative;
+}
+.header-emoji-box { width:50px; height:50px; background:rgba(255,255,255,.18); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+.header-center { min-width:0; }
+.header-sa { font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; opacity:.75; margin-bottom:2px; }
+.header-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:30px; font-weight:900; line-height:1.05; color:#fff; margin:0; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-size:13px; font-style:italic; opacity:.85; margin-top:2px; }
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:6px; flex-shrink:0; }
+.logo-box img { height:46px; display:block; }
+.header-meta { font-family:'Inter',sans-serif; font-size:8px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; opacity:.8; text-align:right; line-height:1.4; }
+
+/* ── STRIP NIVELL ── */
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:6px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
+.badge { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
+.temps-badge { font-size:11px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
+.nom-field { font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
+.nom-field:first-of-type { margin-left:auto; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:13.5px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
+.input-span.data-span { min-width:70px; }
+.input-span:empty::before { content:attr(data-hint); color:#c0b8d8; font-style:italic; pointer-events:none; font-size:11px; }
+.nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(123,104,200,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); vertical-align:middle; margin-left:4px; flex-shrink:0; }
+
+/* ── OA BOX ── */
+.oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin:12px 18px 4px; position:relative; }
+.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14.5px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:6px; }
+.oa-list { margin:0; padding-left:18px; list-style:none; }
+.oa-list li { font-size:13.5px; line-height:1.5; color:var(--ink-2); margin-bottom:3px; padding-left:4px; }
+.oa-list li::before { content:"□ "; color:var(--purple); font-weight:700; margin-left:-18px; margin-right:4px; }
+
+/* ── CONTINGUT ── */
+.content { padding:4px 18px 14px; }
+.section { margin-top:15px; position:relative; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:14.5px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.snum.n0 { background:var(--muted); } .snum.n1 { background:var(--orange); } .snum.n2 { background:var(--teal); }
+.snum.n3 { background:var(--rose); } .snum.n4 { background:var(--yellow); } .snum.n5 { background:var(--green); }
+.stitle { font-size:16px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:11px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+
+/* ── BLOCS ── */
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
+.previ-box p { font-size:14px; }
+.wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:6px; background:#fff; outline:none; }
+.pista { font-size:11px; color:var(--muted); font-style:italic; margin:4px 0 2px; }
+.card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:10px 12px; margin-bottom:8px; }
+.card.orange { border-color:var(--orange); background:var(--orange-tint); }
+.card.teal { border-color:var(--teal); background:var(--teal-tint); }
+.card.rose { border-color:var(--rose); background:var(--rose-tint); }
+.card.yellow { border-color:var(--yellow); background:var(--yellow-tint); }
+.card-label { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+
+/* ── DIAGRAMA ── */
+.diagram-layout { display:grid; grid-template-columns:230px 1fr; gap:18px; align-items:start; margin:10px 0 12px; }
+.diagram-img-wrap img { width:100%; border-radius:6px; border:1px solid var(--rule); display:block; }
+.diagram-svg svg { width:100%; height:auto; display:block; border:1px solid var(--rule); border-radius:6px; }
+.diagram-svg { display:block; }
+.start-hint { font-size:13.5px; color:var(--muted); font-style:normal; margin:4px 0 1px; }
+.fig-wrap { position:relative; display:block; }
+.fig-wrap img { width:100%; display:block; border:1px solid var(--rule); border-radius:6px; }
+.fig-mark { position:absolute; transform:translate(-50%,-50%); width:19px; height:19px;
+  border-radius:50%; background:#fff; border:1.7px solid var(--purple-ink); color:var(--purple-ink);
+  font-family:'Inter',sans-serif; font-size:13.5px; font-weight:700; line-height:15.6px;
+  text-align:center; box-shadow:0 1px 3px rgba(0,0,0,.25);
+  -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.diagram-caption { font-size:11px; color:var(--muted); font-style:italic; text-align:center; margin-top:3px; line-height:1.5; }
+
+/* ── TAULES ── */
+.label-table, .data-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+.label-table th, .data-table th { background:var(--purple-ink); color:#fff; padding:5px 8px; text-align:left; font-size:11px; letter-spacing:.05em; text-transform:uppercase; }
+.label-table th:first-child, .data-table th:first-child { border-radius:5px 0 0 0; }
+.label-table th:last-child, .data-table th:last-child { border-radius:0 5px 0 0; }
+.label-table td, .data-table td { padding:5px 8px; border-bottom:1px solid var(--rule); vertical-align:top; }
+.label-table tr:nth-child(even) td, .data-table tr:nth-child(even) td { background:var(--purple-tint); }
+.num-cell { width:26px; text-align:center; font-weight:900; color:var(--purple-ink); font-size:14.5px; }
+.fill-cell { display:block; border-bottom:1.5px solid #C8C2DD; min-height:24px; background:#fff; outline:none; }
+.hint-cell { font-size:11px; color:var(--muted); }
+
+/* ── WORD BANK ── */
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
+.word-bank-title { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.chips { display:flex; flex-wrap:wrap; gap:4px; }
+.chip { font-size:13.5px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+
+/* ── MODELITZACIÓ ── */
+.model-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:6px 0; }
+.model-col { border-radius:8px; padding:8px 10px; }
+.model-col.good { background:var(--green-tint); border:1.5px solid var(--green); }
+.model-col.bad { background:var(--rose-tint); border:1.5px solid var(--rose); }
+.model-col-title { font-size:11px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; margin-bottom:4px; }
+.model-col.good .model-col-title { color:var(--green); }
+.model-col.bad .model-col-title { color:var(--rose); }
+
+/* ── IDEA CLAU (bàner) ── */
+.clau { display:flex; align-items:center; gap:10px; background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%); color:#fff; border-radius:8px; padding:9px 14px; margin:10px 0; }
+.clau-icon { font-size:20px; flex-shrink:0; }
+.clau-text { font-size:14px; font-weight:700; line-height:1.5; }
+
+/* ── RAONO EN 4 PASSOS (OBSERVO→EM PREGUNTO→CONNECTO→DEDUEIXO) ── */
+.raona-box { border:2px solid var(--purple-light); border-radius:12px; padding:0; margin:8px 0; overflow:hidden; }
+.raona-cap { background:var(--purple-ink); color:#fff; font-size:13.5px; font-weight:900; letter-spacing:.05em; text-transform:uppercase; padding:6px 12px; }
+.raona-pas { padding:7px 12px; border-bottom:1px dashed var(--rule); }
+.raona-pas:last-child { border-bottom:none; }
+.raona-pas-lab { font-size:11px; font-weight:900; color:var(--purple-ink); letter-spacing:.06em; text-transform:uppercase; margin-bottom:3px; }
+
+/* ── EXEMPLE RESOLT ── */
+.exemple-box { background:var(--green-tint); border:1.5px solid var(--green); border-radius:8px; padding:8px 12px; margin-bottom:8px; }
+.exemple-label { font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin-bottom:3px; }
+
+
+/* ── PER LLEGIR ── */
+.perllegir-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:9px 12px; margin-bottom:8px; }
+.perllegir-label { font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+
+/* ── MICROBIOTA ── */
+.micro-fact { display:flex; align-items:center; gap:10px; background:var(--teal-tint); border:1.5px solid var(--teal); border-radius:8px; padding:8px 10px; }
+.micro-icon { font-size:28px; flex-shrink:0; }
+.micro-text { font-size:13.5px; line-height:1.5; }
+.micro-text strong { color:var(--teal); font-size:14.5px; }
+
+/* ── BRISTOL ── */
+.bristol-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:3px; margin:6px 0; }
+.bristol-item { text-align:center; background:var(--purple-tint); border-radius:5px; padding:4px 2px; border:1px solid var(--rule); }
+.bristol-item.ok { border-color:var(--green); background:var(--green-tint); }
+.bristol-num { font-size:16px; font-weight:900; color:var(--purple-ink); }
+.bristol-item.ok .bristol-num { color:var(--green); }
+.bristol-emoji { font-size:14.5px; line-height:1.5; }
+.bristol-label { font-size:7.5px; color:var(--muted); line-height:1.5; margin-top:1px; }
+.bristol-write { display:block; width:100%; border-bottom:1px solid var(--rule-dark); height:22px; margin-top:2px; background:#fff; outline:none; }
+
+/* ── EPIST ── */
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.epist-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
+.epist-text { font-size:13.5px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+
+/* ── METACOGNICIÓ OA-BASED ── */
+.meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin-top:12px; position:relative; }
+.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14px; font-weight:900; color:var(--purple-ink); margin-bottom:8px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:5px; }
+.meta-oa-check { width:14px; height:14px; flex-shrink:0; border:1.5px solid var(--purple); border-radius:3px; margin-top:1px; print-color-adjust:exact; }
+.meta-oa-text { font-size:13.5px; color:var(--ink-2); line-height:1.5; }
+.meta-open { margin-top:8px; padding-top:8px; border-top:1px solid var(--rule-dark); }
+.meta-open-label { font-size:11px; font-weight:700; color:var(--muted); margin-bottom:3px; }
+
+/* ── TASCA CASA ── */
+.tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:10px 12px; margin-top:10px; position:relative; }
+
+/* ── FOOTER ── */
+.footer { margin-top:14px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
+.footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+
+/* ── ELIMINABLES ── */
+.deletable { position:relative; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; background:var(--rose); color:#fff; border-radius:50%; font-size:11px; line-height:18px; text-align:center; cursor:pointer; z-index:50; box-shadow:0 1px 4px rgba(0,0,0,.3); }
+.deletable:hover > .del-btn { display:flex; align-items:center; justify-content:center; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+
+/* ── SPACER ── */
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; }
+.spacer-label { font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+
+/* ── SALTS DE PÀGINA ── */
+
+
+
+
+.mt8 { margin-top:8px; } .bold { font-weight:700; } .small { font-size:11px; color:var(--muted); }
+
+/* ── IMPRESSIÓ ────────────────────────────────────── */
+@media print {
+  @page { size:A4; margin:0; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html,body { background:#fff; padding:0; margin:0; }
+  #toolbar, .del-btn { display:none !important; }
+  #sheets { gap:0; display:block; }
+  .sheet { width:210mm; height:297mm; min-height:0; box-shadow:none; margin:0; page-break-after:always; break-after:page; overflow:hidden; }
+  .sheet:last-child { page-break-after:auto; break-after:auto; }
+  .header-emoji-box { background:#ede8f8 !important; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline, .mini-line { background:transparent; padding:0; }
+  .fill-cell { background:transparent; outline:none; }
+  .input-span { border-bottom-color:#C8C2DD; }
+  .img-placeholder { -webkit-print-color-adjust:exact; }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .nivell-badge-small { background:transparent !important; border-color:#C8C2DD !important; }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   LLEGIBILITAT-C v1 — llegibilitat de la Versió C (dislèxia). 09/09/2026.
+   Cos en 'Fira Sans Condensed' (mateixa família que l'Extra Condensed
+   de la casa, però amb lletres més obertes i distingibles), interlineat
+   ample i separació de paraules. Titulars, capçalera i peu no es toquen.
+   ══════════════════════════════════════════════════════════════ */
+.sheet-body,#doc{font-family:'Fira Sans Condensed','Fira Sans Extra Condensed',sans-serif;
+  line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
+.sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
+.sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
+
+/* ══════════════════════════════════════════════════════════════
+   C-VISUAL v3 — versió C molt visual: poc text, pictogrames, opcions per
+   encerclar/pintar. Cap text llegible < 13px; pistes en #4a4a5a en requadre.
+   ══════════════════════════════════════════════════════════════ */
+body{font-size:15px}
+.sheet-head-l,.sheet-head-r{font-size:13px;letter-spacing:.05em}
+.sheet-foot{font-size:13px;letter-spacing:.03em;grid-template-columns:auto 1fr auto}.sheet-foot .fl{white-space:nowrap}
+.header-sa{font-size:13px;letter-spacing:.08em}
+.header-subtitle{font-size:15px}
+.header-meta{font-size:13px;letter-spacing:.04em}
+.badge,.temps-badge{font-size:13px}
+.nom-field,.input-span{font-size:14px}
+.input-span:empty::before{font-size:13px;color:#5a5a6e}
+.nivell-badge-small{width:20px;height:20px;font-size:13px}
+.oa-title{font-size:16px}
+.oa-list li{font-size:15px}
+.sec-min{font-family:Inter,sans-serif;font-size:13px;font-weight:700;color:#4a4a5a;letter-spacing:.03em}
+.stitle{font-size:19px}
+.sdesc{font-family:'Fira Sans Condensed',sans-serif;font-style:normal;font-size:14.5px;color:#4a4a5a}
+.snum{width:30px;height:30px;font-size:17px}
+.wline{min-height:30px}
+.card-label,.perllegir-label,.exemple-label,.word-bank-title,.model-col-title{font-size:13px;color:#4a4a5a}
+.exemple-label{color:#2f7a42}
+.word-bank-title{color:var(--purple-ink)}
+.chip{font-size:15px;padding:3px 10px}
+.clau-text{font-size:15.5px}
+
+/* pistes i exemples: requadre visible, contrast alt */
+.pista,.start-hint{display:block;font-size:14px;font-style:normal;color:#4a4a5a;background:#fff8e0;border-left:4px solid #c8960a;border-radius:0 6px 6px 0;padding:4px 9px;margin:6px 0 3px}
+.hint-cell{font-size:14px;color:#4a4a5a}
+.small{font-size:13px;color:#4a4a5a}
+.exemple-box p{font-size:14.5px}
+
+/* frases curtes */
+.frase{font-size:16px;line-height:1.45;font-weight:600;color:var(--ink);margin:2px 0 6px}
+.frase .ico{font-size:22px;margin-right:6px;vertical-align:-2px}
+.frase-box{background:#fff;border:1.5px solid var(--purple-light);border-radius:10px;padding:8px 12px;margin-bottom:8px}
+
+/* paraula nova */
+.mot-nou{display:flex;gap:10px;align-items:center;background:#fffbea;border:2px solid #e0b93a;border-radius:10px;padding:8px 12px;margin-bottom:8px}
+.mot-nou svg{flex-shrink:0}
+.mot-nou .mn-lab{font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#7a5a00;margin-bottom:2px}
+.mot-nou .mn-txt{font-size:15px;line-height:1.4;color:var(--ink)}
+.mots-2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mots-2 .mot-nou{margin-bottom:8px}
+.kw{font-weight:900;padding:0 5px;border-radius:5px}
+.kw-cap{background:#fce8ed;color:#a01e44;border:1px solid #d44a6c}
+.kw-acid{background:#fdf0c8;color:#6b4e00;border:1px solid #c8960a}
+.kw-vel{background:#dff1ec;color:#17604f;border:1px solid #3a9e8c}
+.kw-mit{background:#fde9d9;color:#8a3a0a;border:1px solid #e8834a}
+
+/* opcions per encerclar */
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opt{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:600;padding:5px 11px;border-radius:9999px;background:#fff;border:2px solid var(--rule-dark);color:var(--ink);cursor:pointer;user-select:none;line-height:1.25}
+.opt:hover{border-color:var(--purple)}
+.opt.sel{border-color:#2f7a42;background:#e3f3e6;box-shadow:0 0 0 3px #a9d9b4}
+img.ico{width:1.4em;height:1.4em;object-fit:cover;border-radius:50%;border:1.5px solid var(--rule-dark);vertical-align:middle;background:#fff}
+.opt-card .e img.ico{width:52px;height:52px}.sim-row .fase .e img.ico{width:46px;height:46px;margin:0 auto}
+.org-step .ic img.ico{width:50px;height:50px}svg.drop{vertical-align:middle}
+.opt .e{font-size:20px}
+.opt.ex::after{content:"✓ exemple";font-size:13px;font-weight:700;color:#2f7a42;margin-left:2px}
+.opt-card{flex-direction:column;border-radius:12px;padding:8px 6px;width:100px;text-align:center;justify-content:center}
+.opt-card .e{font-size:34px}
+
+/* sec 1: idees prèvies */
+.prev-grid{display:flex;gap:8px;flex-wrap:wrap}
+
+/* sec 2: recorregut */
+.org-layout{display:grid;grid-template-columns:240px 1fr;gap:16px;align-items:start}
+.org-steps{display:flex;flex-direction:column;gap:7px}
+.org-step{display:grid;grid-template-columns:30px 34px 1fr 130px;gap:8px;align-items:center;background:var(--purple-tint);border:1.5px solid var(--rule);border-radius:10px;padding:6px 8px}
+.org-step .n{width:28px;height:28px;border-radius:50%;background:var(--purple-ink);color:#fff;font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center}
+.org-step .ic{font-size:26px;text-align:center}
+.org-step .ht{font-size:14.5px;line-height:1.3;color:var(--ink-2)}
+.org-step .fill-cell{min-height:30px;font-size:16px;font-weight:700;text-align:center}
+.org-step.ex{background:var(--green-tint);border-color:var(--green)}
+.org-step.ex .fill-cell{color:#2f7a42}
+.org-arrow{text-align:center;font-size:18px;line-height:1;color:var(--purple);margin:-3px 0}
+
+/* sec 3: simulació */
+.sim-row{display:grid;grid-template-columns:104px 1fr;gap:10px;align-items:center;border-bottom:1px solid var(--rule);padding:7px 0}
+.sim-row .fase{font-size:17px;font-weight:900;text-align:center;line-height:1.15}
+.sim-row .fase .e{display:block;font-size:30px}
+
+/* sec 4: viatge glucosa */
+.cami{display:grid;grid-template-columns:1fr 30px 1fr 30px 1fr 30px 1fr 30px 1fr;align-items:stretch;margin:6px 0}
+.est{background:#fff;border:2px solid var(--purple-light);border-radius:12px;padding:5px 5px 7px;text-align:center;position:relative}
+.est .en{position:absolute;top:-11px;left:-8px;width:26px;height:26px;border-radius:50%;background:var(--orange);color:#fff;font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.est svg{width:100%;height:auto;display:block}
+.est .fill-cell{min-height:30px;font-size:15px;font-weight:700;text-align:center;margin:3px 0}
+.est .fill-cell.done{border-bottom-color:transparent;color:#2f7a42}
+.est .cap{font-size:13.5px;line-height:1.3;color:#3a3050}
+.cami-arrow{display:flex;align-items:center;justify-content:center;height:84px;align-self:flex-start}
+.cami-arrow svg{width:30px;height:30px}
+.glu-leg{display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--orange);vertical-align:-2px;margin-right:4px}
+.vell-layout{display:grid;grid-template-columns:440px 1fr;gap:14px;align-items:start}
+.villus-wrap{position:relative;width:100%;max-width:100%}.villus-wrap img.vimg{width:100%;display:block;border:1px solid var(--rule);border-radius:8px;background:#fdfbf4}.vb{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:#fff;border:2.5px solid #4a3b8c;color:#4a3b8c;font:700 14px/21px Inter,sans-serif;text-align:center;box-shadow:0 0 0 2px #fff}.vleg{display:flex;flex-direction:column;gap:3px;margin-top:6px;font-size:13.5px;color:#3a3050}.vleg>span{display:inline-flex;align-items:center;gap:6px}.vrow{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;margin-top:8px}.vrow .vl{position:static;width:auto}.vell-svg .vimg{border:1.5px solid var(--rule-dark);border-radius:10px}
+.vell-etiq{display:flex;flex-direction:column;gap:8px}
+.et-row{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:center}
+.et-row .n{width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid var(--purple-ink);color:var(--purple-ink);font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center}
+.et-row .fill-cell{min-height:32px;font-size:15px;font-weight:700}
+.pinta-box{background:#fff1e6;border:2px solid var(--orange);border-radius:10px;padding:7px 10px;font-size:15px;font-weight:600;line-height:1.35}
+.bank-icons .chip{display:inline-flex;align-items:center;gap:5px}
+.bank-icons .chip .e{font-size:20px}
+
+/* sec 5: microbiota */
+.fets-3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px}
+.fet{background:var(--teal-tint);border:1.5px solid var(--teal);border-radius:10px;padding:8px 6px;text-align:center;font-size:15px;line-height:1.3;font-weight:600}
+.fet .e{display:block;font-size:34px;margin-bottom:2px}
+
+/* sec 6: Bristol */
+.bristol-grid{gap:5px}
+.bristol-item{padding:6px 2px 7px;border-radius:8px;border:1.5px solid var(--rule-dark)}
+.bristol-num{font-size:18px}
+.bristol-emoji{font-size:30px;line-height:1.3}
+.bristol-label{font-size:13px;color:#3a3050;line-height:1.25;min-height:34px}
+.cdot{width:30px;height:30px;border-radius:50%;border:2.5px dashed #6a6a7a;margin:5px auto 0;cursor:pointer;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.cdot.c-g{background:#7fcf93;border:2.5px solid #2f7a42}
+.cdot.c-y{background:#f5d56a;border:2.5px solid #a07800}
+.cdot.c-b{background:#8fc3ee;border:2.5px solid #2a6aa8}
+.leg{display:flex;gap:14px;flex-wrap:wrap;font-size:15px;font-weight:600;margin:4px 0 8px}
+.leg i{display:inline-block;width:18px;height:18px;border-radius:50%;vertical-align:-3px;margin-right:5px;border:2px solid}
+.leg .g i{background:#7fcf93;border-color:#2f7a42}.leg .y i{background:#f5d56a;border-color:#a07800}.leg .b i{background:#8fc3ee;border-color:#2a6aa8}
+
+.meta-oa-text{font-size:15px}
+.meta-oa-check{width:18px;height:18px}
+.meta-open-label{font-size:14px;color:#4a4a5a}
+@media print{ .opt:hover{border-color:var(--rule-dark)} .opt.sel{border-color:#2f7a42} }
+
+/* ══════════════════════════════════════════════════════════════
+   ACOLLIDA · URDÚ / ÀRAB (comú SA2) — 25/10/2026. Català com a llengua de referència,
+   urdú (RTL, Nastaliq) com a bastida sota cada explicació i consigna.
+   ══════════════════════════════════════════════════════════════ */
+.ur { font-family:'Noto Nastaliq Urdu',serif; direction:rtl; text-align:right; unicode-bidi:isolate;
+  font-size:12.5px; line-height:2.05; color:#21574d; background:#eef7f4; border-right:3px solid var(--teal);
+  border-radius:6px 0 0 6px; padding:0 10px 2px; margin:3px 0 6px; }
+#doc .ur, .sheet-body .ur { font-family:'Noto Nastaliq Urdu',serif; text-align:right; word-spacing:normal; letter-spacing:0; }
+.ur-in, .th-ur, [lang="ur"] { font-family:'Noto Nastaliq Urdu',serif !important; letter-spacing:0 !important; word-spacing:normal !important; }
+.ur-in { unicode-bidi:isolate; font-size:.82em; font-weight:400; color:#21574d; text-transform:none; letter-spacing:0; margin-left:4px; line-height:1; }
+.th-ur { display:block; font-size:10px; font-weight:400; text-transform:none; letter-spacing:0; line-height:1.9; opacity:.92; }
+.header-ur { font-family:'Noto Nastaliq Urdu',serif; direction:rtl; text-align:left; font-size:12.5px; line-height:1.9; opacity:.92; margin-top:3px; }
+
+.guia-box { border:2px solid var(--teal); border-radius:10px; padding:8px 12px 6px; margin:10px 0 4px; background:#fff; }
+.guia-title { font-size:15px; font-weight:900; color:var(--teal); }
+.guia-box > .ur { display:inline-block; margin:0 0 4px; }
+.guia-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px 16px; }
+.guia-pas { display:flex; gap:8px; align-items:flex-start; }
+.guia-pas p { font-size:13.5px; line-height:1.4; }
+.guia-pas .ur { margin:2px 0 3px; }
+.guia-n { width:22px; height:22px; flex-shrink:0; border-radius:50%; background:var(--teal); color:#fff; font-weight:900; font-size:13px; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.oa-list li .ur { margin:1px 0 4px; font-size:12px; }
+
+.glos { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; }
+.glos-item { border:1.5px solid var(--rule-dark); border-radius:8px; background:#fff; padding:5px 5px 4px; text-align:center; }
+.glos-img { height:84px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:6px; }
+.glos-img img { max-height:84px; max-width:100%; object-fit:contain; }
+.sprite { width:58px; height:84px; background-image:url('s1_5nutrients_nivell_c.png'); background-size:auto 100%; background-repeat:no-repeat; }
+.glos-ca { font-size:14.5px; font-weight:900; color:var(--purple-ink); line-height:1.15; margin-top:3px; }
+.glos-ur { font-family:'Noto Nastaliq Urdu',serif; font-size:13px; color:#21574d; line-height:1.9; }
+.glos-def { font-size:11px; color:var(--muted); line-height:1.25; }
+
+.llegir { background:#fbfaff; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:7px 12px 4px; margin:6px 0 8px; }
+.llegir-lab, .fer-lab { font-size:12px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.llegir p { font-size:14px; line-height:1.55; }
+.fer { background:var(--orange-tint); border:1.5px solid var(--orange); border-radius:8px; padding:7px 12px 4px; margin:6px 0 8px; }
+.fer-lab { color:#b85a22; }
+.fer p { font-size:14px; line-height:1.5; }
+.fer-list { padding-left:20px; font-size:14px; line-height:1.45; }
+.fer-list li { margin-bottom:2px; }
+.fer-list .ur { margin:1px 0 4px; }
+
+.proves { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.prova p { font-size:13.5px; }
+.paper-row { display:flex; gap:22px; justify-content:center; align-items:flex-end; margin:5px 0 2px; }
+.paper { width:84px; text-align:center; }
+.paper::before { content:""; display:block; width:70px; height:86px; margin:0 auto; background:#f3ead4; border:1.5px solid #c9b98f; border-radius:3px; }
+.paper .taca { width:38px; height:30px; border-radius:50%; margin:-58px auto 28px; background:radial-gradient(ellipse at center, rgba(255,255,255,.95) 0%, rgba(255,255,255,.7) 55%, rgba(255,255,255,0) 72%); position:relative; }
+.paper .tcap { font-size:11px; font-weight:700; margin-top:4px; line-height:1.4; }
+.paper.mini, .tube.mini { width:auto; }
+.paper.mini::before { width:52px; height:62px; }
+.paper.mini .taca { width:30px; height:24px; margin:-44px auto 20px; }
+.tube.mini .glass { width:30px; height:64px; border-radius:0 0 15px 15px; }
+
+.pred-row { display:flex; align-items:center; gap:5px; flex-wrap:wrap; font-size:14px; margin:6px 0; }
+.pred-row strong { min-width:84px; }
+.connexio-img { height:92px; width:auto; flex-shrink:0; border-radius:6px; }
+.lab-table td.food, .data-table td.food { font-weight:700; white-space:nowrap; }
+.data-table td.exemple { font-size:12px; color:var(--muted); font-style:italic; }
+.data-table th { vertical-align:top; }
+.lab-table .fill-cell { min-height:30px; }
+
+.raona-box { border:2px solid var(--purple-light); border-radius:12px; padding:0; margin:9px 0; overflow:hidden; background:#fff; }
+.raona-cap { background:var(--purple-ink); color:#fff; font-size:12px; font-weight:900; letter-spacing:.05em; text-transform:uppercase; padding:5px 12px; }
+.raona-cap .ur-in { color:#e6e0ff; }
+.raona-pas { padding:5px 12px; border-bottom:1px dashed var(--rule); }
+.raona-pas:last-child { border-bottom:none; }
+.raona-pas-lab { font-size:11px; font-weight:900; color:var(--purple-ink); letter-spacing:.06em; text-transform:uppercase; }
+.raona-pas-lab [lang="ur"] { font-size:11px; text-transform:none; font-weight:400; }
+.raona-pas .frase-completar { margin:0; }
+
+.chain-ur { justify-content:flex-start; }
+.chain-ur .chain-chip { font-family:'Noto Nastaliq Urdu',serif; font-size:11.5px; font-weight:400; line-height:1.9; background:#eef7f4; border-color:#a9d6cc; color:#21574d; }
+.nut-caps { display:grid; grid-template-columns:repeat(5,1fr); gap:4px; font-size:11.5px; line-height:1.3; margin-top:3px; }
+.nut-caps [lang="ur"] { font-size:10.5px; color:#21574d; line-height:1.9; }
+.dfig img { max-height:150px; }
+.banc { display:flex; flex-wrap:wrap; gap:5px; align-items:center; font-size:13px; margin:4px 0 2px; }
+.banc-lab { font-weight:900; color:var(--purple-ink); font-size:12px; }
+
+.etiq-grid { display:grid; grid-template-columns:260px 1fr; gap:14px; align-items:start; margin:4px 0 6px; }
+.etiq-grid .nutri-label { margin:0; }
+.ingr { border:2px solid #333; border-radius:4px; background:#fff; }
+.ingr-h { background:#333; color:#fff; font-weight:700; text-align:center; padding:3px; letter-spacing:.04em; font-size:13px; }
+.ingr p { font-size:13.5px; line-height:1.7; padding:5px 9px; }
+.etiq-table { width:auto; min-width:60%; margin:2px 0 4px; }
+.etiq-table td { padding:3px 10px; }
+
+.idea-clau { background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%); color:#fff; border-radius:10px; padding:8px 14px 5px; margin:10px 0 6px; }
+.idea-lab { font-size:12px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:#ffe7a8; }
+.idea-clau p { font-size:14.5px; line-height:1.5; }
+.idea-clau .ur { background:rgba(255,255,255,.12); color:#fff; border-right-color:#ffe7a8; }
+.tasca-box .ur { margin-top:3px; }
+.tasca-box .fill-cell { min-height:74px; }
+.draw-box .draw-area { min-height:300px; }
+.wline { min-height:30px; }
+.card .ur { margin:3px 0 4px; }
+.producte { display:flex; align-items:center; gap:12px; border:2px solid #b07a3a; background:#fdf3e6; border-radius:10px; padding:7px 12px; margin:0 0 8px; }
+.galetes { position:relative; width:78px; height:58px; flex-shrink:0; }
+.galeta { position:absolute; left:0; top:4px; width:50px; height:50px; border-radius:50%; border:2px solid #a8702f;
+  background:radial-gradient(circle at 30% 32%, #4a2814 0 4px, transparent 5px), radial-gradient(circle at 66% 38%, #4a2814 0 4px, transparent 5px),
+  radial-gradient(circle at 44% 70%, #4a2814 0 4px, transparent 5px), radial-gradient(circle at 74% 70%, #4a2814 0 3px, transparent 4px), #dba664; }
+.galeta.g2 { left:26px; top:0; }
+.producte-nom { font-size:16px; font-weight:900; color:#7a4a1c; line-height:1.15; }
+.producte-ur { font-size:13px; color:#21574d; line-height:1.9; }
+.producte-def { font-size:12px; color:var(--muted); }
+@media print { .producte, .galeta { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+@media print { .idea-clau { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+
+/* Full de teoria per estudiar a casa (sempre comença en pàgina nova) */
+.teo-com { background:var(--teal-tint); border:1.5px solid var(--teal); border-radius:8px; padding:6px 12px 3px; margin:4px 0 8px; }
+.teo-com p { font-size:13.5px; line-height:1.45; }
+.teo-card { border:2px solid var(--rule-dark); border-top-width:6px; border-radius:10px; background:#fff; padding:5px 12px 3px; margin:0 0 7px; }
+.teo-card p { font-size:13.5px; line-height:1.45; }
+.teo-h { display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:16px; font-weight:900; color:var(--ink); margin-bottom:3px; }
+.teo-n { width:24px; height:24px; border-radius:50%; background:var(--purple-ink); color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.teo-ur-t { font-family:'Noto Nastaliq Urdu',serif; font-size:13px; color:#21574d; line-height:1.8; text-align:right; margin-top:-4px; }
+.c-eq { border-color:#8f7fd6; } .c-hid { border-color:#d9b64a; } .c-gre { border-color:#6aa9d6; } .c-pro { border-color:#7fbf6a; }
+.c-mic { border-color:#3a9e8c; } .c-fer { border-color:#d44a6c; } .c-iod { border-color:#c8960a; }
+.eq { display:flex; align-items:center; justify-content:center; gap:7px; margin:4px 0 6px; }
+.eq-box { text-align:center; }
+.eq-chip { display:inline-block; border-radius:8px; padding:4px 10px; font-weight:900; font-size:14.5px; margin:2px 0; }
+.eq-chip.glu { background:var(--yellow-tint); border:2px solid #d9b64a; color:#7a5a00; }
+.eq-chip.oxi { background:#e6f1fa; border:2px solid #6aa9d6; color:#1d5a85; }
+.eq-chip.atp { background:#eaf4ec; border:2px solid var(--green); color:#2c6b39; display:block; }
+.eq-chip.res { background:#f3f1f6; border:2px dashed #b9b3c4; color:var(--muted); font-size:12.5px; display:block; }
+.eq-src { font-size:11px; color:var(--muted); line-height:1.25; }
+.eq-ur { font-family:'Noto Nastaliq Urdu',serif; font-size:11px; color:#21574d; line-height:1.8; }
+.eq-op { font-size:24px; font-weight:900; color:var(--purple-ink); }
+.eq-mito img { height:70px; display:block; margin:0 auto; }
+.teo-fig { text-align:center; margin:0 0 6px; }
+.teo-fig img { max-width:100%; max-height:150px; border-radius:8px; border:1px solid var(--rule); }
+.teo-grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:0 0 9px; }
+.teo-grid3 .teo-card { margin:0; }
+.teo-grid3 .teo-card p { font-size:13px; }
+.mic-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.mic-grid p { font-size:13px; }
+.rbc { display:inline-block; width:12px; height:12px; border-radius:50%; background:radial-gradient(circle,#b8203f 0 30%,#d94a64 31%); vertical-align:-1px; margin-right:2px; }
+.c-iod .tube .glass { height:84px; }
+.c-iod .tcap { font-size:11px; }
+.iod-grid { display:grid; grid-template-columns:200px 1fr; gap:12px; align-items:center; }
+.repas { border:2px dashed var(--purple-light); border-radius:10px; padding:7px 12px 5px; margin:4px 0 6px; background:#fbfaff; display:grid; grid-template-columns:1fr 1fr; column-gap:16px; }
+.repas > .repas-h, .repas > .pista { grid-column:1 / -1; }
+.repas-h { font-size:15px; font-weight:900; color:var(--purple-ink); }
+.repas-item { display:flex; gap:9px; align-items:flex-start; font-size:13.5px; line-height:1.3; padding:2px 0; border-bottom:1px dotted var(--rule); }
+.repas-item:nth-last-child(-n+2) { border-bottom:none; }
+.repas-item .meta-oa-check { flex-shrink:0; margin-top:2px; }
+.repas-ur { font-family:'Noto Nastaliq Urdu',serif; font-size:12px; color:#21574d; line-height:1.85; text-align:right; }
+@media print { .teo-card, .eq-chip, .rbc, .teo-n { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+
+/* ── Específic S2 ── */
+.header-ur { text-align:left; }
+.glos-img .ico, .glos-img svg { max-height:76px; }
+.ht-ur, .cap-ur, .fase-ur, .opt-ur, .bri-ur { display:block; font-family:'Noto Nastaliq Urdu',serif; direction:rtl; unicode-bidi:isolate;
+  color:#21574d; font-weight:400; text-transform:none; letter-spacing:0; }
+.ht-ur { font-size:11px; line-height:1.9; text-align:right; }
+.cap-ur { font-size:10.5px; line-height:1.9; text-align:center; }
+.fase-ur { font-size:10.5px; line-height:1.8; }
+.opt-ur { font-size:10.5px; line-height:1.8; text-align:center; }
+.bri-ur { font-size:10px; line-height:1.8; text-align:center; }
+.mot-nou .ur { margin:2px 0 0; }
+.mots-2 .mot-nou { align-items:flex-start; }
+.bristol-img { height:46px; display:flex; align-items:center; justify-content:center; }
+.bristol-img img { max-height:46px; max-width:100%; border-radius:4px; }
+.bristol-item { padding-left:3px; padding-right:3px; }
+.fet .ur { margin:2px 0 0; font-size:11.5px; }
+.fet img.ico { height:40px; }
+.per-que { margin:4px 0 2px; }
+.blank { display:inline-block; border:1px solid var(--rule); border-bottom:1.5px solid #C8C2DD; border-radius:3px 3px 0 0; vertical-align:bottom; margin:0 3px; min-height:1.45em; line-height:1.5; padding:0 5px; background:#fff; outline:none; }
+.blank-s { min-width:60px; } .blank-m { min-width:100px; } .blank-l { min-width:140px; } .blank-xl { min-width:200px; }
+.frase-completar { font-size:13.5px; line-height:2.3; margin-bottom:4px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:5px 0 3px; }
+.chain-chip { font-size:13.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:14.5px; }
+.glos-img img.ico { height:72px; width:auto; max-width:100%; }
+@media print { .blank { background:transparent; } }
+.circ-opt { display:inline-block; border:1.5px solid var(--rule-dark); border-radius:999px; padding:0 8px; margin:0 2px; font-weight:600; }
+.per-que .frase-completar { margin:2px 0; }
+.ruta { display:flex; flex-wrap:wrap; align-items:center; gap:4px; margin:4px 0 6px; }
+.ruta .chain-chip { font-size:13px; }
+.c-ruta { border-color:#8f7fd6; } .c-aci { border-color:#d9b64a; } .c-abs { border-color:#3a9e8c; }
+.c-cap { border-color:#d44a6c; } .c-glu { border-color:#e8834a; } .c-mic { border-color:#4a9e5c; } .c-bri { border-color:#b07a3a; }
+.teo-2col { display:grid; grid-template-columns:185px 1fr; gap:12px; align-items:center; }
+.teo-2col img { max-width:100%; border-radius:8px; border:1px solid var(--rule); display:block; }
+.ph { display:flex; gap:6px; align-items:stretch; margin:3px 0 5px; }
+.ph > div { flex:1; border-radius:8px; padding:4px 8px; text-align:center; font-size:12.5px; line-height:1.3; }
+.ph .ph-a { background:#fdecc8; border:2px solid #d9b64a; }
+.ph .ph-b { background:#e6f1fa; border:2px solid #6aa9d6; }
+.ph .ph-n { font-size:18px; font-weight:900; display:block; }
+.ph .eq-ur { font-size:10.5px; }
+.ph-arrow { flex:0 0 auto !important; align-self:center; font-size:22px; font-weight:900; color:var(--purple-ink); padding:0 !important; }
+.teo-fig.bri img { max-height:110px; }
+.teo-card .ur { font-size:12px; line-height:1.75; padding:1px 9px 2px; margin:2px 0 3px; }
+.teo-card p { margin:2px 0; }
+.teo-card .chain { margin:3px 0 2px; }
+.teo-card .chain-chip { font-size:12.5px; padding:1px 8px; }
+.vell-layout { grid-template-columns:385px 1fr !important; }
+.org-step { grid-template-columns:28px 50px 1fr 112px; gap:7px; }
+.org-step .ic img.ico { width:48px; height:48px; display:block; margin:0 auto; }
+.org-step .ht { min-width:0; }
+img.ico.capil { width:120px; height:auto; max-height:none; border-radius:8px; border:1px solid var(--rule); flex-shrink:0; }
+.glos-img img.ico.capil { width:auto; height:56px; }
+
+/* Apartat 0: practicar vocabulari */
+.pract { display:grid; grid-template-columns:3fr 2fr; gap:10px; margin:6px 0 4px; }
+.pract-a, .pract-b { background:#fff; border:1.5px solid var(--orange); border-radius:8px; padding:7px 10px 8px; min-width:0; }
+.pract p { font-size:14px; line-height:1.4; margin:0 0 2px; }
+.pract .fer-lab { color:#b85a22; }
+.par-grid { display:grid; grid-template-columns:auto 1fr auto; row-gap:5px; align-items:center; margin-top:6px; }
+.par-ca, .par-ur { background:#fff; border:1.5px solid var(--rule-dark); border-radius:7px; padding:2px 8px; display:flex; align-items:center; gap:7px; justify-content:space-between; }
+.par-ca { font-size:15px; font-weight:700; }
+.par-ur { font-family:'Noto Nastaliq Urdu',serif; font-size:13.5px; line-height:1.9; color:#21574d; }
+.par-ca i, .par-ur i { width:9px; height:9px; border-radius:50%; background:var(--purple-ink); flex:none; }
+.par-linia { min-width:70px; height:0; }
+.par-linia.ex { border-top:2px solid var(--purple-ink); }
+.cop { margin-top:9px; }
+.cop-w { font-size:15px; font-weight:700; }
+.cop .fill-cell { min-height:30px; }
+.glos-img { height:58px; } .glos-img img, .glos-img img.ico, .glos-img svg { max-height:56px; width:auto; }
+.glos-img img.ico.capil { height:50px; max-height:50px; }
+
+@media print { .ph > div, .bristol-img img { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <button class="tb-btn" id="btn-undo" onclick="undoDelete()" title="Desfés l'última eliminació (Ctrl+Z)">↩ Desfés</button>
+  <button class="tb-btn" onclick="document.execCommand('bold')" title="Negreta">𝐁 Negreta</button>
+  <button class="tb-btn" onclick="insertSpacer()" title="Insereix un espai en blanc">＋ Espai</button>
+  <button class="tb-btn" onclick="window.print()" title="Imprimeix">🖨️ Imprimeix</button>
+  <button class="tb-btn tb-desa" onclick="desaFitxa()" title="Desa els canvis al fitxer (Ctrl+S)">💾 Desa</button>
+  <span class="tb-title">Fitxa Sessió 2 · El Sistema Digestiu · Acollida (urdú) · IE Temple</span>
+</div>
+
+<div class="page-wrap">
+<div id="doc">
+
+<div class="header-band deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="header-emoji-box">🍞</div>
+  <div class="header-center">
+    <div class="header-sa" contenteditable="true">El nostre cos en marxa · Sessió 2 de 7</div>
+    <div class="header-title" contenteditable="true">El Sistema Digestiu</div>
+    <div class="header-subtitle" contenteditable="true">Del plat al mitocondri del corredor</div>
+    <div class="header-ur" dir="rtl" lang="ur" contenteditable="true">نظامِ ہاضمہ — پلیٹ سے دوڑنے والے کے مائٹوکونڈریا تک</div>
+  </div>
+  <div class="header-right">
+    <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
+    <div class="header-meta" contenteditable="true">3r ESO</div>
+  </div>
+</div>
+
+<div class="nivell-strip deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <span class="badge deletable" contenteditable="true">Amb suport visual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+
+  <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió C acollida — urdú">C·ur</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+</div>
+
+<div class="guia-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="guia-title" contenteditable="true">🧭 Com funciona aquesta fitxa</div>
+  <div class="ur" dir="rtl" lang="ur" contenteditable="true">یہ ورق کیسے کام کرتا ہے</div>
+  <div class="guia-grid">
+    <div class="guia-pas"><div class="guia-n">1</div><div><p contenteditable="true">Llegeix primer el text en <strong>català</strong>.</p><div class="ur" dir="rtl" lang="ur" contenteditable="true">پہلے کاتالان زبان میں متن پڑھیں۔</div></div></div>
+    <div class="guia-pas"><div class="guia-n">2</div><div><p contenteditable="true">Si no l'entens, llegeix la caixa verda en <strong>urdú</strong>.</p><div class="ur" dir="rtl" lang="ur" contenteditable="true">اگر سمجھ نہ آئے تو سبز خانے میں اردو پڑھیں۔</div></div></div>
+    <div class="guia-pas"><div class="guia-n">3</div><div><p contenteditable="true">Escriu sempre en <strong>català</strong>. Si no saps una paraula, busca-la a <strong>Paraules d'avui</strong>, al principi de la fitxa.</p><div class="ur" dir="rtl" lang="ur" contenteditable="true">ہمیشہ کاتالان میں لکھیں۔ اگر کوئی لفظ نہ آئے تو ورق کے شروع میں «آج کے الفاظ» میں ڈھونڈیں۔</div></div></div>
+    <div class="guia-pas"><div class="guia-n">4</div><div><p contenteditable="true">Quan tries una resposta, escriu sempre <strong>per quina raó</strong>.</p><div class="ur" dir="rtl" lang="ur" contenteditable="true">جب آپ کوئی جواب چنیں تو ہمیشہ لکھیں کہ کیوں۔</div></div></div>
+  </div>
+</div>
+
+<div class="oa-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="oa-title" contenteditable="true">🎯 Avui aprendré… <span class="ur-in" dir="rtl" lang="ur">آج میں سیکھوں گا/گی…</span></div>
+  <ul class="oa-list">
+    <li><span contenteditable="true">… a dir el nom de <strong>4 parts</strong> del sistema digestiu, en ordre.</span><div class="ur" dir="rtl" lang="ur" contenteditable="true">… نظامِ ہاضمہ کے چار حصوں کے نام ترتیب سے بتانا۔</div></li>
+    <li><span contenteditable="true">… què fa l'<strong>àcid</strong> de l'estómac.</span><div class="ur" dir="rtl" lang="ur" contenteditable="true">… معدے کا تیزاب کیا کرتا ہے۔</div></li>
+    <li><span contenteditable="true">… a seguir la <strong>glucosa</strong>: del pa fins al múscul.</span><div class="ur" dir="rtl" lang="ur" contenteditable="true">… گلوکوز کا راستہ: روٹی سے پٹھے تک۔</div></li>
+    <li><span contenteditable="true">… què és un <strong>capil·lar</strong> i per quina raó és important.</span><div class="ur" dir="rtl" lang="ur" contenteditable="true">… کیپلری کیا ہے اور یہ کیوں اہم ہے۔</div></li>
+  </ul>
+</div>
+
+<div class="content">
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Paraules d'avui <span class="ur-in" dir="rtl" lang="ur">آج کے الفاظ</span></div><div class="sdesc" contenteditable="true">Individual · Mira la imatge i llegeix la paraula en català i en urdú.</div></div></div>
+  <div class="divider"></div>
+  <div class="glos">
+    <div class="glos-item"><div class="glos-img"><img class="ico" src="img/ico_boca.png" alt="Boca"></div><div class="glos-ca" contenteditable="true">boca</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">منہ</div><div class="glos-def" contenteditable="true">mastega el menjar</div></div>
+    <div class="glos-item"><div class="glos-img"><img class="ico" src="img/ico_estomac.png" alt="Estómac"></div><div class="glos-ca" contenteditable="true">estómac</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">معدہ</div><div class="glos-def" contenteditable="true">bossa amb àcid</div></div>
+    <div class="glos-item"><div class="glos-img"><img class="ico" src="img/ico_intesti_prim.png" alt="Intestí prim"></div><div class="glos-ca" contenteditable="true">intestí prim</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">چھوٹی آنت</div><div class="glos-def" contenteditable="true">els nutrients passen a la sang</div></div>
+    <div class="glos-item"><div class="glos-img"><img class="ico" src="img/ico_intesti_gros.png" alt="Intestí gros"></div><div class="glos-ca" contenteditable="true">intestí gros</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">بڑی آنت</div><div class="glos-def" contenteditable="true">treu l'aigua · fa la femta</div></div>
+    <div class="glos-item"><div class="glos-img"><svg width="70" height="70" viewBox="0 0 74 74" aria-hidden="true"><path d="M28 6h18v14l12 34a8 8 0 0 1-7.5 11h-27A8 8 0 0 1 16 54l12-34z" fill="#fdf0c8" stroke="#c8960a" stroke-width="3" stroke-linejoin="round"/><path d="M22 44h30l5 12a4 4 0 0 1-3.8 5.3H21a4 4 0 0 1-3.8-5.3z" fill="#e9d36a" stroke="#c8960a" stroke-width="2"/><circle cx="30" cy="52" r="3" fill="#fff"/><circle cx="43" cy="55" r="2.5" fill="#fff"/><rect x="25" y="2" width="24" height="7" rx="3" fill="#c8960a"/></svg></div><div class="glos-ca" contenteditable="true">àcid (HCl)</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">تیزاب</div><div class="glos-def" contenteditable="true">com el vinagre, però més fort</div></div>
+    <div class="glos-item"><div class="glos-img"><svg width="60" height="64" viewBox="0 0 60 64" aria-hidden="true"><path d="M6 62V24Q6 4 20 4Q34 4 34 24V62" fill="#fff3f6" stroke="#e9a3b5" stroke-width="5"/><path d="M40 62V30Q40 16 48 16Q56 16 56 30V62" fill="#fff3f6" stroke="#e9a3b5" stroke-width="5"/></svg></div><div class="glos-ca" contenteditable="true">vellositat</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">آنت کا ننھا ریشہ</div><div class="glos-def" contenteditable="true">pèl minúscul de l'intestí prim</div></div>
+    <div class="glos-item"><div class="glos-img"><img class="ico capil" src="img/ico_capil_lar.png" alt="Capil·lar: paret d'una sola cèl·lula amb glòbuls vermells"></div><div class="glos-ca" contenteditable="true">capil·lar</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">خون کی بہت باریک نالی</div><div class="glos-def" contenteditable="true">tub de sang molt prim</div></div>
+    <div class="glos-item"><div class="glos-img"><img src="img/mitocondri-servier-preview.png" alt="Mitocondri" onerror="this.style.display='none'"></div><div class="glos-ca" contenteditable="true">mitocondri</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">مائٹوکونڈریا</div><div class="glos-def" contenteditable="true">crema glucosa → energia</div></div>
+  </div>
+  <p class="pista" contenteditable="true">Altres paraules: <strong>digerir</strong> = <span class="ur-in" dir="rtl" lang="ur">ہضم کرنا</span> · <strong>glucosa</strong> = <span class="ur-in" dir="rtl" lang="ur">گلوکوز</span> · <strong>sang</strong> = <span class="ur-in" dir="rtl" lang="ur">خون</span> · <strong>múscul</strong> = <span class="ur-in" dir="rtl" lang="ur">پٹھا</span> · <strong>fetge</strong> = <span class="ur-in" dir="rtl" lang="ur">جگر</span> · <strong>bacteri</strong> = <span class="ur-in" dir="rtl" lang="ur">جراثیم</span> · <strong>femta</strong> = <span class="ur-in" dir="rtl" lang="ur">پاخانہ</span> · <strong>budell</strong> = <span class="ur-in" dir="rtl" lang="ur">آنت</span></p>
+  <div class="pract deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="pract-a">
+      <div class="fer-lab" contenteditable="true">✏️ A · Paraules de la Sessió 1</div>
+      <p contenteditable="true">Uneix cada paraula amb la seva traducció. La primera és l'exemple.</p>
+      <div class="ur" dir="rtl" lang="ur" contenteditable="true">سیشن ۱ کے الفاظ: ہر لفظ کو لکیر سے اس کے ترجمے کے ساتھ ملائیں۔ پہلا مثال ہے۔</div>
+      <div class="par-grid">
+      <div class="par-ca">aliment<i></i></div><div class="par-linia ex"></div><div class="par-ur" dir="rtl" lang="ur"><i></i>غذا، کھانا</div>
+      <div class="par-ca">nutrient<i></i></div><div class="par-linia"></div><div class="par-ur" dir="rtl" lang="ur"><i></i>نشاستہ</div>
+      <div class="par-ca">midó<i></i></div><div class="par-linia"></div><div class="par-ur" dir="rtl" lang="ur"><i></i>چکنائی</div>
+      <div class="par-ca">proteïnes<i></i></div><div class="par-linia"></div><div class="par-ur" dir="rtl" lang="ur"><i></i>غذائی جزو</div>
+      <div class="par-ca">greixos<i></i></div><div class="par-linia"></div><div class="par-ur" dir="rtl" lang="ur"><i></i>پروٹین</div>
+      </div>
+    </div>
+    <div class="pract-b">
+      <div class="fer-lab" contenteditable="true">✏️ B · Paraules d'avui</div>
+      <p contenteditable="true">Copia cada paraula en català.</p>
+      <div class="ur" dir="rtl" lang="ur" contenteditable="true">آج کے الفاظ: ہر لفظ کاتالان میں نقل کریں۔</div>
+      <div class="cop"><div class="cop-w">vellositat</div><span class="fill-cell" contenteditable="true"></span></div>
+      <div class="cop"><div class="cop-w">capil·lar</div><span class="fill-cell" contenteditable="true"></span></div>
+      <div class="cop"><div class="cop-w">mitocondri</div><span class="fill-cell" contenteditable="true"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Posa nom al sistema digestiu <span class="ur-in" dir="rtl" lang="ur">نظامِ ہاضمہ کے حصوں کے نام لکھیں</span></div><div class="sdesc" contenteditable="true">Individual · Mira el dibuix i escriu el nom de cada part, en ordre.</div></div></div>
+  <div class="divider"></div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: el camí <span class="ur-in" dir="rtl" lang="ur">راستہ</span></div>
+    <div class="chain"><span class="chain-chip">boca</span><span class="chain-arrow">→</span><span class="chain-chip">esòfag</span><span class="chain-arrow">→</span><span class="chain-chip">estómac</span><span class="chain-arrow">→</span><span class="chain-chip">intestí prim</span><span class="chain-arrow">→</span><span class="chain-chip">intestí gros</span><span class="chain-arrow">→</span><span class="chain-chip">anus</span></div>
+    <div class="chain chain-ur" dir="rtl" lang="ur"><span class="chain-chip">منہ</span><span class="chain-arrow">←</span><span class="chain-chip">غذا کی نالی</span><span class="chain-arrow">←</span><span class="chain-chip">معدہ</span><span class="chain-arrow">←</span><span class="chain-chip">چھوٹی آنت</span><span class="chain-arrow">←</span><span class="chain-chip">بڑی آنت</span><span class="chain-arrow">←</span><span class="chain-chip">مقعد</span></div>
+    <p contenteditable="true">El menjar fa un camí llarg dins el cos: un tub d'uns <strong>9 metres</strong>. A la <strong>boca</strong> el mastegues. A l'<strong>estómac</strong>, l'àcid el desfà. A l'<strong>intestí prim</strong>, els nutrients passen a la <strong>sang</strong>. A l'<strong>intestí gros</strong> es treu l'aigua i es fa la <strong>femta</strong>.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">کھانا جسم کے اندر ایک لمبا راستہ طے کرتا ہے: تقریباً ۹ میٹر لمبی نالی۔ منہ میں آپ اسے چباتے ہیں۔ معدے میں تیزاب اسے توڑتا ہے۔ چھوٹی آنت میں غذائی اجزا خون میں چلے جاتے ہیں۔ بڑی آنت میں پانی نکالا جاتا ہے اور پاخانہ بنتا ہے۔</div>
+  </div>
+  <div class="fer deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="fer-lab" contenteditable="true">✏️ Què has de fer <span class="ur-in" dir="rtl" lang="ur">آپ کو کیا کرنا ہے</span></div>
+    <p contenteditable="true">Llegeix la pista de cada caixa. Busca el nom al banc de paraules i al dibuix. Escriu-lo a la línia. La 1 (boca) és l'exemple.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">ہر خانے کا اشارہ پڑھیں۔ نام الفاظ کے بینک اور تصویر میں ڈھونڈیں۔ اسے لائن پر لکھیں۔ نمبر ۱ (منہ) مثال ہے۔</div>
+  </div>
+  <div class="word-bank bank-icons deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="word-bank-title">Banc de paraules</div>
+    <div class="chips">
+      <span class="chip"><span class="e"><img class="ico" src="img/ico_boca.png" alt=""></span>Boca</span>
+      <span class="chip"><span class="e"><img class="ico" src="img/ico_estomac.png" alt=""></span>Estómac</span>
+      <span class="chip"><span class="e"><img class="ico" src="img/ico_intesti_prim.png" alt=""></span>Intestí prim</span>
+      <span class="chip"><span class="e"><img class="ico" src="img/ico_intesti_gros.png" alt=""></span>Intestí gros</span>
+    </div>
+  </div>
+  <div class="org-layout deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="diagram-img-wrap">
+      <div class="fig-wrap"><img src="img/s2_aparell_digestiu_retolat.png" alt="Dibuix de l'aparell digestiu humà amb el nom de cada òrgan escrit"></div>
+    </div>
+    <div class="org-steps">
+      <div class="org-step ex"><div class="n">1</div><div class="ic"><img class="ico" src="img/ico_boca.png" alt=""></div><div class="ht">Aquí mastegues el menjar.<span class="ht-ur" dir="rtl" lang="ur">یہاں آپ کھانا چباتے ہیں۔</span></div><span class="fill-cell done" contenteditable="true">Boca</span></div>
+      <div class="org-arrow">⬇</div>
+      <div class="org-step"><div class="n">2</div><div class="ic"><img class="ico" src="img/ico_estomac.png" alt=""></div><div class="ht">Bossa amb àcid. Desfà el menjar.<span class="ht-ur" dir="rtl" lang="ur">تیزاب والی تھیلی۔ کھانا توڑتی ہے۔</span></div><span class="fill-cell" contenteditable="true"></span></div>
+      <div class="org-arrow">⬇</div>
+      <div class="org-step"><div class="n">3</div><div class="ic"><img class="ico" src="img/ico_intesti_prim.png" alt=""></div><div class="ht">Tub molt llarg. Els nutrients passen a la sang.<span class="ht-ur" dir="rtl" lang="ur">بہت لمبی نالی۔ غذائی اجزا خون میں جاتے ہیں۔</span></div><span class="fill-cell" contenteditable="true"></span></div>
+      <div class="org-arrow">⬇</div>
+      <div class="org-step"><div class="n">4</div><div class="ic"><img class="ico" src="img/ico_intesti_gros.png" alt=""></div><div class="ht">Tub més ample. Treu l'aigua.<span class="ht-ur" dir="rtl" lang="ur">زیادہ چوڑی نالی۔ پانی نکالتی ہے۔</span></div><span class="fill-cell" contenteditable="true"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n2">2</div><div><div class="stitle" contenteditable="true">El procés digestiu — simulació pas a pas <span class="ur-in" dir="rtl" lang="ur">ہاضمے کا عمل — قدم بہ قدم نقلی تجربہ</span></div><div class="sdesc" contenteditable="true">Amb el professor/a · Mira l'experiment de taula. A cada fila, encercla què passa.</div></div></div>
+  <div class="divider"></div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: el model de la classe <span class="ur-in" dir="rtl" lang="ur">کلاس کا ماڈل</span></div>
+    <p contenteditable="true">A classe fem una <strong>simulació</strong>: un experiment que imita la digestió. El <strong>vinagre</strong> fa d'<strong>àcid</strong> de l'estómac. Una <strong>mitja</strong> fa de paret de l'intestí prim: deixa passar les coses <strong>petites</strong>, com la glucosa. El líquid que cau al bol fa de <strong>sang</strong>.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">کلاس میں ہم ایک نقلی تجربہ کرتے ہیں: ایسا تجربہ جو ہاضمے کی نقل کرتا ہے۔ سرکہ معدے کے تیزاب کا کام کرتا ہے۔ ایک جراب چھوٹی آنت کی دیوار کا کام کرتی ہے: یہ چھوٹی چیزوں کو، جیسے گلوکوز، گزرنے دیتی ہے۔ جو مائع پیالے میں گرتا ہے وہ خون کا کام کرتا ہے۔</div>
+  </div>
+  <div class="mot-nou deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <svg width="74" height="74" viewBox="0 0 74 74" aria-hidden="true">
+      <path d="M28 6h18v14l12 34a8 8 0 0 1-7.5 11h-27A8 8 0 0 1 16 54l12-34z" fill="#fdf0c8" stroke="#c8960a" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M22 44h30l5 12a4 4 0 0 1-3.8 5.3H21a4 4 0 0 1-3.8-5.3z" fill="#e9d36a" stroke="#c8960a" stroke-width="2"/>
+      <circle cx="30" cy="52" r="3" fill="#fff"/><circle cx="43" cy="55" r="2.5" fill="#fff"/>
+      <rect x="25" y="2" width="24" height="7" rx="3" fill="#c8960a"/>
+    </svg>
+    <div>
+      <div class="mn-lab">📖 Paraula nova</div>
+      <div class="mn-txt"><span class="kw kw-acid">Àcid</span> de l'estómac (<span class="kw kw-acid">HCl</span> = àcid clorhídric). Com el vinagre, però més fort. Desfà el menjar i mata bacteris.</div>
+      <div class="ur" dir="rtl" lang="ur" contenteditable="true">معدے کا تیزاب: سرکے جیسا، لیکن زیادہ تیز۔ یہ کھانا توڑتا ہے اور جراثیم کو مارتا ہے۔</div>
+    </div>
+  </div>
+  <div class="fer deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="fer-lab" contenteditable="true">✏️ Què has de fer <span class="ur-in" dir="rtl" lang="ur">آپ کو کیا کرنا ہے</span></div>
+    <p contenteditable="true">A cada fila, encercla <strong>què fa</strong> aquella part. Només una opció és bona. La boca és l'exemple.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">ہر قطار میں اس پر دائرہ لگائیں جو وہ حصہ کرتا ہے۔ صرف ایک جواب درست ہے۔ منہ مثال ہے۔</div>
+  </div>
+  <div class="frase-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="sim-row">
+      <div class="fase" style="color:var(--orange)"><span class="e"><img class="ico" src="img/ico_boca.png" alt=""></span>Boca<span class="fase-ur" dir="rtl" lang="ur">منہ</span></div>
+      <div class="opts"><div class="opt sel ex"><span>Tritura el pa<span class="opt-ur" dir="rtl" lang="ur">روٹی پیستا ہے</span></span></div><div class="opt"><span>Desfà amb àcid<span class="opt-ur" dir="rtl" lang="ur">تیزاب سے توڑتا ہے</span></span></div><div class="opt"><span>Treu l'aigua<span class="opt-ur" dir="rtl" lang="ur">پانی نکالتا ہے</span></span></div></div>
+    </div>
+    <div class="sim-row">
+      <div class="fase" style="color:var(--rose)"><span class="e"><img class="ico" src="img/ico_estomac.png" alt=""></span>Estómac<span class="fase-ur" dir="rtl" lang="ur">معدہ</span></div>
+      <div class="opts"><div class="opt"><span>Passa glucosa a la sang<span class="opt-ur" dir="rtl" lang="ur">گلوکوز خون میں بھیجتا ہے</span></span></div><div class="opt"><span>Desfà amb àcid<span class="opt-ur" dir="rtl" lang="ur">تیزاب سے توڑتا ہے</span></span></div><div class="opt"><span>Tritura el pa<span class="opt-ur" dir="rtl" lang="ur">روٹی پیستا ہے</span></span></div></div>
+    </div>
+    <div class="sim-row">
+      <div class="fase" style="color:#8a6a00"><span class="e"><img class="ico" src="img/ico_intesti_prim.png" alt=""></span>Intestí prim<span class="fase-ur" dir="rtl" lang="ur">چھوٹی آنت</span></div>
+      <div class="opts"><div class="opt"><span>Fa la femta<span class="opt-ur" dir="rtl" lang="ur">پاخانہ بناتی ہے</span></span></div><div class="opt"><span>Fa àcid<span class="opt-ur" dir="rtl" lang="ur">تیزاب بناتی ہے</span></span></div><div class="opt"><span>Passa nutrients a la sang<span class="opt-ur" dir="rtl" lang="ur">غذائی اجزا خون میں بھیجتی ہے</span></span></div></div>
+    </div>
+    <div class="sim-row">
+      <div class="fase" style="color:var(--green)"><span class="e"><img class="ico" src="img/ico_intesti_gros.png" alt=""></span>Intestí gros<span class="fase-ur" dir="rtl" lang="ur">بڑی آنت</span></div>
+      <div class="opts"><div class="opt"><span>Tritura el pa<span class="opt-ur" dir="rtl" lang="ur">روٹی پیستی ہے</span></span></div><div class="opt"><span>Treu l'aigua<span class="opt-ur" dir="rtl" lang="ur">پانی نکالتی ہے</span></span></div><div class="opt"><span>Fa àcid<span class="opt-ur" dir="rtl" lang="ur">تیزاب بناتی ہے</span></span></div></div>
+    </div>
+  </div>
+  <div class="raona-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="raona-cap" contenteditable="true">✏️ Raono en 4 passos: el pa a l'estómac <span class="ur-in" dir="rtl" lang="ur">چار مراحل میں سوچیں: معدے میں روٹی</span></div>
+    <div class="raona-pas"><div class="raona-pas-lab">👁️ Observo · <span dir="rtl" lang="ur">میں دیکھتا/دیکھتی ہوں</span></div><p class="frase-completar">Quan el pa és dins el vinagre, el pa es torna <span class="blank blank-l"></span>.</p></div>
+    <div class="raona-pas"><div class="raona-pas-lab">❓ Em pregunto · <span dir="rtl" lang="ur">میں پوچھتا/پوچھتی ہوں</span></div><p class="frase-completar">Per quina raó es desfà el pa?</p></div>
+    <div class="raona-pas"><div class="raona-pas-lab">🔗 Connecto · <span dir="rtl" lang="ur">میں جوڑتا/جوڑتی ہوں</span></div><p class="frase-completar">He llegit que el vinagre fa d'<span class="blank blank-m"></span> de l'estómac.</p></div>
+    <div class="raona-pas"><div class="raona-pas-lab">✅ Dedueixo · <span dir="rtl" lang="ur">میں نتیجہ نکالتا/نکالتی ہوں</span></div><p class="frase-completar">Per tant, l'àcid de l'estómac serveix per <span class="blank blank-xl"></span>.</p></div>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle" contenteditable="true">El viatge de la glucosa: del budell al mitocondri <span class="ur-in" dir="rtl" lang="ur">گلوکوز کا سفر: آنت سے مائٹوکونڈریا تک</span></div><div class="sdesc" contenteditable="true">Individual · <span class="glu-leg"></span>= glucosa (el sucre del pa). Segueix-la de l'inici al final.</div></div></div>
+  <div class="divider"></div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: d'on surt l'energia per córrer? <span class="ur-in" dir="rtl" lang="ur">دوڑنے کی توانائی کہاں سے آتی ہے؟</span></div>
+    <p contenteditable="true">El pa té <strong>glucosa</strong>. L'estómac desfà el pa, però la glucosa encara no passa a la sang. Passa a la sang a l'<strong>intestí prim</strong>: la seva paret té milers de <strong>vellositats</strong>, i dins de cada vellositat hi ha <strong>capil·lars</strong>. La glucosa travessa la paret i entra al capil·lar. Després la <strong>sang</strong> la porta fins al <strong>múscul</strong>. Allà, el <strong>mitocondri</strong> la crema i fa <strong>energia</strong>.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">روٹی میں گلوکوز ہوتا ہے۔ معدہ روٹی کو توڑتا ہے، لیکن گلوکوز ابھی خون میں نہیں جاتا۔ یہ چھوٹی آنت میں خون میں جاتا ہے: اس کی دیوار میں ہزاروں ننھے ریشے (وِلائی) ہوتے ہیں، اور ہر ریشے کے اندر خون کی بہت باریک نالیاں (کیپلری) ہوتی ہیں۔ گلوکوز دیوار سے گزر کر کیپلری میں داخل ہوتا ہے۔ پھر خون اسے پٹھے تک لے جاتا ہے۔ وہاں مائٹوکونڈریا اسے جلا کر توانائی بناتا ہے۔</div>
+  </div>
+  <div class="mots-2">
+    <div class="mot-nou deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <img class="ico capil" src="img/ico_capil_lar.png" alt="Capil·lar: paret d'una sola cèl·lula amb glòbuls vermells">
+      <div>
+        <div class="mn-lab">📖 Paraula nova</div>
+        <div class="mn-txt"><span class="kw kw-cap">Capil·lar</span> = tub de sang molt, molt prim (més prim que un cabell).</div>
+        <div class="ur" dir="rtl" lang="ur" contenteditable="true">کیپلری: خون کی بہت ہی باریک نالی (بال سے بھی باریک)۔</div>
+      </div>
+    </div>
+    <div class="mot-nou deletable">
+      <div class="del-btn" onclick="deleteEl(this)">✕</div>
+      <svg width="60" height="64" viewBox="0 0 60 64" aria-hidden="true">
+        <path d="M6 62V24Q6 4 20 4Q34 4 34 24V62" fill="#fff3f6" stroke="#e9a3b5" stroke-width="5"/>
+        <path d="M40 62V30Q40 16 48 16Q56 16 56 30V62" fill="#fff3f6" stroke="#e9a3b5" stroke-width="5"/>
+      </svg>
+      <div>
+        <div class="mn-lab">📖 Paraula nova</div>
+        <div class="mn-txt"><span class="kw kw-vel">Vellositat</span> = pèl minúscul de la paret de l'intestí prim.</div>
+        <div class="ur" dir="rtl" lang="ur" contenteditable="true">وِلائی: چھوٹی آنت کی دیوار کا ننھا سا ریشہ۔</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frase-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="frase"><span class="ico">🗺️</span><span contenteditable="true">A · Escriu el nom de cada estació. Pinta les fletxes de <span style="color:#b4531a">taronja</span>.</span></div>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">ہر اسٹیشن کا نام لکھیں (بینک سے)۔ تیروں کو نارنجی رنگ کریں۔ نمبر ۱ (روٹی) مثال ہے۔</div>
+    <div class="word-bank bank-icons">
+      <div class="word-bank-title">Banc de paraules</div>
+      <div class="chips">
+        <span class="chip">Pa</span>
+        <span class="chip"><span class="e"><img class="ico" src="img/ico_estomac.png" alt=""></span>Boca i estómac</span>
+        <span class="chip"><span class="e"><img class="ico" src="img/ico_intesti_prim.png" alt=""></span>Intestí prim</span>
+        <span class="chip"><span class="e"><svg class="drop" viewBox="0 0 24 30" width="20" height="25" aria-hidden="true"><path d="M12 1C12 1 3 13 3 19a9 9 0 0 0 18 0C21 13 12 1 12 1z" fill="#c8323c"/></svg></span>Sang</span>
+        <span class="chip"><span class="e"><img class="ico" src="img/ico_muscul.png" alt=""></span>Múscul</span>
+      </div>
+    </div>
+    <div class="cami">
+      <div class="est">
+        <div class="en">1</div>
+        <svg viewBox="0 0 100 80" aria-hidden="true">
+          <path d="M12 52C8 36 24 22 50 22S92 36 88 52C86 62 14 62 12 52Z" fill="#f2d29c" stroke="#c99a54" stroke-width="3"/>
+          <path d="M34 28l6 14M52 25l5 14M69 29l4 12" stroke="#c99a54" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="22" cy="68" r="4.5" fill="#e8834a"/><circle cx="42" cy="72" r="4.5" fill="#e8834a"/><circle cx="66" cy="70" r="4.5" fill="#e8834a"/><circle cx="84" cy="66" r="4.5" fill="#e8834a"/>
+        </svg>
+        <span class="fill-cell done" contenteditable="true">Pa</span>
+        <div class="cap">El pa té glucosa.<span class="cap-ur" dir="rtl" lang="ur">روٹی میں گلوکوز ہے۔</span></div>
+      </div>
+      <div class="cami-arrow"><svg viewBox="0 0 30 30"><polygon points="2,10 16,10 16,3 28,15 16,27 16,20 2,20" fill="#fff" stroke="#7B68C8" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      <div class="est">
+        <div class="en">2</div>
+        <svg viewBox="0 0 100 80" aria-hidden="true">
+          <ellipse cx="22" cy="12" rx="14" ry="7" fill="#f6a3b4" stroke="#d44a6c" stroke-width="2.5"/>
+          <path d="M10 12H34" stroke="#d44a6c" stroke-width="2"/>
+          <path d="M22 19C22 30 36 28 40 36" fill="none" stroke="#e9a3b5" stroke-width="6" stroke-linecap="round"/>
+          <path d="M40 30C40 20 70 18 76 36C82 56 62 74 44 68C28 62 32 44 40 30Z" fill="#fbd5dc" stroke="#d44a6c" stroke-width="3"/>
+          <circle cx="52" cy="46" r="3.5" fill="#e8834a"/><circle cx="64" cy="54" r="3.5" fill="#e8834a"/>
+          <path d="M56 34q3 6 0 8q-3-2 0-8Z" fill="#c8e040" stroke="#7a8a10"/><path d="M68 40q3 6 0 8q-3-2 0-8Z" fill="#c8e040" stroke="#7a8a10"/>
+        </svg>
+        <span class="fill-cell" contenteditable="true"></span>
+        <div class="cap">L'àcid desfà el pa.<span class="cap-ur" dir="rtl" lang="ur">تیزاب روٹی توڑتا ہے۔</span></div>
+      </div>
+      <div class="cami-arrow"><svg viewBox="0 0 30 30"><polygon points="2,10 16,10 16,3 28,15 16,27 16,20 2,20" fill="#fff" stroke="#7B68C8" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      <div class="est">
+        <div class="en">3</div>
+        <svg viewBox="0 0 100 80" aria-hidden="true">
+          <path d="M10 14H78C92 14 92 36 78 36H24C8 36 8 60 24 60H88" fill="none" stroke="#3a9e8c" stroke-width="12" stroke-linecap="round"/>
+          <path d="M10 14H78C92 14 92 36 78 36H24C8 36 8 60 24 60H88" fill="none" stroke="#dff1ec" stroke-width="7" stroke-linecap="round"/>
+          <circle cx="34" cy="14" r="3.5" fill="#e8834a"/><circle cx="60" cy="36" r="3.5" fill="#e8834a"/><circle cx="40" cy="60" r="3.5" fill="#e8834a"/>
+        </svg>
+        <span class="fill-cell" contenteditable="true"></span>
+        <div class="cap">La glucosa passa a la sang.<span class="cap-ur" dir="rtl" lang="ur">گلوکوز خون میں جاتا ہے۔</span></div>
+      </div>
+      <div class="cami-arrow"><svg viewBox="0 0 30 30"><polygon points="2,10 16,10 16,3 28,15 16,27 16,20 2,20" fill="#fff" stroke="#7B68C8" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      <div class="est">
+        <div class="en">4</div>
+        <svg viewBox="0 0 100 80" aria-hidden="true">
+          <rect x="2" y="22" width="96" height="38" rx="19" fill="#fce8ed" stroke="#d44a6c" stroke-width="3"/>
+          <ellipse cx="22" cy="38" rx="8" ry="5" fill="#d44a6c"/><ellipse cx="74" cy="48" rx="8" ry="5" fill="#d44a6c"/>
+          <circle cx="42" cy="42" r="4.5" fill="#e8834a"/><circle cx="58" cy="34" r="4.5" fill="#e8834a"/><circle cx="88" cy="38" r="4.5" fill="#e8834a"/>
+          <path d="M14 70H80" stroke="#d44a6c" stroke-width="3" stroke-linecap="round"/><polygon points="80,64 92,70 80,76" fill="#d44a6c"/>
+        </svg>
+        <span class="fill-cell" contenteditable="true"></span>
+        <div class="cap">La sang la porta.<span class="cap-ur" dir="rtl" lang="ur">خون اسے لے جاتا ہے۔</span></div>
+      </div>
+      <div class="cami-arrow"><svg viewBox="0 0 30 30"><polygon points="2,10 16,10 16,3 28,15 16,27 16,20 2,20" fill="#fff" stroke="#7B68C8" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      <div class="est">
+        <div class="en">5</div>
+        <svg viewBox="0 0 100 80" aria-hidden="true">
+          <path d="M6 44C6 22 40 14 60 22C70 26 66 40 56 44C44 50 36 62 22 62C10 62 6 54 6 44Z" fill="#f5b8a8" stroke="#c4624a" stroke-width="3"/>
+          <ellipse cx="68" cy="52" rx="24" ry="14" fill="#fde9d9" stroke="#e8834a" stroke-width="3"/>
+          <path d="M52 52l6-6 6 12 6-12 6 12 6-6" fill="none" stroke="#e8834a" stroke-width="2.5" stroke-linejoin="round"/>
+          <polygon points="82,8 70,28 79,28 74,44 92,22 82,22" fill="#ffd84a" stroke="#c8960a" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <span class="fill-cell" contenteditable="true"></span>
+        <div class="cap">El <span class="kw kw-mit" style="padding:0 2px">mitocondri</span> fa energia ⚡<span class="cap-ur" dir="rtl" lang="ur">مائٹوکونڈریا توانائی بناتا ہے۔</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="frase-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="frase"><span class="ico">🔍</span><span contenteditable="true">B · Dins l'intestí prim: una vellositat molt ampliada.</span></div>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">چھوٹی آنت کے اندر: ایک ننھا ریشہ (وِلائی) بہت بڑا کر کے دکھایا گیا ہے۔ ہر نمبر کے ساتھ بینک سے صحیح نام لکھیں۔</div>
+    <div class="vell-layout">
+      <div class="vell-svg"><div class="villus-wrap"><img class="vimg" src="img/vellositat_esquema.png" alt="Vellositat de l'intestí prim en tall, ampliada"><div class="vb" style="left:87.88%;top:9.74%">1</div><div class="vb" style="left:80.68%;top:33.85%">2</div><div class="vb" style="left:64.39%;top:48.21%">3</div><div class="vb" style="left:92.05%;top:84.62%">4</div></div><div class="vleg"><span><svg width="18" height="18" viewBox="-10 -10 20 20"><polygon points="0,-9 8,-4.5 8,4.5 0,9 -8,4.5 -8,-4.5" fill="#f0a830" stroke="#c07a10" stroke-width="1.5"/></svg> <span contenteditable="true">Molècula de glucosa</span> <span class="ur-in" dir="rtl" lang="ur">گلوکوز</span></span><span><svg width="30" height="14" viewBox="0 0 30 14"><polygon points="0,4 18,4 18,0 30,7 18,14 18,10 0,10" fill="#d0243a"/></svg> <span contenteditable="true">Sang que arriba</span> <span class="ur-in" dir="rtl" lang="ur">آنے والا خون</span></span><span><svg width="30" height="14" viewBox="0 0 30 14"><polygon points="0,4 18,4 18,0 30,7 18,14 18,10 0,10" fill="#2a62d0"/></svg> <span contenteditable="true">Sang que se'n va cap al fetge</span> <span class="ur-in" dir="rtl" lang="ur">جگر کی طرف جانے والا خون</span></span></div></div>
+      <div class="vell-etiq">
+        <div class="word-bank bank-icons" style="margin-bottom:0">
+          <div class="word-bank-title">Banc de paraules</div>
+          <div class="chips" style="flex-direction:column;align-items:flex-start">
+            <span class="chip">Llum de l'intestí (espai buit) <span class="ur-in" dir="rtl" lang="ur">آنت کی خالی جگہ</span></span>
+            <span class="chip">Paret (epiteli) <span class="ur-in" dir="rtl" lang="ur">دیوار</span></span>
+            <span class="chip"><span class="kw kw-cap" style="padding:0 3px">Capil·lar</span> <span class="ur-in" dir="rtl" lang="ur">کیپلری</span></span>
+            <span class="chip">Vena porta (cap al fetge) <span class="ur-in" dir="rtl" lang="ur">جگر کی طرف رگ</span></span>
+          </div>
+        </div>
+        <div class="et-row"><div class="n">1</div><span class="fill-cell" contenteditable="true"></span></div>
+        <div class="et-row"><div class="n">2</div><span class="fill-cell" contenteditable="true"></span></div>
+        <div class="et-row"><div class="n">3</div><span class="fill-cell" contenteditable="true"></span></div>
+        <div class="et-row"><div class="n">4</div><span class="fill-cell" contenteditable="true"></span></div>
+        <div class="pinta-box">🟠 Pinta de taronja el camí d'una glucosa: de la llum fins al <span class="kw kw-cap">capil·lar</span>.<div class="ur" dir="rtl" lang="ur" contenteditable="true">ایک گلوکوز کا راستہ نارنجی رنگ کریں: خالی جگہ سے کیپلری تک۔</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card teal deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">💡 Pensa en la Mercè <span class="ur-in" dir="rtl" lang="ur">مرسے کے بارے میں سوچیں</span></div>
+    <p contenteditable="true">La Mercè corre i <strong>no ha dinat</strong>. Li costa moure les cames. Què li falta al mitocondri dels músculs? Encercla.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">مرسے دوڑ رہی ہے اور اس نے دوپہر کا کھانا نہیں کھایا۔ اسے ٹانگیں ہلانا مشکل لگ رہا ہے۔ پٹھوں کے مائٹوکونڈریا کو کس چیز کی کمی ہے؟ دائرہ لگائیں، پھر کاتالان میں لکھیں کیوں۔</div>
+    <div class="opts"><div class="opt"><span>Glucosa<span class="opt-ur" dir="rtl" lang="ur">گلوکوز</span></span></div><div class="opt"><span>Aigua<span class="opt-ur" dir="rtl" lang="ur">پانی</span></span></div><div class="opt"><span>Vitamines<span class="opt-ur" dir="rtl" lang="ur">وٹامن</span></span></div></div>
+    <p class="frase-completar">Li costa moure les cames perquè el mitocondri no té <span class="blank blank-m"></span> per fer <span class="blank blank-m"></span>.</p>
+  </div>
+</div>
+
+<div class="idea-clau deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="idea-lab">💡 Idea clau</div>
+  <p contenteditable="true">La glucosa passa de l'<strong>intestí prim</strong> a la <strong>sang</strong> pel <strong>capil·lar</strong>. La sang la porta al <strong>múscul</strong>, i el <strong>mitocondri</strong> en fa <strong>energia</strong>.</p>
+  <div class="ur" dir="rtl" lang="ur" contenteditable="true">گلوکوز چھوٹی آنت سے کیپلری کے ذریعے خون میں جاتا ہے۔ خون اسے پٹھے تک لے جاتا ہے، اور مائٹوکونڈریا اس سے توانائی بناتا ہے۔</div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n4">4</div><div><div class="stitle" contenteditable="true">La microbiota intestinal <span class="ur-in" dir="rtl" lang="ur">آنت کی مائیکروبائیوٹا</span></div><div class="sdesc" contenteditable="true">Amb el professor/a · Els bacteris bons de l'intestí.</div></div></div>
+  <div class="divider"></div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: la microbiota <span class="ur-in" dir="rtl" lang="ur">مائیکروبائیوٹا</span></div>
+    <p contenteditable="true">Dins l'intestí viuen molts <strong>bacteris bons</strong>: la <strong>microbiota</strong>. Ens ajuden a digerir, fan vitamines i ens protegeixen dels bacteris dolents. Els <strong>antibiòtics</strong> són medicaments que maten bacteris. Però no saben triar: maten els dolents i <strong>també els bons</strong>.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">آنت کے اندر بہت سے اچھے جراثیم رہتے ہیں: یہ مائیکروبائیوٹا ہے۔ یہ ہضم کرنے میں مدد کرتے ہیں، وٹامن بناتے ہیں اور ہمیں برے جراثیم سے بچاتے ہیں۔ اینٹی بائیوٹک ایسی دوائیں ہیں جو جراثیم کو مارتی ہیں۔ لیکن یہ فرق نہیں کر سکتیں: یہ برے جراثیم کو بھی مارتی ہیں اور اچھوں کو بھی۔</div>
+  </div>
+  <div class="card teal deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <p contenteditable="true"><strong>Els antibiòtics poden causar diarrea</strong> (femta líquida). Per quina raó? Encercla.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">اینٹی بائیوٹک سے اسہال (پتلا پاخانہ) ہو سکتا ہے۔ کیوں؟ دائرہ لگائیں، پھر کاتالان میں لکھیں کیوں۔</div>
+    <div class="opts"><div class="opt"><span>Maten també els bacteris bons<span class="opt-ur" dir="rtl" lang="ur">اچھے جراثیم کو بھی مارتی ہیں</span></span></div><div class="opt"><span>Fan beure massa aigua<span class="opt-ur" dir="rtl" lang="ur">بہت زیادہ پانی پلاتی ہیں</span></span></div><div class="opt"><span>Fan menjar massa<span class="opt-ur" dir="rtl" lang="ur">بہت زیادہ کھلاتی ہیں</span></span></div></div>
+    <p class="frase-completar">Els antibiòtics maten els bacteris dolents i també <span class="blank blank-l"></span>.</p>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n5">5</div><div><div class="stitle" contenteditable="true">L'escala de Bristol — indicador de salut intestinal <span class="ur-in" dir="rtl" lang="ur">برسٹل پیمانہ — آنتوں کی صحت کا اشارہ</span></div><div class="sdesc" contenteditable="true">Individual · La forma de la femta diu com va l'intestí.</div></div></div>
+  <div class="divider"></div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir <span class="ur-in" dir="rtl" lang="ur">پڑھیں</span></div>
+    <p contenteditable="true">La <strong>femta</strong> és el que el cos no aprofita. Els metges la classifiquen en <strong>7 tipus</strong>: l'escala de Bristol. Tipus <strong>3 i 4</strong> = normal. Tipus <strong>1 i 2</strong> = dura: falta <strong>aigua</strong> i <strong>fibra</strong> (fruita, verdura). Tipus <strong>5, 6 i 7</strong> = tova o líquida: <strong>diarrea</strong>.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">پاخانہ وہ ہے جو جسم استعمال نہیں کرتا۔ ڈاکٹر اسے سات قسموں میں تقسیم کرتے ہیں: یہ برسٹل پیمانہ ہے۔ قسم ۳ اور ۴ = نارمل۔ قسم ۱ اور ۲ = سخت: پانی اور ریشے (پھل، سبزی) کی کمی ہے۔ قسم ۵، ۶ اور ۷ = نرم یا پتلا: اسہال۔</div>
+  </div>
+  <div class="fer deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="fer-lab" contenteditable="true">✏️ Què has de fer <span class="ur-in" dir="rtl" lang="ur">آپ کو کیا کرنا ہے</span></div>
+    <p contenteditable="true">Pinta el cercle de cada tipus amb el color de la llegenda. El 4 ja està pintat: és l'exemple.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">ہر قسم کے دائرے کو نیچے دیے گئے رنگ سے رنگیں۔ نمبر ۴ پہلے سے رنگا ہوا ہے: یہ مثال ہے۔</div>
+  </div>
+  <div class="leg deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="y"><i></i>Dur (1-2) <span class="ur-in" dir="rtl" lang="ur">سخت</span></span><span class="g"><i></i>Normal (3-4) <span class="ur-in" dir="rtl" lang="ur">نارمل</span></span><span class="b"><i></i>Tou o líquid (5-7) <span class="ur-in" dir="rtl" lang="ur">نرم یا پتلا</span></span></div>
+  <div class="bristol-grid deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="bristol-item"><div class="bristol-num">1</div><div class="bristol-img"><img src="img/bristol_1.jpg" alt="Tipus 1"></div><div class="bristol-label">Boletes dures<span class="bri-ur" dir="rtl" lang="ur">سخت گولیاں</span></div><div class="cdot"></div></div>
+    <div class="bristol-item"><div class="bristol-num">2</div><div class="bristol-img"><img src="img/bristol_2.jpg" alt="Tipus 2"></div><div class="bristol-label">Grumollosa<span class="bri-ur" dir="rtl" lang="ur">گانٹھ دار</span></div><div class="cdot"></div></div>
+    <div class="bristol-item"><div class="bristol-num">3</div><div class="bristol-img"><img src="img/bristol_3.jpg" alt="Tipus 3"></div><div class="bristol-label">Amb esquerdes<span class="bri-ur" dir="rtl" lang="ur">دراڑوں والا</span></div><div class="cdot"></div></div>
+    <div class="bristol-item ok"><div class="bristol-num">4</div><div class="bristol-img"><img src="img/bristol_4.jpg" alt="Tipus 4"></div><div class="bristol-label">Suau ⭐ ideal<span class="bri-ur" dir="rtl" lang="ur">نرم، بہترین</span></div><div class="cdot c-g"></div></div>
+    <div class="bristol-item"><div class="bristol-num">5</div><div class="bristol-img"><img src="img/bristol_5.jpg" alt="Tipus 5"></div><div class="bristol-label">Trossos tous<span class="bri-ur" dir="rtl" lang="ur">نرم ٹکڑے</span></div><div class="cdot"></div></div>
+    <div class="bristol-item"><div class="bristol-num">6</div><div class="bristol-img"><img src="img/bristol_6.jpg" alt="Tipus 6"></div><div class="bristol-label">Molt tova<span class="bri-ur" dir="rtl" lang="ur">بہت نرم</span></div><div class="cdot"></div></div>
+    <div class="bristol-item"><div class="bristol-num">7</div><div class="bristol-img"><img src="img/bristol_7.jpg" alt="Tipus 7"></div><div class="bristol-label">Líquida<span class="bri-ur" dir="rtl" lang="ur">پتلا</span></div><div class="cdot"></div></div>
+  </div>
+  <div class="raona-box per-que deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="raona-cap" contenteditable="true">✏️ Aplica-ho <span class="ur-in" dir="rtl" lang="ur">استعمال کریں</span></div>
+    <div class="raona-pas"><div class="ur" dir="rtl" lang="ur" contenteditable="true">ایک لڑکے کا پاخانہ قسم ۱ کا ہے۔ اسے کیا ہو رہا ہے؟ اوپر کا متن پڑھیں اور کاتالان میں مکمل کریں۔</div><p class="frase-completar">Un noi fa femta del tipus 1. És <span class="circ-opt">dura</span> <span class="circ-opt">normal</span> <span class="circ-opt">líquida</span>. Li falta beure més <span class="blank blank-m"></span> i menjar més <span class="blank blank-l"></span>.</p></div>
+  </div>
+</div>
+
+<div class="meta-oa-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="meta-oa-title" contenteditable="true">🎯 Torna als objectius: marca el que ja saps fer <span class="ur-in" dir="rtl" lang="ur">جو آپ اب کر سکتے ہیں اس پر نشان لگائیں</span></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé dir 4 parts del sistema digestiu, en ordre. <span class="ur-in" dir="rtl" lang="ur">نظامِ ہاضمہ کے چار حصے ترتیب سے</span></div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé què fa l'àcid de l'estómac. <span class="ur-in" dir="rtl" lang="ur">معدے کا تیزاب کیا کرتا ہے</span></div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé seguir la glucosa: del pa fins al múscul. <span class="ur-in" dir="rtl" lang="ur">روٹی سے پٹھے تک گلوکوز کا راستہ</span></div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé què és un capil·lar. <span class="ur-in" dir="rtl" lang="ur">کیپلری کیا ہے</span></div></div>
+  <div class="meta-open">
+    <div class="meta-open-label" contenteditable="true">✏️ Avui he après que… (en català, amb les paraules del principi) <span class="ur-in" dir="rtl" lang="ur">آج میں نے سیکھا کہ… (کاتالان میں لکھیں)</span></div>
+    <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+  </div>
+</div>
+
+<div class="footer deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="footer-l" contenteditable="true">IE Temple · Biologia i Geologia 3r ESO · El nostre cos en marxa · Sessió 2 · Versió C acollida (urdú)</div>
+  <div class="footer-r" contenteditable="true">Biologia i Geologia · 3r ESO</div>
+</div>
+
+<div class="section teoria nova-pagina deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n0">📚</div><div><div class="stitle" contenteditable="true">Per estudiar a casa: la teoria d'avui <span class="ur-in" dir="rtl" lang="ur">گھر پر پڑھنے کے لیے: آج کا سبق</span></div><div class="sdesc" contenteditable="true">El que hem explicat a classe, en 6 targetes. Guarda aquest full per preparar l'examen.</div></div></div>
+  <div class="divider"></div>
+  <div class="teo-com deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <p contenteditable="true"><strong>📚 Tasca per a casa · cada dia 10 minuts:</strong> ① llegeix una targeta en català · ② si no l'entens, llegeix l'urdú · ③ tapa-la i explica-la <strong>en veu alta en català</strong> · ④ al final del full, marca ✔ quan ho sàpigues. <em>Opcional:</em> mira de quin tipus de Bristol és la teva femta (a classe ho direm sense nom).</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">گھر کا کام، ہر دن ۱۰ منٹ: ۱) ایک کارڈ کاتالان میں پڑھیں۔ ۲) سمجھ نہ آئے تو اردو پڑھیں۔ ۳) کارڈ کو ڈھانپ دیں اور اسے کاتالان میں بلند آواز سے بیان کریں۔ ۴) صفحے کے آخر میں، جب یاد ہو جائے تو ✔ لگائیں۔ اختیاری: دیکھیں کہ آپ کا پاخانہ برسٹل کی کون سی قسم ہے (کلاس میں ہم یہ بغیر نام کے بتائیں گے)۔</div>
+  </div>
+
+  <div class="teo-card c-ruta deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">1</span><span contenteditable="true">El camí del menjar</span><span class="ur-in" dir="rtl" lang="ur">کھانے کا راستہ</span></div>
+    <div class="teo-2col">
+      <img src="img/sa2-s2-aparell-digestiu.jpg" alt="Aparell digestiu humà amb el nom de cada òrgan" onerror="this.style.display='none'">
+      <div>
+        <div class="ruta"><span class="chain-chip">boca</span><span class="chain-arrow">→</span><span class="chain-chip">esòfag</span><span class="chain-arrow">→</span><span class="chain-chip">estómac</span><span class="chain-arrow">→</span><span class="chain-chip">intestí prim</span><span class="chain-arrow">→</span><span class="chain-chip">intestí gros</span><span class="chain-arrow">→</span><span class="chain-chip">anus</span></div>
+        <p contenteditable="true">El menjar passa per un tub d'uns <strong>9 metres</strong>. Cada part el desfà una mica més. El <strong>fetge</strong> i el <strong>pàncrees</strong> ajuden: fan sucs que s'aboquen a l'intestí, però el menjar <strong>no hi passa</strong>. El que el cos no aprofita surt per l'anus: és la <strong>femta</strong>.</p>
+        <div class="ur" dir="rtl" lang="ur" contenteditable="true">کھانا تقریباً ۹ میٹر لمبی نالی سے گزرتا ہے: منہ، غذا کی نالی، معدہ، چھوٹی آنت، بڑی آنت، مقعد۔ ہر حصہ اسے تھوڑا اور توڑتا ہے۔ جگر اور لبلبہ مدد کرتے ہیں: یہ رس بناتے ہیں جو آنت میں جاتے ہیں، لیکن کھانا ان کے اندر سے نہیں گزرتا۔ جو جسم استعمال نہیں کرتا وہ مقعد سے نکلتا ہے: یہ پاخانہ ہے۔</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="teo-card c-aci deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">2</span><span contenteditable="true">L'àcid de l'estómac i el bicarbonat</span><span class="ur-in" dir="rtl" lang="ur">معدے کا تیزاب اور بائی کاربونیٹ</span></div>
+    <div class="ph">
+      <div class="ph-a"><span class="ph-n">pH 2–3</span><strong>estómac: molt àcid</strong><br>desfà el menjar i mata bacteris<div class="eq-ur" dir="rtl" lang="ur">معدہ: بہت تیزابی</div></div>
+      <div class="ph-arrow">→</div>
+      <div class="ph-b"><span class="ph-n">pH 7–8</span><strong>duodè: neutre</strong><br>el pàncrees hi posa bicarbonat<div class="eq-ur" dir="rtl" lang="ur">چھوٹی آنت کا شروع: نیوٹرل</div></div>
+    </div>
+    <p contenteditable="true">L'estómac fa <strong>àcid (HCl)</strong>. El menjar en surt molt àcid. Al <strong>duodè</strong> (el principi de l'intestí prim), el <strong>pàncrees</strong> hi aboca <strong>bicarbonat</strong>, que treu l'acidesa. Així els <strong>enzims</strong> de l'intestí poden treballar: amb massa àcid, no funcionen. A classe, el <strong>vinagre</strong> feia d'àcid.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">معدہ تیزاب بناتا ہے۔ کھانا معدے سے بہت تیزابی ہو کر نکلتا ہے۔ چھوٹی آنت کے شروع (ڈیوڈینم) میں لبلبہ بائی کاربونیٹ ڈالتا ہے، جو تیزابیت ختم کرتا ہے۔ اس طرح آنت کے انزائم کام کر سکتے ہیں: زیادہ تیزاب میں یہ کام نہیں کرتے۔ کلاس میں سرکہ تیزاب کا کام کر رہا تھا۔</div>
+  </div>
+
+  <div class="teo-card c-abs deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">3</span><span contenteditable="true">Per quina raó la glucosa passa a la sang a l'intestí prim?</span><span class="ur-in" dir="rtl" lang="ur">گلوکوز چھوٹی آنت میں خون میں کیوں جاتا ہے؟</span></div>
+    <div class="teo-2col">
+      <img src="img/sa2-s2-vellositat.jpg" alt="Vellositat intestinal amb capil·lars: els nutrients passen a la sang" onerror="this.style.display='none'">
+      <div>
+        <p contenteditable="true">① La paret de l'intestí prim té milions de <strong>vellositats</strong>. Si l'estiréssim, ocuparia <strong>30–40 m²</strong>: com una aula sencera. Molta superfície = passa molta glucosa.</p>
+        <div class="ur" dir="rtl" lang="ur" contenteditable="true">۱) چھوٹی آنت کی دیوار میں لاکھوں ننھے ریشے ہوتے ہیں۔ اگر اسے پھیلایا جائے تو یہ ۳۰ سے ۴۰ مربع میٹر ہو گی: پوری ایک کلاس جتنی۔ زیادہ سطح = زیادہ گلوکوز گزرتا ہے۔</div>
+        <p contenteditable="true">② Dins cada vellositat hi ha <strong>capil·lars</strong>. La seva paret és molt prima: <strong>una sola cèl·lula</strong>. La glucosa i els aminoàcids la travessen i entren a la <strong>sang</strong>.</p>
+        <div class="ur" dir="rtl" lang="ur" contenteditable="true">۲) ہر ریشے کے اندر کیپلری ہوتی ہیں۔ ان کی دیوار بہت پتلی ہے: صرف ایک خلیہ۔ گلوکوز اور امینو ایسڈ اس سے گزر کر خون میں چلے جاتے ہیں۔</div>
+        <p contenteditable="true">③ A l'estómac no passa: és massa àcid i no té vellositats.</p>
+        <div class="ur" dir="rtl" lang="ur" contenteditable="true">۳) معدے میں ایسا نہیں ہوتا: وہ بہت تیزابی ہے اور اس میں ریشے نہیں ہوتے۔</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="teo-card c-glu deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">4</span><span contenteditable="true">El viatge de la glucosa, fins a l'energia</span><span class="ur-in" dir="rtl" lang="ur">گلوکوز کا سفر، توانائی تک</span></div>
+    <div class="chain"><span class="chain-chip">pa</span><span class="chain-arrow">→</span><span class="chain-chip">intestí prim</span><span class="chain-arrow">→</span><span class="chain-chip">capil·lar</span><span class="chain-arrow">→</span><span class="chain-chip">vena porta → fetge</span><span class="chain-arrow">→</span><span class="chain-chip">cor i artèries</span><span class="chain-arrow">→</span><span class="chain-chip">múscul</span><span class="chain-arrow">→</span><span class="chain-chip">mitocondri: ENERGIA (ATP)</span></div>
+    <div class="chain chain-ur" dir="rtl" lang="ur"><span class="chain-chip">روٹی</span><span class="chain-arrow">←</span><span class="chain-chip">چھوٹی آنت</span><span class="chain-arrow">←</span><span class="chain-chip">کیپلری</span><span class="chain-arrow">←</span><span class="chain-chip">رگ کے ذریعے جگر</span><span class="chain-arrow">←</span><span class="chain-chip">دل اور شریانیں</span><span class="chain-arrow">←</span><span class="chain-chip">پٹھا</span><span class="chain-arrow">←</span><span class="chain-chip">مائٹوکونڈریا: توانائی</span></div>
+    <p contenteditable="true">Del capil·lar, la glucosa va per la <strong>vena porta</strong> fins al <strong>fetge</strong>. Després la sang passa pel <strong>cor</strong>, que l'envia per les <strong>artèries</strong> a tot el cos. Al <strong>múscul</strong>, el <strong>mitocondri</strong> crema la glucosa amb oxigen i fa <strong>energia (ATP)</strong>. <strong>Compte:</strong> la glucosa <strong>no</strong> va de l'estómac directament al múscul. Sempre passa per l'intestí prim i la sang.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">کیپلری سے گلوکوز ایک رگ (پورٹل رگ) کے ذریعے جگر تک جاتا ہے۔ پھر خون دل سے گزرتا ہے، جو اسے شریانوں کے ذریعے پورے جسم میں بھیجتا ہے۔ پٹھے میں مائٹوکونڈریا گلوکوز کو آکسیجن کے ساتھ جلا کر توانائی (اے ٹی پی) بناتا ہے۔ دھیان دیں: گلوکوز معدے سے سیدھا پٹھے میں نہیں جاتا۔ یہ ہمیشہ چھوٹی آنت اور خون سے گزرتا ہے۔</div>
+  </div>
+
+  <div class="teo-card c-mic deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">5</span><span contenteditable="true">La microbiota: els bacteris bons</span><span class="ur-in" dir="rtl" lang="ur">آنت کے اچھے جراثیم</span></div>
+    <p contenteditable="true">A l'intestí hi viuen més de <strong>100 bilions</strong> de bacteris: pesen uns 0,5 kg! Fan <strong>vitamines</strong>, ens <strong>protegeixen</strong> dels bacteris dolents i ajuden les defenses. Els <strong>antibiòtics</strong> maten també els bacteris bons: per això poden causar <strong>diarrea</strong>.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">آنت میں بہت بہت زیادہ جراثیم رہتے ہیں: ان کا وزن تقریباً آدھا کلو ہے! یہ وٹامن بناتے ہیں، ہمیں برے جراثیم سے بچاتے ہیں اور جسم کے دفاع میں مدد کرتے ہیں۔ اینٹی بائیوٹک اچھے جراثیم کو بھی مارتی ہیں: اسی لیے ان سے اسہال ہو سکتا ہے۔</div>
+  </div>
+
+  <div class="teo-card c-bri deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">6</span><span contenteditable="true">L'escala de Bristol</span><span class="ur-in" dir="rtl" lang="ur">برسٹل پیمانہ</span></div>
+    <div class="teo-fig bri"><img src="img/sa2-s2-bristol-tira.jpg" alt="Els 7 tipus de femta de l'escala de Bristol" onerror="this.style.display='none'"></div>
+    <p contenteditable="true">Tipus <strong>1–2</strong>: dura, el menjar va massa a poc a poc (falta aigua i fibra). Tipus <strong>3–4</strong>: <strong>normal</strong>, l'intestí va bé. Tipus <strong>5–7</strong>: tova o líquida, va massa de pressa (diarrea).</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">قسم ۱ اور ۲: سخت، کھانا بہت آہستہ چلتا ہے (پانی اور ریشے کی کمی)۔ قسم ۳ اور ۴: نارمل، آنت ٹھیک کام کر رہی ہے۔ قسم ۵ سے ۷: نرم یا پتلا، بہت تیزی سے چلتا ہے (اسہال)۔</div>
+  </div>
+
+  <div class="repas deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="repas-h" contenteditable="true">✔ Ho sé explicar? Prepara l'examen · respon en veu alta, en català <span class="ur-in" dir="rtl" lang="ur">کیا میں بیان کر سکتا/سکتی ہوں؟</span></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Digues el camí del menjar, de la boca a l'anus. <em>(targeta 1)</em></span><div class="repas-ur" dir="rtl" lang="ur">منہ سے مقعد تک کھانے کا راستہ بتائیں۔</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Què fa l'<strong>àcid</strong> de l'estómac? I el <strong>bicarbonat</strong>? <em>(2)</em></span><div class="repas-ur" dir="rtl" lang="ur">معدے کا تیزاب کیا کرتا ہے؟ اور بائی کاربونیٹ؟</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Per quina raó la glucosa passa a la sang a l'<strong>intestí prim</strong>? <em>(3)</em></span><div class="repas-ur" dir="rtl" lang="ur">گلوکوز چھوٹی آنت میں خون میں کیوں جاتا ہے؟</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Què és un <strong>capil·lar</strong>? <em>(3)</em></span><div class="repas-ur" dir="rtl" lang="ur">کیپلری کیا ہے؟</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Segueix la glucosa del pa fins al <strong>mitocondri</strong>. <em>(4)</em></span><div class="repas-ur" dir="rtl" lang="ur">روٹی سے مائٹوکونڈریا تک گلوکوز کا راستہ بتائیں۔</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Per quina raó els antibiòtics poden causar <strong>diarrea</strong>? <em>(5)</em></span><div class="repas-ur" dir="rtl" lang="ur">اینٹی بائیوٹک سے اسہال کیوں ہو سکتا ہے؟</div></div></div>
+  </div>
+
+</div><!-- /content -->
+
+</div><!-- /doc -->
+</div><!-- /page-wrap -->
+
+<div id="sheets"></div>
+
+<script>
+/* ── 1. ELIMINACIÓ + HISTORIAL ── */
+
+/* ════════════════════════════════════════════════════════════
+   PAGINADOR A4 REAL — cada full es veu a pantalla tal com s'imprimira.
+   FLOW = llista ordenada dels blocs de primer nivell (la font logica).
+   Capcalera corrent a partir de la pagina 2 + peu comu amb llicencia.
+   ════════════════════════════════════════════════════════════ */
+const SA_NOM = "El nostre cos en marxa", SESSIO = "Sessió 2 de 7";
+const SHEET_H = 1123, FOOT_H = 30, BODY_MAX = SHEET_H - FOOT_H - 8;
+let FLOW = [];
+
+function flattenDoc(){
+  const doc=document.getElementById('doc');
+  /* S4-poster: #doc > .page-wrap > .content — puja primer el .page-wrap */
+  const pw=doc.querySelector(':scope > .page-wrap');
+  if(pw){ while(pw.firstChild){ doc.insertBefore(pw.firstChild, pw); } pw.remove(); }
+  const content=doc.querySelector(':scope > .content');
+  if(content){
+    const foot=content.querySelector(':scope > .footer'); if(foot) foot.remove();
+    while(content.firstChild){ doc.insertBefore(content.firstChild, content); }
+    content.remove();
+  }
+  /* S4-poster: les seccions van dins d'un .inner que nomes hi posa padding;
+     el padding ja el dona .sheet-body, aixi que el desembolicem. */
+  const inner=doc.querySelector(':scope > .inner');
+  if(inner){ while(inner.firstChild){ doc.insertBefore(inner.firstChild, inner); } inner.remove(); }
+  const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
+}
+function extractFlow(){ FLOW = Array.from(document.getElementById('doc').children); }
+function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
+
+function saveCaret(){
+  const a=document.activeElement;
+  if(!a||!a.isContentEditable) return null;
+  const s=getSelection(); if(!s.rangeCount) return {el:a};
+  const r=s.getRangeAt(0);
+  return {el:a, sc:r.startContainer, so:r.startOffset, ec:r.endContainer, eo:r.endOffset};
+}
+function restoreCaret(d){
+  if(!d||!d.el||!document.body.contains(d.el)) return;
+  try{ d.el.focus({preventScroll:true});
+    if(d.sc && document.body.contains(d.sc)){
+      const r=document.createRange(); r.setStart(d.sc,d.so); r.setEnd(d.ec,d.eo);
+      const s=getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+  }catch(e){}
+}
+
+function repaginate(){
+  const host=document.getElementById('sheets'); if(!host) return;
+  const caret=saveCaret();
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){
+    var o=cont._origin; if(o){ while(cont.firstChild){ o.appendChild(cont.firstChild); } }
+  });
+  FLOW = FLOW.filter(function(b){ return b; });
+  FLOW.forEach(function(b){ if(b.parentNode) b.parentNode.removeChild(b); });
+  host.innerHTML='';
+  let body=null;
+  function newSheet(){
+    const n=host.children.length;
+    const sheet=document.createElement('div'); sheet.className='sheet'+(n?' has-head':'');
+    if(n){
+      const head=document.createElement('div'); head.className='sheet-head';
+      head.innerHTML='<span class="sheet-head-l"></span><span class="sheet-head-r">Biologia i Geologia · 3r ESO</span>';
+      head.firstChild.textContent=SA_NOM+' · '+SESSIO;
+      sheet.appendChild(head);
+    }
+    body=document.createElement('div'); body.className='sheet-body';
+    const foot=document.createElement('div'); foot.className='sheet-foot';
+    foot.innerHTML='<span class="fl">IE Temple · Biologia i Geologia 3r ESO</span>'+
+                   '<span class="fc">CC BY-NC-SA 4.0</span>'+
+                   '<span class="fr foot-pg"></span>';
+    sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
+  }
+  function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn'); }); }
+  function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
+  function trySplitSection(sec){
+    if(BODY_MAX - body.scrollHeight < 150) return false;
+    body.appendChild(sec);
+    if(body.scrollHeight <= BODY_MAX) return true;
+    var moved=[];
+    while(body.scrollHeight > BODY_MAX && _contentKids(sec).length > 1){
+      var ck=_contentKids(sec); var last=ck[ck.length-1];
+      moved.unshift(last); sec.removeChild(last);
+    }
+    if(moved.length===0 || body.scrollHeight > BODY_MAX){
+      moved.forEach(function(k){ sec.appendChild(k); });
+      if(sec.parentNode) sec.parentNode.removeChild(sec);
+      return false;
+    }
+    var pending=moved;
+    while(pending.length){
+      newSheet();
+      var cont=document.createElement('div');
+      cont.className='section'; cont.setAttribute('data-cont','1'); cont._origin=sec;
+      body.appendChild(cont);
+      pending.forEach(function(k){ cont.appendChild(k); });
+      var rest=[];
+      while(body.scrollHeight > BODY_MAX && cont.children.length>1){
+        var l=cont.lastElementChild; rest.unshift(l); cont.removeChild(l);
+      }
+      pending=rest;
+    }
+    return true;
+  }
+  newSheet();
+  for(let i=0;i<FLOW.length;i++){
+    const blk=FLOW[i];
+    if(blk.classList.contains('nova-pagina') && body.children.length) newSheet();
+    if(blk.classList.contains('spacer-block')){
+      blk.style.height='auto'; body.appendChild(blk);
+      const used = body.scrollHeight - blk.offsetHeight;
+      const remain = BODY_MAX - used;
+      blk.style.height = (remain>34?remain:34)+'px';
+      if(i < FLOW.length-1) newSheet();
+      continue;
+    }
+    body.appendChild(blk);
+    if(body.scrollHeight > BODY_MAX && body.children.length>1){
+      body.removeChild(blk);
+      var _ok=false;
+      if(blk.classList.contains('section')){ try{ _ok=trySplitSection(blk); }catch(e){ _ok=false; } }
+      if(!_ok){
+        newSheet();
+        var _ok2=false;
+        if(blk.classList.contains('section')){ try{ _ok2=trySplitSection(blk); }catch(e){ _ok2=false; } }
+        if(!_ok2){ body.appendChild(blk); }
+      }
+    }
+  }
+  const sheets=host.querySelectorAll('.sheet');
+  sheets.forEach(function(s,idx){ const pg=s.querySelector('.foot-pg'); if(pg) pg.textContent='Pàgina '+(idx+1)+' / '+sheets.length; });
+  restoreCaret(caret);
+}
+let _pgT=null;
+function schedulePageBreaks(){ clearTimeout(_pgT); _pgT=setTimeout(repaginate,120); }
+function updatePageBreaks(){ repaginate(); }
+document.addEventListener('focusout', function(){ schedulePageBreaks(); });
+
+/* ── eliminar / desfer / espai ─────────────────────── */
+const delStack = [];
+function _btnUndo(){ return document.getElementById('btn-undo'); }
+function _undoOn(){ const b=_btnUndo(); if(b){ b.classList.add('active'); b.disabled=false; } }
+function _undoOff(){ const b=_btnUndo(); if(b){ b.classList.remove('active'); b.disabled=true; } }
+function deleteEl(btn){
+  const el=btn.closest('.deletable'); if(!el) return;
+  const blk=topFlowBlock(el);
+  if(blk===el){ const i=FLOW.indexOf(el); delStack.push({el:el, flowIdx:i}); if(i>=0) FLOW.splice(i,1); el.remove(); }
+  else { delStack.push({el:el, parent:el.parentNode, sibling:el.nextSibling}); el.remove(); }
+  _undoOn();
+  repaginate();
+  if(typeof syncCopy==='function') setTimeout(syncCopy,0);
+}
+function undoDelete(){
+  if(!delStack.length) return;
+  const d=delStack.pop();
+  if(d.parent){ d.parent.insertBefore(d.el, d.sibling); }
+  else { FLOW.splice(Math.max(0,Math.min(d.flowIdx,FLOW.length)),0,d.el); }
+  if(!delStack.length) _undoOff();
+  repaginate();
+  if(typeof syncCopy==='function') setTimeout(syncCopy,0);
+}
+document.addEventListener('keydown', function(e){
+  if(e.key==='z' && (e.ctrlKey||e.metaKey)){
+    if(document.activeElement && document.activeElement.contentEditable==='true') return;
+    e.preventDefault(); undoDelete();
+  }
+});
+let _lastClickedBlock=null;
+document.addEventListener('click', function(e){
+  const b=topFlowBlock(e.target);
+  if(b && !b.classList.contains('spacer-block')) _lastClickedBlock=b;
+});
+function insertSpacer(){
+  const sp=document.createElement('div'); sp.className='spacer-block deletable';
+  sp.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai en blanc</span>';
+  let idx=FLOW.length;
+  if(_lastClickedBlock){ const i=FLOW.indexOf(_lastClickedBlock); if(i>=0) idx=i+1; }
+  FLOW.splice(idx,0,sp);
+  delStack.push({el:sp, flowIdx:idx});
+  _undoOn();
+  repaginate();
+}
+function rebuildDocFromFlow(){
+  const doc=document.getElementById('doc');
+  document.querySelectorAll('.section[data-cont]').forEach(function(cont){
+    var o=cont._origin; if(o){ while(cont.firstChild){ o.appendChild(cont.firstChild); } }
+  });
+  FLOW.forEach(function(b){ if(b.classList.contains('spacer-block')) b.style.height=''; });
+  FLOW.forEach(function(b){ if(b.parentNode!==doc){ if(b.parentNode) b.parentNode.removeChild(b); doc.appendChild(b); } });
+  document.getElementById('sheets').innerHTML='';
+}
+window.addEventListener('load', function(){
+  flattenDoc(); extractFlow(); repaginate();
+  if(typeof syncCopy==='function') setTimeout(function(){ syncCopy(); repaginate(); }, 60);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ repaginate(); }); }
+  document.querySelectorAll('img').forEach(function(img){ if(!img.complete) img.addEventListener('load', schedulePageBreaks, {once:true}); });
+  setTimeout(repaginate, 400); setTimeout(repaginate, 1200);
+});
+function _fitxaToast(msg){
+  let t=document.getElementById('fitxa-toast');
+  if(!t){t=document.createElement('div');t.id='fitxa-toast';
+    t.style.cssText='position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3a2d6e;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s';
+    document.body.appendChild(t);}
+  t.textContent=msg;t.style.opacity='1';clearTimeout(t._h);t._h=setTimeout(()=>t.style.opacity='0',2200);
+}
+async function desaFitxa(){
+  rebuildDocFromFlow();
+  const clone=document.documentElement.cloneNode(true);
+  extractFlow(); repaginate();
+  const _sh=clone.querySelector('#sheets'); if(_sh) _sh.innerHTML='';
+  clone.querySelectorAll('#fitxa-toast').forEach(n=>n.remove());
+  const html='<!DOCTYPE html>\n'+clone.outerHTML;
+  const fname=(location.pathname.split('/').pop()||'fitxa.html');
+  if(window.showSaveFilePicker){
+    try{
+      const h=await window.showSaveFilePicker({suggestedName:fname,types:[{description:'Pàgina HTML',accept:{'text/html':['.html']}}]});
+      const w=await h.createWritable();await w.write(html);await w.close();
+      _fitxaToast('✓ Canvis desats al fitxer');return;
+    }catch(e){if(e.name==='AbortError')return;}
+  }
+  const blob=new Blob([html],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+  _fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');
+}
+document.addEventListener('keydown',e=>{ if(e.key==='s'&&(e.ctrlKey||e.metaKey)){e.preventDefault();desaFitxa();} });
+</script>
+<script>
+/* opcions per encerclar + cercles per pintar */
+document.addEventListener('click',function(e){
+  var o=e.target.closest&&e.target.closest('.opt');
+  if(o&&!o.classList.contains('ex')){
+    var g=o.parentElement;
+    if(!g.classList.contains('multi')) g.querySelectorAll('.opt.sel:not(.ex)').forEach(function(x){ if(x!==o) x.classList.remove('sel'); });
+    o.classList.toggle('sel');
+  }
+  var d=e.target.closest&&e.target.closest('.cdot');
+  if(d){ var seq=['','c-g','c-y','c-b']; var cur=seq.findIndex(function(c){return c&&d.classList.contains(c);}); if(cur<0)cur=0;
+    seq.forEach(function(c){ if(c) d.classList.remove(c); }); var nx=seq[(cur+1)%seq.length]; if(nx) d.classList.add(nx); }
+});
+</script>
+</body>
+</html>

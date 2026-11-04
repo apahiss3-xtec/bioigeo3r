@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="ca"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sessió 1 · Nutrients · Acollida (àrab) — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@500;600;700&amp;family=Noto+Naskh+Arabic:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --purple:       #7B68C8;
+  --purple-ink:   #4a3b8c;
+  --purple-light: #c5b8f0;
+  --purple-tint:  #f0edfb;
+  --ink:          #1A1428;
+  --ink-2:        #3a3050;
+  --muted:        #7a7090;
+  --surface:      #fdfcff;
+  --paper:        #ffffff;
+  --rule:         #e8e2f6;
+  --rule-dark:    #c8bfe8;
+  --art:     #c0474a; --art-tint:     #fef5f5;
+  --ven:     #6b7ab5; --ven-tint:     #f0f2ff;
+  --orange:  #e8834a; --orange-tint:  #fdf0e8;
+  --teal:    #3a9e8c; --teal-tint:    #e6f4f1;
+  --rose:    #d44a6c; --rose-tint:    #fce8ed;
+  --yellow:  #c8960a; --yellow-tint:  #fdf7e2;
+  --green:   #4a9e5c; --green-tint:   #eaf4ec;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:14.5px; line-height:1.5; }
+
+#toolbar { position:fixed; top:0; left:0; right:0; z-index:9000; background:#2d2347; display:flex; gap:6px; align-items:center; padding:6px 12px; box-shadow:0 2px 10px rgba(0,0,0,.25); }
+.tb-btn { font-family:'Inter',sans-serif; font-size:12px; font-weight:600; color:#fff; background:rgba(255,255,255,.12); border:none; cursor:pointer; padding:6px 11px; border-radius:7px; }
+.tb-btn:hover { background:rgba(255,255,255,.24); }
+.tb-btn.active { background:var(--purple); }
+.tb-title { font-family:'Inter',sans-serif; font-size:11px; color:#cfc6ec; margin-left:auto; letter-spacing:.04em; }
+
+.page-wrap { margin:43px auto 36px; }
+#doc { display:none; }
+#sheets { display:flex; flex-direction:column; align-items:center; gap:26px; }
+.sheet { width:794px; min-height:1123px; background:var(--paper); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.18); overflow:visible; }
+.sheet-body { padding:36px 46px 18px; position:relative; overflow:visible; }
+.sheet.has-head .sheet-body { padding-top:54px; }
+.sheet-head { position:absolute; left:0; right:0; top:0; height:36px; display:none; justify-content:space-between; align-items:center; padding:0 46px; border-bottom:1.5px solid var(--purple-light); background:var(--paper); }
+.sheet.has-head .sheet-head { display:flex; }
+.sheet-head-l { font-family:'Inter',sans-serif; font-size:8.5px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--purple-ink); }
+.sheet-head-r { font-family:'Inter',sans-serif; font-size:8.5px; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); }
+.sheet-foot { position:absolute; left:0; right:0; bottom:0; height:30px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:0 46px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:600; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; border-top:.5px solid var(--rule); background:var(--paper); }
+.sheet-foot .fc { text-align:center; letter-spacing:.14em; color:var(--purple-ink); }
+.sheet-foot .fr { text-align:right; }
+.sheet-body > .header-band { margin:-36px -46px 0; padding-left:46px; padding-right:46px; }
+.sheet-body > .nivell-strip { margin:0 -46px; padding-left:46px; padding-right:46px; }
+.sheet-body > .oa-box { margin-left:0; margin-right:0; }
+.sheet-body > .content { padding:0; }
+.spacer-fill { display:flex; align-items:center; justify-content:center; }
+
+.header-band { background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%); color:#fff; padding:15px 18px 14px; display:grid; grid-template-columns:54px 1fr auto; gap:0 16px; align-items:center; position:relative; overflow:hidden; }
+.header-emoji-box { width:50px; height:50px; background:rgba(255,255,255,.18); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; position:relative; z-index:2; }
+.header-center { min-width:0; position:relative; z-index:2; }
+.header-sa { font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; opacity:.8; margin-bottom:2px; }
+.header-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:30px; font-weight:900; line-height:1.05; color:#fff; margin:0; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-size:13px; font-style:italic; opacity:.88; margin-top:2px; }
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:6px; flex-shrink:0; position:relative; z-index:2; }
+.logo-box { background:#fff; border-radius:12px; padding:5px 11px; box-shadow:0 3px 12px rgba(20,10,40,.28); }
+.logo-box img { height:84px; display:block; }
+.header-meta { font-family:'Inter',sans-serif; font-size:8px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; opacity:.82; text-align:right; line-height:1.4; }
+
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
+.badge { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
+.temps-badge { font-size:11px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
+.nom-field { font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
+.nom-field:first-of-type { margin-left:auto; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:13.5px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
+.input-span.data-span { min-width:70px; }
+.nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(123,104,200,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); vertical-align:middle; margin-left:4px; flex-shrink:0; }
+
+.oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:9px 14px 11px; margin:9px 0 4px; position:relative; }
+.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14.5px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:5px; }
+.oa-list { margin:0; padding-left:18px; list-style:none; }
+.oa-list li { font-size:13.5px; line-height:1.5; color:var(--ink-2); margin-bottom:3px; padding-left:4px; }
+.oa-list li::before { content:"\2610 "; color:var(--purple); font-weight:700; margin-left:-18px; margin-right:4px; }
+
+.content { padding:4px 18px 13px; }
+.section { margin-top:11px; position:relative; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:7px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:14.5px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.snum.n0 { background:var(--muted); } .snum.n1 { background:var(--orange); } .snum.n2 { background:var(--teal); }
+.snum.n3 { background:var(--art); } .snum.n4 { background:var(--purple-ink); }
+.stitle { font-size:16px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:11px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:9px; }
+
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:8px 12px; }
+.previ-box p { font-size:14px; }
+.previ-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch; margin-top:7px; }
+.draw-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; display:flex; flex-direction:column; }
+.draw-box .card-label { color:var(--purple-ink); }
+.draw-area { flex:1 1 auto; min-height:150px; border:1.5px dashed var(--rule-dark); border-radius:8px; background:#fff; margin-top:5px; display:flex; align-items:flex-start; justify-content:flex-end; }
+.draw-area .draw-hint { font-size:9px; color:#c0b8d8; font-style:italic; padding:5px 8px; user-select:none; pointer-events:none; }
+.wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:5px; background:#fff; outline:none; padding:3px 4px; }
+.pista { font-size:11px; color:var(--muted); font-style:italic; margin:4px 0 2px; }
+.card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:9px 12px; margin-bottom:7px; }
+.card.orange { border-color:var(--orange); background:var(--orange-tint); }
+.card.teal { border-color:var(--teal); background:var(--teal-tint); }
+.card.rose { border-color:var(--rose); background:var(--rose-tint); }
+.card.yellow { border-color:var(--yellow); background:var(--yellow-tint); }
+.card-label { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+
+.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:7px 12px; margin:7px 0; }
+.connexio-icon { font-size:24px; flex-shrink:0; }
+.connexio-text { font-size:13.5px; line-height:1.5; }
+.connexio-text strong { color:var(--purple-ink); }
+
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:6px 10px; margin-bottom:9px; }
+.word-bank-title { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.chips { display:grid; grid-template-columns:1fr 1fr; gap:3px 6px; }
+.chip { font-size:12.5px; line-height:1.2; font-weight:600; padding:2px 8px; border-radius:12px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+
+.data-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+.data-table th { background:var(--purple-ink); color:#fff; padding:4px 8px; text-align:left; font-size:11px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table th:first-child { border-radius:5px 0 0 0; }
+.data-table th:last-child { border-radius:0 5px 0 0; }
+.data-table td { padding:4px 8px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table tr:nth-child(even) td { background:var(--purple-tint); }
+.fill-cell { display:block; width:100%; min-height:22px; border-bottom:1.5px solid #C8C2DD; background:#fff; outline:none; padding:2px 3px; }
+.hint-cell { font-size:11px; color:var(--muted); }
+.yn-opt { font-size:13.5px; display:inline-flex; align-items:center; gap:3px; }
+.chk-sq { width:12px; height:12px; border:1.5px solid var(--rule-dark); border-radius:2px; flex-shrink:0; display:inline-block; print-color-adjust:exact; }
+
+.blank { display:inline-block; border:1px solid var(--rule); border-bottom:1.5px solid #C8C2DD; border-radius:3px 3px 0 0; vertical-align:bottom; margin:0 3px; height:auto; min-height:1.45em; line-height:1.5; padding:0 5px; background:#fff; outline:none; }
+.blank-s { min-width:60px; } .blank-m { min-width:100px; } .blank-l { min-width:140px; } .blank-xl { min-width:200px; }
+.frase-completar { font-size:13.5px; line-height:2.3; margin-bottom:4px; }
+
+.info-box { background:#fff; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:7px 12px; margin:7px 0; position:relative; }
+.info-label { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.info-box p { font-size:13.5px; line-height:1.5; margin-bottom:3px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:5px 0 3px; }
+.chain-chip { font-size:13.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:14.5px; }
+
+.circ-row { font-size:13.5px; line-height:2.1; margin-bottom:3px; }
+.circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:#fff; }
+
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:7px 12px; margin:7px 0; position:relative; }
+.epist-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
+.epist-text { font-size:13.5px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+
+.meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:9px 14px 11px; margin-top:11px; position:relative; }
+.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14px; font-weight:900; color:var(--purple-ink); margin-bottom:7px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:4px; }
+.meta-oa-check { width:14px; height:14px; flex-shrink:0; border:1.5px solid var(--purple); border-radius:3px; margin-top:1px; print-color-adjust:exact; }
+.meta-oa-text { font-size:13.5px; color:var(--ink-2); line-height:1.5; }
+.meta-open { margin-top:7px; padding-top:7px; border-top:1px solid var(--rule-dark); }
+.meta-open-label { font-size:11px; font-weight:700; color:var(--muted); margin-bottom:3px; }
+
+.tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:9px 12px; margin-top:9px; position:relative; }
+
+.footer { margin-top:13px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:6px; }
+.footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
+.footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+
+.deletable { position:relative; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; background:var(--rose); color:#fff; border-radius:50%; font-size:11px; line-height:18px; text-align:center; cursor:pointer; z-index:50; box-shadow:0 1px 4px rgba(0,0,0,.3); }
+.deletable:hover > .del-btn { display:flex; align-items:center; justify-content:center; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+
+.move-ctrl { display:none; position:absolute; top:-9px; right:14px; z-index:51; gap:2px; }
+.deletable:hover > .move-ctrl { display:flex; }
+.deletable:has(.deletable:hover) > .move-ctrl { display:none; }
+.mv { width:18px; height:18px; background:var(--purple); color:#fff; border-radius:50%; font-size:11px; line-height:18px; text-align:center; cursor:pointer; box-shadow:0 1px 4px rgba(0,0,0,.3); user-select:none; }
+.mv:hover { background:var(--purple-ink); }
+.mv.mv-space { background:var(--green); }
+.mv.mv-space:hover { background:#357a44; }
+
+.wline { position:relative; }
+.wline-del { display:none; position:absolute; top:50%; right:-7px; transform:translateY(-50%); width:16px; height:16px; background:var(--rose); color:#fff; border-radius:50%; font-size:10px; line-height:16px; text-align:center; cursor:pointer; z-index:40; box-shadow:0 1px 3px rgba(0,0,0,.3); user-select:none; }
+.wline:hover > .wline-del { display:block; }
+
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; }
+.spacer-label { font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+
+.mt8 { margin-top:7px; } .bold { font-weight:700; } .small { font-size:11px; color:var(--muted); }
+
+/* ── Figures de diagrama / fotografia (ancoratge visual) ── */
+.fig-grid { display:grid; gap:10px; margin:7px 0; }
+.fig-grid.g2 { grid-template-columns:1fr 1fr; }
+.dfig { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:6px; text-align:center; }
+.dfig img { max-width:100%; max-height:165px; object-fit:contain; display:block; margin:0 auto; }
+.tube-row { display:flex; gap:26px; justify-content:center; align-items:flex-end; margin:5px 0 2px; }
+.tube { width:74px; text-align:center; }
+.tube .glass { width:44px; height:120px; margin:0 auto; border:2.5px solid #8a8fa6; border-top:none;
+  border-radius:0 0 22px 22px; background:#fff; display:flex; align-items:flex-end; overflow:hidden; }
+.tube .liq { width:100%; height:66%; }
+.tube .liq.pos { background:#1d2340; }
+.tube .liq.neg { background:#d79a3c; }
+.tube .tcap { font-size:11px; font-weight:700; margin-top:4px; line-height:1.5; }
+.nutri-label { width:250px; margin:5px auto 2px; border:2px solid #333; border-radius:4px; background:#fff;
+  font-size:13.5px; font-family:inherit; }
+.nutri-label .nl-h { background:#333; color:#fff; font-weight:700; text-align:center; padding:3px; letter-spacing:.04em; }
+.nutri-label table { width:100%; border-collapse:collapse; }
+.nutri-label td { padding:2px 7px; border-bottom:1px solid #bbb; }
+.nutri-label td.v { text-align:right; font-variant-numeric:tabular-nums; }
+.nutri-label tr.sub td { padding-left:18px; font-style:italic; color:#555; }
+.nutri-label tr.big td { font-weight:700; }
+.fig-cap { font-size:11px; color:var(--muted); margin-top:4px; line-height:1.5; }
+
+
+
+@media print {
+  @page { size:A4; margin:0; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html,body { background:#fff; padding:0; margin:0; }
+  #toolbar, .del-btn, .move-ctrl, .wline-del { display:none !important; }
+  .page-wrap { margin:0; }
+  #sheets { gap:0; display:block; }
+  .sheet { width:210mm; height:297mm; min-height:0; box-shadow:none; margin:0; page-break-after:always; break-after:page; overflow:hidden; }
+  .sheet:last-child { page-break-after:auto; break-after:auto; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline,.fill-cell,.blank { background:transparent; }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .input-span:empty::before { display:none; }
+  .header-emoji-box { background:#ede8f8; }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   LLEGIBILITAT-C v1 — llegibilitat de la Versió C (dislèxia). 09/09/2026.
+   Cos en 'Fira Sans Condensed' (mateixa família que l'Extra Condensed
+   de la casa, però amb lletres més obertes i distingibles), interlineat
+   ample i separació de paraules. Titulars, capçalera i peu no es toquen.
+   ══════════════════════════════════════════════════════════════ */
+.sheet-body,#doc{font-family:'Fira Sans Condensed','Fira Sans Extra Condensed',sans-serif;
+  line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
+.sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
+.sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
+
+/* ══════════════════════════════════════════════════════════════
+   ACOLLIDA · URDÚ — 25/10/2026. Català com a llengua de referència,
+   urdú (RTL, Nastaliq) com a bastida sota cada explicació i consigna.
+   ══════════════════════════════════════════════════════════════ */
+.ur { font-family:'Noto Naskh Arabic',serif; direction:rtl; text-align:right; unicode-bidi:isolate;
+  font-size:12.5px; line-height:2.05; color:#21574d; background:#eef7f4; border-right:3px solid var(--teal);
+  border-radius:6px 0 0 6px; padding:0 10px 2px; margin:3px 0 6px; }
+#doc .ur, .sheet-body .ur { font-family:'Noto Naskh Arabic',serif; text-align:right; word-spacing:normal; letter-spacing:0; }
+.ur-in, .th-ur, [lang="ar"] { font-family:'Noto Naskh Arabic',serif !important; letter-spacing:0 !important; word-spacing:normal !important; }
+.ur-in { unicode-bidi:isolate; font-size:.82em; font-weight:400; color:#21574d; text-transform:none; letter-spacing:0; margin-left:4px; line-height:1; }
+.th-ur { display:block; font-size:10px; font-weight:400; text-transform:none; letter-spacing:0; line-height:1.9; opacity:.92; }
+.header-ur { font-family:'Noto Naskh Arabic',serif; direction:rtl; text-align:left; font-size:12.5px; line-height:1.9; opacity:.92; margin-top:3px; }
+
+.guia-box { border:2px solid var(--teal); border-radius:10px; padding:8px 12px 6px; margin:10px 0 4px; background:#fff; }
+.guia-title { font-size:15px; font-weight:900; color:var(--teal); }
+.guia-box > .ur { display:inline-block; margin:0 0 4px; }
+.guia-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px 16px; }
+.guia-pas { display:flex; gap:8px; align-items:flex-start; }
+.guia-pas p { font-size:13.5px; line-height:1.4; }
+.guia-pas .ur { margin:2px 0 3px; }
+.guia-n { width:22px; height:22px; flex-shrink:0; border-radius:50%; background:var(--teal); color:#fff; font-weight:900; font-size:13px; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.oa-list li .ur { margin:1px 0 4px; font-size:12px; }
+
+.glos { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; }
+.glos-item { border:1.5px solid var(--rule-dark); border-radius:8px; background:#fff; padding:5px 5px 4px; text-align:center; }
+.glos-img { height:84px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:6px; }
+.glos-img img { max-height:84px; max-width:100%; object-fit:contain; }
+.sprite { width:58px; height:84px; background-image:url('s1_5nutrients_nivell_c.png'); background-size:auto 100%; background-repeat:no-repeat; }
+.glos-ca { font-size:14.5px; font-weight:900; color:var(--purple-ink); line-height:1.15; margin-top:3px; }
+.glos-ur { font-family:'Noto Naskh Arabic',serif; font-size:13px; color:#21574d; line-height:1.9; }
+.glos-def { font-size:11px; color:var(--muted); line-height:1.25; }
+
+.llegir { background:#fbfaff; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:7px 12px 4px; margin:6px 0 8px; }
+.llegir-lab, .fer-lab { font-size:12px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.llegir p { font-size:14px; line-height:1.55; }
+.fer { background:var(--orange-tint); border:1.5px solid var(--orange); border-radius:8px; padding:7px 12px 4px; margin:6px 0 8px; }
+.fer-lab { color:#b85a22; }
+.fer p { font-size:14px; line-height:1.5; }
+.fer-list { padding-left:20px; font-size:14px; line-height:1.45; }
+.fer-list li { margin-bottom:2px; }
+.fer-list .ur { margin:1px 0 4px; }
+
+.proves { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.prova p { font-size:13.5px; }
+.paper-row { display:flex; gap:22px; justify-content:center; align-items:flex-end; margin:5px 0 2px; }
+.paper { width:84px; text-align:center; }
+.paper::before { content:""; display:block; width:70px; height:86px; margin:0 auto; background:#f3ead4; border:1.5px solid #c9b98f; border-radius:3px; }
+.paper .taca { width:38px; height:30px; border-radius:50%; margin:-58px auto 28px; background:radial-gradient(ellipse at center, rgba(255,255,255,.95) 0%, rgba(255,255,255,.7) 55%, rgba(255,255,255,0) 72%); position:relative; }
+.paper .tcap { font-size:11px; font-weight:700; margin-top:4px; line-height:1.4; }
+.paper.mini, .tube.mini { width:auto; }
+.paper.mini::before { width:52px; height:62px; }
+.paper.mini .taca { width:30px; height:24px; margin:-44px auto 20px; }
+.tube.mini .glass { width:30px; height:64px; border-radius:0 0 15px 15px; }
+
+.pred-row { display:flex; align-items:center; gap:5px; flex-wrap:wrap; font-size:14px; margin:6px 0; }
+.pred-row strong { min-width:84px; }
+.connexio-img { height:92px; width:auto; flex-shrink:0; border-radius:6px; }
+.lab-table td.food, .data-table td.food { font-weight:700; white-space:nowrap; }
+.data-table td.exemple { font-size:12px; color:var(--muted); font-style:italic; }
+.data-table th { vertical-align:top; }
+.lab-table .fill-cell { min-height:30px; }
+
+.raona-box { border:2px solid var(--purple-light); border-radius:12px; padding:0; margin:9px 0; overflow:hidden; background:#fff; }
+.raona-cap { background:var(--purple-ink); color:#fff; font-size:12px; font-weight:900; letter-spacing:.05em; text-transform:uppercase; padding:5px 12px; }
+.raona-cap .ur-in { color:#e6e0ff; }
+.raona-pas { padding:5px 12px; border-bottom:1px dashed var(--rule); }
+.raona-pas:last-child { border-bottom:none; }
+.raona-pas-lab { font-size:11px; font-weight:900; color:var(--purple-ink); letter-spacing:.06em; text-transform:uppercase; }
+.raona-pas-lab [lang="ar"] { font-size:11px; text-transform:none; font-weight:400; }
+.raona-pas .frase-completar { margin:0; }
+
+.chain-ur { justify-content:flex-start; }
+.chain-ur .chain-chip { font-family:'Noto Naskh Arabic',serif; font-size:11.5px; font-weight:400; line-height:1.9; background:#eef7f4; border-color:#a9d6cc; color:#21574d; }
+.nut-caps { display:grid; grid-template-columns:repeat(5,1fr); gap:4px; font-size:11.5px; line-height:1.3; margin-top:3px; }
+.nut-caps [lang="ar"] { font-size:10.5px; color:#21574d; line-height:1.9; }
+.dfig img { max-height:150px; }
+.banc { display:flex; flex-wrap:wrap; gap:5px; align-items:center; font-size:13px; margin:4px 0 2px; }
+.banc-lab { font-weight:900; color:var(--purple-ink); font-size:12px; }
+
+.etiq-grid { display:grid; grid-template-columns:260px 1fr; gap:14px; align-items:start; margin:4px 0 6px; }
+.etiq-grid .nutri-label { margin:0; }
+.ingr { border:2px solid #333; border-radius:4px; background:#fff; }
+.ingr-h { background:#333; color:#fff; font-weight:700; text-align:center; padding:3px; letter-spacing:.04em; font-size:13px; }
+.ingr p { font-size:13.5px; line-height:1.7; padding:5px 9px; }
+.etiq-table { width:auto; min-width:60%; margin:2px 0 4px; }
+.etiq-table td { padding:3px 10px; }
+
+.idea-clau { background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%); color:#fff; border-radius:10px; padding:8px 14px 5px; margin:10px 0 6px; }
+.idea-lab { font-size:12px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:#ffe7a8; }
+.idea-clau p { font-size:14.5px; line-height:1.5; }
+.idea-clau .ur { background:rgba(255,255,255,.12); color:#fff; border-right-color:#ffe7a8; }
+.tasca-box .ur { margin-top:3px; }
+.tasca-box .fill-cell { min-height:74px; }
+.draw-box .draw-area { min-height:300px; }
+.wline { min-height:30px; }
+.card .ur { margin:3px 0 4px; }
+.producte { display:flex; align-items:center; gap:12px; border:2px solid #b07a3a; background:#fdf3e6; border-radius:10px; padding:7px 12px; margin:0 0 8px; }
+.galetes { position:relative; width:78px; height:58px; flex-shrink:0; }
+.galeta { position:absolute; left:0; top:4px; width:50px; height:50px; border-radius:50%; border:2px solid #a8702f;
+  background:radial-gradient(circle at 30% 32%, #4a2814 0 4px, transparent 5px), radial-gradient(circle at 66% 38%, #4a2814 0 4px, transparent 5px),
+  radial-gradient(circle at 44% 70%, #4a2814 0 4px, transparent 5px), radial-gradient(circle at 74% 70%, #4a2814 0 3px, transparent 4px), #dba664; }
+.galeta.g2 { left:26px; top:0; }
+.producte-nom { font-size:16px; font-weight:900; color:#7a4a1c; line-height:1.15; }
+.producte-ur { font-size:13px; color:#21574d; line-height:1.9; }
+.producte-def { font-size:12px; color:var(--muted); }
+@media print { .producte, .galeta { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+@media print { .idea-clau { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+
+/* Full de teoria per estudiar a casa (sempre comença en pàgina nova) */
+.teo-com { background:var(--teal-tint); border:1.5px solid var(--teal); border-radius:8px; padding:6px 12px 3px; margin:4px 0 8px; }
+.teo-com p { font-size:13.5px; line-height:1.45; }
+.teo-card { border:2px solid var(--rule-dark); border-top-width:6px; border-radius:10px; background:#fff; padding:5px 12px 3px; margin:0 0 7px; }
+.teo-card p { font-size:13.5px; line-height:1.45; }
+.teo-h { display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:16px; font-weight:900; color:var(--ink); margin-bottom:3px; }
+.teo-n { width:24px; height:24px; border-radius:50%; background:var(--purple-ink); color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.teo-ur-t { font-family:'Noto Naskh Arabic',serif; font-size:13px; color:#21574d; line-height:1.8; text-align:right; margin-top:-4px; }
+.c-eq { border-color:#8f7fd6; } .c-hid { border-color:#d9b64a; } .c-gre { border-color:#6aa9d6; } .c-pro { border-color:#7fbf6a; }
+.c-mic { border-color:#3a9e8c; } .c-fer { border-color:#d44a6c; } .c-iod { border-color:#c8960a; }
+.eq { display:flex; align-items:center; justify-content:center; gap:7px; margin:4px 0 6px; }
+.eq-box { text-align:center; }
+.eq-chip { display:inline-block; border-radius:8px; padding:4px 10px; font-weight:900; font-size:14.5px; margin:2px 0; }
+.eq-chip.glu { background:var(--yellow-tint); border:2px solid #d9b64a; color:#7a5a00; }
+.eq-chip.oxi { background:#e6f1fa; border:2px solid #6aa9d6; color:#1d5a85; }
+.eq-chip.atp { background:#eaf4ec; border:2px solid var(--green); color:#2c6b39; display:block; }
+.eq-chip.res { background:#f3f1f6; border:2px dashed #b9b3c4; color:var(--muted); font-size:12.5px; display:block; }
+.eq-src { font-size:11px; color:var(--muted); line-height:1.25; }
+.eq-ur { font-family:'Noto Naskh Arabic',serif; font-size:11px; color:#21574d; line-height:1.8; }
+.eq-op { font-size:24px; font-weight:900; color:var(--purple-ink); }
+.eq-mito img { height:70px; display:block; margin:0 auto; }
+.teo-fig { text-align:center; margin:0 0 6px; }
+.teo-fig img { max-width:100%; max-height:150px; border-radius:8px; border:1px solid var(--rule); }
+.teo-grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:0 0 9px; }
+.teo-grid3 .teo-card { margin:0; }
+.teo-grid3 .teo-card p { font-size:13px; }
+.mic-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.mic-grid p { font-size:13px; }
+.rbc { display:inline-block; width:12px; height:12px; border-radius:50%; background:radial-gradient(circle,#b8203f 0 30%,#d94a64 31%); vertical-align:-1px; margin-right:2px; }
+.c-iod .tube .glass { height:84px; }
+.c-iod .tcap { font-size:11px; }
+.iod-grid { display:grid; grid-template-columns:200px 1fr; gap:12px; align-items:center; }
+.repas { border:2px dashed var(--purple-light); border-radius:10px; padding:7px 12px 5px; margin:4px 0 6px; background:#fbfaff; display:grid; grid-template-columns:1fr 1fr; column-gap:16px; }
+.repas > .repas-h, .repas > .pista { grid-column:1 / -1; }
+.repas-h { font-size:15px; font-weight:900; color:var(--purple-ink); }
+.repas-item { display:flex; gap:9px; align-items:flex-start; font-size:13.5px; line-height:1.3; padding:2px 0; border-bottom:1px dotted var(--rule); }
+.repas-item:nth-last-child(-n+2) { border-bottom:none; }
+.repas-item .meta-oa-check { flex-shrink:0; margin-top:2px; }
+.repas-ur { font-family:'Noto Naskh Arabic',serif; font-size:12px; color:#21574d; line-height:1.85; text-align:right; }
+@media print { .teo-card, .eq-chip, .rbc, .teo-n { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+
+.ur { font-size:14px; line-height:1.7; padding:2px 10px 3px; }
+.ur-in { font-size:.9em; }
+.glos-ur { font-size:14px; line-height:1.5; }
+.th-ur { font-size:11px; line-height:1.5; }
+.producte-ur { font-size:14px; line-height:1.5; }
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <button class="tb-btn" id="btn-undo" onclick="undoDelete()" title="Desfés l'última eliminació (Ctrl+Z)">↩ Desfés</button>
+  <button class="tb-btn" onclick="document.execCommand('bold')" title="Negreta">𝐁 Negreta</button>
+  <button class="tb-btn" onclick="addWlineToolbar()" title="Afegeix una línia d'escriptura (o prem Enter dins d'una línia)">＋ Línia</button>
+  <button class="tb-btn" onclick="insertSpacer()" title="Insereix un espai en blanc">＋ Espai</button>
+  <button class="tb-btn" onclick="window.print()" title="Imprimeix">🖨️ Imprimeix</button>
+  <button class="tb-btn tb-desa" onclick="desaFitxa()" title="Desa els canvis al fitxer (Ctrl+S)">💾 Desa</button>
+  <span class="tb-title">Fitxa Sessió 1 · Nutrients · Acollida (àrab) · IE Temple</span>
+</div>
+
+<div class="page-wrap">
+<div id="doc">
+
+<div class="header-band deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="header-emoji-box">🍎</div>
+  <div class="header-center">
+    <div class="header-sa" contenteditable="true">El nostre cos en marxa · Sessió 1 de 7</div>
+    <div class="header-title" contenteditable="true">Nutrients: el combustible del cos</div>
+    <div class="header-subtitle" contenteditable="true">Què hi ha dins el que mengem?</div>
+    <div class="header-ur" dir="rtl" lang="ar" contenteditable="true">العناصر الغذائية: وقود الجسم — ماذا يوجد داخل ما نأكله؟</div>
+  </div>
+  <div class="header-right">
+    <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
+    <div class="header-meta" contenteditable="true">3r ESO</div>
+  </div>
+</div>
+
+<div class="nivell-strip deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <span class="badge deletable" contenteditable="true">Amb suport visual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+
+  <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió C acollida — àrab">C·ar</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+</div>
+
+<div class="guia-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="guia-title" contenteditable="true">🧭 Com funciona aquesta fitxa</div>
+  <div class="ur" dir="rtl" lang="ar" contenteditable="true">كيف تعمل هذه الورقة</div>
+  <div class="guia-grid">
+    <div class="guia-pas"><div class="guia-n">1</div><div><p contenteditable="true">Llegeix primer el text en <strong>català</strong>.</p><div class="ur" dir="rtl" lang="ar" contenteditable="true">اقرأ النص أولًا باللغة الكتالانية.</div></div></div>
+    <div class="guia-pas"><div class="guia-n">2</div><div><p contenteditable="true">Si no l'entens, llegeix la caixa verda en <strong>àrab</strong>.</p><div class="ur" dir="rtl" lang="ar" contenteditable="true">إذا لم تفهم، اقرأ العربية في المربع الأخضر.</div></div></div>
+    <div class="guia-pas"><div class="guia-n">3</div><div><p contenteditable="true">Escriu sempre en <strong>català</strong>. Si no saps una paraula, busca-la a <strong>Paraules d'avui</strong> (pàgina 1).</p><div class="ur" dir="rtl" lang="ar" contenteditable="true">اكتب دائمًا بالكتالانية. إذا لم تعرف كلمة، ابحث عنها في «كلمات اليوم» في الصفحة 1.</div></div></div>
+    <div class="guia-pas"><div class="guia-n">4</div><div><p contenteditable="true">Quan tries una resposta, escriu sempre <strong>per què</strong>.</p><div class="ur" dir="rtl" lang="ar" contenteditable="true">عندما تختار جوابًا، اكتب دائمًا لماذا.</div></div></div>
+  </div>
+</div>
+
+<div class="oa-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="oa-title" contenteditable="true">🎯 Avui aprendré… <span class="ur-in" dir="rtl" lang="ar">اليوم سأتعلّم…</span></div>
+  <ul class="oa-list">
+    <li><span contenteditable="true">… la diferència entre <strong>aliment</strong> i <strong>nutrient</strong>.</span><div class="ur" dir="rtl" lang="ar" contenteditable="true">… الفرق بين الغذاء والعنصر الغذائي.</div></li>
+    <li><span contenteditable="true">… a fer el <strong>test del iode</strong> (midó) i el <strong>test del paper</strong> (greix).</span><div class="ur" dir="rtl" lang="ar" contenteditable="true">… أن أُجري اختبار اليود (النشا) واختبار الورق (الدهون).</div></li>
+    <li><span contenteditable="true">… que els <strong>hidrats</strong> donen <strong>glucosa</strong>, i la glucosa dóna <strong>energia</strong> a la cèl·lula.</span><div class="ur" dir="rtl" lang="ar" contenteditable="true">… أن الكربوهيدرات تتحوّل إلى غلوكوز، وأن الغلوكوز يعطي الطاقة للخلية.</div></li>
+    <li><span contenteditable="true">… a llegir una <strong>etiqueta</strong> i dir quin nutrient hi ha més.</span><div class="ur" dir="rtl" lang="ar" contenteditable="true">… أن أقرأ الملصق وأقول أيّ عنصر غذائي هو الأكثر.</div></li>
+  </ul>
+</div>
+
+<div class="content">
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n0">📖</div><div><div class="stitle" contenteditable="true">Paraules d'avui <span class="ur-in" dir="rtl" lang="ar">كلمات اليوم</span></div><div class="sdesc" contenteditable="true">Mira la imatge, llegeix la paraula en català i en àrab. Torna aquí sempre que ho necessitis.</div></div></div>
+  <div class="divider"></div>
+  <div class="glos">
+    <div class="glos-item"><div class="glos-img"><div class="sprite" style="background-position:0% 50%"></div></div><div class="glos-ca" contenteditable="true">proteïnes</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">البروتينات</div><div class="glos-def" contenteditable="true">construeixen el cos</div></div>
+    <div class="glos-item"><div class="glos-img"><div class="sprite" style="background-position:25% 50%"></div></div><div class="glos-ca" contenteditable="true">greixos</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">الدهون</div><div class="glos-def" contenteditable="true">energia guardada</div></div>
+    <div class="glos-item"><div class="glos-img"><div class="sprite" style="background-position:50% 50%"></div></div><div class="glos-ca" contenteditable="true">hidrats de carboni</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">الكربوهيدرات</div><div class="glos-def" contenteditable="true">energia ràpida</div></div>
+    <div class="glos-item"><div class="glos-img"><div class="sprite" style="background-position:75% 50%"></div></div><div class="glos-ca" contenteditable="true">vitamines</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">الفيتامينات</div><div class="glos-def" contenteditable="true">el cos funciona bé</div></div>
+    <div class="glos-item"><div class="glos-img"><div class="sprite" style="background-position:100% 50%"></div></div><div class="glos-ca" contenteditable="true">aigua i minerals</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">الماء والأملاح المعدنية</div><div class="glos-def" contenteditable="true">tot passa dins l'aigua</div></div>
+    <div class="glos-item"><div class="glos-img"><div class="tube mini"><div class="glass"><div class="liq pos"></div></div></div></div><div class="glos-ca" contenteditable="true">midó</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">النشا</div><div class="glos-def" contenteditable="true">amb iode es torna negre</div></div>
+    <div class="glos-item"><div class="glos-img"><div class="paper mini"><div class="taca"></div></div></div><div class="glos-ca" contenteditable="true">taca translúcida</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">بقعة دهنية، يمرّ منها الضوء</div><div class="glos-def" contenteditable="true">hi ha greix</div></div>
+    <div class="glos-item"><div class="glos-img"><img src="img/mitocondri-servier-preview.png" alt="Mitocondri" onerror="this.style.display='none'"></div><div class="glos-ca" contenteditable="true">mitocondri</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">الميتوكوندريا</div><div class="glos-def" contenteditable="true">crema glucosa → energia</div></div>
+  </div>
+  <p class="pista" contenteditable="true">Altres paraules: <strong>aliment</strong> = <span class="ur-in" dir="rtl" lang="ar">الغذاء، الطعام</span> · <strong>nutrient</strong> = <span class="ur-in" dir="rtl" lang="ar">العنصر الغذائي</span> · <strong>energia</strong> = <span class="ur-in" dir="rtl" lang="ar">الطاقة</span> · <strong>glucosa</strong> = <span class="ur-in" dir="rtl" lang="ar">الغلوكوز</span> · <strong>cèl·lula</strong> = <span class="ur-in" dir="rtl" lang="ar">الخلية</span> · <strong>etiqueta</strong> = <span class="ur-in" dir="rtl" lang="ar">الملصق</span></p>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Què en sé abans de començar? <span class="ur-in" dir="rtl" lang="ar">ماذا أعرف من قبل؟</span></div><div class="sdesc" contenteditable="true">Individual · No hi ha respostes dolentes: és el que penses ara.</div></div></div>
+  <div class="divider"></div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir <span class="ur-in" dir="rtl" lang="ar">اقرأ</span></div>
+    <p contenteditable="true">Un <strong>aliment</strong> és el que menges: pa, ou, poma, arròs. Un <strong>nutrient</strong> és una substància molt petita que hi ha <strong>dins</strong> de l'aliment. Un aliment té molts nutrients diferents.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">الغذاء هو ما تأكله: الخبز، البيض، التفاح، الأرز. العنصر الغذائي مادة صغيرة جدًا موجودة داخل الغذاء. في الغذاء الواحد عناصر غذائية كثيرة ومختلفة.</div>
+  </div>
+  <div class="previ-grid">
+    <div class="draw-box">
+      <div class="card-label" contenteditable="true">✏️ 1 · Dibuixa un aliment que menges a casa i escriu-ne el nom en català.</div>
+      <div class="ur" dir="rtl" lang="ar" contenteditable="true">ارسم غذاءً تأكله في البيت واكتب اسمه بالكتالانية.</div>
+      <div class="draw-area"></div>
+    </div>
+    <div class="previ-box">
+      <p contenteditable="true"><strong>🔮 2 · Predicció.</strong> Què creus que té sobretot cada aliment? <strong>Encercla</strong> una opció.</p>
+      <div class="ur" dir="rtl" lang="ar" contenteditable="true">توقُّع: في رأيك، ما الموجود أكثر في كل غذاء؟ ضع دائرة حول خيار واحد.</div>
+      <div class="pred-row"><strong>pa</strong><span class="circ-opt">hidrats</span><span class="circ-opt">greixos</span><span class="circ-opt">proteïnes</span></div>
+      <div class="pred-row"><strong>ametlla</strong><span class="circ-opt">hidrats</span><span class="circ-opt">greixos</span><span class="circ-opt">proteïnes</span></div>
+      <div class="pred-row"><strong>clara d'ou</strong><span class="circ-opt">hidrats</span><span class="circ-opt">greixos</span><span class="circ-opt">proteïnes</span></div>
+      <p class="pista" contenteditable="true">Al laboratori comprovaràs si ho has encertat.</p>
+      <div class="ur" dir="rtl" lang="ar" contenteditable="true">في المختبر سترى إن كنت على حق أم لا.</div>
+    </div>
+  </div>
+  <div class="connexio-box mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <img class="connexio-img" src="img/mitocondri-servier-preview.png" alt="Mitocondri" onerror="this.style.display='none'">
+    <div>
+      <div class="connexio-text" contenteditable="true"><strong>La Mercè</strong> té 16 anys. Un dia corre 10 km. Al final està molt cansada i s'ha d'aturar. Per què? Al final de la unitat ho sabràs explicar. Avui comencem: <strong>d'on treu l'energia el cos?</strong></div>
+      <div class="ur" dir="rtl" lang="ar" contenteditable="true">عمر ميرسي 16 سنة. في أحد الأيام تجري 10 كيلومترات. في النهاية تتعب كثيرًا وعليها أن تتوقف. لماذا؟ في نهاية الوحدة ستستطيع أن تشرح ذلك. اليوم نبدأ: من أين يأخذ الجسم الطاقة؟</div>
+    </div>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Laboratori: què hi ha dins dels aliments? <span class="ur-in" dir="rtl" lang="ar">المختبر: ماذا يوجد داخل الغذاء؟</span></div><div class="sdesc" contenteditable="true">En grup · Fem dues proves i apuntem què veiem</div></div></div>
+  <div class="divider"></div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: les dues proves <span class="ur-in" dir="rtl" lang="ar">اختباران</span></div>
+    <div class="proves">
+      <div class="prova">
+        <div class="tube-row">
+          <div class="tube"><div class="glass"><div class="liq pos"></div></div><div class="tcap" contenteditable="true">✔ molt fosc<br><span style="font-weight:400">hi ha midó</span></div></div>
+          <div class="tube"><div class="glass"><div class="liq neg"></div></div><div class="tcap" contenteditable="true">✘ color iode<br><span style="font-weight:400">no hi ha midó</span></div></div>
+        </div>
+        <p contenteditable="true"><strong>Prova del iode.</strong> Poses una gota de <strong>lugol</strong> (iode) sobre l'aliment. Si es torna <strong>molt fosc, gairebé negre</strong>, hi ha <strong>midó</strong>. Si es queda de color marró-taronja, no n'hi ha.</p>
+        <div class="ur" dir="rtl" lang="ar" contenteditable="true">اختبار اليود: ضع قطرة من لوغول (اليود) على الغذاء. إذا صار اللون داكنًا جدًا، أسود تقريبًا، ففيه نشا. إذا بقي بنيًّا برتقاليًّا، فليس فيه نشا.</div>
+      </div>
+      <div class="prova">
+        <div class="paper-row">
+          <div class="paper"><div class="taca"></div><div class="tcap" contenteditable="true">✔ taca translúcida<br><span style="font-weight:400">hi ha greix</span></div></div>
+          <div class="paper"><div class="tcap" contenteditable="true">✘ paper sec<br><span style="font-weight:400">no hi ha greix</span></div></div>
+        </div>
+        <p contenteditable="true"><strong>Prova del paper.</strong> Frega l'aliment sobre un paper. Mira el paper a contrallum. Si hi ha una taca que <strong>deixa passar la llum</strong> (translúcida), hi ha <strong>greix</strong>.</p>
+        <div class="ur" dir="rtl" lang="ar" contenteditable="true">اختبار الورق: افرك الغذاء على الورقة. انظر إلى الورقة مقابل الضوء. إذا كانت هناك بقعة يمرّ منها الضوء، ففيه دهون.</div>
+      </div>
+    </div>
+  </div>
+  <div class="fer deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="fer-lab" contenteditable="true">✏️ Què has de fer <span class="ur-in" dir="rtl" lang="ar">ماذا عليك أن تفعل</span></div>
+    <ol class="fer-list">
+      <li><span contenteditable="true">Fes les dues proves amb cada aliment de la taula.</span><div class="ur" dir="rtl" lang="ar" contenteditable="true">أجرِ الاختبارين على كل غذاء في الجدول.</div></li>
+      <li><span contenteditable="true">Escriu el <strong>color</strong> que veus i si hi ha <strong>taca</strong>. Pots dibuixar un punt de color.</span><div class="ur" dir="rtl" lang="ar" contenteditable="true">اكتب اللون الذي تراه، واكتب إن كانت هناك بقعة أم لا. يمكنك أيضًا أن ترسم نقطة باللون.</div></li>
+      <li><span contenteditable="true">A l'última columna escriu el nutrient. La primera fila (patata) és un <strong>exemple</strong>.</span><div class="ur" dir="rtl" lang="ar" contenteditable="true">اكتب العنصر الغذائي في العمود الأخير. السطر الأول (البطاطا) مثال.</div></li>
+    </ol>
+  </div>
+  <table class="data-table lab-table"><thead><tr><th contenteditable="true" style="text-align:left">Aliment<br><span class="th-ur" dir="rtl" lang="ar">الغذاء</span></th><th contenteditable="true">Iode: quin color veig?<br><span class="th-ur" dir="rtl" lang="ar">اليود: أيّ لون؟</span></th><th contenteditable="true">Paper: hi ha taca?<br><span class="th-ur" dir="rtl" lang="ar">الورق: هل توجد بقعة؟</span></th><th contenteditable="true">Nutrient principal<br><span class="th-ur" dir="rtl" lang="ar">العنصر الغذائي الرئيسي</span></th></tr></thead><tbody>
+    <tr class="deletable"><td class="food">Patata crua <span class="ur-in" dir="rtl" lang="ar">بطاطا نيّئة</span></td><td class="exemple">molt fosc, gairebé negre ✔</td><td class="exemple">no hi ha taca ✘</td><td class="exemple">hidrats (midó)</td></tr>
+    <tr class="deletable"><td class="food">Pa de motlle <span class="ur-in" dir="rtl" lang="ar">خبز التوست</span></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+    <tr class="deletable"><td class="food">Ametlles <span class="ur-in" dir="rtl" lang="ar">اللوز</span></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+    <tr class="deletable"><td class="food">Clara d'ou <span class="ur-in" dir="rtl" lang="ar">بياض البيض</span></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+    <tr class="deletable"><td class="food">Poma <span class="ur-in" dir="rtl" lang="ar">التفاح</span></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+  </tbody></table>
+  <p class="pista" contenteditable="true">La clara d'ou no té midó ni greix: el que té sobretot és <strong>proteïna</strong> (ho diu la seva etiqueta). <span class="ur-in" dir="rtl" lang="ar">بياض البيض فيه بروتينات في الغالب.</span></p>
+
+  <div class="raona-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="raona-cap" contenteditable="true">✏️ Raono en 4 passos: el pa <span class="ur-in" dir="rtl" lang="ar">فكّر في أربع خطوات: الخبز</span></div>
+    <div class="raona-pas"><div class="raona-pas-lab">👁️ Observo · <span dir="rtl" lang="ar">ألاحظ</span></div><p class="frase-completar">Quan poso iode al pa, el pa es torna <span class="blank blank-l"></span>.</p></div>
+    <div class="raona-pas"><div class="raona-pas-lab">❓ Em pregunto · <span dir="rtl" lang="ar">أتساءل</span></div><p class="frase-completar">Per què canvia de color? Què hi ha <strong>dins</strong> del pa?</p></div>
+    <div class="raona-pas"><div class="raona-pas-lab">🔗 Connecto · <span dir="rtl" lang="ar">أربط</span></div><p class="frase-completar">He llegit que el iode es torna molt fosc quan hi ha <span class="blank blank-m"></span>.</p></div>
+    <div class="raona-pas"><div class="raona-pas-lab">✅ Dedueixo · <span dir="rtl" lang="ar">أستنتج</span></div><p class="frase-completar">Per tant, el pa té <span class="blank blank-m"></span>, que és un <span class="blank blank-l"></span>.</p></div>
+  </div>
+
+  <div class="card yellow deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🔍 Comprova la teva predicció <span class="ur-in" dir="rtl" lang="ar">تحقّق من توقّعك</span></div>
+    <p contenteditable="true">Torna a la secció 0 (predicció). Has encertat amb l'<strong>ametlla</strong>? <span class="circ-opt">sí</span> <span class="circ-opt">no</span></p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">انظر إلى توقّعك في القسم 0. هل كنت على حق بالنسبة إلى اللوز؟ اكتب الدليل من جدولك.</div>
+    <p class="frase-completar">Ho sé perquè a la meva taula, l'ametlla <span class="blank blank-xl"></span>.</p>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n2">2</div><div><div class="stitle" contenteditable="true">Per a què serveix cada nutrient? <span class="ur-in" dir="rtl" lang="ar">ما فائدة كل عنصر غذائي؟</span></div><div class="sdesc" contenteditable="true">Amb el professor/a</div></div></div>
+  <div class="divider"></div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: per què mengem? <span class="ur-in" dir="rtl" lang="ar">لماذا نأكل؟</span></div>
+    <div class="chain"><span class="chain-chip">menges pa</span><span class="chain-arrow">→</span><span class="chain-chip">es fa glucosa</span><span class="chain-arrow">→</span><span class="chain-chip">la sang la porta</span><span class="chain-arrow">→</span><span class="chain-chip">al mitocondri es fa energia</span></div>
+    <div class="chain chain-ur" dir="rtl" lang="ar"><span class="chain-chip">تأكل الخبز</span><span class="chain-arrow">←</span><span class="chain-chip">يتكوّن الغلوكوز</span><span class="chain-arrow">←</span><span class="chain-chip">الدم ينقله</span><span class="chain-arrow">←</span><span class="chain-chip">في الميتوكوندريا تتكوّن الطاقة</span></div>
+    <p contenteditable="true">El cos <strong>desfà</strong> els aliments en nutrients petits. Els <strong>hidrats</strong> es converteixen en <strong>glucosa</strong>. La cèl·lula crema la glucosa dins el <strong>mitocondri</strong> i obté <strong>energia</strong>. Sense menjar, la cèl·lula no té energia.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">الجسم يفكّك الغذاء إلى عناصر غذائية صغيرة. الكربوهيدرات تتحوّل إلى غلوكوز. الخلية تحرق الغلوكوز داخل الميتوكوندريا وتحصل على الطاقة. بدون طعام لا يكون للخلية طاقة.</div>
+  </div>
+  <div class="dfig deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <img src="s1_5nutrients_nivell_c.png" alt="Cinc grups de nutrients" onerror="this.style.display='none'">
+    <div class="nut-caps">
+      <div><strong>1 · proteïnes</strong><br>carn, ou<br><span dir="rtl" lang="ar">البروتينات: اللحم، البيض</span></div>
+      <div><strong>2 · greixos</strong><br>oli<br><span dir="rtl" lang="ar">الدهون: الزيت</span></div>
+      <div><strong>3 · hidrats</strong><br>pa, pasta<br><span dir="rtl" lang="ar">الكربوهيدرات: الخبز، المعكرونة</span></div>
+      <div><strong>4 · vitamines</strong><br>fruita, verdura<br><span dir="rtl" lang="ar">الفيتامينات: الفواكه، الخضار</span></div>
+      <div><strong>5 · aigua i minerals</strong><br>aigua, llet, sal<br><span dir="rtl" lang="ar">الماء والأملاح المعدنية</span></div>
+    </div>
+  </div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: la feina de tres nutrients <span class="ur-in" dir="rtl" lang="ar">وظيفة العناصر الغذائية الثلاثة</span></div>
+    <p contenteditable="true">Els <strong>hidrats</strong> donen energia <strong>de pressa</strong>: la fas servir ara. Els <strong>greixos</strong> donen energia <strong>guardada</strong>, per a més tard, i formen la pell de la cèl·lula (membrana). Les <strong>proteïnes</strong> serveixen per <strong>construir i reparar</strong> el cos: músculs, pell, cabells.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">الكربوهيدرات تعطي طاقة سريعة: تستعملها الآن. الدهون تعطي طاقة مخزّنة، لوقت لاحق، وتبني غشاء الخلية. البروتينات تفيد في بناء الجسم وإصلاحه: العضلات، الجلد، الشعر.</div>
+  </div>
+  <div class="fer deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="fer-lab" contenteditable="true">✏️ Què has de fer <span class="ur-in" dir="rtl" lang="ar">ماذا عليك أن تفعل</span></div>
+    <p contenteditable="true">Completa la taula. A la columna <strong>Funció</strong> copia una frase del banc (una no serveix). A la columna <strong>Aliment</strong> escriu un aliment de la <strong>teva taula del laboratori</strong>.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">أكمل الجدول. في عمود «الوظيفة» انسخ جملة من البنك (جملة واحدة لا تصلح لأيّ شيء). في عمود «الغذاء» اكتب غذاءً من جدول المختبر.</div>
+  </div>
+  <div class="banc"><span class="banc-lab">🧰 Banc:</span><span class="chip">energia ràpida</span><span class="chip">construir i reparar el cos</span><span class="chip">energia guardada i membrana</span><span class="chip">ajudar el cos a funcionar bé</span></div>
+  <table class="data-table" style="margin-top:6px"><thead><tr><th contenteditable="true" style="text-align:left">Nutrient<br><span class="th-ur" dir="rtl" lang="ar">العنصر الغذائي</span></th><th contenteditable="true">Funció (del banc)<br><span class="th-ur" dir="rtl" lang="ar">الوظيفة</span></th><th contenteditable="true">Aliment del laboratori<br><span class="th-ur" dir="rtl" lang="ar">غذاء من المختبر</span></th></tr></thead><tbody>
+    <tr class="deletable"><td class="food">Hidrats de carboni <span class="ur-in" dir="rtl" lang="ar">الكربوهيدرات</span></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+    <tr class="deletable"><td class="food">Greixos <span class="ur-in" dir="rtl" lang="ar">الدهون</span></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+    <tr class="deletable"><td class="food">Proteïnes <span class="ur-in" dir="rtl" lang="ar">البروتينات</span></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+  </tbody></table>
+  <div class="card teal mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🗣️ Explica-ho en veu alta a un company/a <span class="ur-in" dir="rtl" lang="ar">اشرح لزميل بصوت عالٍ</span></div>
+    <p class="frase-completar">«El <span class="blank blank-m"></span> té sobretot <span class="blank blank-m"></span>, i serveix per a <span class="blank blank-l"></span>.»</p>
+    <p class="pista" contenteditable="true">Digues-ho en català. El company/a marca ✔ si la frase té sentit: <span class="chk-sq"></span></p>
+  </div>
+  <div class="idea-clau deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="idea-lab">💡 Idea clau</div>
+    <p contenteditable="true">Els aliments tenen <strong>nutrients</strong>. Els <strong>hidrats</strong> donen <strong>glucosa</strong>. La cèl·lula crema la glucosa al <strong>mitocondri</strong> i obté <strong>energia</strong>.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">في الغذاء عناصر غذائية. الكربوهيدرات تتحوّل إلى غلوكوز. الخلية تحرق الغلوكوز في الميتوكوندريا وتحصل على الطاقة.</div>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle" contenteditable="true">Detectius d'etiquetes <span class="ur-in" dir="rtl" lang="ar">محقّقو الملصقات</span></div><div class="sdesc" contenteditable="true">En parella · Unes galetes de xocolata</div></div></div>
+  <div class="divider"></div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: com es llegeix una etiqueta <span class="ur-in" dir="rtl" lang="ar">كيف تقرأ الملصق</span></div>
+    <p contenteditable="true">Avui mirem l'etiqueta d'un <strong>paquet de galetes de xocolata</strong>. L'etiqueta diu quants <strong>grams</strong> de cada nutrient hi ha en <strong>100 g</strong> d'aliment. El nutrient amb el <strong>número més gran</strong> és el que hi ha més. La línia «<em>dels quals…</em>» és una <strong>part</strong> de la línia de sobre: no la sumis.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">اليوم سننظر إلى ملصق علبة بسكويت بالشوكولاتة. الملصق يقول كم غرامًا من كل عنصر غذائي يوجد في 100 غرام من الغذاء. العنصر الغذائي صاحب الرقم الأكبر هو الأكثر. السطر «منها…» جزء من السطر الذي فوقه: لا تجمعه.</div>
+    <p contenteditable="true">Un aliment <strong>ultraprocessat</strong> té <strong>molts ingredients</strong> (més de 5) i coses que no tens a la cuina de casa, com <strong>E-322</strong> o <strong>aromes</strong>.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">الغذاء فائق المعالجة فيه مكوّنات كثيرة (أكثر من 5) وأشياء ليست في مطبخ بيتك، مثل ⁦E-322⁩ أو المنكّهات.</div>
+  </div>
+  <div class="etiq-grid deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="nutri-label">
+      <div class="nl-h">GALETES DE XOCOLATA<br><span style="font-weight:400;font-size:.85em">Informació nutricional per 100 g</span></div>
+      <table>
+        <tr class="big"><td>Valor energètic</td><td class="v">520 kcal</td></tr>
+        <tr><td>Greixos</td><td class="v">29 g</td></tr>
+        <tr class="sub"><td>dels quals saturats</td><td class="v">12 g</td></tr>
+        <tr><td>Hidrats de carboni</td><td class="v">57 g</td></tr>
+        <tr class="sub"><td>dels quals sucres</td><td class="v">49 g</td></tr>
+        <tr><td>Proteïnes</td><td class="v">6,3 g</td></tr>
+        <tr><td>Sal</td><td class="v">0,3 g</td></tr>
+      </table>
+    </div>
+    <div>
+    <div class="producte"><div class="galetes"><span class="galeta"></span><span class="galeta g2"></span></div><div><div class="producte-nom" contenteditable="true">Paquet de galetes de xocolata</div><div class="producte-ur" dir="rtl" lang="ar" contenteditable="true">علبة بسكويت بالشوكولاتة</div><div class="producte-def" contenteditable="true">Aquesta és la seva etiqueta i la llista d'ingredients.</div></div></div>
+    <div class="ingr">
+      <div class="ingr-h">INGREDIENTS</div>
+      <p contenteditable="true">farina de blat, sucre, greix de palma, xocolata, cacau en pols, xarop de glucosa, llet en pols, midó de blat de moro, ou en pols, sal, gasificant (E-500), emulsionant (E-322), colorant (E-150), aroma de vainilla.</p>
+    </div>
+    </div>
+  </div>
+  <div class="fer deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="fer-lab" contenteditable="true">✏️ Què has de fer <span class="ur-in" dir="rtl" lang="ar">ماذا عليك أن تفعل</span></div>
+    <ol class="fer-list">
+      <li><span contenteditable="true">Copia de l'etiqueta els grams d'hidrats, greixos i proteïnes.</span><div class="ur" dir="rtl" lang="ar" contenteditable="true">انسخ من الملصق غرامات الكربوهيدرات والدهون والبروتينات.</div></li>
+      <li><span contenteditable="true">Compta els ingredients. Encercla al text els que no tens a casa.</span><div class="ur" dir="rtl" lang="ar" contenteditable="true">عُدّ المكوّنات. ضع دائرة حول الأشياء التي ليست في بيتك.</div></li>
+    </ol>
+  </div>
+  <table class="data-table etiq-table"><tbody>
+    <tr><td class="food">Hidrats de carboni <span class="ur-in" dir="rtl" lang="ar">الكربوهيدرات</span></td><td><span class="blank blank-s"></span> g</td></tr>
+    <tr><td class="food">Greixos <span class="ur-in" dir="rtl" lang="ar">الدهون</span></td><td><span class="blank blank-s"></span> g</td></tr>
+    <tr><td class="food">Proteïnes <span class="ur-in" dir="rtl" lang="ar">البروتينات</span></td><td><span class="blank blank-s"></span> g</td></tr>
+    <tr><td class="food">Nombre d'ingredients <span class="ur-in" dir="rtl" lang="ar">عدد المكوّنات</span></td><td><span class="blank blank-s"></span></td></tr>
+  </tbody></table>
+  <div class="raona-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="raona-cap" contenteditable="true">✅ Dedueixo amb proves <span class="ur-in" dir="rtl" lang="ar">الاستنتاج مع الدليل</span></div>
+    <div class="raona-pas"><p class="frase-completar">A les galetes <span class="ur-in" dir="rtl" lang="ar">(البسكويت)</span> hi ha més <span class="circ-opt">hidrats</span> <span class="circ-opt">greixos</span> <span class="circ-opt">proteïnes</span>, perquè el número més gran és <span class="blank blank-s"></span> g.</p></div>
+    <div class="raona-pas"><p class="frase-completar">Les galetes <span class="circ-opt">són</span> <span class="circ-opt">no són</span> ultraprocessades, perquè tenen <span class="blank blank-s"></span> ingredients i porten <span class="blank blank-l"></span>.</p></div>
+  </div>
+  <div class="card rose deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">💡 Pensa en la Mercè <span class="ur-in" dir="rtl" lang="ar">فكّر في ميرسي</span></div>
+    <p contenteditable="true">Abans de córrer, la Mercè vol energia <strong>ràpida</strong>. Què li va millor: <span class="circ-opt">un plat de pasta</span> o <span class="circ-opt">un grapat d'ametlles</span>?</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">قبل الجري تحتاج ميرسي إلى طاقة سريعة. ما الأفضل لها: صحن معكرونة أم حفنة من اللوز؟ انظر إلى جدول القسم 2 واكتب لماذا.</div>
+    <p class="frase-completar">Li va millor això perquè té sobretot <span class="blank blank-m"></span>, que donen energia <span class="blank blank-m"></span>.</p>
+  </div>
+</div>
+
+<div class="meta-oa-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="meta-oa-title" contenteditable="true">🎯 Torna als objectius: marca el que ja saps fer <span class="ur-in" dir="rtl" lang="ar">ضع علامة على ما تستطيع فعله الآن</span></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé la diferència entre aliment i nutrient. <span class="ur-in" dir="rtl" lang="ar">الفرق بين الغذاء والعنصر الغذائي</span></div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé fer el test del iode i el test del paper. <span class="ur-in" dir="rtl" lang="ar">اختبار اليود واختبار الورق</span></div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que la glucosa dóna energia a la cèl·lula. <span class="ur-in" dir="rtl" lang="ar">الغلوكوز يعطي الطاقة للخلية</span></div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé llegir quin nutrient hi ha més en una etiqueta. <span class="ur-in" dir="rtl" lang="ar">قراءة العنصر الغذائي الأكثر في الملصق</span></div></div>
+  <div class="meta-open">
+    <div class="meta-open-label" contenteditable="true">✏️ Avui he après que… (en català, amb les paraules de la pàgina 1) <span class="ur-in" dir="rtl" lang="ar">اليوم تعلّمت أنّ… (اكتب بالكتالانية)</span></div>
+    <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
+  </div>
+</div>
+
+<div class="idea-clau deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="idea-lab">💡 Idea clau</div>
+  <p contenteditable="true">Els aliments tenen <strong>nutrients</strong>. Els <strong>hidrats</strong> donen <strong>glucosa</strong>. La cèl·lula crema la glucosa al <strong>mitocondri</strong> i obté <strong>energia</strong>.</p>
+  <div class="ur" dir="rtl" lang="ar" contenteditable="true">في الغذاء عناصر غذائية. الكربوهيدرات تتحوّل إلى غلوكوز. الخلية تحرق الغلوكوز في الميتوكوندريا وتحصل على الطاقة.</div>
+</div>
+
+<div class="tasca-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="card-label" contenteditable="true">📚 Tasca per a casa <span class="ur-in" dir="rtl" lang="ar">واجب منزلي</span></div>
+  <p contenteditable="true">Fes una foto de l'etiqueta de <strong>2 productes</strong> que menges a casa. Porta-les a la propera classe i omple la taula.</p>
+  <div class="ur" dir="rtl" lang="ar" contenteditable="true">صوّر ملصقَي منتجَين تأكلهما في البيت. أحضرهما إلى الحصة القادمة وأكمل الجدول.</div>
+  <table class="data-table" style="margin-top:5px"><thead><tr><th contenteditable="true">Producte<br><span class="th-ur" dir="rtl" lang="ar">المنتج</span></th><th contenteditable="true">Nutrient que hi ha més<br><span class="th-ur" dir="rtl" lang="ar">العنصر الغذائي الأكثر</span></th><th contenteditable="true">Ultraprocessat? Per què?<br><span class="th-ur" dir="rtl" lang="ar">فائق المعالجة؟ لماذا؟</span></th></tr></thead><tbody>
+    <tr class="deletable"><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+    <tr class="deletable"><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+  </tbody></table>
+</div>
+
+<div class="footer deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="footer-l" contenteditable="true">IE Temple · Biologia i Geologia 3r ESO · El nostre cos en marxa · Sessió 1 · Versió C acollida (àrab)</div>
+  <div class="footer-r" contenteditable="true">Biologia i Geologia · 3r ESO</div>
+</div>
+
+<div class="section teoria nova-pagina deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n0">📚</div><div><div class="stitle" contenteditable="true">Per estudiar a casa: la teoria d'avui <span class="ur-in" dir="rtl" lang="ar">للدراسة في البيت: درس اليوم</span></div><div class="sdesc" contenteditable="true">El que hem explicat a classe, en 7 targetes. Guarda aquest full per preparar l'examen.</div></div></div>
+  <div class="divider"></div>
+  <div class="teo-com deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <p contenteditable="true"><strong>Com estudiar-ho, cada dia 10 minuts:</strong> ① llegeix una targeta en català · ② si no l'entens, llegeix l'àrab · ③ tapa-la i explica-la <strong>en veu alta en català</strong> · ④ al final del full, marca ✔ quan ho sàpigues.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">كل يوم 10 دقائق: 1) اقرأ بطاقة بالكتالانية. 2) إذا لم تفهم، اقرأ العربية. 3) غطِّ البطاقة واشرحها بصوت عالٍ بالكتالانية. 4) في آخر الورقة، ضع ✔ عندما تحفظها.</div>
+  </div>
+
+  <div class="teo-card c-eq deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">1</span><span contenteditable="true">L'equació de l'energia</span><span class="ur-in" dir="rtl" lang="ar">معادلة الطاقة</span></div>
+    <div class="eq">
+      <div class="eq-box"><div class="eq-chip glu">glucosa</div><div class="eq-src">ve del menjar</div><div class="eq-ur" dir="rtl" lang="ar">الغلوكوز · من الطعام</div></div>
+      <div class="eq-op">+</div>
+      <div class="eq-box"><div class="eq-chip oxi">oxigen (O₂)</div><div class="eq-src">ve de l'aire</div><div class="eq-ur" dir="rtl" lang="ar">الأكسجين · من الهواء</div></div>
+      <div class="eq-op">→</div>
+      <div class="eq-box eq-mito"><img src="img/mitocondri-servier-preview.png" alt="Mitocondri" onerror="this.style.display='none'"><div class="eq-src"><strong>mitocondri</strong></div><div class="eq-ur" dir="rtl" lang="ar">الميتوكوندريا</div></div>
+      <div class="eq-op">→</div>
+      <div class="eq-box"><div class="eq-chip atp">ENERGIA (ATP)</div><div class="eq-chip res">CO₂ + aigua</div><div class="eq-src">l'energia es queda · el CO₂ i l'aigua surten</div><div class="eq-ur" dir="rtl" lang="ar">الطاقة · ثاني أكسيد الكربون + الماء</div></div>
+    </div>
+    <p contenteditable="true">Totes les cèl·lules fan aquesta reacció dins el <strong>mitocondri</strong>. La <strong>glucosa</strong> ve del menjar i l'<strong>oxigen</strong>, de l'aire que respires. La cèl·lula en treu <strong>energia (ATP)</strong> i expulsa CO₂ i aigua. Tota aquesta unitat (digestió, respiració, sang) explica com arriben la glucosa i l'oxigen al mitocondri.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">كل خلية تقوم بهذا داخل الميتوكوندريا. الغلوكوز يأتي من الطعام، والأكسجين من الهواء الذي تتنفّسه. الخلية تحصل منهما على الطاقة (⁦ATP⁩) وتُخرج ثاني أكسيد الكربون والماء. هذه الوحدة كلها (الهضم، التنفّس، الدم) تشرح كيف يصل الغلوكوز والأكسجين إلى الميتوكوندريا.</div>
+  </div>
+</div>
+
+<div class="teo-fig deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <img src="sa2-s1-macronutrients.jpg" alt="Hidrats, greixos i proteïnes: aliments i funció" onerror="this.style.display='none'">
+  </div>
+  <div class="teo-grid3 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-card c-hid">
+      <div class="teo-h"><span class="teo-n">2</span><span contenteditable="true">Hidrats de carboni</span></div>
+      <div class="teo-ur-t" dir="rtl" lang="ar">الكربوهيدرات</div>
+      <p contenteditable="true">Pa, pasta, arròs, patata, fruita. El cos els converteix en <strong>glucosa</strong>, que va al mitocondri: <strong>energia ràpida</strong>. Sense hidrats, no hi ha energia ràpida.</p>
+      <div class="ur" dir="rtl" lang="ar" contenteditable="true">الخبز، المعكرونة، الأرز، البطاطا، الفواكه. الجسم يحوّلها إلى غلوكوز يذهب إلى الميتوكوندريا: طاقة سريعة. بدون كربوهيدرات لا توجد طاقة سريعة.</div>
+    </div>
+    <div class="teo-card c-gre">
+      <div class="teo-h"><span class="teo-n">3</span><span contenteditable="true">Greixos</span></div>
+      <div class="teo-ur-t" dir="rtl" lang="ar">الدهون</div>
+      <p contenteditable="true">Oli, fruits secs, formatge. Donen el <strong>doble d'energia</strong> per gram, però <strong>més a poc a poc</strong>: energia de <strong>reserva</strong>. També formen la <strong>membrana</strong> de la cèl·lula.</p>
+      <div class="ur" dir="rtl" lang="ar" contenteditable="true">الزيت، المكسّرات، الجبن. تعطي ضعف الطاقة في كل غرام، لكن ببطء: طاقة مخزّنة. وتبني أيضًا غشاء الخلية.</div>
+    </div>
+    <div class="teo-card c-pro">
+      <div class="teo-h"><span class="teo-n">4</span><span contenteditable="true">Proteïnes</span></div>
+      <div class="teo-ur-t" dir="rtl" lang="ar">البروتينات</div>
+      <p contenteditable="true">Carn, peix, ou, llegums. El cos les trenca en <strong>aminoàcids</strong> i en fa cèl·lules noves, enzims i hormones: serveixen per <strong>construir i reparar</strong>.</p>
+      <div class="ur" dir="rtl" lang="ar" contenteditable="true">اللحم، السمك، البيض، البقوليات. الجسم يفكّكها إلى أحماض أمينية ويصنع منها خلايا جديدة وإنزيمات وهرمونات: تفيد في بناء الجسم وإصلاحه.</div>
+    </div>
+  </div>
+
+  <div class="teo-fig deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <img src="sa2-s1-micronutrients.jpg" alt="Vitamines, aigua i minerals: aliments i funció" onerror="this.style.display='none'">
+  </div>
+  <div class="teo-card c-mic deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">5</span><span contenteditable="true">Vitamines, aigua i minerals</span><span class="ur-in" dir="rtl" lang="ar">الفيتامينات والماء والأملاح المعدنية</span></div>
+    <div class="mic-grid">
+      <div><p contenteditable="true"><strong>Vitamines</strong> (fruita, verdura): fan que el cos funcioni bé i ens <strong>protegeixen</strong> de malalties.</p><div class="ur" dir="rtl" lang="ar" contenteditable="true">الفيتامينات (الفواكه، الخضار): تجعل الجسم يعمل جيدًا وتحميه من الأمراض.</div></div>
+      <div><p contenteditable="true"><strong>Aigua</strong>: regula la <strong>temperatura</strong> del cos (suor) i <strong>porta</strong> els nutrients per la sang.</p><div class="ur" dir="rtl" lang="ar" contenteditable="true">الماء: يحافظ على حرارة الجسم (العرق) وينقل العناصر الغذائية في الدم.</div></div>
+      <div><p contenteditable="true"><strong>Minerals</strong>: el <strong>calci</strong> fa ossos i dents; el <strong>ferro</strong> fa l'hemoglobina de la sang.</p><div class="ur" dir="rtl" lang="ar" contenteditable="true">الأملاح المعدنية: الكالسيوم يبني العظام والأسنان؛ الحديد يصنع هيموغلوبين الدم.</div></div>
+    </div>
+  </div>
+
+  <div class="teo-card c-fer deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">6</span><span contenteditable="true">El ferro i l'oxigen: pensa en la Mercè</span><span class="ur-in" dir="rtl" lang="ar">الحديد والأكسجين</span></div>
+    <div class="chain"><span class="chain-chip">ferro (carn, llenties)</span><span class="chain-arrow">→</span><span class="chain-chip"><span class="rbc"></span> hemoglobina dels glòbuls vermells</span><span class="chain-arrow">→</span><span class="chain-chip">porta O₂</span><span class="chain-arrow">→</span><span class="chain-chip">als músculs</span></div>
+    <div class="chain chain-ur" dir="rtl" lang="ar"><span class="chain-chip">الحديد (اللحم، العدس)</span><span class="chain-arrow">←</span><span class="chain-chip">هيموغلوبين كريات الدم الحمراء</span><span class="chain-arrow">←</span><span class="chain-chip">ينقل الأكسجين</span><span class="chain-arrow">←</span><span class="chain-chip">إلى العضلات</span></div>
+    <p contenteditable="true">L'<strong>hemoglobina</strong> és la proteïna dels glòbuls vermells que porta l'oxigen. Per fer-la cal <strong>ferro</strong>. Si falta ferro, arriba <strong>menys oxigen</strong> als músculs i et canses aviat. Potser li passa això a la Mercè? Ho veurem a l'anàlisi de sang.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">الهيموغلوبين هو بروتين كريات الدم الحمراء الذي ينقل الأكسجين. لصنعه يحتاج الجسم إلى الحديد. إذا كان الحديد قليلًا، يصل أكسجين أقل إلى العضلات وتتعب بسرعة. هل هذا ما يحدث لميرسي؟ سنرى ذلك في تحليل الدم.</div>
+  </div>
+
+  <div class="teo-card c-iod deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">7</span><span contenteditable="true">Compte: el iode no ho veu tot</span><span class="ur-in" dir="rtl" lang="ar">اليود لا يكشف كل شيء</span></div>
+    <div class="iod-grid">
+      <div class="tube-row">
+        <div class="tube"><div class="glass"><div class="liq pos"></div></div><div class="tcap" contenteditable="true">pa: midó<br><span style="font-weight:400">es torna fosc ✔</span></div></div>
+        <div class="tube"><div class="glass"><div class="liq neg"></div></div><div class="tcap" contenteditable="true">poma: sucre<br><span style="font-weight:400">no canvia ✘</span></div></div>
+      </div>
+      <div>
+        <p contenteditable="true">El iode només detecta el <strong>midó</strong>. La poma té un altre hidrat, un sucre (la <strong>fructosa</strong>), i el iode no es torna fosc. És un <strong>fals negatiu</strong>: el test diu «no», però sí que hi ha hidrats.</p>
+        <div class="ur" dir="rtl" lang="ar" contenteditable="true">اليود يكشف النشا فقط. في التفاح نوع آخر من الكربوهيدرات، سكّر (الفركتوز)، ولا يصير لون اليود داكنًا. هذه نتيجة «سلبية كاذبة»: الاختبار يقول «لا»، لكن فيه كربوهيدرات.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="repas deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="repas-h" contenteditable="true">✔ Ho sé explicar? Prepara l'examen · respon en veu alta, en català <span class="ur-in" dir="rtl" lang="ar">هل أستطيع أن أشرحه؟</span></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Quina diferència hi ha entre <strong>aliment</strong> i <strong>nutrient</strong>? <em>(pàgina 1)</em></span><div class="repas-ur" dir="rtl" lang="ar">ما الفرق بين الغذاء والعنصر الغذائي؟</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Digues l'equació: glucosa + … → … <em>(targeta 1)</em></span><div class="repas-ur" dir="rtl" lang="ar">قل المعادلة: الغلوكوز + … ← …</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Quin nutrient dóna energia <strong>ràpida</strong>? I quin dóna energia de <strong>reserva</strong>? <em>(2 i 3)</em></span><div class="repas-ur" dir="rtl" lang="ar">أيّ عنصر غذائي يعطي طاقة سريعة؟ وأيّها يعطي طاقة مخزّنة؟</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Per a què serveixen les <strong>proteïnes</strong>? <em>(4)</em></span><div class="repas-ur" dir="rtl" lang="ar">ما فائدة البروتينات؟</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Per què el <strong>ferro</strong> és important per córrer? <em>(6)</em></span><div class="repas-ur" dir="rtl" lang="ar">لماذا الحديد ضروري للجري؟</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Per què la <strong>poma</strong> no es torna fosca amb iode, si té hidrats? <em>(7)</em></span><div class="repas-ur" dir="rtl" lang="ar">في التفاح كربوهيدرات، فلماذا لا يصير لونه داكنًا مع اليود؟</div></div></div>
+  </div>
+
+</div><!-- /content -->
+
+</div><!-- /doc -->
+<div id="sheets"></div>
+</div><!-- /page-wrap -->
+<script>
+const SA_NOM = "El nostre cos en marxa", SESSIO = "Sessió 1 de 7";
+const SHEET_H = 1123;
+const FOOT_H  = 30;
+const BODY_MAX = SHEET_H - FOOT_H - 10;
+let FLOW = [];
+
+function flattenDoc(){
+  const doc=document.getElementById('doc');
+  const content=doc.querySelector(':scope > .content');
+  if(content){
+    const foot=content.querySelector(':scope > .footer'); if(foot) foot.remove();
+    while(content.firstChild){ doc.insertBefore(content.firstChild, content); }
+    content.remove();
+  }
+  const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
+}
+function extractFlow(){
+  FLOW = Array.from(document.getElementById('doc').children);
+  // Posicio original de cada fill de seccio: el paginador la fa servir per
+  // reassemblar en ordre una seccio que ha partit (sense aixo, cada
+  // repaginacio la desordena i separa una llegenda del seu dibuix).
+  FLOW.forEach(function(b){
+    if(b.classList && b.classList.contains('section')){
+      Array.prototype.forEach.call(b.children, function(k,i){ k._ord = i; });
+    }
+  });
+}
+function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
+
+function saveCaret(){
+  const a=document.activeElement;
+  if(!a||!a.isContentEditable) return null;
+  const s=getSelection(); if(!s.rangeCount) return {el:a};
+  const r=s.getRangeAt(0);
+  return {el:a, sc:r.startContainer, so:r.startOffset, ec:r.endContainer, eo:r.endOffset};
+}
+function restoreCaret(d){
+  if(!d||!d.el||!document.body.contains(d.el)) return;
+  try{ d.el.focus({preventScroll:true});
+    if(d.sc && document.body.contains(d.sc)){
+      const r=document.createRange(); r.setStart(d.sc,d.so); r.setEnd(d.ec,d.eo);
+      const s=getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+  }catch(e){}
+}
+
+function repaginate(){
+  const host=document.getElementById('sheets'); if(!host) return;
+  const caret=saveCaret();
+  // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
+  var _origens=[];
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
+  // ...i es torna l'ordre original: els fills reassemblats s'afegien al final.
+  _origens.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
+  });
+  FLOW.forEach(b=>{ if(b.parentNode) b.parentNode.removeChild(b); });
+  host.innerHTML='';
+  let body=null;
+  function newSheet(){
+    const n=host.children.length;
+    const sheet=document.createElement('div'); sheet.className='sheet'+(n?' has-head':'');
+    if(n){
+      const head=document.createElement('div'); head.className='sheet-head';
+      head.innerHTML='<span class="sheet-head-l"></span><span class="sheet-head-r">Biologia i Geologia · 3r ESO</span>';
+      head.firstChild.textContent=SA_NOM+' · '+SESSIO;
+      sheet.appendChild(head);
+    }
+    body=document.createElement('div'); body.className='sheet-body';
+    const foot=document.createElement('div'); foot.className='sheet-foot';
+    foot.innerHTML='<span class="fl">IE Temple · Biologia i Geologia 3r ESO</span>'+
+                   '<span class="fc">CC BY-NC-SA 4.0</span>'+
+                   '<span class="fr foot-pg"></span>';
+    sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
+  }
+  FLOW = FLOW.filter(b=>b);
+  function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn') && !c.classList.contains('move-ctrl'); }); }
+  function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
+  function trySplitSection(sec){
+    if(BODY_MAX - body.scrollHeight < 150) return false;
+    body.appendChild(sec);
+    if(body.scrollHeight <= BODY_MAX) return true;
+    var moved=[];
+    while(body.scrollHeight > BODY_MAX && _contentKids(sec).length > 1){
+      var ck=_contentKids(sec); var last=ck[ck.length-1];
+      moved.unshift(last); sec.removeChild(last);
+    }
+    if(moved.length===0 || body.scrollHeight > BODY_MAX){
+      moved.forEach(function(k){ sec.appendChild(k); });
+      if(sec.parentNode) sec.parentNode.removeChild(sec);
+      return false;
+    }
+    var pending=moved;
+    while(pending.length){
+      newSheet();
+      var cont=document.createElement('div');
+      cont.className='section'; cont.setAttribute('data-cont','1'); cont._origin=sec;
+      body.appendChild(cont);
+      pending.forEach(function(k){ cont.appendChild(k); });
+      var rest=[];
+      while(body.scrollHeight > BODY_MAX && cont.children.length>1){
+        var l=cont.lastElementChild; rest.unshift(l); cont.removeChild(l);
+      }
+      pending=rest;
+    }
+    return true;
+  }
+  newSheet();
+  for(let i=0;i<FLOW.length;i++){
+    const blk=FLOW[i];
+    if(blk.classList.contains('nova-pagina') && body.children.length) newSheet();
+    if(blk.classList.contains('spacer-block')){
+      blk.style.height='auto'; body.appendChild(blk);
+      const used = body.scrollHeight - blk.offsetHeight;
+      const remain = BODY_MAX - used;
+      blk.style.height = (remain>34?remain:34)+'px';
+      if(i < FLOW.length-1) newSheet();
+      continue;
+    }
+    body.appendChild(blk);
+    if(body.scrollHeight > BODY_MAX && body.children.length>1){
+      body.removeChild(blk);
+      var _ok=false;
+      if(blk.classList.contains('section')){ try{ _ok=trySplitSection(blk); }catch(e){ _ok=false; } }
+      if(!_ok){
+        newSheet();
+        var _ok2=false;
+        if(blk.classList.contains('section')){ try{ _ok2=trySplitSection(blk); }catch(e){ _ok2=false; } }
+        if(!_ok2){ body.appendChild(blk); }
+      }
+    }
+  }
+  const sheets=host.querySelectorAll('.sheet');
+  sheets.forEach((s,idx)=>{ const pg=s.querySelector('.foot-pg'); if(pg) pg.textContent='Pàgina '+(idx+1)+' / '+sheets.length; });
+  restoreCaret(caret);
+}
+let _pgT=null;
+function schedulePageBreaks(){ clearTimeout(_pgT); _pgT=setTimeout(repaginate,120); }
+document.addEventListener('focusout', ()=>schedulePageBreaks());
+
+const delStack = [];
+function deleteEl(btn){
+  const el = btn.closest('.deletable'); if(!el) return;
+  const idx = FLOW.indexOf(el);
+  delStack.push({ el, flowIdx: idx, parent: el.parentNode, sibling: el.nextSibling });
+  if(idx>=0) FLOW.splice(idx,1);
+  el.remove();
+  document.getElementById('btn-undo').classList.add('active');
+  repaginate();
+}
+function undoDelete(){
+  const last = delStack.pop(); if(!last) return;
+  if(last.flowIdx>=0){ FLOW.splice(Math.min(last.flowIdx,FLOW.length),0,last.el); }
+  else if(last.parent){ last.parent.insertBefore(last.el, last.sibling); }
+  if(delStack.length===0) document.getElementById('btn-undo').classList.remove('active');
+  repaginate();
+}
+document.addEventListener('keydown', e=>{
+  if(e.key==='z' && (e.ctrlKey||e.metaKey)){
+    const ed = document.activeElement && document.activeElement.isContentEditable;
+    if(!ed){ e.preventDefault(); undoDelete(); }
+  }
+});
+
+let _lastClickedBlock = null;
+document.addEventListener('click', e=>{
+  const blk = e.target.closest && e.target.closest('.deletable');
+  if(blk) _lastClickedBlock = blk;
+});
+function _newSpacer(){
+  const sp=document.createElement('div'); sp.className='spacer-block deletable spacer-fill';
+  sp.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai · la resta passa a la pàgina següent</span>';
+  return sp;
+}
+function _registerSpacer(sp, idx){
+  if(idx>=0) FLOW.splice(idx,0,sp); else FLOW.push(sp);
+  delStack.push({ el:sp, flowIdx:FLOW.indexOf(sp) });
+  document.getElementById('btn-undo').classList.add('active');
+  repaginate();
+  if(typeof makeMovable==='function') makeMovable();
+}
+function insertSpacer(){
+  const ref = topFlowBlock(_lastClickedBlock);
+  const i = ref ? FLOW.indexOf(ref) : -1;
+  _registerSpacer(_newSpacer(), i>=0 ? i+1 : -1);
+}
+function addSpacerAfter(span){
+  const ref = topFlowBlock(span.closest('.deletable'));
+  const i = ref ? FLOW.indexOf(ref) : -1;
+  _registerSpacer(_newSpacer(), i>=0 ? i+1 : -1);
+}
+
+function _fitxaToast(msg){
+  let t=document.getElementById('fitxa-toast');
+  if(!t){t=document.createElement('div');t.id='fitxa-toast';
+    t.style.cssText='position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3a2d6e;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s';
+    document.body.appendChild(t);}
+  t.textContent=msg;t.style.opacity='1';clearTimeout(t._h);t._h=setTimeout(()=>t.style.opacity='0',2200);
+}
+function rebuildDocFromFlow(){
+  const doc=document.getElementById('doc');
+  // reassembla seccions partides abans de reconstruir (evita perdre contingut)
+  var _origens2=[];
+  document.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens2.indexOf(o)<0) _origens2.push(o); } });
+  // ...i es torna l'ordre original: en desar, els fills reassemblats s'afegien
+  // al final i el desordre quedava escrit al fitxer.
+  _origens2.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
+  });
+  FLOW.forEach(b=>{ if(b.classList.contains('spacer-block')) b.style.height=''; });
+  FLOW.forEach(b=>{ if(b.parentNode!==doc){ if(b.parentNode) b.parentNode.removeChild(b); doc.appendChild(b); } });
+  document.getElementById('sheets').innerHTML='';
+}
+async function desaFitxa(){
+  rebuildDocFromFlow();
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelectorAll('#fitxa-toast').forEach(n=>n.remove());
+  const sh=clone.querySelector('#sheets'); if(sh) sh.innerHTML='';
+  const html='<!DOCTYPE html>\n'+clone.outerHTML;
+  const fname=(location.pathname.split('/').pop()||'fitxa.html');
+  try{
+    if(window.showSaveFilePicker){
+      try{
+        const h=await window.showSaveFilePicker({suggestedName:fname,types:[{description:'Pàgina HTML',accept:{'text/html':['.html']}}]});
+        const w=await h.createWritable();await w.write(html);await w.close();
+        _fitxaToast('✓ Canvis desats al fitxer');return;
+      }catch(e){if(e.name==='AbortError')return;}
+    }
+    const blob=new Blob([html],{type:'text/html'});
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;
+    document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+    _fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');
+  } finally {
+    extractFlow(); repaginate();
+  }
+}
+document.addEventListener('keydown',e=>{ if(e.key==='s'&&(e.ctrlKey||e.metaKey)){e.preventDefault();desaFitxa();} });
+
+function makeEditable(){
+  const sels=[
+    '.oa-title','.stitle','.sdesc','.card-label','.word-bank-title','.chip',
+    '.previ-box p','.connexio-text','.epist-text','.epist-title',
+    '.data-table th','.hint-cell','.tasca-box p',
+    '.meta-oa-title','.meta-open-label','.pista',
+    '.footer-l','.footer-r','.card p','.section p','.previ-box strong',
+    '.card ol li','.card ul li','.draw-box p','.info-box p','.info-label','.chain-chip','.circ-row','.fig-cap'
+  ].join(',');
+  document.querySelectorAll(sels).forEach(el=>{
+    if(el.isContentEditable) return;
+    if(el.closest('[contenteditable="true"]')) return;
+    if(el.querySelector('.fill-cell,.wline,.input-span,.chk-sq,.yes-no,.yn-opt,.blank,.del-btn,.move-ctrl,img,table,svg')) return;
+    el.setAttribute('contenteditable','true');
+  });
+  document.querySelectorAll('.blank').forEach(b=>b.setAttribute('contenteditable','true'));
+}
+
+const _MV_UP='<span class="mv" title="Mou amunt" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,-1)">↑</span>';
+const _MV_DOWN='<span class="mv" title="Mou avall" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,1)">↓</span>';
+const _MV_SPACE='<span class="mv mv-space" title="Afegeix un espai en blanc a sota d\'aquest bloc" onmousedown="event.preventDefault();event.stopPropagation();addSpacerAfter(this)">＋</span>';
+function makeMovable(){
+  document.querySelectorAll('.deletable').forEach(el=>{
+    let mc=el.querySelector(':scope > .move-ctrl');
+    if(!mc){
+      el.insertAdjacentHTML('beforeend','<div class="move-ctrl">'+_MV_UP+_MV_DOWN+_MV_SPACE+'</div>');
+    } else if(!mc.querySelector('.mv-space')){
+      mc.insertAdjacentHTML('beforeend', _MV_SPACE);
+    }
+  });
+}
+function moveEl(span,dir){
+  const el=span.closest('.deletable'); if(!el) return;
+  const i=FLOW.indexOf(el);
+  if(i>=0){
+    const j=i+dir; if(j<0||j>=FLOW.length) return;
+    const t=FLOW[i]; FLOW[i]=FLOW[j]; FLOW[j]=t;
+    repaginate(); return;
+  }
+  let sib = dir<0 ? el.previousElementSibling : el.nextElementSibling;
+  while(sib && !sib.classList.contains('deletable')) sib = dir<0 ? sib.previousElementSibling : sib.nextElementSibling;
+  if(sib){ if(dir<0) el.parentNode.insertBefore(el,sib); else el.parentNode.insertBefore(sib,el); }
+  repaginate();
+}
+
+let _lastWline=null;
+function wlineText(w){ let s=''; w.childNodes.forEach(n=>{ if(n.nodeType===3) s+=n.textContent; else if(n.nodeType===1 && !n.classList.contains('wline-del')) s+=n.textContent; }); return s; }
+function makeWline(){
+  const w=document.createElement('div');
+  w.className='wline'; w.setAttribute('contenteditable','true');
+  w.insertAdjacentHTML('beforeend','<span class="wline-del" contenteditable="false" title="Treu aquesta línia" onmousedown="event.preventDefault();event.stopPropagation();delWline(this)">✕</span>');
+  return w;
+}
+function decorateWlines(){
+  document.querySelectorAll('.wline').forEach(w=>{
+    if(w.querySelector(':scope > .wline-del')) return;
+    w.insertAdjacentHTML('beforeend','<span class="wline-del" contenteditable="false" title="Treu aquesta línia" onmousedown="event.preventDefault();event.stopPropagation();delWline(this)">✕</span>');
+  });
+}
+function addWlineAfter(ref){
+  if(!ref||!ref.parentNode) return null;
+  const nw=makeWline(); ref.parentNode.insertBefore(nw, ref.nextSibling);
+  _lastWline=nw; placeCaretStart(nw); schedulePageBreaks(); return nw;
+}
+function delWline(btn){
+  const w=btn.closest('.wline'); if(!w) return;
+  const prev=w.previousElementSibling;
+  w.remove();
+  if(prev && prev.classList && prev.classList.contains('wline')){ _lastWline=prev; placeCaretStart(prev); }
+  schedulePageBreaks();
+}
+function addWlineToolbar(){
+  let ref=_lastWline && document.body.contains(_lastWline) ? _lastWline : null;
+  if(!ref){ const all=document.querySelectorAll('.wline'); ref=all[all.length-1]; }
+  if(ref) addWlineAfter(ref); else _fitxaToast('Fes clic dins d\'una línia d\'escriptura primer');
+}
+function placeCaretStart(el){
+  el.focus();
+  try{ const r=document.createRange(); r.setStart(el,0); r.collapse(true); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){}
+}
+document.addEventListener('focusin',e=>{ if(e.target.classList&&e.target.classList.contains('wline')) _lastWline=e.target; });
+document.addEventListener('keydown',e=>{
+  const t=e.target;
+  if(t&&t.classList&&t.classList.contains('wline')){
+    if(e.key==='Enter'){ e.preventDefault(); addWlineAfter(t); }
+    else if(e.key==='Backspace' && wlineText(t).trim()===''){
+      const prev=t.previousElementSibling;
+      if(prev&&prev.classList&&prev.classList.contains('wline')){ e.preventDefault(); t.remove(); _lastWline=prev; placeCaretEnd(prev); schedulePageBreaks(); }
+    }
+  }
+},true);
+function placeCaretEnd(el){
+  el.focus();
+  try{ const r=document.createRange(); r.selectNodeContents(el); r.collapse(false); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){}
+}
+
+window.addEventListener('load', ()=>{
+  flattenDoc();
+  makeEditable();
+  decorateWlines();
+  extractFlow();
+  makeMovable();
+  repaginate();
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(()=>repaginate()); }
+  document.querySelectorAll('img').forEach(img=>{ if(!img.complete) img.addEventListener('load', ()=>schedulePageBreaks(), {once:true}); });
+  setTimeout(repaginate, 400);
+  setTimeout(repaginate, 1200);
+});
+</script>
+
+</body></html>

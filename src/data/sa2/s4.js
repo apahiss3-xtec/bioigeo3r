@@ -108,6 +108,8 @@ export const sa2s4 = {
   fitxaUrl: { A: "/fitxes/sa2-s4-fitxa-A.html", B: "/fitxes/sa2-s4-fitxa-B.html", C: "/fitxes/sa2-s4-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s4-teoria.pdf",
 
   sessionMaterials: [
+    { id: "fitxaAcollidaUR", title: "Fitxa de la sessió · acollida (urdú)", url: "/fitxes/sa2-s4-fitxa-acollida-UR.html", who: "alumnat d'acollida: mateixos apartats que la classe" },
+    { id: "fitxaAcollidaAR", title: "Fitxa de la sessió · acollida (àrab)", url: "/fitxes/sa2-s4-fitxa-acollida-AR.html", who: "alumnat d'acollida: mateixos apartats que la classe" },
     { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s4-exit-ticket.html", who: "per al final de la sessió" },
     { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s4-exit-ticket-C.html", who: "per al final de la sessió" },
     { id: "labVirtual", title: "Laboratori virtual (si has faltat a la pràctica)", url: "/labs/sa2/lab_s4_disseccio.html", who: "per fer a casa si no vas poder fer la pràctica" }

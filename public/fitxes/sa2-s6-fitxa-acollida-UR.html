@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="ca"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sessió 6 · El sistema de control i l'equilibri intern · Acollida (urdú) — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@500;600;700&amp;family=Noto+Nastaliq+Urdu:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple:       #7B68C8;
+  --purple-ink:   #4a3b8c;
+  --purple-light: #c5b8f0;
+  --purple-tint:  #f0edfb;
+  --ink:          #1A1428;
+  --ink-2:        #3a3050;
+  --muted:        #7a7090;
+  --surface:      #fdfcff;
+  --rule:         #e8e2f6;
+  --rule-dark:    #c8bfe8;
+  --art:     #c0474a; --art-tint:     #fef5f5;
+  --ven:     #6b7ab5; --ven-tint:     #f0f2ff;
+  --orange:  #e8834a; --orange-tint:  #fdf0e8;
+  --teal:    #3a9e8c; --teal-tint:    #e6f4f1;
+  --rose:    #d44a6c; --rose-tint:    #fce8ed;
+  --yellow:  #c8960a; --yellow-tint:  #fdf7e2;
+  --green:   #4a9e5c; --green-tint:   #eaf4ec;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:14.5px; line-height:1.5; }
+
+#toolbar { position:fixed; top:0; left:0; right:0; z-index:9000; background:#2d2347; display:flex; gap:6px; align-items:center; padding:6px 12px; box-shadow:0 2px 10px rgba(0,0,0,.25); }
+.tb-btn { font-family:'Inter',sans-serif; font-size:12px; font-weight:600; color:#fff; background:rgba(255,255,255,.12); border:none; cursor:pointer; padding:6px 11px; border-radius:7px; }
+.tb-btn:hover { background:rgba(255,255,255,.24); }
+.tb-btn.active { background:var(--purple); }
+.tb-title { font-family:'Inter',sans-serif; font-size:11px; color:#cfc6ec; margin-left:auto; letter-spacing:.04em; }
+
+.page-wrap { margin:43px auto 36px; }
+#doc { display:none; }
+#sheets { display:flex; flex-direction:column; align-items:center; gap:26px; }
+.sheet { width:794px; min-height:1123px; background:var(--surface); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.16); overflow:visible; padding-bottom:23px; }
+.sheet-body { padding:36px 18px 7px; position:relative; overflow:visible; }
+.sheet-foot { position:absolute; left:0; right:0; bottom:0; height:26px; display:flex; justify-content:space-between; align-items:center; padding:0 22px; font-family:'Inter',sans-serif; font-size:8px; font-weight:600; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; border-top:.5px solid var(--rule); background:var(--surface); }
+.sheet-body > .header-band { margin:-40px -18px 0; }
+.sheet-body > .nivell-strip { margin:0 -18px; }
+.sheet-body > .oa-box { margin-left:0; margin-right:0; }
+.sheet-body > .content { padding:0; }
+.spacer-fill { display:flex; align-items:center; justify-content:center; }
+
+.header-band { background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%); color:#fff; padding:15px 18px 14px; display:grid; grid-template-columns:54px 1fr auto; gap:0 16px; align-items:center; position:relative; overflow:hidden; }
+.header-emoji-box { width:50px; height:50px; background:rgba(255,255,255,.18); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; position:relative; z-index:2; }
+.header-center { min-width:0; position:relative; z-index:2; }
+.header-sa { font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; opacity:.8; margin-bottom:2px; }
+.header-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:30px; font-weight:900; line-height:1.05; color:#fff; margin:0; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-size:13px; font-style:italic; opacity:.88; margin-top:2px; }
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:6px; flex-shrink:0; position:relative; z-index:2; }
+.logo-box { background:#fff; border-radius:12px; padding:5px 11px; box-shadow:0 3px 12px rgba(20,10,40,.28); }
+.logo-box img { height:84px; display:block; }
+.header-meta { font-family:'Inter',sans-serif; font-size:8px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; opacity:.82; text-align:right; line-height:1.4; }
+
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
+.badge { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
+.temps-badge { font-size:11px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
+.nom-field { font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
+.nom-field:first-of-type { margin-left:auto; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:13.5px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
+.input-span.data-span { min-width:70px; }
+.nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(123,104,200,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); vertical-align:middle; margin-left:4px; flex-shrink:0; }
+
+.oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:9px 14px 11px; margin:11px 18px 4px; position:relative; }
+.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14.5px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:5px; }
+.oa-list { margin:0; padding-left:18px; list-style:none; }
+.oa-list li { font-size:13.5px; line-height:1.5; color:var(--ink-2); margin-bottom:3px; padding-left:4px; }
+.oa-list li::before { content:"\2610 "; color:var(--purple); font-weight:700; margin-left:-18px; margin-right:4px; }
+
+.content { padding:4px 18px 13px; }
+.section { margin-top:11px; position:relative; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:7px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:14.5px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.snum.n0 { background:var(--muted); } .snum.n1 { background:var(--orange); } .snum.n2 { background:var(--teal); }
+.snum.n3 { background:var(--art); } .snum.n4 { background:var(--purple-ink); }
+.stitle { font-size:16px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:11px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:9px; }
+
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:8px 12px; }
+.previ-box p { font-size:14px; }
+.previ-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch; margin-top:7px; }
+.draw-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; display:flex; flex-direction:column; }
+.draw-box .card-label { color:var(--purple-ink); }
+.draw-area { flex:1 1 auto; min-height:240px; border:1.5px dashed var(--rule-dark); border-radius:8px; background:#fff; margin-top:5px; display:flex; align-items:flex-start; justify-content:flex-end; }
+.draw-area .draw-hint { font-size:9px; color:#c0b8d8; font-style:italic; padding:5px 8px; user-select:none; pointer-events:none; }
+.wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:5px; background:#fff; outline:none; padding:3px 4px; }
+.pista { font-size:11px; color:var(--muted); font-style:italic; margin:4px 0 2px; }
+.card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:9px 12px; margin-bottom:7px; }
+.card.orange { border-color:var(--orange); background:var(--orange-tint); }
+.card.teal { border-color:var(--teal); background:var(--teal-tint); }
+.card.rose { border-color:var(--rose); background:var(--rose-tint); }
+.card.yellow { border-color:var(--yellow); background:var(--yellow-tint); }
+.card-label { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+
+.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:7px 12px; margin:7px 0; }
+.connexio-icon { font-size:24px; flex-shrink:0; }
+.connexio-text { font-size:13.5px; line-height:1.5; }
+.connexio-text strong { color:var(--purple-ink); }
+
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:6px 10px; margin-bottom:9px; }
+.word-bank-title { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.chips { display:flex; flex-wrap:wrap; gap:4px; }
+.chip { font-size:13.5px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+
+.data-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+.data-table th { background:var(--purple-ink); color:#fff; padding:4px 8px; text-align:left; font-size:11px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table th:first-child { border-radius:5px 0 0 0; }
+.data-table th:last-child { border-radius:0 5px 0 0; }
+.data-table td { padding:4px 8px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table tr:nth-child(even) td { background:var(--purple-tint); }
+.data-table.analitica tr.row-baixa td { background:var(--rose-tint); }
+.data-table.analitica tr.row-alta td { background:var(--green-tint); }
+.fill-cell { display:block; width:100%; min-height:22px; border-bottom:1.5px solid #C8C2DD; background:#fff; outline:none; padding:2px 3px; }
+.yn-opt { font-size:13.5px; display:inline-flex; align-items:center; gap:3px; }
+.chk-sq { width:12px; height:12px; border:1.5px solid var(--rule-dark); border-radius:2px; flex-shrink:0; display:inline-block; print-color-adjust:exact; }
+
+.milimetrat-title { background:var(--purple-ink); color:#fff; font-size:11px; font-weight:700; padding:4px 10px; text-transform:uppercase; letter-spacing:.05em; display:flex; justify-content:space-between; align-items:center; }
+.g1-wrap { border:1.5px solid var(--rule); border-radius:8px; overflow:hidden; margin:7px 0; position:relative; }
+.img-marcador { min-height:180px; align-items:center; justify-content:center; background:repeating-linear-gradient(45deg,#faf8ff,#faf8ff 10px,#f0edfb 10px,#f0edfb 20px); border:2px dashed var(--purple-light); }
+.img-marcador-in { text-align:center; padding:13px 18px; }
+
+.blank { display:inline-block; border:1px solid var(--rule); border-bottom:1.5px solid #C8C2DD; border-radius:3px 3px 0 0; vertical-align:bottom; margin:0 3px; height:auto; min-height:1.45em; line-height:1.5; padding:0 5px; background:#fff; outline:none; }
+.blank-s { min-width:60px; } .blank-m { min-width:100px; } .blank-l { min-width:140px; } .blank-xl { min-width:200px; }
+.frase-completar { font-size:13.5px; line-height:2.3; margin-bottom:4px; }
+
+.info-box { background:#fff; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:7px 12px; margin:7px 0; position:relative; }
+.info-label { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.info-box p { font-size:13.5px; line-height:1.5; margin-bottom:3px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:5px 0 3px; }
+.chain-chip { font-size:13.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:14.5px; }
+
+.circ-row { font-size:13.5px; line-height:2.1; margin-bottom:3px; }
+.circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:#fff; }
+
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:7px 12px; margin:7px 0; position:relative; }
+.epist-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
+.epist-text { font-size:13.5px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+
+.meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:9px 14px 11px; margin-top:11px; position:relative; }
+.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14px; font-weight:900; color:var(--purple-ink); margin-bottom:7px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:4px; }
+.meta-oa-check { width:14px; height:14px; flex-shrink:0; border:1.5px solid var(--purple); border-radius:3px; margin-top:1px; print-color-adjust:exact; }
+.meta-oa-text { font-size:13.5px; color:var(--ink-2); line-height:1.5; }
+.meta-open { margin-top:7px; padding-top:7px; border-top:1px solid var(--rule-dark); }
+.meta-open-label { font-size:11px; font-weight:700; color:var(--muted); margin-bottom:3px; }
+
+.tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:9px 12px; margin-top:9px; position:relative; }
+
+.footer { margin-top:13px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:6px; }
+.footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
+.footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+
+.deletable { position:relative; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; background:var(--rose); color:#fff; border-radius:50%; font-size:11px; line-height:18px; text-align:center; cursor:pointer; z-index:50; box-shadow:0 1px 4px rgba(0,0,0,.3); }
+.deletable:hover > .del-btn { display:flex; align-items:center; justify-content:center; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+
+.move-ctrl { display:none; position:absolute; top:-9px; right:14px; z-index:51; gap:2px; }
+.deletable:hover > .move-ctrl { display:flex; }
+.deletable:has(.deletable:hover) > .move-ctrl { display:none; }
+.mv { width:18px; height:18px; background:var(--purple); color:#fff; border-radius:50%; font-size:11px; line-height:18px; text-align:center; cursor:pointer; box-shadow:0 1px 4px rgba(0,0,0,.3); user-select:none; }
+.mv:hover { background:var(--purple-ink); }
+.mv.mv-space { background:var(--green); }
+.mv.mv-space:hover { background:#357a44; }
+
+.wline { position:relative; }
+.wline-del { display:none; position:absolute; top:50%; right:-7px; transform:translateY(-50%); width:16px; height:16px; background:var(--rose); color:#fff; border-radius:50%; font-size:10px; line-height:16px; text-align:center; cursor:pointer; z-index:40; box-shadow:0 1px 3px rgba(0,0,0,.3); user-select:none; }
+.wline:hover > .wline-del { display:block; }
+
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; }
+.spacer-label { font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+
+.mt8 { margin-top:7px; } .bold { font-weight:700; } .small { font-size:11px; color:var(--muted); }
+
+@media print {
+  @page { size:A4; margin:0; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html,body { background:#fff; padding:0; margin:0; }
+  #toolbar, .del-btn, .move-ctrl, .wline-del { display:none !important; }
+  .page-wrap { margin:0; }
+  #sheets { gap:0; display:block; }
+  .sheet { width:210mm; height:297mm; min-height:0; box-shadow:none; margin:0; page-break-after:always; break-after:page; overflow:hidden; }
+  .sheet:last-child { page-break-after:auto; break-after:auto; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline,.fill-cell,.blank { background:transparent; }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .input-span:empty::before { display:none; }
+  .header-emoji-box { background:#ede8f8; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LLEGIBILITAT-C v1 — llegibilitat de la Versió C (dislèxia). 09/09/2026.
+   Cos en 'Fira Sans Condensed' (mateixa família que l'Extra Condensed
+   de la casa, però amb lletres més obertes i distingibles), interlineat
+   ample i separació de paraules. Titulars, capçalera i peu no es toquen.
+   ══════════════════════════════════════════════════════════════ */
+.sheet-body,#doc{font-family:'Fira Sans Condensed','Fira Sans Extra Condensed',sans-serif;
+  line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
+.sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
+.sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
+
+/* ── Components C de S2 ── */
+/* pistes i exemples: requadre visible, contrast alt */
+.pista,.start-hint{display:block;font-size:14px;font-style:normal;color:#4a4a5a;background:#fff8e0;border-left:4px solid #c8960a;border-radius:0 6px 6px 0;padding:4px 9px;margin:6px 0 3px}
+.hint-cell{font-size:14px;color:#4a4a5a}
+.small{font-size:13px;color:#4a4a5a}
+.exemple-box p{font-size:14.5px}
+
+/* frases curtes */
+.frase{font-size:16px;line-height:1.45;font-weight:600;color:var(--ink);margin:2px 0 6px}
+.frase .ico{font-size:22px;margin-right:6px;vertical-align:-2px}
+.frase-box{background:#fff;border:1.5px solid var(--purple-light);border-radius:10px;padding:8px 12px;margin-bottom:8px}
+
+/* paraula nova */
+.mot-nou{display:flex;gap:10px;align-items:center;background:#fffbea;border:2px solid #e0b93a;border-radius:10px;padding:8px 12px;margin-bottom:8px}
+.mot-nou svg{flex-shrink:0}
+.mot-nou .mn-lab{font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#7a5a00;margin-bottom:2px}
+.mot-nou .mn-txt{font-size:15px;line-height:1.4;color:var(--ink)}
+.mots-2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mots-2 .mot-nou{margin-bottom:8px}
+.kw{font-weight:900;padding:0 5px;border-radius:5px}
+.kw-cap{background:#fce8ed;color:#a01e44;border:1px solid #d44a6c}
+.kw-acid{background:#fdf0c8;color:#6b4e00;border:1px solid #c8960a}
+.kw-vel{background:#dff1ec;color:#17604f;border:1px solid #3a9e8c}
+.kw-mit{background:#fde9d9;color:#8a3a0a;border:1px solid #e8834a}
+
+/* opcions per encerclar */
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opt{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:600;padding:5px 11px;border-radius:9999px;background:#fff;border:2px solid var(--rule-dark);color:var(--ink);cursor:pointer;user-select:none;line-height:1.25}
+.opt:hover{border-color:var(--purple)}
+.opt.sel{border-color:#2f7a42;background:#e3f3e6;box-shadow:0 0 0 3px #a9d9b4}
+img.ico{width:1.4em;height:1.4em;object-fit:cover;border-radius:50%;border:1.5px solid var(--rule-dark);vertical-align:middle;background:#fff}
+.opt-card .e img.ico{width:52px;height:52px}.sim-row .fase .e img.ico{width:46px;height:46px;margin:0 auto}
+.org-step .ic img.ico{width:50px;height:50px}svg.drop{vertical-align:middle}
+.opt .e{font-size:20px}
+.opt.ex::after{content:"✓ exemple";font-size:13px;font-weight:700;color:#2f7a42;margin-left:2px}
+.opt-card{flex-direction:column;border-radius:12px;padding:8px 6px;width:100px;text-align:center;justify-content:center}
+.opt-card .e{font-size:34px}
+
+/* sec 1: idees prèvies */
+.prev-grid{display:flex;gap:8px;flex-wrap:wrap}
+
+/* sec 2: recorregut */
+.org-layout{display:grid;grid-template-columns:240px 1fr;gap:16px;align-items:start}
+.org-steps{display:flex;flex-direction:column;gap:7px}
+.org-step{display:grid;grid-template-columns:30px 34px 1fr 130px;gap:8px;align-items:center;background:var(--purple-tint);border:1.5px solid var(--rule);border-radius:10px;padding:6px 8px}
+.org-step .n{width:28px;height:28px;border-radius:50%;background:var(--purple-ink);color:#fff;font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center}
+.org-step .ic{font-size:26px;text-align:center}
+.org-step .ht{font-size:14.5px;line-height:1.3;color:var(--ink-2)}
+.org-step .fill-cell{min-height:30px;font-size:16px;font-weight:700;text-align:center}
+.org-step.ex{background:var(--green-tint);border-color:var(--green)}
+.org-step.ex .fill-cell{color:#2f7a42}
+.org-arrow{text-align:center;font-size:18px;line-height:1;color:var(--purple);margin:-3px 0}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ACOLLIDA · URDÚ / ÀRAB (comú SA2) — 25/10/2026. Català com a llengua de referència,
+   urdú (RTL, Nastaliq) com a bastida sota cada explicació i consigna.
+   ══════════════════════════════════════════════════════════════ */
+.ur { font-family:'Noto Nastaliq Urdu',serif; direction:rtl; text-align:right; unicode-bidi:isolate;
+  font-size:12.5px; line-height:2.05; color:#21574d; background:#eef7f4; border-right:3px solid var(--teal);
+  border-radius:6px 0 0 6px; padding:0 10px 2px; margin:3px 0 6px; }
+#doc .ur, .sheet-body .ur { font-family:'Noto Nastaliq Urdu',serif; text-align:right; word-spacing:normal; letter-spacing:0; }
+.ur-in, .th-ur, [lang="ur"] { font-family:'Noto Nastaliq Urdu',serif !important; letter-spacing:0 !important; word-spacing:normal !important; }
+.ur-in { unicode-bidi:isolate; font-size:.82em; font-weight:400; color:#21574d; text-transform:none; letter-spacing:0; margin-left:4px; line-height:1; }
+.th-ur { display:block; font-size:10px; font-weight:400; text-transform:none; letter-spacing:0; line-height:1.9; opacity:.92; }
+.header-ur { font-family:'Noto Nastaliq Urdu',serif; direction:rtl; text-align:left; font-size:12.5px; line-height:1.9; opacity:.92; margin-top:3px; }
+
+.guia-box { border:2px solid var(--teal); border-radius:10px; padding:8px 12px 6px; margin:10px 0 4px; background:#fff; }
+.guia-title { font-size:15px; font-weight:900; color:var(--teal); }
+.guia-box > .ur { display:inline-block; margin:0 0 4px; }
+.guia-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px 16px; }
+.guia-pas { display:flex; gap:8px; align-items:flex-start; }
+.guia-pas p { font-size:13.5px; line-height:1.4; }
+.guia-pas .ur { margin:2px 0 3px; }
+.guia-n { width:22px; height:22px; flex-shrink:0; border-radius:50%; background:var(--teal); color:#fff; font-weight:900; font-size:13px; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.oa-list li .ur { margin:1px 0 4px; font-size:12px; }
+
+.glos { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; }
+.glos-item { border:1.5px solid var(--rule-dark); border-radius:8px; background:#fff; padding:5px 5px 4px; text-align:center; }
+.glos-img { height:84px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:6px; }
+.glos-img img { max-height:84px; max-width:100%; object-fit:contain; }
+.sprite { width:58px; height:84px; background-image:url('s1_5nutrients_nivell_c.png'); background-size:auto 100%; background-repeat:no-repeat; }
+.glos-ca { font-size:14.5px; font-weight:900; color:var(--purple-ink); line-height:1.15; margin-top:3px; }
+.glos-ur { font-family:'Noto Nastaliq Urdu',serif; font-size:13px; color:#21574d; line-height:1.9; }
+.glos-def { font-size:11px; color:var(--muted); line-height:1.25; }
+
+.llegir { background:#fbfaff; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:7px 12px 4px; margin:6px 0 8px; }
+.llegir-lab, .fer-lab { font-size:12px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.llegir p { font-size:14px; line-height:1.55; }
+.fer { background:var(--orange-tint); border:1.5px solid var(--orange); border-radius:8px; padding:7px 12px 4px; margin:6px 0 8px; }
+.fer-lab { color:#b85a22; }
+.fer p { font-size:14px; line-height:1.5; }
+.fer-list { padding-left:20px; font-size:14px; line-height:1.45; }
+.fer-list li { margin-bottom:2px; }
+.fer-list .ur { margin:1px 0 4px; }
+
+.proves { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.prova p { font-size:13.5px; }
+.paper-row { display:flex; gap:22px; justify-content:center; align-items:flex-end; margin:5px 0 2px; }
+.paper { width:84px; text-align:center; }
+.paper::before { content:""; display:block; width:70px; height:86px; margin:0 auto; background:#f3ead4; border:1.5px solid #c9b98f; border-radius:3px; }
+.paper .taca { width:38px; height:30px; border-radius:50%; margin:-58px auto 28px; background:radial-gradient(ellipse at center, rgba(255,255,255,.95) 0%, rgba(255,255,255,.7) 55%, rgba(255,255,255,0) 72%); position:relative; }
+.paper .tcap { font-size:11px; font-weight:700; margin-top:4px; line-height:1.4; }
+.paper.mini, .tube.mini { width:auto; }
+.paper.mini::before { width:52px; height:62px; }
+.paper.mini .taca { width:30px; height:24px; margin:-44px auto 20px; }
+.tube.mini .glass { width:30px; height:64px; border-radius:0 0 15px 15px; }
+
+.pred-row { display:flex; align-items:center; gap:5px; flex-wrap:wrap; font-size:14px; margin:6px 0; }
+.pred-row strong { min-width:84px; }
+.connexio-img { height:92px; width:auto; flex-shrink:0; border-radius:6px; }
+.lab-table td.food, .data-table td.food { font-weight:700; white-space:nowrap; }
+.data-table td.exemple { font-size:12px; color:var(--muted); font-style:italic; }
+.data-table th { vertical-align:top; }
+.lab-table .fill-cell { min-height:30px; }
+
+.raona-box { border:2px solid var(--purple-light); border-radius:12px; padding:0; margin:9px 0; overflow:hidden; background:#fff; }
+.raona-cap { background:var(--purple-ink); color:#fff; font-size:12px; font-weight:900; letter-spacing:.05em; text-transform:uppercase; padding:5px 12px; }
+.raona-cap .ur-in { color:#e6e0ff; }
+.raona-pas { padding:5px 12px; border-bottom:1px dashed var(--rule); }
+.raona-pas:last-child { border-bottom:none; }
+.raona-pas-lab { font-size:11px; font-weight:900; color:var(--purple-ink); letter-spacing:.06em; text-transform:uppercase; }
+.raona-pas-lab [lang="ur"] { font-size:11px; text-transform:none; font-weight:400; }
+.raona-pas .frase-completar { margin:0; }
+
+.chain-ur { justify-content:flex-start; }
+.chain-ur .chain-chip { font-family:'Noto Nastaliq Urdu',serif; font-size:11.5px; font-weight:400; line-height:1.9; background:#eef7f4; border-color:#a9d6cc; color:#21574d; }
+.nut-caps { display:grid; grid-template-columns:repeat(5,1fr); gap:4px; font-size:11.5px; line-height:1.3; margin-top:3px; }
+.nut-caps [lang="ur"] { font-size:10.5px; color:#21574d; line-height:1.9; }
+.dfig img { max-height:150px; }
+.banc { display:flex; flex-wrap:wrap; gap:5px; align-items:center; font-size:13px; margin:4px 0 2px; }
+.banc-lab { font-weight:900; color:var(--purple-ink); font-size:12px; }
+
+.etiq-grid { display:grid; grid-template-columns:260px 1fr; gap:14px; align-items:start; margin:4px 0 6px; }
+.etiq-grid .nutri-label { margin:0; }
+.ingr { border:2px solid #333; border-radius:4px; background:#fff; }
+.ingr-h { background:#333; color:#fff; font-weight:700; text-align:center; padding:3px; letter-spacing:.04em; font-size:13px; }
+.ingr p { font-size:13.5px; line-height:1.7; padding:5px 9px; }
+.etiq-table { width:auto; min-width:60%; margin:2px 0 4px; }
+.etiq-table td { padding:3px 10px; }
+
+.idea-clau { background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%); color:#fff; border-radius:10px; padding:8px 14px 5px; margin:10px 0 6px; }
+.idea-lab { font-size:12px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:#ffe7a8; }
+.idea-clau p { font-size:14.5px; line-height:1.5; }
+.idea-clau .ur { background:rgba(255,255,255,.12); color:#fff; border-right-color:#ffe7a8; }
+.tasca-box .ur { margin-top:3px; }
+.tasca-box .fill-cell { min-height:74px; }
+.draw-box .draw-area { min-height:300px; }
+.wline { min-height:30px; }
+.card .ur { margin:3px 0 4px; }
+.producte { display:flex; align-items:center; gap:12px; border:2px solid #b07a3a; background:#fdf3e6; border-radius:10px; padding:7px 12px; margin:0 0 8px; }
+.galetes { position:relative; width:78px; height:58px; flex-shrink:0; }
+.galeta { position:absolute; left:0; top:4px; width:50px; height:50px; border-radius:50%; border:2px solid #a8702f;
+  background:radial-gradient(circle at 30% 32%, #4a2814 0 4px, transparent 5px), radial-gradient(circle at 66% 38%, #4a2814 0 4px, transparent 5px),
+  radial-gradient(circle at 44% 70%, #4a2814 0 4px, transparent 5px), radial-gradient(circle at 74% 70%, #4a2814 0 3px, transparent 4px), #dba664; }
+.galeta.g2 { left:26px; top:0; }
+.producte-nom { font-size:16px; font-weight:900; color:#7a4a1c; line-height:1.15; }
+.producte-ur { font-size:13px; color:#21574d; line-height:1.9; }
+.producte-def { font-size:12px; color:var(--muted); }
+@media print { .producte, .galeta { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+@media print { .idea-clau { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+
+/* Full de teoria per estudiar a casa (sempre comença en pàgina nova) */
+.teo-com { background:var(--teal-tint); border:1.5px solid var(--teal); border-radius:8px; padding:6px 12px 3px; margin:4px 0 8px; }
+.teo-com p { font-size:13.5px; line-height:1.45; }
+.teo-card { border:2px solid var(--rule-dark); border-top-width:6px; border-radius:10px; background:#fff; padding:5px 12px 3px; margin:0 0 7px; }
+.teo-card p { font-size:13.5px; line-height:1.45; }
+.teo-h { display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:16px; font-weight:900; color:var(--ink); margin-bottom:3px; }
+.teo-n { width:24px; height:24px; border-radius:50%; background:var(--purple-ink); color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.teo-ur-t { font-family:'Noto Nastaliq Urdu',serif; font-size:13px; color:#21574d; line-height:1.8; text-align:right; margin-top:-4px; }
+.c-eq { border-color:#8f7fd6; } .c-hid { border-color:#d9b64a; } .c-gre { border-color:#6aa9d6; } .c-pro { border-color:#7fbf6a; }
+.c-mic { border-color:#3a9e8c; } .c-fer { border-color:#d44a6c; } .c-iod { border-color:#c8960a; }
+.eq { display:flex; align-items:center; justify-content:center; gap:7px; margin:4px 0 6px; }
+.eq-box { text-align:center; }
+.eq-chip { display:inline-block; border-radius:8px; padding:4px 10px; font-weight:900; font-size:14.5px; margin:2px 0; }
+.eq-chip.glu { background:var(--yellow-tint); border:2px solid #d9b64a; color:#7a5a00; }
+.eq-chip.oxi { background:#e6f1fa; border:2px solid #6aa9d6; color:#1d5a85; }
+.eq-chip.atp { background:#eaf4ec; border:2px solid var(--green); color:#2c6b39; display:block; }
+.eq-chip.res { background:#f3f1f6; border:2px dashed #b9b3c4; color:var(--muted); font-size:12.5px; display:block; }
+.eq-src { font-size:11px; color:var(--muted); line-height:1.25; }
+.eq-ur { font-family:'Noto Nastaliq Urdu',serif; font-size:11px; color:#21574d; line-height:1.8; }
+.eq-op { font-size:24px; font-weight:900; color:var(--purple-ink); }
+.eq-mito img { height:70px; display:block; margin:0 auto; }
+.teo-fig { text-align:center; margin:0 0 6px; }
+.teo-fig img { max-width:100%; max-height:150px; border-radius:8px; border:1px solid var(--rule); }
+.teo-grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:0 0 9px; }
+.teo-grid3 .teo-card { margin:0; }
+.teo-grid3 .teo-card p { font-size:13px; }
+.mic-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.mic-grid p { font-size:13px; }
+.rbc { display:inline-block; width:12px; height:12px; border-radius:50%; background:radial-gradient(circle,#b8203f 0 30%,#d94a64 31%); vertical-align:-1px; margin-right:2px; }
+.c-iod .tube .glass { height:84px; }
+.c-iod .tcap { font-size:11px; }
+.iod-grid { display:grid; grid-template-columns:200px 1fr; gap:12px; align-items:center; }
+.repas { border:2px dashed var(--purple-light); border-radius:10px; padding:7px 12px 5px; margin:4px 0 6px; background:#fbfaff; display:grid; grid-template-columns:1fr 1fr; column-gap:16px; }
+.repas > .repas-h, .repas > .pista { grid-column:1 / -1; }
+.repas-h { font-size:15px; font-weight:900; color:var(--purple-ink); }
+.repas-item { display:flex; gap:9px; align-items:flex-start; font-size:13.5px; line-height:1.3; padding:2px 0; border-bottom:1px dotted var(--rule); }
+.repas-item:nth-last-child(-n+2) { border-bottom:none; }
+.repas-item .meta-oa-check { flex-shrink:0; margin-top:2px; }
+.repas-ur { font-family:'Noto Nastaliq Urdu',serif; font-size:12px; color:#21574d; line-height:1.85; text-align:right; }
+@media print { .teo-card, .eq-chip, .rbc, .teo-n { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+
+/* ── Genèric acollida (S3/S4/S5) ── */
+.header-ur { text-align:left; }
+.ht-ur, .cap-ur, .opt-ur { display:block; font-family:'Noto Nastaliq Urdu',serif; direction:rtl; unicode-bidi:isolate;
+  color:#21574d; font-weight:400; text-transform:none; letter-spacing:0; }
+.ht-ur { font-size:11px; line-height:1.9; text-align:right; }
+td .ht-ur { text-align:left; }
+.blank { display:inline-block; border:1px solid var(--rule); border-bottom:1.5px solid #C8C2DD; border-radius:3px 3px 0 0; vertical-align:bottom; margin:0 3px; min-height:1.45em; line-height:1.5; padding:0 5px; background:#fff; outline:none; }
+.blank-s { min-width:60px; } .blank-m { min-width:110px; } .blank-l { min-width:140px; } .blank-xl { min-width:260px; }
+.frase-completar { font-size:13.5px; line-height:2.3; margin-bottom:4px; }
+.circ-row { font-size:14px; line-height:2; }
+.compte { background:#fff8e0; border:1.5px solid #c8960a; border-radius:8px; padding:6px 12px 4px; margin:6px 0 8px; }
+.compte p { font-size:14px; line-height:1.45; }
+.fig-wrap { position:relative; display:block; min-width:0; }
+.fig-wrap img { width:100%; display:block; border:1px solid var(--rule); border-radius:6px; }
+.cad-marc .chain-chip { background:#fff; }
+.card .ur, .previ-box .ur { margin:3px 0 4px; }
+.chip .ur-in { font-size:.92em; line-height:1.5; }
+.card-label .ur-in, .llegir-lab .ur-in, .stitle .ur-in, .meta-open-label .ur-in, .epist-title .ur-in { display:inline-block; }
+@media print { .blank { background:transparent; } }
+/* ── S6 ── */
+.glos-emo { height:50px; display:flex; align-items:center; justify-content:center; font-size:38px; line-height:1;
+  font-family:'Segoe UI Emoji','Apple Color Emoji','Noto Color Emoji',sans-serif; }
+.card .glos { margin-top:4px; }
+.card .pista { line-height:1.85; }
+.copia-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px 18px; margin-top:4px; }
+.copia { display:flex; align-items:center; gap:10px; }
+.copia-ur { font-family:'Noto Nastaliq Urdu',serif; font-size:15px; line-height:1.9; color:#21574d; min-width:70px; text-align:right; unicode-bidi:isolate; }
+.copia .blank { flex:1; min-height:1.8em; }
+.apar { display:grid; grid-template-columns:230px 1fr; gap:6px 18px; align-items:start; margin:4px 0 6px; }
+.apar-w { font-size:14.5px; font-weight:700; line-height:2.5; }
+.apar-w .blank { min-width:38px; margin-left:0; }
+.apar-d { font-size:13.5px; line-height:1.3; padding:2px 0 3px; border-bottom:1px dotted var(--rule-dark); }
+.apar-d:last-child { border-bottom:none; }
+.previ-acoll .draw-area { min-height:210px; }
+.reaccio .fill-cell { min-height:24px; }
+.hor-t .fill-cell { min-height:42px; }
+.hor-t tr.ex td { background:var(--green-tint) !important; }
+.vies-t .fill-cell { min-height:30px; }
+.ronyo-acoll { display:grid; grid-template-columns:235px 1fr; gap:14px; align-items:start; margin:4px 0 8px; }
+.lleg { font-size:14px; line-height:1.35; padding:3px 0; border-bottom:1px dotted var(--rule-dark); }
+.lleg .ht-ur { text-align:right; }
+.ronyo-acoll .pista { margin-top:7px; }
+.meta-oa-box > .ur { margin:0 0 4px 22px; }
+.tasca-box .fill-cell { min-height:26px !important; height:auto !important; }
+.tasca-box .data-table td { padding:3px 6px; }
+/* compactació: la Nastaliq ocupa molt; sense retallar-la */
+.ur { line-height:1.82 !important; }
+.card .ur, .previ-box .ur { margin:1px 0 2px; }
+.card { padding-top:7px; padding-bottom:6px; }
+.mt8 { margin-top:5px !important; }
+.glos-emo { height:36px; font-size:28px; }
+.previ-acoll .draw-area { min-height:130px; }
+.reaccio .fill-cell { min-height:20px; }
+.hor-t .fill-cell { min-height:30px; }
+.vies-t .fill-cell { min-height:24px; }
+.epist-box .wline { min-height:64px !important; height:auto !important; }
+.g1-wrap img { max-height:300px; width:auto; margin:0 auto; display:block; }
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <button class="tb-btn" id="btn-undo" onclick="undoDelete()" title="Desfés l'última eliminació (Ctrl+Z)">&#8617; Desfés</button>
+  <button class="tb-btn" onclick="document.execCommand('bold')" title="Negreta">&#119809; Negreta</button>
+  <button class="tb-btn" onclick="addWlineToolbar()" title="Afegeix una línia d'escriptura (o prem Enter dins d'una línia)">＋ Línia</button>
+  <button class="tb-btn" onclick="insertSpacer()" title="Insereix un espai en blanc">＋ Espai</button>
+  <button class="tb-btn" onclick="window.print()" title="Imprimeix">🖨️ Imprimeix</button>
+  <button class="tb-btn tb-desa" onclick="desaFitxa()" title="Desa els canvis al fitxer (Ctrl+S)">💾 Desa</button>
+  <span class="tb-title">Fitxa Sessió 6 · El sistema de control i l'equilibri intern · Acollida (urdú) · IE Temple</span>
+</div>
+
+<div class="page-wrap">
+<div id="doc">
+
+<div class="header-band deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="header-emoji-box">🫘</div>
+  <div class="header-center">
+    <div class="header-sa" contenteditable="true">El nostre cos en marxa · Sessió 6 de 7</div>
+    <div class="header-title" contenteditable="true">El sistema de control i l'equilibri intern</div>
+    <div class="header-subtitle" contenteditable="true">Qui mana al cos quan tu no hi penses? I on va tot el que no necessita?</div>
+    <div class="header-ur" dir="rtl" lang="ur" contenteditable="true">کنٹرول کا نظام اور جسم کے اندر کا توازن — جب آپ نہیں سوچتے تو جسم کو حکم کون دیتا ہے؟ اور جس چیز کی ضرورت نہیں وہ کہاں جاتی ہے؟</div>
+  </div>
+  <div class="header-right">
+    <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
+    <div class="header-meta" contenteditable="true">3r ESO</div>
+  </div>
+</div>
+
+<div class="nivell-strip deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <span class="badge deletable" contenteditable="true">Amb suport visual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+
+  <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió C acollida — urdú">C·ur</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+</div>
+
+<div class="guia-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="guia-title" contenteditable="true">🧭 Com funciona aquesta fitxa</div>
+  <div class="ur" dir="rtl" lang="ur" contenteditable="true">یہ ورق کیسے کام کرتا ہے</div>
+  <div class="guia-grid">
+    <div class="guia-pas"><div class="guia-n">1</div><div><p contenteditable="true">Llegeix primer el text en <strong>català</strong>.</p><div class="ur" dir="rtl" lang="ur" contenteditable="true">پہلے کاتالان زبان میں متن پڑھیں۔</div></div></div>
+    <div class="guia-pas"><div class="guia-n">2</div><div><p contenteditable="true">Si no l'entens, llegeix la caixa verda en <strong>urdú</strong>.</p><div class="ur" dir="rtl" lang="ur" contenteditable="true">اگر سمجھ نہ آئے تو سبز خانے میں اردو پڑھیں۔</div></div></div>
+    <div class="guia-pas"><div class="guia-n">3</div><div><p contenteditable="true">Escriu sempre en <strong>català</strong>. Si no saps una paraula, busca-la a <strong>Paraules d'avui</strong>, a l'apartat 0.</p><div class="ur" dir="rtl" lang="ur" contenteditable="true">ہمیشہ کاتالان میں لکھیں۔ اگر کوئی لفظ نہ آئے تو حصہ ۰ میں «آج کے الفاظ» میں ڈھونڈیں۔</div></div></div>
+    <div class="guia-pas"><div class="guia-n">4</div><div><p contenteditable="true">Si no saps la resposta, mira el <strong>banc de paraules</strong> de l'activitat.</p><div class="ur" dir="rtl" lang="ur" contenteditable="true">اگر جواب نہ آئے تو سرگرمی کے الفاظ کا ذخیرہ دیکھیں۔</div></div></div>
+  </div>
+</div>
+
+<div class="oa-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="oa-title" contenteditable="true">🎯 Objectius d'aprenentatge d'avui <span class="ur-in" dir="rtl" lang="ur">آج کے سیکھنے کے مقاصد</span></div>
+  <ul class="oa-list">
+    <li><span contenteditable="true">Sé que els nervis porten l'ordre molt de pressa (mil·lisegons) i que les hormones van per la sang i triguen més (minuts).</span><div class="ur" dir="rtl" lang="ur" contenteditable="true">مجھے معلوم ہے کہ اعصاب حکم بہت تیزی سے پہنچاتے ہیں (ملی سیکنڈ) اور ہارمون خون کے ذریعے جاتے ہیں اور زیادہ وقت لیتے ہیں (منٹ)۔</div></li>
+    <li><span contenteditable="true">Sé nomenar dues hormones i dir què fan: l'adrenalina i l'ADH.</span><div class="ur" dir="rtl" lang="ur" contenteditable="true">میں دو ہارمونوں کے نام اور ان کا کام بتا سکتا/سکتی ہوں: ایڈرینالین اور ADH۔</div></li>
+    <li><span contenteditable="true">Sé que el ronyó filtra la sang i fabrica l'orina, i sé el camí: ronyó → urèter → bufeta.</span><div class="ur" dir="rtl" lang="ur" contenteditable="true">مجھے معلوم ہے کہ گردہ خون کو چھانتا ہے اور پیشاب بناتا ہے، اور مجھے راستہ معلوم ہے: گردہ ← یوریٹر ← مثانہ۔</div></li>
+    <li><span contenteditable="true">Sé que els pulmons treuen el CO₂ i que el ronyó treu la urea, les sals i l'aigua que sobren.</span><div class="ur" dir="rtl" lang="ur" contenteditable="true">مجھے معلوم ہے کہ پھیپھڑے CO₂ نکالتے ہیں اور گردہ یوریا، نمکیات اور فالتو پانی نکالتا ہے۔</div></li>
+    <li><span contenteditable="true">Sé explicar per quina raó, si bec poca aigua, la meva orina és més fosca (l'ADH).</span><div class="ur" dir="rtl" lang="ur" contenteditable="true">میں بتا سکتا/سکتی ہوں کہ کم پانی پینے سے میرا پیشاب زیادہ گہرا کیوں ہوتا ہے (ADH)۔</div></li>
+  </ul>
+</div>
+
+<div class="content">
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Repàs — el cor i la FC de les sessions 4 i 5 <span class="ur-in" dir="rtl" lang="ur">دہرائی — سبق ۴ اور ۵ کا دل اور دھڑکن کی رفتار</span></div><div class="sdesc" contenteditable="true">Individual · Paraules d'avui i paraules de les sessions 4 i 5</div></div></div>
+  <div class="divider"></div>
+  <div class="card deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">📖 Paraules d'avui <span class="ur-in" dir="rtl" lang="ur">آج کے الفاظ</span></div>
+    <div class="glos">
+      <div class="glos-item"><div class="glos-emo">⚡</div><div class="glos-ca" contenteditable="true">nervi</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">عصب</div><div class="glos-def" contenteditable="true">«cable» que porta senyals elèctrics molt de pressa</div></div>
+      <div class="glos-item"><div class="glos-emo">🦶</div><div class="glos-ca" contenteditable="true">reflex</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">خودکار ردِعمل</div><div class="glos-def" contenteditable="true">resposta automàtica i molt ràpida, sense pensar-hi</div></div>
+      <div class="glos-item"><div class="glos-emo">🩸</div><div class="glos-ca" contenteditable="true">hormona</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">ہارمون</div><div class="glos-def" contenteditable="true">missatger que viatja per la <strong>sang</strong></div></div>
+      <div class="glos-item"><div class="glos-emo">🏭</div><div class="glos-ca" contenteditable="true">glàndula</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">غدود</div><div class="glos-def" contenteditable="true">òrgan que <strong>fabrica</strong> una hormona</div></div>
+      <div class="glos-item"><div class="glos-emo">🫘</div><div class="glos-ca" contenteditable="true">ronyó</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">گردہ</div><div class="glos-def" contenteditable="true">filtra la sang i fabrica l'orina</div></div>
+      <div class="glos-item"><div class="glos-emo">🧪</div><div class="glos-ca" contenteditable="true">urea</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">یوریا</div><div class="glos-def" contenteditable="true"><strong>residu</strong> que ve de les proteïnes</div></div>
+      <div class="glos-item"><div class="glos-emo">💧</div><div class="glos-ca" contenteditable="true">orina</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">پیشاب</div><div class="glos-def" contenteditable="true">líquid amb els residus que surt del cos</div></div>
+      <div class="glos-item"><div class="glos-emo">🚽</div><div class="glos-ca" contenteditable="true">bufeta</div><div class="glos-ur" dir="rtl" lang="ur" contenteditable="true">مثانہ</div><div class="glos-def" contenteditable="true">bossa on s'acumula l'orina</div></div>
+    </div>
+    <p class="pista" contenteditable="true">Altres paraules: <strong>residu</strong> = <span class="ur-in" dir="rtl" lang="ur">فضلہ</span> · <strong>excreció</strong> = <span class="ur-in" dir="rtl" lang="ur">فضلہ جسم سے نکالنا</span> · <strong>urèter</strong> = <span class="ur-in" dir="rtl" lang="ur">گردے سے مثانے تک نالی</span> · <strong>adrenalina</strong> = <span class="ur-in" dir="rtl" lang="ur">ایڈرینالین، خطرے کا ہارمون</span> · <strong>ADH</strong> = <span class="ur-in" dir="rtl" lang="ur">گردے کو پانی روکنے کا حکم دینے والا ہارمون</span> · <strong>EPO</strong> = <span class="ur-in" dir="rtl" lang="ur">گردے کا ہارمون جو سرخ خلیے بنانے کا حکم دیتا ہے</span> · <strong>eritròcits</strong> = <span class="ur-in" dir="rtl" lang="ur">خون کے سرخ خلیے</span> · <strong>anèmia</strong> = <span class="ur-in" dir="rtl" lang="ur">خون کی کمی</span> · <strong>creatinina</strong> = <span class="ur-in" dir="rtl" lang="ur">کریٹینین، پٹھے کا فضلہ</span> · <strong>medi intern</strong> = <span class="ur-in" dir="rtl" lang="ur">خون اور خلیوں کے گرد مائع</span> · <strong>homeòstasi</strong> = <span class="ur-in" dir="rtl" lang="ur">جسم کے اندر توازن رکھنا</span></p>
+  </div>
+  <div class="card orange deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">✏️ Copia la paraula en català <span class="ur-in" dir="rtl" lang="ur">لفظ کاتالان میں نقل کریں</span></div>
+    <div class="copia-grid">
+      <div class="copia"><span class="copia-ur" dir="rtl" lang="ur">گردہ</span> <span class="blank blank-l"></span></div>
+      <div class="copia"><span class="copia-ur" dir="rtl" lang="ur">پیشاب</span> <span class="blank blank-l"></span></div>
+      <div class="copia"><span class="copia-ur" dir="rtl" lang="ur">عصب</span> <span class="blank blank-l"></span></div>
+      <div class="copia"><span class="copia-ur" dir="rtl" lang="ur">ہارمون</span> <span class="blank blank-l"></span></div>
+    </div>
+  </div>
+  <div class="card teal deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🔗 Paraules de les sessions 4 i 5: aparella <span class="ur-in" dir="rtl" lang="ur">سبق ۴ اور ۵ کے الفاظ: جوڑے بنائیں</span></div>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">پہلے یاد سے کریں۔ ہر لفظ کے ساتھ صحیح حرف لکھیں۔ پھر سبق ۴ اور ۵ کے ورق دیکھ کر جانچ لیں۔</div>
+    <div class="apar">
+      <div class="apar-ws">
+        <div class="apar-w"><span class="blank blank-s"></span> ventricle</div>
+        <div class="apar-w"><span class="blank blank-s"></span> vàlvula</div>
+        <div class="apar-w"><span class="blank blank-s"></span> pols</div>
+        <div class="apar-w"><span class="blank blank-s"></span> freqüència cardíaca (FC)</div>
+        <div class="apar-w"><span class="blank blank-s"></span> oxigen</div>
+      </div>
+      <div class="apar-ds">
+        <div class="apar-d"><strong>A</strong> batecs que fa el cor en 1 minut<span class="ht-ur" dir="rtl" lang="ur">دل کی ایک منٹ کی دھڑکنیں</span></div>
+        <div class="apar-d"><strong>B</strong> cavitat de baix del cor, amb molt múscul<span class="ht-ur" dir="rtl" lang="ur">دل کا نچلا خانہ، جس میں بہت پٹھا ہے</span></div>
+        <div class="apar-d"><strong>C</strong> gas de l'aire que els músculs necessiten<span class="ht-ur" dir="rtl" lang="ur">ہوا کی وہ گیس جو پٹھوں کو چاہیے</span></div>
+        <div class="apar-d"><strong>D</strong> porta que s'obre només en un sentit<span class="ht-ur" dir="rtl" lang="ur">دروازہ جو صرف ایک طرف کھلتا ہے</span></div>
+        <div class="apar-d"><strong>E</strong> el batec que notes al canell<span class="ht-ur" dir="rtl" lang="ur">کلائی پر محسوس ہونے والی دھڑکن</span></div>
+      </div>
+    </div>
+    <div class="circ-row" contenteditable="true">La paret més gruixuda és la del ventricle <span class="circ-opt">dret</span> / <span class="circ-opt">esquerre</span>.</div>
+    <p class="frase-completar" contenteditable="false">La meva FCmàx: 220 − <span class="blank blank-m"></span> (la meva edat) = <span class="blank blank-m"></span> bat/min.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">کس وینٹریکل کی دیوار زیادہ موٹی ہے؟ دائرہ لگائیں۔ پھر اپنی سب سے زیادہ دھڑکن کا حساب کریں: ۲۲۰ − آپ کی عمر۔</div>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Tres estacions — com dóna ordres el teu cos <span class="ur-in" dir="rtl" lang="ur">تین اسٹیشن — آپ کا جسم حکم کیسے دیتا ہے</span></div><div class="sdesc" contenteditable="true">Hipòtesi individual i, després, parelles i grups de 5 · Aneu rotant: A, B i C</div></div></div>
+  <div class="divider"></div>
+  <div class="draw-box previ-acoll deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">✏️ Abans de començar · la teva hipòtesi (3 min) <span class="ur-in" dir="rtl" lang="ur">شروع کرنے سے پہلے: آپ کا اندازہ</span></div>
+    <p style="font-size:13.5px" contenteditable="true">Dibuixa un cos i marca per on creus que surten la urea, les sals i l'aigua que sobren. No es corregeix ara.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">ایک جسم بنائیں اور نشان لگائیں کہ آپ کے خیال میں یوریا، نمکیات اور فالتو پانی کہاں سے نکلتے ہیں۔ ابھی اس کی جانچ نہیں ہوگی۔</div>
+    <div class="draw-area"></div>
+  </div>
+  <div class="previ-box mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="circ-row" contenteditable="true"><strong>①</strong> T'espantes i el cor s'accelera sol. Qui creus que li dóna l'ordre? <span class="circ-opt">el cervell</span> / <span class="circ-opt">els pulmons</span> / <span class="circ-opt">no ho sé</span></div>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">آپ ڈر جاتے ہیں اور دل خود بخود تیز ہو جاتا ہے۔ آپ کے خیال میں اسے حکم کون دیتا ہے؟ دائرہ لگائیں۔</div>
+    <div class="circ-row" contenteditable="true"><strong>②</strong> Alguns dies l'orina és molt clara i d'altres molt fosca. Creus que depèn de: <span class="circ-opt">l'aigua que beus</span> / <span class="circ-opt">la roba</span> / <span class="circ-opt">no ho sé</span></div>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">کچھ دن پیشاب بہت ہلکا ہوتا ہے اور کچھ دن بہت گہرا۔ آپ کے خیال میں یہ کس چیز پر منحصر ہے؟ دائرہ لگائیں۔</div>
+  </div>
+  <div class="card orange mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">⏱️ Estació A · Quant triga una ordre a fer el viatge? (en parelles, regle de 30 cm) <span class="ur-in" dir="rtl" lang="ur">اسٹیشن A: حکم کتنی دیر میں پہنچتا ہے؟</span></div>
+    <p style="font-size:13.5px" contenteditable="true">Qui fa de parella subjecta el regle pel 30 i el deixa caure <strong>sense avisar</strong>. Tu tanques la mà tan de pressa com puguis. Anota <strong>en quin número</strong> l'has agafat.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">آپ کا ساتھی فٹے کو ۳۰ والی جگہ سے پکڑتا ہے اور بتائے بغیر چھوڑ دیتا ہے۔ آپ جتنی جلدی ہو سکے ہاتھ بند کریں۔ لکھیں کہ آپ نے اسے کس نمبر پر پکڑا۔</div>
+    <table class="data-table" style="margin-top:4px"><thead><tr><th>Distància caiguda<span class="th-ur" dir="rtl" lang="ur">گرنے کا فاصلہ</span></th><th>5 cm</th><th>10 cm</th><th>15 cm</th><th>20 cm</th><th>25 cm</th><th>30 cm</th></tr></thead><tbody><tr><td style="font-weight:700;text-align:left">Temps de reacció<span class="ht-ur" dir="rtl" lang="ur">ردِعمل کا وقت</span></td><td style="text-align:center">101 ms</td><td style="text-align:center">143 ms</td><td style="text-align:center">175 ms</td><td style="text-align:center">202 ms</td><td style="text-align:center">226 ms</td><td style="text-align:center">247 ms</td></tr></tbody></table>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">اس جدول سے سینٹی میٹر کو ملی سیکنڈ میں بدلیں۔ اگر آپ کا عدد بیچ میں ہو تو سب سے قریب والا چنیں۔</div>
+    <table class="data-table reaccio" style="margin-top:5px"><thead><tr><th></th><th>Mà dominant · cm<span class="th-ur" dir="rtl" lang="ur">زیادہ استعمال ہونے والا ہاتھ</span></th><th>Mà dominant · ms</th><th>L'altra mà · cm<span class="th-ur" dir="rtl" lang="ur">دوسرا ہاتھ</span></th><th>L'altra mà · ms</th></tr></thead><tbody><tr><td style="font-weight:700">Prova 1</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td style="font-weight:700">Prova 2</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td style="font-weight:700">Prova 3</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td style="font-weight:700">Prova 4</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td style="font-weight:700">Prova 5</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
+    <div class="circ-row" contenteditable="true">La meva mà dominant ha estat <span class="circ-opt">més ràpida</span> / <span class="circ-opt">més lenta</span> que l'altra.</div>
+    <div class="circ-row" contenteditable="true">Totes les proves m'han donat el mateix número: <span class="circ-opt">sí</span> / <span class="circ-opt">no</span>. Per això en fem <span class="circ-opt">5</span> / <span class="circ-opt">1</span>.</div>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">دائرہ لگائیں: کیا زیادہ استعمال ہونے والا ہاتھ زیادہ تیز تھا یا زیادہ سست؟ کیا سب کوششوں میں ایک ہی نمبر آیا؟ اسی لیے ہم کتنی کوششیں کرتے ہیں؟</div>
+  </div>
+  <div class="card teal mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🦶 Estació B · L'arc reflex en directe (grups de 5, amb una pilota) <span class="ur-in" dir="rtl" lang="ur">اسٹیشن B: خودکار ردِعمل کا راستہ</span></div>
+    <p style="font-size:13.5px" contenteditable="true">Cada persona fa un paper i es passa la pilota en ordre: <strong>receptor</strong> (la pell del peu) · <strong>nervi que puja</strong> · <strong>medul·la espinal</strong> · <strong>nervi que baixa</strong> · <strong>efector</strong> (el múscul que retira el peu).</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">ہر فرد ایک کردار ادا کرتا ہے اور گیند ترتیب سے آگے دیتا ہے: محسوس کرنے والا حصہ (پاؤں کی جلد) · اوپر جانے والا عصب · حرام مغز · نیچے آنے والا عصب · عمل کرنے والا حصہ (وہ پٹھا جو پاؤں ہٹاتا ہے)۔</div>
+    <p class="frase-completar" contenteditable="false">L'ordre fa aquest camí: <span class="blank blank-m"></span> (el peu) → nervi que puja → <span class="blank blank-m"></span> → nervi que baixa → <span class="blank blank-m"></span> (el múscul).</p>
+    <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip">receptor</span><span class="chip">medul·la espinal</span><span class="chip">efector</span><span class="chip">cervell</span></div></div>
+    <div class="circ-row" contenteditable="true">Si traiem el «cervell» del grup, el reflex <span class="circ-opt">continua funcionant</span> / <span class="circ-opt">s'atura</span>.</div>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">دائرہ لگائیں: اگر گروپ سے «دماغ» نکال دیں تو خودکار ردِعمل چلتا رہتا ہے یا رک جاتا ہے؟</div>
+  </div>
+  <div class="card mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🃏 Estació C · Targetes: qui fabrica cada hormona i què fa (en parelles) <span class="ur-in" dir="rtl" lang="ur">اسٹیشن C: ہر ہارمون کون بناتا ہے اور وہ کیا کرتا ہے</span></div>
+    <p style="font-size:13.5px" contenteditable="true">Encaixa cada hormona amb la seva glàndula, la situació i l'efecte. Copia el resultat aquí. La primera fila ja està feta: és el model.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">ہر ہارمون کو اس کے غدود، حالت اور اثر سے جوڑیں۔ نتیجہ یہاں نقل کریں۔ پہلی قطار نمونہ ہے۔</div>
+    <table class="data-table hor-t" style="margin-top:5px"><thead><tr><th style="text-align:left">Hormona<span class="th-ur" dir="rtl" lang="ur">ہارمون</span></th><th>Quina glàndula la fabrica<span class="th-ur" dir="rtl" lang="ur">کون سا غدود بناتا ہے</span></th><th>En quina situació<span class="th-ur" dir="rtl" lang="ur">کس حالت میں</span></th><th>Quin efecte té<span class="th-ur" dir="rtl" lang="ur">کیا اثر ہوتا ہے</span></th></tr></thead><tbody><tr class="ex"><td style="text-align:left;font-weight:700">Adrenalina</td><td style="font-size:12px;font-weight:700">glàndula suprarenal<span class="ht-ur" dir="rtl" lang="ur">گردے کے اوپر والا غدود</span></td><td style="font-size:12px;font-weight:700">t'espantes / esprintes<span class="ht-ur" dir="rtl" lang="ur">آپ ڈر جائیں / تیز دوڑیں</span></td><td style="font-size:12px;font-weight:700">puja la FC, obre els bronquis, frena la digestió<span class="ht-ur" dir="rtl" lang="ur">دھڑکن بڑھاتا ہے، سانس کی نالیاں کھولتا ہے، ہاضمہ روکتا ہے</span></td></tr><tr><td style="text-align:left;font-weight:700">Insulina</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td style="text-align:left;font-weight:700">ADH</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td style="text-align:left;font-weight:700">EPO</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
+    <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip">pàncrees <span class="ur-in" dir="rtl" lang="ur">لبلبہ</span></span><span class="chip">hipòfisi (al cervell) <span class="ur-in" dir="rtl" lang="ur">دماغ کا ایک غدود</span></span><span class="chip">ronyó <span class="ur-in" dir="rtl" lang="ur">گردہ</span></span><span class="chip">acabes de dinar <span class="ur-in" dir="rtl" lang="ur">ابھی کھانا کھایا</span></span><span class="chip">fa calor i no beus <span class="ur-in" dir="rtl" lang="ur">گرمی ہے اور پانی نہیں پیتے</span></span><span class="chip">vius a la muntanya, amb poc O₂ <span class="ur-in" dir="rtl" lang="ur">پہاڑ پر رہتے ہیں، کم آکسیجن</span></span><span class="chip">fa entrar la glucosa a les cèl·lules <span class="ur-in" dir="rtl" lang="ur">گلوکوز کو خلیوں میں داخل کرتا ہے</span></span><span class="chip">mana al ronyó retenir aigua <span class="ur-in" dir="rtl" lang="ur">گردے کو پانی روکنے کا حکم دیتا ہے</span></span><span class="chip">mana fabricar més eritròcits <span class="ur-in" dir="rtl" lang="ur">زیادہ سرخ خلیے بنانے کا حکم دیتا ہے</span></span></div></div>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n2">2</div><div><div class="stitle" contenteditable="true">Dues vies de control: el nervi i l'hormona <span class="ur-in" dir="rtl" lang="ur">کنٹرول کے دو راستے: عصب اور ہارمون</span></div><div class="sdesc" contenteditable="true">Explicació + treball individual · Una és ràpida; l'altra, duradora</div></div></div>
+  <div class="divider"></div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: dues maneres de donar una ordre <span class="ur-in" dir="rtl" lang="ur">حکم دینے کے دو طریقے</span></div>
+    <p contenteditable="true">⚡ Pels <strong>nervis</strong>: com un cable elèctric. Va molt de pressa: <strong>mil·lisegons</strong>. L'ordre arriba i s'acaba de seguida.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">اعصاب کے ذریعے: بجلی کے تار کی طرح۔ یہ بہت تیز ہے: ملی سیکنڈ۔ حکم پہنچتا ہے اور فوراً ختم ہو جاتا ہے۔</div>
+    <p contenteditable="true">🩸 Per les <strong>hormones</strong>: missatgers que viatgen per la <strong>sang</strong>. Triguen més (<strong>segons o minuts</strong>), però l'efecte <strong>dura molt</strong>.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">ہارمونوں کے ذریعے: یہ پیغام رساں ہیں جو خون میں سفر کرتے ہیں۔ یہ زیادہ وقت لیتے ہیں (سیکنڈ یا منٹ)، لیکن ان کا اثر بہت دیر رہتا ہے۔</div>
+    <p contenteditable="true">Quan t'espantes, primer arriba l'ordre pel <strong>nervi</strong> (el cor s'accelera de cop). Després arriba l'<strong>adrenalina</strong> per la sang i et manté accelerat una bona estona.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">جب آپ ڈرتے ہیں تو پہلے حکم عصب کے ذریعے پہنچتا ہے (دل اچانک تیز ہو جاتا ہے)۔ پھر ایڈرینالین خون کے ذریعے پہنچتی ہے اور آپ کو کافی دیر تیز رکھتی ہے۔</div>
+  </div>
+  <div class="card mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">📊 Compara les dues vies <span class="ur-in" dir="rtl" lang="ur">دونوں راستوں کا موازنہ کریں</span></div>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">الفاظ کے ذخیرے سے جدول مکمل کریں۔ پہلا خانہ نمونہ ہے۔</div>
+    <table class="data-table vies-t" style="margin-top:5px"><thead><tr><th></th><th>Via NERVIOSA<span class="th-ur" dir="rtl" lang="ur">عصب کا راستہ</span></th><th>Via HORMONAL<span class="th-ur" dir="rtl" lang="ur">ہارمون کا راستہ</span></th></tr></thead><tbody><tr><td style="text-align:left;font-weight:700">Per on viatja<span class="ht-ur" dir="rtl" lang="ur">کہاں سے سفر کرتا ہے</span></td><td style="text-align:center;font-weight:700">pel nervi (elèctric)</td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td style="text-align:left;font-weight:700">Quant triga<span class="ht-ur" dir="rtl" lang="ur">کتنا وقت لیتا ہے</span></td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td style="text-align:left;font-weight:700">Un exemple<span class="ht-ur" dir="rtl" lang="ur">ایک مثال</span></td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td><td style="text-align:center"><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
+    <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip">per la sang <span class="ur-in" dir="rtl" lang="ur">خون کے ذریعے</span></span><span class="chip">mil·lisegons <span class="ur-in" dir="rtl" lang="ur">ملی سیکنڈ</span></span><span class="chip">minuts <span class="ur-in" dir="rtl" lang="ur">منٹ</span></span><span class="chip">retirar el peu d'una xinxeta <span class="ur-in" dir="rtl" lang="ur">پن سے پاؤں ہٹانا</span></span><span class="chip">l'adrenalina quan t'espantes <span class="ur-in" dir="rtl" lang="ur">ڈرنے پر ایڈرینالین</span></span></div></div>
+    <div class="circ-row" contenteditable="true">Quan t'espantes, el primer que arriba al cor és l'ordre <span class="circ-opt">pel nervi</span> / <span class="circ-opt">per l'hormona</span>, perquè és <span class="circ-opt">més ràpida</span> / <span class="circ-opt">més lenta</span>.</div>
+    <div class="circ-row" contenteditable="true">Després arriba l'<strong>adrenalina</strong> per la sang, i fa que el cor es quedi accelerat <span class="circ-opt">una bona estona</span> / <span class="circ-opt">només un instant</span>.</div>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">دائرہ لگائیں: جب آپ ڈرتے ہیں تو دل تک پہلے کون سا حکم پہنچتا ہے، اور کیوں؟ پھر ایڈرینالین دل کو کتنی دیر تیز رکھتی ہے؟</div>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle" contenteditable="true">El sistema excretor: el ronyó et manté net per dins <span class="ur-in" dir="rtl" lang="ur">اخراج کا نظام: گردہ آپ کو اندر سے صاف رکھتا ہے</span></div><div class="sdesc" contenteditable="true">Explicació + treball individual · De la sang amb residus a l'orina</div></div></div>
+  <div class="divider"></div>
+  <div class="ronyo-acoll deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="fig-wrap"><img src="../imatges-cientifiques/s6_ronyo_marcadors.png" alt="Esquema del ronyó amb cinc marcadors numerats: sang que entra amb residus, ronyó, sang filtrada que surt, urèter i bufeta" onerror="this.style.display='none'"></div>
+    <div>
+      <div class="card-label" contenteditable="true">🔢 Llegenda del dibuix <span class="ur-in" dir="rtl" lang="ur">تصویر کی وضاحت</span></div>
+      <div class="lleg"><strong>①</strong> sang que ARRIBA, amb residus (els puntets foscos són la urea)<span class="ht-ur" dir="rtl" lang="ur">آنے والا خون، فضلے کے ساتھ (سیاہ نقطے یوریا ہیں)</span></div>
+      <div class="lleg"><strong>②</strong> ronyó<span class="ht-ur" dir="rtl" lang="ur">گردہ</span></div>
+      <div class="lleg"><strong>③</strong> sang que SURT, ja filtrada<span class="ht-ur" dir="rtl" lang="ur">جانے والا خون، چھنا ہوا</span></div>
+      <div class="lleg"><strong>④</strong> urèter<span class="ht-ur" dir="rtl" lang="ur">گردے سے مثانے تک نالی</span></div>
+      <div class="lleg"><strong>⑤</strong> bufeta<span class="ht-ur" dir="rtl" lang="ur">مثانہ</span></div>
+      <p class="pista" contenteditable="true">Al dibuix hi ha un ronyó, però en tens <strong>dos</strong>, un a cada costat de la columna.</p>
+      <div class="ur" dir="rtl" lang="ur" contenteditable="true">تصویر میں ایک گردہ ہے، لیکن آپ کے دو گردے ہیں، ریڑھ کی ہڈی کے دونوں طرف۔</div>
+    </div>
+  </div>
+  <div class="compte deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <p contenteditable="true">⚠️ <strong>Compte:</strong> aquí «sang neta» vol dir <strong>sense urea</strong>, no amb oxigen. Per això al dibuix les dues canonades són vermelles.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">دھیان دیں: یہاں «صاف خون» کا مطلب ہے یوریا کے بغیر، آکسیجن والا نہیں۔ اسی لیے تصویر میں دونوں نالیاں سرخ ہیں۔</div>
+  </div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: de la cèl·lula a l'orina <span class="ur-in" dir="rtl" lang="ur">خلیے سے پیشاب تک</span></div>
+    <div class="chain"><span class="chain-chip">🧫 Les cèl·lules treballen</span><span class="chain-arrow">→</span><span class="chain-chip">🧪 Fan residus (urea)</span><span class="chain-arrow">→</span><span class="chain-chip">🩸 Van a la sang</span><span class="chain-arrow">→</span><span class="chain-chip">🫘 El ronyó els filtra</span><span class="chain-arrow">→</span><span class="chain-chip">💧 Surten amb l'orina</span></div>
+    <p contenteditable="true">Les cèl·lules, quan treballen, fan <strong>residus</strong>. El més important és la <strong>urea</strong>. La urea va a la <strong>sang</strong>. Si s'acumula, és un verí. El <strong>ronyó</strong> neteja la sang i fa l'<strong>orina</strong>. L'orina baixa per l'<strong>urèter</strong> i s'acumula a la <strong>bufeta</strong>. Quan la bufeta és plena, vas al lavabo.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">خلیے جب کام کرتے ہیں تو فضلہ بناتے ہیں۔ سب سے اہم یوریا ہے۔ یوریا خون میں جاتا ہے۔ اگر یہ جمع ہو جائے تو زہر ہے۔ گردہ خون کو صاف کرتا ہے اور پیشاب بناتا ہے۔ پیشاب نالی (یوریٹر) سے نیچے آتا ہے اور مثانے میں جمع ہوتا ہے۔ جب مثانہ بھر جاتا ہے تو آپ بیت الخلا جاتے ہیں۔</div>
+  </div>
+  <div class="card mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">✍️ Posa els noms al recorregut (mira els números del dibuix i la llegenda) <span class="ur-in" dir="rtl" lang="ur">راستے پر نام لکھیں</span></div>
+    <p class="frase-completar" contenteditable="false">La sang amb residus entra al <span class="blank blank-m"></span>, que la filtra. La sang filtrada torna al cos i el que sobra forma l'<span class="blank blank-m"></span>.</p>
+    <p class="frase-completar" contenteditable="false">L'orina surt del ronyó per un tub, el <span class="blank blank-m"></span>, i s'acumula a la <span class="blank blank-m"></span>.</p>
+    <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip">ronyó</span><span class="chip">orina</span><span class="chip">urèter</span><span class="chip">bufeta</span><span class="chip">pulmó</span><span class="chip">uretra</span></div></div>
+  </div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: dues portes de sortida <span class="ur-in" dir="rtl" lang="ur">باہر نکلنے کے دو دروازے</span></div>
+    <p contenteditable="true">🫁 Els <strong>pulmons</strong> treuen el <strong>CO₂</strong> (un gas). 🫘 El <strong>ronyó</strong> treu la <strong>urea</strong>, les <strong>sals</strong> i l'<strong>aigua</strong> que sobren (un líquid: l'orina).</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">پھیپھڑے CO₂ نکالتے ہیں (ایک گیس)۔ گردہ یوریا، نمکیات اور فالتو پانی نکالتا ہے (ایک مائع: پیشاب)۔</div>
+  </div>
+  <div class="card rose mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">Classifica: per quina porta surt cada residu? <span class="ur-in" dir="rtl" lang="ur">ہر فضلہ کس دروازے سے نکلتا ہے؟</span></div>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">ہر فضلے کو اس کے کالم میں لکھیں۔</div>
+    <table class="data-table vies-t" style="margin-top:4px"><thead><tr><th>🫁 Surt pels PULMONS<span class="th-ur" dir="rtl" lang="ur">پھیپھڑوں سے نکلتا ہے</span></th><th>🫘 Surt pel RONYÓ<span class="th-ur" dir="rtl" lang="ur">گردے سے نکلتا ہے</span></th></tr></thead><tbody><tr><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
+    <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip">CO₂</span><span class="chip">urea</span><span class="chip">sals <span class="ur-in" dir="rtl" lang="ur">نمکیات</span></span><span class="chip">aigua que sobra <span class="ur-in" dir="rtl" lang="ur">فالتو پانی</span></span></div></div>
+  </div>
+  <div class="g1-wrap mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="milimetrat-title" style="background:#6b5a8a"><span contenteditable="true">Les hormones missatgeres del ronyó</span><span style="font-size:11px;opacity:.8" contenteditable="true">esquema didàctic</span></div>
+    <img src="../imatges-cientifiques/s6_hormones_etiquetada.png" alt="Les dues hormones del ronyó: l'ADH fa que l'aigua torni a la sang i l'EPO fa que dins de l'os es fabriquin glòbuls vermells nous" style="width:100%;max-width:560px;display:block;margin:0 auto" onerror="this.style.display='none'">
+  </div>
+  <div class="card mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🔢 Com llegir el dibuix <span class="ur-in" dir="rtl" lang="ur">تصویر کیسے پڑھیں</span></div>
+    <p style="font-size:13.5px" contenteditable="true"><strong>Esquerra (ADH):</strong> el cervell envia el senyal de l'ADH al ronyó → el ronyó <strong>no deixa marxar</strong> l'aigua i la torna a la sang → surt poca orina.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">بائیں طرف (ADH): دماغ گردے کو ADH کا اشارہ بھیجتا ہے ← گردہ پانی کو جانے نہیں دیتا اور اسے خون میں واپس کرتا ہے ← پیشاب کم نکلتا ہے۔</div>
+    <p style="font-size:13.5px" contenteditable="true"><strong>Dreta (EPO):</strong> el ronyó envia el senyal de l'EPO a l'interior de l'os, la <strong>medul·la òssia</strong> → allà es fabriquen <strong>eritròcits</strong> nous → van a la sang.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">دائیں طرف (EPO): گردہ EPO کا اشارہ ہڈی کے اندر، ہڈی کے گودے کو بھیجتا ہے ← وہاں نئے سرخ خلیے بنتے ہیں ← وہ خون میں جاتے ہیں۔</div>
+  </div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: per quina raó l'orina canvia de color <span class="ur-in" dir="rtl" lang="ur">پیشاب کا رنگ کیوں بدلتا ہے</span></div>
+    <p contenteditable="true">Quan beus <strong>poca</strong> aigua, l'<strong>ADH</strong> mana al ronyó que <strong>retingui aigua</strong>. Llavors fas <strong>poca orina</strong> i és <strong>més fosca</strong>. Quan beus <strong>molt</strong>, passa el contrari: molta orina i ben clara.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">جب آپ کم پانی پیتے ہیں تو ADH گردے کو پانی روکنے کا حکم دیتا ہے۔ پھر پیشاب کم اور زیادہ گہرا ہوتا ہے۔ جب آپ زیادہ پیتے ہیں تو الٹ ہوتا ہے: پیشاب زیادہ اور بہت ہلکا۔</div>
+  </div>
+  <div class="card mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">💧 Dos gots d'orina: encercla i completa <span class="ur-in" dir="rtl" lang="ur">پیشاب کے دو گلاس: دائرہ لگائیں اور مکمل کریں</span></div>
+    <p style="font-size:13.5px" contenteditable="true">La Júlia ha begut 2 litres d'aigua. El Pau no ha begut res des del matí i ha jugat a bàsquet.</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">جولیا نے ۲ لیٹر پانی پیا ہے۔ پاؤ نے صبح سے کچھ نہیں پیا اور باسکٹ بال کھیلی ہے۔</div>
+    <div class="circ-row" contenteditable="true">L'orina fosca i escassa és la <span class="circ-opt">de la Júlia</span> / <span class="circ-opt">del Pau</span>.</div>
+    <div class="circ-row" contenteditable="true">Aquesta persona té <span class="circ-opt">molta</span> / <span class="circ-opt">poca</span> ADH a la sang, i per això el seu ronyó <span class="circ-opt">reté</span> / <span class="circ-opt">deixa marxar</span> l'aigua.</div>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">دائرہ لگائیں: گہرا اور کم پیشاب کس کا ہے؟ اس شخص کے خون میں ADH زیادہ ہے یا کم؟ اس کا گردہ پانی روکتا ہے یا جانے دیتا ہے؟</div>
+    <p class="frase-completar" contenteditable="false">Si el Pau ara beu un litre d'aigua, la seva ADH <span class="blank blank-m"></span> i la seva orina es tornarà <span class="blank blank-m"></span>.</p>
+    <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip">baixarà <span class="ur-in" dir="rtl" lang="ur">کم ہوگا</span></span><span class="chip">pujarà <span class="ur-in" dir="rtl" lang="ur">بڑھے گا</span></span><span class="chip">més clara <span class="ur-in" dir="rtl" lang="ur">زیادہ ہلکا</span></span><span class="chip">més fosca <span class="ur-in" dir="rtl" lang="ur">زیادہ گہرا</span></span></div></div>
+  </div>
+  <div class="card rose mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🩸 El ronyó i els glòbuls vermells: completa <span class="ur-in" dir="rtl" lang="ur">گردہ اور سرخ خلیے: مکمل کریں</span></div>
+    <p class="frase-completar" contenteditable="false">El ronyó també fabrica una hormona, l'<span class="blank blank-s"></span>, que mana fabricar <span class="blank blank-m"></span> (glòbuls vermells) dins de l'os.</p>
+    <p class="frase-completar" contenteditable="false">Per això una persona amb el ronyó malalt pot tenir <span class="blank blank-m"></span>, encara que mengi prou <span class="blank blank-s"></span>.</p>
+    <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip">EPO</span><span class="chip">ADH</span><span class="chip">eritròcits</span><span class="chip">anèmia <span class="ur-in" dir="rtl" lang="ur">خون کی کمی</span></span><span class="chip">ferro <span class="ur-in" dir="rtl" lang="ur">لوہا</span></span></div></div>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n4">4</div><div><div class="stitle" contenteditable="true">Integració: com es manté estable el medi intern <span class="ur-in" dir="rtl" lang="ur">یکجائی: جسم کے اندر کا ماحول کیسے برابر رہتا ہے</span></div><div class="sdesc" contenteditable="true">Síntesi · Tanquem el cas del corredor</div></div></div>
+  <div class="divider"></div>
+  <div class="card deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🔁 El cos s'autoregula: completa el cercle <span class="ur-in" dir="rtl" lang="ur">جسم خود کو سنبھالتا ہے: دائرہ مکمل کریں</span></div>
+    <p class="frase-completar" contenteditable="false">1r · Bec <span class="blank blank-s"></span> aigua &nbsp;→&nbsp; 2n · puja l'<span class="blank blank-s"></span> &nbsp;→&nbsp; 3r · el ronyó <span class="blank blank-m"></span> aigua &nbsp;→&nbsp; 4t · l'aigua de la sang torna a estar <span class="blank blank-s"></span>.</p>
+    <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip">poca <span class="ur-in" dir="rtl" lang="ur">کم</span></span><span class="chip">ADH</span><span class="chip">reté <span class="ur-in" dir="rtl" lang="ur">روکتا ہے</span></span><span class="chip">bé <span class="ur-in" dir="rtl" lang="ur">ٹھیک</span></span></div></div>
+    <div class="circ-row" contenteditable="true">Quan l'aigua ja torna a estar bé, el cos <span class="circ-opt">deixa de fabricar</span> / <span class="circ-opt">fabrica encara més</span> ADH.</div>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">جب پانی دوبارہ ٹھیک ہو جائے تو جسم ADH بنانا بند کر دیتا ہے یا اور زیادہ بناتا ہے؟ دائرہ لگائیں۔ جسم کے اندر کو اس طرح برابر رکھنا «homeòstasi» کہلاتا ہے۔</div>
+  </div>
+  <div class="card teal mt8 deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🕵️ Tanquem el cas del Marc Fontana, pas a pas <span class="ur-in" dir="rtl" lang="ur">مارک فونتانا کا معاملہ مکمل کریں</span></div>
+    <p class="pista" contenteditable="true">Dues dades de l'analítica del Marc (entre parèntesis, el rang normal): <strong>urea 34 mg/dL</strong> (15–45) · <strong>creatinina 0,9 mg/dL</strong> (0,7–1,3).</p>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">مارک کے خون کے ٹیسٹ کے دو نتائج۔ قوسین میں عام حد لکھی ہے۔</div>
+    <p style="font-size:13.5px;font-weight:800;color:var(--purple-ink)" contenteditable="true">👁️ OBSERVO <span class="ur-in" dir="rtl" lang="ur">میں دیکھتا/دیکھتی ہوں</span></p>
+    <div class="circ-row" contenteditable="true">Els residus que filtra el ronyó (urea i creatinina) al Marc són <span class="circ-opt">normals</span> / <span class="circ-opt">alts</span>.</div>
+    <p style="font-size:13.5px;font-weight:800;color:var(--purple-ink);margin-top:5px" contenteditable="true">🔗 CONNECTO <span class="ur-in" dir="rtl" lang="ur">میں جوڑتا/جوڑتی ہوں</span></p>
+    <div class="circ-row" contenteditable="true">Un ronyó que no filtra <span class="circ-opt">acumularia</span> / <span class="circ-opt">no acumularia</span> urea a la sang, i també fabricaria <span class="circ-opt">poca</span> / <span class="circ-opt">molta</span> EPO.</div>
+    <div class="ur" dir="rtl" lang="ur" contenteditable="true">دائرہ لگائیں: کیا مارک کا یوریا اور کریٹینین عام ہیں یا زیادہ؟ جو گردہ نہیں چھانتا وہ خون میں یوریا جمع کرے گا یا نہیں؟ اور EPO کم بنائے گا یا زیادہ؟</div>
+    <p style="font-size:13.5px;font-weight:800;color:var(--purple-ink);margin-top:5px" contenteditable="true">✅ DEDUEIXO <span class="ur-in" dir="rtl" lang="ur">میں نتیجہ نکالتا/نکالتی ہوں</span></p>
+    <p class="frase-completar" contenteditable="false">El ronyó del Marc està <span class="blank blank-m"></span>. La seva anèmia ve de la falta de <span class="blank blank-m"></span>.</p>
+    <div class="word-bank" style="margin-top:4px"><div class="word-bank-title" contenteditable="true">Banc de paraules</div><div class="chips"><span class="chip">sa <span class="ur-in" dir="rtl" lang="ur">صحت مند</span></span><span class="chip">malalt <span class="ur-in" dir="rtl" lang="ur">بیمار</span></span><span class="chip">ferro <span class="ur-in" dir="rtl" lang="ur">لوہا</span></span><span class="chip">aigua <span class="ur-in" dir="rtl" lang="ur">پانی</span></span></div></div>
+  </div>
+  <div class="epist-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div style="font-size:22px;flex-shrink:0">🔬</div>
+    <div style="flex:1">
+      <div class="epist-title" contenteditable="true">Pensa-hi: l'EPO dels ciclistes <span class="ur-in" dir="rtl" lang="ur">سوچیں: سائیکل سواروں کا EPO</span></div>
+      <div class="epist-text" contenteditable="true">Alguns esportistes fan trampes injectant-se EPO. <strong>Encercla:</strong> amb més EPO tindrien <span class="circ-opt">més glòbuls vermells</span> / <span class="circ-opt">menys glòbuls vermells</span>, i així portarien <span class="circ-opt">més oxigen</span> / <span class="circ-opt">menys oxigen</span> als músculs.</div>
+      <div class="ur" dir="rtl" lang="ur" contenteditable="true">کچھ کھلاڑی EPO کا ٹیکہ لگا کر دھوکا دیتے ہیں۔ دائرہ لگائیں: زیادہ EPO سے سرخ خلیے زیادہ ہوں گے یا کم؟ پٹھوں تک آکسیجن زیادہ جائے گی یا کم؟</div>
+      <p style="font-size:13.5px;margin-top:4px" contenteditable="true">Acaba la frase: «Els donava avantatge perquè amb més oxigen els músculs poden…»</p>
+      <div class="ur" dir="rtl" lang="ur" contenteditable="true">جملہ کاتالان میں مکمل کریں: «اس سے انہیں فائدہ ہوتا تھا کیونکہ زیادہ آکسیجن سے پٹھے…»</div>
+      <div class="wline" contenteditable="true"></div>
+    </div>
+  </div>
+</div>
+
+<div class="meta-oa-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="meta-oa-title" contenteditable="true">🎯 Torna als objectius del principi: marca el que has après avui <span class="ur-in" dir="rtl" lang="ur">شروع کے مقاصد پر واپس جائیں: جو آج سیکھا اس پر نشان لگائیں</span></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que els nervis porten l'ordre molt de pressa (mil·lisegons) i que les hormones van per la sang i triguen més (minuts).</div></div>
+  <div class="ur" dir="rtl" lang="ur" contenteditable="true">مجھے معلوم ہے کہ اعصاب حکم بہت تیزی سے پہنچاتے ہیں (ملی سیکنڈ) اور ہارمون خون کے ذریعے جاتے ہیں اور زیادہ وقت لیتے ہیں (منٹ)۔</div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé nomenar dues hormones i dir què fan: l'adrenalina i l'ADH.</div></div>
+  <div class="ur" dir="rtl" lang="ur" contenteditable="true">میں دو ہارمونوں کے نام اور ان کا کام بتا سکتا/سکتی ہوں: ایڈرینالین اور ADH۔</div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que el ronyó filtra la sang i fabrica l'orina, i sé el camí: ronyó → urèter → bufeta.</div></div>
+  <div class="ur" dir="rtl" lang="ur" contenteditable="true">مجھے معلوم ہے کہ گردہ خون کو چھانتا ہے اور پیشاب بناتا ہے، اور مجھے راستہ معلوم ہے: گردہ ← یوریٹر ← مثانہ۔</div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que els pulmons treuen el CO₂ i que el ronyó treu la urea, les sals i l'aigua que sobren.</div></div>
+  <div class="ur" dir="rtl" lang="ur" contenteditable="true">مجھے معلوم ہے کہ پھیپھڑے CO₂ نکالتے ہیں اور گردہ یوریا، نمکیات اور فالتو پانی نکالتا ہے۔</div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé explicar per quina raó, si bec poca aigua, la meva orina és més fosca (l'ADH).</div></div>
+  <div class="ur" dir="rtl" lang="ur" contenteditable="true">میں بتا سکتا/سکتی ہوں کہ کم پانی پینے سے میرا پیشاب زیادہ گہرا کیوں ہوتا ہے (ADH)۔</div>
+  <div class="meta-open">
+    <div class="meta-open-label" contenteditable="true">🪞 Mira el teu dibuix de l'apartat 1. Era encertat? En què m'equivocava? <span class="ur-in" dir="rtl" lang="ur">حصہ ۱ کی اپنی تصویر دیکھیں۔ کیا وہ درست تھی؟ کہاں غلطی تھی؟</span></div>
+    <div class="wline" contenteditable="true"></div>
+    <div class="meta-open-label" style="margin-top:5px" contenteditable="true">❓ Encara em pregunto… <span class="ur-in" dir="rtl" lang="ur">میں ابھی بھی سوچتا/سوچتی ہوں…</span></div>
+    <div class="wline" contenteditable="true"></div>
+  </div>
+  <p class="small" contenteditable="true">Després fas el <strong>full de sortida</strong> en paper (8 min).</p>
+  <div class="ur" dir="rtl" lang="ur" contenteditable="true">پھر آپ کاغذ پر آخری ورق بھریں گے (۸ منٹ)۔</div>
+</div>
+
+<div class="tasca-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="card-label" contenteditable="true">📚 Tasca per a casa: el teu ronyó en acció (1 dia) <span class="ur-in" dir="rtl" lang="ur">گھر کا کام: آپ کا گردہ کام کرتے ہوئے (ایک دن)</span></div>
+  <p style="font-size:14px;font-weight:700;color:var(--purple-ink)" contenteditable="true">Durant un dia, apunta quants gots d'aigua beus i de quin color és la teva orina.</p>
+  <div class="ur" dir="rtl" lang="ur" contenteditable="true">ایک دن لکھیں کہ آپ کتنے گلاس پانی پیتے ہیں اور آپ کے پیشاب کا رنگ کیسا ہے۔</div>
+  <table class="data-table" style="margin-top:5px"><thead><tr><th>Moment del dia<span class="th-ur" dir="rtl" lang="ur">دن کا وقت</span></th><th>Gots d'aigua des de l'anterior<span class="th-ur" dir="rtl" lang="ur">پچھلی بار سے پانی کے گلاس</span></th><th>Color de l'orina (clara / mitjana / fosca)<span class="th-ur" dir="rtl" lang="ur">پیشاب کا رنگ (ہلکا / درمیانہ / گہرا)</span></th></tr></thead><tbody><tr><td style="font-weight:700">Al llevar-te<span class="ht-ur" dir="rtl" lang="ur">جاگنے پر</span></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td style="font-weight:700">Migdia<span class="ht-ur" dir="rtl" lang="ur">دوپہر</span></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td style="font-weight:700">Tarda<span class="ht-ur" dir="rtl" lang="ur">سہ پہر</span></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td style="font-weight:700">Abans de dormir<span class="ht-ur" dir="rtl" lang="ur">سونے سے پہلے</span></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table>
+  <p style="font-size:13.5px;font-weight:700;color:var(--purple-ink);margin-top:7px" contenteditable="true">Quina conclusió en treus? Quan beus pocs gots, de quin color és l'orina?</p>
+  <div class="ur" dir="rtl" lang="ur" contenteditable="true">آپ کیا نتیجہ نکالتے ہیں؟ جب آپ کم گلاس پیتے ہیں تو پیشاب کا رنگ کیسا ہوتا ہے؟ کاتالان میں لکھیں۔</div>
+  <div class="wline" contenteditable="true"></div>
+  <div class="wline" contenteditable="true"></div>
+  <p class="small mt8" contenteditable="true">⚠️ <strong>Porta aquesta fitxa a la Sessió 7</strong>, i també les dades de freqüència cardíaca en repòs dels 3 matins.</p>
+  <div class="ur" dir="rtl" lang="ur" contenteditable="true">یہ ورق سبق ۷ میں لائیں، اور تین صبحوں کی آرام کی حالت میں دھڑکن کے اعداد بھی۔</div>
+</div>
+
+<div class="footer deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="footer-l" contenteditable="true">IE Temple · Biologia i Geologia 3r ESO · El nostre cos en marxa · Sessió 6 · Versió C acollida (urdú)</div>
+  <div class="footer-r" contenteditable="true">Biologia i Geologia · 3r ESO</div>
+</div>
+
+</div><!-- /content -->
+
+</div><!-- /doc -->
+<div id="sheets"></div>
+</div><!-- /page-wrap -->
+
+<script>
+const SHEET_H = 1123;
+const FOOT_H  = 26;
+const BODY_MAX = SHEET_H - FOOT_H - 10;
+let FLOW = [];
+
+function flattenDoc(){
+  const doc=document.getElementById('doc');
+  const content=doc.querySelector(':scope > .content');
+  if(content){
+    const foot=content.querySelector(':scope > .footer'); if(foot) foot.remove();
+    while(content.firstChild){ doc.insertBefore(content.firstChild, content); }
+    content.remove();
+  }
+  const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
+}
+function extractFlow(){
+  FLOW = Array.from(document.getElementById('doc').children);
+  // Posicio original de cada fill de seccio: el paginador la fa servir per
+  // reassemblar en ordre una seccio que ha partit (sense aixo, cada
+  // repaginacio la desordena i separa una llegenda del seu dibuix).
+  FLOW.forEach(function(b){
+    if(b.classList && b.classList.contains('section')){
+      Array.prototype.forEach.call(b.children, function(k,i){ k._ord = i; });
+    }
+  });
+}
+function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
+
+function saveCaret(){
+  const a=document.activeElement;
+  if(!a||!a.isContentEditable) return null;
+  const s=getSelection(); if(!s.rangeCount) return {el:a};
+  const r=s.getRangeAt(0);
+  return {el:a, sc:r.startContainer, so:r.startOffset, ec:r.endContainer, eo:r.endOffset};
+}
+function restoreCaret(d){
+  if(!d||!d.el||!document.body.contains(d.el)) return;
+  try{ d.el.focus({preventScroll:true});
+    if(d.sc && document.body.contains(d.sc)){
+      const r=document.createRange(); r.setStart(d.sc,d.so); r.setEnd(d.ec,d.eo);
+      const s=getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+  }catch(e){}
+}
+
+function repaginate(){
+  const host=document.getElementById('sheets'); if(!host) return;
+  const caret=saveCaret();
+  // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
+  var _origens=[];
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
+  // ...i es torna l'ordre original: els fills reassemblats s'afegien al final.
+  _origens.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
+  });
+  FLOW.forEach(b=>{ if(b.parentNode) b.parentNode.removeChild(b); });
+  host.innerHTML='';
+  let body=null;
+  function newSheet(){
+    const sheet=document.createElement('div'); sheet.className='sheet';
+    body=document.createElement('div'); body.className='sheet-body';
+    const foot=document.createElement('div'); foot.className='sheet-foot';
+    foot.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span class="foot-pg"></span>';
+    sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
+  }
+  FLOW = FLOW.filter(b=>b);
+  function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn') && !c.classList.contains('move-ctrl'); }); }
+  function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
+  function trySplitSection(sec){
+    if(BODY_MAX - body.scrollHeight < 150) return false;
+    body.appendChild(sec);
+    if(body.scrollHeight <= BODY_MAX) return true;
+    var moved=[];
+    while(body.scrollHeight > BODY_MAX && _contentKids(sec).length > 1){
+      var ck=_contentKids(sec); var last=ck[ck.length-1];
+      moved.unshift(last); sec.removeChild(last);
+    }
+    if(moved.length===0 || body.scrollHeight > BODY_MAX){
+      moved.forEach(function(k){ sec.appendChild(k); });
+      if(sec.parentNode) sec.parentNode.removeChild(sec);
+      return false;
+    }
+    var pending=moved;
+    while(pending.length){
+      newSheet();
+      var cont=document.createElement('div');
+      cont.className='section'; cont.setAttribute('data-cont','1'); cont._origin=sec;
+      body.appendChild(cont);
+      pending.forEach(function(k){ cont.appendChild(k); });
+      var rest=[];
+      while(body.scrollHeight > BODY_MAX && cont.children.length>1){
+        var l=cont.lastElementChild; rest.unshift(l); cont.removeChild(l);
+      }
+      pending=rest;
+    }
+    return true;
+  }
+  newSheet();
+  for(let i=0;i<FLOW.length;i++){
+    const blk=FLOW[i];
+    if(blk.classList.contains('nova-pagina') && body.children.length) newSheet();
+    if(blk.classList.contains('spacer-block')){
+      blk.style.height='auto'; body.appendChild(blk);
+      const used = body.scrollHeight - blk.offsetHeight;
+      const remain = BODY_MAX - used;
+      blk.style.height = (remain>34?remain:34)+'px';
+      if(i < FLOW.length-1) newSheet();
+      continue;
+    }
+    body.appendChild(blk);
+    if(body.scrollHeight > BODY_MAX && body.children.length>1){
+      body.removeChild(blk);
+      var _ok=false;
+      if(blk.classList.contains('section')){ try{ _ok=trySplitSection(blk); }catch(e){ _ok=false; } }
+      if(!_ok){
+        newSheet();
+        var _ok2=false;
+        if(blk.classList.contains('section')){ try{ _ok2=trySplitSection(blk); }catch(e){ _ok2=false; } }
+        if(!_ok2){ body.appendChild(blk); }
+      }
+    }
+  }
+  const sheets=host.querySelectorAll('.sheet');
+  sheets.forEach((s,idx)=>{ const pg=s.querySelector('.foot-pg'); if(pg) pg.textContent='Pàgina '+(idx+1)+' / '+sheets.length; });
+  restoreCaret(caret);
+}
+let _pgT=null;
+function schedulePageBreaks(){ clearTimeout(_pgT); _pgT=setTimeout(repaginate,120); }
+document.addEventListener('focusout', ()=>schedulePageBreaks());
+
+const delStack = [];
+function deleteEl(btn){
+  const el = btn.closest('.deletable'); if(!el) return;
+  const idx = FLOW.indexOf(el);
+  delStack.push({ el, flowIdx: idx, parent: el.parentNode, sibling: el.nextSibling });
+  if(idx>=0) FLOW.splice(idx,1);
+  el.remove();
+  document.getElementById('btn-undo').classList.add('active');
+  repaginate();
+}
+function undoDelete(){
+  const last = delStack.pop(); if(!last) return;
+  if(last.flowIdx>=0){ FLOW.splice(Math.min(last.flowIdx,FLOW.length),0,last.el); }
+  else if(last.parent){ last.parent.insertBefore(last.el, last.sibling); }
+  if(delStack.length===0) document.getElementById('btn-undo').classList.remove('active');
+  repaginate();
+}
+document.addEventListener('keydown', e=>{
+  if(e.key==='z' && (e.ctrlKey||e.metaKey)){
+    const ed = document.activeElement && document.activeElement.isContentEditable;
+    if(!ed){ e.preventDefault(); undoDelete(); }
+  }
+});
+
+let _lastClickedBlock = null;
+document.addEventListener('click', e=>{
+  const blk = e.target.closest && e.target.closest('.deletable');
+  if(blk) _lastClickedBlock = blk;
+});
+function _newSpacer(){
+  const sp=document.createElement('div'); sp.className='spacer-block deletable spacer-fill';
+  sp.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai · la resta passa a la pàgina següent</span>';
+  return sp;
+}
+function _registerSpacer(sp, idx){
+  if(idx>=0) FLOW.splice(idx,0,sp); else FLOW.push(sp);
+  delStack.push({ el:sp, flowIdx:FLOW.indexOf(sp) });
+  document.getElementById('btn-undo').classList.add('active');
+  repaginate();
+  if(typeof makeMovable==='function') makeMovable();
+}
+function insertSpacer(){
+  const ref = topFlowBlock(_lastClickedBlock);
+  const i = ref ? FLOW.indexOf(ref) : -1;
+  _registerSpacer(_newSpacer(), i>=0 ? i+1 : -1);
+}
+function addSpacerAfter(span){
+  const ref = topFlowBlock(span.closest('.deletable'));
+  const i = ref ? FLOW.indexOf(ref) : -1;
+  _registerSpacer(_newSpacer(), i>=0 ? i+1 : -1);
+}
+
+function _fitxaToast(msg){
+  let t=document.getElementById('fitxa-toast');
+  if(!t){t=document.createElement('div');t.id='fitxa-toast';
+    t.style.cssText='position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3a2d6e;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s';
+    document.body.appendChild(t);}
+  t.textContent=msg;t.style.opacity='1';clearTimeout(t._h);t._h=setTimeout(()=>t.style.opacity='0',2200);
+}
+function rebuildDocFromFlow(){
+  const doc=document.getElementById('doc');
+  // reassembla seccions partides abans de reconstruir (evita perdre contingut)
+  var _origens2=[];
+  document.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens2.indexOf(o)<0) _origens2.push(o); } });
+  // ...i es torna l'ordre original: en desar, els fills reassemblats s'afegien
+  // al final i el desordre quedava escrit al fitxer.
+  _origens2.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
+  });
+  FLOW.forEach(b=>{ if(b.classList.contains('spacer-block')) b.style.height=''; });
+  FLOW.forEach(b=>{ if(b.parentNode!==doc){ if(b.parentNode) b.parentNode.removeChild(b); doc.appendChild(b); } });
+  document.getElementById('sheets').innerHTML='';
+}
+async function desaFitxa(){
+  rebuildDocFromFlow();
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelectorAll('#fitxa-toast').forEach(n=>n.remove());
+  const sh=clone.querySelector('#sheets'); if(sh) sh.innerHTML='';
+  const html='<!DOCTYPE html>\n'+clone.outerHTML;
+  const fname=(location.pathname.split('/').pop()||'fitxa.html');
+  try{
+    if(window.showSaveFilePicker){
+      try{
+        const h=await window.showSaveFilePicker({suggestedName:fname,types:[{description:'Pàgina HTML',accept:{'text/html':['.html']}}]});
+        const w=await h.createWritable();await w.write(html);await w.close();
+        _fitxaToast('✓ Canvis desats al fitxer');return;
+      }catch(e){if(e.name==='AbortError')return;}
+    }
+    const blob=new Blob([html],{type:'text/html'});
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;
+    document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+    _fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');
+  } finally {
+    extractFlow(); repaginate();
+  }
+}
+document.addEventListener('keydown',e=>{ if(e.key==='s'&&(e.ctrlKey||e.metaKey)){e.preventDefault();desaFitxa();} });
+
+function makeEditable(){
+  const sels=[
+    '.oa-title','.stitle','.sdesc','.card-label','.word-bank-title','.chip',
+    '.previ-box p','.connexio-text','.epist-text','.epist-title',
+    '.data-table th','.tasca-box p',
+    '.meta-oa-title','.meta-open-label','.pista',
+    '.milimetrat-title span',
+    '.footer-l','.footer-r','.card p','.section p','.previ-box strong',
+    '.card ol li','.draw-box p','.info-box p','.info-label','.chain-chip','.circ-row'
+  ].join(',');
+  document.querySelectorAll(sels).forEach(el=>{
+    if(el.isContentEditable) return;
+    if(el.closest('[contenteditable="true"]')) return;
+    if(el.querySelector('.fill-cell,.wline,.input-span,.chk-sq,.yes-no,.yn-opt,.blank,.del-btn,.move-ctrl,img,table,svg')) return;
+    el.setAttribute('contenteditable','true');
+  });
+  document.querySelectorAll('.blank').forEach(b=>b.setAttribute('contenteditable','true'));
+}
+
+const _MV_UP='<span class="mv" title="Mou amunt" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,-1)">↑</span>';
+const _MV_DOWN='<span class="mv" title="Mou avall" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,1)">↓</span>';
+const _MV_SPACE='<span class="mv mv-space" title="Afegeix un espai en blanc a sota d\'aquest bloc" onmousedown="event.preventDefault();event.stopPropagation();addSpacerAfter(this)">＋</span>';
+function makeMovable(){
+  document.querySelectorAll('.deletable').forEach(el=>{
+    let mc=el.querySelector(':scope > .move-ctrl');
+    if(!mc){
+      el.insertAdjacentHTML('beforeend','<div class="move-ctrl">'+_MV_UP+_MV_DOWN+_MV_SPACE+'</div>');
+    } else if(!mc.querySelector('.mv-space')){
+      mc.insertAdjacentHTML('beforeend', _MV_SPACE);
+    }
+  });
+}
+function moveEl(span,dir){
+  const el=span.closest('.deletable'); if(!el) return;
+  const i=FLOW.indexOf(el);
+  if(i>=0){
+    const j=i+dir; if(j<0||j>=FLOW.length) return;
+    const t=FLOW[i]; FLOW[i]=FLOW[j]; FLOW[j]=t;
+    repaginate(); return;
+  }
+  let sib = dir<0 ? el.previousElementSibling : el.nextElementSibling;
+  while(sib && !sib.classList.contains('deletable')) sib = dir<0 ? sib.previousElementSibling : sib.nextElementSibling;
+  if(sib){ if(dir<0) el.parentNode.insertBefore(el,sib); else el.parentNode.insertBefore(sib,el); }
+  repaginate();
+}
+
+let _lastWline=null;
+function wlineText(w){ let s=''; w.childNodes.forEach(n=>{ if(n.nodeType===3) s+=n.textContent; else if(n.nodeType===1 && !n.classList.contains('wline-del')) s+=n.textContent; }); return s; }
+function makeWline(){
+  const w=document.createElement('div');
+  w.className='wline'; w.setAttribute('contenteditable','true');
+  w.insertAdjacentHTML('beforeend','<span class="wline-del" contenteditable="false" title="Treu aquesta línia" onmousedown="event.preventDefault();event.stopPropagation();delWline(this)">✕</span>');
+  return w;
+}
+function decorateWlines(){
+  document.querySelectorAll('.wline').forEach(w=>{
+    if(w.querySelector(':scope > .wline-del')) return;
+    w.insertAdjacentHTML('beforeend','<span class="wline-del" contenteditable="false" title="Treu aquesta línia" onmousedown="event.preventDefault();event.stopPropagation();delWline(this)">✕</span>');
+  });
+}
+function addWlineAfter(ref){
+  if(!ref||!ref.parentNode) return null;
+  const nw=makeWline(); ref.parentNode.insertBefore(nw, ref.nextSibling);
+  _lastWline=nw; placeCaretStart(nw); schedulePageBreaks(); return nw;
+}
+function delWline(btn){
+  const w=btn.closest('.wline'); if(!w) return;
+  const prev=w.previousElementSibling;
+  w.remove();
+  if(prev && prev.classList && prev.classList.contains('wline')){ _lastWline=prev; placeCaretStart(prev); }
+  schedulePageBreaks();
+}
+function addWlineToolbar(){
+  let ref=_lastWline && document.body.contains(_lastWline) ? _lastWline : null;
+  if(!ref){ const all=document.querySelectorAll('.wline'); ref=all[all.length-1]; }
+  if(ref) addWlineAfter(ref); else _fitxaToast('Fes clic dins d\'una línia d\'escriptura primer');
+}
+function placeCaretStart(el){
+  el.focus();
+  try{ const r=document.createRange(); r.setStart(el,0); r.collapse(true); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){}
+}
+document.addEventListener('focusin',e=>{ if(e.target.classList&&e.target.classList.contains('wline')) _lastWline=e.target; });
+document.addEventListener('keydown',e=>{
+  const t=e.target;
+  if(t&&t.classList&&t.classList.contains('wline')){
+    if(e.key==='Enter'){ e.preventDefault(); addWlineAfter(t); }
+    else if(e.key==='Backspace' && wlineText(t).trim()===''){
+      const prev=t.previousElementSibling;
+      if(prev&&prev.classList&&prev.classList.contains('wline')){ e.preventDefault(); t.remove(); _lastWline=prev; placeCaretEnd(prev); schedulePageBreaks(); }
+    }
+  }
+},true);
+function placeCaretEnd(el){
+  el.focus();
+  try{ const r=document.createRange(); r.selectNodeContents(el); r.collapse(false); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){}
+}
+
+window.addEventListener('load', ()=>{
+  flattenDoc();
+  makeEditable();
+  decorateWlines();
+  extractFlow();
+  makeMovable();
+  repaginate();
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(()=>repaginate()); }
+  document.querySelectorAll('img').forEach(img=>{ if(!img.complete) img.addEventListener('load', ()=>schedulePageBreaks(), {once:true}); });
+  setTimeout(repaginate, 400);
+  setTimeout(repaginate, 1200);
+});
+</script>
+
+</body></html>

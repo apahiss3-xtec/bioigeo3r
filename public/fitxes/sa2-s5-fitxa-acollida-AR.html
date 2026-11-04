@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="ca"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sessió 5 · Respiració i esforç: la freqüència cardíaca · Acollida (àrab) — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple:       #7B68C8;
+  --purple-ink:   #4a3b8c;
+  --purple-light: #c5b8f0;
+  --purple-tint:  #f0edfb;
+  --ink:          #1A1428;
+  --ink-2:        #3a3050;
+  --muted:        #7a7090;
+  --surface:      #fdfcff;
+  --rule:         #e8e2f6;
+  --rule-dark:    #c8bfe8;
+  --art:     #c0474a; --art-tint:     #fef5f5;
+  --ven:     #6b7ab5; --ven-tint:     #f0f2ff;
+  --orange:  #e8834a; --orange-tint:  #fdf0e8;
+  --teal:    #3a9e8c; --teal-tint:    #e6f4f1;
+  --rose:    #d44a6c; --rose-tint:    #fce8ed;
+  --yellow:  #c8960a; --yellow-tint:  #fdf7e2;
+  --green:   #4a9e5c; --green-tint:   #eaf4ec;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Fira Sans Extra Condensed',sans-serif; background:#e9e6f2; color:var(--ink); font-size:14.5px; line-height:1.5; }
+
+/* ── TOOLBAR ── */
+#toolbar { position:fixed; top:0; left:0; right:0; z-index:9000; background:#2d2347; display:flex; gap:6px; align-items:center; padding:6px 12px; box-shadow:0 2px 10px rgba(0,0,0,.25); }
+.tb-btn { font-family:'Inter',sans-serif; font-size:12px; font-weight:600; color:#fff; background:rgba(255,255,255,.12); border:none; cursor:pointer; padding:6px 11px; border-radius:7px; }
+.tb-btn:hover { background:rgba(255,255,255,.24); }
+.tb-btn.active { background:var(--purple); }
+.tb-title { font-family:'Inter',sans-serif; font-size:11px; color:#cfc6ec; margin-left:auto; letter-spacing:.04em; }
+
+.page-wrap { margin:48px auto 40px; }
+#doc { display:none; }
+#sheets { display:flex; flex-direction:column; align-items:center; gap:26px; }
+.sheet { width:794px; min-height:1123px; background:var(--surface); position:relative; box-shadow:0 4px 24px rgba(60,40,110,.16); overflow:visible; padding-bottom:26px; }
+.sheet-body { padding:40px 18px 8px; position:relative; overflow:visible; }
+.sheet-foot { position:absolute; left:0; right:0; bottom:0; height:26px; display:flex; justify-content:space-between; align-items:center; padding:0 22px; font-family:'Inter',sans-serif; font-size:8px; font-weight:600; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; border-top:.5px solid var(--rule); background:var(--surface); }
+.sheet-body > .header-band { margin:-40px -18px 0; }
+.sheet-body > .nivell-strip { margin:0 -18px; }
+.sheet-body > .oa-box { margin-left:0; margin-right:0; }
+.sheet-body > .content { padding:0; }
+.spacer-fill { display:flex; align-items:center; justify-content:center; }
+
+/* ── CAPÇALERA ── */
+.header-band { background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%); color:#fff; padding:15px 18px 14px; display:grid; grid-template-columns:54px 1fr auto; gap:0 16px; align-items:center; position:relative; overflow:hidden; }
+.header-emoji-box { width:50px; height:50px; background:rgba(255,255,255,.18); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; position:relative; z-index:2; }
+.header-center { min-width:0; position:relative; z-index:2; }
+.header-sa { font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; opacity:.8; margin-bottom:2px; }
+.header-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:30px; font-weight:900; line-height:1.05; color:#fff; margin:0; }
+.header-subtitle { font-family:'Crimson Pro',serif; font-size:13px; font-style:italic; opacity:.88; margin-top:2px; }
+.header-right { display:flex; flex-direction:column; align-items:flex-end; gap:6px; flex-shrink:0; position:relative; z-index:2; }
+.logo-box { background:#fff; border-radius:12px; padding:5px 11px; box-shadow:0 3px 12px rgba(20,10,40,.28); }
+.logo-box img { height:84px; display:block; }
+.header-meta { font-family:'Inter',sans-serif; font-size:8px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; opacity:.82; text-align:right; line-height:1.4; }
+
+/* ── STRIP NIVELL ── */
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:6px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; position:relative; }
+.badge { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--purple); padding:2px 9px; border-radius:9999px; position:relative; }
+.temps-badge { font-size:11px; font-weight:600; color:var(--purple-ink); background:#fff; border:1.5px solid var(--purple-light); padding:2px 8px; border-radius:9999px; position:relative; }
+.nom-field { font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:4px; position:relative; }
+.nom-field:first-of-type { margin-left:auto; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:13.5px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; }
+.input-span.data-span { min-width:70px; }
+.nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(123,104,200,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); vertical-align:middle; margin-left:4px; flex-shrink:0; }
+
+/* ── OA BOX ── */
+.oa-box { background:linear-gradient(135deg,#f0edfb 0%,#e8e2f6 100%); border:1.5px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin:12px 18px 4px; position:relative; }
+.oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14.5px; font-weight:900; color:var(--purple-ink); letter-spacing:.03em; margin-bottom:6px; }
+.oa-list { margin:0; padding-left:18px; list-style:none; }
+.oa-list li { font-size:13.5px; line-height:1.5; color:var(--ink-2); margin-bottom:3px; padding-left:4px; }
+.oa-list li::before { content:"□ "; color:var(--purple); font-weight:700; margin-left:-18px; margin-right:4px; }
+
+/* ── CONTINGUT ── */
+.content { padding:4px 18px 14px; }
+.section { margin-top:12px; position:relative; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:14.5px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.snum.n0 { background:var(--muted); } .snum.n1 { background:var(--orange); } .snum.n2 { background:var(--teal); }
+.snum.n3 { background:var(--art); } .snum.n4 { background:var(--purple-ink); }
+.stitle { font-size:16px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:11px; color:var(--muted); font-style:italic; font-family:'Crimson Pro',serif; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+
+/* ── BLOCS ── */
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
+.previ-box p { font-size:14px; }
+.previ-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch; margin-top:8px; }
+.draw-box { background:#fff; border:1.5px solid var(--purple-light); border-radius:8px; padding:9px 12px; display:flex; flex-direction:column; }
+.draw-box .card-label { color:var(--purple-ink); }
+.draw-area { flex:1 1 auto; min-height:240px; border:1.5px dashed var(--rule-dark); border-radius:8px; background:#fff; margin-top:6px; display:flex; align-items:flex-start; justify-content:flex-end; }
+.draw-area .draw-hint { font-size:9px; color:#c0b8d8; font-style:italic; padding:5px 8px; user-select:none; pointer-events:none; }
+.wline { display:block; width:100%; border-bottom:1.5px solid #C8C2DD; min-height:26px; margin-top:6px; background:#fff; outline:none; padding:3px 4px; }
+.pista { font-size:11px; color:var(--muted); font-style:italic; margin:4px 0 2px; }
+.card { background:#fff; border:1.5px solid var(--rule); border-radius:8px; padding:10px 12px; margin-bottom:8px; }
+.card.orange { border-color:var(--orange); background:var(--orange-tint); }
+.card.teal { border-color:var(--teal); background:var(--teal-tint); }
+.card.rose { border-color:var(--rose); background:var(--rose-tint); }
+.card.yellow { border-color:var(--yellow); background:var(--yellow-tint); }
+.card-label { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+
+/* ── CONNEXIÓ ── */
+.connexio-box { display:flex; align-items:center; gap:10px; background:#f5f0ff; border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.connexio-icon { font-size:24px; flex-shrink:0; }
+.connexio-text { font-size:13.5px; line-height:1.5; }
+.connexio-text strong { color:var(--purple-ink); }
+
+/* ── WORD BANK ── */
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
+.word-bank-title { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.chips { display:flex; flex-wrap:wrap; gap:4px; }
+.chip { font-size:13.5px; font-weight:600; padding:2px 8px; border-radius:9999px; background:#fff; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+
+/* ── TAULES ── */
+.data-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+.data-table th { background:var(--purple-ink); color:#fff; padding:5px 8px; text-align:left; font-size:11px; letter-spacing:.05em; text-transform:uppercase; }
+.data-table th:first-child { border-radius:5px 0 0 0; }
+.data-table th:last-child { border-radius:0 5px 0 0; }
+.data-table td { padding:5px 8px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table tr:nth-child(even) td { background:var(--purple-tint); }
+.fill-cell { display:block; width:100%; min-height:22px; border-bottom:1.5px solid #C8C2DD; background:#fff; outline:none; padding:2px 3px; }
+.hint-cell { font-size:11px; color:var(--muted); }
+.yn-opt { font-size:13.5px; display:inline-flex; align-items:center; gap:3px; }
+.chk-sq { width:12px; height:12px; border:1.5px solid var(--rule-dark); border-radius:2px; flex-shrink:0; display:inline-block; print-color-adjust:exact; }
+
+/* ── TAULA FC ── */
+.fc-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+.fc-table th { background:var(--purple-ink); color:#fff; padding:5px 8px; text-align:center; font-size:11px; text-transform:uppercase; letter-spacing:.06em; }
+.fc-table th:first-child { border-radius:6px 0 0 0; }
+.fc-table th:last-child { border-radius:0 6px 0 0; }
+.fc-table td { padding:4px 8px; text-align:center; border-bottom:1px solid var(--rule); }
+.fc-table td:first-child { text-align:left; font-weight:700; font-size:11px; color:var(--muted); }
+.fc-table tr.repos td { background:#f2f6fd; }
+.fc-table tr.exercici td { background:var(--rose-tint); }
+.fc-table tr.recuperacio td { background:var(--green-tint); }
+
+/* ── ZONES FC ── */
+.zones-bar { height:30px; border-radius:8px; overflow:hidden; display:flex; margin:4px 0 2px; border:1.5px solid var(--rule); }
+.zone-seg { display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:.04em; text-align:center; }
+.fc-calc-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:10px 14px; margin:10px 0 8px; position:relative; }
+.fc-formula { font-size:16px; font-weight:900; color:var(--purple-ink); text-align:center; padding:6px; background:#fff; border-radius:6px; margin:4px 0; }
+
+/* ── GRÀFIQUES ── */
+.milimetrat-wrap { border:2px solid var(--rule-dark); border-radius:8px; overflow:hidden; margin:8px 0; position:relative; }
+.milimetrat-title { background:var(--purple-ink); color:#fff; font-size:11px; font-weight:700; padding:4px 10px; text-transform:uppercase; letter-spacing:.05em; display:flex; justify-content:space-between; align-items:center; }
+.milimetrat { background-image:linear-gradient(rgba(100,120,200,.08) 1px, transparent 1px),linear-gradient(90deg, rgba(100,120,200,.08) 1px, transparent 1px),linear-gradient(rgba(100,120,200,.25) 1px, transparent 1px),linear-gradient(90deg, rgba(100,120,200,.25) 1px, transparent 1px); background-size:5px 5px,5px 5px,25px 25px,25px 25px; background-position:-1px -1px,-1px -1px,-1px -1px,-1px -1px; }
+.milimetrat-axis-y { position:absolute; left:0; top:24px; bottom:20px; width:40px; background:rgba(255,255,255,.88); border-right:1.5px solid #aaa; display:flex; flex-direction:column; justify-content:space-between; padding:4px 4px; font-size:8px; color:var(--muted); text-align:right; }
+.milimetrat-axis-x { position:absolute; bottom:0; height:20px; background:rgba(255,255,255,.88); border-top:1.5px solid #aaa; display:flex; justify-content:space-around; align-items:center; font-size:8px; color:var(--muted); right:0; }
+.g1-wrap { border:1.5px solid var(--rule); border-radius:8px; overflow:hidden; margin:8px 0; position:relative; }
+.g1-title { background:var(--art); color:#fff; font-size:11px; font-weight:700; padding:5px 10px; display:flex; justify-content:space-between; align-items:center; }
+.g2-wrap { border:1.5px solid var(--rule); border-radius:8px; overflow:hidden; margin:8px 0; position:relative; }
+.g2-title { background:var(--purple-ink); color:#fff; font-size:11px; font-weight:700; padding:5px 10px; display:flex; justify-content:space-between; align-items:center; }
+.g2-llegenda { display:flex; gap:16px; padding:5px 10px; background:#fafafa; border-bottom:1px solid var(--rule); font-size:11px; flex-wrap:wrap; }
+.g2-item { display:flex; align-items:center; gap:5px; }
+.g2-dot { width:16px; height:4px; border-radius:2px; flex-shrink:0; }
+
+/* ── BLANKS ── */
+.blank { display:inline-block; border:1px solid var(--rule); border-bottom:1.5px solid #C8C2DD; border-radius:3px 3px 0 0; vertical-align:bottom; margin:0 3px; height:auto; min-height:1.45em; line-height:1.5; padding:0 5px; background:#fff; outline:none; }
+.blank-s { min-width:60px; } .blank-m { min-width:100px; } .blank-l { min-width:140px; } .blank-xl { min-width:200px; }
+.frase-completar { font-size:13.5px; line-height:2.3; margin-bottom:4px; }
+
+/* ── CÀPSULES PER LLEGIR ── */
+.info-box { background:#fff; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:8px 12px; margin:8px 0; position:relative; }
+.info-label { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.info-box p { font-size:13.5px; line-height:1.5; margin-bottom:3px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0 3px; }
+.chain-chip { font-size:13.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:14.5px; }
+
+/* ── ENCERCLA L'OPCIÓ (guiatge nivell C) ── */
+.circ-row { font-size:13.5px; line-height:2.1; margin-bottom:3px; }
+.circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:#fff; }
+
+/* ── EPIST ── */
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; position:relative; }
+.epist-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-bottom:2px; }
+.epist-text { font-size:13.5px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+
+/* ── METACOGNICIÓ OA-BASED ── */
+.meta-oa-box { background:var(--purple-tint); border:1px solid var(--purple-light); border-radius:8px; padding:10px 14px 12px; margin-top:12px; position:relative; }
+.meta-oa-title { font-family:'Fira Sans Extra Condensed',sans-serif; font-size:14px; font-weight:900; color:var(--purple-ink); margin-bottom:8px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:5px; }
+.meta-oa-check { width:14px; height:14px; flex-shrink:0; border:1.5px solid var(--purple); border-radius:3px; margin-top:1px; print-color-adjust:exact; }
+.meta-oa-text { font-size:13.5px; color:var(--ink-2); line-height:1.5; }
+.meta-open { margin-top:8px; padding-top:8px; border-top:1px solid var(--rule-dark); }
+.meta-open-label { font-size:11px; font-weight:700; color:var(--muted); margin-bottom:3px; }
+
+/* ── TASCA CASA ── */
+.tasca-box { background:var(--purple-tint); border:1.5px solid var(--purple-ink); border-radius:8px; padding:10px 12px; margin-top:10px; position:relative; }
+
+/* ── FOOTER ── */
+.footer { margin-top:14px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
+.footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
+.footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+
+/* ── ELIMINABLES ── */
+.deletable { position:relative; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; background:var(--rose); color:#fff; border-radius:50%; font-size:11px; line-height:18px; text-align:center; cursor:pointer; z-index:50; box-shadow:0 1px 4px rgba(0,0,0,.3); }
+.deletable:hover > .del-btn { display:flex; align-items:center; justify-content:center; }
+.deletable:has(.deletable:hover) > .del-btn { display:none; }
+
+/* ── RECOL·LOCAR ── */
+.move-ctrl { display:none; position:absolute; top:-9px; right:14px; z-index:51; gap:2px; }
+.deletable:hover > .move-ctrl { display:flex; }
+.deletable:has(.deletable:hover) > .move-ctrl { display:none; }
+.mv { width:18px; height:18px; background:var(--purple); color:#fff; border-radius:50%; font-size:11px; line-height:18px; text-align:center; cursor:pointer; box-shadow:0 1px 4px rgba(0,0,0,.3); user-select:none; }
+.mv:hover { background:var(--purple-ink); }
+.mv.mv-space { background:var(--green); }
+.mv.mv-space:hover { background:#357a44; }
+
+/* ── LÍNIES D'ESCRIPTURA ── */
+.wline { position:relative; }
+.wline-del { display:none; position:absolute; top:50%; right:-7px; transform:translateY(-50%); width:16px; height:16px; background:var(--rose); color:#fff; border-radius:50%; font-size:10px; line-height:16px; text-align:center; cursor:pointer; z-index:40; box-shadow:0 1px 3px rgba(0,0,0,.3); user-select:none; }
+.wline:hover > .wline-del { display:block; }
+
+/* ── SPACER ── */
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(123,104,200,.05) 6px,rgba(123,104,200,.05) 12px); display:flex; align-items:center; justify-content:center; }
+.spacer-label { font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
+
+.mt8 { margin-top:8px; } .bold { font-weight:700; } .small { font-size:11px; color:var(--muted); }
+
+@media print {
+  @page { size:A4; margin:0; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html,body { background:#fff; padding:0; margin:0; }
+  #toolbar, .del-btn, .move-ctrl, .wline-del { display:none !important; }
+  .page-wrap { margin:0; }
+  #sheets { gap:0; display:block; }
+  .sheet { width:210mm; height:297mm; min-height:0; box-shadow:none; margin:0; page-break-after:always; break-after:page; overflow:hidden; }
+  .sheet:last-child { page-break-after:auto; break-after:auto; }
+  [contenteditable]:hover,[contenteditable]:focus { background:transparent!important; box-shadow:none!important; }
+  .wline,.fill-cell,.blank { background:transparent; }
+  .spacer-block { background:transparent !important; border:none !important; }
+  .spacer-label { display:none !important; }
+  .input-span:empty::before { display:none; }
+  .header-emoji-box { background:#ede8f8; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LLEGIBILITAT-C v1 — llegibilitat de la Versió C (dislèxia). 09/09/2026.
+   Cos en 'Fira Sans Condensed' (mateixa família que l'Extra Condensed
+   de la casa, però amb lletres més obertes i distingibles), interlineat
+   ample i separació de paraules. Titulars, capçalera i peu no es toquen.
+   ══════════════════════════════════════════════════════════════ */
+.sheet-body,#doc{font-family:'Fira Sans Condensed','Fira Sans Extra Condensed',sans-serif;
+  line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
+.sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
+.sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
+
+/* ── Components C de S2 ── */
+/* pistes i exemples: requadre visible, contrast alt */
+.pista,.start-hint{display:block;font-size:14px;font-style:normal;color:#4a4a5a;background:#fff8e0;border-left:4px solid #c8960a;border-radius:0 6px 6px 0;padding:4px 9px;margin:6px 0 3px}
+.hint-cell{font-size:14px;color:#4a4a5a}
+.small{font-size:13px;color:#4a4a5a}
+.exemple-box p{font-size:14.5px}
+
+/* frases curtes */
+.frase{font-size:16px;line-height:1.45;font-weight:600;color:var(--ink);margin:2px 0 6px}
+.frase .ico{font-size:22px;margin-right:6px;vertical-align:-2px}
+.frase-box{background:#fff;border:1.5px solid var(--purple-light);border-radius:10px;padding:8px 12px;margin-bottom:8px}
+
+/* paraula nova */
+.mot-nou{display:flex;gap:10px;align-items:center;background:#fffbea;border:2px solid #e0b93a;border-radius:10px;padding:8px 12px;margin-bottom:8px}
+.mot-nou svg{flex-shrink:0}
+.mot-nou .mn-lab{font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#7a5a00;margin-bottom:2px}
+.mot-nou .mn-txt{font-size:15px;line-height:1.4;color:var(--ink)}
+.mots-2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mots-2 .mot-nou{margin-bottom:8px}
+.kw{font-weight:900;padding:0 5px;border-radius:5px}
+.kw-cap{background:#fce8ed;color:#a01e44;border:1px solid #d44a6c}
+.kw-acid{background:#fdf0c8;color:#6b4e00;border:1px solid #c8960a}
+.kw-vel{background:#dff1ec;color:#17604f;border:1px solid #3a9e8c}
+.kw-mit{background:#fde9d9;color:#8a3a0a;border:1px solid #e8834a}
+
+/* opcions per encerclar */
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opt{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:600;padding:5px 11px;border-radius:9999px;background:#fff;border:2px solid var(--rule-dark);color:var(--ink);cursor:pointer;user-select:none;line-height:1.25}
+.opt:hover{border-color:var(--purple)}
+.opt.sel{border-color:#2f7a42;background:#e3f3e6;box-shadow:0 0 0 3px #a9d9b4}
+img.ico{width:1.4em;height:1.4em;object-fit:cover;border-radius:50%;border:1.5px solid var(--rule-dark);vertical-align:middle;background:#fff}
+.opt-card .e img.ico{width:52px;height:52px}.sim-row .fase .e img.ico{width:46px;height:46px;margin:0 auto}
+.org-step .ic img.ico{width:50px;height:50px}svg.drop{vertical-align:middle}
+.opt .e{font-size:20px}
+.opt.ex::after{content:"✓ exemple";font-size:13px;font-weight:700;color:#2f7a42;margin-left:2px}
+.opt-card{flex-direction:column;border-radius:12px;padding:8px 6px;width:100px;text-align:center;justify-content:center}
+.opt-card .e{font-size:34px}
+
+/* sec 1: idees prèvies */
+.prev-grid{display:flex;gap:8px;flex-wrap:wrap}
+
+/* sec 2: recorregut */
+.org-layout{display:grid;grid-template-columns:240px 1fr;gap:16px;align-items:start}
+.org-steps{display:flex;flex-direction:column;gap:7px}
+.org-step{display:grid;grid-template-columns:30px 34px 1fr 130px;gap:8px;align-items:center;background:var(--purple-tint);border:1.5px solid var(--rule);border-radius:10px;padding:6px 8px}
+.org-step .n{width:28px;height:28px;border-radius:50%;background:var(--purple-ink);color:#fff;font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center}
+.org-step .ic{font-size:26px;text-align:center}
+.org-step .ht{font-size:14.5px;line-height:1.3;color:var(--ink-2)}
+.org-step .fill-cell{min-height:30px;font-size:16px;font-weight:700;text-align:center}
+.org-step.ex{background:var(--green-tint);border-color:var(--green)}
+.org-step.ex .fill-cell{color:#2f7a42}
+.org-arrow{text-align:center;font-size:18px;line-height:1;color:var(--purple);margin:-3px 0}
+
+.bank-icons .chip{display:inline-flex;align-items:center;gap:5px}
+.bank-icons .chip .e{font-size:20px}
+
+/* ══════════════════════════════════════════════════════════════
+   ACOLLIDA · URDÚ / ÀRAB (comú SA2) — 25/10/2026. Català com a llengua de referència,
+   urdú (RTL, Nastaliq) com a bastida sota cada explicació i consigna.
+   ══════════════════════════════════════════════════════════════ */
+.ur { font-family:'Noto Naskh Arabic',serif; direction:rtl; text-align:right; unicode-bidi:isolate;
+  font-size:12.5px; line-height:2.05; color:#21574d; background:#eef7f4; border-right:3px solid var(--teal);
+  border-radius:6px 0 0 6px; padding:0 10px 2px; margin:3px 0 6px; }
+#doc .ur, .sheet-body .ur { font-family:'Noto Naskh Arabic',serif; text-align:right; word-spacing:normal; letter-spacing:0; }
+.ur-in, .th-ur, [lang="ar"] { font-family:'Noto Naskh Arabic',serif !important; letter-spacing:0 !important; word-spacing:normal !important; }
+.ur-in { unicode-bidi:isolate; font-size:.82em; font-weight:400; color:#21574d; text-transform:none; letter-spacing:0; margin-left:4px; line-height:1; }
+.th-ur { display:block; font-size:10px; font-weight:400; text-transform:none; letter-spacing:0; line-height:1.9; opacity:.92; }
+.header-ur { font-family:'Noto Naskh Arabic',serif; direction:rtl; text-align:left; font-size:12.5px; line-height:1.9; opacity:.92; margin-top:3px; }
+
+.guia-box { border:2px solid var(--teal); border-radius:10px; padding:8px 12px 6px; margin:10px 0 4px; background:#fff; }
+.guia-title { font-size:15px; font-weight:900; color:var(--teal); }
+.guia-box > .ur { display:inline-block; margin:0 0 4px; }
+.guia-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px 16px; }
+.guia-pas { display:flex; gap:8px; align-items:flex-start; }
+.guia-pas p { font-size:13.5px; line-height:1.4; }
+.guia-pas .ur { margin:2px 0 3px; }
+.guia-n { width:22px; height:22px; flex-shrink:0; border-radius:50%; background:var(--teal); color:#fff; font-weight:900; font-size:13px; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.oa-list li .ur { margin:1px 0 4px; font-size:12px; }
+
+.glos { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; }
+.glos-item { border:1.5px solid var(--rule-dark); border-radius:8px; background:#fff; padding:5px 5px 4px; text-align:center; }
+.glos-img { height:84px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:6px; }
+.glos-img img { max-height:84px; max-width:100%; object-fit:contain; }
+.sprite { width:58px; height:84px; background-image:url('s1_5nutrients_nivell_c.png'); background-size:auto 100%; background-repeat:no-repeat; }
+.glos-ca { font-size:14.5px; font-weight:900; color:var(--purple-ink); line-height:1.15; margin-top:3px; }
+.glos-ur { font-family:'Noto Naskh Arabic',serif; font-size:13px; color:#21574d; line-height:1.9; }
+.glos-def { font-size:11px; color:var(--muted); line-height:1.25; }
+
+.llegir { background:#fbfaff; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:7px 12px 4px; margin:6px 0 8px; }
+.llegir-lab, .fer-lab { font-size:12px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.llegir p { font-size:14px; line-height:1.55; }
+.fer { background:var(--orange-tint); border:1.5px solid var(--orange); border-radius:8px; padding:7px 12px 4px; margin:6px 0 8px; }
+.fer-lab { color:#b85a22; }
+.fer p { font-size:14px; line-height:1.5; }
+.fer-list { padding-left:20px; font-size:14px; line-height:1.45; }
+.fer-list li { margin-bottom:2px; }
+.fer-list .ur { margin:1px 0 4px; }
+
+.proves { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.prova p { font-size:13.5px; }
+.paper-row { display:flex; gap:22px; justify-content:center; align-items:flex-end; margin:5px 0 2px; }
+.paper { width:84px; text-align:center; }
+.paper::before { content:""; display:block; width:70px; height:86px; margin:0 auto; background:#f3ead4; border:1.5px solid #c9b98f; border-radius:3px; }
+.paper .taca { width:38px; height:30px; border-radius:50%; margin:-58px auto 28px; background:radial-gradient(ellipse at center, rgba(255,255,255,.95) 0%, rgba(255,255,255,.7) 55%, rgba(255,255,255,0) 72%); position:relative; }
+.paper .tcap { font-size:11px; font-weight:700; margin-top:4px; line-height:1.4; }
+.paper.mini, .tube.mini { width:auto; }
+.paper.mini::before { width:52px; height:62px; }
+.paper.mini .taca { width:30px; height:24px; margin:-44px auto 20px; }
+.tube.mini .glass { width:30px; height:64px; border-radius:0 0 15px 15px; }
+
+.pred-row { display:flex; align-items:center; gap:5px; flex-wrap:wrap; font-size:14px; margin:6px 0; }
+.pred-row strong { min-width:84px; }
+.connexio-img { height:92px; width:auto; flex-shrink:0; border-radius:6px; }
+.lab-table td.food, .data-table td.food { font-weight:700; white-space:nowrap; }
+.data-table td.exemple { font-size:12px; color:var(--muted); font-style:italic; }
+.data-table th { vertical-align:top; }
+.lab-table .fill-cell { min-height:30px; }
+
+.raona-box { border:2px solid var(--purple-light); border-radius:12px; padding:0; margin:9px 0; overflow:hidden; background:#fff; }
+.raona-cap { background:var(--purple-ink); color:#fff; font-size:12px; font-weight:900; letter-spacing:.05em; text-transform:uppercase; padding:5px 12px; }
+.raona-cap .ur-in { color:#e6e0ff; }
+.raona-pas { padding:5px 12px; border-bottom:1px dashed var(--rule); }
+.raona-pas:last-child { border-bottom:none; }
+.raona-pas-lab { font-size:11px; font-weight:900; color:var(--purple-ink); letter-spacing:.06em; text-transform:uppercase; }
+.raona-pas-lab [lang="ar"] { font-size:11px; text-transform:none; font-weight:400; }
+.raona-pas .frase-completar { margin:0; }
+
+.chain-ur { justify-content:flex-start; }
+.chain-ur .chain-chip { font-family:'Noto Naskh Arabic',serif; font-size:11.5px; font-weight:400; line-height:1.9; background:#eef7f4; border-color:#a9d6cc; color:#21574d; }
+.nut-caps { display:grid; grid-template-columns:repeat(5,1fr); gap:4px; font-size:11.5px; line-height:1.3; margin-top:3px; }
+.nut-caps [lang="ar"] { font-size:10.5px; color:#21574d; line-height:1.9; }
+.dfig img { max-height:150px; }
+.banc { display:flex; flex-wrap:wrap; gap:5px; align-items:center; font-size:13px; margin:4px 0 2px; }
+.banc-lab { font-weight:900; color:var(--purple-ink); font-size:12px; }
+
+.etiq-grid { display:grid; grid-template-columns:260px 1fr; gap:14px; align-items:start; margin:4px 0 6px; }
+.etiq-grid .nutri-label { margin:0; }
+.ingr { border:2px solid #333; border-radius:4px; background:#fff; }
+.ingr-h { background:#333; color:#fff; font-weight:700; text-align:center; padding:3px; letter-spacing:.04em; font-size:13px; }
+.ingr p { font-size:13.5px; line-height:1.7; padding:5px 9px; }
+.etiq-table { width:auto; min-width:60%; margin:2px 0 4px; }
+.etiq-table td { padding:3px 10px; }
+
+.idea-clau { background:linear-gradient(135deg,#3a2d6e 0%,#5a4aa0 100%); color:#fff; border-radius:10px; padding:8px 14px 5px; margin:10px 0 6px; }
+.idea-lab { font-size:12px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:#ffe7a8; }
+.idea-clau p { font-size:14.5px; line-height:1.5; }
+.idea-clau .ur { background:rgba(255,255,255,.12); color:#fff; border-right-color:#ffe7a8; }
+.tasca-box .ur { margin-top:3px; }
+.tasca-box .fill-cell { min-height:74px; }
+.draw-box .draw-area { min-height:300px; }
+.wline { min-height:30px; }
+.card .ur { margin:3px 0 4px; }
+.producte { display:flex; align-items:center; gap:12px; border:2px solid #b07a3a; background:#fdf3e6; border-radius:10px; padding:7px 12px; margin:0 0 8px; }
+.galetes { position:relative; width:78px; height:58px; flex-shrink:0; }
+.galeta { position:absolute; left:0; top:4px; width:50px; height:50px; border-radius:50%; border:2px solid #a8702f;
+  background:radial-gradient(circle at 30% 32%, #4a2814 0 4px, transparent 5px), radial-gradient(circle at 66% 38%, #4a2814 0 4px, transparent 5px),
+  radial-gradient(circle at 44% 70%, #4a2814 0 4px, transparent 5px), radial-gradient(circle at 74% 70%, #4a2814 0 3px, transparent 4px), #dba664; }
+.galeta.g2 { left:26px; top:0; }
+.producte-nom { font-size:16px; font-weight:900; color:#7a4a1c; line-height:1.15; }
+.producte-ur { font-size:13px; color:#21574d; line-height:1.9; }
+.producte-def { font-size:12px; color:var(--muted); }
+@media print { .producte, .galeta { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+@media print { .idea-clau { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+
+/* Full de teoria per estudiar a casa (sempre comença en pàgina nova) */
+.teo-com { background:var(--teal-tint); border:1.5px solid var(--teal); border-radius:8px; padding:6px 12px 3px; margin:4px 0 8px; }
+.teo-com p { font-size:13.5px; line-height:1.45; }
+.teo-card { border:2px solid var(--rule-dark); border-top-width:6px; border-radius:10px; background:#fff; padding:5px 12px 3px; margin:0 0 7px; }
+.teo-card p { font-size:13.5px; line-height:1.45; }
+.teo-h { display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:16px; font-weight:900; color:var(--ink); margin-bottom:3px; }
+.teo-n { width:24px; height:24px; border-radius:50%; background:var(--purple-ink); color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.teo-ur-t { font-family:'Noto Naskh Arabic',serif; font-size:13px; color:#21574d; line-height:1.8; text-align:right; margin-top:-4px; }
+.c-eq { border-color:#8f7fd6; } .c-hid { border-color:#d9b64a; } .c-gre { border-color:#6aa9d6; } .c-pro { border-color:#7fbf6a; }
+.c-mic { border-color:#3a9e8c; } .c-fer { border-color:#d44a6c; } .c-iod { border-color:#c8960a; }
+.eq { display:flex; align-items:center; justify-content:center; gap:7px; margin:4px 0 6px; }
+.eq-box { text-align:center; }
+.eq-chip { display:inline-block; border-radius:8px; padding:4px 10px; font-weight:900; font-size:14.5px; margin:2px 0; }
+.eq-chip.glu { background:var(--yellow-tint); border:2px solid #d9b64a; color:#7a5a00; }
+.eq-chip.oxi { background:#e6f1fa; border:2px solid #6aa9d6; color:#1d5a85; }
+.eq-chip.atp { background:#eaf4ec; border:2px solid var(--green); color:#2c6b39; display:block; }
+.eq-chip.res { background:#f3f1f6; border:2px dashed #b9b3c4; color:var(--muted); font-size:12.5px; display:block; }
+.eq-src { font-size:11px; color:var(--muted); line-height:1.25; }
+.eq-ur { font-family:'Noto Naskh Arabic',serif; font-size:11px; color:#21574d; line-height:1.8; }
+.eq-op { font-size:24px; font-weight:900; color:var(--purple-ink); }
+.eq-mito img { height:70px; display:block; margin:0 auto; }
+.teo-fig { text-align:center; margin:0 0 6px; }
+.teo-fig img { max-width:100%; max-height:150px; border-radius:8px; border:1px solid var(--rule); }
+.teo-grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:0 0 9px; }
+.teo-grid3 .teo-card { margin:0; }
+.teo-grid3 .teo-card p { font-size:13px; }
+.mic-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.mic-grid p { font-size:13px; }
+.rbc { display:inline-block; width:12px; height:12px; border-radius:50%; background:radial-gradient(circle,#b8203f 0 30%,#d94a64 31%); vertical-align:-1px; margin-right:2px; }
+.c-iod .tube .glass { height:84px; }
+.c-iod .tcap { font-size:11px; }
+.iod-grid { display:grid; grid-template-columns:200px 1fr; gap:12px; align-items:center; }
+.repas { border:2px dashed var(--purple-light); border-radius:10px; padding:7px 12px 5px; margin:4px 0 6px; background:#fbfaff; display:grid; grid-template-columns:1fr 1fr; column-gap:16px; }
+.repas > .repas-h, .repas > .pista { grid-column:1 / -1; }
+.repas-h { font-size:15px; font-weight:900; color:var(--purple-ink); }
+.repas-item { display:flex; gap:9px; align-items:flex-start; font-size:13.5px; line-height:1.3; padding:2px 0; border-bottom:1px dotted var(--rule); }
+.repas-item:nth-last-child(-n+2) { border-bottom:none; }
+.repas-item .meta-oa-check { flex-shrink:0; margin-top:2px; }
+.repas-ur { font-family:'Noto Naskh Arabic',serif; font-size:12px; color:#21574d; line-height:1.85; text-align:right; }
+@media print { .teo-card, .eq-chip, .rbc, .teo-n { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+
+/* ── Genèric acollida (S3/S4) ── */
+.header-ur { text-align:left; }
+.glos-img .ico, .glos-img svg { max-height:76px; }
+.glos-img img.ico { height:72px; width:auto; max-width:100%; border-radius:8px; object-fit:contain; }
+.ht-ur, .cap-ur, .opt-ur { display:block; font-family:'Noto Naskh Arabic',serif; direction:rtl; unicode-bidi:isolate;
+  color:#21574d; font-weight:400; text-transform:none; letter-spacing:0; }
+.ht-ur { font-size:11px; line-height:1.9; text-align:right; }
+.cap-ur { font-size:10.5px; line-height:1.9; text-align:center; }
+.opt-ur { font-size:10.5px; line-height:1.8; text-align:center; }
+td .ht-ur { text-align:left; }
+.per-que { margin:4px 0 2px; }
+.blank { display:inline-block; border:1px solid var(--rule); border-bottom:1.5px solid #C8C2DD; border-radius:3px 3px 0 0; vertical-align:bottom; margin:0 3px; min-height:1.45em; line-height:1.5; padding:0 5px; background:#fff; outline:none; }
+.blank-s { min-width:60px; } .blank-m { min-width:100px; } .blank-l { min-width:140px; } .blank-xl { min-width:260px; }
+.frase-completar { font-size:13.5px; line-height:2.3; margin-bottom:4px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:5px 0 3px; }
+.chain-chip { font-size:13.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:14.5px; }
+.cad-marc .chain-chip { background:#fff; }
+@media print { .blank { background:transparent; } }
+.card .opts { margin:4px 0 2px; }
+.card .opt { border-radius:12px; text-align:center; flex:1 1 30%; justify-content:center; }
+.compte { background:#fff8e0; border:1.5px solid #c8960a; border-radius:8px; padding:6px 12px 4px; margin:6px 0 8px; }
+.compte p { font-size:14px; line-height:1.45; }
+.fig-wrap { position:relative; display:block; min-width:0; }
+.fig-wrap img { width:100%; display:block; border:1px solid var(--rule); border-radius:6px; }
+.cap-mini { font-size:12.5px; text-align:center; margin-top:4px; color:var(--ink-2); }
+.fill-cell.done { color:#2f7a42; font-weight:700; }
+.img-txt { display:grid; grid-template-columns:200px 1fr; gap:12px; align-items:center; }
+.img-txt > img { width:100%; border:1px solid var(--rule); border-radius:8px; display:block; }
+.img-txt p { margin:1px 0; }
+.svgfig { text-align:center; }
+.svgfig svg { display:block; margin:0 auto; }
+/* ── S5 ── */
+.img-txt.pols { grid-template-columns:180px 1fr; align-items:start; }
+.img-txt.alv { grid-template-columns:230px 1fr; }
+.passos { margin:0; padding-left:20px; font-size:14px; line-height:1.4; }
+.passos li { margin-bottom:4px; }
+.passos .ht-ur { text-align:right; }
+.ex-resolt { background:var(--green-tint); border:1.5px dashed var(--green); border-radius:8px; padding:5px 10px; font-size:13.5px; line-height:1.4; margin:4px 0 6px; }
+.pista-in { font-size:12px; color:var(--muted); font-style:italic; }
+/* Apartat 0: practicar vocabulari */
+.pract { display:grid; grid-template-columns:3fr 2fr; gap:10px; margin:6px 0 6px; }
+.pract-a, .pract-b { background:#fff; border:1.5px solid var(--orange); border-radius:8px; padding:7px 10px 8px; min-width:0; }
+.pract p { font-size:14px; line-height:1.4; margin:0 0 2px; }
+.pract .fer-lab { color:#b85a22; }
+.par-grid { display:grid; grid-template-columns:auto 1fr auto; row-gap:5px; align-items:center; margin-top:6px; }
+.par-ca, .par-ur { background:#fff; border:1.5px solid var(--rule-dark); border-radius:7px; padding:2px 8px; display:flex; align-items:center; gap:7px; justify-content:space-between; }
+.par-ca { font-size:15px; font-weight:700; }
+.par-ur { font-family:'Noto Naskh Arabic',serif; font-size:13.5px; line-height:1.9; color:#21574d; }
+.par-ca i, .par-ur i { width:9px; height:9px; border-radius:50%; background:var(--purple-ink); flex:none; }
+.par-linia { min-width:50px; height:0; }
+.par-linia.ex { border-top:2px solid var(--purple-ink); }
+.cop { margin-top:9px; }
+.cop-w { font-size:15px; font-weight:700; }
+.cop .fill-cell { min-height:30px; }
+.fc-acoll { margin:6px 0 8px; }
+.fc-acoll td:first-child { font-size:13px; color:var(--ink-2); }
+.fc-acoll tr.ex td { background:var(--green-tint) !important; }
+.fc-acoll .fill-cell { min-height:26px; }
+.calc-grid { display:grid; grid-template-columns:230px 1fr; gap:14px; align-items:center; margin:4px 0; }
+.edat-t { width:100%; border-collapse:collapse; font-size:13px; background:#fff; }
+.edat-t th { background:var(--purple-ink); color:#fff; padding:3px 6px; font-size:11px; text-transform:uppercase; }
+.edat-t th.verd { background:#4a8a5a; }
+.edat-t td { padding:2px 6px; text-align:center; border-bottom:1px solid var(--rule); }
+.edat-t td.verd { background:#eaf5ec; font-weight:800; color:#2f6a3c; }
+.edat-t .th-ur { color:#fff; }
+.g1-q { display:grid; grid-template-columns:1fr 1fr 1.4fr; gap:8px; margin:6px 0; }
+.g1-q .card { margin:0; }
+.g1-q .card-label .th-ur { display:block; margin-top:2px; }
+.circ-row { font-size:14px; line-height:1.9; }
+.blank.fet { color:#2f7a42; font-weight:700; text-align:center; background:var(--green-tint); }
+.header-emoji-box img { width:100%; height:100%; object-fit:contain; border-radius:8px; display:block; }
+.tasca-box .fill-cell { min-height:26px !important; height:auto !important; }
+.tasca-box .data-table td { padding:3px 6px; }
+/* full de teoria */
+.c-cad { border-color:#d44a6c; } .c-zon { border-color:#5a9e6a; } .c-mer { border-color:#c0474a; }
+.c-ane { border-color:#b8323a; } .c-alv { border-color:#3b7fbf; } .c-ent { border-color:#3a9e8c; }
+.teo-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; align-items:stretch; }
+.teo-row .teo-card { margin-bottom:0; }
+.teoria .teo-card { margin-bottom:4px; }
+.teoria .teo-com { margin:2px 0 4px; }
+.teoria .repas { margin-top:5px; }
+.teo-2col { display:grid; grid-template-columns:135px 1fr; gap:12px; align-items:center; }
+.teo-2col img { max-width:100%; max-height:96px; object-fit:contain; margin:0 auto; border-radius:8px; border:1px solid var(--rule); display:block; }
+.teo-card .ur { font-size:11.5px; line-height:1.55; padding:1px 9px 2px; margin:2px 0 3px; }
+.teo-card p { margin:2px 0; }
+.teo-card .chain { margin:3px 0 2px; }
+.teo-card .chain-chip { font-size:12.5px; padding:1px 8px; }
+
+.ur { font-size:13px; line-height:1.6; padding:2px 10px 3px; }
+.teo-card .ur { font-size:12px; line-height:1.55; }
+.ur-in { font-size:.85em; }
+.glos-ur { font-size:14px; line-height:1.5; }
+.th-ur, .ht-ur, .cap-ur, .fase-ur, .opt-ur, .bri-ur { font-size:11.5px; line-height:1.5; }
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <button class="tb-btn" id="btn-undo" onclick="undoDelete()" title="Desfés l'última eliminació (Ctrl+Z)">↩ Desfés</button>
+  <button class="tb-btn" onclick="document.execCommand('bold')" title="Negreta">𝐁 Negreta</button>
+  <button class="tb-btn" onclick="addWlineToolbar()" title="Afegeix una línia d'escriptura (o prem Enter dins d'una línia)">＋ Línia</button>
+  <button class="tb-btn" onclick="insertSpacer()" title="Insereix un espai en blanc">＋ Espai</button>
+  <button class="tb-btn" onclick="window.print()" title="Imprimeix">🖨️ Imprimeix</button>
+  <button class="tb-btn tb-desa" onclick="desaFitxa()" title="Desa els canvis al fitxer (Ctrl+S)">💾 Desa</button>
+  <span class="tb-title">Fitxa Sessió 5 · Respiració i esforç: la FC · Acollida (àrab) · IE Temple</span>
+</div>
+
+<div class="page-wrap">
+<div id="doc">
+
+<div class="header-band deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="header-emoji-box"><img src="../S2-digestiu/img/ico_cor.png" alt=""></div>
+  <div class="header-center">
+    <div class="header-sa" contenteditable="true">El nostre cos en marxa · Sessió 5 de 7</div>
+    <div class="header-title" contenteditable="true">Respiració i esforç: la freqüència cardíaca</div>
+    <div class="header-subtitle" contenteditable="true">Avui resolem els dos enigmes de la paret — i les dades les poses tu</div>
+    <div class="header-ur" dir="rtl" lang="ar" contenteditable="true">التنفس والمجهود: معدّل نبض القلب — اليوم نحلّ لغزَي الجدار</div>
+  </div>
+  <div class="header-right">
+    <div class="logo-box"><img src="../../logo_bio_geo_temple.png" alt="IE Temple" onerror="this.style.display='none'"></div>
+    <div class="header-meta" contenteditable="true">3r ESO</div>
+  </div>
+</div>
+
+<div class="nivell-strip deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <span class="badge deletable" contenteditable="true">Amb suport visual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
+
+  <div class="nom-field deletable">Nom: <span class="input-span" contenteditable="true"></span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+  <div class="nom-field deletable">Data: <span class="input-span data-span" contenteditable="true"></span><span class="nivell-badge-small" title="Versió C acollida — àrab">C·ar</span><div class="del-btn" onclick="deleteEl(this)">✕</div></div>
+</div>
+
+<div class="guia-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="guia-title" contenteditable="true">🧭 Com funciona aquesta fitxa</div>
+  <div class="ur" dir="rtl" lang="ar" contenteditable="true">كيف تعمل هذه الورقة</div>
+  <div class="guia-grid">
+    <div class="guia-pas"><div class="guia-n">1</div><div><p contenteditable="true">Llegeix primer el text en <strong>català</strong>.</p><div class="ur" dir="rtl" lang="ar" contenteditable="true">اقرأ أولًا النص باللغة الكتالونية.</div></div></div>
+    <div class="guia-pas"><div class="guia-n">2</div><div><p contenteditable="true">Si no l'entens, llegeix la caixa verda en <strong>àrab</strong>.</p><div class="ur" dir="rtl" lang="ar" contenteditable="true">إذا لم تفهم، اقرأ العربية في المربّع الأخضر.</div></div></div>
+    <div class="guia-pas"><div class="guia-n">3</div><div><p contenteditable="true">Escriu sempre en <strong>català</strong>. Si no saps una paraula, busca-la a <strong>Paraules d'avui</strong>, al principi de la fitxa.</p><div class="ur" dir="rtl" lang="ar" contenteditable="true">اكتب دائمًا بالكتالونية. إذا لم تعرف كلمة، ابحث عنها في «كلمات اليوم» في بداية الورقة.</div></div></div>
+    <div class="guia-pas"><div class="guia-n">4</div><div><p contenteditable="true">Quan tries una resposta, escriu sempre <strong>per quina raó</strong>.</p><div class="ur" dir="rtl" lang="ar" contenteditable="true">عندما تختار إجابة، اكتب دائمًا لماذا.</div></div></div>
+  </div>
+</div>
+
+<div class="oa-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="oa-title" contenteditable="true">🎯 Avui aprendré… <span class="ur-in" dir="rtl" lang="ar">اليوم سأتعلّم…</span></div>
+  <ul class="oa-list">
+    <li><span contenteditable="true">… a prendre el <strong>pols</strong> i calcular els <strong>batecs per minut</strong>.</span><div class="ur" dir="rtl" lang="ar" contenteditable="true">… قياس النبض وعدّ النبضات في الدقيقة.</div></li>
+    <li><span contenteditable="true">… per quina raó el cor batega <strong>més ràpid</strong> quan faig exercici: els músculs necessiten <strong>oxigen</strong>.</span><div class="ur" dir="rtl" lang="ar" contenteditable="true">… لماذا يخفق القلب أسرع أثناء الرياضة: العضلات تحتاج إلى الأكسجين.</div></li>
+    <li><span contenteditable="true">… a calcular la meva <strong>FC màxima</strong>: 220 − edat.</span><div class="ur" dir="rtl" lang="ar" contenteditable="true">… حساب أقصى معدّل لنبضي: 220 − العمر.</div></li>
+    <li><span contenteditable="true">… a llegir una <strong>gràfica</strong> de FC: el pic i la recuperació.</span><div class="ur" dir="rtl" lang="ar" contenteditable="true">… قراءة رسم بياني لمعدّل النبض: أعلى نقطة والتعافي.</div></li>
+    <li><span contenteditable="true">… per quina raó una persona <strong>entrenada</strong> es recupera abans que una de <strong>sedentària</strong>.</span><div class="ur" dir="rtl" lang="ar" contenteditable="true">… لماذا يتعافى الشخص المتدرّب قبل الشخص قليل الحركة.</div></li>
+  </ul>
+</div>
+
+<div class="content">
+
+<div class="section nova-pagina deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n0">0</div><div><div class="stitle" contenteditable="true">Repàs — la sang i el cor <span class="ur-in" dir="rtl" lang="ar">مراجعة — الدم والقلب</span></div><div class="sdesc" contenteditable="true">Individual · Mira la imatge, llegeix la paraula en català i en àrab. Torna aquí sempre que ho necessitis.</div></div></div>
+  <div class="divider"></div>
+  <div class="fer-lab" contenteditable="true">📖 Paraules d'avui <span class="ur-in" dir="rtl" lang="ar">كلمات اليوم</span></div>
+  <div class="glos">
+    <div class="glos-item"><div class="glos-img"><img class="ico" src="../S2-digestiu/img/ico_cor.png" alt="Cor"></div><div class="glos-ca" contenteditable="true">freqüència cardíaca (FC)</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">معدّل نبض القلب</div><div class="glos-def" contenteditable="true">quants <strong>batecs</strong> fa el cor en <strong>1 minut</strong></div></div>
+    <div class="glos-item"><div class="glos-img"><img class="ico" src="s5_on_prendre_pols_nivell_c.png" alt="Dos dits al canell per notar el pols"></div><div class="glos-ca" contenteditable="true">pols</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">النبض</div><div class="glos-def" contenteditable="true">el batec que notes al <strong>canell</strong> o al <strong>coll</strong></div></div>
+    <div class="glos-item"><div class="glos-img"><svg width="70" height="70" viewBox="0 0 70 70" aria-hidden="true"><circle cx="35" cy="35" r="31" fill="#fff" stroke="#4a3b8c" stroke-width="3"/><path d="M35 35V12M35 35l13 8" stroke="#4a3b8c" stroke-width="3" stroke-linecap="round"/><polyline points="8,52 22,52 27,42 32,60 37,46 41,52 62,52" fill="none" stroke="#d44a6c" stroke-width="3" stroke-linejoin="round"/></svg></div><div class="glos-ca" contenteditable="true">bat/min</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">نبضة في الدقيقة</div><div class="glos-def" contenteditable="true">batecs per minut: la <strong>unitat</strong> de la FC</div></div>
+    <div class="glos-item"><div class="glos-img"><svg width="70" height="70" viewBox="0 0 70 70" aria-hidden="true"><circle cx="26" cy="40" r="20" fill="#e6f1fa" stroke="#3b7fbf" stroke-width="2.5"/><circle cx="52" cy="20" r="13" fill="#e6f1fa" stroke="#3b7fbf" stroke-width="2.5"/><circle cx="54" cy="52" r="8" fill="#e6f1fa" stroke="#3b7fbf" stroke-width="2"/><text x="26" y="46" font-size="16" font-weight="800" fill="#2a5fa8" text-anchor="middle" font-family="sans-serif">O₂</text></svg></div><div class="glos-ca" contenteditable="true">oxigen (O₂)</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">الأكسجين</div><div class="glos-def" contenteditable="true">gas de l'aire · els músculs en fan <strong>energia</strong></div></div>
+    <div class="glos-item"><div class="glos-img"><img class="ico" src="../S2-digestiu/img/ico_muscul.png" alt="Múscul"></div><div class="glos-ca" contenteditable="true">múscul</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">العضلة</div><div class="glos-def" contenteditable="true">es mou · quan treballa gasta <strong>energia</strong></div></div>
+    <div class="glos-item"><div class="glos-img"><img class="ico" src="../S2-digestiu/img/ico_pulmons.png" alt="Pulmons"></div><div class="glos-ca" contenteditable="true">alvèol</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">الحويصلة الهوائية</div><div class="glos-def" contenteditable="true">saquet del pulmó · l'O₂ hi passa a la <strong>sang</strong></div></div>
+    <div class="glos-item"><div class="glos-img"><svg width="70" height="70" viewBox="0 0 70 70" aria-hidden="true"><rect x="3" y="26" width="40" height="18" rx="4" fill="#5a9e6a"/><rect x="45" y="18" width="22" height="34" rx="5" fill="#c0474a" stroke="#7a1f22" stroke-width="2.5"/><path d="M56 4v10M51 9l5 5 5-5" stroke="#7a1f22" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></div><div class="glos-ca" contenteditable="true">zona anaeròbica</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">المنطقة اللاهوائية</div><div class="glos-def" contenteditable="true">esforç <strong>màxim</strong> · falta O₂ · <strong>àcid làctic</strong></div></div>
+    <div class="glos-item"><div class="glos-img"><svg width="70" height="70" viewBox="0 0 70 70" aria-hidden="true"><path d="M6 64V6M6 64h60" stroke="#999" stroke-width="2"/><path d="M8 12c10 2 14 20 24 32s20 14 32 15" fill="none" stroke="#4a9e5c" stroke-width="4" stroke-linecap="round"/></svg></div><div class="glos-ca" contenteditable="true">recuperació</div><div class="glos-ur" dir="rtl" lang="ar" contenteditable="true">التعافي (العودة إلى الراحة)</div><div class="glos-def" contenteditable="true">el temps que triga la FC a tornar al <strong>repòs</strong></div></div>
+  </div>
+    <p class="pista" contenteditable="true">Altres paraules: <strong>repòs</strong> = <span class="ur-in" dir="rtl" lang="ar">الراحة</span> · <strong>esforç</strong> = <span class="ur-in" dir="rtl" lang="ar">المجهود</span> · <strong>llindar</strong> = <span class="ur-in" dir="rtl" lang="ar">الحدّ</span> · <strong>gràfica</strong> = <span class="ur-in" dir="rtl" lang="ar">رسم بياني</span> · <strong>pic</strong> = <span class="ur-in" dir="rtl" lang="ar">أعلى نقطة</span> · <strong>àcid làctic</strong> = <span class="ur-in" dir="rtl" lang="ar">حمض اللاكتيك</span> · <strong>adrenalina</strong> = <span class="ur-in" dir="rtl" lang="ar">الأدرينالين</span> · <strong>hemoglobina</strong> = <span class="ur-in" dir="rtl" lang="ar">الهيموغلوبين</span> · <strong>sedentari</strong> = <span class="ur-in" dir="rtl" lang="ar">قليل الحركة</span> · <strong>entrenat</strong> = <span class="ur-in" dir="rtl" lang="ar">متدرّب</span></p>
+
+  <div class="pract deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="pract-a">
+      <div class="fer-lab" contenteditable="true">✏️ A · Paraules d'altres sessions</div>
+      <p contenteditable="true">Uneix cada paraula amb la seva traducció. La primera és l'exemple.</p>
+      <div class="ur" dir="rtl" lang="ar" contenteditable="true">كلمات من الدروس السابقة: صِل كل كلمة بترجمتها بخط. الأولى مثال.</div>
+      <div class="par-grid">
+      <div class="par-ca">eritròcit<i></i></div><div class="par-linia ex"></div><div class="par-ur" dir="rtl" lang="ar"><i></i>كرية دم حمراء</div>
+      <div class="par-ca">hemoglobina<i></i></div><div class="par-linia"></div><div class="par-ur" dir="rtl" lang="ar"><i></i>الرئتان</div>
+      <div class="par-ca">pulmons<i></i></div><div class="par-linia"></div><div class="par-ur" dir="rtl" lang="ar"><i></i>الصمام (باب)</div>
+      <div class="par-ca">vàlvula<i></i></div><div class="par-linia"></div><div class="par-ur" dir="rtl" lang="ar"><i></i>البطين (الحجرة السفلية في القلب)</div>
+      <div class="par-ca">ventricle<i></i></div><div class="par-linia"></div><div class="par-ur" dir="rtl" lang="ar"><i></i>الهيموغلوبين</div>
+      </div>
+    </div>
+    <div class="pract-b">
+      <div class="fer-lab" contenteditable="true">✏️ B · Paraules d'avui</div>
+      <p contenteditable="true">Copia cada paraula en català.</p>
+      <div class="ur" dir="rtl" lang="ar" contenteditable="true">كلمات اليوم: انسخ كل كلمة بالكتالونية.</div>
+      <div class="cop"><div class="cop-w">pols</div><span class="fill-cell" contenteditable="true"></span></div>
+      <div class="cop"><div class="cop-w">múscul</div><span class="fill-cell" contenteditable="true"></span></div>
+      <div class="cop"><div class="cop-w">recuperació</div><span class="fill-cell" contenteditable="true"></span></div>
+    </div>
+  </div>
+  <div class="card deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">✏️ C · La sang i el cor <span class="ur-in" dir="rtl" lang="ar">الدم والقلب</span></div>
+    <p contenteditable="true" style="font-size:13.5px">Completa amb: <strong>enrere · eritròcits · oxigen · pulmons</strong>.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">أكمل بهذه الكلمات. الجملة الأولى: أين يوجد الهيموغلوبين وماذا يحمل. الجملة الثانية: دورتا الدم. الجملة الثالثة: ماذا تمنع الصمامات.</div>
+    <p class="frase-completar">L'hemoglobina és dins dels <span class="blank blank-m"></span> i porta l'<span class="blank blank-m"></span>.</p>
+    <p class="frase-completar">La sang fa dues voltes: una pels <span class="blank blank-m"></span> i una per tot el cos.</p>
+    <p class="frase-completar">Les vàlvules no deixen que la sang torni <span class="blank blank-m"></span>.</p>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n1">1</div><div><div class="stitle" contenteditable="true">Mesura la teva FC — l'experiment <span class="ur-in" dir="rtl" lang="ar">قِس نبضك — التجربة</span></div><div class="sdesc" contenteditable="true">Primer sol/a, després per parelles · Escriu la teva hipòtesi. Després només cal els dits i un rellotge.</div></div></div>
+  <div class="divider"></div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: els dos enigmes de la paret <span class="ur-in" dir="rtl" lang="ar">لغزا الجدار</span></div>
+    <p contenteditable="true"><strong>Enigma 1 — la Mercè.</strong> Té 14 anys i corre una cursa de 10 km. A la meta, el seu cor fa <strong>185 bat/min</strong>. El cor baixa una mica de seguida, però triga <strong>un quart d'hora</strong> a tornar al repòs. Per quina raó puja <strong>de pressa</strong> i baixa <strong>a poc a poc</strong>?</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">اللغز 1 — ميرسي. عمرها 14 سنة وتجري سباق 10 كيلومترات. عند خط النهاية يخفق قلبها 185 نبضة في الدقيقة. ينخفض النبض قليلًا فورًا، لكنه يحتاج إلى ربع ساعة ليعود إلى حالة الراحة. لماذا يرتفع بسرعة وينخفض ببطء؟</div>
+    <p contenteditable="true"><strong>Enigma 2 — el Marc.</strong> Té 28 anys i corre. Ara s'<strong>ofega</strong> quan puja les escales. A l'anàlisi de sang té poca <strong>hemoglobina</strong>: 9,2 (el normal és de 13,5 a 17,5). Per quina raó arriba abans al límit?</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">اللغز 2 — مارك. عمره 28 سنة ويمارس الجري. الآن يضيق نفسه عندما يصعد الدرج. في تحليل الدم عنده هيموغلوبين قليل: 9,2 (الطبيعي من 13,5 إلى 17,5). لماذا يصل إلى حدّه أسرع؟</div>
+  </div>
+  <div class="previ-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🔢 La meva hipòtesi: abans de mesurar <span class="ur-in" dir="rtl" lang="ar">قبل القياس، خمّن</span></div>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">خمّن وأكمل بالكتالونية. لا بأس إذا أخطأت: سترى ذلك في النهاية.</div>
+    <p class="frase-completar">Crec que el meu pols en repòs és d'uns <span class="blank blank-s"></span> bat/min.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">كم من الوقت تظن أن القلب يحتاج بعد الجري ليعود إلى حالة الراحة؟ ضع علامة على إجابة واحدة.</div>
+    <p contenteditable="true" style="font-size:13.5px">Crec que, després de córrer, el cor tornarà al repòs en:&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> 1 minut</span>&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> 5 minuts</span>&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> 15 minuts</span></p>
+  </div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: com es pren el pols <span class="ur-in" dir="rtl" lang="ar">كيف نقيس النبض</span></div>
+    <div class="img-txt pols">
+      <div class="fig-wrap"><img src="s5_on_prendre_pols_nivell_c.png" alt="On buscar el pols: al canell (1) o al coll (3)" onerror="this.style.display='none'"><div class="cap-mini">Canell o coll<span class="cap-ur" dir="rtl" lang="ar">المعصم أو الرقبة</span></div></div>
+      <ol class="passos">
+        <li contenteditable="true">Posa <strong>2 dits</strong> (l'índex i el del mig, mai el polze) al <strong>canell</strong> o al <strong>coll</strong>. Prem <strong>fluix</strong>.<span class="ht-ur" dir="rtl" lang="ar">ضع إصبعين (السبابة والوسطى، وليس الإبهام أبدًا) على المعصم أو الرقبة. اضغط بخفة.</span></li>
+        <li contenteditable="true">Compta els batecs durant <strong>15 segons</strong>.<span class="ht-ur" dir="rtl" lang="ar">عُدّ النبضات مدة 15 ثانية.</span></li>
+        <li contenteditable="true">Multiplica <strong>× 4</strong>: així tens els batecs d'<strong>1 minut</strong>.<span class="ht-ur" dir="rtl" lang="ar">اضرب في 4: هكذا تحصل على نبضات الدقيقة الواحدة.</span></li>
+        <li contenteditable="true">El company/a mira el <strong>rellotge</strong> i et diu «ja!» i «para!». Després canvieu.<span class="ht-ur" dir="rtl" lang="ar">ينظر الزميل إلى الساعة ويقول «ابدأ!» و«توقّف!». ثم تتبادلان الدور.</span></li>
+      </ol>
+    </div>
+  </div>
+  <div class="compte deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <p contenteditable="true">⚠️ <strong>Seguretat:</strong> si et mareges o et fa mal el pit, <strong>para</strong> i avisa el professor.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">السلامة: إذا شعرت بدوار أو بألم في الصدر، توقّف وأخبر المعلّم.</div>
+  </div>
+  <div class="fer deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="fer-lab" contenteditable="true">✏️ Què has de fer <span class="ur-in" dir="rtl" lang="ar">ما عليك فعله</span></div>
+    <p contenteditable="true">A cada moment, compta els batecs en 15 segons i escriu-los. Després multiplica × 4. <strong>Exemple:</strong> 18 batecs en 15 s → 18 × 4 = <strong>72 bat/min</strong>.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">في كل وقت، عُدّ النبضات في 15 ثانية واكتبها. ثم اضرب في 4. مثال: 18 نبضة في 15 ثانية ← 18 × 4 = 72 نبضة في الدقيقة.</div>
+  </div>
+  <table class="fc-table fc-acoll deletable">
+    <thead><tr><th contenteditable="true" style="text-align:left">Moment<span class="th-ur" dir="rtl" lang="ar">الوقت</span></th><th contenteditable="true">Batecs en 15 s<span class="th-ur" dir="rtl" lang="ar">النبضات في 15 ثانية</span></th><th contenteditable="true">× 4 = FC (bat/min)<span class="th-ur" dir="rtl" lang="ar">× 4 = في الدقيقة</span></th></tr></thead>
+    <tbody>
+      <tr class="repos ex"><td>Exemple<span class="ht-ur" dir="rtl" lang="ar">مثال</span></td><td><div class="fill-cell done">18</div></td><td><div class="fill-cell done">18 × 4 = 72</div></td></tr>
+      <tr class="repos"><td>Repòs: assegut/da, tranquil/a<span class="ht-ur" dir="rtl" lang="ar">الراحة: جالس، هادئ</span></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+      <tr class="exercici"><td colspan="3" style="text-align:left;color:#b8323a;font-weight:900;font-size:13px">🏃 EXERCICI: 2 minuts saltant (o movent els braços ràpid, assegut/da)<span class="ht-ur" dir="rtl" lang="ar">الرياضة: دقيقتان من القفز (أو تحريك الذراعين بسرعة وأنت جالس)</span></td></tr>
+      <tr class="exercici"><td>Just en parar<span class="ht-ur" dir="rtl" lang="ar">فور التوقف</span></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+      <tr class="recuperacio"><td>Recuperació: 1 minut després<span class="ht-ur" dir="rtl" lang="ar">التعافي: بعد دقيقة واحدة</span></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+      <tr class="recuperacio"><td>Recuperació: 2 minuts després</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+      <tr class="recuperacio"><td>Recuperació: 3 minuts després</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+      <tr class="recuperacio"><td>Recuperació: 4 minuts després</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+      <tr class="recuperacio"><td>Recuperació: 5 minuts després</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
+    </tbody>
+  </table>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: per quina raó t'ha pujat la FC? <span class="ur-in" dir="rtl" lang="ar">لماذا ارتفع نبضك؟</span></div>
+    <div class="img-txt">
+      <img src="s5_fc_esport.jpg" alt="Una noia corrent amb un rellotge que mesura la freqüència cardíaca" onerror="this.style.display='none'">
+      <div>
+        <p contenteditable="true">Quan corres, els <strong>músculs</strong> treballen i gasten molta <strong>energia</strong>. Per fer energia necessiten <strong>oxigen</strong>. L'oxigen viatja per la <strong>sang</strong>. Per això el cor ha de bombar <strong>més sang</strong>: batega <strong>més ràpid</strong> i més fort.</p>
+        <div class="ur" dir="rtl" lang="ar" contenteditable="true">عندما تجري، تعمل العضلات وتستهلك طاقة كثيرة. ولصنع الطاقة تحتاج إلى الأكسجين. ينتقل الأكسجين عبر الدم. لذلك يجب أن يضخّ القلب دمًا أكثر: يخفق أسرع وأقوى.</div>
+      </div>
+    </div>
+    <p contenteditable="true">Tu no hi penses: passa <strong>sol</strong>. El cervell nota l'esforç i envia un avís pels <strong>nervis</strong> i amb una hormona, l'<strong>adrenalina</strong>. L'avís diu al cor: «batega més ràpid».</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">أنت لا تفكر في ذلك: إنه يحدث وحده. يشعر الدماغ بالمجهود ويرسل رسالة عبر الأعصاب وعبر هرمون هو الأدرينالين. تقول الرسالة للقلب: «اخفق أسرع».</div>
+  </div>
+  <div class="card teal deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🔗 Completa la cadena <span class="ur-in" dir="rtl" lang="ar">أكمل السلسلة</span></div>
+    <p contenteditable="true" style="font-size:13.5px">Fes servir aquestes paraules: <strong>oxigen · energia · sang</strong>.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">استخدم هذه الكلمات: الأكسجين، الطاقة، الدم. كل كلمة مرة واحدة.</div>
+    <div class="chain cad-marc"><span class="chain-chip">el múscul treballa i gasta <span class="blank blank-m"></span></span><span class="chain-arrow">→</span><span class="chain-chip">necessita més <span class="blank blank-m"></span></span><span class="chain-arrow">→</span><span class="chain-chip">la <span class="blank blank-m"></span> l'ha de portar</span><span class="chain-arrow">→</span><span class="chain-chip">el cor batega més ràpid</span></div>
+  </div>
+  <div class="fc-calc-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🧮 La meva FC màxima i el meu llindar <span class="ur-in" dir="rtl" lang="ar">أقصى معدّل لنبضي وحدّي</span></div>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">لكل قلب سرعة قصوى: 220 − العمر. إذا تجاوز النبض «الحدّ» (العمود الأخضر) فأنت في المنطقة اللاهوائية. لا تحتاج إلى الضرب: ابحث عن عمرك في الجدول.</div>
+    <div class="ex-resolt" contenteditable="true">👀 <strong>Exemple — la Bruna té 13 anys.</strong> FC màxima = 220 − 13 = <strong>207</strong>. A la taula, a «13 anys», el seu llindar és <strong>176</strong>. Si el cor de la Bruna passa de 176, és a la zona anaeròbica.</div>
+    <div class="calc-grid">
+      <table class="edat-t">
+        <thead><tr><th>Edat<span class="th-ur" dir="rtl" lang="ar">العمر</span></th><th>FC màx<span class="th-ur" dir="rtl" lang="ar">الأقصى</span></th><th class="verd">Llindar<span class="th-ur" dir="rtl" lang="ar">الحدّ</span></th></tr></thead>
+        <tbody>
+          <tr><td>12 anys</td><td>208</td><td class="verd">177</td></tr>
+          <tr><td>13 anys</td><td>207</td><td class="verd">176</td></tr>
+          <tr><td>14 anys</td><td>206</td><td class="verd">175</td></tr>
+          <tr><td>15 anys</td><td>205</td><td class="verd">174</td></tr>
+          <tr><td>16 anys</td><td>204</td><td class="verd">173</td></tr>
+        </tbody>
+      </table>
+      <div>
+        <p class="frase-completar">Tinc <span class="blank blank-s"></span> anys. FC màxima = 220 − <span class="blank blank-s"></span> = <span class="blank blank-s"></span>.</p>
+        <p class="frase-completar">El meu llindar (taula) és <span class="blank blank-s"></span> bat/min.</p>
+        <p class="frase-completar">Just en parar, la meva FC era <span class="blank blank-s"></span> bat/min.</p>
+      </div>
+    </div>
+    <p contenteditable="true" style="font-size:13.5px;margin-top:2px">He estat a la zona:&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> Aeròbica</span>&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> Anaeròbica</span></p>
+    <p class="frase-completar">Ho sé perquè la meva FC és <span class="blank blank-m"></span> que el meu llindar. <span class="pista-in">(més gran / més petita)</span></p>
+    <div class="zones-bar"><div class="zone-seg" style="width:60%;background:#b9b3c9;font-size:9px">repòs i esforç suau</div><div class="zone-seg" style="width:25%;background:#5a9e6a;font-size:9px">aeròbica</div><div class="zone-seg" style="width:15%;background:#c0474a;font-size:9px">anaeròbica</div></div>
+  </div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: les dues zones d'esforç <span class="ur-in" dir="rtl" lang="ar">منطقتا المجهود</span></div>
+    <p contenteditable="true"><strong>Zona aeròbica</strong> (verd): vas a ritme mitjà. Arriba <strong>prou oxigen</strong>. Pots aguantar <strong>molta estona</strong>.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">المنطقة الهوائية (أخضر): تتحرك بسرعة متوسطة. يصل أكسجين كافٍ. يمكنك التحمّل مدة طويلة.</div>
+    <p contenteditable="true"><strong>Zona anaeròbica</strong> (vermell): vas al màxim. <strong>Falta oxigen</strong>. Es fa <strong>àcid làctic</strong> i el múscul «crema». Només aguantes <strong>uns minuts</strong>.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">المنطقة اللاهوائية (أحمر): تتحرك بأقصى قوتك. ينقص الأكسجين. يتكوّن حمض اللاكتيك وتشعر بحرقة في العضلة. لا تتحمّل إلا بضع دقائق.</div>
+  </div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: on entra l'oxigen a la sang <span class="ur-in" dir="rtl" lang="ar">أين يدخل الأكسجين إلى الدم</span></div>
+    <div class="img-txt alv">
+      <img src="s5_respiratori_alveols.png" alt="Aparell respiratori: tràquea, bronquis, bronquíols i alvèols, amb un alvèol ampliat tocant un capil·lar" onerror="this.style.display='none'">
+      <div>
+        <p contenteditable="true">L'aire entra per la <strong>tràquea</strong> i baixa pels <strong>bronquis</strong> fins als <strong>alvèols</strong>: saquets molt petits dins del pulmó. Cada alvèol està tocant un <strong>capil·lar</strong>. Allà l'<strong>O₂</strong> passa a la sang i el <strong>CO₂</strong> surt cap a l'aire. La sang arriba <strong>lila</strong> (sense O₂) i en surt <strong>vermella</strong> (amb O₂).</p>
+        <div class="ur" dir="rtl" lang="ar" contenteditable="true">يدخل الهواء عبر القصبة الهوائية وينزل عبر الشعب الهوائية حتى الحويصلات الهوائية: أكياس صغيرة جدًا داخل الرئة. كل حويصلة تلامس وعاءً دمويًا رفيعًا جدًا (شعيرة دموية). هناك ينتقل الأكسجين إلى الدم ويخرج ثاني أكسيد الكربون إلى الهواء. يصل الدم بنفسجيًا (دون أكسجين) ويخرج أحمر (مع أكسجين).</div>
+      </div>
+    </div>
+  </div>
+  <div class="card rose deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🔍 On passa l'oxigen a la sang? <span class="ur-in" dir="rtl" lang="ar">أين ينتقل الأكسجين إلى الدم؟</span></div>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">ضع دائرة حول الإجابة الصحيحة، ثم اكتب بالكتالونية لماذا.</div>
+    <div class="opts"><div class="opt"><span>Als alvèols<span class="opt-ur" dir="rtl" lang="ar">في الحويصلات الهوائية</span></span></div><div class="opt"><span>A la tràquea<span class="opt-ur" dir="rtl" lang="ar">في القصبة الهوائية</span></span></div></div>
+    <p class="frase-completar">Ho he triat perquè allà l'aire està tocant un <span class="blank blank-m"></span> ple de <span class="blank blank-m"></span>.</p>
+    <div class="circ-row" contenteditable="true">La sang que <strong>surt</strong> de l'alvèol és <span class="circ-opt">lila (sense O₂)</span> / <span class="circ-opt">vermella (amb O₂)</span>.</div>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">كيف يكون الدم الخارج من الحويصلة: بنفسجي (دون أكسجين) أم أحمر (مع أكسجين)؟ ضع دائرة.</div>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n2">2</div><div><div class="stitle" contenteditable="true">La gràfica de la teva FC <span class="ur-in" dir="rtl" lang="ar">الرسم البياني لنبضك</span></div><div class="sdesc" contenteditable="true">Individual · Un punt per a cada fila de la taula.</div></div></div>
+  <div class="divider"></div>
+  <div class="fer deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="fer-lab" contenteditable="true">✏️ Què has de fer <span class="ur-in" dir="rtl" lang="ar">ما عليك فعله</span></div>
+    <p contenteditable="true">Cada columna és un <strong>moment</strong> de la teva taula. Busca la columna, puja fins al teu <strong>número</strong> de FC i fes-hi un <strong>punt</strong>. Al final, <strong>uneix</strong> els punts amb una línia.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">كل عمود هو وقت من جدولك. ابحث عن العمود، واصعد حتى رقم نبضك وضع نقطة هناك. في النهاية صِل النقاط بخط.</div>
+  </div>
+  <div class="milimetrat-wrap deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="milimetrat-title"><span contenteditable="true">La meva gràfica de FC · eix vertical = FC (bat/min)</span><span style="font-size:11px;opacity:.8" contenteditable="true">● punt · uneix-los</span></div>
+    <div class="milimetrat" style="height:190px;position:relative">
+      <div class="milimetrat-axis-y"><span>220</span><span>200</span><span>180</span><span>160</span><span>140</span><span>120</span><span>100</span><span>80</span><span>60</span></div>
+      <div class="milimetrat-axis-x" style="left:44px"><span>Repòs</span><span>Parar</span><span>Rec 1'</span><span>Rec 2'</span><span>Rec 3'</span><span>Rec 4'</span><span>Rec 5'</span></div>
+      <div style="position:absolute;left:44px;right:0;top:69px;border-top:1.5px dashed #c0474a;padding-left:4px"><span style="font-size:9px;color:#c0474a;background:rgba(255,255,255,.85);padding:0 2px">175 = llindar si tens 14 anys · si no, dibuixa la teva ratlla</span></div>
+    </div>
+  </div>
+  <div class="card deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🔍 He entrat a la zona anaeròbica? <span class="ur-in" dir="rtl" lang="ar">هل دخلتُ المنطقة اللاهوائية؟</span></div>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">قارن أعلى نقطة في رسمك بالخط الأحمر (حدّك). ضع علامة وأكمل بالكتالونية.</div>
+    <p contenteditable="true" style="font-size:13.5px"><span class="yn-opt"><span class="chk-sq"></span> Sí</span>&nbsp;&nbsp;&nbsp;<span class="yn-opt"><span class="chk-sq"></span> No</span></p>
+    <p class="frase-completar">El punt més alt de la meva gràfica és <span class="blank blank-s"></span> bat/min i el meu llindar és <span class="blank blank-s"></span> bat/min. Per tant, el punt queda <span class="blank blank-m"></span> de la ratlla vermella. <span class="pista-in">(per sobre / per sota)</span></p>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n3">3</div><div><div class="stitle" contenteditable="true">G1 — La Mercè · resolució de l'enigma 1 <span class="ur-in" dir="rtl" lang="ar">G1 — ميرسي · حلّ اللغز 1</span></div><div class="sdesc" contenteditable="true">Primer junts, després tu sol/a</div></div></div>
+  <div class="divider"></div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: com es llegeix la gràfica <span class="ur-in" dir="rtl" lang="ar">كيف نقرأ الرسم البياني</span></div>
+    <p contenteditable="true">A <strong>baix</strong> (eix horitzontal) hi ha el <strong>temps</strong>, en minuts. A l'<strong>esquerra</strong> (eix vertical) hi ha la <strong>FC</strong>, en bat/min. La línia vermella és el cor de la Mercè durant la cursa. El <strong>punt</strong> vermell és el <strong>pic</strong>: la FC més alta, a la meta.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">في الأسفل (المحور الأفقي) الوقت بالدقائق. وعلى اليسار (المحور العمودي) معدّل النبض في الدقيقة. الخط الأحمر هو قلب ميرسي أثناء السباق. والنقطة الحمراء هي أعلى نقطة: أعلى معدّل نبض، عند خط النهاية.</div>
+  </div>
+  <div class="g1-wrap deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="g1-title"><span contenteditable="true">FC de la Mercè (14 anys) durant una cursa de 10 km</span><span style="font-size:11px;opacity:.7" contenteditable="true">Dades recreades</span></div>
+    <svg viewBox="0 0 580 182" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:white;padding:6px 10px 2px">
+  <rect x="52.0" y="18.0" width="508.0" height="23.9" fill="#fce8ed" opacity="0.55"/>
+  <rect x="52.0" y="41.9" width="508.0" height="48.8" fill="#d4edda" opacity="0.45"/>
+  <text x="57.0" y="28.0" font-size="7.5" fill="#c0474a" font-weight="700">ZONA ANAERÒBICA (&gt;175 bat/min)</text>
+  <text x="555.0" y="86.0" font-size="7.5" fill="#5a9e6a" font-weight="700" text-anchor="end">ZONA AERÒBICA</text>
+  <line x1="52.0" y1="152.0" x2="52.0" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="52.0" y="163.0" font-size="8" fill="#555" text-anchor="middle">0</text>
+  <line x1="115.5" y1="152.0" x2="115.5" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="115.5" y="163.0" font-size="8" fill="#555" text-anchor="middle">10</text>
+  <line x1="179.0" y1="152.0" x2="179.0" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="179.0" y="163.0" font-size="8" fill="#555" text-anchor="middle">20</text>
+  <line x1="242.5" y1="152.0" x2="242.5" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="242.5" y="163.0" font-size="8" fill="#555" text-anchor="middle">30</text>
+  <line x1="306.0" y1="152.0" x2="306.0" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="306.0" y="163.0" font-size="8" fill="#555" text-anchor="middle">40</text>
+  <line x1="369.5" y1="152.0" x2="369.5" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="369.5" y="163.0" font-size="8" fill="#555" text-anchor="middle">50</text>
+  <line x1="433.0" y1="152.0" x2="433.0" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="433.0" y="163.0" font-size="8" fill="#555" text-anchor="middle">60</text>
+  <line x1="496.5" y1="152.0" x2="496.5" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="496.5" y="163.0" font-size="8" fill="#555" text-anchor="middle">70</text>
+  <line x1="560.0" y1="152.0" x2="560.0" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="560.0" y="163.0" font-size="8" fill="#555" text-anchor="middle">80</text>
+  <line x1="52.0" y1="132.9" x2="560.0" y2="132.9" stroke="#ddd" stroke-width=".7" stroke-dasharray="2,3"/>
+  <text x="47.0" y="135.9" font-size="8" fill="#555" text-anchor="end">80</text>
+  <line x1="52.0" y1="113.7" x2="560.0" y2="113.7" stroke="#ddd" stroke-width=".7" stroke-dasharray="2,3"/>
+  <text x="47.0" y="116.7" font-size="8" fill="#555" text-anchor="end">100</text>
+  <line x1="52.0" y1="94.6" x2="560.0" y2="94.6" stroke="#ddd" stroke-width=".7" stroke-dasharray="2,3"/>
+  <text x="47.0" y="97.6" font-size="8" fill="#555" text-anchor="end">120</text>
+  <line x1="52.0" y1="75.4" x2="560.0" y2="75.4" stroke="#ddd" stroke-width=".7" stroke-dasharray="2,3"/>
+  <text x="47.0" y="78.4" font-size="8" fill="#555" text-anchor="end">140</text>
+  <line x1="52.0" y1="56.3" x2="560.0" y2="56.3" stroke="#ddd" stroke-width=".7" stroke-dasharray="2,3"/>
+  <text x="47.0" y="59.3" font-size="8" fill="#555" text-anchor="end">160</text>
+  <line x1="52.0" y1="37.1" x2="560.0" y2="37.1" stroke="#ddd" stroke-width=".7" stroke-dasharray="2,3"/>
+  <text x="47.0" y="40.1" font-size="8" fill="#555" text-anchor="end">180</text>
+  <line x1="52.0" y1="18.0" x2="560.0" y2="18.0" stroke="#ddd" stroke-width=".7" stroke-dasharray="2,3"/>
+  <text x="47.0" y="21.0" font-size="8" fill="#555" text-anchor="end">200</text>
+  <text x="47.0" y="155.0" font-size="8" fill="#555" text-anchor="end">60</text>
+  <line x1="52.0" y1="18.0" x2="52.0" y2="152.0" stroke="#999" stroke-width="1"/>
+  <line x1="52.0" y1="152.0" x2="560.0" y2="152.0" stroke="#999" stroke-width="1"/>
+  <line x1="52.0" y1="41.9" x2="560.0" y2="41.9" stroke="#c0474a" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="306.0" y1="51.5" x2="306.0" y2="152.0" stroke="#2f7a42" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <line x1="52.0" y1="51.5" x2="306.0" y2="51.5" stroke="#2f7a42" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <circle cx="306.0" cy="51.5" r="3.5" fill="#2f7a42"/>
+  <text x="311.0" y="104.0" font-size="8" fill="#2f7a42" font-weight="700">exemple: minut 40 → 165</text>
+  <polyline points="52.0,147.2 64.7,146.3 83.8,142.4 102.8,94.6 128.2,67.8 147.2,61.1 179.0,59.2 210.8,58.2 242.5,56.3 274.2,54.4 306.0,51.5 337.8,48.6 369.5,44.8 388.5,37.1 401.2,32.4 407.6,46.7 420.3,70.6 433.0,89.8 445.7,102.2 464.8,113.7 496.5,132.9 528.2,138.6 560.0,142.4" fill="none" stroke="#c0474a" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="401.2" cy="32.4" r="4" fill="#c0474a"/>
+  <text x="99.8" y="137.4" font-size="7" fill="#555" text-anchor="middle">Inici cursa</text>
+  <line x1="401.2" y1="32.4" x2="401.2" y2="152.0" stroke="#555" stroke-width="1"/>
+  <text x="405.2" y="148.0" font-size="7" fill="#555">Meta</text>
+  <text x="306.0" y="177.0" font-size="8.5" fill="#555" text-anchor="middle" font-weight="700">Temps (minuts)</text>
+  <text x="12" y="85.0" font-size="8.5" fill="#555" text-anchor="middle" font-weight="700" transform="rotate(-90,12,85.0)">FC (bat/min)</text>
+  </svg>
+  </div>
+  <div class="fer deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="fer-lab" contenteditable="true">✏️ Què has de fer <span class="ur-in" dir="rtl" lang="ar">ما عليك فعله</span></div>
+    <p contenteditable="true"><strong>Exemple</strong> (en verd a la gràfica): busca el <strong>40</strong> a baix, puja fins a la línia i mira a l'esquerra → al minut 40 la FC és d'uns <strong>165 bat/min</strong>. Ara fes el mateix amb el <strong>punt vermell</strong>.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">مثال (بالأخضر في الرسم): ابحث عن 40 في الأسفل، واصعد حتى الخط وانظر إلى اليسار ← عند الدقيقة 40 يكون النبض نحو 165. والآن افعل الشيء نفسه مع النقطة الحمراء.</div>
+  </div>
+  <div class="g1-q deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card"><div class="card-label" contenteditable="true">① En quin minut hi ha el pic?<span class="th-ur" dir="rtl" lang="ar">في أي دقيقة تقع أعلى نقطة؟</span></div><p class="frase-completar">Al minut <span class="blank blank-s"></span>.</p></div>
+    <div class="card"><div class="card-label" contenteditable="true">② Quina FC té el pic?<span class="th-ur" dir="rtl" lang="ar">كم معدّل النبض عند هذه النقطة؟</span></div><p class="frase-completar"><span class="blank blank-s"></span> bat/min.</p></div>
+    <div class="card"><div class="card-label" contenteditable="true">③ Què va més ràpid?<span class="th-ur" dir="rtl" lang="ar">ما الأسرع؟</span></div><div class="opts"><div class="opt"><span>La pujada<span class="opt-ur" dir="rtl" lang="ar">الصعود</span></span></div><div class="opt"><span>La baixada<span class="opt-ur" dir="rtl" lang="ar">النزول</span></span></div></div></div>
+  </div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: el deute d'oxigen <span class="ur-in" dir="rtl" lang="ar">دَين الأكسجين</span></div>
+    <p contenteditable="true">Al final de la cursa, la Mercè va a la <strong>zona anaeròbica</strong>: falta oxigen i als músculs s'acumula <strong>àcid làctic</strong>. Quan para, el cos encara «<strong>deu</strong>» oxigen: ha de netejar l'àcid làctic i el CO₂. Per això el cor no baixa de cop: baixa <strong>a poc a poc</strong>.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">في نهاية السباق تدخل ميرسي المنطقة اللاهوائية: ينقص الأكسجين ويتراكم حمض اللاكتيك في العضلات. عندما تتوقف، يبقى على الجسم «دَين» من الأكسجين: عليه أن يتخلّص من حمض اللاكتيك وثاني أكسيد الكربون. لذلك لا ينخفض القلب دفعة واحدة: بل ينخفض ببطء.</div>
+  </div>
+  <div class="raona-box deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="raona-cap" contenteditable="true">✏️ Raono en 4 passos: per quina raó puja de pressa i baixa a poc a poc? <span class="ur-in" dir="rtl" lang="ar">فكّر في أربع خطوات</span></div>
+    <div class="raona-pas"><div class="ur" dir="rtl" lang="ar" contenteditable="true">أكمل بهذه الكلمات: بسرعة، ببطء، حمض اللاكتيك، الأكسجين. الجملة الأخيرة تكتبها أنت.</div><p contenteditable="true" style="font-size:13.5px">Paraules: <strong>de pressa · a poc a poc · àcid làctic · oxigen</strong></p></div>
+    <div class="raona-pas"><div class="raona-pas-lab">👁️ Observo · <span dir="rtl" lang="ar">ألاحظ</span></div><p class="frase-completar">Quan comença la cursa, la FC puja <span class="blank blank-m"></span>. Després de la meta, baixa <span class="blank blank-m"></span>.</p></div>
+    <div class="raona-pas"><div class="raona-pas-lab">❓ Em pregunto · <span dir="rtl" lang="ar">أتساءل</span></div><p class="frase-completar">Per quina raó el cor no torna al repòs de cop, si la Mercè ja ha parat?</p></div>
+    <div class="raona-pas"><div class="raona-pas-lab">🔗 Connecto · <span dir="rtl" lang="ar">أربط</span></div><p class="frase-completar">Els músculs encara han de netejar l'<span class="blank blank-m"></span> i el cos encara deu <span class="blank blank-m"></span>.</p></div>
+    <div class="raona-pas"><div class="raona-pas-lab">✅ Dedueixo · <span dir="rtl" lang="ar">أستنتج</span></div><p class="frase-completar">Per tant, la recuperació és lenta perquè <span class="blank blank-xl"></span>.</p></div>
+  </div>
+  <div class="card rose deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">⑥ Un cas nou: la Mercè fa només 30 segons d'esprint <span class="ur-in" dir="rtl" lang="ar">حالة جديدة: جري سريع لمدة 30 ثانية فقط</span></div>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">بدلًا من 10 كيلومترات، تجري ميرسي 30 ثانية فقط بأقصى قوتها ثم تتوقف. متى يعود قلبها إلى حالة الراحة؟ ضع دائرة، ثم اكتب بالكتالونية لماذا.</div>
+    <p contenteditable="true" style="font-size:13.5px">En lloc de 10 km, la Mercè corre <strong>30 segons</strong> al màxim i para. El seu cor tornarà al repòs…</p>
+    <div class="opts"><div class="opt"><span>En un parell de minuts<span class="opt-ur" dir="rtl" lang="ar">في دقيقتين أو ثلاث</span></span></div><div class="opt"><span>En un quart d'hora, com després de la cursa<span class="opt-ur" dir="rtl" lang="ar">في ربع ساعة، كما بعد السباق</span></span></div></div>
+    <p class="frase-completar">Ho he triat perquè en 30 segons als músculs s'acumula <span class="blank blank-m"></span> àcid làctic. <span class="pista-in">(poc / molt)</span></p>
+  </div>
+</div>
+
+<div class="section deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n4">4</div><div><div class="stitle" contenteditable="true">G2 — Esportista d'elit vs. persona sedentària <span class="ur-in" dir="rtl" lang="ar">G2 — رياضي نخبة مقابل شخص قليل الحركة</span></div><div class="sdesc" contenteditable="true">En parelles · El mateix esforç, dos cors diferents.</div></div></div>
+  <div class="divider"></div>
+  <div class="llegir deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="llegir-lab" contenteditable="true">📖 Per llegir: el cor entrenat <span class="ur-in" dir="rtl" lang="ar">القلب المتدرّب</span></div>
+    <p contenteditable="true">Dues persones de 20 anys fan <strong>el mateix exercici</strong> durant 5 minuts. Una és <strong>esportista</strong> (línia <strong>verda</strong>). L'altra és <strong>sedentària</strong>: no fa esport (línia <strong>lila</strong>, de ratlletes). El cor de l'esportista és més <strong>fort</strong>: amb cada batec envia <strong>molta sang</strong>. Per això batega més <strong>lent</strong> en repòs i es <strong>recupera abans</strong>.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">شخصان عمرهما 20 سنة يقومان بالتمرين نفسه مدة 5 دقائق. أحدهما رياضي (الخط الأخضر). والآخر قليل الحركة: لا يمارس الرياضة (الخط البنفسجي المتقطّع). قلب الرياضي أقوى: يرسل مع كل نبضة كمية كبيرة من الدم. لذلك يخفق ببطء في الراحة ويتعافى بسرعة.</div>
+  </div>
+  <div class="g2-wrap deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="g2-title"><span contenteditable="true">Dues persones de 20 anys · mateix exercici (5 min)</span><span style="font-size:11px;opacity:.75" contenteditable="true">llindar = 170 bat/min</span></div>
+    <div class="g2-llegenda">
+      <div class="g2-item"><div class="g2-dot" style="background:#4a9e5c"></div><span contenteditable="true"><strong>Esportista</strong> — línia verda<span class="cap-ur" dir="rtl" lang="ar">الرياضي — الخط الأخضر</span></span></div>
+      <div class="g2-item"><div class="g2-dot" style="background:#7B68C8"></div><span contenteditable="true"><strong>Sedentari</strong> — línia lila de ratlletes<span class="cap-ur" dir="rtl" lang="ar">قليل الحركة — الخط البنفسجي المتقطّع</span></span></div>
+    </div>
+    <svg viewBox="0 0 580 182" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:white;padding:6px 10px 2px">
+  <rect x="52.0" y="18.0" width="508.0" height="25.1" fill="#fce8ed" opacity="0.5"/>
+  <text x="555.0" y="28.0" font-size="7.5" fill="#c0474a" font-weight="700" text-anchor="end">ZONA ANAERÒBICA (&gt;170 bat/min)</text>
+  <rect x="102.8" y="18.0" width="127.0" height="134.0" fill="#efeaf9" opacity="0.75"/>
+  <text x="166.3" y="147.0" font-size="7.5" fill="#4a3b8c" text-anchor="middle" font-weight="700">ESFORÇ (5 min)</text>
+  <line x1="52.0" y1="152.0" x2="52.0" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="52.0" y="163.0" font-size="8" fill="#555" text-anchor="middle">0</text>
+  <line x1="102.8" y1="152.0" x2="102.8" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="102.8" y="163.0" font-size="8" fill="#555" text-anchor="middle">2</text>
+  <line x1="153.6" y1="152.0" x2="153.6" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="153.6" y="163.0" font-size="8" fill="#555" text-anchor="middle">4</text>
+  <line x1="204.4" y1="152.0" x2="204.4" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="204.4" y="163.0" font-size="8" fill="#555" text-anchor="middle">6</text>
+  <line x1="255.2" y1="152.0" x2="255.2" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="255.2" y="163.0" font-size="8" fill="#555" text-anchor="middle">8</text>
+  <line x1="306.0" y1="152.0" x2="306.0" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="306.0" y="163.0" font-size="8" fill="#555" text-anchor="middle">10</text>
+  <line x1="356.8" y1="152.0" x2="356.8" y2="18.0" stroke="#bbb" stroke-width="1.2"/>
+  <text x="356.8" y="163.0" font-size="8.5" fill="#333" text-anchor="middle" font-weight="700">12</text>
+  <line x1="407.6" y1="152.0" x2="407.6" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="407.6" y="163.0" font-size="8" fill="#555" text-anchor="middle">14</text>
+  <line x1="458.4" y1="152.0" x2="458.4" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="458.4" y="163.0" font-size="8" fill="#555" text-anchor="middle">16</text>
+  <line x1="509.2" y1="152.0" x2="509.2" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="509.2" y="163.0" font-size="8" fill="#555" text-anchor="middle">18</text>
+  <line x1="560.0" y1="152.0" x2="560.0" y2="18.0" stroke="#ddd" stroke-width=".7"/>
+  <text x="560.0" y="163.0" font-size="8" fill="#555" text-anchor="middle">20</text>
+  <line x1="52.0" y1="135.2" x2="560.0" y2="135.2" stroke="#ddd" stroke-width=".7" stroke-dasharray="2,3"/>
+  <text x="47.0" y="138.2" font-size="8" fill="#555" text-anchor="end">60</text>
+  <line x1="52.0" y1="118.5" x2="560.0" y2="118.5" stroke="#ddd" stroke-width=".7" stroke-dasharray="2,3"/>
+  <text x="47.0" y="121.5" font-size="8" fill="#555" text-anchor="end">80</text>
+  <line x1="52.0" y1="101.8" x2="560.0" y2="101.8" stroke="#ddd" stroke-width=".7" stroke-dasharray="2,3"/>
+  <text x="47.0" y="104.8" font-size="8" fill="#555" text-anchor="end">100</text>
+  <line x1="52.0" y1="85.0" x2="560.0" y2="85.0" stroke="#ddd" stroke-width=".7" stroke-dasharray="2,3"/>
+  <text x="47.0" y="88.0" font-size="8" fill="#555" text-anchor="end">120</text>
+  <line x1="52.0" y1="68.2" x2="560.0" y2="68.2" stroke="#ddd" stroke-width=".7" stroke-dasharray="2,3"/>
+  <text x="47.0" y="71.2" font-size="8" fill="#555" text-anchor="end">140</text>
+  <line x1="52.0" y1="51.5" x2="560.0" y2="51.5" stroke="#ddd" stroke-width=".7" stroke-dasharray="2,3"/>
+  <text x="47.0" y="54.5" font-size="8" fill="#555" text-anchor="end">160</text>
+  <line x1="52.0" y1="34.8" x2="560.0" y2="34.8" stroke="#ddd" stroke-width=".7" stroke-dasharray="2,3"/>
+  <text x="47.0" y="37.8" font-size="8" fill="#555" text-anchor="end">180</text>
+  <text x="47.0" y="21.0" font-size="8" fill="#555" text-anchor="end">200</text>
+  <text x="47.0" y="155.0" font-size="8" fill="#555" text-anchor="end">40</text>
+  <line x1="52.0" y1="18.0" x2="52.0" y2="152.0" stroke="#999" stroke-width="1"/>
+  <line x1="52.0" y1="152.0" x2="560.0" y2="152.0" stroke="#999" stroke-width="1"/>
+  <line x1="52.0" y1="43.1" x2="560.0" y2="43.1" stroke="#c0474a" stroke-width="1" stroke-dasharray="4,3"/>
+  <polyline points="52.0,120.2 77.4,120.2 102.8,119.3 128.2,76.6 153.6,44.8 166.3,36.4 179.0,34.8 204.4,33.9 229.8,33.1 255.2,43.1 280.6,53.2 306.0,61.5 331.4,68.2 356.8,74.1 407.6,85.0 458.4,95.0 509.2,103.4 560.0,110.1" fill="none" stroke="#7B68C8" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6,3"/>
+  <polyline points="52.0,147.8 77.4,147.8 102.8,147.0 128.2,118.5 153.6,93.4 179.0,75.0 204.4,61.5 229.8,59.9 242.5,68.2 255.2,85.0 280.6,105.9 306.0,125.2 331.4,136.9 356.8,143.6 407.6,147.0 458.4,147.8 509.2,147.8 560.0,147.8" fill="none" stroke="#4a9e5c" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="306.0" y="177.0" font-size="8.5" fill="#555" text-anchor="middle" font-weight="700">Temps (minuts)</text>
+  <text x="12" y="85.0" font-size="8.5" fill="#555" text-anchor="middle" font-weight="700" transform="rotate(-90,12,85.0)">FC (bat/min)</text>
+  </svg>
+  </div>
+  <div class="card deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">🔍 Mira bé les dues línies i encercla <span class="ur-in" dir="rtl" lang="ar">انظر جيدًا إلى الخطين وضع دائرة</span></div>
+    <div class="circ-row" contenteditable="true">① Al minut 0 (repòs), comença <strong>més avall</strong>: <span class="circ-opt">l'esportista (verd)</span> / <span class="circ-opt">el sedentari (lila)</span>.</div>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">1) عند الدقيقة 0 (الراحة)، من يبدأ من مستوى أدنى: الرياضي (أخضر) أم قليل الحركة (بنفسجي)؟</div>
+    <div class="circ-row" contenteditable="true">② Durant l'esforç, passa de la ratlla vermella (170): <span class="circ-opt">només l'esportista</span> / <span class="circ-opt">només el sedentari</span>.</div>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">2) أثناء التمرين، من يتجاوز الخط الأحمر (170): الرياضي فقط أم قليل الحركة فقط؟</div>
+    <div class="circ-row" contenteditable="true">③ Al minut <strong>12</strong>, ja ha tornat al repòs: <span class="circ-opt">l'esportista</span> / <span class="circ-opt">el sedentari</span>.</div>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">3) عند الدقيقة 12، من عاد إلى حالة الراحة: الرياضي أم قليل الحركة؟</div>
+  </div>
+  <div class="card rose deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="card-label" contenteditable="true">✏️ Completa la conclusió <span class="ur-in" dir="rtl" lang="ar">أكمل الاستنتاج</span></div>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">أكمل بالكتالونية. للجملة الثانية، انظر في الرسم في أي دقيقة يعود الخط الأخضر إلى الأسفل.</div>
+    <p class="frase-completar">L'esportista es recupera més ràpid perquè el seu cor, amb cada batec, envia <span class="blank blank-m"></span> sang. <span class="pista-in">(molta / poca)</span></p>
+    <p class="frase-completar">Ho veig a la gràfica: la línia verda torna a baix al minut <span class="blank blank-s"></span>, i la lila al minut 20 encara <span class="blank blank-l"></span>.</p>
+  </div>
+</div>
+
+<div class="idea-clau deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="idea-lab">💡 Idea clau</div>
+  <p contenteditable="true">Quan fem <strong>exercici</strong>, els músculs necessiten més <strong>oxigen</strong>. El cor batega <strong>més ràpid</strong> i respirem <strong>més fort</strong> per portar-lo. Si anem al màxim (<strong>zona anaeròbica</strong>), falta oxigen, es fa <strong>àcid làctic</strong> i la recuperació és <strong>lenta</strong>. Un cor <strong>entrenat</strong> es recupera abans.</p>
+  <div class="ur" dir="rtl" lang="ar" contenteditable="true">عندما نمارس الرياضة تحتاج العضلات إلى أكسجين أكثر. يخفق القلب أسرع ونتنفس بقوة أكبر لإيصال الأكسجين. إذا بذلنا أقصى قوتنا (المنطقة اللاهوائية) ينقص الأكسجين ويتكوّن حمض اللاكتيك ويكون التعافي بطيئًا. القلب المتدرّب يتعافى بسرعة.</div>
+</div>
+
+<div class="meta-oa-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="meta-oa-title" contenteditable="true">🎯 Torna als objectius: marca el que ja saps fer <span class="ur-in" dir="rtl" lang="ar">ضع علامة على ما تستطيع فعله الآن</span></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé prendre el pols i calcular els bat/min. <span class="ur-in" dir="rtl" lang="ar">النبض والنبضات في الدقيقة</span></div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé per quina raó el cor batega més ràpid amb l'exercici. <span class="ur-in" dir="rtl" lang="ar">لماذا يخفق القلب أسرع في الرياضة</span></div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé calcular la meva FC màxima: 220 − edat. <span class="ur-in" dir="rtl" lang="ar">أقصى معدّل للنبض: 220 − العمر</span></div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé trobar el pic en una gràfica de FC. <span class="ur-in" dir="rtl" lang="ar">أعلى نقطة في الرسم البياني</span></div></div>
+  <div class="meta-oa-item"><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé per quina raó un esportista es recupera abans. <span class="ur-in" dir="rtl" lang="ar">لماذا يتعافى الرياضي بسرعة</span></div></div>
+  <div class="meta-open">
+    <div class="meta-open-label" contenteditable="true">✏️ Compara amb la teva hipòtesi de l'apartat 1 (en català) <span class="ur-in" dir="rtl" lang="ar">قارن بتخمينك في القسم 1 (اكتب بالكتالونية)</span></div>
+    <p class="frase-completar">Jo creia que el meu pols en repòs era <span class="blank blank-s"></span> bat/min i he mesurat <span class="blank blank-s"></span> bat/min. Ara sé que el cor batega més ràpid amb l'exercici perquè <span class="blank blank-xl"></span>.</p>
+  </div>
+</div>
+
+<div class="tasca-box deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="card-label" contenteditable="true">📚 Tasca per a casa: 3 matins (per a la Sessió 6) <span class="ur-in" dir="rtl" lang="ar">واجب منزلي: ثلاثة صباحات</span></div>
+  <p contenteditable="true" style="font-size:13.5px">Cada matí, <strong>just en llevar-te</strong> (abans d'esmorzar), compta el pols durant <strong>30 segons</strong> i multiplica <strong>× 2</strong>. Apunta-ho a la taula.</p>
+  <div class="ur" dir="rtl" lang="ar" contenteditable="true">كل صباح، فور الاستيقاظ (قبل الفطور)، عُدّ النبض مدة 30 ثانية واضرب في 2. اكتب ذلك في الجدول.</div>
+  <table class="data-table" style="margin-top:5px"><thead><tr><th contenteditable="true">Matí<span class="th-ur" dir="rtl" lang="ar">الصباح</span></th><th contenteditable="true">Data<span class="th-ur" dir="rtl" lang="ar">التاريخ</span></th><th contenteditable="true">Batecs en 30 s<span class="th-ur" dir="rtl" lang="ar">النبضات في 30 ثانية</span></th><th contenteditable="true">× 2 = FC (bat/min)<span class="th-ur" dir="rtl" lang="ar">× 2 = في الدقيقة</span></th><th contenteditable="true">He dormit bé?<span class="th-ur" dir="rtl" lang="ar">هل نمتُ جيدًا؟</span></th></tr></thead><tbody><tr class="deletable"><td style="font-weight:700">1</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><span class="yn-opt"><span class="chk-sq"></span> Sí</span> <span class="yn-opt"><span class="chk-sq"></span> No</span></td></tr><tr class="deletable"><td style="font-weight:700">2</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><span class="yn-opt"><span class="chk-sq"></span> Sí</span> <span class="yn-opt"><span class="chk-sq"></span> No</span></td></tr><tr class="deletable"><td style="font-weight:700">3</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><span class="yn-opt"><span class="chk-sq"></span> Sí</span> <span class="yn-opt"><span class="chk-sq"></span> No</span></td></tr></tbody></table>
+  <p contenteditable="true" style="font-size:13.5px;margin-top:6px">Mira les teves dades i escriu una <strong>pregunta</strong> en català. Exemple: «Per quina raó la meva FC és més alta el dia que he dormit malament?»</p>
+  <div class="ur" dir="rtl" lang="ar" contenteditable="true">انظر إلى نتائجك واكتب سؤالًا بالكتالونية. المثال في الأعلى.</div>
+  <p class="frase-completar">Per quina raó la meva FC <span class="blank blank-xl"></span>?</p>
+  <p class="small" contenteditable="true">⚠️ <strong>Porta aquesta fitxa a la Sessió 6.</strong> <span class="ur-in" dir="rtl" lang="ar">أحضر هذه الورقة إلى الدرس 6.</span></p>
+</div>
+
+<div class="footer deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="footer-l" contenteditable="true">IE Temple · Biologia i Geologia 3r ESO · El nostre cos en marxa · Sessió 5 · Versió C acollida (àrab)</div>
+  <div class="footer-r" contenteditable="true">Biologia i Geologia · 3r ESO</div>
+</div>
+
+<div class="section teoria nova-pagina deletable">
+  <div class="del-btn" onclick="deleteEl(this)">✕</div>
+  <div class="section-header"><div class="snum n0">📚</div><div><div class="stitle" contenteditable="true">Per estudiar a casa: la teoria d'avui <span class="ur-in" dir="rtl" lang="ar">للدراسة في البيت: درس اليوم</span></div><div class="sdesc" contenteditable="true">El que hem explicat a classe, en 6 targetes. Guarda aquest full per preparar l'examen.</div></div></div>
+  <div class="divider"></div>
+  <div class="teo-com deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <p contenteditable="true"><strong>📚 Tasca per a casa · cada dia 10 minuts:</strong> ① llegeix una targeta · ② si no l'entens, llegeix l'àrab · ③ explica-la <strong>en veu alta en català</strong> · ④ marca ✔.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">كل يوم 10 دقائق: 1) اقرأ بطاقة 2) إذا لم تفهم، اقرأ العربية 3) اشرحها بصوت عالٍ بالكتالونية 4) ضع ✔.</div>
+  </div>
+  <div class="teo-card c-cad deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">1</span><span contenteditable="true">Per quina raó puja la FC amb l'exercici</span><span class="ur-in" dir="rtl" lang="ar">لماذا يرتفع النبض في الرياضة</span></div>
+    <div class="teo-2col">
+      <img src="s5_fc_esport.jpg" alt="Una noia corrent amb un rellotge que mesura la FC" onerror="this.style.display='none'">
+      <div>
+        <div class="chain"><span class="chain-chip">exercici</span><span class="chain-arrow">→</span><span class="chain-chip">els músculs gasten energia</span><span class="chain-arrow">→</span><span class="chain-chip">necessiten O₂</span><span class="chain-arrow">→</span><span class="chain-chip">el cor batega més ràpid i fort</span></div>
+        <p contenteditable="true">L'<strong>hemoglobina</strong> de la sang porta l'O₂. Els <strong>nervis</strong> i l'<strong>adrenalina</strong> acceleren el cor sense que hi pensis.</p>
+        <div class="ur" dir="rtl" lang="ar" contenteditable="true">تحتاج العضلات إلى الأكسجين، لذلك يخفق القلب أسرع. الهيموغلوبين يحمل الأكسجين. الأعصاب والأدرينالين يسرّعان القلب تلقائيًا.</div>
+      </div>
+    </div>
+  </div>
+  <div class="teo-card c-zon deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">2</span><span contenteditable="true">FC màxima i les dues zones</span><span class="ur-in" dir="rtl" lang="ar">أقصى معدّل للنبض والمنطقتان</span></div>
+    <div class="teo-2col">
+      <div class="fig-wrap svgfig"><svg viewBox="0 0 132 74" width="132" height="74" aria-hidden="true"><rect x="2" y="26" width="72" height="22" rx="4" fill="#b9b3c9"/><rect x="74" y="26" width="32" height="22" fill="#5a9e6a"/><rect x="106" y="26" width="24" height="22" rx="4" fill="#c0474a"/><text x="38" y="41" font-size="9" fill="#fff" text-anchor="middle" font-family="sans-serif" font-weight="700">repòs</text><text x="90" y="20" font-size="8.5" fill="#2f7a42" text-anchor="middle" font-family="sans-serif" font-weight="700">aeròbica</text><text x="130" y="61" font-size="8.5" fill="#b8323a" text-anchor="end" font-family="sans-serif" font-weight="700">anaeròbica</text><path d="M106 22v28" stroke="#333" stroke-width="1.5" stroke-dasharray="2,2"/><text x="106" y="72" font-size="8" fill="#333" text-anchor="middle" font-family="sans-serif">85%</text></svg></div>
+      <div>
+        <p contenteditable="true"><strong>FC màxima = 220 − edat.</strong> Amb 14 anys: <strong>206</strong>; llindar (85%): <strong>175</strong>. <strong>Aeròbica:</strong> prou O₂, s'aguanta molta estona. <strong>Anaeròbica:</strong> falta O₂, es fa <strong>àcid làctic</strong>, només uns minuts.</p>
+        <div class="ur" dir="rtl" lang="ar" contenteditable="true">أقصى معدّل للنبض = 220 − العمر. 14 سنة: 206؛ الحدّ (85%): 175. المنطقة الهوائية: أكسجين كافٍ، مدة طويلة. المنطقة اللاهوائية: أكسجين قليل، حمض اللاكتيك، بضع دقائق فقط.</div>
+      </div>
+    </div>
+  </div>
+  <div class="teo-card c-mer deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">3</span><span contenteditable="true">La Mercè: puja de pressa, baixa a poc a poc</span><span class="ur-in" dir="rtl" lang="ar">ميرسي: صعود سريع، نزول بطيء</span></div>
+    <div class="teo-2col">
+      <div class="fig-wrap svgfig"><svg viewBox="0 0 130 80" width="130" height="80" aria-hidden="true"><path d="M8 4v68h120" stroke="#999" stroke-width="1.5" fill="none"/><path d="M8 18h120" stroke="#c0474a" stroke-width="1" stroke-dasharray="3,2"/><polyline points="8,68 16,66 22,36 34,30 70,26 82,12 86,22 92,40 100,52 112,62 126,66" fill="none" stroke="#c0474a" stroke-width="2.5" stroke-linejoin="round"/><circle cx="82" cy="12" r="3" fill="#c0474a"/><text x="78" y="9" font-size="8" fill="#b8323a" text-anchor="end" font-family="sans-serif" font-weight="700">185</text></svg></div>
+      <div>
+        <p contenteditable="true">La FC <strong>puja de pressa</strong> (nervis i adrenalina). <strong>Pic</strong>: 185 a la meta (minut 55). Després <strong>baixa a poc a poc</strong>: el cos neteja l'<strong>àcid làctic</strong> (deute d'oxigen).</p>
+        <div class="ur" dir="rtl" lang="ar" contenteditable="true">يرتفع النبض بسرعة. أعلى نقطة: 185 (الدقيقة 55). ثم ينخفض ببطء: يتخلّص الجسم من حمض اللاكتيك (دَين الأكسجين).</div>
+      </div>
+    </div>
+  </div>
+  <div class="teo-card c-ane deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">4</span><span contenteditable="true">El Marc: poca hemoglobina (anèmia)</span><span class="ur-in" dir="rtl" lang="ar">مارك: هيموغلوبين قليل (فقر الدم)</span></div>
+    <div class="teo-2col">
+      <img src="../imatges-cientifiques/composicio_sang_humana.png" alt="Composició de la sang: glòbuls vermells, glòbuls blancs, plaquetes i plasma" onerror="this.style.display='none'">
+      <div>
+        <p contenteditable="true">L'<strong>hemoglobina</strong> dels <strong>glòbuls vermells</strong> porta l'O₂. El Marc en té poca (9,2): la sang porta <strong>menys O₂</strong>. El cor batega <strong>més de pressa</strong> i el Marc arriba <strong>abans</strong> a la zona anaeròbica.</p>
+        <div class="ur" dir="rtl" lang="ar" contenteditable="true">هيموغلوبين الكريات الحمراء يحمل الأكسجين. عند مارك هيموغلوبين قليل (9,2): يحمل الدم أكسجينًا أقل. يخفق القلب أسرع ويصل مارك أسرع إلى المنطقة اللاهوائية.</div>
+      </div>
+    </div>
+  </div>
+  <div class="teo-row">
+  <div class="teo-card c-alv deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">5</span><span contenteditable="true">Els alvèols</span><span class="ur-in" dir="rtl" lang="ar">الحويصلات الهوائية</span></div>
+    <p contenteditable="true">Tràquea → bronquis → <strong>alvèols</strong>. La paret de l'alvèol és <strong>molt prima</strong>: l'O₂ passa a la sang i el CO₂ surt. Amb l'esforç respirem i bateguem <strong>més ràpid</strong>.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">القصبة الهوائية ← الشعب الهوائية ← الحويصلات الهوائية. جدار الحويصلة رقيق جدًا: ينتقل الأكسجين إلى الدم ويخرج ثاني أكسيد الكربون. في المجهود نتنفس أسرع ويخفق القلب أسرع.</div>
+  </div>
+  <div class="teo-card c-ent deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="teo-h"><span class="teo-n">6</span><span contenteditable="true">El cor entrenat</span><span class="ur-in" dir="rtl" lang="ar">القلب المتدرّب</span></div>
+    <p contenteditable="true">El cor d'un <strong>esportista</strong> és més fort: cada batec envia <strong>més sang</strong>. En repòs batega <strong>més lent</strong> (≈45) i es <strong>recupera abans</strong> que el d'un <strong>sedentari</strong>.</p>
+    <div class="ur" dir="rtl" lang="ar" contenteditable="true">قلب الرياضي أقوى: يرسل مع كل نبضة دمًا أكثر. يخفق ببطء في الراحة (نحو 45) ويتعافى قبل قلب الشخص قليل الحركة.</div>
+  </div>
+  </div>
+  <div class="repas deletable">
+    <div class="del-btn" onclick="deleteEl(this)">✕</div>
+    <div class="repas-h" contenteditable="true">✔ Ho sé explicar? Prepara l'examen · respon en veu alta, en català <span class="ur-in" dir="rtl" lang="ar">هل أستطيع الشرح؟</span></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Per quina raó el cor batega més ràpid quan corro? <em>(1)</em></span><div class="repas-ur" dir="rtl" lang="ar">لماذا يخفق القلب أسرع عندما أجري؟</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Què és la zona <strong>anaeròbica</strong>? <em>(2)</em></span><div class="repas-ur" dir="rtl" lang="ar">ما هي المنطقة اللاهوائية؟</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Per quina raó la FC de la Mercè baixa <strong>a poc a poc</strong>? <em>(3)</em></span><div class="repas-ur" dir="rtl" lang="ar">لماذا ينخفض نبض ميرسي ببطء؟</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Per quina raó el Marc arriba abans al límit? <em>(4)</em></span><div class="repas-ur" dir="rtl" lang="ar">لماذا يصل مارك إلى حدّه أسرع؟</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">On passa l'O₂ de l'aire a la sang? <em>(5)</em></span><div class="repas-ur" dir="rtl" lang="ar">أين ينتقل الأكسجين من الهواء إلى الدم؟</div></div></div>
+    <div class="repas-item"><div class="meta-oa-check"></div><div><span contenteditable="true">Per quina raó un esportista es recupera abans? <em>(6)</em></span><div class="repas-ur" dir="rtl" lang="ar">لماذا يتعافى الرياضي بسرعة؟</div></div></div>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+</div><!-- /doc -->
+</div><!-- /page-wrap -->
+
+<div id="sheets"></div>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   PAGINADOR A4 REAL — cada full es veu a pantalla tal com s'imprimirà.
+   FLOW = llista ordenada dels blocs de primer nivell (la font lògica).
+   Tota operació (esborrar, moure, espai, línia) muta FLOW i repagina.
+   ════════════════════════════════════════════════════════════ */
+const SHEET_H = 1123;
+const FOOT_H  = 26;
+const BODY_MAX = SHEET_H - FOOT_H - 10;
+let FLOW = [];
+
+function flattenDoc(){
+  const doc=document.getElementById('doc');
+  const content=doc.querySelector(':scope > .content');
+  if(content){
+    const foot=content.querySelector(':scope > .footer'); if(foot) foot.remove();
+    while(content.firstChild){ doc.insertBefore(content.firstChild, content); }
+    content.remove();
+  }
+  const f2=doc.querySelector(':scope > .footer'); if(f2) f2.remove();
+}
+function extractFlow(){
+  FLOW = Array.from(document.getElementById('doc').children);
+  // Posicio original de cada fill de seccio: el paginador la fa servir per
+  // reassemblar en ordre una seccio que ha partit (sense aixo, cada
+  // repaginacio la desordena i separa una llegenda del seu dibuix).
+  FLOW.forEach(function(b){
+    if(b.classList && b.classList.contains('section')){
+      Array.prototype.forEach.call(b.children, function(k,i){ k._ord = i; });
+    }
+  });
+}
+function topFlowBlock(el){ while(el){ if(FLOW.indexOf(el)>=0) return el; el=el.parentElement; } return null; }
+
+function saveCaret(){
+  const a=document.activeElement;
+  if(!a||!a.isContentEditable) return null;
+  const s=getSelection(); if(!s.rangeCount) return {el:a};
+  const r=s.getRangeAt(0);
+  return {el:a, sc:r.startContainer, so:r.startOffset, ec:r.endContainer, eo:r.endOffset};
+}
+function restoreCaret(d){
+  if(!d||!d.el||!document.body.contains(d.el)) return;
+  try{ d.el.focus({preventScroll:true});
+    if(d.sc && document.body.contains(d.sc)){
+      const r=document.createRange(); r.setStart(d.sc,d.so); r.setEnd(d.ec,d.eo);
+      const s=getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+  }catch(e){}
+}
+
+function repaginate(){
+  const host=document.getElementById('sheets'); if(!host) return;
+  const caret=saveCaret();
+  // reassembla seccions partides de la passada anterior (torna els fills a la secció original)
+  var _origens=[];
+  host.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens.indexOf(o)<0) _origens.push(o); } });
+  // ...i es torna l'ordre original: els fills reassemblats s'afegien al final.
+  _origens.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
+  });
+  FLOW = FLOW.filter(b=>b);
+  FLOW.forEach(b=>{ if(b.parentNode) b.parentNode.removeChild(b); });
+  host.innerHTML='';
+  let body=null;
+  function newSheet(){
+    const sheet=document.createElement('div'); sheet.className='sheet';
+    body=document.createElement('div'); body.className='sheet-body';
+    const foot=document.createElement('div'); foot.className='sheet-foot';
+    foot.innerHTML='<span>IE Temple · Biologia i Geologia 3r ESO</span><span class="foot-pg"></span>';
+    sheet.appendChild(body); sheet.appendChild(foot); host.appendChild(sheet);
+  }
+  function _flowKids(sec){ return Array.prototype.slice.call(sec.children).filter(function(c){ return !c.classList.contains('del-btn') && !c.classList.contains('move-ctrl'); }); }
+  function _contentKids(sec){ return _flowKids(sec).filter(function(k){ return !k.classList.contains('section-header') && !k.classList.contains('divider'); }); }
+  function trySplitSection(sec){
+    if(BODY_MAX - body.scrollHeight < 150) return false;
+    body.appendChild(sec);
+    if(body.scrollHeight <= BODY_MAX) return true;
+    var moved=[];
+    while(body.scrollHeight > BODY_MAX && _contentKids(sec).length > 1){
+      var ck=_contentKids(sec); var last=ck[ck.length-1];
+      moved.unshift(last); sec.removeChild(last);
+    }
+    if(moved.length===0 || body.scrollHeight > BODY_MAX){
+      moved.forEach(function(k){ sec.appendChild(k); });
+      if(sec.parentNode) sec.parentNode.removeChild(sec);
+      return false;
+    }
+    var pending=moved;
+    while(pending.length){
+      newSheet();
+      var cont=document.createElement('div');
+      cont.className='section'; cont.setAttribute('data-cont','1'); cont._origin=sec;
+      body.appendChild(cont);
+      pending.forEach(function(k){ cont.appendChild(k); });
+      var rest=[];
+      while(body.scrollHeight > BODY_MAX && cont.children.length>1){
+        var l=cont.lastElementChild; rest.unshift(l); cont.removeChild(l);
+      }
+      pending=rest;
+    }
+    return true;
+  }
+  newSheet();
+  for(let i=0;i<FLOW.length;i++){
+    const blk=FLOW[i];
+    if(blk.classList.contains('nova-pagina') && body.children.length) newSheet();
+    if(blk.classList.contains('spacer-block')){
+      blk.style.height='auto'; body.appendChild(blk);
+      const used = body.scrollHeight - blk.offsetHeight;
+      const remain = BODY_MAX - used;
+      blk.style.height = (remain>34?remain:34)+'px';
+      if(i < FLOW.length-1) newSheet();
+      continue;
+    }
+    body.appendChild(blk);
+    if(body.scrollHeight > BODY_MAX && body.children.length>1){
+      body.removeChild(blk);
+      var _ok=false;
+      if(blk.classList.contains('section')){ try{ _ok=trySplitSection(blk); }catch(e){ _ok=false; } }
+      if(!_ok){
+        newSheet();
+        var _ok2=false;
+        if(blk.classList.contains('section')){ try{ _ok2=trySplitSection(blk); }catch(e){ _ok2=false; } }
+        if(!_ok2){ body.appendChild(blk); }
+      }
+    }
+  }
+  const sheets=host.querySelectorAll('.sheet');
+  sheets.forEach((s,idx)=>{ const pg=s.querySelector('.foot-pg'); if(pg) pg.textContent='Pàgina '+(idx+1)+' / '+sheets.length; });
+  restoreCaret(caret);
+}
+let _pgT=null;
+function schedulePageBreaks(){ clearTimeout(_pgT); _pgT=setTimeout(repaginate,120); }
+document.addEventListener('focusout', ()=>schedulePageBreaks());
+
+const delStack = [];
+function deleteEl(btn){
+  const el = btn.closest('.deletable'); if(!el) return;
+  const idx = FLOW.indexOf(el);
+  delStack.push({ el, flowIdx: idx, parent: el.parentNode, sibling: el.nextSibling });
+  if(idx>=0) FLOW.splice(idx,1);
+  el.remove();
+  document.getElementById('btn-undo').classList.add('active');
+  repaginate();
+}
+function undoDelete(){
+  const last = delStack.pop(); if(!last) return;
+  if(last.flowIdx>=0){ FLOW.splice(Math.min(last.flowIdx,FLOW.length),0,last.el); }
+  else if(last.parent){ last.parent.insertBefore(last.el, last.sibling); }
+  if(delStack.length===0) document.getElementById('btn-undo').classList.remove('active');
+  repaginate();
+}
+document.addEventListener('keydown', e=>{
+  if(e.key==='z' && (e.ctrlKey||e.metaKey)){
+    const ed = document.activeElement && document.activeElement.isContentEditable;
+    if(!ed){ e.preventDefault(); undoDelete(); }
+  }
+});
+
+let _lastClickedBlock = null;
+document.addEventListener('click', e=>{
+  const blk = e.target.closest && e.target.closest('.deletable');
+  if(blk) _lastClickedBlock = blk;
+});
+function _newSpacer(){
+  const sp=document.createElement('div'); sp.className='spacer-block deletable spacer-fill';
+  sp.innerHTML='<div class="del-btn" onclick="deleteEl(this)">✕</div><span class="spacer-label">↕ espai · la resta passa a la pàgina següent</span>';
+  return sp;
+}
+function _registerSpacer(sp, idx){
+  if(idx>=0) FLOW.splice(idx,0,sp); else FLOW.push(sp);
+  delStack.push({ el:sp, flowIdx:FLOW.indexOf(sp) });
+  document.getElementById('btn-undo').classList.add('active');
+  repaginate();
+  if(typeof makeMovable==='function') makeMovable();
+}
+function insertSpacer(){
+  const ref = topFlowBlock(_lastClickedBlock);
+  const i = ref ? FLOW.indexOf(ref) : -1;
+  _registerSpacer(_newSpacer(), i>=0 ? i+1 : -1);
+}
+function addSpacerAfter(span){
+  const ref = topFlowBlock(span.closest('.deletable'));
+  const i = ref ? FLOW.indexOf(ref) : -1;
+  _registerSpacer(_newSpacer(), i>=0 ? i+1 : -1);
+}
+
+function _fitxaToast(msg){
+  let t=document.getElementById('fitxa-toast');
+  if(!t){t=document.createElement('div');t.id='fitxa-toast';
+    t.style.cssText='position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#3a2d6e;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9999px;box-shadow:0 4px 18px rgba(0,0,0,.28);z-index:9999;opacity:0;transition:opacity .2s';
+    document.body.appendChild(t);}
+  t.textContent=msg;t.style.opacity='1';clearTimeout(t._h);t._h=setTimeout(()=>t.style.opacity='0',2200);
+}
+function rebuildDocFromFlow(){
+  const doc=document.getElementById('doc');
+  // reassembla seccions partides abans de reconstruir (evita perdre contingut)
+  var _origens2=[];
+  document.querySelectorAll('.section[data-cont]').forEach(function(cont){ var o=cont._origin; if(o){ var mc=o.querySelector(':scope > .move-ctrl'); while(cont.firstChild){ o.insertBefore(cont.firstChild, mc); } if(_origens2.indexOf(o)<0) _origens2.push(o); } });
+  // ...i es torna l'ordre original: en desar, els fills reassemblats s'afegien
+  // al final i el desordre quedava escrit al fitxer.
+  _origens2.forEach(function(o){
+    var mc=o.querySelector(':scope > .move-ctrl');
+    var kids=Array.prototype.slice.call(o.children).filter(function(k){ return typeof k._ord === 'number'; });
+    kids.sort(function(a,b){ return a._ord - b._ord; });
+    kids.forEach(function(k){ o.insertBefore(k, mc); });
+  });
+  FLOW.forEach(b=>{ if(b.classList.contains('spacer-block')) b.style.height=''; });
+  FLOW.forEach(b=>{ if(b.parentNode!==doc){ if(b.parentNode) b.parentNode.removeChild(b); doc.appendChild(b); } });
+  document.getElementById('sheets').innerHTML='';
+}
+async function desaFitxa(){
+  rebuildDocFromFlow();
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelectorAll('#fitxa-toast').forEach(n=>n.remove());
+  const sh=clone.querySelector('#sheets'); if(sh) sh.innerHTML='';
+  const html='<!DOCTYPE html>\n'+clone.outerHTML;
+  const fname=(location.pathname.split('/').pop()||'fitxa.html');
+  try{
+    if(window.showSaveFilePicker){
+      try{
+        const h=await window.showSaveFilePicker({suggestedName:fname,types:[{description:'Pàgina HTML',accept:{'text/html':['.html']}}]});
+        const w=await h.createWritable();await w.write(html);await w.close();
+        _fitxaToast('✓ Canvis desats al fitxer');return;
+      }catch(e){if(e.name==='AbortError')return;}
+    }
+    const blob=new Blob([html],{type:'text/html'});
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;
+    document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+    _fitxaToast('✓ Fitxa descarregada (reemplaça l\'original)');
+  } finally {
+    extractFlow(); repaginate();
+  }
+}
+document.addEventListener('keydown',e=>{ if(e.key==='s'&&(e.ctrlKey||e.metaKey)){e.preventDefault();desaFitxa();} });
+
+function makeEditable(){
+  const sels=[
+    '.oa-title','.stitle','.sdesc','.card-label','.word-bank-title','.chip',
+    '.previ-box p','.connexio-text','.epist-text','.epist-title',
+    '.data-table th','.fc-table th','.hint-cell','.tasca-box p',
+    '.meta-oa-title','.meta-open-label','.pista','.fc-calc-box p',
+    '.g1-title span','.g2-title span','.g2-item span','.milimetrat-title span',
+    '.footer-l','.footer-r','.card p','.section p','.previ-box strong',
+    '.card ol li','.draw-box p','.info-box p','.info-label','.chain-chip','.circ-row'
+  ].join(',');
+  document.querySelectorAll(sels).forEach(el=>{
+    if(el.isContentEditable) return;
+    if(el.closest('[contenteditable="true"]')) return;
+    if(el.querySelector('.fill-cell,.wline,.input-span,.chk-sq,.yes-no,.yn-opt,.blank,.del-btn,.move-ctrl,img,table,svg')) return;
+    el.setAttribute('contenteditable','true');
+  });
+  /* els .blank també són editables (espais per completar) */
+  document.querySelectorAll('.blank').forEach(b=>b.setAttribute('contenteditable','true'));
+}
+
+const _MV_UP='<span class="mv" title="Mou amunt" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,-1)">↑</span>';
+const _MV_DOWN='<span class="mv" title="Mou avall" onmousedown="event.preventDefault();event.stopPropagation();moveEl(this,1)">↓</span>';
+const _MV_SPACE='<span class="mv mv-space" title="Afegeix un espai en blanc a sota d\'aquest bloc" onmousedown="event.preventDefault();event.stopPropagation();addSpacerAfter(this)">＋</span>';
+function makeMovable(){
+  document.querySelectorAll('.deletable').forEach(el=>{
+    let mc=el.querySelector(':scope > .move-ctrl');
+    if(!mc){
+      el.insertAdjacentHTML('beforeend','<div class="move-ctrl">'+_MV_UP+_MV_DOWN+_MV_SPACE+'</div>');
+    } else if(!mc.querySelector('.mv-space')){
+      mc.insertAdjacentHTML('beforeend', _MV_SPACE);
+    }
+  });
+}
+function moveEl(span,dir){
+  const el=span.closest('.deletable'); if(!el) return;
+  const i=FLOW.indexOf(el);
+  if(i>=0){
+    const j=i+dir; if(j<0||j>=FLOW.length) return;
+    const t=FLOW[i]; FLOW[i]=FLOW[j]; FLOW[j]=t;
+    repaginate(); return;
+  }
+  let sib = dir<0 ? el.previousElementSibling : el.nextElementSibling;
+  while(sib && !sib.classList.contains('deletable')) sib = dir<0 ? sib.previousElementSibling : sib.nextElementSibling;
+  if(sib){ if(dir<0) el.parentNode.insertBefore(el,sib); else el.parentNode.insertBefore(sib,el); }
+  repaginate();
+}
+
+let _lastWline=null;
+function wlineText(w){ let s=''; w.childNodes.forEach(n=>{ if(n.nodeType===3) s+=n.textContent; else if(n.nodeType===1 && !n.classList.contains('wline-del')) s+=n.textContent; }); return s; }
+function makeWline(){
+  const w=document.createElement('div');
+  w.className='wline'; w.setAttribute('contenteditable','true');
+  w.insertAdjacentHTML('beforeend','<span class="wline-del" contenteditable="false" title="Treu aquesta línia" onmousedown="event.preventDefault();event.stopPropagation();delWline(this)">✕</span>');
+  return w;
+}
+function decorateWlines(){
+  document.querySelectorAll('.wline').forEach(w=>{
+    if(w.querySelector(':scope > .wline-del')) return;
+    w.insertAdjacentHTML('beforeend','<span class="wline-del" contenteditable="false" title="Treu aquesta línia" onmousedown="event.preventDefault();event.stopPropagation();delWline(this)">✕</span>');
+  });
+}
+function addWlineAfter(ref){
+  if(!ref||!ref.parentNode) return null;
+  const nw=makeWline(); ref.parentNode.insertBefore(nw, ref.nextSibling);
+  _lastWline=nw; placeCaretStart(nw); schedulePageBreaks(); return nw;
+}
+function delWline(btn){
+  const w=btn.closest('.wline'); if(!w) return;
+  const prev=w.previousElementSibling;
+  w.remove();
+  if(prev && prev.classList && prev.classList.contains('wline')){ _lastWline=prev; placeCaretStart(prev); }
+  schedulePageBreaks();
+}
+function addWlineToolbar(){
+  let ref=_lastWline && document.body.contains(_lastWline) ? _lastWline : null;
+  if(!ref){ const all=document.querySelectorAll('.wline'); ref=all[all.length-1]; }
+  if(ref) addWlineAfter(ref); else _fitxaToast('Fes clic dins d\'una línia d\'escriptura primer');
+}
+function placeCaretStart(el){
+  el.focus();
+  try{ const r=document.createRange(); r.setStart(el,0); r.collapse(true); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){}
+}
+document.addEventListener('focusin',e=>{ if(e.target.classList&&e.target.classList.contains('wline')) _lastWline=e.target; });
+document.addEventListener('keydown',e=>{
+  const t=e.target;
+  if(t&&t.classList&&t.classList.contains('wline')){
+    if(e.key==='Enter'){ e.preventDefault(); addWlineAfter(t); }
+    else if(e.key==='Backspace' && wlineText(t).trim()===''){
+      const prev=t.previousElementSibling;
+      if(prev&&prev.classList&&prev.classList.contains('wline')){ e.preventDefault(); t.remove(); _lastWline=prev; placeCaretEnd(prev); schedulePageBreaks(); }
+    }
+  }
+},true);
+function placeCaretEnd(el){
+  el.focus();
+  try{ const r=document.createRange(); r.selectNodeContents(el); r.collapse(false); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){}
+}
+
+window.addEventListener('load', ()=>{
+  flattenDoc();
+  makeEditable();
+  decorateWlines();
+  extractFlow();
+  makeMovable();
+  repaginate();
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(()=>repaginate()); }
+  document.querySelectorAll('img').forEach(img=>{ if(!img.complete) img.addEventListener('load', ()=>schedulePageBreaks(), {once:true}); });
+  setTimeout(repaginate, 400);
+  setTimeout(repaginate, 1200);
+});
+</script>
+
+</body></html>

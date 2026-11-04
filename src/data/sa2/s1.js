@@ -116,6 +116,8 @@ export const sa2s1 = {
   fitxaUrl: { A: "/fitxes/sa2-s1-fitxa-A.html", B: "/fitxes/sa2-s1-fitxa-B.html", C: "/fitxes/sa2-s1-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s1-teoria.pdf",
 
   sessionMaterials: [
+    { id: "fitxaAcollidaUR", title: "Fitxa de la sessió · acollida (urdú)", url: "/fitxes/sa2-s1-fitxa-acollida-UR.html", who: "alumnat d'acollida: mateixos apartats que la classe" },
+    { id: "fitxaAcollidaAR", title: "Fitxa de la sessió · acollida (àrab)", url: "/fitxes/sa2-s1-fitxa-acollida-AR.html", who: "alumnat d'acollida: mateixos apartats que la classe" },
     { id: "sortida", title: "Exit tiquet (versions A i B)", url: "/fitxes/sa2-s1-exit-ticket.html", who: "per al final de la sessió" },
     { id: "sortidaC", title: "Exit tiquet (versió C)", url: "/fitxes/sa2-s1-exit-ticket-C.html", who: "per al final de la sessió" },
     { id: "posterEnigma1", title: "Pòster de paret · Enigma 1, la gràfica de la Mercè", url: "/fitxes/sa2-s1-poster-enigma1.pdf", who: "per penjar a la paret de l'aula" },

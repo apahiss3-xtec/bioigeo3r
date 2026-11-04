@@ -99,6 +99,8 @@ export const sa2s3 = {
   fitxaUrl: { A: "/fitxes/sa2-s3-fitxa-A.html", B: "/fitxes/sa2-s3-fitxa-B.html", C: "/fitxes/sa2-s3-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa2-s3-teoria.pdf",
 
   sessionMaterials: [
+    { id: "fitxaAcollidaUR", title: "Fitxa de la sessió · acollida (urdú)", url: "/fitxes/sa2-s3-fitxa-acollida-UR.html", who: "alumnat d'acollida: mateixos apartats que la classe" },
+    { id: "fitxaAcollidaAR", title: "Fitxa de la sessió · acollida (àrab)", url: "/fitxes/sa2-s3-fitxa-acollida-AR.html", who: "alumnat d'acollida: mateixos apartats que la classe" },
     { id: "bastidaCoav", title: "Bastida per coavaluar el pòster de SA1", url: "/fitxes/sa2-s3-bastida-coavaluacio.html", who: "per a la coavaluació (1 per alumne), abans d'omplir la rúbrica d'EdVoice" },
     { id: "bastidaCoavUR", title: "Bastida per coavaluar el pòster de SA1 · acollida (urdú)", url: "/fitxes/sa2-s3-bastida-coavaluacio-UR.html", who: "alumnat d'acollida que llegeix urdú (català + urdú, 2 fulls)" },
     { id: "bastidaCoavAR", title: "Bastida per coavaluar el pòster de SA1 · acollida (àrab)", url: "/fitxes/sa2-s3-bastida-coavaluacio-AR.html", who: "alumnat d'acollida que llegeix àrab (català + àrab, 2 fulls)" },
