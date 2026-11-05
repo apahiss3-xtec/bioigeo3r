@@ -570,9 +570,9 @@ function eggByCond(c){ return Object.values(S.eggs).find(e=>e.cond===c); }
 const DIC = {
  'ou':['huevo','بيضة','انڈا','яйце'],'ous':['huevos','بيض','انڈے','яйця'],
  'closca':['cáscara','قشرة','چھلکا','шкаралупа'],
- 'membrana':['membrana','غشاء','جھلی','мембрана'],
- 'semipermeable':['semipermeable','شبه منفذ','نیم نفوذ پذیر','напівпроникна'],
- 'osmosi':['ósmosis','التناضح','اوسموسس (پانی کا گزرنا)','осмос'],
+ 'membrana':['membrana','','','мембрана'],
+ 'semipermeable':['semipermeable','','','напівпроникна'],
+ 'osmosi':['ósmosis','','','осмос'],
  'aigua':['agua','ماء','پانی','вода'],'aigües':['aguas','مياه','پانی','води'],
  'destil·lada':['destilada','مقطَّر','کشید شدہ','дистильована'],
  'pura':['pura','نقي','خالص','чиста'],'pur':['puro','نقي','خالص','чистий'],
@@ -608,7 +608,7 @@ const DIC = {
  'resultat':['resultado','نتيجة','نتیجہ','результат'],'resultats':['resultados','نتائج','نتائج','результати'],
  'conclusions':['conclusiones','استنتاجات','نتائج اخذ کرنا','висновки'],
  'laboratori':['laboratorio','مختبر','تجربہ گاہ','лабораторія'],'experiment':['experimento','تجربة','تجربہ','експеримент'],
- 'cèl·lula':['célula','خلية','خلیہ','клітина'],'cèl·lules':['células','خلايا','خلیے','клітини'],
+ 'cèl·lula':['célula','','','клітина'],'cèl·lules':['células','','','клітини'],
  'frontera':['frontera','حدود','سرحد','межа'],'deixa':['deja','يسمح / اترك','جانے دیتا ہے','пропускає / дозволяє'],
  'equilibri':['equilibrio','توازن','توازن','рівновага'],'costat':['lado','جانب','طرف','бік'],
  'moll':['mojado','مبلَّل','گیلا','мокрий'],'gotes':['gotas','قطرات','قطرے','краплі'],
@@ -647,7 +647,7 @@ const DIC = {
  'decideix':['decide','يقرِّر','فیصلہ کرتا ہے','вирішує'],'es diu':['se llama','يُسمّى','کہلاتا ہے','називається'],'diu':['dice / se llama','يقول / يُسمّى','کہتا ہے','каже / називається'],
  'desfet':['deshecho','أذاب','گھول دیا','розчинив'],'cobreix':['cubre','يغطّي','ڈھانپتا ہے','покриває'],'només':['solo','فقط','صرف','тільки'],
  'dur':['duro','صلب','سخت','твердий'],'viva':['viva','حيّة','زندہ','жива'],'viu':['vivo','حيّ','زندہ','живий'],
- 'dissolt':['disuelto','مذاب','گھلا ہوا','розчинений'],'concentració':['concentración','تركيز','ارتکاز','концентрація'],
+ 'dissolt':['disuelto','مذاب','گھلا ہوا','розчинений'],'concentració':['concentración','','','концентрація'],
  'augmenta':['aumenta','يزداد','بڑھتا ہے','збільшується'],'disminueix':['disminuye','ينقص','کم ہوتا ہے','зменшується'],
  'error':['error','خطأ','غلطی','помилка'],'errors':['errores','أخطاء','غلطیاں','помилки'],'repeteix':['se repite','يتكرّر','دہراتا ہے','повторюється'],
  'balances':['balanzas','موازين','ترازو','ваги'],'diferent':['diferente','مختلف','مختلف','різний'],'diferents':['diferentes','مختلفة','مختلف','різні'],
@@ -665,6 +665,8 @@ const DIC = {
 const LANG_IDX = {es:0, ar:1, ur:2, uk:3};
 const LANG_NAME = {es:'castellà', ar:'àrab', ur:'urdú', uk:'ucraïnès'};
 let LANG = null;
+// Termes científics: sense traducció, s'aprenen en català.
+const PARAULA_NOVA = {ar:'كلمة جديدة: تعلّمها بالكتالانية.', ur:'نیا لفظ: اسے کاتالان میں سیکھیں۔'};
 
 function lookup(raw){
   let w = raw.toLowerCase().replace(/[«»"“”()¿?¡!.,;:…—–\-]/g,'').replace(/’/g,"'");
@@ -710,7 +712,7 @@ function showTr(el){
   document.getElementById('trArrow').textContent = '→';
   const out = document.getElementById('trOut');
   if(hit){
-    out.className='tr-out'; out.textContent = hit.t[LANG_IDX[LANG]];
+    out.className='tr-out'; out.textContent = hit.t[LANG_IDX[LANG]] || PARAULA_NOVA[LANG];
     out.setAttribute('dir', (LANG==='es'||LANG==='uk')?'ltr':'rtl');
     out.setAttribute('lang', LANG);
   } else {

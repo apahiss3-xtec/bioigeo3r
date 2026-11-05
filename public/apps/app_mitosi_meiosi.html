@@ -330,6 +330,7 @@ body.lang-ar .side-info, body.lang-es .side-info, body.lang-ur .side-info, body.
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--rule); }
 ::-webkit-scrollbar-thumb { background: var(--rule-dark); border-radius: 3px; }
+.lang-ar .tr-word.nomes-ca,.lang-ur .tr-word.nomes-ca{border-bottom:none;cursor:auto;}
 </style>
 </head>
 <body>
@@ -401,7 +402,7 @@ const PHASES = {
       id: 'abans-m',
       name: 'Abans de dividir-se',
       eyebrow: 'Mitosi · Pas 1 de 4',
-      description: 'La cèl·lula <span class="tr-word">creix<span class="tooltip-box tooltip-ar">ينمو</span><span class="tooltip-box tooltip-es">crece</span><span class="tooltip-box tooltip-ur">بڑھتا ہے</span><span class="tooltip-box tooltip-uk">росте</span></span> i fa una còpia completa del seu <span class="tr-word">material genètic<span class="tooltip-box tooltip-ar">المادة الوراثية</span><span class="tooltip-box tooltip-es">material genético</span><span class="tooltip-box tooltip-ur">جینیاتی مادہ</span><span class="tooltip-box tooltip-uk">генетичний матеріал</span></span> (<span class="tr-word">ADN<span class="tooltip-box tooltip-ar">الحمض النووي</span><span class="tooltip-box tooltip-es">ADN</span><span class="tooltip-box tooltip-ur">ڈی این اے</span><span class="tooltip-box tooltip-uk">ДНК</span></span>). Encara no s\'ha començat a dividir.',
+      description: 'La cèl·lula <span class="tr-word">creix<span class="tooltip-box tooltip-ar">ينمو</span><span class="tooltip-box tooltip-es">crece</span><span class="tooltip-box tooltip-ur">بڑھتا ہے</span><span class="tooltip-box tooltip-uk">росте</span></span> i fa una còpia completa del seu <span class="tr-word nomes-ca">material genètic<span class="tooltip-box tooltip-es">material genético</span><span class="tooltip-box tooltip-uk">генетичний матеріал</span></span> (<span class="tr-word nomes-ca">ADN<span class="tooltip-box tooltip-es">ADN</span><span class="tooltip-box tooltip-uk">ДНК</span></span>). Encara no s\'ha començat a dividir.',
       points: ['La cèl·lula creix de mida', 'Fa una còpia de tot el seu ADN', 'Encara es veu com una sola cèl·lula', 'És el pas previ a qualsevol divisió'],
       svg: drawInterfase,
       chromosomes: 'Tot el material genètic (1 còpia de cada)',
@@ -428,7 +429,7 @@ const PHASES = {
       id: 'resultat-m',
       name: 'Resultat: 2 cèl·lules idèntiques',
       eyebrow: 'Mitosi · Resultat final',
-      description: 'La cèl·lula es divideix en dues. El resultat són <span class="tr-word">2 cèl·lules filles<span class="tooltip-box tooltip-ar">خليتان ابنتان</span><span class="tooltip-box tooltip-es">2 células hijas</span><span class="tooltip-box tooltip-ur">2 بیٹی خلیات</span><span class="tooltip-box tooltip-uk">2 дочірні клітини</span></span> amb exactament el mateix material genètic que la cèl·lula mare: són <span class="tr-word">idèntiques<span class="tooltip-box tooltip-ar">متطابقتان</span><span class="tooltip-box tooltip-es">idénticas</span><span class="tooltip-box tooltip-ur">یکساں</span><span class="tooltip-box tooltip-uk">ідентичні</span></span>.',
+      description: 'La cèl·lula es divideix en dues. El resultat són <span class="tr-word nomes-ca">2 cèl·lules filles<span class="tooltip-box tooltip-es">2 células hijas</span><span class="tooltip-box tooltip-uk">2 дочірні клітини</span></span> amb exactament el mateix material genètic que la cèl·lula mare: són <span class="tr-word">idèntiques<span class="tooltip-box tooltip-ar">متطابقتان</span><span class="tooltip-box tooltip-es">idénticas</span><span class="tooltip-box tooltip-ur">یکساں</span><span class="tooltip-box tooltip-uk">ідентичні</span></span>.',
       points: ['2 cèl·lules filles amb el mateix material genètic', 'Idèntiques entre elles i a la cèl·lula mare', 'Serveix per créixer, reparar ferides i substituir cèl·lules'],
       svg: drawCitoquinesi,
       chromosomes: '2 cèl·lules, cadascuna amb tot el material',
@@ -440,7 +441,7 @@ const PHASES = {
       id: 'abans-mei',
       name: 'Abans de dividir-se',
       eyebrow: 'Meiosi · Pas 1 de 5',
-      description: 'Com a la mitosi, la cèl·lula fa una còpia del seu <span class="tr-word">ADN<span class="tooltip-box tooltip-ar">الحمض النووي</span><span class="tooltip-box tooltip-es">ADN</span><span class="tooltip-box tooltip-ur">ڈی این اے</span><span class="tooltip-box tooltip-uk">ДНК</span></span>. Però aquí hi haurà DUES divisions seguides, no només una.',
+      description: 'Com a la mitosi, la cèl·lula fa una còpia del seu <span class="tr-word nomes-ca">ADN<span class="tooltip-box tooltip-es">ADN</span><span class="tooltip-box tooltip-uk">ДНК</span></span>. Però aquí hi haurà DUES divisions seguides, no només una.',
       points: ['Fa una còpia del seu ADN (només una vegada)', 'Vindran DUES divisions seguides', 'És el primer pas per fabricar cèl·lules sexuals'],
       svg: drawInterfase,
       chromosomes: 'Tot el material genètic',
@@ -476,7 +477,7 @@ const PHASES = {
       id: 'gametes',
       name: 'Resultat final: 4 cèl·lules sexuals',
       eyebrow: 'Meiosi · Resultat final',
-      description: 'El resultat de la meiosi són 4 <span class="tr-word">cèl·lules sexuals<span class="tooltip-box tooltip-ar">خلايا جنسية</span><span class="tooltip-box tooltip-es">células sexuales</span><span class="tooltip-box tooltip-ur">جنسی خلیات</span><span class="tooltip-box tooltip-uk">статеві клітини</span></span> (<span class="tr-word">espermatozoides<span class="tooltip-box tooltip-ar">الحيوانات المنوية</span><span class="tooltip-box tooltip-es">espermatozoides</span><span class="tooltip-box tooltip-ur">نطفہ</span><span class="tooltip-box tooltip-uk">сперматозоїди</span></span> o <span class="tr-word">òvuls<span class="tooltip-box tooltip-ar">البيوض</span><span class="tooltip-box tooltip-es">óvulos</span><span class="tooltip-box tooltip-ur">بیضہ</span><span class="tooltip-box tooltip-uk">яйцеклітини</span></span>), cada una amb la meitat del material genètic i diferent de les altres. Quan dues s\'uneixen (fecundació), es recupera la quantitat completa.',
+      description: 'El resultat de la meiosi són 4 <span class="tr-word nomes-ca">cèl·lules sexuals<span class="tooltip-box tooltip-es">células sexuales</span><span class="tooltip-box tooltip-uk">статеві клітини</span></span> (<span class="tr-word nomes-ca">espermatozoides<span class="tooltip-box tooltip-es">espermatozoides</span><span class="tooltip-box tooltip-uk">сперматозоїди</span></span> o <span class="tr-word nomes-ca">òvuls<span class="tooltip-box tooltip-es">óvulos</span><span class="tooltip-box tooltip-uk">яйцеклітини</span></span>), cada una amb la meitat del material genètic i diferent de les altres. Quan dues s\'uneixen (fecundació), es recupera la quantitat completa.',
       points: ['4 cèl·lules sexuals, cada una diferent de les altres', 'Cadascuna té la meitat del material genètic', 'Fecundació: meitat + meitat = quantitat completa', 'Funció: reproducció sexual'],
       svg: drawGametes,
       chromosomes: '4 cèl·lules, cadascuna amb la meitat',

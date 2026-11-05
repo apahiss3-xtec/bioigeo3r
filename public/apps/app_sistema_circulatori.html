@@ -156,6 +156,7 @@ header{background:var(--purple-ink);padding:12px 24px;display:flex;align-items:c
   .seg-flow{opacity:0!important;}
   .head .hp,.head.on .hp,.hotspot .hs{transition:none!important;}
 }
+.lang-ar .tr-word.nomes-ca,.lang-ur .tr-word.nomes-ca{border-bottom:none;cursor:auto;}
 </style>
 </head>
 <body>
@@ -176,9 +177,9 @@ header{background:var(--purple-ink);padding:12px 24px;display:flex;align-items:c
 
 <div class="wrap">
   <div class="intro">
-    <h1>Segueix una molècula d'<span class="tr-word">oxigen<span class="tooltip-box tooltip-ar">أكسجين</span><span class="tooltip-box tooltip-es">oxígeno</span><span class="tooltip-box tooltip-ur">آکسیجن</span><span class="tooltip-box tooltip-uk">кисень</span></span> pel cos</h1>
+    <h1>Segueix una molècula d'<span class="tr-word nomes-ca">oxigen<span class="tooltip-box tooltip-es">oxígeno</span><span class="tooltip-box tooltip-uk">кисень</span></span> pel cos</h1>
     <p>El corredor respira aire pels pulmons. Però l'<b>O₂</b> ha d'arribar fins als músculs de les cames per donar-los energia. Prem <b>Reprodueix</b> i mira com viatja: primer vermell (amb O₂), després blau (sense O₂). Clica cada punt <b>①–⑦</b> per llegir què passa.</p>
-    <div class="mission">🎯 Missió: descobreix per quina raó, si el Marc té poca <span class="tr-word">hemoglobina<span class="tooltip-box tooltip-ar">هيموغلوبين</span><span class="tooltip-box tooltip-es">hemoglobina</span><span class="tooltip-box tooltip-ur">ہیموگلوبن</span><span class="tooltip-box tooltip-uk">гемоглобін</span></span>, els seus músculs es cansen tan aviat.</div>
+    <div class="mission">🎯 Missió: descobreix per quina raó, si el Marc té poca <span class="tr-word nomes-ca">hemoglobina<span class="tooltip-box tooltip-es">hemoglobina</span><span class="tooltip-box tooltip-uk">гемоглобін</span></span>, els seus músculs es cansen tan aviat.</div>
   </div>
 
   <div class="grid">
@@ -326,27 +327,27 @@ const stations = [
       <p>Cada alvèol és una bosseta minúscula envoltada de capil·lars: molta superfície en poc espai per capturar oxigen ràpid.</p>`,
     anemia:"" },
   { n:2, f:0.12, title:"L'hemoglobina agafa l'O₂", tag:"oxy",
-    body:`<p>Dins els <span class="tr-word">eritròcits<span class="tooltip-box tooltip-ar">كريات الدم الحمراء</span><span class="tooltip-box tooltip-es">glóbulos rojos</span><span class="tooltip-box tooltip-ur">سرخ خلیے</span><span class="tooltip-box tooltip-uk">еритроцити</span></span> (glòbuls vermells) hi ha <b>hemoglobina</b>, una proteïna amb <b>ferro</b>. El ferro s'uneix a l'O₂ i la sang es torna <span style="color:var(--oxy);font-weight:700">vermell brillant</span>.</p>
+    body:`<p>Dins els <span class="tr-word nomes-ca">eritròcits<span class="tooltip-box tooltip-es">glóbulos rojos</span><span class="tooltip-box tooltip-uk">еритроцити</span></span> (glòbuls vermells) hi ha <b>hemoglobina</b>, una proteïna amb <b>ferro</b>. El ferro s'uneix a l'O₂ i la sang es torna <span style="color:var(--oxy);font-weight:700">vermell brillant</span>.</p>
       <p>Sense ferro no es forma hemoglobina, i sense hemoglobina la sang gairebé no pot transportar oxigen.</p>`,
     anemia:"⚠️ Amb anèmia hi ha poca hemoglobina → cada litre de sang porta MENYS O₂." },
   { n:3, f:0.30, title:"El cor esquerre bomba", tag:"oxy",
-    body:`<p>La sang oxigenada torna al <b>costat esquerre</b> del cor. El <span class="tr-word">ventricle<span class="tooltip-box tooltip-ar">بطين</span><span class="tooltip-box tooltip-es">ventrículo</span><span class="tooltip-box tooltip-ur">بطن</span><span class="tooltip-box tooltip-uk">шлуночок</span></span> esquerre l'empeny amb molta força cap a tot el cos.</p>
+    body:`<p>La sang oxigenada torna al <b>costat esquerre</b> del cor. El <span class="tr-word nomes-ca">ventricle<span class="tooltip-box tooltip-es">ventrículo</span><span class="tooltip-box tooltip-uk">шлуночок</span></span> esquerre l'empeny amb molta força cap a tot el cos.</p>
       <p>El cor té 4 cavitats. El costat dret i l'esquerre no es barregen: així la sang amb O₂ i la sang sense O₂ van per separat.</p>`,
     anemia:"⚠️ El cor batega MÉS de pressa per compensar: si cada litre porta poc O₂, n'ha de moure més." },
   { n:4, f:0.44, title:"L'aorta i les artèries", tag:"oxy",
-    body:`<p>La sang surt per l'<b>aorta</b> i viatja per les <span class="tr-word">artèries<span class="tooltip-box tooltip-ar">شرايين</span><span class="tooltip-box tooltip-es">arterias</span><span class="tooltip-box tooltip-ur">شریانیں</span><span class="tooltip-box tooltip-uk">артерії</span></span>: tubs de paret gruixuda que aguanten <b>pressió alta</b>. És l'autopista cap al peu.</p>
+    body:`<p>La sang surt per l'<b>aorta</b> i viatja per les <span class="tr-word nomes-ca">artèries<span class="tooltip-box tooltip-es">arterias</span><span class="tooltip-box tooltip-uk">артерії</span></span>: tubs de paret gruixuda que aguanten <b>pressió alta</b>. És l'autopista cap al peu.</p>
       <p>Les artèries tenen parets fortes perquè la sang hi surt amb molta força. Per això la doble circulació separa pressions: els pulmons no aguantarien tanta pressió.</p>`,
     anemia:"" },
   { n:5, f:0.55, title:"El capil·lar del múscul", tag:"oxy",
-    body:`<p>Al múscul del peu, la sang passa pels <span class="tr-word">capil·lars<span class="tooltip-box tooltip-ar">شعيرات دموية</span><span class="tooltip-box tooltip-es">capilares</span><span class="tooltip-box tooltip-ur">کیپلری</span><span class="tooltip-box tooltip-uk">капіляри</span></span>: tubs d'una sola cèl·lula de gruix. Aquí l'hemoglobina <b>cedeix l'O₂</b>, que surt cap a la cèl·lula muscular.</p>
+    body:`<p>Al múscul del peu, la sang passa pels <span class="tr-word nomes-ca">capil·lars<span class="tooltip-box tooltip-es">capilares</span><span class="tooltip-box tooltip-uk">капіляри</span></span>: tubs d'una sola cèl·lula de gruix. Aquí l'hemoglobina <b>cedeix l'O₂</b>, que surt cap a la cèl·lula muscular.</p>
       <p>Els capil·lars són tan prims que l'oxigen pot travessar la paret i arribar a les cèl·lules.</p>`,
     anemia:"⚠️ Si arriba poc O₂ al capil·lar, el múscul en rep poc." },
   { n:6, f:0.63, title:"El mitocondri fa energia", tag:"cell",
-    body:`<p>Dins la cèl·lula, l'O₂ entra al <b>mitocondri</b>. Allà es crema la <b>glucosa</b> amb l'oxigen (<span class="tr-word">respiració cel·lular<span class="tooltip-box tooltip-ar">التنفس الخلوي</span><span class="tooltip-box tooltip-es">respiración celular</span><span class="tooltip-box tooltip-ur">خلوی تنفس</span><span class="tooltip-box tooltip-uk">клітинне дихання</span></span>) i s'obté <b>ATP</b> ⚡, l'energia per córrer.</p>
+    body:`<p>Dins la cèl·lula, l'O₂ entra al <b>mitocondri</b>. Allà es crema la <b>glucosa</b> amb l'oxigen (<span class="tr-word nomes-ca">respiració cel·lular<span class="tooltip-box tooltip-es">respiración celular</span><span class="tooltip-box tooltip-uk">клітинне дихання</span></span>) i s'obté <b>ATP</b> ⚡, l'energia per córrer.</p>
       <p>Glucosa + O₂ → energia (ATP) + CO₂ + aigua. Sense oxigen, el mitocondri no pot fer prou energia i el múscul es cansa.</p>`,
     anemia:"⚠️ AQUÍ ESTÀ LA CLAU: menys O₂ al mitocondri → menys ATP → el múscul es fatiga aviat. Aquesta és la causa del cansament del Marc." },
   { n:7, f:0.85, title:"La tornada: sang sense O₂", tag:"deoxy",
-    body:`<p>Un cop lliurat l'O₂, la sang es torna <span style="color:var(--deoxy);font-weight:700">blava/fosca</span> i carrega el <b>CO₂</b> de rebuig. Torna per les <span class="tr-word">venes<span class="tooltip-box tooltip-ar">أوردة</span><span class="tooltip-box tooltip-es">venas</span><span class="tooltip-box tooltip-ur">رگیں</span><span class="tooltip-box tooltip-uk">вени</span></span> al costat dret del cor, que la envia als pulmons per tornar a oxigenar-se.</p>
+    body:`<p>Un cop lliurat l'O₂, la sang es torna <span style="color:var(--deoxy);font-weight:700">blava/fosca</span> i carrega el <b>CO₂</b> de rebuig. Torna per les <span class="tr-word nomes-ca">venes<span class="tooltip-box tooltip-es">venas</span><span class="tooltip-box tooltip-uk">вени</span></span> al costat dret del cor, que la envia als pulmons per tornar a oxigenar-se.</p>
       <p>Aquest és el circuit petit (cor → pulmons → cor). El circuit gran és el que acabes de veure (cor → cos → cor). Per això la circulació és <b>doble</b>.</p>`,
     anemia:"" }
 ];
