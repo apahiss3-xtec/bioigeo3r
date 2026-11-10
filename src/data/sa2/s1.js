@@ -159,7 +159,7 @@ export const sa2s1 = {
     readingNext: {
       session: 2,
       text: "Llegeix la lectura de la Sessió 2. A l'inici de la propera sessió faràs el formulari de comprensió (Google Forms).",
-      pdfUrl: "/lectures/sa2-s2-lectura.pdf",
+      pdfUrl: "/lectures/sa2-s2-lectura.pdf", easyUrl: "/lectures/sa2-s2-lectura-FACIL.pdf",
     },
     description: "Fotografiar els 3 productes que realment menges (no els que creus que hauries de menjar). Classifica'ls per nutrient dominant i anota si és ultraprocessat. Es defensarà oralment a la sessió 2.",
     note: "L'hauràs d'explicar en veu alta: no es pot fer amb IA.",
