@@ -8,6 +8,7 @@ import T from '../translate/T.jsx'
 import BiomeImage from '../components/BiomeImage.jsx'
 import AppFrame from '../components/AppFrame.jsx'
 import TheoryCard from '../components/TheoryCard.jsx'
+import ConceptViz from '../components/viz/ConceptViz.jsx'
 import ExitTicketForm from '../components/ExitTicketForm.jsx'
 import Accordion from '../components/Accordion.jsx'
 import FitxaGuide from '../components/FitxaGuide.jsx'
@@ -160,7 +161,17 @@ export default function SessionPage() {
   const theoryByApartat = (n) => session.theoryPoints?.filter((p) => p.apartat === n) || []
   // `inViz`: la figura ja surt dins l'interactiu d'un punt de teoria → al web
   // no es repeteix (el PDF de teoria sí que la mostra, estàtica).
-  const graphicsByApartat = (n) => session.graphicResources?.filter((g) => g.apartat === n && !g.inViz) || []
+  // En mode guia, una figura que ja surt DINS d'un punt de teoria (mateix `src`)
+  // no es torna a pintar a sota: el punt de teoria en mostra el codi (F1, G2…).
+  const theoryImages = new Set((session.theoryPoints || []).map((p) => p.image).filter(Boolean))
+  const jaDinsTeoria = (g) => session.guiaPerApartats && theoryImages.has(g.src)
+  const figLabelFor = (p) => {
+    if (!session.guiaPerApartats || !p.image) return undefined
+    const g = (session.graphicResources || []).find((x) => x.src === p.image)
+    return g ? `${g.id} · ${g.title}` : undefined
+  }
+  const graphicsByApartat = (n) =>
+    session.graphicResources?.filter((g) => g.apartat === n && !g.inViz && !jaDinsTeoria(g)) || []
   // Gràfiques que han d'anar ABANS de la teoria de l'apartat (ordre lògic:
   // p. ex. mostrar els nivells d'organització abans de justificar res).
   const graphicsBefore = (n) => graphicsByApartat(n).filter((g) => g.before)
@@ -212,7 +223,7 @@ export default function SessionPage() {
   const apartat0 = session.repas || session.ideesPrevies
   const orfes = session.guiaPerApartats
     ? {
-        graphics: (session.graphicResources || []).filter((g) => !g.inViz && !guiaNums.includes(g.apartat)),
+        graphics: (session.graphicResources || []).filter((g) => !g.inViz && !jaDinsTeoria(g) && !guiaNums.includes(g.apartat)),
         theory: (session.theoryPoints || []).filter((p) => !guiaNums.includes(p.apartat)),
       }
     : null
@@ -295,6 +306,33 @@ export default function SessionPage() {
           </p>
         </div>
 
+        {/* Llista de comprovació (pas d'obertura «Abans de començar»): què s'ha
+            de tenir fet, corregit o entregat abans d'entrar a la sessió d'avui. */}
+        {step.checklist?.length > 0 && (
+          <div className="card mb-6 p-5">
+            <p className="kicker mb-3">✅ {t('session.checklistTitle')}</p>
+            <ul className="grid gap-2 md:grid-cols-2">
+              {step.checklist.map((c, i) => (
+                <li key={i} className="flex gap-3 rounded-lg border border-[var(--rule)] bg-white px-3 py-2.5 leading-snug">
+                  <span
+                    aria-hidden="true"
+                    className="mt-0.5 h-5 w-5 shrink-0 rounded border-2"
+                    style={{ borderColor: 'var(--biome-accent)' }}
+                  />
+                  <span className="min-w-0">
+                    <T>{c}</T>
+                  </span>
+                </li>
+              ))}
+            </ul>
+            {step.checklistNote && (
+              <p className="mt-3 text-sm italic text-[var(--muted)]">
+                <T>{step.checklistNote}</T>
+              </p>
+            )}
+          </div>
+        )}
+
         {num === '0' && apartat0 && (
           <div className="card mb-6 p-6">
             {apartat0.startPoint && (
@@ -372,7 +410,7 @@ export default function SessionPage() {
         {numerat && theoryByApartat(num).length > 0 && (
           <div className="mb-6 space-y-5">
             {theoryByApartat(num).map((p, i) => (
-              <TheoryCard key={p.id} point={p} index={i} />
+              <TheoryCard key={p.id} point={p} index={i} figLabel={figLabelFor(p)} />
             ))}
           </div>
         )}
@@ -394,6 +432,28 @@ export default function SessionPage() {
     <>
       {renderGuiaMapa()}
       {guiaSteps.map(renderGuiaPas)}
+      {/* Tancament d'unitat: quan es fa la prova, quan torna corregida i quan
+          torna el producte amb la rúbrica. Només a la darrera sessió. */}
+      {session.retorn && (
+        <section className="pb-12">
+          <SectionTitle>
+            <T>{session.retorn.title}</T>
+          </SectionTitle>
+          <div className="card p-6">
+            {session.retorn.intro && (
+              <p className="mb-2">
+                <T>{session.retorn.intro}</T>
+              </p>
+            )}
+            <ConceptViz visual={{ kind: 'flow', items: session.retorn.steps }} />
+            {session.retorn.note && (
+              <p className="mt-4 text-sm italic text-[var(--muted)]">
+                <T>{session.retorn.note}</T>
+              </p>
+            )}
+          </div>
+        </section>
+      )}
       {(orfes.graphics.length > 0 || orfes.theory.length > 0) && (
         <section className="pb-12">
           <p className="kicker mb-4">📈 {t('session.graphicResources')}</p>

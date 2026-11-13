@@ -3,6 +3,7 @@ import T from '../translate/T.jsx'
 import { asset } from '../utils.js'
 import CorPressions from './viz/CorPressions.jsx'
 import CorCavitats from './viz/CorCavitats.jsx'
+import ConceptViz from './viz/ConceptViz.jsx'
 
 // Visualitzacions interactives per punt de teoria (`viz` a les dades).
 const VIZ = { 'cor-pressions': CorPressions, 'cor-cavitats': CorCavitats }
@@ -10,7 +11,11 @@ const VIZ = { 'cor-pressions': CorPressions, 'cor-cavitats': CorCavitats }
 // Targeta de teoria. El tipus decideix l'estil:
 // keyequation → destacada amb fórmula; epistemic/preview → amb badge;
 // synthesis → barra de bioma; concept/transfer → estàndard.
-export default function TheoryCard({ point, index }) {
+// DUA: el text llarg es parteix en `text` (entrada curta) + `bullets` (una idea
+// per línia) + `keyIdea` (la frase que s'ha d'endur tothom) i sempre va amb un
+// suport visual: `image`, `video`, `viz` o `visual` (esquema fet amb dades).
+// `figLabel`: codi de la figura al full (F1, G2…) quan la imatge és la mateixa.
+export default function TheoryCard({ point, index, figLabel }) {
   const isKey = point.type === 'keyequation'
   const isSynthesis = point.type === 'synthesis'
   const figure = point.image && (
@@ -21,9 +26,10 @@ export default function TheoryCard({ point, index }) {
         className="w-full block"
         loading="lazy"
       />
-      {point.imageCaption && (
+      {(point.imageCaption || figLabel) && (
         <figcaption className="px-4 py-2 text-xs text-[var(--muted)]">
-          <T>{point.imageCaption}</T>
+          {figLabel && <strong className="text-[var(--text)]">{figLabel}{point.imageCaption ? ' — ' : ''}</strong>}
+          {point.imageCaption && <T>{point.imageCaption}</T>}
         </figcaption>
       )}
     </figure>
@@ -53,9 +59,36 @@ export default function TheoryCard({ point, index }) {
           <h3 className="text-2xl mb-2">
             <T>{point.heading}</T>
           </h3>
-          <p className="text-[var(--text)]/90">
-            <T>{point.text}</T>
-          </p>
+          {point.text && (
+            <p className="text-[var(--text)]/90">
+              <T>{point.text}</T>
+            </p>
+          )}
+          {point.bullets?.length > 0 && (
+            <ul className="mt-3 space-y-2.5">
+              {point.bullets.map((b, i) => (
+                <li key={i} className="flex gap-3 leading-snug">
+                  <span
+                    aria-hidden="true"
+                    className="mt-[0.45em] h-2 w-2 shrink-0 rounded-full"
+                    style={{ background: 'var(--biome-accent)' }}
+                  />
+                  <span className="min-w-0 text-[var(--text)]/90">
+                    <T>{b}</T>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+          {point.keyIdea && (
+            <p
+              className="mt-4 rounded-xl border-s-4 px-4 py-3 font-medium"
+              style={{ borderInlineStartColor: 'var(--biome-accent)', background: 'var(--bg-soft)' }}
+            >
+              <span className="kicker me-2">💡 Idea clau</span>
+              <T>{point.keyIdea}</T>
+            </p>
+          )}
           {point.formula && (
             <p
               className="mt-4 rounded-xl bg-[var(--bg-soft)] px-4 py-3 text-center font-display text-xl md:text-2xl font-semibold"
@@ -83,6 +116,8 @@ export default function TheoryCard({ point, index }) {
           {point.image && !point.imageWide && figure}
         </div>
       </div>
+      {/* visual: esquema de caixes/columnes a tot l'ample de la targeta */}
+      {point.visual && <ConceptViz visual={point.visual} />}
       {/* viz: interactiu a tot l'ample de la targeta */}
       {point.viz && VIZ[point.viz] && (() => { const Viz = VIZ[point.viz]; return <Viz /> })()}
       {/* imageWide: imatge amb text a dins → a tot l'ample de la targeta (no a la columna del text) */}
