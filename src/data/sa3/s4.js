@@ -62,6 +62,13 @@ export const sa3s4 = {
     },
     {
       id: "t5",
+      images: [
+        {
+          "src": "images/sa3-fotos/s4-t5.jpg",
+          "caption": "Càpsula d'un antiviral (oseltamivir): actua només contra el virus de la grip.",
+          "credit": "Mk2010 · CC BY-SA 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "1",
       heading: "==Antivirals==: contra virus concrets",
       text: "Els ==antivirals|g== actuen contra ==virus específics|o== (per exemple, el Tamiflu contra la grip o els antiretrovirals contra el VIH). Com que el virus s'amaga dins les cèl·lules, ==és molt més difícil== atacar-lo sense fer mal a la cèl·lula: per això n'hi ha ==molts menys que d'antibiòtics|r==. Cada antiviral serveix només per al virus per al qual s'ha fet, i ==no és un antibiòtic|r==. Per això una vacuna, que prepara el sistema immunitari abans, és tan important contra els virus.",
@@ -69,6 +76,13 @@ export const sa3s4 = {
     },
     {
       id: "t2",
+      images: [
+        {
+          "src": "images/sa3-fotos/s4-t2.jpg",
+          "caption": "El paracetamol és analgèsic i antipirètic, però no antiinflamatori.",
+          "credit": "Mk2010 · CC BY-SA 3.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "1",
       heading: "==Analgèsics== i ==antipirètics==: no tot és igual",
       text: "==Paracetamol==: analgèsic + antipirètic. Actua al cervell. Risc hepàtic si s'abusa. ==Ibuprofèn|o==: AINE — analgèsic + antiinflamatori + antipirètic. Actua als teixits. Risc gàstric. ==Cap dels dos mata el virus|r== — tracten els símptomes mentre el SI lluita. Mai combinar sense prescripció. La febre moderada és beneficiosa (S1): ==no cal baixar-la sempre|o==.",
@@ -84,6 +98,13 @@ export const sa3s4 = {
     },
     {
       id: "t4",
+      images: [
+        {
+          "src": "images/sa3-fotos/s4-t4.jpg",
+          "caption": "Pastilles: prendre-les sense consell mèdic té riscos, encara que semblin inofensives.",
+          "credit": "epSos .de · CC BY 2.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "==Automedicació== i efecte ==placebo==",
       text: "Automedicar-se sense llegir el prospecte (p. ex. combinar ibuprofèn i paracetamol, o prendre antibiòtics que sobren) pot ser perillós. ==Efecte placebo|o==: una pastilla sense principi actiu pot reduir el dolor de debò — el cervell allibera ==endorfines== quan espera millorar. Per això cap fàrmac es valida sense grup placebo: ==«millorar» després de prendre alguna cosa no demostra per si sol que aquella cosa hagi funcionat|r==. Un assaig fiable compara un ==grup control== (que pren placebo) amb el grup que pren el fàrmac, amb prou participants i en ==doble cec== (ni el pacient ni qui l'avalua saben qui pren què).",

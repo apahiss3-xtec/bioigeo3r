@@ -92,8 +92,8 @@ export const sa2s1 = {
       badge: "⭐ La peça clau de tota la SA",
       video: "/animacions/sa2-s1-t0.mp4"
     },
-    { id: "t1", apartat: "2", heading: "==Hidrats de carboni== → ==glucosa|o== → ==ATP|g==", text: "Els ==hidrats== es digereixen fins a ==glucosa|o==. La glucosa entra al ==mitocondri== (connexió SA1) i produeix ==ATP|g==. Sense hidrats → sense glucosa → sense ==energia ràpida|g==.", type: "concept" },
-    { id: "t2", apartat: "2", heading: "==Greixos== → ==energia de reserva|o== + membrana", text: "Els ==greixos== donen el ==doble d'energia|o== per gram que els hidrats, però més lentament. A més, la ==membrana cel·lular== és feta de ==fosfolípids|o== (greixos modificats) — connexió SA1.", type: "concept" },
+    { id: "t1", images: [{"src":"images/sa2-fotos/s1-t1.jpg","caption":"Respiració cel·lular: la glucosa entra al mitocondri i en surt energia en forma d'ATP.","credit":"Christinelmiller · CC BY-SA 4.0 · Wikimedia Commons"}], apartat: "2", heading: "==Hidrats de carboni== → ==glucosa|o== → ==ATP|g==", text: "Els ==hidrats== es digereixen fins a ==glucosa|o==. La glucosa entra al ==mitocondri== (connexió SA1) i produeix ==ATP|g==. Sense hidrats → sense glucosa → sense ==energia ràpida|g==.", type: "concept" },
+    { id: "t2", images: [{"src":"images/sa2-fotos/s1-t2.jpg","caption":"Teixit adipós al microscopi: cada bombolla és una cèl·lula plena de greix de reserva.","credit":"Veeresh likhitha · CC BY-SA 4.0 · Wikimedia Commons"}], apartat: "2", heading: "==Greixos== → ==energia de reserva|o== + membrana", text: "Els ==greixos== donen el ==doble d'energia|o== per gram que els hidrats, però més lentament. A més, la ==membrana cel·lular== és feta de ==fosfolípids|o== (greixos modificats) — connexió SA1.", type: "concept" },
     { id: "t3", apartat: "2", heading: "==Proteïnes== → ==construcció==", text: "Les ==proteïnes== es digereixen fins a ==aminoàcids|o== → s'usen per fabricar cèl·lules, ==enzims==, ==hormones==. No és el combustible principal però és imprescindible per reparar i créixer.", type: "concept",
       image: "/images/sa2-s1-macronutrients.jpg", imageWide: true,
       imageAlt: "Tres franges: hidrats de carboni (pasta, pa, plàtan, patata) → energia ràpida (ATP); greixos (alvocat, nous, oli, formatge) → reserva d'energia i membrana cel·lular; proteïnes (pollastre, peix, ou, llegums) → construcció: fabricar cèl·lules, enzims i hormones.",
@@ -104,7 +104,14 @@ export const sa2s1 = {
       imageCaption: "Els nutrients que no es «cremen»: regulen, protegeixen i transporten. El ferro és la pista que continua a la peça següent." },
     { id: "t4", apartat: "2", heading: "==Ferro== → ==hemoglobina== (primer vincle enigma)", text: "El ==ferro== és necessari per fabricar ==hemoglobina== (la proteïna dels ==eritròcits|r== que porta ==O₂|b==). Sense ferro → menys hemoglobina → menys O₂ als músculs. Primer vincle amb l'analítica de sang, però no revelarem res més ara.", type: "concept", badge: "🔗 Enigma 2 — primera pista", video: "/animacions/sa2-s1-t4.mp4" },
     {
-      id: "t5",
+      id: "t5", images: [{"src":"images/sa2-fotos/s1-t5.jpg","caption":"Prova del lugol en una poma: les zones fosques tenen midó; els sucres simples no canvien de color.","credit":"Mezhenskyj · CC BY-SA 4.0 · Wikimedia Commons"}], images: [{"src":"images/sa2-fotos/s1-t5.jpg","caption":"Prova del lugol en una poma: les zones fosques tenen midó; els sucres simples no canvien de color.","credit":"Mezhenskyj · CC BY-SA 4.0 · Wikimedia Commons"}],
+      images: [
+        {
+          "src": "images/sa2-fotos/s1-t5.jpg",
+          "caption": "Prova del lugol en una poma: les zones fosques tenen midó; els sucres simples no canvien de color.",
+          "credit": "Mezhenskyj · CC BY-SA 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "Per quina raó el ==lugol== no detecta tots els hidrats",
       text: "El ==iode== reacciona amb l'estructura helicoïdal del ==midó|o== (polímer de glucosa). La ==fructosa== (sucre simple de la poma) no té aquesta estructura → ==fals negatiu|r==. Límit del test científic.",

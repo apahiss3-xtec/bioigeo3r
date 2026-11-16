@@ -77,6 +77,13 @@ export const sa5s1 = {
   theoryPoints: [
     {
       id: "t1",
+      images: [
+        {
+          "src": "images/sa5-fotos/s1-t1.jpg",
+          "caption": "Mostres de roques: cadascuna explica com es va formar.",
+          "credit": "DogsRNice · CC BY-SA 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "Roques i minerals: les ==tres famílies== del regne inorgànic",
       text: "Una ==roca== és un material natural sòlid format per un o més ==minerals|g==. Un ==mineral|g== és una substància inorgànica, natural, amb composició química definida i estructura cristal·lina pròpia (quars = SiO₂ sempre). La diferència clau: un mineral té sempre la mateixa composició; una roca és una barreja. El granit, per exemple, conté ==quars|b== (gris translúcid), ==feldspat|o== (rosa o blanc) i ==mica|r== (làmines negres brillants). Les roques es classifiquen en tres famílies segons el seu origen: ==ígnies== (del foc), ==sedimentàries== (de sediments) i ==metamòrfiques== (transformat per calor/pressió). Cada família és la memòria d'un procés geològic diferent.",
@@ -84,6 +91,13 @@ export const sa5s1 = {
     },
     {
       id: "t2",
+      images: [
+        {
+          "src": "images/sa5-fotos/s1-t2.jpg",
+          "caption": "Granit de prop: els cristalls grans indiquen que el magma es va refredar lentament, en profunditat.",
+          "credit": "Avc0002 · CC BY 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "Roques ==ígnies==: solidificació del magma",
       text: "Les roques ==ígnies== (del llatí *ignis*, foc) es formen quan el ==magma|r== —roca fosa en profunditat— es refreda i es solidifica. Si es refreda lentament ==en profunditat== (intrusiu), els cristalls tenen temps de créixer: resultat → ==granit|o==, de cristalls grans i visibles. Si erupciona a la superfície (extrusiu) i es refreda ràpidament, els cristalls no tenen temps de créixer: resultat → ==basalt|r==, de cristalls microscòpics o amorf. Un truc per recordar-ho: ==grans cristalls = refredat lent = profund|g== / ==cristalls petits o vidriós = refredat ràpid = superficial|o==. El basalt de la Garrotxa és extrusiu: va erupcionar a l'aire lliure. Connexió enigma — primera pista: la presència de basalt indica que hi ha hagut un episodi de ==vulcanisme|r==.",
@@ -91,6 +105,13 @@ export const sa5s1 = {
     },
     {
       id: "t3",
+      images: [
+        {
+          "src": "images/sa5-fotos/s1-t3.jpg",
+          "caption": "Penya-segats de creta: capes de sediment acumulades al fons d'un mar antic.",
+          "credit": "Ameliatalkspaleo · CC BY 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Roques ==sedimentàries==: la memòria del paisatge passat",
       text: "Les roques ==sedimentàries== es formen per acumulació de ==sediments|o== (fragments d'altres roques, restes d'organismes, minerals precipitats) en medis aquàtics o eòlics. El procés de ==litificació|g== té dues fases: 1) ==compactació== (el pes dels sediments superiors pressiona els inferiors i treu l'aigua) + 2) ==cimentació== (minerals dissolts precipiten entre els grans unint-los). Les principals: ==arenisca|o== (grans de sorra cimentats; sovint es veuen a simple vista), ==calcari|b== (CaCO₃ de restes de closques i esquelets, reacciona amb HCl → efervescència), ==argil·lita== (partícules molt fines, compacte). Una característica clau: les roques sedimentàries són les úniques que poden contenir ==fòssils|g== (restes d'organismes atrapats durant la litificació). La pedrera de Montjuïc és conglomerat sedimentari, no granit.",
@@ -98,6 +119,13 @@ export const sa5s1 = {
     },
     {
       id: "t4",
+      images: [
+        {
+          "src": "images/sa5-fotos/s1-t4.jpg",
+          "caption": "Gneis plegat: la calor i la pressió deformen la roca sense arribar a fondre-la.",
+          "credit": "James St. John · CC BY 2.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Roques ==metamòrfiques==: transformació per calor i pressió",
       text: "Les roques ==metamòrfiques== es formen quan una roca preexistent (ígnia, sedimentària o metamòrfica) és sotmesa a alta ==temperatura|r== i/o alta ==pressió|r== sense arribar a fondre's. Això passa en profunditat o quan les plaques col·lideixen. Exemples: ==pissarra|b== (de l'argil·lita, per pressió → es cliva en làmines; molt usada per teulades al Pirineu), ==marbre|o== (del calcari, per calor → cristalls de calcita recristal·litzada; per això el marbre ja no fa efervescència amb HCl com el calcari original), ==quarsita== (de l'arenisca, molt dura). El ==grau de metamorfisme|g== indica la intensitat del procés: baix grau (pissarra) → mig grau (esquist) → alt grau (gneis). Les roques metamòrfiques del Pirineu central guarden la memòria de la col·lisió hercínica fa 300 milions d'anys.",
@@ -105,6 +133,13 @@ export const sa5s1 = {
     },
     {
       id: "t5",
+      images: [
+        {
+          "src": "images/sa5-fotos/s1-t5.jpg",
+          "caption": "El cicle de les roques: qualsevol roca es pot acabar transformant en una de les altres dues.",
+          "credit": "NPS · Public domain · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "El ==cicle de les roques==: la Terra recicla els seus materials",
       text: "Cap roca és permanent: totes es van transformant al llarg de milions d'anys en un cicle continu. El ==cicle de les roques== connecta les tres famílies: 1) ==Magma → roca ígnia==: el magma es refreda i cristal·litza. 2) ==Roca ígnia → sediment → roca sedimentària==: l'erosió (vent, pluja, glaceres) fragmenta qualsevol roca, els sediments s'acumulen i es litifiquen. 3) ==Roca sedimentària → metamòrfica==: enterrada en profunditat o en una col·lisió de plaques, la calor i la pressió la transformen. 4) ==Roca metamòrfica → magma==: si la temperatura és prou alta, es fon i torna a ser magma. Implicació clau per a l'enigma: les ==roques basàltiques|r== de la Garrotxa són ígnies extrusives recents (fa ≈11.000 anys), la qual cosa indica activitat magmàtica recent en una zona on no hi hauria d'haver volcans de subducció. Per quina raó? Ho respondrem a S2.",

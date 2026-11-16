@@ -114,6 +114,48 @@ export default function TheoryCard({ point, index, figLabel }) {
             </figure>
           )}
           {point.image && !point.imageWide && figure}
+          {point.images?.length > 0 && (
+            <div className={`mt-4 grid gap-3 ${point.images.length > 1 ? 'sm:grid-cols-2' : ''}`}>
+              {point.images.map((im, i) => (
+                <figure
+                  key={i}
+                  className={`overflow-hidden rounded-xl border border-[var(--rule)] bg-white ${im.wide ? 'sm:col-span-2' : ''}`}
+                >
+                  <img
+                    src={asset(im.src)}
+                    alt={im.alt || im.caption || ''}
+                    className={`block w-full ${im.wide ? '' : 'h-56 object-contain bg-white'}`}
+                    loading="lazy"
+                  />
+                  {(im.caption || im.credit) && (
+                    <figcaption className="px-4 py-2 text-xs text-[var(--muted)]">
+                      {im.caption && <T>{im.caption}</T>}
+                      {im.credit && <span className="block mt-0.5 opacity-75">📷 {im.credit}</span>}
+                    </figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          )}
+          {point.youtube && (
+            <figure className="mt-4 overflow-hidden rounded-xl border border-[var(--rule)] bg-black">
+              <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src={`https://www.youtube-nocookie.com/embed/${point.youtube.id}?rel=0${point.youtube.start ? `&start=${point.youtube.start}` : ''}`}
+                  title={point.youtube.title || point.heading}
+                  loading="lazy"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+              <figcaption className="px-4 py-2 text-xs text-[var(--muted)] bg-white">
+                🎬 {point.youtube.note ? <T>{point.youtube.note}</T> : point.youtube.title}
+                {point.youtube.credit && <span className="block mt-0.5 opacity-75">{point.youtube.credit}</span>}
+              </figcaption>
+            </figure>
+          )}
         </div>
       </div>
       {/* visual: esquema de caixes/columnes a tot l'ample de la targeta */}

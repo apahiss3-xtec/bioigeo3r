@@ -57,6 +57,13 @@ export const sa3s5 = {
   theoryPoints: [
     {
       id: "t1",
+      images: [
+        {
+          "src": "images/sa3-fotos/s5-t1.jpg",
+          "caption": "Model de la dopamina: el cos la fabrica (és endògena), i moltes drogues n'alteren els nivells.",
+          "credit": "Jynto · CC0 · Wikimedia Commons"
+        }
+      ],
       apartat: "1",
       heading: "==Endogen== vs ==exogen==: medicament o droga?",
       text: "Hi ha substàncies que el cos fabrica (==endògenes|g==: dopamina, endorfines) i d'altres que entren des de fora (==exògenes|o==: cafè, alcohol, fàrmacs, drogues). Una ==droga== és una substància exògena que altera el sistema nerviós i pot crear dependència. El ==cafè i l'alcohol també són drogues|r== — encara que siguin legals. La classificació legal ==no sempre reflecteix el risc real|r== per a la salut.",
@@ -82,6 +89,13 @@ export const sa3s5 = {
     },
     {
       id: "t5",
+      images: [
+        {
+          "src": "images/sa3-fotos/s5-t5.jpg",
+          "caption": "Sinapsi: la comunicació entre neurones és el punt on actuen les drogues.",
+          "credit": "vectorization: Mouagip Synapse_diag1.png: Drawn by fr:Utilis · CC BY-SA 3.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "Tres famílies de ==drogues== segons com actuen",
       text: "==Depressores|b==: alenteixen el sistema nerviós (alcohol, benzodiazepines). ==Estimulants|o==: l'acceleren (cocaïna, amfetamines, cafeïna). ==Al·lucinògenes|p==: alteren la percepció de la realitat (LSD, psilocibina). La classificació agrupa per l'==efecte sobre el sistema nerviós|g==, no per la legalitat: l'alcohol i la cafeïna hi són, tot i ser legals. Cada droga pot tenir ==més d'un efecte|o== i el seu risc depèn de la dosi i de la persona.",
@@ -89,6 +103,13 @@ export const sa3s5 = {
     },
     {
       id: "t4",
+      images: [
+        {
+          "src": "images/sa3-fotos/s5-t4.jpg",
+          "caption": "Neutròfil (en groc) que engoleix bacteris: la primera defensa davant d'una infecció.",
+          "credit": "Volker Brinkmann · CC BY 2.5 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Síntesi SA3: de la ==infecció== a la ==decisió==",
       text: "Cadena completa: ==patogen entra|r== (S1) → SI innata (hores) → SI adaptativa (dies): anticossos + memòria (S2) → ==vacuna|g== = entrenar el SI per avançat (S3) → ==immunitat de grup|g== = protecció col·lectiva → fàrmac tracta el ==símptoma|o== (S4) → droga ==segresta la sinapsi|r== (S5). I ara ja tens tot el que et cal per tancar els ==dos enigmes|g== de la paret: el de la grip de la Martina i el de l'article sobre les vacunes.",

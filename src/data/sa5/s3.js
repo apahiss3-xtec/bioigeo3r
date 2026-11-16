@@ -77,6 +77,13 @@ export const sa5s3 = {
   theoryPoints: [
     {
       id: "t1",
+      images: [
+        {
+          "src": "images/sa5-fotos/s3-t1.jpg",
+          "caption": "Cristall de quars: un mineral té una composició química i una estructura definides.",
+          "credit": "JJ Harrison (https://www.jjharrison.com.au/) · CC BY-SA 2.5 · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "==Minerals== vs ==roques==: definicions exactes",
       text: "Un ==mineral|g== és una substància sòlida inorgànica, natural, amb composició química fixa i estructura cristal·lina definida. El ==quars|b== és sempre SiO₂, el ==calcita|b== és sempre CaCO₃, el ==halita|b== (sal) és sempre NaCl. Els minerals es reconeixen per: ==duresa|o== (escala de Mohs 1-10), ==color i ratllada==, ==lluentor== (metàl·lica, vítria, nacrada), ==clivatge== (com es trenca). Una ==roca== és un material natural format per l'agregació de dos o més minerals (o restes orgàniques). El ==granit|o== conté quars + feldspat + mica. El ==calcari|b== conté calcita + possibles fòssils. La ==pissarra|r== conté mica + clorita metamorfitzades. Hi ha milers de minerals, però l'escorça terrestre és feta principalment per 8: ==feldspat== (51%), ==quars== (12%), ==piroxens|o== (11%), ==miques|o== (5%), ==anfíbols==, ==oliví==, ==calcita== i ==òxids de ferro==.",
@@ -84,6 +91,13 @@ export const sa5s3 = {
     },
     {
       id: "t2",
+      images: [
+        {
+          "src": "images/sa5-fotos/s3-t2.jpg",
+          "caption": "Carbó: restes de plantes de fa milions d'anys transformades per la pressió i la calor.",
+          "credit": "Colin Smith · CC BY-SA 2.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "==Combustibles fòssils==: la memòria química d'éssers vius extingits",
       text: "Els ==combustibles fòssils|r== (carbó, petroli, gas natural) són la matèria orgànica d'éssers vius que va quedar enterrada fa milions d'anys i es va transformar per pressió i calor. ==Carbó|r==: de boscos tropicals del ==Carbonífer|o== (350-300 Ma) compactats i metamorfitzats. Graus: torba (recent) → lignit → hulla → antracita (el més pur). ==Petroli i gas natural|r==: d'organismes marins (plàncton, algues) acumulats al fons marí, coberts per sediments i transformats per calor (50-150 °C) durant milions d'anys. Migra cap amunt fins a quedar atrapat en una ==trampa geològica|o== (anticlinal, falla segellada). Per quina raó són «no renovables»: es van formar en escales de 100 milions d'anys; els estem consumint en 200 anys. Connexió amb «Ens enfonsem»: quan els cremem, el ==CO₂ fixat fa milions d'anys|r== retorna a l'atmosfera en qüestió de mesos, desequilibrant el ==cicle del carboni geològic|g==.",
@@ -91,6 +105,13 @@ export const sa5s3 = {
     },
     {
       id: "t3",
+      images: [
+        {
+          "src": "images/sa5-fotos/s3-t3.jpg",
+          "caption": "La Muntanya de Sal de Cardona: un recurs geològic català explotat des de fa segles.",
+          "credit": "Renata3 · CC BY-SA 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Recursos geològics a ==Catalunya==: pedra, sal i memòria",
       text: "Catalunya té una geologia diversa que ha proveït recursos geològics importants: 1) ==Calcari|b== (roques sedimentàries del Mesozoic): s'extreu en grans pedreres a la conca del Llobregat i la Conca de Barberà. Ús principal: ==ciment|o== (matèria primera bàsica de la construcció). La pedra de Montjuïc (conglomerat) va ser la pedra d'edificis emblemàtics de Barcelona. 2) ==Pissarra pirinenca|r==: als Pirineus (Pallars, Alt Urgell). Ús: ==teulades|o== tradicionals (molt durador, 50-100 anys). 3) ==Potassa|g== (Bages): les mines de Cardona i Sallent són de les reserves de potassi més grans d'Europa. Ús: ==adobs agrícoles|g== (exportació mundial). La muntanya de residus salins de Sallent és visible des de l'autovia. 4) ==Granit== (Guilleries, Montnegre): pedra ornamental. 5) ==Sorra de quars== (Delta de l'Ebre, platges): vidre, microxips. L'extracció excessiva de sorra de platja n'accelera la regressió — i és el mateix mecanisme que farà recular el delta al projecte «Ens enfonsem».",
@@ -98,6 +119,13 @@ export const sa5s3 = {
     },
     {
       id: "t4",
+      images: [
+        {
+          "src": "images/sa5-fotos/s3-t4.jpg",
+          "caption": "Pedrera de calcària: l'extracció deixa ferides al paisatge que costen de restaurar.",
+          "credit": "Rosendahl · Public domain · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Impacte ambiental de l'extracció: el ==paisatge ferit==",
       text: "L'extracció de roques i minerals genera impactes ambientals significatius: 1) ==Impacte paisatgístic|r==: les pedreres obertes alteren de forma dràstica el relleu i la vegetació. Les mines de cel obert (com la de potassa de Sallent) generen terrenys de color i morfologia artificials visibles des de quilòmetres. 2) ==Contaminació hídrica|r==: els lixiviats de les escombreres i els pols de les pedreres contaminen sòls i aqüífers. Les mines de sal de Sallent generen salmorres que han afectat el ==riu Llobregat|o==. 3) ==Emissions de CO₂|r==: el ciment requereix calcinar calcari a 1.450 °C (==descarbonatació|r==: CaCO₃ → CaO + CO₂). Representa el ==8% de les emissions globals de CO₂|r==. 4) ==Rehabilitació==: la llei minera obliga les empreses a elaborar un pla de restauració del paisatge. Algunes pedreres abandonades s'han convertit en reserves naturals o espais de lleure (ex: pedreres de Montjuïc → Parc de Montjuïc). La ==economia circular|g== (reutilitzar els residus de construcció i demolició) és una alternativa de futur.",
@@ -105,6 +133,19 @@ export const sa5s3 = {
     },
     {
       id: "t5",
+      images: [
+        {
+          "src": "images/sa5-fotos/s3-t5.jpg",
+          "caption": "Closca fòssil dins d'una calcària: la prova que aquella roca es va formar al fons del mar.",
+          "credit": "Krzem Anonim · CC BY-SA 4.0 · Wikimedia Commons"
+        }
+      ],
+      youtube: {
+        "id": "SlAkhHsoeqg",
+        "title": "Els fòssils a Montserrat | 3CatCampus",
+        "note": "Vídeo: fòssils de closques marines a Montserrat. Com hi van arribar, si ara és a l'interior?",
+        "credit": "3CatCampus · Els fòssils a Montserrat (Entendre el canvi climàtic)"
+      },
       apartat: "3",
       heading: "Connexió ==enigma== — pista 3: la Terra com a arxiu del temps",
       text: "Les roques calcàries que avui s'extreuen a les pedreres catalanes van néixer al ==mar de Tethys|b== fa ≈100 milions d'anys (Cretaci), quan el que ara és Catalunya era un fons marí ple d'organismes amb closques de CaCO₃. Aquells organismes van fixar el ==CO₂ atmosfèric del Cretaci|r== en les seves closques, i les closques es van convertir en calcari. Quan avui cremem aquell calcari per produir ciment, retornem a l'atmosfera el CO₂ que havia estat capturat fa 100 milions d'anys — el ==cicle del carboni geològic|g==. Les roques metamòrfiques del Pirineu central (gneis, esquistos) guarden la memòria de la col·lisió ==hercínica|o== fa 300 Ma. El basalt de la Garrotxa és el resultat del ==rift postalpí|b== fa tan sols 11.500 anys. Cada roca és un arxiu del temps geològic. Per llegir-les cal saber el codi — i ara en saps prou per llegir el paisatge de Catalunya.",

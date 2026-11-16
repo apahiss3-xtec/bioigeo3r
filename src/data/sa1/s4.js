@@ -35,6 +35,13 @@ export const sa1s4 = {
   theoryPoints: [
     {
       id: "t1",
+      images: [
+        {
+          "src": "images/sa1-fotos/s4-t1.jpg",
+          "caption": "La cèl·lula animal: membrana, nucli i mitocondris, les tres peces de la SA.",
+          "credit": "LadyofHats (Mariana Ruiz) · Public domain · Wikimedia Commons"
+        }
+      ],
       heading: "Repàs: les 3 idees clau de la SA",
       text: "1. La cèl·lula és la unitat viva: necessita matèria i energia (mitocondri). 2. La membrana regula el que entra i surt (osmosi). 3. Hi ha dos tipus de divisió: mitosi (còpies) i meiosi (la meitat).",
       type: "synthesis"

@@ -135,6 +135,13 @@ export const sa4s4 = {
   theoryPoints: [
     {
       id: "t1",
+      images: [
+        {
+          "src": "images/sa4-fotos/s4-t1.jpg",
+          "caption": "Exemple de notícia falsa: abans de compartir-la, passa-la pel filtre CRITIC.",
+          "credit": "Flobeigor · CC BY-SA 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "1",
       heading: "==CRITIC==: com es mira una afirmació que corre",
       text: "Davant d'una afirmació no cal ==creure-se-la ni rebutjar-la de cop|o==: es mira amb sis caselles. ==C==onsigna — quina és ==exactament== l'afirmació? · ==R==ol — qui ho diu i ==què hi guanya|o==? · ==I==dees — quin ==mecanisme|g== proposa? En proposa cap? · ==T==est — ==es podria comprovar|g==, i com? · ==I==nformació — quines ==dades== hi posa? Un cas que algú explica és una ==anècdota|r==, i una anècdota ==no és una dada|r==: sempre n'hi haurà alguna en cada direcció. · ==C==onclusions — què en puc dir ara i ==què em falta saber==? I una advertència sobre la ==IA|r==: no és una font, és un programa que ==redacta==. Pot donar-te una font que ==no diu el que ell diu==, o que no existeix. Si te'n dóna una, ==ves a mirar-la|g==.",
@@ -151,6 +158,13 @@ export const sa4s4 = {
     },
     {
       id: "t3",
+      images: [
+        {
+          "src": "images/sa4-fotos/s4-t3.jpg",
+          "caption": "El preservatiu és l'únic mètode que fa de barrera també per als patògens de transmissió sexual.",
+          "credit": "Oxxo · CC BY-SA 3.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "Per quina raó ==només una família== atura també els patògens",
       text: "El preservatiu és l'únic que atura ==els fluids|b==. I és als fluids que hi van els ==patògens|r== — recorda «Defensors del cos»: una ==ITS|r== (infecció de transmissió sexual) és una infecció, i el preservatiu hi fa de ==barrera==, exactament igual que la pell. Els mètodes ==hormonals== i el ==DIU== actuen sobre el cicle o dins de l'úter: eviten l'embaràs, però ==no impedeixen que els fluids es trobin|r==. Fixa-t'hi bé, perquè és l'error més freqüent: la pregunta no és ==com de bo és== un mètode contra l'embaràs, és ==què atura==. Per això el consell sanitari és la ==doble protecció|g==: preservatiu ==més== un altre mètode. I un matís que cal dir bé: el preservatiu ==redueix molt== el risc d'ITS, però ==no el deixa a zero|o== — hi ha infeccions que passen per ==contacte de pell== que la funda no cobreix. Dir «protegeix» és correcte; dir «protegeix del tot», no.",
@@ -158,6 +172,13 @@ export const sa4s4 = {
     },
     {
       id: "t4",
+      images: [
+        {
+          "src": "images/sa4-fotos/s4-t4.jpg",
+          "caption": "La píndola de l'endemà: retarda l'ovulació, però no protegeix de les infeccions.",
+          "credit": "Bgtp · CC BY-SA 3.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "La ==píndola de l'endemà==: què fa i què no fa",
       text: "És un mètode ==d'emergència|o==, no del dia a dia. El que fa és ==retardar o impedir l'ovulació==: actua a les baules ==①-②==, com la resta d'hormonals. Per això com abans es pren, ==millor funciona==. I una cosa que convé tenir clara perquè es confon molt sovint: ==no interromp un embaràs que ja està en marxa|r== — si la implantació ja s'ha produït, no hi fa res.",

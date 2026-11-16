@@ -91,6 +91,13 @@ export const sa3s2 = {
     },
     {
       id: "t3",
+      images: [
+        {
+          "src": "images/sa3-fotos/s2-t3.jpg",
+          "caption": "Estructura d'un anticòs en forma de Y: els extrems encaixen amb un antigen concret, com una clau al pany.",
+          "credit": "Tokenzero · CC BY-SA 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "==Antigen== i ==anticòs==: el sistema clau-pany",
       text: "==Antigen==: qualsevol molècula estranya (proteïna de la superfície del patogen) que el SI reconeix com a 'no-pròpia'. ==Anticòs== (immunoglobulina): proteïna en forma de ==Y== fabricada pels limfòcits B que s'enganxa ==específicament== a un antigen concret (cada clau encaixa en un sol pany). Funció: ==neutralitza|g== el patogen o el ==marca per a fagocitosi|g==.",
@@ -98,6 +105,13 @@ export const sa3s2 = {
     },
     {
       id: "t4",
+      images: [
+        {
+          "src": "images/sa3-fotos/s2-t4.jpg",
+          "caption": "Resposta immunitària específica: després de la primera infecció queden cèl·lules de memòria.",
+          "credit": "Cooper Ackley · CC BY-SA 3.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "==Memòria immunològica==: per quina raó la varicel·la no torna",
       text: "Després de la resposta adaptativa, queden ==limfòcits de memòria== que persisteixen ==anys o dècades==. Quan el mateix patogen torna, la ==resposta secundària|g== és molt més ràpida (hores, no dies) i intensa → el patogen es destrueix ==abans de causar símptomes|g==. Per quina raó la varicel·la no torna? Memòria. Per quina raó la grip sí? El virus ==muta|r== cada any i el SI no el reconeix.",
@@ -106,6 +120,13 @@ export const sa3s2 = {
     },
     {
       id: "t5",
+      images: [
+        {
+          "src": "images/sa3-fotos/s2-t5.jpg",
+          "caption": "Una vacunació: el cos aprèn a reconèixer el patogen sense haver de passar la malaltia.",
+          "credit": "United States House of Representatives - Office of Rick Craw · Public domain · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Connexió ==enigma 1==: la Martina no vacunada",
       text: "La Martina podria tenir memòria d'una soca de grip similar d'anys anteriors (resposta ràpida que va avortar la infecció). O bé, la ==immunitat de grup|g==: si la meitat de la classe estava vacunada, el virus va tenir menys vectors per arribar a ella. Les dues raons són compatibles. Enigma 1 — ==primera pista|o==, resolució completa a S5.",

@@ -77,6 +77,13 @@ export const sa5s4 = {
   theoryPoints: [
     {
       id: "t1",
+      images: [
+        {
+          "src": "images/sa5-fotos/s4-t1.jpg",
+          "caption": "Montserrat: un conglomerat erosionat que dibuixa les seves agulles tan característiques.",
+          "credit": "ABruszik · CC BY-SA 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "Llegir el ==paisatge==: geologia i forma del relleu",
       text: "El ==relleu== que veiem és el resultat de dos tipus de forces en competència: ==forces internes|r== (tectònica: empent les roques cap amunt, crea muntanyes i volcans) i ==forces externes|b== (erosió: vent, aigua, glaceres escullen les roques). La fórmula: ==procés geològic → roca → erosió → relleu → paisatge|g==. Dos paisatges completament diferents poden tenir la mateixa roca si l'erosió ha actuat de forma diferent. Exemples a Catalunya: el ==granit|o== del Cap de Creus (Costa Brava) i el granit dels Pirineus centrals són el mateix tipus de roca, però l'erosió marina ha creat un paisatge de cales i esculls mentre l'erosió glacial i fluvial ha creat valls en U i pics aguts. El ==conglomerat de Montserrat|o== (sedimentari) ha estat esculpit per l'erosió diferencial en les característiques 'boles' i 'agulles'.",
@@ -84,6 +91,13 @@ export const sa5s4 = {
     },
     {
       id: "t2",
+      images: [
+        {
+          "src": "images/sa5-fotos/s4-t2.jpg",
+          "caption": "El Prepirineu: el relleu s'explica pel xoc de plaques que va aixecar els Pirineus.",
+          "credit": "Birding In Spain · CC BY-SA 3.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "El paisatge de ==Catalunya== llegit en geologia",
       text: "Cada zona de Catalunya té la seva «signatura geològica»: 1) ==Pirineus|b==: col·lisió alpina (55-35 Ma) entre plaques Ibèrica i Euràsia. Roques: granits i gneis al Pirineu axial (hercínics, 300 Ma) + calcàries i pissarres als Pre-pirineus (Mesozoic). 2) ==Garrotxa|r==: camp volcànic de rift postalpí. 40 cons volcànics i 20 colades de basalt. Darrera erupció ≈11.500 anys AP. ==Volcà actiu latent|r==. 3) ==Montserrat|o==: conglomerat cretaci (≈60 Ma) erosionat de forma espectacular per l'aigua → formes «inselberg». 4) ==Delta de l'Ebre|g==: sediments al·luvials en deposició activa. S'allarga cap al mar ≈5 m/any, però la construcció de pantans n'ha reduït el sediment. 5) ==Cardona|o== (Bages): diapir de sal (evaporita del Triàsic, ≈230 Ma) → la Muntanya de Sal. 6) ==Costa Brava|b==: granits hercínics erosionats per la mar Mediterrània → cales, illes i esculls.",
@@ -91,6 +105,13 @@ export const sa5s4 = {
     },
     {
       id: "t3",
+      images: [
+        {
+          "src": "images/sa5-fotos/s4-t3.jpg",
+          "caption": "La zona volcànica de la Garrotxa: activitat interna recent en una zona sísmica.",
+          "credit": "MARIA ROSA FERRE ✿ · CC BY-SA 2.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "==Resolució de l'enigma==: el terratrèmol de les Preses (1428)",
       text: "Resposta completa a les dues preguntes de l'enigma: 1) ==Per quina raó hi ha terratrèmols al Pirineu?|r== El Pirineu és el resultat de la ==col·lisió de les plaques Ibèrica i Euràsia|b== (límit convergent continental) iniciada fa ≈55 Ma i finalitzada fa ≈35 Ma. Durant la col·lisió es van generar grans ==sistemes de falles|r== (fractures de la litosfera). Avui la col·lisió ja no aixeca muntanyes, però les falles ancora estan actives i acumulen tensió. Quan la tensió s'allibera → ==terratrèmol|r==. L'alt Empordà, la Val d'Aran i el Pirineu lleidatà són les zones de major sismicitat de Catalunya per la densitat de falles actives. 2) ==Per quina raó hi ha volcans a la Garrotxa?|b== No és vulcanisme de ==subducció|r== (no hi ha cap fossa oceànica a prop). És ==vulcanisme de rift postalpí|b==: després de la compressió alpina, la litosfera de la zona va patir extensió (estirament). Quan la litosfera s'estira, el mantell puja, baixa la pressió → ==fusió parcial del mantell|g== → ==magma basàltic|r== erupciona a la superfície. El darrer volcà actiu (volcà del Croscat, Garrotxa) va erupcionar fa ≈11.500 anys. Conclusió: ==dos processos oposats en la mateixa zona|o== (primer compressió → Pirineu; després extensió → Garrotxa).",
@@ -99,6 +120,13 @@ export const sa5s4 = {
     },
     {
       id: "t4",
+      images: [
+        {
+          "src": "images/sa5-fotos/s4-t4.jpg",
+          "caption": "Ferro bandat: algunes roques només es van poder formar quan els éssers vius van omplir d'oxigen l'atmosfera.",
+          "credit": "James St. John · CC BY 2.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Síntesi del curs: connexions entre geologia i vida",
       text: "La geologia no és un tema aïllat: connecta amb tot el curs. ==SA1 (cèl·lula)==: els minerals (ferro, calci, fòsfor) són imprescindibles per a les cèl·lules. L'hemoglobina conté ==ferro|r== — un mineral geològic. ==SA2 (cos humà)==: el ==calci dels ossos|o== prové del calcari i de la cadena alimentària. L'anèmia ferropènica (enigma SA2) és un dèficit del mineral ferro. ==El projecte «Ens enfonsem»==: el ==cicle del carboni|g== té una component geològica (CO₂ atmosfèric → closques CaCO₃ → calcari → erosió → CO₂) i una de biològica (fotosíntesi ↔ respiració); i la crema de ==combustibles fòssils|r== retorna a l'atmosfera en 200 anys el carboni fixat en roques fa milions d'anys, desequilibrant el ==cicle del carboni geològic|g==. L'==erosió, el transport i la sedimentació|o== que has estudiat aquí són, literalment, la raó per la qual el delta de l'Ebre s'enfonsa. La geologia és la memòria de la Terra — i ara en saps llegir una mica.",

@@ -127,6 +127,13 @@ export const sa1s2 = {
   theoryPoints: [
     {
       id: "d1",
+      images: [
+        {
+          "src": "images/sa1-fotos/s2-d1.jpg",
+          "caption": "Ous en aigua salada: la sal és la variable que canviem i la massa de l'ou, la que mesurem.",
+          "credit": "Department of the Interior. U.S. Fish and Wildlife Service.  · Public domain · Wikimedia Commons"
+        }
+      ],
       apartat: "1",
       heading: "El disseny del nostre experiment",
       text: "==Què investiguem?== Influeix la quantitat de ==sal|o== de l'aigua en la ==massa== de l'ou? Fem variar la sal de cada got (==variable independent==) i mesurem la massa de l'ou (==variable dependent==). El got de ==vinagre== és el ==control|g==: no hi canviem res i ens serveix per comparar.",
@@ -151,6 +158,13 @@ export const sa1s2 = {
     },
     {
       id: "r1",
+      images: [
+        {
+          "src": "images/sa1-fotos/s2-r1.jpg",
+          "caption": "Pesar ous amb precisió: sense una mesura inicial i una de final no hi ha diferència per calcular.",
+          "credit": "Harris &amp; Ewing, photographer · Public domain · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Llegim els resultats: la ==diferència==",
       text: "==Diferència = massa final − massa inicial==. Sempre en aquest ordre. Si l'ou ha ==guanyat aigua|b==, la diferència és positiva (+). Si n'ha ==perdut|o==, és negativa (−). Compara cada ou amb el del ==control|g==: el vinagre ens diu quant canvia un ou quan no hi canviem res.",
@@ -158,6 +172,13 @@ export const sa1s2 = {
     },
     {
       id: "r2",
+      images: [
+        {
+          "src": "images/sa1-fotos/s2-r2.jpg",
+          "caption": "Gràfica amb barres d'error: cada punt és una mitjana, i la barra indica com de dispersos són els resultats.",
+          "credit": "Courtesy of NIAID Ryan Kissinger · Public domain · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Com es fa ciència de veritat: un ou no n'hi ha prou",
       text: "Un sol ou pot donar un resultat estrany (una membrana trencada, una balança mal posada). Per això posem en comú les ==dades de tota la classe== i mirem la ==mitjana==: com més ==rèpliques==, més ens podem refiar del resultat.",

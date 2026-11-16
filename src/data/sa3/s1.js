@@ -79,6 +79,13 @@ export const sa3s1 = {
   theoryPoints: [
     {
       id: "t1",
+      images: [
+        {
+          "src": "images/sa3-fotos/s1-t1.jpg",
+          "caption": "Mida comparada: un bacteri, virus gegants i el virus del VIH, molt més petit.",
+          "credit": "Domi751 · CC BY-SA 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "==Bacteris== vs ==virus==: l'enemic no és un de sol",
       text: "==Bacteris|r==: cèl·lules ==procariotes|o== amb membrana pròpia, es reprodueixen ells sols, l'==antibiòtic|g== pot matar-los. ==Virus|r==: no són cèl·lules, no tenen metabolisme propi, necessiten una ==cèl·lula hoste|o== per copiar-se — l'antibiòtic ==no els afecta|r==. Per la grip cal un ==antiviral==, no un antibiòtic.",
@@ -95,6 +102,13 @@ export const sa3s1 = {
     },
     {
       id: "t6",
+      images: [
+        {
+          "src": "images/sa3-fotos/s1-t6.jpg",
+          "caption": "Rentar-se les mans amb sabó: una de les mesures més eficaces per tallar la transmissió.",
+          "credit": "Beat Ruest · CC BY-SA 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "==Vies de transmissió== i mesures preventives",
       text: "Cada via té la seva mesura. ==Aire (gotetes i aerosols)|o==: grip, COVID, xarampió → mascareta i ventilació. ==Contacte directe|o==: herpes, varicel·la → rentar-se les mans, evitar el contacte. ==Superfícies (fomites)|o==: gastroenteritis vírica → desinfecció i higiene. ==Sang i fluids corporals|r==: VIH, hepatitis B → preservatiu, no compartir agulles. ==Aliments o aigua|g==: salmonel·la, còlera → cuinar bé, aigua potable. Són ==barreres físiques|g== que actuen abans que entrin en joc els anticossos.",
@@ -110,6 +124,13 @@ export const sa3s1 = {
     },
     {
       id: "t4",
+      images: [
+        {
+          "src": "images/sa3-fotos/s1-t4.jpg",
+          "caption": "Bacteri de la tuberculosi: una malaltia infecciosa, causada per un microorganisme que es contagia.",
+          "credit": "NIH Image Gallery · Public domain · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Malalties ==infeccioses== vs ==no infeccioses==",
       text: "==Infeccioses|r==: causades per patògens (bacteris, virus, fongs, paràsits) → transmissibles (grip, tuberculosi, VIH). ==No infeccioses==: factors genètics, ambientals o d'estil de vida (==diabetis tipus 2|o==, ==càncer|r==, malaltia cardiovascular). Connexió SA2: l'anèmia del Marc era ==no infecciosa|o== (manca de ferro).",
@@ -117,6 +138,13 @@ export const sa3s1 = {
     },
     {
       id: "t5",
+      images: [
+        {
+          "src": "images/sa3-fotos/s1-t5.jpg",
+          "caption": "Termòmetre clínic: la febre és una resposta del cos, no la malaltia.",
+          "credit": "Autor desconegut · CC BY 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Per quina raó tenim ==febre==?",
       text: "La ==febre== és una resposta controlada: el cos puja la temperatura per ==dificultar la reproducció del patogen|o== i activar millor les cèl·lules immunitàries. ==Febre moderada (37.5–39°C)|g==: beneficiosa, no cal baixar-la de seguida. ==Febre alta (>39.5°C)|r==: cal tractament, pot ser perillosa per al cervell.",

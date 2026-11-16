@@ -77,6 +77,13 @@ export const sa5s2 = {
   theoryPoints: [
     {
       id: "t1",
+      images: [
+        {
+          "src": "images/sa5-fotos/s2-t1.jpg",
+          "caption": "Tall de la Terra: escorça, mantell, nucli extern líquid i nucli intern sòlid.",
+          "credit": "Original: USGS Vector: Anasofiapaixao · Public domain · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "L'estructura interna de la Terra: un arxiu de calor",
       text: "La Terra té una estructura en capes concèntriques, deduïda gràcies a les ==ones sísmiques|g== (les que es propaguen de manera diferent pels materials sòlids i líquids). De fora cap a dins: 1) ==Escorça|b==: capa prima i rígida. ==Continental== (25-70 km, granit, menys densa) vs ==oceànica== (5-10 km, basalt, més densa i prima). 2) ==Mantell|o==: la capa més gruixuda (2.900 km). El ==mantell superior|r== és semiplàstic en la seva part superior (==astenosfera|r==) i permet el moviment de les plaques. 3) ==Nucli extern|r==: líquid (ferro i níquel, 2.890-5.150 km de profunditat). Genera el ==camp magnètic terrestre|g==. 4) ==Nucli intern==: sòlid (ferro, 5.150-6.370 km). Temperatura: ≈5.000-6.000 °C. Les ==ones P== (de compressió) es propaguen per sòlids i líquids; les ==ones S|r== (de cisalla) NOMÉS per sòlids → la zona d'ombra de les S demostra que el nucli extern és líquid.",
@@ -84,6 +91,13 @@ export const sa5s2 = {
     },
     {
       id: "t2",
+      images: [
+        {
+          "src": "images/sa5-fotos/s2-t2.jpg",
+          "caption": "Les plaques tectòniques: la litosfera trencada en peces que es mouen uns centímetres l'any.",
+          "credit": "Map:USGS Description:Muriel Gottrop~commonswiki · Public domain · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "==Tectònica de plaques==: la litosfera en moviment",
       text: "La ==litosfera|g== (escorça + part sòlida del mantell superior) està dividida en unes 15 ==plaques tectòniques|b== grans i diverses de petites que es mouen sobre l'==astenosfera|r== (mantell semiplàstic). El mecanisme de moviment és la ==convecció del mantell|g==: el material calent puja (menys dens), es desplaça lateralment i baixa en refredar-se, arrossegant les plaques. Velocitat: ==2-10 cm/any|o== (aproximadament com creixen les ungles). A escala geològica, 5 cm/any × 55 milions d'anys = 2.750 km de desplaçament → suficient per crear el Pirineu. Les proves del moviment de plaques: 1) Encaix dels continents (Wegener, 1912). 2) ==Expansió del fons oceànic|g== (dorsals). 3) Distribució de fòssils idèntics en continents separats. 4) Simetria del camp magnètic al voltant de les dorsals.",
@@ -91,6 +105,13 @@ export const sa5s2 = {
     },
     {
       id: "t3",
+      images: [
+        {
+          "src": "images/sa5-fotos/s2-t3.jpg",
+          "caption": "Límits divergents, convergents i transformants: cadascun origina fenòmens diferents.",
+          "credit": "USGS/USGov, modified by Eurico Zimbres · Public domain · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Límits de plaques: tres tipus, tres fenòmens",
       text: "Les plaques interaccionen en tres tipus de límits: 1) ==Límits divergents|g==: les plaques s'allunyen. El mantell puja, es fon parcialment i genera ==magma basàltic|r== que crea nova escorça oceànica. Resultat: ==dorsals oceàniques|b== (ex: Dorsal de l'Atlàntic mig). 2) ==Límits convergents|o==: les plaques s'apropen. Dues variants: a) ==Subducció|r==: una placa (oceànica, més densa) s'enfonsa sota l'altra. El material fos genera ==volcans d'arc|r== i ==terratrèmols profunds|r== (ex: Japó, Andes). b) ==Col·lisió continental|o==: dues plaques continentals (igual densitat) no poden subduir-se i aixequen ==cadenes de muntanyes|o== (ex: Alps, Himàlaia, Pirineus). 3) ==Límits transformants|b==: les plaques llisquen lateralment l'una respecte l'altra sense crear ni destruir escorça. Resultat: ==grans falles|b== i ==terratrèmols== (ex: Falla de San Andreas, Califòrnia).",
@@ -98,6 +119,13 @@ export const sa5s2 = {
     },
     {
       id: "t4",
+      images: [
+        {
+          "src": "images/sa5-fotos/s2-t4.jpg",
+          "caption": "Hipocentre i epicentre: les ones sísmiques surten del punt on es trenca la roca.",
+          "credit": "Ansate Sam Hocevar (original author; this is a derivative wo · CC BY-SA 1.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Els ==terratrèmols==: quan la roca es trenca",
       text: "Un ==terratrèmol== (sisme) es produeix quan l'energia acumulada en una falla (fractura de la litosfera) s'allibera sobtadament. El punt de ruptura en profunditat és l'==hipocentre|r== (o focus); el punt de la superfície just a sobre és l'==epicentre|b==. L'energia es propaga com ==ones sísmiques|g==: ones P (primàries, de compressió, les primeres a arribar) i ones S (secundàries, de cisalla). La ==magnitud|o== mesura l'energia alliberada (escala logarítmica Richter o Moment Magnitud Mw): +1 en magnitud = 32 vegades més energia. La ==intensitat== (escala Mercalli XII graus) mesura l'efecte local (depèn de la distància, la profunditat i el substrat). Un terratrèmol M4 poc profund pot causar més danys que un M6 profund. ==Risc sísmic|r== = perillositat (probabilitat) × exposició (edificis) × vulnerabilitat (qualitat constructiva).",
@@ -105,6 +133,13 @@ export const sa5s2 = {
     },
     {
       id: "t5",
+      images: [
+        {
+          "src": "images/sa5-fotos/s2-t5.jpg",
+          "caption": "El volcà del Croscat, a la Garrotxa: el vulcanisme català més recent.",
+          "credit": "Carquinyol from Badalona, Catalunya · CC BY-SA 2.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Connexió ==enigma==: terratrèmols al Pirineu i volcans a la Garrotxa",
       text: "Ara tens les dues peces per respondre l'enigma. 1) ==Terratrèmols al Pirineu|r==: el Pirineu es va formar fa 55-35 Ma per la col·lisió de la placa Ibèrica i la placa Euràsia (límit convergent continental). Les ==falles|r== que van aixecar les muntanyes encara estan actives (la col·lisió continua a escala geològica). El terratrèmol de les Preses (1428, M≈6,5-7) i l'activitat sísmica actual de l'Alt Empordà i els Pirineus s'expliquen per la ==reactivació d'aquestes falles|r==. 2) ==Volcans de la Garrotxa|b==: NO és vulcanisme de subducció. Després de la col·lisió alpina, la litosfera de la zona va entrar en ==extensió (rift)|b==: les plaques es van separar lleugerament, permetent que el mantell pujés i generés magma basàltic que va erupcionar a la superfície. El darrer volcà actiu de la Garrotxa va erupcionar fa ≈11.500 anys — en termes geològics, ==és molt recent|o==. Conclusió: el Pirineu (col·lisió) i la Garrotxa (extensió) són processos oposats que van succeir seqüencialment en la mateixa zona.",

@@ -87,6 +87,13 @@ export const sa3s3 = {
     },
     {
       id: "t2",
+      images: [
+        {
+          "src": "images/sa3-fotos/s3-t2.jpg",
+          "caption": "Immunitat de grup: si la majoria està vacunada, el patogen no troba camí per arribar a qui no ho pot estar.",
+          "credit": "Tkarcher · CC BY-SA 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "2",
       heading: "==Immunitat de grup==: per quina raó TOTS hem de vacunar-nos",
       text: "Si prou persones estan immunitzades, el virus ==no pot circular|g== i protegeix fins i tot els que NO es poden vacunar (bebès <6 mesos, immunodeprimits, persones al·lèrgiques). ==Llindar d'immunitat de grup== = 1 − 1/R₀. Per a la ==grip (R₀≈2,5)|o== el llindar és 1 − 1/2,5 = ==60%|g==; per al ==xarampió (R₀≈15)|r== cal vacunar el ==93%|g== de la població. Per sota del llindar: risc de brots.",
@@ -95,6 +102,13 @@ export const sa3s3 = {
     },
     {
       id: "t3",
+      images: [
+        {
+          "src": "images/sa3-fotos/s3-t3.jpg",
+          "caption": "La vacuna triple vírica (xarampió, galteres i rubèola), la que va ser injustament assenyalada per l'article de Wakefield.",
+          "credit": "Whispyhistory · CC BY-SA 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "El cas ==Wakefield== (1998): per quina raó l'article va ser retirat",
       text: "Andrew Wakefield va publicar a ==The Lancet|o== un estudi amb ==12 nens|r== que suggeria vincle entre la vacuna MMR i l'autisme. Problemes: ==mostra irrisòria (n=12)|r==, ==conflicte d'interès econòmic|r== (cobrava d'advocats anti-vacunes), ==dades manipulades|r==. El 2010, The Lancet ==va retirar l'article|r==. Wakefield va perdre la ==llicència mèdica|r==. Cap estudi posterior (milions de nens) ha trobat cap vincle.",
@@ -103,6 +117,13 @@ export const sa3s3 = {
     },
     {
       id: "t4",
+      images: [
+        {
+          "src": "images/sa3-fotos/s3-t4.jpg",
+          "caption": "Revistes científiques: abans de publicar, altres experts revisen els articles.",
+          "credit": "Andrepach · CC BY-SA 4.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Com avaluar una font: 6 criteris",
       text: "1. ==Qui ho signa?|o== (autor/a i credencials: és especialista en el tema?). 2. ==On es publica?|o== (revista científica revisada per parells vs blog o xarxes). 3. ==Estudis originals verificables|g== (cita estudis que pots trobar i comprovar? Un sol estudi no és suficient: cal que altres grups independents arribin al mateix resultat). 4. ==Mida de la mostra|o== (n=12 vs n=1.200.000 → la mida importa). 5. ==Conflicte d'interès|r== (qui ho diu en treu profit econòmic?). 6. ==Titular i contingut|g== (el titular diu el mateix que el cos de l'article?). Cada criteri es puntua de 0 a 2: ==més de 8 sobre 12 = font fiable|g==.",
@@ -111,6 +132,13 @@ export const sa3s3 = {
     },
     {
       id: "t5",
+      images: [
+        {
+          "src": "images/sa3-fotos/s3-t5.jpg",
+          "caption": "Vacunació infantil al centre de salut.",
+          "credit": "Shixart1985 · CC BY 2.0 · Wikimedia Commons"
+        }
+      ],
       apartat: "3",
       heading: "Connexió ==enigma 2==: resolució",
       text: "L'article de Wakefield era ==pseudociència amb frau intencional|r==: mostra massa petita, conflicte d'interès, dades manipulades. La ciència real: ==estudis de milions de nens|g== (Danès 2019, n=650.000; britànic, n=498.000; etc.) == no han trobat cap vincle|g== entre la vacuna MMR i l'autisme. L'article va ser retirat perquè ==no complia els criteris bàsics de la ciència|r==.",
