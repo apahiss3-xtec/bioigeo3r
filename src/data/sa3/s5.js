@@ -122,42 +122,32 @@ export const sa3s5 = {
     { name: "Targetes de substàncies (20 targetes retallables)", url: "/fitxes/sa3-s5-targetes-substancies.html" },
     { name: "Rúbrica de la campanya de comunicació científica", url: "/fitxes/sa3-s5-rubrica-campanya.html" },
     { name: "Full de sortida — versions A i B", url: "/fitxes/sa3-s5-full-sortida.html" },
-    { name: "Full de sortida — versió C (amb bastida)", url: "/fitxes/sa3-s5-full-sortida-C.html" }
+    { name: "Full de sortida — versió C (amb bastida)", url: "/fitxes/sa3-s5-full-sortida-C.html" },
+    { name: "Fitxa de la sessió · acollida (urdú)", url: "/fitxes/sa3-s5-fitxa-acollida-UR.html" },
+    { name: "Fitxa de la sessió · acollida (àrab)", url: "/fitxes/sa3-s5-fitxa-acollida-AR.html" }
   ],
 
   fitxaUrl: { A: "/fitxes/sa3-s5-fitxa-A.html", B: "/fitxes/sa3-s5-fitxa-B.html", C: "/fitxes/sa3-s5-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa3-s5-teoria.pdf",
 
   fitxaGuide: {
-    fitxaName: "Fitxa Sessió 5 — Drogues, addicció i síntesi",
+    fitxaName: "Fitxa S5 — Drogues, addicció i síntesi",
     steps: [
-      { apartat: "0", title: "Idees prèvies i la demostració de les pilotes", time: "10 min", phase: "engage", instruction: "Apartat 0: escriu què és per a tu una droga i per quina raó costa tant deixar una addicció. Després mira la demostració de les pilotes de ping-pong i anota què li passa a la neurona que rep.", hints: [] },
-      { apartat: "1", title: "Classificació de substàncies", time: "25 min", phase: "explore", instruction: "Apartat 1: amb les targetes de substàncies, completa el quadre (endògena/exògena, medicament, droga recreativa i zona grisa) amb 2 exemples a cada casella i el criteri que has fet servir.", hints: [
-        "Endògena = el cos la produeix (dopamina, endorfines). Exògena = entra des de fora (cafè, alcohol, fàrmacs, drogues).",
-        "La zona grisa (cafè, alcohol, tabac) és legal però també altera el sistema nerviós i pot crear dependència.",
-        "Hi ha targetes que no cauen net en una sola casella (morfina, diazepam): són les que fan pensar."
-      ] },
-      { apartat: "2", title: "La sinapsi i la droga", time: "25 min", phase: "explica", instruction: "Apartat 2: completa les frases sobre com una droga imita un neurotransmissor, resol el cas de la Idoia i explica per quina raó el cervell redueix receptors amb l'ús repetit.", hints: [
-        "Dopamina: neurotransmissor de la recompensa. Una droga inunda els receptors amb molta més concentració que el procés natural.",
-        "Tolerància: el cervell s'adapta reduint receptors → cal més dosi. Abstinència: malestar físic quan falta la droga."
-      ] },
-      { apartat: "3", title: "Mapa de síntesi i els dos enigmes", time: "15 min", phase: "explica", instruction: "Apartat 3: dibuixa el mapa conceptual connectant com a mínim 6 conceptes de la unitat i escriu la resolució dels dos enigmes de la paret.", hints: [
-        "Enigma A (Martina): hi ha dues explicacions possibles i totes dues poden ser certes alhora. Una depèn del seu cos; l'altra, de la gent del seu voltant.",
-        "Enigma B (article Wakefield): aplica-hi els 6 criteris per avaluar una font de la Sessió 3, un per un, i mira quins incompleix. Les dades són a la teva fitxa."
-      ] },
-      { apartat: "4", title: "La campanya de comunicació científica", time: "25 min", phase: "elabora", instruction: "Apartat 4, en grup: planifiqueu la campanya que desmunta un mite sobre la salut. Ompliu el guió de 4 apartats, decidiu l'audiència i el canal, i repartiu-vos la feina. L'acabareu a casa.", hints: [
-        "El mite ha de fallar almenys un dels 6 criteris de la Sessió 3: autor/a, on es publica, estudis verificables, mida de la mostra, conflicte d'interès, titular i contingut.",
-        "Llegiu la rúbrica de la campanya ABANS de començar: us diu exactament què es valora."
-      ] }
+      { apartat: "1", title: "Idees prèvies i la demostració", time: "10 min", phase: "engage", instruction: "Escriu primer què en penses i després mira la demostració; ho compararàs amb el que vas escriure a la S1.", hints: [] },
+      { apartat: "2", title: "Classificació de substàncies", time: "25 min", phase: "explore", instruction: "Endògena/exògena, medicament/droga i la zona grisa, amb les targetes de substàncies.", hints: [] },
+      { apartat: "3", title: "La sinapsi i la droga", time: "25 min", phase: "explica", instruction: "Com una substància segresta el sistema de recompensa: inundació de dopamina, tolerància i abstinència.", hints: [] },
+      { apartat: "4", title: "Mapa de síntesi i els dos enigmes", time: "15 min", phase: "elabora", instruction: "Mapa de tota la SA (a la llibreta a les versions A i B) i resolució dels enigmes A (la Martina) i B (Wakefield). La classe tanca el pòster (v3).", hints: [] },
+      { apartat: "5", title: "La campanya de comunicació científica", time: "25 min", phase: "elabora", instruction: "En grup, producte final de la unitat (rúbrica a part).", hints: [] },
+      { apartat: "Final", title: "Full de sortida", time: "10 min", phase: "elabora", instruction: "Sol/a i sense ajuda, en un full a part. A les versions A i B, les respostes obertes van a la llibreta sense copiar l'enunciat; només s'omplen a la fitxa les taules, les frases i els esquemes (icona 📄).", hints: [] }
     ]
   },
 
   exitTicketType: "paper",
   exitTicketQuestions: [
-    { id: "q1", type: "open", text: "Resol l'enigma A: per quina raó la Martina (no vacunada) i la seva àvia (vacunada) van escapar de la grip de novembre? Dóna almenys 2 explicacions fonamentades per a la Martina.", hint: "Per a la Martina hi ha dos camins possibles i tots dos són compatibles: un depèn del SEU cos i l'altre de la gent del SEU VOLTANT. Per a l'àvia n'hi ha prou amb el mecanisme de la Sessió 3." },
-    { id: "q2", type: "open", text: "L'article de Wakefield afirmava que les vacunes causen autisme. Per quina raó la revista científica el va retirar? Cita almenys 2 raons concretes.", hint: "Repassa els 6 criteris de la Sessió 3 i mira quins incompleix l'article. La caixa «Dades per a l'Enigma B» de la teva fitxa té els números." },
-    { id: "q3", type: "open", text: "Per quina raó l'addicció NO és «només qüestió de voluntat»? Usa les paraules dopamina i receptors.", hint: "Comença pel que passa als receptors quan la droga hi arriba, i segueix amb el que fa el cervell si això es repeteix cada dia. La figura dels quatre quadres de l'apartat 2 explica tota la cadena." }
+    { id: "q1", type: "open", text: "Enigma A. Per què la Martina (no vacunada) i la seva àvia (vacunada) van escapar de la grip? Dona dues explicacions per a la Martina.", hint: "Ja l'havia passada? Immunitat de grup?" },
+    { id: "q2", type: "open", text: "Enigma B. Per què la revista va retirar l'article de Wakefield? Cita dues raons concretes i compara-ho amb el nostre experiment de les plaques.", hint: "12 nens, sense grup control, interès econòmic…" },
+    { id: "q3", type: "open", text: "Per què l'addicció NO és «només qüestió de voluntat»? Fes servir les paraules dopamina i receptors.", hint: "Amb l'ús repetit el cervell retira receptors…" }
   ],
-  exitTicketNote: "Avaluació de la unitat (resolució dels dos enigmes). Individual, sense ajuda, i es recull. Es pot respondre a l'ordinador o en paper: el full imprès porta les mateixes tres preguntes (versions A i B, i versió C amb bastida).",
+  exitTicketNote: "Fulls de sortida individuals, sense ajuda, es recullen. Versions A i B: dos fulls per A4 (es retallen); versió C: un per pàgina, amb pistes. Qui ha faltat pot respondre-les en línia.",
 
   deliverables: [
     { name: "Campanya de comunicació científica (cartell o vídeo de 60 s)", note: "Es comença a classe a l'apartat 4 i s'acaba a casa. Entrega a Classroom, termini 1 setmana. Desmunta un mite sobre salut aplicant els 6 criteris de qualitat. Rúbrica: /fitxes/sa3-s5-rubrica-campanya.html" }

@@ -159,7 +159,9 @@ export const sa3s3 = {
     { name: "Articles A, B i C — versions A i B", url: "/fitxes/sa3-s3-articles.html" },
     { name: "Articles A, B i C — versió C (simplificada)", url: "/fitxes/sa3-s3-articles-C.html" },
     { name: "Full de sortida — versions A i B", url: "/fitxes/sa3-s3-exit-ticket.html" },
-    { name: "Full de sortida — versió C (amb bastida)", url: "/fitxes/sa3-s3-exit-ticket-C.html" }
+    { name: "Full de sortida — versió C (amb bastida)", url: "/fitxes/sa3-s3-exit-ticket-C.html" },
+    { name: "Fitxa de la sessió · acollida (urdú)", url: "/fitxes/sa3-s3-fitxa-acollida-UR.html" },
+    { name: "Fitxa de la sessió · acollida (àrab)", url: "/fitxes/sa3-s3-fitxa-acollida-AR.html" }
   ],
 
   fitxaUrl: { A: "/fitxes/sa3-s3-fitxa-A.html", B: "/fitxes/sa3-s3-fitxa-B.html", C: "/fitxes/sa3-s3-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa3-s3-teoria.pdf",
@@ -167,30 +169,22 @@ export const sa3s3 = {
   fitxaGuide: {
     fitxaName: "Fitxa S3 — Vacunes: ciència o mite?",
     steps: [
-      { apartat: "0", title: "Posada en comú dels deures i idees prèvies", time: "10 min", phase: "engage", instruction: "Primer, posada en comú dels titulars que has portat de S2 (5 min). Després, apartat 0: escriu què és una vacuna (què conté i què li fa al cos) i com es poden protegir les persones que no es poden vacunar. Ho compararàs al final de la SA.", hints: [] },
-      { apartat: "1", title: "Observar i avaluar fonts", time: "30 min", phase: "explore", instruction: "Apartat 1: part A, torna a observar les plaques de Petri 48 h després i anota si ha sortit el que esperaves; part B, llegeix els tres articles (A, B i C) i puntua cada criteri de 0 a 2 (suma de més de 8 = font fiable). Pensa si amb una mostra de 12 persones es poden treure conclusions fiables.", hints: [
-        "Mira primer qui és l'autor/a, on s'ha publicat i quants casos té l'estudi.",
-        "Pregunta't qui hi podria guanyar alguna cosa (conflicte d'interès)."
-      ] },
-      { apartat: "2", title: "Com funcionen les vacunes", time: "20 min", phase: "explica", instruction: "Apartat 2: completa el camí d'una vacuna (antigen → cèl·lules de memòria → resposta ràpida) i calcula el llindar d'immunitat de grup per al xarampió amb la fórmula 1 − 1/R₀. Després comprova-ho amb el simulador: posa el xarampió, prova diferents % de vacunats amb «Simula 100 brots» i busca el % mínim on cada persona contagiosa en contagia menys d'1. Coincideix amb el teu càlcul?", hints: [
-        "Una vacuna ensenya el cos a fabricar el «pany» abans que arribi la «clau» perillosa.",
-        "Llindar = 1 − 1/R₀. Amb calculadora: 1 − 1/15 = 0,93 → 93 %."
-      ] },
-      { apartat: "3", title: "Donació d'òrgans i resolució de l'enigma", time: "20 min", phase: "explica", instruction: "Apartat 3: explica per què cal compatibilitat HLA en una donació d'òrgans, escriu la resposta científica a l'enigma B amb les dades d'avui (12 nens vs més d'1.200.000) i esbossa el missatge d'una campanya per a una família que dubta.", hints: [
-        "Els antígens HLA del donant i del receptor han d'encaixar, com el model clau-pany.",
-        "Escriu la resposta en una frase i digues per què es pot confiar en les dades."
-      ] },
-      { apartat: "Final", title: "Full de sortida i metacognició", time: "13 min", phase: "elabora", instruction: "Full de sortida (10 min): sol/a i sense ajuda, tres preguntes de cas; lliura'l a la professora. Després, metacognició (3 min): torna als objectius del principi, marca el que has après i apunta què et continues preguntant.", hints: [] }
+      { apartat: "1", title: "Ronda 3: vacunem", time: "30 min", phase: "explore", instruction: "Repetim la simulació amb el 30 % i el 80 % de vacunats. Predius abans, compteu després i compares amb el llindar d'immunitat de grup (1 − 1/R₀).", hints: ["1 − 1/R₀: amb R₀ = 2,5 cal vacunar el 60 %."] },
+      { apartat: "2", title: "Com funciona una vacuna", time: "15 min", phase: "explica", instruction: "Completa el mecanisme: antigen sense malaltia → memòria → resposta secundària ràpida. Per què la de la grip s'ha de repetir cada any i la del xarampió no?", hints: [] },
+      { apartat: "3", title: "Ciència o mite? Avaluem fonts", time: "30 min", phase: "elabora", instruction: "Graella de 6 criteris de fiabilitat aplicada a una notícia i al cas Wakefield. Compara-ho amb el disseny de les nostres plaques: què teníem que ell no tenia?", hints: ["Mida de la mostra, grup control, conflicte d'interès, revisió per experts."] },
+      { apartat: "4", title: "Trasplantaments", time: "15 min", phase: "elabora", instruction: "Per què el cos pot rebutjar un òrgan d'una altra persona (HLA) i per què cal prendre immunosupressors?", hints: [] },
+      { apartat: "5", title: "Comencem la campanya", time: "15 min", phase: "elabora", instruction: "En grup: missatge, públic i format de la campanya. Enigma B (Wakefield): primera hipòtesi.", hints: [] },
+      { apartat: "Final", title: "Full de sortida", time: "10 min", phase: "elabora", instruction: "Sol/a i sense ajuda, en un full a part. A les versions A i B, les respostes obertes van a la llibreta sense copiar l'enunciat; només s'omplen a la fitxa les taules, les frases i els esquemes (icona 📄).", hints: [] }
     ]
   },
 
   exitTicketType: "paper",
   exitTicketQuestions: [
-    { id: "q1", type: "open", text: "Un vídeo viral diu: «les vacunes no serveixen: el cos ja es defensa sol». Fes servir el mecanisme d'una vacuna (antigen, memòria, resposta ràpida) per desmuntar aquesta afirmació.", hint: "Vacuna → antigen sense malaltia → anticossos + memòria → resposta ràpida si arriba el patogen real." },
-    { id: "q2", type: "open", text: "Un brot de xarampió (R₀ = 12) arriba a una ciutat on el 90 % de la població està vacunada. Calcula el llindar d'immunitat de grup (1 − 1/R₀) i digues si la ciutat està protegida. Justifica-ho.", hint: "Llindar = 1 − 1/12 ≈ 0,92 → 92 %. 90 % és inferior: el brot encara es podria estendre." },
-    { id: "q3", type: "open", text: "Et passen aquest missatge: «Un estudi amb 15 persones demostra que el suc X cura la grip». L'autor és l'empresari que ven el suc. Aplica dos criteris de fiabilitat d'una font i digues si hi confiaries.", hint: "Criteris: mostra (15 és molt petita), conflicte d'interès (ven el producte), on es publica (un blog no és una revista científica), estudis originals verificables (n'hi ha?)." }
+    { id: "q1", type: "open", text: "Un vídeo viral diu: «les vacunes no serveixen: el cos ja es defensa sol». Desmunta-ho amb el mecanisme d'una vacuna (antigen, memòria, resposta ràpida).", hint: "La vacuna porta l'antigen sense la malaltia → memòria → …" },
+    { id: "q2", type: "open", text: "Un brot de xarampió (R₀ = 12) arriba a una ciutat amb el 90 % de la població vacunada. Calcula el llindar (1 − 1/R₀) i digues si la ciutat està protegida.", hint: "1 − 1/12 = …" },
+    { id: "q3", type: "open", text: "«Un estudi amb 15 persones demostra que el suc X cura la grip.» L'autor ven el suc. Aplica dos criteris de fiabilitat: hi confiaries?", hint: "Mida de la mostra, conflicte d'interès…" }
   ],
-  exitTicketNote: "Les tres preguntes són de cas i es responen sol/a i sense ajuda. Es fa en un full a part (versions A i B, i versió C amb bastida). Qui ha faltat pot respondre-les en línia.",
+  exitTicketNote: "Fulls de sortida individuals, sense ajuda, es recullen. Versions A i B: dos fulls per A4 (es retallen); versió C: un per pàgina, amb pistes. Qui ha faltat pot respondre-les en línia.",
 
   homework: { description: "Reflexió: pensa en una substància que modifica el cos o el comportament (un medicament, una beguda energètica, l'alcohol, el tabac, el cafè...). A S4 hauràs de dir per quina raó creus que és o no és una «droga». No cal recerca: cal pensar-hi." },
   recoveryInstructions: [

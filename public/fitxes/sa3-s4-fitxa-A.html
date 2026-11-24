@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SA3 · S4 · Medicaments: com actuen — Autònom — IE Temple</title>
+<title>SA3 · S4 · Medicaments — Autònom — IE Temple</title>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 
@@ -164,6 +164,16 @@ span[contenteditable] { display:inline-block; }
 .fig-ph .ph-ico { font-size:26px; display:block; margin-bottom:5px; }
 .figcap { font-size:9.5px; color:var(--muted); margin-top:5px; font-style:italic; line-height:1.4; }
 .pista { font-size:11px; color:var(--ink-2); font-style:italic; line-height:1.45; margin:3px 0 4px; padding-left:3px; }
+
+/* BUG corregit 2026-08-21: .callout i .fig-row s'usaven a les fitxes de tota la
+   SA3 pero no estaven definides enlloc. La caixa "Idea clau" -el missatge central
+   de cada sessio- s'imprimia com un paragraf gris qualsevol, i les figures
+   pensades per anar de dues en dues s'apilaven verticalment. */
+.callout{background:#FFF6E2;border-left:5px solid #D98B34;border-radius:0 9px 9px 0;
+  padding:9px 12px;margin:10px 0;font-size:11.5px;line-height:1.45;break-inside:avoid;}
+.callout b,.callout strong{color:#8A5514;}
+.fig-row{display:flex;gap:10px;align-items:flex-start;margin:8px 0;break-inside:avoid;}
+.fig-row .fig{flex:1;min-width:0;margin:0;}
 .pista b, .pista strong { color:var(--purple-ink); font-style:normal; }
 @media print {
   @page { size:A4; margin:10mm 12mm; }
@@ -184,19 +194,50 @@ span[contenteditable] { display:inline-block; }
 }
 
 
-/* revisió A: cap títol de secció orfe a peu de full */
-@media print{.section-header,.divider,.section > p:first-child{break-after:avoid;page-break-after:avoid}.divider + *{break-before:avoid;page-break-before:avoid}.hipotesi-box,.epist-box,.explore-q{break-inside:avoid}}
+.ico-wrap { display:inline-flex; align-items:center; justify-content:center; width:21px; height:21px; border-radius:5px; flex-shrink:0; vertical-align:middle; }
+.ico-fitxa { color:var(--purple-ink); background:var(--purple-tint); border:1.3px solid var(--purple-light); }
+.ico-llib { color:#7a4a12; background:#FFF6E2; border:1.3px solid #E2B877; }
+.ico { display:block; }
+.llegenda { display:inline-flex; align-items:center; gap:5px; font-size:10.5px; color:var(--ink-2); }
+.llegenda i { color:var(--muted); }
+.llegenda .ico-wrap { width:18px; height:18px; }
+.pq { display:flex; gap:7px; align-items:flex-start; margin:0 0 7px; break-inside:avoid; }
+.pq-num { flex-shrink:0; min-width:19px; height:19px; border-radius:50%; background:var(--purple); color:#fff; font-size:10.5px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; padding:0 4px; }
+.pq-body { flex:1; font-size:11.5px; line-height:1.42; }
+.pq-body .pista { margin:2px 0 0; font-size:10.5px; }
+.llib-tag { font-size:9.5px; font-weight:700; color:#7a4a12; letter-spacing:.04em; white-space:nowrap; }
+.iniciadors { display:flex; flex-wrap:wrap; gap:4px; margin:4px 0 6px; }
+.iniciadors span { font-size:10.5px; background:#fff; border:1.4px dashed var(--purple-light); border-radius:9999px; padding:1px 8px; color:var(--purple-ink); font-weight:600; }
+.cer { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin:4px 0 6px; }
+.cer div { border:1.4px solid var(--purple-light); border-radius:7px; padding:4px 7px; font-size:10.5px; background:#fff; }
+.cer b { display:block; font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--purple-ink); }
+.svg-fig { display:block; margin:4px auto; max-width:100%; }
+body.compact .svg-fig { max-height:118px; width:auto; margin:2px auto; }
+.nota-sec { font-size:10px; color:var(--muted); font-style:italic; margin:2px 0 6px; }
+body.compact .header-band { padding:9px 16px; grid-template-columns:52px 1fr 150px; gap:10px; }
+body.compact .header-emoji-box { width:46px; height:46px; font-size:26px; border-radius:11px; }
+body.compact .header-title { font-size:20px; }
+body.compact .header-subtitle { font-size:12px; margin-top:2px; }
+body.compact .logo-box img { height:46px !important; }
+body.compact .oa-box { padding:6px 14px; }
+body.compact .oa-list li { font-size:10.8px; padding:1px 0 1px 20px; }
+body.compact .content { padding:8px 20px 16px; }
+body.compact .section { margin-top:9px; }
+body.compact .section-header { margin-bottom:5px; }
+body.compact .stitle { font-size:13.5px; }
+body.compact .divider { margin-bottom:6px; }
+body.compact .data-table { margin-bottom:6px; font-size:10.5px; }
+body.compact .data-table td { padding:3px 7px; }
+body.compact .fill-cell { min-height:18px; }
+body.compact .fig { margin:5px 0; }
+body.compact .fig-frame img { max-height:150px; }
+body.compact .callout, body.compact .info-box, body.compact .epist-box { margin:6px 0; padding:6px 10px; }
+body.compact .tasca-box { margin-top:8px; padding:7px 12px; }
+body.compact .frase-completar { line-height:2.1; margin:2px 0 4px; }
 
-/* revisió A 02/10/2026 — metacognició compacta: objectius a 2 columnes */
-.meta-oa-box{display:grid;grid-template-columns:1fr 1fr;column-gap:16px;row-gap:2px;padding:8px 12px 8px;margin-top:8px}
-.meta-oa-box > *:not(.meta-oa-item){grid-column:1 / -1}
-.meta-oa-box .meta-oa-title{margin-bottom:4px}
-.meta-oa-box .meta-oa-item{margin-bottom:2px}
-.meta-oa-box .meta-oa-text{font-size:10px;line-height:1.3}
-.meta-oa-box .meta-open{margin-top:4px;padding-top:4px}
 </style>
 </head>
-<body>
+<body class="compact">
 
 <div id="toolbar">
   <span class="tb-tip">✎ Clica per editar · <strong>Ctrl+B</strong> negreta · <strong>×</strong> rosa elimina · <strong>Ctrl+Z</strong> desfés · <strong>Ctrl+S</strong> desa</span>
@@ -216,9 +257,9 @@ span[contenteditable] { display:inline-block; }
       <div class="header-emoji-box" contenteditable="true">💊</div>
     </div>
     <div class="header-main">
-      <div class="header-sa" contenteditable="true">Defensors del cos · Sessió 4 de 5</div>
-      <div class="header-title" contenteditable="true">Medicaments: com actuen</div>
-      <div class="header-subtitle" contenteditable="true">Mecanisme dels fàrmacs · automedicació · efecte placebo</div>
+      <div class="header-sa" contenteditable="true">SA3 · Defensors del cos · Sessió 4</div>
+      <div class="header-title" contenteditable="true">Medicaments: funcionen de debò?</div>
+      <div class="header-subtitle" contenteditable="true">Com actuen i com es comprova que funcionen</div>
     </div>
     <div class="header-right">
       <div class="logo-box">
@@ -232,30 +273,45 @@ span[contenteditable] { display:inline-block; }
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <span class="nivell-label deletable" contenteditable="true">Autònom<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
 
+    <span class="llegenda"><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span> a la fitxa &nbsp;·&nbsp; <span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span> a la llibreta <i>(sense copiar l'enunciat)</i></span>
     <div class="nom-field deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
       &nbsp;&nbsp;Data:&nbsp;<span class="input-span data-span" contenteditable="true"></span>
-      &nbsp;<span class="nivell-badge-small" title="Versió A — Ampliació">A</span>
+      &nbsp;<span class="nivell-badge-small" title="Versió A — Autònom / Ampliació">A</span>
     </div>
   </div>
 
   <div class="oa-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="oa-title">🎯 Objectius d'aprenentatge d'avui</div>
+    <div class="oa-title">🎯 Objectius d'aprenentatge d'avui (Nivell A)</div>
     <ul class="oa-list">
-      <li contenteditable="true">Classifico els fàrmacs per mecanisme d'acció i distingeixo tractar símptoma de tractar causa.</li>
-      <li contenteditable="true">Explico el mecanisme molecular de l'ibuprofèn (inhibició COX) i les conseqüències per a l'estómac.</li>
-      <li contenteditable="true">Analitzo les resistències als antibiòtics com a conseqüència de la selecció natural.</li>
-      <li contenteditable="true">Dissenyo un experiment controlat per distingir l'efecte real d'un fàrmac del placebo.</li>
+      <li contenteditable="true">Classifico els fàrmacs en famílies i explico per què un fàrmac pot tenir més d'un efecte.</li>
+      <li contenteditable="true">Explico el mecanisme de l'ibuprofèn (COX) i per què l'antibiòtic no actua sobre virus.</li>
+      <li contenteditable="true">Dissenyo un assaig amb grup control, placebo i doble cec, i en valoro l'ètica.</li>
+      <li contenteditable="true">Argumento els riscos de l'automedicació i de les resistències.</li>
     </ul>
   </div>
 
   <div class="content">
-<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--muted)">0</div><div><div class="stitle" contenteditable="true">Idees prèvies</div><div class="sdesc" contenteditable="true">Sense guies — escriu el teu raonament</div></div></div><div class="divider"></div><div class="previ-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><p>✏️ <strong>1.</strong> Quan prens una pastilla per al mal de cap, el dolor marxa. Creus que la pastilla ha eliminat la causa del mal de cap, o ha fet una altra cosa? Explica-ho.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="margin-top:8px">✏️ <strong>2.</strong> Imagina que proves un remei nou i et trobes millor. Com podries saber del cert si t'ha curat el remei i no una altra cosa?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--orange)">1</div><div><div class="stitle" contenteditable="true">Estacions de medicaments</div><div class="sdesc" contenteditable="true">Anàlisi mecanística</div></div></div><div class="divider"></div><p style="font-size:11px;margin:0 0 8px">📍 Completa la taula amb la informació de les <strong>targetes de les estacions</strong> repartides per l'aula (a cada estació hi trobaràs la família del fàrmac, per a què serveix, on actua i si <strong>cal recepta</strong>).</p><table class="data-table"><thead><tr><th>Família</th><th>Per a què serveix</th><th>On actua</th><th>Cal recepta?</th></tr></thead><tbody><tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Analgèsics (paracetamol, ibuprofèn)</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Antitèrmics (paracetamol)</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Antisèptics</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Antiinflamatoris (ibuprofèn, aspirina)</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">?</div><div class="explore-qtext"><span>El paracetamol és analgèsic i antitèrmic però NO antiinflamatori. L'ibuprofèn és els tres. Per quina raó? (Relaciona amb el mecanisme COX i les prostaglandines.)</span><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="epist-box"><div style="font-size:22px;flex-shrink:0">🔭</div><div><div class="epist-title">🔮 Prediu</div><div class="epist-text">En una infecció, uns pocs bacteris resisteixen l'antibiòtic per atzar i sobreviuen (<strong>selecció natural</strong>). Prediu què passarà amb la infecció si el pacient deixa el tractament a mitges, i proposa dues mesures per frenar les resistències.</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--teal)">2</div><div><div class="stitle" contenteditable="true">Com actuen per dins</div><div class="sdesc" contenteditable="true">Mecanisme molecular</div></div></div><div class="divider"></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s4_causa_simptoma.png" alt="Causa, símptoma i fàrmac" style="max-height:150px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Causa, símptoma i fàrmac</span></div></div><figcaption class="figcap" contenteditable="true">Els 4 passos: ① causa (el microbi) → ② malaltia → ③ símptoma (febre, dolor) → ④ el fàrmac actua sobre el símptoma, no sempre sobre la causa.</figcaption></figure><div class="fig-row"><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s4_cox.png" alt="Mecanisme COX" style="max-height:150px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Mecanisme COX</span></div></div><figcaption class="figcap" contenteditable="true">① Arriba el senyal de dolor → ② l'ibuprofèn bloqueja l'enzim COX → ③ menys prostaglandines → ④ menys dolor i inflamació.</figcaption></figure></div><p style="font-size:11.5px;margin:8px 0 4px">✏️ Explica el mecanisme de l'ibuprofèn (COX → prostaglandines → dolor/inflamació) i per quina raó inhibir COX pot irritar l'estómac (prostaglandines protectores de la mucosa):</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--rose)">3</div><div><div class="stitle" contenteditable="true">Automedicació, placebo i cas Yasmina</div><div class="sdesc" contenteditable="true">Pensament crític</div></div></div><div class="divider"></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s4_placebo.png" alt="Efecte placebo" style="max-height:150px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Efecte placebo</span></div></div><figcaption class="figcap" contenteditable="true">① Prens una pastilla sense principi actiu → ② el cervell espera millorar → ③ allibera endorfines → ④ el dolor baixa de veritat.</figcaption></figure><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">!</div><div class="explore-qtext"><span><strong>Cas Yasmina.</strong> Dia 1: antibiòtics per a la grip. Dia 3: ibuprofèn + paracetamol. Dia 5: millora.</span><p style="font-size:11px;margin-top:6px">a) Enumera i justifica 3 errors concrets (inclou el risc d'interacció farmacològica).</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="font-size:11px;margin-top:4px">b) Dissenya un experiment amb grup control i grup placebo per determinar si els antibiòtics haurien curat la grip de la Yasmina.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="epist-box"><div style="font-size:22px;flex-shrink:0">🔭</div><div><div class="epist-title">🧠 Pensa-hi</div><div class="epist-text">Cap fàrmac s'aprova sense un <strong>assaig clínic</strong>. En un assaig <strong>doble cec</strong>, ni el pacient ni el metge saben qui rep el fàrmac real i qui rep el placebo fins al final. Explica per quina raó amagar-ho als <strong>dos</strong> (pacient i metge) dóna un resultat més fiable que amagar-ho només al pacient.</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div></div><div class="section deletable" style="margin-top:16px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">🎟️</div><div class="connexio-text" contenteditable="true"><strong>Full de sortida.</strong> El professor et donarà un <strong>full a part</strong> amb 3 preguntes sobre el que has treballat avui. Es fa <strong>individualment i sense ajuda</strong>, i <strong>es recull</strong>. Aquesta fitxa te la quedes tu per estudiar.</div></div></div>
-    <div class="section deletable" style="margin-top:14px"><div class="del-btn" onclick="deleteEl(this)">✕</div><p style="font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:6px">🧠 Metacognició</p><div class="meta-oa-box deletable" style="margin-bottom:8px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-title">🎯 Què he après avui? Marca els objectius que ja domines:</div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Classifico els fàrmacs per mecanisme d'acció i distingeixo tractar símptoma de tractar causa.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Explico el mecanisme molecular de l'ibuprofèn (inhibició COX) i les conseqüències per a l'estómac.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Analitzo les resistències als antibiòtics com a conseqüència de la selecció natural.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Dissenyo un experiment controlat per distingir l'efecte real d'un fàrmac del placebo.</div></div>  <div class="meta-label" style="margin-top:6px;font-size:10.5px;font-weight:700;color:var(--purple-ink)" contenteditable="true">🪞 Abans de prendre un medicament, quina pregunta em faré ara que abans no em feia?</div>
-        <div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div>
-      </div></div><div class="tasca-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-title">📚 Tasca per a casa — Sessió 5</div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">1</div><div contenteditable="true">Reflexiona sobre una substància que genera dependència. Prepara una explicació neuroquímica de per quina raó és difícil deixar-la (sinapsi, dopamina, tolerància).</div></div></div><div class="footer"><div class="footer-l">Defensors del cos · Sessió 4 · Medicaments · IE Temple</div><div class="footer-r">CC BY-NC · Albert Pahissa</div></div>
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--teal)">1</div><div><div class="stitle" style="color:var(--teal)" contenteditable="true">Estacions de medicaments</div><div class="sdesc" contenteditable="true">Explorem — famílies de fàrmacs</div></div></div><div class="divider"></div><div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">1</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true">Estacions de medicaments: completa la graella. Compte: hi ha fàrmacs que surten a més d'una família.<table class="data-table deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><tr><th>Família</th><th>Per a què serveix</th><th>On actua</th><th>Recepta?</th></tr><tr><td class="label-cell" contenteditable="true">Analgèsics (paracetamol, ibuprofèn)</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td class="label-cell" contenteditable="true"><span class="circ-opt">sí</span> <span class="circ-opt">no</span></td></tr><tr><td class="label-cell" contenteditable="true">Antitèrmics (paracetamol)</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td class="label-cell" contenteditable="true"><span class="circ-opt">sí</span> <span class="circ-opt">no</span></td></tr><tr><td class="label-cell" contenteditable="true">Antiinflamatoris (ibuprofèn, aspirina)</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td class="label-cell" contenteditable="true"><span class="circ-opt">sí</span> <span class="circ-opt">no</span></td></tr><tr><td class="label-cell" contenteditable="true">Antisèptics (povidona, clorhexidina)</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td class="label-cell" contenteditable="true"><span class="circ-opt">sí</span> <span class="circ-opt">no</span></td></tr><tr><td class="label-cell" contenteditable="true">Antibiòtics (amoxicil·lina)</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td class="label-cell" contenteditable="true"><span class="circ-opt">sí</span> <span class="circ-opt">no</span></td></tr></table>
+</div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">2</div><span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span><div class="pq-body" contenteditable="true">Per què un mateix fàrmac (l'ibuprofèn) pot tenir més d'un efecte?</div></div>
+</div>
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--blue)">2</div><div><div class="stitle" style="color:var(--blue)" contenteditable="true">Com actuen per dins</div><div class="sdesc" contenteditable="true">Explain — símptoma, causa i mecanisme</div></div></div><div class="divider"></div><p class="nota-sec">Esquemes projectats: causa → símptoma, ibuprofèn i COX, antibiòtic i virus.</p><div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">3</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true"><div class="frase-completar">L'ibuprofèn bloqueja l'enzim <span class="blank blank-m"></span> → menys prostaglandines → menys <span class="blank blank-m"></span> i dolor. Baixar la febre <span class="circ-opt">sí</span> <span class="circ-opt">no</span> mata el virus: el fàrmac tracta el <span class="blank blank-m"></span>. L'antibiòtic no serveix per a la grip perquè la grip la causa un <span class="blank blank-m"></span>.</div></div></div>
+</div>
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--rose)">3</div><div><div class="stitle" style="color:var(--rose)" contenteditable="true">Funciona de debò? Dissenyem l'assaig</div><div class="sdesc" contenteditable="true">Construïm — del cas Yasmina al grup control</div></div></div><div class="divider"></div><div class="callout deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><b>Cas Yasmina.</b> Dia 1: té grip i pren antibiòtics que li sobraven. Dia 3: no millora; pren ibuprofèn i paracetamol alhora sense llegir el prospecte. Dia 5: millora i diu que «els antibiòtics l'han curada».</div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">4</div><span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span><div class="pq-body" contenteditable="true">Quins errors ha comès (mínim 2)? Per què millorar el dia 5 <b>no</b> demostra que l'antibiòtic funcionés?</div></div>
+<div class="epist-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div>🔬</div><div><div class="epist-title">Efecte placebo</div><div class="epist-text" contenteditable="true">Una pastilla sense principi actiu pot reduir el dolor de debò, perquè esperar millorar canvia com el cervell percep el dolor. Per això cap fàrmac s'aprova sense comparar-lo amb un grup que pren placebo.</div></div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">5</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true"><b>Dissenya l'assaig (individual · P5).</b> Una empresa diu que el seu xarop cura la tos més de pressa. Fes servir la mateixa plantilla que la fitxa de disseny de les plaques.<table class="data-table deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><tr><th></th><th>El meu assaig</th></tr><tr><td class="label-cell" contenteditable="true">Pregunta (3 parts)</td><td><span class="fill-cell" contenteditable="true" style="min-height:24px"></span></td></tr><tr><td class="label-cell" contenteditable="true">Grups i què pren cada un</td><td><span class="fill-cell" contenteditable="true" style="min-height:24px"></span></td></tr><tr><td class="label-cell" contenteditable="true">Variable dependent (com mesures «curar-se»)</td><td><span class="fill-cell" contenteditable="true" style="min-height:24px"></span></td></tr><tr><td class="label-cell" contenteditable="true">Constants</td><td><span class="fill-cell" contenteditable="true" style="min-height:24px"></span></td></tr><tr><td class="label-cell" contenteditable="true">Doble cec: qui no sap què</td><td><span class="fill-cell" contenteditable="true" style="min-height:24px"></span></td></tr><tr><td class="label-cell" contenteditable="true">Nombre de persones i per què</td><td><span class="fill-cell" contenteditable="true" style="min-height:24px"></span></td></tr></table>
+</div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">6</div><span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span><div class="pq-body" contenteditable="true"><b>Desenllaç.</b> Si els dos grups es curen en el mateix nombre de dies, què vol dir?</div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">A</div><span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span><div class="pq-body" contenteditable="true"><b>Ètica.</b> És correcte donar placebo a una persona malalta? En quins casos no ho seria i què es fa llavors (comparar amb el millor tractament existent)?</div></div>
+</div>
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--muted)">4</div><div><div class="stitle" style="color:var(--muted)" contenteditable="true">Automedicació</div><div class="sdesc" contenteditable="true">Apliquem</div></div></div><div class="divider"></div><div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">7</div><span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span><div class="pq-body" contenteditable="true">Per què acabar tot l'antibiòtic que et recepten, i no guardar-ne les sobres, també protegeix els altres?</div></div>
+</div>
+<div class="tasca-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-title">📚 Abans de la sessió següent</div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">1</div><div contenteditable="true">💭 Pensa en una substància que creus que pot generar dependència i una raó. En parlarem a classe.</div></div></div>
+
   </div><!-- .content -->
 </div><!-- .page-wrap -->
 
@@ -289,8 +345,8 @@ function updatePageBreaks() {
   const doc = document.getElementById('doc');
   if (!doc) return;
   doc.querySelectorAll('.page-break-line,.page-footer-bar').forEach(e=>e.remove());
-  const _nPg = Math.max(1, Math.ceil(doc.scrollHeight / PAGE_H)); /* revisió A: només els fulls que calen */
-  for (let i=1; i<=_nPg; i++) {
+  const nPag = Math.max(1, Math.ceil((doc.scrollHeight - 4) / PAGE_H));
+  for (let i=1; i<=nPag; i++) {
     const y = i*PAGE_H;
     const line = document.createElement('div');
     line.className='page-break-line';
@@ -302,7 +358,7 @@ function updatePageBreaks() {
     const bar = document.createElement('div');
     bar.className='page-footer-bar';
     bar.style.top=(y-20)+'px';
-    bar.innerHTML='<span>SA3 · S4 · Medicaments · IE Temple · Bio/Geo 3r ESO</span><span>CC BY-NC · Albert Pahissa · Pàg. '+i+'</span>';
+    bar.innerHTML='<span>SA3 · S4 · Medicaments · IE Temple</span><span>CC BY-NC · Albert Pahissa · Pàg. '+i+'</span>';
     doc.appendChild(line);
     doc.appendChild(bar);
   }

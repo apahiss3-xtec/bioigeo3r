@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SA3 · S2 · Les defenses del cos — Nivell B</title>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>SA3 · S2 · Les defenses del cos — Semiguiat — IE Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
+
 :root {
   --purple:#2F6B5E; --purple-ink:#173328; --purple-light:#84BBA8; --purple-tint:#EAF4F0;
   --ink:#1A2820; --ink-2:#2e4a3f; --muted:#6a8a7e; --surface:#fdfffe;
@@ -16,6 +17,7 @@
   --yellow:#c8960a; --yellow-tint:#fdf7e2; --yellow-ink:#7a5800;
   --green:#4a9e5c;  --green-tint:#eaf4ec;
   --red:#c0392b;    --red-tint:#fdf2f0;
+  --blue:#2563a8;   --blue-tint:#e8f0fb;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Fira Sans Extra Condensed', sans-serif; background:#6e9d95; color:var(--ink); font-size:13px; line-height:1.5; padding:52px 20px 60px; }
@@ -49,23 +51,20 @@ span[contenteditable] { display:inline-block; }
 .wline:focus { border-bottom-color:var(--purple); background:rgba(47,107,94,.04); }
 .frase-completar { font-size:11.5px; line-height:2.4; margin:4px 0 6px; }
 .blank { display:inline-block; border-bottom:1.5px solid #C8DDD8; vertical-align:bottom; margin:0 3px; height:1.1em; }
-.blank-s  { width: 60px; }
-.blank-m  { width:100px; }
-.blank-l  { width:140px; }
-.blank-xl { width:200px; }
+.blank-s { width:60px; } .blank-m { width:100px; } .blank-l { width:140px; } .blank-xl { width:200px; }
 .nom-field { margin-left:auto; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
 .input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; font-family:'Fira Sans Extra Condensed',sans-serif; color:var(--ink); }
 .input-span.data-span { min-width:65px; }
 .input-span:focus { border-bottom-color:var(--purple); }
 .nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(47,107,94,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); flex-shrink:0; }
 .deletable { position:relative; }
-.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; border-radius:50%; background:#d44a6c; color:white; border:none; cursor:pointer; align-items:center; justify-content:center; font-size:12px; font-weight:900; line-height:1; z-index:100; box-shadow:0 1px 4px rgba(0,0,0,.3); transition:background .1s, transform .1s; }
+.del-btn { display:none; position:absolute; top:-8px; right:-8px; width:18px; height:18px; border-radius:50%; background:#d44a6c; color:white; border:none; cursor:pointer; align-items:center; justify-content:center; font-size:12px; font-weight:900; line-height:1; z-index:100; box-shadow:0 1px 4px rgba(0,0,0,.3); transition:background .1s,transform .1s; }
 .del-btn:hover { background:#b83054; transform:scale(1.15); }
 .deletable:hover > .del-btn { display:flex; }
 .deletable:has(.deletable:hover) > .del-btn { display:none; }
 .nivell-strip .deletable { display:inline-flex; align-items:center; }
 .header-band { background:linear-gradient(135deg,#173328 0%,#2F6B5E 100%); color:#fff; padding:14px 18px; display:grid; grid-template-columns:72px 1fr 178px; gap:14px; align-items:center; position:relative; overflow:hidden; }
-.header-band::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 100% at 110% 50%, rgba(255,255,255,.07) 0%, transparent 70%); pointer-events:none; }
+.header-band::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 100% at 110% 50%,rgba(255,255,255,.07) 0%,transparent 70%); pointer-events:none; }
 .header-emoji-col { display:flex; align-items:center; justify-content:center; }
 .header-emoji-box { width:62px; height:62px; border-radius:14px; background:rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center; font-size:36px; user-select:none; flex-shrink:0; }
 .header-main { min-width:0; }
@@ -140,13 +139,41 @@ span[contenteditable] { display:inline-block; }
 .tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:6px; font-size:11px; }
 .tasca-item:last-child { margin-bottom:0; }
 .tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
-.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(47,107,94,.05) 6px, rgba(47,107,94,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(47,107,94,.05) 6px,rgba(47,107,94,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
 .spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
 .page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:0.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
 .footer { margin-top:12px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
 .footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
 .footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
+.info-box { background:white; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.info-label { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.info-box p { font-size:11px; line-height:1.5; margin-bottom:3px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0 3px; }
+.chain-chip { font-size:10.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:13px; }
+.circ-row { font-size:11.5px; line-height:2.4; margin-bottom:3px; }
+.circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:white; }
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
+.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
+.chips { display:flex; flex-wrap:wrap; gap:4px; }
+.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:white; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.fig { margin:10px 0; text-align:center; }
+.fig-frame { position:relative; display:inline-block; max-width:100%; border:1.5px solid var(--purple-light); border-radius:9px; background:var(--purple-tint); overflow:hidden; box-shadow:0 1px 6px rgba(47,107,94,.12); }
+.fig-frame img { display:block; max-width:100%; object-fit:contain; }
+.fig-ph { display:none; align-items:center; justify-content:center; min-height:118px; padding:16px 20px; font-size:10.5px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
+.fig-ph .ph-ico { font-size:26px; display:block; margin-bottom:5px; }
+.figcap { font-size:9.5px; color:var(--muted); margin-top:5px; font-style:italic; line-height:1.4; }
 .pista { font-size:11px; color:var(--ink-2); font-style:italic; line-height:1.45; margin:3px 0 4px; padding-left:3px; }
+
+/* BUG corregit 2026-08-21: .callout i .fig-row s'usaven a les fitxes de tota la
+   SA3 pero no estaven definides enlloc. La caixa "Idea clau" -el missatge central
+   de cada sessio- s'imprimia com un paragraf gris qualsevol, i les figures
+   pensades per anar de dues en dues s'apilaven verticalment. */
+.callout{background:#FFF6E2;border-left:5px solid #D98B34;border-radius:0 9px 9px 0;
+  padding:9px 12px;margin:10px 0;font-size:11.5px;line-height:1.45;break-inside:avoid;}
+.callout b,.callout strong{color:#8A5514;}
+.fig-row{display:flex;gap:10px;align-items:flex-start;margin:8px 0;break-inside:avoid;}
+.fig-row .fig{flex:1;min-width:0;margin:0;}
 .pista b, .pista strong { color:var(--purple-ink); font-style:normal; }
 @media print {
   @page { size:A4; margin:10mm 12mm; }
@@ -166,21 +193,51 @@ span[contenteditable] { display:inline-block; }
   .nivell-badge-small { background:transparent !important; border-color:#C8DDD8 !important; }
 }
 
-.fig { margin:10px 0; text-align:center; }
-.fig-frame { position:relative; display:inline-block; max-width:100%; border:1.5px solid var(--purple-light); border-radius:9px; background:var(--purple-tint); overflow:hidden; box-shadow:0 1px 6px rgba(47,107,94,.12); }
-.fig-frame img { display:block; max-width:100%; object-fit:contain; }
-.fig-ph { display:none; /* P13 08/10: el rètol «imatge a generar» només surt si la imatge falla (onerror) */ align-items:center; justify-content:center; min-height:118px; padding:16px 20px; font-size:10.5px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
-.fig-ph .ph-ico { font-size:26px; display:block; margin-bottom:5px; }
-.figcap { font-size:9.5px; color:var(--muted); margin-top:5px; font-style:italic; line-height:1.4; }
-.fig-row { display:flex; gap:12px; align-items:stretch; flex-wrap:wrap; justify-content:center; }
-.fig-row .fig { flex:1 1 240px; margin:0; }
-.legend { display:flex; flex-wrap:wrap; gap:5px 12px; justify-content:center; margin-top:6px; font-size:9.5px; color:var(--ink-2); }
-.legend b { color:var(--purple-ink); }
-.callout { background:var(--surface); border:1px dashed var(--rule-dark); border-radius:7px; padding:7px 10px; font-size:10.5px; color:var(--ink-2); margin:6px 0; }
-.callout b { color:var(--purple-ink); }
+
+.ico-wrap { display:inline-flex; align-items:center; justify-content:center; width:21px; height:21px; border-radius:5px; flex-shrink:0; vertical-align:middle; }
+.ico-fitxa { color:var(--purple-ink); background:var(--purple-tint); border:1.3px solid var(--purple-light); }
+.ico-llib { color:#7a4a12; background:#FFF6E2; border:1.3px solid #E2B877; }
+.ico { display:block; }
+.llegenda { display:inline-flex; align-items:center; gap:5px; font-size:10.5px; color:var(--ink-2); }
+.llegenda i { color:var(--muted); }
+.llegenda .ico-wrap { width:18px; height:18px; }
+.pq { display:flex; gap:7px; align-items:flex-start; margin:0 0 7px; break-inside:avoid; }
+.pq-num { flex-shrink:0; min-width:19px; height:19px; border-radius:50%; background:var(--purple); color:#fff; font-size:10.5px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; padding:0 4px; }
+.pq-body { flex:1; font-size:11.5px; line-height:1.42; }
+.pq-body .pista { margin:2px 0 0; font-size:10.5px; }
+.llib-tag { font-size:9.5px; font-weight:700; color:#7a4a12; letter-spacing:.04em; white-space:nowrap; }
+.iniciadors { display:flex; flex-wrap:wrap; gap:4px; margin:4px 0 6px; }
+.iniciadors span { font-size:10.5px; background:#fff; border:1.4px dashed var(--purple-light); border-radius:9999px; padding:1px 8px; color:var(--purple-ink); font-weight:600; }
+.cer { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin:4px 0 6px; }
+.cer div { border:1.4px solid var(--purple-light); border-radius:7px; padding:4px 7px; font-size:10.5px; background:#fff; }
+.cer b { display:block; font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--purple-ink); }
+.svg-fig { display:block; margin:4px auto; max-width:100%; }
+body.compact .svg-fig { max-height:118px; width:auto; margin:2px auto; }
+.nota-sec { font-size:10px; color:var(--muted); font-style:italic; margin:2px 0 6px; }
+body.compact .header-band { padding:9px 16px; grid-template-columns:52px 1fr 150px; gap:10px; }
+body.compact .header-emoji-box { width:46px; height:46px; font-size:26px; border-radius:11px; }
+body.compact .header-title { font-size:20px; }
+body.compact .header-subtitle { font-size:12px; margin-top:2px; }
+body.compact .logo-box img { height:46px !important; }
+body.compact .oa-box { padding:6px 14px; }
+body.compact .oa-list li { font-size:10.8px; padding:1px 0 1px 20px; }
+body.compact .content { padding:8px 20px 16px; }
+body.compact .section { margin-top:9px; }
+body.compact .section-header { margin-bottom:5px; }
+body.compact .stitle { font-size:13.5px; }
+body.compact .divider { margin-bottom:6px; }
+body.compact .data-table { margin-bottom:6px; font-size:10.5px; }
+body.compact .data-table td { padding:3px 7px; }
+body.compact .fill-cell { min-height:18px; }
+body.compact .fig { margin:5px 0; }
+body.compact .fig-frame img { max-height:150px; }
+body.compact .callout, body.compact .info-box, body.compact .epist-box { margin:6px 0; padding:6px 10px; }
+body.compact .tasca-box { margin-top:8px; padding:7px 12px; }
+body.compact .frase-completar { line-height:2.1; margin:2px 0 4px; }
+
 </style>
 </head>
-<body>
+<body class="compact">
 
 <div id="toolbar">
   <span class="tb-tip">✎ Clica per editar · <strong>Ctrl+B</strong> negreta · <strong>×</strong> rosa elimina · <strong>Ctrl+Z</strong> desfés · <strong>Ctrl+S</strong> desa</span>
@@ -200,13 +257,13 @@ span[contenteditable] { display:inline-block; }
       <div class="header-emoji-box" contenteditable="true">🛡️</div>
     </div>
     <div class="header-main">
-      <div class="header-sa" contenteditable="true">Defensors del cos · Sessió 2 de 5</div>
+      <div class="header-sa" contenteditable="true">SA3 · Defensors del cos · Sessió 2</div>
       <div class="header-title" contenteditable="true">Les defenses del cos</div>
-      <div class="header-subtitle" contenteditable="true">Resposta innata i adaptativa · el model clau-pany de l'anticòs</div>
+      <div class="header-subtitle" contenteditable="true">Què ens diuen les plaques i com recorda el cos?</div>
     </div>
     <div class="header-right">
       <div class="logo-box">
-        <img src="../../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
+        <img src="../../logo_bio_geo_temple.png" style="height:64px;display:block" onerror="this.style.display='none'">
       </div>
       <div class="header-meta" contenteditable="true">Biologia i Geologia · 3r ESO<br>IE Temple</div>
     </div>
@@ -216,6 +273,7 @@ span[contenteditable] { display:inline-block; }
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <span class="nivell-label deletable" contenteditable="true">Semiguiat<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
 
+    <span class="llegenda"><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span> a la fitxa &nbsp;·&nbsp; <span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span> a la llibreta <i>(sense copiar l'enunciat)</i></span>
     <div class="nom-field deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
@@ -226,219 +284,40 @@ span[contenteditable] { display:inline-block; }
 
   <div class="oa-box deletable">
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
-    <div class="oa-title">🎯 Objectius d'aprenentatge d'avui</div>
+    <div class="oa-title">🎯 Objectius d'aprenentatge d'avui (Nivell B)</div>
     <ul class="oa-list">
-      <li contenteditable="true">Distingeixo la <strong>resposta innata</strong> (ràpida i inespecífica) de l'<strong>adaptativa</strong> (lenta, específica i amb memòria).</li>
-      <li contenteditable="true">Explico el model <strong>clau-pany</strong>: per quina raó un anticòs només encaixa amb un antigen.</li>
-      <li contenteditable="true">Relaciono la <strong>febre</strong> i la <strong>inflamació</strong> amb la feina del sistema immunitari.</li>
-      <li contenteditable="true">Explico per quina raó la <strong>memòria immunològica</strong> fa que la segona infecció sigui més lleu.</li>
+      <li contenteditable="true">Llegeixo les plaques i escric una conclusió amb afirmació, evidència i raonament.</li>
+      <li contenteditable="true">Faig servir la plastilina per predir què passa la 2a vegada i quan el virus canvia.</li>
+      <li contenteditable="true">Distingeixo la resposta innata de l'adaptativa.</li>
+      <li contenteditable="true">Explico què demostren les dades de Semmelweis.</li>
     </ul>
   </div>
 
   <div class="content">
-
-    <div class="section deletable">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <div class="section-header">
-        <div class="snum" style="background:var(--muted)">0</div>
-        <div>
-          <div class="stitle" contenteditable="true">Idees prèvies</div>
-          <div class="sdesc" contenteditable="true">Escriu sense por — ho compararàs al final de la SA</div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <div class="previ-box deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <p style="margin-top:8px" contenteditable="true">✏️ <strong>1.</strong> Per quina raó tens <strong>febre</strong> quan estàs malalt/a? Creus que sempre cal baixar-la?</p>
-      <div class="wline" contenteditable="true"></div>
-        <p style="margin-top:8px" contenteditable="true">✏️ <strong>2.</strong> Moltes vegades et cures <strong>sense prendre res</strong>. Qui guanya la batalla, llavors? Com ho fa el cos?</p>
-      <div class="wline" contenteditable="true"></div>
-      </div>
-    </div>
-    <div class="section deletable">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <div class="section-header">
-        <div class="snum" style="background:var(--orange)">1</div>
-        <div>
-          <div class="stitle" contenteditable="true">Observació + model anticòs-antigen</div>
-          <div class="sdesc" contenteditable="true">Lab + model físic — del que veiem al microscopi al que el cos fabrica</div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <p style="font-size:11.5px;margin:6px 0 4px" contenteditable="true">✏️ <strong>Part A — Plaques de Petri.</strong> Observa les dues plaques que vau preparar la sessió passada (mà bruta / mà rentada). Compta i descriu:</p>      <figure class="fig deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="fig-frame">
-          <img src="img/s2_petri.png" alt="Plaques de Petri comparades" style="max-height:175px"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="fig-ph"><span><span class="ph-ico">🖼️</span>Plaques de Petri: mà bruta vs mà rentada<br><small>(imatge a generar — vegeu PROMPTS_IMATGES_SA3.md)</small></span></div>
-        </div>
-        <figcaption class="figcap" contenteditable="true">Plaques de Petri amb agar nutritiu — empremta de mà no rentada (esquerra) i rentada amb sabó (dreta).</figcaption>
-      </figure>
-      <table class="data-table">
-        <thead><tr><th style="width:34%">Què observo</th><th style="width:33%">Placa mà BRUTA</th><th style="width:33%">Placa mà NETA</th></tr></thead>
-        <tbody>
-          <tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Nre. de colònies (estimació)</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
-          <tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Color i mida predominants</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
-          <tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Diferència principal</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
-        </tbody>
-      </table>      <div class="hipotesi-box deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <p>🧠 <span contenteditable="true">Si la placa bruta té tants microbis, per quina raó <strong>no et poses malalt/a cada cop que toques alguna cosa</strong>? Escriu la teva explicació:</span></p>
-      <div class="wline" contenteditable="true"></div>
-      <div class="wline" contenteditable="true"></div>
-      </div>      <p style="font-size:11.5px;margin:6px 0 4px" contenteditable="true">✏️ <strong>Part B — Model clau-pany (plastilina).</strong> Has modelat antígens i els anticossos que hi encaixen. Després els heu intercanviat amb un altre grup.</p>      <figure class="fig deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="fig-frame">
-          <img src="img/s2_clau_pany.png" alt="Model anticòs-antigen clau-pany" style="max-height:180px"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="fig-ph"><span><span class="ph-ico">🖼️</span>Anticòs en Y encaixant amb un antigen (clau-pany); altres antígens no encaixen<br><small>(imatge a generar — vegeu PROMPTS_IMATGES_SA3.md)</small></span></div>
-        </div>
-        <figcaption class="figcap" contenteditable="true">Model clau-pany: cada anticòs (forma en Y) només encaixa amb el seu antigen específic.</figcaption>
-      </figure>
-      <div class="explore-q deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="explore-qnum">a</div>
-        <div class="explore-qtext"><span contenteditable="true">Per quina raó els anticossos del teu grup <strong>no encaixaven</strong> amb els antígens del grup del costat?</span>
-      <div class="wline" contenteditable="true"></div>
-      <div class="wline" contenteditable="true"></div>
-        </div>
-      </div>
-      <div class="explore-q deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="explore-qnum">b</div>
-        <div class="explore-qtext"><span contenteditable="true">El cos ha de fabricar <strong>més de 100 milions</strong> de tipus d'anticossos diferents. Per quina raó li cal tanta varietat?</span>
-      <div class="wline" contenteditable="true"></div>
-      <div class="wline" contenteditable="true"></div>
-        </div>
-      </div>      <div class="epist-box deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div style="font-size:22px;flex-shrink:0">🔬</div>
-        <div>
-          <div class="epist-title" contenteditable="true">Reflexió científica — quan falla una analogia</div>
-          <div class="epist-text" contenteditable="true">L'analogia clau-pany és molt útil, però una clau no canvia de forma i un virus sí (muta). Creus que per això apareixen <strong>noves soques de grip cada any</strong>? Escriu la teva predicció:</div>
-          <p style="font-size:10.5px;color:var(--yellow-ink);font-weight:700;margin:5px 0 3px" contenteditable="true">💡 Crec que la grip canvia cada any perquè...</p>
-          <div class="wline" contenteditable="true"></div>
-        </div>
-      </div>
-    </div>
-    <div class="section deletable">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <div class="section-header">
-        <div class="snum" style="background:var(--teal)">2</div>
-        <div>
-          <div class="stitle" contenteditable="true">Innata vs adaptativa</div>
-          <div class="sdesc" contenteditable="true">Dues línies de defensa: la ràpida i la que recorda</div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <p style="font-size:11.5px;margin:6px 0 4px" contenteditable="true">✏️ El cos té <strong>dues línies</strong> de defensa interna. Mira la línia de temps i completa la taula comparativa.</p>      <figure class="fig deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="fig-frame">
-          <img src="img/s2_innata_adaptativa.png" alt="Línia de temps de la resposta immunitària" style="max-height:165px"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="fig-ph"><span><span class="ph-ico">🖼️</span>Línia de temps: resposta innata (minuts-hores) → adaptativa (dies) → 2a infecció molt més ràpida<br><small>(imatge a generar — vegeu PROMPTS_IMATGES_SA3.md)</small></span></div>
-        </div>
-        <figcaption class="figcap" contenteditable="true">Resposta innata (immediata i inespecífica) i adaptativa (lenta, específica i amb memòria).</figcaption>
-      </figure>
-      <table class="data-table">
-        <thead><tr><th style="width:40%">Característica</th><th style="width:30%">Resposta INNATA</th><th style="width:30%">Resposta ADAPTATIVA</th></tr></thead>
-        <tbody>
-          <tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Velocitat (minuts/hores o dies?)</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
-          <tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">És específica per a cada patogen?</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
-          <tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Cèl·lules principals</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
-          <tr class="deletable"><td style="position:relative"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="label-cell" contenteditable="true">Deixa memòria?</div></td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr>
-        </tbody>
-      </table><div class="callout"><b>Recorda:</b> els <b>limfòcits B</b> fabriquen anticossos; els <b>limfòcits T</b> destrueixen cèl·lules ja infectades. Les <b>cèl·lules de memòria</b> són la clau de la 2a resposta.</div>      <div class="frase-completar" contenteditable="true">La inflamació (calor, vermellor, inflor) és útil perquè porta més <span class="blank blank-l"></span> al lloc de la infecció.</div>      <div class="frase-completar" contenteditable="true">La febre moderada és útil perquè dificulta la reproducció dels <span class="blank blank-m"></span> i accelera les defenses.</div>
-    </div>
-    <div class="section deletable">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <div class="section-header">
-        <div class="snum" style="background:var(--rose)">3</div>
-        <div>
-          <div class="stitle" contenteditable="true">La memòria del sistema immunitari</div>
-          <div class="sdesc" contenteditable="true">Per quina raó la segona vegada el cos guanya més de pressa</div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <div class="connexio-box deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="connexio-icon">🔗</div>
-        <div class="connexio-text" contenteditable="true"><strong>Enigma A:</strong> «Per quina raó uns es van contagiar a la grip de gener i d'altres no? Era sort?» Amb el que saps ara, formula una hipòtesi.</div>
-      </div>      <div class="wline" contenteditable="true"></div>
-      <div class="wline" contenteditable="true"></div>      <div class="explore-q deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="explore-qnum">!</div>
-        <div class="explore-qtext"><span contenteditable="true"><strong>Cas.</strong> La Júlia va passar la varicel·la als 5 anys. Ara, als 14, un company la té i ella no s'encomana. Explica per quina raó, fent servir les paraules <em>memòria immunològica</em> i <em>anticossos</em>.</span>
-      <div class="wline" contenteditable="true"></div>
-      <div class="wline" contenteditable="true"></div>
-      <div class="wline" contenteditable="true"></div>
-        </div>
-      </div>
-    </div>
-    <div class="section deletable" style="margin-top:16px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">🎟️</div><div class="connexio-text" contenteditable="true"><strong>Full de sortida.</strong> El professor et donarà un <strong>full a part</strong> amb 3 preguntes sobre el que has treballat avui. Es fa <strong>individualment i sense ajuda</strong>, i <strong>es recull</strong>. Aquesta fitxa te la quedes tu per estudiar.</div></div></div>
-    <div class="section deletable" style="margin-top:14px">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <p style="font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:6px">🧠 Metacognició</p>
-      <div class="meta-oa-box deletable" style="margin-bottom:8px">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="meta-oa-title">🎯 Torna als objectius del principi — Marca el que has après avui:</div>
-        <div class="meta-oa-item deletable">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <div class="meta-oa-check"></div>
-          <div class="meta-oa-text" contenteditable="true">Distingeixo la <strong>resposta innata</strong> (ràpida i inespecífica) de l'<strong>adaptativa</strong> (lenta, específica i amb memòria).</div>
-        </div>
-        <div class="meta-oa-item deletable">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <div class="meta-oa-check"></div>
-          <div class="meta-oa-text" contenteditable="true">Explico el model <strong>clau-pany</strong>: per quina raó un anticòs només encaixa amb un antigen.</div>
-        </div>
-        <div class="meta-oa-item deletable">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <div class="meta-oa-check"></div>
-          <div class="meta-oa-text" contenteditable="true">Relaciono la <strong>febre</strong> i la <strong>inflamació</strong> amb la feina del sistema immunitari.</div>
-        </div>
-        <div class="meta-oa-item deletable">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <div class="meta-oa-check"></div>
-          <div class="meta-oa-text" contenteditable="true">Explico per quina raó la <strong>memòria immunològica</strong> fa que la segona infecció sigui més lleu.</div>
-        </div>
-      </div>
-      <div class="meta-grid">
-        <div class="meta-item deletable">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <span class="meta-icon">❓</span>
-          <div class="meta-label">Encara em pregunto...</div>
-          <div class="wline" contenteditable="true"></div>
-          <div class="wline" contenteditable="true"></div>
-        </div>
-        <div class="meta-item deletable">
-          <div class="del-btn" onclick="deleteEl(this)">✕</div>
-          <span class="meta-icon">⭐</span>
-          <div class="meta-label">Puntuació de la sessió</div>
-          <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-          <div style="font-size:9.5px;color:var(--muted);margin-top:4px">Encercla les estrelles que consideres</div>
-        </div>
-      </div>
-    </div>
-    <div class="tasca-box deletable">
-      <div class="del-btn" onclick="deleteEl(this)">✕</div>
-      <div class="tasca-title">📚 Tasca per a casa — per a la Sessió 3</div>
-      <div class="tasca-item deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="tasca-num">1</div>
-        <div contenteditable="true"><strong>📰 Porta un titular real:</strong> retalla, captura o imprimeix un titular de notícia sobre una <strong>malaltia, una vacuna o un medicament</strong>. A classe t'preguntaré <em>en veu alta</em> per quina raó l'has triat i si la font et sembla fiable.</div>
-      </div>
-      <div class="tasca-item deletable">
-        <div class="del-btn" onclick="deleteEl(this)">✕</div>
-        <div class="tasca-num">2</div>
-        <div contenteditable="true"><strong>📖 Repàs:</strong> mira la teoria del sistema immunitari a la web de Biologia i Geologia i apunta una cosa que t'hagi sorprès.</div>
-      </div>
-    </div>
-
-    <div class="footer">
-      <div class="footer-l">SA3 · S2 · Les defenses del cos · IE Temple · Biologia i Geologia 3r ESO</div>
-      <div class="footer-r">CC BY-NC · Albert Pahissa</div>
-    </div>
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--purple)">0</div><div><div class="stitle" style="color:var(--purple)" contenteditable="true">Llegim les plaques</div><div class="sdesc" contenteditable="true">Construïm — què diuen les nostres dades?</div></div></div><div class="divider"></div><div class="info-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="info-label">🔍 Com comptem</div><p>La placa <b>no s'obre</b>. Posa-la damunt la <b>quadrícula de recompte</b>. Compta les colònies de més d'1 mm de cada sector. Si n'hi ha més de 100, compta 4 quadrats i multiplica.</p></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">1</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true">Dades del meu grup.<table class="data-table deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><tr><th>Sector</th><th>Condició</th><th>Colònies</th><th>Com són (color, mida)</th></tr><tr><td class="label-cell" contenteditable="true">1</td><td class="label-cell" contenteditable="true">Control</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td class="label-cell" contenteditable="true">2</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td class="label-cell" contenteditable="true">3</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td class="label-cell" contenteditable="true">4</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr></table>
+</div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">2</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true">Taula de classe: la mitjana dels grups que van provar la mateixa condició.<table class="data-table deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><tr><th>Condició</th><th>Grups (colònies)</th><th>Mitjana</th></tr><tr><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr></table>
+</div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">3</div><span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span><div class="pq-body" contenteditable="true"><b>Variabilitat.</b> Dos grups van provar la mateixa condició: un va comptar 12 colònies i l'altre 47. Algú ho ha fet malament? Per què és útil tenir rèpliques?<p class="pista">💡 Pensa en coses que no podem controlar del tot (quanta estona, quanta pressió, la placa…).</p></div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">4</div><span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span><div class="pq-body" contenteditable="true"><b>Conclusió (individual).</b> Respon la pregunta del teu grup en tres parts.<p class="pista">💡 Fes servir números de la taula a l'evidència.</p><div class="cer"><div><b>Afirmació</b>Què responc a la pregunta?</div><div><b>Evidència</b>Quines dades ho demostren?</div><div><b>Raonament</b>Per què aquestes dades ho demostren?</div></div></div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">5</div><span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span><div class="pq-body" contenteditable="true">Heu vist bacteris? Què heu <b>observat</b> i què n'heu <b>deduït</b>?</div></div>
+</div>
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--orange)">1</div><div><div class="stitle" style="color:var(--orange)" contenteditable="true">Un model que prediu</div><div class="sdesc" contenteditable="true">Construïm — l'anticòs i l'antigen</div></div></div><div class="divider"></div><div class="callout deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><b>Pòster v2.</b> El sabó en treu molts, però no tots. Per què no emmalaltim cada vegada que toquem alguna cosa? → El cos té una <b>segona línia de defensa</b>.</div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">6</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true"><b>Prediu amb la plastilina.</b> Dibuixa com creus que canvien els anticossos a la sang després de la 1a i de la 2a entrada del virus de la varicel·la.<svg class="svg-fig" viewBox="0 0 420 170" width="420" height="170" aria-label="Eixos per dibuixar la predicció"><line x1="50" y1="140" x2="405" y2="140" stroke="#173328" stroke-width="2"/><line x1="50" y1="140" x2="50" y2="12" stroke="#173328" stroke-width="2"/><text x="228" y="164" font-size="11" text-anchor="middle" fill="#173328">dies</text><text x="16" y="80" font-size="11" text-anchor="middle" fill="#173328" transform="rotate(-90 16 80)">anticossos a la sang</text><line x1="70" y1="140" x2="70" y2="20" stroke="#D98B34" stroke-width="1.5" stroke-dasharray="4 3"/><text x="70" y="16" font-size="10" text-anchor="middle" fill="#8A5514">1a entrada</text><line x1="250" y1="140" x2="250" y2="20" stroke="#D98B34" stroke-width="1.5" stroke-dasharray="4 3"/><text x="250" y="16" font-size="10" text-anchor="middle" fill="#8A5514">2a entrada (anys després)</text></svg></div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">7</div><span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span><div class="pq-body" contenteditable="true">El virus de la grip canvia una mica la seva «clau» cada any. Fes-ho amb la plastilina: encaixa l'anticòs? Què li passa a la persona?<p class="pista">💡 Si la clau canvia, el pany vell…</p></div></div>
+<p style="font-size:11px;margin:2px 0">Ara compara el teu dibuix amb l'esquema científic:</p><svg class="svg-fig" viewBox="0 0 420 170" width="420" height="170" aria-label="Esquema resposta primària i secundària"><line x1="50" y1="140" x2="405" y2="140" stroke="#173328" stroke-width="2"/><line x1="50" y1="140" x2="50" y2="12" stroke="#173328" stroke-width="2"/><text x="228" y="164" font-size="11" text-anchor="middle" fill="#173328">dies</text><text x="16" y="80" font-size="11" text-anchor="middle" fill="#173328" transform="rotate(-90 16 80)">anticossos</text><path d="M70 139 C 100 139, 110 112, 130 108 C 150 104, 165 128, 200 135 L 250 136" fill="none" stroke="#2F6B5E" stroke-width="3"/><path d="M250 136 C 258 134, 262 40, 280 34 C 300 28, 330 60, 400 82" fill="none" stroke="#2F6B5E" stroke-width="3"/><line x1="70" y1="140" x2="70" y2="24" stroke="#D98B34" stroke-width="1.5" stroke-dasharray="4 3"/><line x1="250" y1="140" x2="250" y2="24" stroke="#D98B34" stroke-width="1.5" stroke-dasharray="4 3"/><text x="112" y="98" font-size="10" fill="#173328">resposta primària: lenta, petita</text><text x="288" y="26" font-size="10" fill="#173328">secundària: ràpida, gran</text><text x="400" y="160" font-size="9" text-anchor="end" fill="#6a8a7e">Esquema sense xifres reals</text></svg><div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">8</div><span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span><div class="pq-body" contenteditable="true">On encerta el teu model i on falla? Digues una cosa que la plastilina no pot mostrar.<p class="pista">💡 Pensa en la velocitat, en la quantitat d'anticossos o en les cèl·lules de memòria.</p></div></div>
+</div>
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--blue)">2</div><div><div class="stitle" style="color:var(--blue)" contenteditable="true">Dues línies de defensa</div><div class="sdesc" contenteditable="true">Explain — de les prediccions a la teoria</div></div></div><div class="divider"></div><p class="nota-sec">Infografia projectada a la pissarra: innata vs adaptativa.</p><div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">9</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true">Completa la taula.<table class="data-table deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><tr><th></th><th>Resposta INNATA</th><th>Resposta ADAPTATIVA</th></tr><tr><td class="label-cell" contenteditable="true">Velocitat</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td class="label-cell" contenteditable="true">Específica?</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td class="label-cell" contenteditable="true">Cèl·lules</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td class="label-cell" contenteditable="true">Deixa memòria?</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr></table>
+</div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">10</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true"><div class="frase-completar">La inflamació (calor, vermellor, inflor) porta més <span class="blank blank-l"></span> a la zona infectada. La febre moderada dificulta que es reprodueixin els <span class="blank blank-l"></span>. Els limfòcits B fabriquen <span class="blank blank-l"></span>; els de <span class="blank blank-m"></span> fan que la 2a vegada sigui més ràpida.</div></div></div>
+</div>
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--rose)">3</div><div><div class="stitle" style="color:var(--rose)" contenteditable="true">El cas Semmelweis i què ha canviat</div><div class="sdesc" contenteditable="true">Apliquem — rentar-se les mans salva vides</div></div></div><div class="divider"></div><p style='font-size:11px'>Viena, 1846. A la Clínica 1 atenien els parts metges que venien de fer autòpsies; a la Clínica 2, llevadores. El 1847 Semmelweis va obligar els metges a rentar-se les mans amb aigua clorada.</p><table class="data-table deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><tr><th></th><th>Clínica 1 · 1846</th><th>Clínica 2 · 1846</th><th>Clínica 1 · 1848 (amb rentat)</th></tr><tr><td class="label-cell" contenteditable="true">Mares mortes per febre puerperal</td><td class="label-cell" contenteditable="true">11,4 %</td><td class="label-cell" contenteditable="true">2,7 %</td><td class="label-cell" contenteditable="true">1,3 %</td></tr></table>
+<p class="nota-sec">Dades de les taules publicades per Semmelweis (1861), arrodonides.</p><div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">11</div><span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span><div class="pq-body" contenteditable="true">Què demostren aquestes dades? Fes servir un número de la taula.</div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">12</div><span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span><div class="pq-body" contenteditable="true">Molts metges de l'època no el van creure. Per què una idea amb proves pot tardar a ser acceptada?<p class="pista">💡 Pensa que no es podien veure els microbis i que la idea deia que els metges contagiaven.</p></div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">13</div><span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span><div class="pq-body" contenteditable="true"><b>Abans pensava… / Ara penso… / La prova és…</b> sobre com ens defensem dels microbis.</div></div>
+</div>
+<div class="tasca-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-title">📚 Abans de la sessió següent</div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">1</div><div contenteditable="true">📰 Porta un titular real sobre una malaltia, una vacuna o un medicament (retall, captura o imprès). En parlarem a S3.</div></div></div>
 
   </div><!-- .content -->
 </div><!-- .page-wrap -->
@@ -473,8 +352,8 @@ function updatePageBreaks() {
   const doc = document.getElementById('doc');
   if (!doc) return;
   doc.querySelectorAll('.page-break-line,.page-footer-bar').forEach(e=>e.remove());
-  const _nPg = Math.max(1, Math.ceil(doc.scrollHeight / PAGE_H)); /* només els fulls que calen */
-  for (let i=1; i<=_nPg; i++) {
+  const nPag = Math.max(1, Math.ceil((doc.scrollHeight - 4) / PAGE_H));
+  for (let i=1; i<=nPag; i++) {
     const y = i*PAGE_H;
     const line = document.createElement('div');
     line.className='page-break-line';

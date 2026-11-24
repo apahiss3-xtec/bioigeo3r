@@ -141,7 +141,12 @@ export const sa3s2 = {
 
   sessionMaterials: [
     { name: "Full de sortida — versions A i B", url: "/fitxes/sa3-s2-exit-ticket.html" },
-    { name: "Full de sortida — versió C (amb bastida)", url: "/fitxes/sa3-s2-exit-ticket-C.html" }
+    { name: "Full de sortida — versió C (amb bastida)", url: "/fitxes/sa3-s2-exit-ticket-C.html" },
+    { name: "Full de disseny del grup (plaques) — versió A", url: "/fitxes/sa3-disseny-grup-A.html" },
+    { name: "Full de disseny del grup (plaques) — versió B", url: "/fitxes/sa3-disseny-grup-B.html" },
+    { name: "Full de disseny del grup (plaques) — versió C", url: "/fitxes/sa3-disseny-grup-C.html" },
+    { name: "Fitxa de la sessió · acollida (urdú)", url: "/fitxes/sa3-s2-fitxa-acollida-UR.html" },
+    { name: "Fitxa de la sessió · acollida (àrab)", url: "/fitxes/sa3-s2-fitxa-acollida-AR.html" }
   ],
 
   fitxaUrl: { A: "/fitxes/sa3-s2-fitxa-A.html", B: "/fitxes/sa3-s2-fitxa-B.html", C: "/fitxes/sa3-s2-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa3-s2-teoria.pdf",
@@ -149,29 +154,21 @@ export const sa3s2 = {
   fitxaGuide: {
     fitxaName: "Fitxa S2 — Les defenses del cos",
     steps: [
-      { apartat: "0", title: "Idees prèvies", time: "5 min", phase: "engage", instruction: "Apartat 0: escriu per quina raó tens febre quan estàs malalt/a i si creus que sempre cal baixar-la; i qui guanya la batalla quan et cures sense prendre res i com ho fa el cos. Ho compararàs al final de la SA.", hints: [] },
-      { apartat: "1", title: "Observació + model anticòs-antigen", time: "30 min", phase: "explore", instruction: "Apartat 1: part A, observa les plaques de Petri (mà bruta vs mà rentada) i omple la taula; part B, amb plastilina, modela antígens i els anticossos que hi encaixen i intercanvia'ls amb un altre grup. Explica per què no encaixaven i per què el cos necessita tanta varietat d'anticossos.", hints: [
-        "Si la placa bruta té tants microbis, per quina raó no et poses malalt/a cada cop? Escriu la teva explicació.",
-        "Cada anticòs (forma en Y) només encaixa amb el seu antigen específic."
-      ] },
-      { apartat: "2", title: "Innata vs adaptativa", time: "20 min", phase: "explica", instruction: "Apartat 2: mira la línia de temps i completa la taula comparativa (velocitat, especificitat, cèl·lules principals, memòria); completa les frases sobre la inflamació i la febre.", hints: [
-        "Innata: ràpida (hores), no distingeix entre patògens. Adaptativa: lenta (dies), però recorda.",
-        "Els limfòcits B fabriquen anticossos; els limfòcits T destrueixen cèl·lules infectades."
-      ] },
-      { apartat: "3", title: "La memòria del sistema immunitari", time: "15 min", phase: "explica", instruction: "Apartat 3: formula una hipòtesi per a l'enigma A i resol el cas de la Júlia (varicel·la) amb les paraules memòria immunològica i anticossos.", hints: [
-        "Les cèl·lules de memòria són la clau de la 2a resposta: més ràpida i més intensa."
-      ] },
-      { apartat: "Final", title: "Full de sortida i metacognició", time: "13 min", phase: "elabora", instruction: "Full de sortida (10 min): sol/a i sense ajuda, tres preguntes de cas; lliura'l a la professora. Després, metacognició (3 min): torna als objectius del principi, marca el que has après i apunta què et continues preguntant.", hints: [] }
+      { apartat: "1", title: "Llegim les plaques", time: "40 min", phase: "explore", instruction: "Compteu les colònies de cada sector, poseu-les a la taula de classe i compareu grups (variabilitat). Escriu una afirmació amb proves i raonament (CER) i separa el que observes del que dedueixes.", hints: ["Si dos grups fan el mateix i surten números molt diferents, què ens diu?"] },
+      { apartat: "2", title: "Un model que prediu", time: "25 min", phase: "explore", instruction: "Amb el model de plastilina antigen–anticòs, predius a la gràfica què passa a la segona infecció i què passa si el virus muta. Després ho compares amb l'esquema.", hints: [] },
+      { apartat: "3", title: "Dues línies de defensa", time: "25 min", phase: "explica", instruction: "Taula defensa innata / adaptativa i frases per completar a partir de la infografia.", hints: ["Innata = ràpida i general. Adaptativa = lenta la 1a vegada, però recorda."] },
+      { apartat: "4", title: "El cas Semmelweis i què ha canviat", time: "10 min", phase: "elabora", instruction: "Mira les dades de mortalitat abans i després de rentar-se les mans i explica per què no el creien. Acaba amb «Abans pensava… / Ara penso… / La prova és…». La classe actualitza el pòster (v2).", hints: [] },
+      { apartat: "Final", title: "Full de sortida", time: "10 min", phase: "elabora", instruction: "Sol/a i sense ajuda, en un full a part. A les versions A i B, les respostes obertes van a la llibreta sense copiar l'enunciat; només s'omplen a la fitxa les taules, les frases i els esquemes (icona 📄).", hints: [] }
     ]
   },
 
   exitTicketType: "paper",
   exitTicketQuestions: [
-    { id: "q1", type: "open", text: "L'Aina s'ha fet un tall amb una branca. Al cap de poques hores la ferida està vermella, calenta i inflada. Prediu quina part del sistema immunitari ha actuat primer i justifica per quina raó aquesta resposta no és específica.", hint: "Innata: hores, inespecífica (inflamació, macròfags). No distingeix quin patogen és." },
-    { id: "q2", type: "open", text: "Un laboratori disposa d'un anticòs que reconeix l'antigen del virus del xarampió. Prediu si protegirà també contra el virus de la grip. Justifica-ho amb el model clau-pany.", hint: "Cada anticòs encaixa amb un sol antigen (clau-pany). L'antigen de la grip és diferent del del xarampió: no encaixa." },
-    { id: "q3", type: "open", text: "En Marc s'infecta amb un virus que el seu cos no havia vist mai i es cura al cap d'uns dies. Mesos després es torna a exposar al mateix virus i ni se n'adona. Compara les dues respostes i explica quina cèl·lula ho fa possible.", hint: "1a resposta: lenta, dies. Queden limfòcits de memòria → 2a resposta ràpida i intensa, abans dels símptomes." }
+    { id: "q1", type: "open", text: "L'Aina s'ha fet un tall. Al cap de poques hores la ferida està vermella, calenta i inflada. Quina defensa ha actuat primer? Per què no és específica?", hint: "Inflamació = defensa ràpida i general." },
+    { id: "q2", type: "open", text: "En Marc es cura d'un virus nou en uns dies. Mesos després hi torna a estar exposat i ni se n'adona. Compara les dues respostes i digues quina cèl·lula ho fa possible.", hint: "La 2a vegada és més ràpida gràcies a les cèl·lules de…" },
+    { id: "q3", type: "open", text: "Un grup compta 30 colònies amb aigua i 25 amb sabó, amb una sola placa. Pot concloure que el sabó funciona millor? Què li falta?", hint: "Pensa en rèpliques i en la variabilitat." }
   ],
-  exitTicketNote: "Les tres preguntes són de cas i es responen sol/a i sense ajuda. Es fa en un full a part (versions A i B, i versió C amb bastida). Qui ha faltat pot respondre-les en línia.",
+  exitTicketNote: "Fulls de sortida individuals, sense ajuda, es recullen. Versions A i B: dos fulls per A4 (es retallen); versió C: un per pàgina, amb pistes. Qui ha faltat pot respondre-les en línia.",
 
   homework: { description: "Porta un titular real (retallat, captura o imprès) sobre una malaltia, una vacuna o un medicament. A S3 explicaràs per quina raó l'has triat i si la font et sembla fiable. Repàs: mira la teoria del sistema immunitari d'aquesta pàgina i apunta una cosa que t'hagi sorprès." },
   recoveryInstructions: [
@@ -180,5 +177,5 @@ export const sa3s2 = {
     "Omple la fitxa S2 apartats 0–3",
     "Fes l'exit tiquet online a l'acordió de sota"
   ],
-  oaLinks: ["OA1"], competencies: ["CE2", "CE5"]
+  oaLinks: ["OA1"], competencies: ["CE2", "CE3", "CE5"]
 }

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SA3 · S2 · Les defenses del cos — Amb suport visual — IE Temple</title>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&amp;family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 
 :root {
@@ -20,7 +20,7 @@
   --blue:#2563a8;   --blue-tint:#e8f0fb;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Fira Sans Extra Condensed', sans-serif; background:#6e9d95; color:var(--ink); font-size:14.5px; line-height:1.5; padding:43px 20px 49px; }
+body { font-family:'Fira Sans Extra Condensed', sans-serif; background:#6e9d95; color:var(--ink); font-size:13px; line-height:1.5; padding:52px 20px 60px; }
 #toolbar { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(8,25,20,.93); backdrop-filter:blur(10px); border-bottom:1px solid rgba(47,107,94,.35); height:44px; display:flex; align-items:center; gap:10px; padding:0 18px; }
 .tb-tip { font-family:'Inter',sans-serif; font-size:11px; color:rgba(180,220,210,.65); flex:1; }
 .tb-tip strong { color:#a8d8cc; }
@@ -40,20 +40,20 @@ body { font-family:'Fira Sans Extra Condensed', sans-serif; background:#6e9d95; 
 .tb-save.saved { background:#4a9e5c; color:#fff; }
 .page-wrap { width:794px; margin:0 auto; background:var(--surface); box-shadow:0 2px 30px rgba(0,0,0,.22); position:relative; }
 .page-break-line { position:absolute; left:0; right:0; border-top:2px dashed #5a9e8c; pointer-events:none; z-index:10; }
-.page-break-label { position:absolute; right:10px; top:-11px; background:#5a9e8c; color:white; font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
+.page-break-label { position:absolute; right:10px; top:-11px; background:#5a9e8c; color:white; font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:1px 8px; border-radius:9999px; }
 [contenteditable] { outline:none; cursor:text; border-radius:3px; transition:background .12s, box-shadow .12s; }
 [contenteditable]:hover { background:rgba(47,107,94,.08); box-shadow:0 0 0 2px rgba(47,107,94,.3); }
 [contenteditable]:focus { background:rgba(47,107,94,.12); box-shadow:0 0 0 2.5px var(--purple); }
 .header-band [contenteditable]:hover { background:rgba(255,255,255,.15); box-shadow:0 0 0 2px rgba(255,255,255,.3); }
 .header-band [contenteditable]:focus { background:rgba(255,255,255,.2); box-shadow:0 0 0 2.5px #fff; }
 span[contenteditable] { display:inline-block; }
-.wline { display:block; width:100%; min-height:32px; background:white; outline:none; padding:3px 4px; border-bottom:1.5px solid #C8DDD8; word-break:break-word; cursor:text; line-height:1.7; }
+.wline { display:block; width:100%; min-height:32px; background:white; outline:none; padding:4px 4px; border-bottom:1.5px solid #C8DDD8; word-break:break-word; cursor:text; line-height:1.7; }
 .wline:focus { border-bottom-color:var(--purple); background:rgba(47,107,94,.04); }
-.frase-completar { font-size:13.5px; line-height:2.4; margin:3px 0 5px; }
+.frase-completar { font-size:11.5px; line-height:2.4; margin:4px 0 6px; }
 .blank { display:inline-block; border-bottom:1.5px solid #C8DDD8; vertical-align:bottom; margin:0 3px; height:1.1em; }
 .blank-s { width:60px; } .blank-m { width:100px; } .blank-l { width:140px; } .blank-xl { width:200px; }
-.nom-field { margin-left:auto; font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
-.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:13.5px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; font-family:'Fira Sans Extra Condensed',sans-serif; color:var(--ink); }
+.nom-field { margin-left:auto; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.input-span { display:inline-block; min-width:90px; border-bottom:1.5px solid var(--rule-dark); font-size:11px; padding:1px 3px; outline:none; vertical-align:bottom; min-height:16px; font-family:'Fira Sans Extra Condensed',sans-serif; color:var(--ink); }
 .input-span.data-span { min-width:65px; }
 .input-span:focus { border-bottom-color:var(--purple); }
 .nivell-badge-small { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; border-radius:50%; background:rgba(47,107,94,.12); border:1px solid var(--purple-light); font-size:9px; font-weight:900; color:var(--purple-ink); flex-shrink:0; }
@@ -74,96 +74,106 @@ span[contenteditable] { display:inline-block; }
 .header-right { display:flex; flex-direction:column; align-items:flex-end; gap:5px; }
 .logo-box { background:rgba(255,255,255,.92); border-radius:7px; padding:5px 6px; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 1px 6px rgba(0,0,0,.18); }
 .header-meta { font-size:9.5px; opacity:.52; text-align:right; line-height:1.7; }
-.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:4px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-.nivell-label { font-size:13.5px; color:var(--muted); font-style:normal; }
-.temps-badge { font-size:11px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
-.oa-box { background:linear-gradient(to right,var(--purple-tint),var(--surface)); border-left:4px solid var(--purple); padding:8px 16px; }
-.oa-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:5px; }
+.nivell-strip { background:var(--purple-tint); border-bottom:2px solid var(--rule); padding:5px 22px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.nivell-label { font-size:11px; color:var(--muted); font-style:italic; }
+.temps-badge { font-size:10px; font-weight:700; color:var(--purple-ink); background:white; border:1.5px solid var(--purple-light); border-radius:9999px; padding:1px 8px; }
+.oa-box { background:linear-gradient(to right,var(--purple-tint),var(--surface)); border-left:4px solid var(--purple); padding:10px 16px; }
+.oa-title { font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:6px; }
 .oa-list { list-style:none; padding:0; margin:0; }
-.oa-list li { font-size:13.5px; padding:2px 0 2px 22px; position:relative; line-height:1.5; border-bottom:1px dashed var(--rule); }
+.oa-list li { font-size:11.5px; padding:3px 0 3px 22px; position:relative; line-height:1.4; border-bottom:1px dashed var(--rule); }
 .oa-list li:last-child { border-bottom:none; }
-.oa-list li::before { content:'○'; position:absolute; left:4px; top:3px; font-size:13.5px; color:var(--purple-light); }
-.meta-oa-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:7px 10px; }
-.meta-oa-title { font-size:11px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:5px; }
-.meta-oa-item { display:flex; align-items:flex-start; gap:8px; font-size:13.5px; margin-bottom:3px; padding:2px 0; }
+.oa-list li::before { content:'○'; position:absolute; left:4px; top:3px; font-size:11px; color:var(--purple-light); }
+.meta-oa-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-oa-title { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; }
+.meta-oa-item { display:flex; align-items:flex-start; gap:8px; font-size:11px; margin-bottom:4px; padding:2px 0; }
 .meta-oa-item:last-child { margin-bottom:0; }
 .meta-oa-check { width:16px; height:16px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; margin-top:1px; }
-.meta-oa-text { flex:1; line-height:1.5; }
-.content { padding:11px 24px 20px; }
-.section { margin-top:11px; }
-.section-header { display:flex; align-items:center; gap:10px; margin-bottom:7px; }
-.snum { width:26px; height:26px; border-radius:50%; font-size:14.5px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.stitle { font-size:16px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
-.sdesc { font-size:13.5px; color:var(--ink-2); font-style:normal; font-family:'Crimson Pro',serif; }
-.temps { font-size:11px; color:var(--purple-ink); font-weight:700; margin-left:4px; }
-.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:8px; }
-.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:7px 12px; }
-.previ-box p { font-size:14px; }
-.connexio-box { display:flex; align-items:center; gap:10px; background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:7px 12px; margin:7px 0; }
+.meta-oa-text { flex:1; line-height:1.35; }
+.content { padding:14px 24px 24px; }
+.section { margin-top:14px; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.snum { width:26px; height:26px; border-radius:50%; font-size:13px; font-weight:900; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.stitle { font-size:15px; font-weight:900; text-transform:uppercase; letter-spacing:.01em; }
+.sdesc { font-size:10.5px; color:var(--ink-2); font-style:italic; font-family:'Crimson Pro',serif; }
+.temps { font-size:10px; color:var(--purple-ink); font-weight:700; margin-left:4px; }
+.divider { height:1.5px; background:linear-gradient(to right,var(--rule-dark),transparent); margin-bottom:10px; }
+.previ-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 12px; }
+.previ-box p { font-size:12px; }
+.connexio-box { display:flex; align-items:center; gap:10px; background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin:8px 0; }
 .connexio-icon { font-size:24px; flex-shrink:0; }
-.connexio-text { font-size:13.5px; line-height:1.5; }
+.connexio-text { font-size:11px; line-height:1.4; }
 .connexio-text strong { color:var(--purple-ink); }
-.hipotesi-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:7px 12px; margin-bottom:8px; }
-.hipotesi-box p { font-size:14px; font-weight:700; color:var(--purple-ink); margin-bottom:3px; }
-.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:7px 12px; margin:7px 0; }
-.epist-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow-ink); margin-bottom:2px; }
-.epist-text { font-size:13.5px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
-.data-table { width:100%; border-collapse:collapse; font-size:13.5px; margin-bottom:8px; }
-.data-table th { background:var(--purple-ink); color:white; padding:5px 9px; text-align:left; font-size:11px; letter-spacing:.05em; text-transform:uppercase; }
+.hipotesi-box { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 12px; margin-bottom:10px; }
+.hipotesi-box p { font-size:12px; font-weight:700; color:var(--purple-ink); margin-bottom:4px; }
+.epist-box { display:flex; gap:10px; background:var(--yellow-tint); border:1.5px solid var(--yellow); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.epist-title { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow-ink); margin-bottom:2px; }
+.epist-text { font-size:11px; font-family:'Crimson Pro',serif; line-height:1.5; color:var(--ink-2); }
+.data-table { width:100%; border-collapse:collapse; font-size:11px; margin-bottom:10px; }
+.data-table th { background:var(--purple-ink); color:white; padding:6px 9px; text-align:left; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; }
 .data-table th:first-child { border-radius:5px 0 0 0; }
 .data-table th:last-child { border-radius:0 5px 0 0; }
 .data-table th small { font-size:8.5px; font-weight:400; letter-spacing:0; text-transform:none; opacity:.75; display:block; margin-top:1px; }
-.data-table td { padding:4px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
+.data-table td { padding:5px 9px; border-bottom:1px solid var(--rule); vertical-align:middle; }
 .data-table tr:nth-child(even) td { background:var(--purple-tint); }
-.icon-cell { font-size:17px; text-align:center; width:32px; }
+.icon-cell { font-size:16px; text-align:center; width:32px; }
 .fill-cell { display:block; width:100%; min-height:22px; outline:none; padding:2px 3px; word-break:break-word; cursor:text; }
 .fill-cell:focus { background:rgba(47,107,94,.08); outline:1px solid var(--purple-light); border-radius:2px; }
-.label-cell { font-size:13.5px; font-weight:700; color:var(--ink-2); }
-.explore-q { display:flex; gap:8px; margin-bottom:8px; align-items:flex-start; }
-.explore-qnum { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--orange); color:white; font-size:13.5px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
-.explore-qtext { font-size:13.5px; flex:1; }
-.exit-box { background:#E8F4F0; border:2px solid var(--purple); border-radius:10px; padding:10px 14px; }
-.exit-title { font-size:13.5px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:7px; }
-.exit-q { font-size:13.5px; margin-bottom:3px; line-height:1.5; }
-.exit-opts { display:grid; grid-template-columns:repeat(2,1fr); gap:3px; margin:2px 0 5px; }
-.exit-opt { display:flex; align-items:center; gap:5px; font-size:13.5px; }
+.label-cell { font-size:11px; font-weight:700; color:var(--ink-2); }
+.explore-q { display:flex; gap:8px; margin-bottom:10px; align-items:flex-start; }
+.explore-qnum { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--orange); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.explore-qtext { font-size:11.5px; flex:1; }
+.exit-box { background:#E8F4F0; border:2px solid var(--purple); border-radius:10px; padding:12px 14px; }
+.exit-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.exit-q { font-size:11px; margin-bottom:4px; line-height:1.4; }
+.exit-opts { display:grid; grid-template-columns:repeat(2,1fr); gap:3px; margin:3px 0 6px; }
+.exit-opt { display:flex; align-items:center; gap:5px; font-size:10.5px; }
 .chk { width:12px; height:12px; border:1.5px solid var(--purple); border-radius:3px; flex-shrink:0; background:white; }
-.meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:7px; }
-.meta-item { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:7px 10px; }
-.meta-icon { font-size:18px; display:block; margin-bottom:2px; }
-.meta-label { font-size:11px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:3px; }
-.stars { display:flex; gap:4px; margin-top:3px; }
+.meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+.meta-item { background:var(--purple-tint); border:1.5px solid var(--purple-light); border-radius:8px; padding:8px 10px; }
+.meta-icon { font-size:18px; display:block; margin-bottom:3px; }
+.meta-label { font-size:9.5px; font-weight:700; color:var(--purple-ink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px; }
+.stars { display:flex; gap:4px; margin-top:4px; }
 .star { font-size:18px; color:#5a9e8c; cursor:default; }
-.tasca-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:8px 14px; margin-top:10px; }
-.tasca-title { font-size:13.5px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:7px; }
-.tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:5px; font-size:13.5px; }
+.tasca-box { background:var(--purple-tint); border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:10px 14px; margin-top:12px; }
+.tasca-title { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:8px; }
+.tasca-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:6px; font-size:11px; }
 .tasca-item:last-child { margin-bottom:0; }
-.tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:13.5px; font-weight:900; display:flex; align-items:center; justify-content:center; }
-.spacer-block { position:relative; height:48px; margin:3px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(47,107,94,.05) 6px,rgba(47,107,94,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
+.tasca-num { flex-shrink:0; width:20px; height:20px; border-radius:50%; background:var(--purple); color:white; font-size:11px; font-weight:900; display:flex; align-items:center; justify-content:center; }
+.spacer-block { position:relative; height:48px; margin:4px 0; border-radius:6px; border:1.5px dashed var(--purple-light); background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(47,107,94,.05) 6px,rgba(47,107,94,.05) 12px); display:flex; align-items:center; justify-content:center; cursor:default; }
 .spacer-label { font-family:'Inter',sans-serif; font-size:9px; color:var(--purple-light); letter-spacing:.12em; text-transform:uppercase; user-select:none; pointer-events:none; }
 .page-footer-bar { position:absolute; left:0; right:0; height:20px; display:none; justify-content:space-between; align-items:center; padding:0 24px; font-family:'Inter',sans-serif; font-size:7.5px; font-weight:500; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; border-top:0.5px solid var(--rule); background:var(--surface); pointer-events:none; z-index:8; }
-.footer { margin-top:10px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:6px; }
+.footer { margin-top:12px; display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid var(--rule); padding-top:7px; }
 .footer-l { font-size:9px; color:var(--muted); letter-spacing:.07em; text-transform:uppercase; }
 .footer-r { font-size:9px; color:var(--purple-ink); font-weight:700; }
-.info-box { background:white; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:7px 12px; margin:7px 0; }
-.info-label { font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:2px; }
-.info-box p { font-size:13.5px; line-height:1.5; margin-bottom:2px; }
-.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:5px 0 2px; }
-.chain-chip { font-size:13.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
-.chain-arrow { color:var(--purple); font-weight:900; font-size:14.5px; }
-.circ-row { font-size:13.5px; line-height:2.4; margin-bottom:2px; }
+.info-box { background:white; border:1.5px solid var(--purple-light); border-left:5px solid var(--purple); border-radius:8px; padding:8px 12px; margin:8px 0; }
+.info-label { font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.info-box p { font-size:11px; line-height:1.5; margin-bottom:3px; }
+.chain { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin:6px 0 3px; }
+.chain-chip { font-size:10.5px; font-weight:600; background:var(--purple-tint); border:1.5px solid var(--purple-light); color:var(--purple-ink); border-radius:9999px; padding:2px 9px; }
+.chain-arrow { color:var(--purple); font-weight:900; font-size:13px; }
+.circ-row { font-size:11.5px; line-height:2.4; margin-bottom:3px; }
 .circ-opt { display:inline-block; border:1.5px dashed var(--rule-dark); border-radius:9999px; padding:0 9px; margin:0 2px; font-weight:600; color:var(--ink-2); background:white; }
-.word-bank { background:var(--purple-tint); border-radius:8px; padding:6px 10px; margin-bottom:8px; }
-.word-bank-title { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:3px; }
+.word-bank { background:var(--purple-tint); border-radius:8px; padding:7px 10px; margin-bottom:10px; }
+.word-bank-title { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple-ink); margin-bottom:4px; }
 .chips { display:flex; flex-wrap:wrap; gap:4px; }
-.chip { font-size:13.5px; font-weight:600; padding:2px 8px; border-radius:9999px; background:white; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
-.fig { margin:8px 0; text-align:center; }
+.chip { font-size:11px; font-weight:600; padding:2px 8px; border-radius:9999px; background:white; border:1.5px solid var(--purple-light); color:var(--purple-ink); }
+.fig { margin:10px 0; text-align:center; }
 .fig-frame { position:relative; display:inline-block; max-width:100%; border:1.5px solid var(--purple-light); border-radius:9px; background:var(--purple-tint); overflow:hidden; box-shadow:0 1px 6px rgba(47,107,94,.12); }
 .fig-frame img { display:block; max-width:100%; object-fit:contain; }
-.fig-ph { display:none; align-items:center; justify-content:center; min-height:118px; padding:13px 20px; font-size:13.5px; color:var(--muted); font-style:normal; text-align:center; line-height:1.5; }
-.fig-ph .ph-ico { font-size:26px; display:block; margin-bottom:4px; }
-.figcap { font-size:11px; color:var(--muted); margin-top:4px; font-style:italic; line-height:1.5; }
-.pista { font-size:13.5px; color:var(--ink-2); font-style:normal; line-height:1.5; margin:2px 0 3px; padding-left:3px; }
+.fig-ph { display:none; align-items:center; justify-content:center; min-height:118px; padding:16px 20px; font-size:10.5px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
+.fig-ph .ph-ico { font-size:26px; display:block; margin-bottom:5px; }
+.figcap { font-size:9.5px; color:var(--muted); margin-top:5px; font-style:italic; line-height:1.4; }
+.pista { font-size:11px; color:var(--ink-2); font-style:italic; line-height:1.45; margin:3px 0 4px; padding-left:3px; }
+
+/* BUG corregit 2026-08-21: .callout i .fig-row s'usaven a les fitxes de tota la
+   SA3 pero no estaven definides enlloc. La caixa "Idea clau" -el missatge central
+   de cada sessio- s'imprimia com un paragraf gris qualsevol, i les figures
+   pensades per anar de dues en dues s'apilaven verticalment. */
+.callout{background:#FFF6E2;border-left:5px solid #D98B34;border-radius:0 9px 9px 0;
+  padding:9px 12px;margin:10px 0;font-size:11.5px;line-height:1.45;break-inside:avoid;}
+.callout b,.callout strong{color:#8A5514;}
+.fig-row{display:flex;gap:10px;align-items:flex-start;margin:8px 0;break-inside:avoid;}
+.fig-row .fig{flex:1;min-width:0;margin:0;}
 .pista b, .pista strong { color:var(--purple-ink); font-style:normal; }
 @media print {
   @page { size:A4; margin:10mm 12mm; }
@@ -184,16 +194,47 @@ span[contenteditable] { display:inline-block; }
 }
 
 
-/* ══════════════════════════════════════════════════════════════
-   LLEGIBILITAT-C v1 — llegibilitat de la Versió C (dislèxia). 09/09/2026.
-   Cos en 'Fira Sans Condensed' (mateixa família que l'Extra Condensed
-   de la casa, però amb lletres més obertes i distingibles), interlineat
-   ample i separació de paraules. Titulars, capçalera i peu no es toquen.
-   ══════════════════════════════════════════════════════════════ */
-.sheet-body,#doc{font-family:'Fira Sans Condensed','Fira Sans Extra Condensed',sans-serif;
-  line-height:1.52;letter-spacing:.004em;word-spacing:.06em}
-.sheet-body p,#doc p,.sheet-body li,#doc li,.sheet-body td,#doc td,.sheet-body dd,#doc dd,.sheet-body .wline,#doc .wline,.sheet-body .tria,#doc .tria,.sheet-body .frase-completar,#doc .frase-completar{text-align:left;hyphens:none;-webkit-hyphens:none}
-.sheet-body .stitle,#doc .stitle,.sheet-body .snum,#doc .snum,.sheet-body .clau,#doc .clau,.sheet-body .passos-cap,#doc .passos-cap,.sheet-body .oa-title,#doc .oa-title,.sheet-body .info-head,#doc .info-head,.sheet-body .header-band,#doc .header-band,.sheet-body .nivell-strip,#doc .nivell-strip{font-family:'Fira Sans Extra Condensed',sans-serif}
+.ico-wrap { display:inline-flex; align-items:center; justify-content:center; width:21px; height:21px; border-radius:5px; flex-shrink:0; vertical-align:middle; }
+.ico-fitxa { color:var(--purple-ink); background:var(--purple-tint); border:1.3px solid var(--purple-light); }
+.ico-llib { color:#7a4a12; background:#FFF6E2; border:1.3px solid #E2B877; }
+.ico { display:block; }
+.llegenda { display:inline-flex; align-items:center; gap:5px; font-size:10.5px; color:var(--ink-2); }
+.llegenda i { color:var(--muted); }
+.llegenda .ico-wrap { width:18px; height:18px; }
+.pq { display:flex; gap:7px; align-items:flex-start; margin:0 0 7px; break-inside:avoid; }
+.pq-num { flex-shrink:0; min-width:19px; height:19px; border-radius:50%; background:var(--purple); color:#fff; font-size:10.5px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:1px; padding:0 4px; }
+.pq-body { flex:1; font-size:11.5px; line-height:1.42; }
+.pq-body .pista { margin:2px 0 0; font-size:10.5px; }
+.llib-tag { font-size:9.5px; font-weight:700; color:#7a4a12; letter-spacing:.04em; white-space:nowrap; }
+.iniciadors { display:flex; flex-wrap:wrap; gap:4px; margin:4px 0 6px; }
+.iniciadors span { font-size:10.5px; background:#fff; border:1.4px dashed var(--purple-light); border-radius:9999px; padding:1px 8px; color:var(--purple-ink); font-weight:600; }
+.cer { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin:4px 0 6px; }
+.cer div { border:1.4px solid var(--purple-light); border-radius:7px; padding:4px 7px; font-size:10.5px; background:#fff; }
+.cer b { display:block; font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--purple-ink); }
+.svg-fig { display:block; margin:4px auto; max-width:100%; }
+body.compact .svg-fig { max-height:118px; width:auto; margin:2px auto; }
+.nota-sec { font-size:10px; color:var(--muted); font-style:italic; margin:2px 0 6px; }
+body.compact .header-band { padding:9px 16px; grid-template-columns:52px 1fr 150px; gap:10px; }
+body.compact .header-emoji-box { width:46px; height:46px; font-size:26px; border-radius:11px; }
+body.compact .header-title { font-size:20px; }
+body.compact .header-subtitle { font-size:12px; margin-top:2px; }
+body.compact .logo-box img { height:46px !important; }
+body.compact .oa-box { padding:6px 14px; }
+body.compact .oa-list li { font-size:10.8px; padding:1px 0 1px 20px; }
+body.compact .content { padding:8px 20px 16px; }
+body.compact .section { margin-top:9px; }
+body.compact .section-header { margin-bottom:5px; }
+body.compact .stitle { font-size:13.5px; }
+body.compact .divider { margin-bottom:6px; }
+body.compact .data-table { margin-bottom:6px; font-size:10.5px; }
+body.compact .data-table td { padding:3px 7px; }
+body.compact .fill-cell { min-height:18px; }
+body.compact .fig { margin:5px 0; }
+body.compact .fig-frame img { max-height:150px; }
+body.compact .callout, body.compact .info-box, body.compact .epist-box { margin:6px 0; padding:6px 10px; }
+body.compact .tasca-box { margin-top:8px; padding:7px 12px; }
+body.compact .frase-completar { line-height:2.1; margin:2px 0 4px; }
+
 </style>
 </head>
 <body>
@@ -216,9 +257,9 @@ span[contenteditable] { display:inline-block; }
       <div class="header-emoji-box" contenteditable="true">🛡️</div>
     </div>
     <div class="header-main">
-      <div class="header-sa" contenteditable="true">Defensors del cos · Sessió 2 de 5</div>
+      <div class="header-sa" contenteditable="true">SA3 · Defensors del cos · Sessió 2</div>
       <div class="header-title" contenteditable="true">Les defenses del cos</div>
-      <div class="header-subtitle" contenteditable="true">Resposta innata i adaptativa · el model clau-pany</div>
+      <div class="header-subtitle" contenteditable="true">Què ens diuen les plaques i com recorda el cos?</div>
     </div>
     <div class="header-right">
       <div class="logo-box">
@@ -232,6 +273,7 @@ span[contenteditable] { display:inline-block; }
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <span class="nivell-label deletable" contenteditable="true">Amb suport visual<div class="del-btn" onclick="deleteEl(this)">✕</div></span>
 
+    <span class="llegenda"><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span> a la fitxa &nbsp;·&nbsp; <span class="ico-wrap ico-llib" title="Respon a la llibreta"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="4" y="1.5" width="9.5" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.2 4h3.2M2.2 7h3.2M2.2 10h3.2M2.2 13h3.2" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 5h4M7.5 7.5h4" stroke="currentColor" stroke-width="1.1"/></svg></span> a la llibreta <i>(sense copiar l'enunciat)</i></span>
     <div class="nom-field deletable">
       <div class="del-btn" onclick="deleteEl(this)">✕</div>
       Nom:&nbsp;<span class="input-span" contenteditable="true"></span>
@@ -244,16 +286,41 @@ span[contenteditable] { display:inline-block; }
     <div class="del-btn" onclick="deleteEl(this)">✕</div>
     <div class="oa-title">🎯 Objectius d'aprenentatge d'avui (Nivell C)</div>
     <ul class="oa-list">
-      <li contenteditable="true">Sé que la <strong>resposta innata</strong> és ràpida (minuts-hores) però no recorda.</li>
-      <li contenteditable="true">Sé que la <strong>resposta adaptativa</strong> és lenta (dies) però és específica i guarda memòria.</li>
-      <li contenteditable="true">Sé que l'<strong>anticòs</strong> encaixa amb el seu antigen com una clau amb un pany.</li>
-      <li contenteditable="true">Sé que la <strong>memòria immunològica</strong> fa que la segona infecció sigui molt més lleu.</li>
+      <li contenteditable="true">Compto les colònies de la placa i dic quina condició en té menys.</li>
+      <li contenteditable="true">Sé que la 2a vegada el cos es defensa més de pressa.</li>
+      <li contenteditable="true">Distingeixo la defensa ràpida (innata) de la que recorda (adaptativa).</li>
+      <li contenteditable="true">Sé que rentar-se les mans redueix els contagis.</li>
     </ul>
   </div>
 
   <div class="content">
-<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--muted)">0</div><div><div class="stitle" contenteditable="true">Idees prèvies</div><div class="sdesc" contenteditable="true">Escriu sense por</div></div></div><div class="divider"></div><div class="previ-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><p>✏️ <strong>1.</strong> Quan estàs malalt/a sovint tens febre. Per quina raó creus que el cos puja la temperatura? Creus que sempre cal baixar-la?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><p style="margin-top:7px">✏️ <strong>2.</strong> Moltes vegades et cures sense prendre cap pastilla. Qui guanya la batalla contra la malaltia, llavors? Com t'ho expliques?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--orange)">1</div><div><div class="stitle" contenteditable="true">Observació + model anticòs-antigen</div><div class="sdesc" contenteditable="true">Del laboratori al model clau-pany</div></div></div><div class="divider"></div><div class="info-box"><div class="info-label">📖 Per llegir</div><p>La <strong>resposta innata</strong> és la primera línia: ataca qualsevol invasor en minuts-hores (neutròfils, macròfags). La <strong>resposta adaptativa</strong> triga dies però és específica: els limfòcits B fabriquen <strong>anticossos</strong> que encaixen només amb l'antigen del patogen concret (model clau-pany). Les <strong>cèl·lules de memòria</strong> queden per sempre.</p></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s2_petri.png" alt="Plaques de Petri comparades" style="max-height:175px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Plaques de Petri comparades</span></div></div><figcaption class="figcap" contenteditable="true">Placa mà bruta (esquerra) vs mà rentada (dreta).</figcaption></figure><table class="data-table"><thead><tr><th style="width:34%">Què observo</th><th style="width:33%">Placa mà BRUTA</th><th style="width:33%">Placa mà NETA</th></tr></thead><tbody><tr><td class="label-cell">Nre. de colònies</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Diferència principal</td><td colspan="2"><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><p>✏️ <strong>Pregunta:</strong> Toques microbis tot el dia, però no et poses malalt/a cada cop. Per quina raó? Què t'ho impedeix?</p><p class="pista">💡 Tot i tocar tants microbis, no et poses malalt/a cada cop. Pensa en les barreres que et protegeixen (pell, mucoses, saliva...).</p><div class="wline" contenteditable="true"></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s2_clau_pany.png" alt="Anticòs en Y encaixant amb un antigen" style="max-height:175px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Anticòs en Y encaixant amb un antigen</span></div></div><figcaption class="figcap" contenteditable="true">Model clau-pany: cada anticòs només encaixa amb el seu antigen.</figcaption></figure><div class="circ-row">L'anticòs del teu grup <span class="circ-opt">encaixava</span> / <span class="circ-opt">no encaixava</span> amb els antígens del grup del costat. Per quina raó? Perquè cada anticòs és <span class="circ-opt">específic</span> / <span class="circ-opt">general</span>.</div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--teal)">2</div><div><div class="stitle" contenteditable="true">Innata vs adaptativa</div><div class="sdesc" contenteditable="true">Dues línies de defensa</div></div></div><div class="divider"></div><figure class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s2_innata_adaptativa.png" alt="Línia de temps de la resposta immunitària" style="max-height:175px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Línia de temps de la resposta immunitària</span></div></div><figcaption class="figcap" contenteditable="true">Resposta innata (minuts) → adaptativa (dies) → 2a infecció molt més ràpida.</figcaption></figure><div class="word-bank"><div class="word-bank-title">📦 Banc de paraules</div><div class="chips"><span class="chip">ràpida</span><span class="chip">lenta</span><span class="chip">sí</span><span class="chip">no</span><span class="chip">limfòcits</span><span class="chip">macròfags</span><span class="chip">memòria</span><span class="chip">específica</span></div></div><table class="data-table"><thead><tr><th style="width:40%">Característica</th><th style="width:30%">Resposta INNATA</th><th style="width:30%">Resposta ADAPTATIVA</th></tr></thead><tbody><tr><td class="label-cell">Velocitat (minuts-hores o dies?)</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">És específica per al patogen?</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr><tr><td class="label-cell">Deixa memòria?</td><td><div class="fill-cell" contenteditable="true"></div></td><td><div class="fill-cell" contenteditable="true"></div></td></tr></tbody></table><div class="callout"><b>Recorda:</b> limfòcits B → anticossos · limfòcits T → destrueixen cèl·lules infectades · cèl·lules de memòria → clau de la 2a resposta.</div><div class="frase-completar">La febre porta més <span class="blank blank-m"></span> (glòbuls blancs) al lloc de la infecció.</div></div><div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--rose)">3</div><div><div class="stitle" contenteditable="true">La memòria del sistema immunitari</div><div class="sdesc" contenteditable="true">Per quina raó la 2a vegada el cos guanya més de pressa</div></div></div><div class="divider"></div><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">🔗</div><div class="connexio-text" contenteditable="true"><strong>Enigma A:</strong> Uns s'han encomanat la grip i d'altres no. Era sort?</div></div><div class="info-box"><div class="info-label">📖 Per llegir</div><p>Quan el cos supera una infecció, guarda <strong>cèl·lules de memòria</strong> específiques. La propera vegada que arriba el mateix patogen, la resposta adaptativa és molt més ràpida i l'antigen queda eliminat abans que apareguin símptomes.</p></div><div class="explore-q deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="explore-qnum">!</div><div class="explore-qtext"><span>La Júlia va passar la varicel·la als 5 anys. Ara als 14, un company la té i ella no s'encomana. Per quina raó?</span><p class="pista">💡 Pensa: què va guardar el cos de la Júlia després de passar la varicel·la? I què passa quan el virus torna?</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div></div><div class="section deletable" style="margin-top:13px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="connexio-icon">🎟️</div><div class="connexio-text" contenteditable="true"><strong>Full de sortida.</strong> El professor et donarà un <strong>full a part</strong> amb 3 preguntes sobre el que has treballat avui. Es fa <strong>individualment i sense ajuda</strong>, i <strong>es recull</strong>. Aquesta fitxa te la quedes tu per estudiar.</div></div></div>
-    <div class="section deletable" style="margin-top:11px"><div class="del-btn" onclick="deleteEl(this)">✕</div><p style="font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink);margin-bottom:5px">🧠 Metacognició</p><div class="meta-oa-box deletable" style="margin-bottom:7px"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-title">🎯 Torna als objectius — Marca el que has après avui:</div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que la <strong>resposta innata</strong> és ràpida (minuts-hores) però no recorda.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que la <strong>resposta adaptativa</strong> és lenta (dies) però és específica i guarda memòria.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que l'<strong>anticòs</strong> encaixa amb el seu antigen com una clau amb un pany.</div></div><div class="meta-oa-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="meta-oa-check"></div><div class="meta-oa-text" contenteditable="true">Sé que la <strong>memòria immunològica</strong> fa que la segona infecció sigui molt més lleu.</div></div></div><div class="meta-grid"><div class="meta-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="meta-icon">❓</span><div class="meta-label">Encara em pregunto...</div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div><div class="meta-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><span class="meta-icon">⭐</span><div class="meta-label">Puntuació de la sessió</div><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><div style="font-size:11px;color:var(--muted);margin-top:3px">Encercla les estrelles que consideres</div></div></div></div><div class="tasca-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-title">📚 Tasca per a casa — Sessió 3</div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">1</div><div contenteditable="true">Porta un titular de notícia sobre una malaltia o vacuna. Escriu si et sembla fiable o no i per quina raó.</div></div></div><div class="footer"><div class="footer-l">Defensors del cos · Sessió 2 · Les defenses del cos · IE Temple</div><div class="footer-r">CC BY-NC · Albert Pahissa</div></div>
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--purple)">0</div><div><div class="stitle" style="color:var(--purple)" contenteditable="true">Llegim les plaques</div><div class="sdesc" contenteditable="true">Construïm — què diuen les nostres dades?</div></div></div><div class="divider"></div><div class="info-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="info-label">🔍 Com comptem</div><p>La placa <b>no s'obre</b>. Posa-la damunt la <b>quadrícula de recompte</b>. Compta les colònies de més d'1 mm de cada sector. Si n'hi ha més de 100, compta 4 quadrats i multiplica.</p></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">1</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true">Dades del meu grup.<table class="data-table deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><tr><th>Sector</th><th>Condició</th><th>Colònies</th><th>Com són (color, mida)</th></tr><tr><td class="label-cell" contenteditable="true">1</td><td class="label-cell" contenteditable="true">Control</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td class="label-cell" contenteditable="true">2</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td class="label-cell" contenteditable="true">3</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td class="label-cell" contenteditable="true">4</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr></table>
+</div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">2</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true">Taula de classe: la mitjana dels grups que van provar la mateixa condició.<table class="data-table deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><tr><th>Condició</th><th>Grups (colònies)</th><th>Mitjana</th></tr><tr><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr></table>
+</div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">3</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true"><b>Variabilitat.</b> Dos grups van provar la mateixa condició: un va comptar 12 colònies i l'altre 47. Algú ho ha fet malament? Per què és útil tenir rèpliques?<p class="pista">💡 Els resultats no són iguals perquè… Amb més plaques podem…</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">4</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true"><b>Conclusió (individual).</b> Respon la pregunta del teu grup en tres parts.<p class="pista">💡 Afirmació: «El sector ___ té menys colònies.» Evidència: «___ colònies contra ___.» Raonament: «Perquè ___.»</p><div class="cer"><div><b>Afirmació</b>Què responc a la pregunta?</div><div><b>Evidència</b>Quines dades ho demostren?</div><div><b>Raonament</b>Per què aquestes dades ho demostren?</div></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">5</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true">Heu vist bacteris? Què heu <b>observat</b> i què n'heu <b>deduït</b>?<p class="pista">💡 He vist taques (colònies). Dedueixo que cada taca són molts ____.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div>
+</div>
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--orange)">1</div><div><div class="stitle" style="color:var(--orange)" contenteditable="true">Un model que prediu</div><div class="sdesc" contenteditable="true">Construïm — l'anticòs i l'antigen</div></div></div><div class="divider"></div><div class="callout deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><b>Pòster v2.</b> El sabó en treu molts, però no tots. Per què no emmalaltim cada vegada que toquem alguna cosa? → El cos té una <b>segona línia de defensa</b>.</div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">6</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true"><b>Prediu amb la plastilina.</b> Dibuixa com creus que canvien els anticossos a la sang després de la 1a i de la 2a entrada del virus de la varicel·la.<svg class="svg-fig" viewBox="0 0 420 170" width="420" height="170" aria-label="Eixos per dibuixar la predicció"><line x1="50" y1="140" x2="405" y2="140" stroke="#173328" stroke-width="2"/><line x1="50" y1="140" x2="50" y2="12" stroke="#173328" stroke-width="2"/><text x="228" y="164" font-size="11" text-anchor="middle" fill="#173328">dies</text><text x="16" y="80" font-size="11" text-anchor="middle" fill="#173328" transform="rotate(-90 16 80)">anticossos a la sang</text><line x1="70" y1="140" x2="70" y2="20" stroke="#D98B34" stroke-width="1.5" stroke-dasharray="4 3"/><text x="70" y="16" font-size="10" text-anchor="middle" fill="#8A5514">1a entrada</text><line x1="250" y1="140" x2="250" y2="20" stroke="#D98B34" stroke-width="1.5" stroke-dasharray="4 3"/><text x="250" y="16" font-size="10" text-anchor="middle" fill="#8A5514">2a entrada (anys després)</text></svg></div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">7</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true">El virus de la grip canvia una mica la seva «clau» cada any. Fes-ho amb la plastilina: encaixa l'anticòs? Què li passa a la persona?<p class="pista">💡 Si la clau canvia, l'anticòs ____ encaixa. La persona ____ es pot tornar a posar malalta.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div>
+<p style="font-size:11px;margin:2px 0">Ara compara el teu dibuix amb l'esquema científic:</p><svg class="svg-fig" viewBox="0 0 420 170" width="420" height="170" aria-label="Esquema resposta primària i secundària"><line x1="50" y1="140" x2="405" y2="140" stroke="#173328" stroke-width="2"/><line x1="50" y1="140" x2="50" y2="12" stroke="#173328" stroke-width="2"/><text x="228" y="164" font-size="11" text-anchor="middle" fill="#173328">dies</text><text x="16" y="80" font-size="11" text-anchor="middle" fill="#173328" transform="rotate(-90 16 80)">anticossos</text><path d="M70 139 C 100 139, 110 112, 130 108 C 150 104, 165 128, 200 135 L 250 136" fill="none" stroke="#2F6B5E" stroke-width="3"/><path d="M250 136 C 258 134, 262 40, 280 34 C 300 28, 330 60, 400 82" fill="none" stroke="#2F6B5E" stroke-width="3"/><line x1="70" y1="140" x2="70" y2="24" stroke="#D98B34" stroke-width="1.5" stroke-dasharray="4 3"/><line x1="250" y1="140" x2="250" y2="24" stroke="#D98B34" stroke-width="1.5" stroke-dasharray="4 3"/><text x="112" y="98" font-size="10" fill="#173328">resposta primària: lenta, petita</text><text x="288" y="26" font-size="10" fill="#173328">secundària: ràpida, gran</text><text x="400" y="160" font-size="9" text-anchor="end" fill="#6a8a7e">Esquema sense xifres reals</text></svg><div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">8</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true">On encerta el teu model i on falla? Digues una cosa que la plastilina no pot mostrar.<p class="pista">💡 El meu dibuix sí que… / La plastilina no pot mostrar…</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div>
+</div>
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--blue)">2</div><div><div class="stitle" style="color:var(--blue)" contenteditable="true">Dues línies de defensa</div><div class="sdesc" contenteditable="true">Explain — de les prediccions a la teoria</div></div></div><div class="divider"></div><div class="fig deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="fig-frame"><img src="img/s2_innata_adaptativa.png" alt="" style="max-height:200px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="fig-ph"><span><span class="ph-ico">🖼️</span>Resposta innata (ràpida, general) i adaptativa (lenta, específica, amb memòria).</span></div></div><div class="figcap" contenteditable="true">Resposta innata (ràpida, general) i adaptativa (lenta, específica, amb memòria).</div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">9</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true">Completa la taula.<table class="data-table deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><tr><th></th><th>Resposta INNATA</th><th>Resposta ADAPTATIVA</th></tr><tr><td class="label-cell" contenteditable="true">Velocitat</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td class="label-cell" contenteditable="true">Específica?</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td class="label-cell" contenteditable="true">Cèl·lules</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr><tr><td class="label-cell" contenteditable="true">Deixa memòria?</td><td><span class="fill-cell" contenteditable="true"></span></td><td><span class="fill-cell" contenteditable="true"></span></td></tr></table>
+</div></div>
+<div class="word-bank deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="word-bank-title">Banc de paraules</div><div class="chips"><span class="chip">minuts</span><span class="chip">dies</span><span class="chip">sí</span><span class="chip">no</span><span class="chip">fagòcits</span><span class="chip">limfòcits B i T</span></div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">10</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true"><div class="frase-completar">La inflamació (calor, vermellor, inflor) porta més <span class="blank blank-l"></span> a la zona infectada. La febre moderada dificulta que es reprodueixin els <span class="blank blank-l"></span>. Els limfòcits B fabriquen <span class="blank blank-l"></span>; els de <span class="blank blank-m"></span> fan que la 2a vegada sigui més ràpida.</div></div></div>
+</div>
+<div class="section deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="section-header"><div class="snum" style="background:var(--rose)">3</div><div><div class="stitle" style="color:var(--rose)" contenteditable="true">El cas Semmelweis i què ha canviat</div><div class="sdesc" contenteditable="true">Apliquem — rentar-se les mans salva vides</div></div></div><div class="divider"></div><p style='font-size:11px'>Viena, 1846. A la Clínica 1 atenien els parts metges que venien de fer autòpsies; a la Clínica 2, llevadores. El 1847 Semmelweis va obligar els metges a rentar-se les mans amb aigua clorada.</p><table class="data-table deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><tr><th></th><th>Clínica 1 · 1846</th><th>Clínica 2 · 1846</th><th>Clínica 1 · 1848 (amb rentat)</th></tr><tr><td class="label-cell" contenteditable="true">Mares mortes per febre puerperal</td><td class="label-cell" contenteditable="true">11,4 %</td><td class="label-cell" contenteditable="true">2,7 %</td><td class="label-cell" contenteditable="true">1,3 %</td></tr></table>
+<p class="nota-sec">Dades de les taules publicades per Semmelweis (1861), arrodonides.</p><div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">11</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true">Què demostren aquestes dades? Fes servir un número de la taula.<p class="pista">💡 Abans del rentat morien ___ %. Després, ___ %. Això vol dir que…</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">12</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true">Molts metges de l'època no el van creure. Per què una idea amb proves pot tardar a ser acceptada?<p class="pista">💡 No el creien perquè…</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div>
+<div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">13</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true"><b>Abans pensava… / Ara penso… / La prova és…</b> sobre com ens defensem dels microbis.<p class="pista">💡 Abans pensava que ____. Ara penso que ____. Ho sé perquè ____.</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div>
+</div>
+<div class="tasca-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-title">📚 Abans de la sessió següent</div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">1</div><div contenteditable="true">📰 Porta un titular real sobre una malaltia, una vacuna o un medicament (retall, captura o imprès). En parlarem a S3.</div></div></div>
+
   </div><!-- .content -->
 </div><!-- .page-wrap -->
 
@@ -287,8 +354,8 @@ function updatePageBreaks() {
   const doc = document.getElementById('doc');
   if (!doc) return;
   doc.querySelectorAll('.page-break-line,.page-footer-bar').forEach(e=>e.remove());
-  const _nPg = Math.max(1, Math.ceil(doc.scrollHeight / PAGE_H)); /* només els fulls que calen */
-  for (let i=1; i<=_nPg; i++) {
+  const nPag = Math.max(1, Math.ceil((doc.scrollHeight - 4) / PAGE_H));
+  for (let i=1; i<=nPag; i++) {
     const y = i*PAGE_H;
     const line = document.createElement('div');
     line.className='page-break-line';
@@ -300,7 +367,7 @@ function updatePageBreaks() {
     const bar = document.createElement('div');
     bar.className='page-footer-bar';
     bar.style.top=(y-20)+'px';
-    bar.innerHTML='<span>SA3 · S2 · Les defenses · IE Temple · Bio/Geo 3r ESO</span><span>CC BY-NC · Albert Pahissa · Pàg. '+i+'</span>';
+    bar.innerHTML='<span>SA3 · S2 · Les defenses del cos · IE Temple</span><span>CC BY-NC · Albert Pahissa · Pàg. '+i+'</span>';
     doc.appendChild(line);
     doc.appendChild(bar);
   }
