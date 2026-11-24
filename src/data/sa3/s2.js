@@ -154,6 +154,7 @@ export const sa3s2 = {
   fitxaGuide: {
     fitxaName: "Fitxa S2 — Les defenses del cos",
     steps: [
+      { apartat: "↺", title: "Posem en comú els deures", time: "5 min", phase: "engage", instruction: "Escriu la superfície que toques més cada dia i prediu si tindria moltes o poques colònies. Ronda ràpida per grups: després mirem si les plaques ho confirmen.", hints: [] },
       { apartat: "1", title: "Llegim les plaques", time: "40 min", phase: "explore", instruction: "Compteu les colònies de cada sector, poseu-les a la taula de classe i compareu grups (variabilitat). Escriu una afirmació amb proves i raonament (CER) i separa el que observes del que dedueixes.", hints: ["Si dos grups fan el mateix i surten números molt diferents, què ens diu?"] },
       { apartat: "2", title: "Un model que prediu", time: "25 min", phase: "explore", instruction: "Amb el model de plastilina antigen–anticòs, predius a la gràfica què passa a la segona infecció i què passa si el virus muta. Després ho compares amb l'esquema.", hints: [] },
       { apartat: "3", title: "Dues línies de defensa", time: "25 min", phase: "explica", instruction: "Taula defensa innata / adaptativa i frases per completar a partir de la infografia.", hints: ["Innata = ràpida i general. Adaptativa = lenta la 1a vegada, però recorda."] },
@@ -170,7 +171,7 @@ export const sa3s2 = {
   ],
   exitTicketNote: "Fulls de sortida individuals, sense ajuda, es recullen. Versions A i B: dos fulls per A4 (es retallen); versió C: un per pàgina, amb pistes. Qui ha faltat pot respondre-les en línia.",
 
-  homework: { description: "Porta un titular real (retallat, captura o imprès) sobre una malaltia, una vacuna o un medicament. A S3 explicaràs per quina raó l'has triat i si la font et sembla fiable. Repàs: mira la teoria del sistema immunitari d'aquesta pàgina i apunta una cosa que t'hagi sorprès." },
+  homework: { description: "Porta un titular real (retallat, captura o imprès) sobre una malaltia, una vacuna o un medicament. A l'inici de la S3 (10 min) el mostraràs al company i la classe en triarà un per avaluar-lo amb la graella de fiabilitat." },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (immunitat innata, adaptativa, antigen-anticòs, memòria)",
     "Fes el diagrama de flux: virus entra → primer actua ___ (hores) → després actua ___ (dies) → queden cèl·lules de ___",

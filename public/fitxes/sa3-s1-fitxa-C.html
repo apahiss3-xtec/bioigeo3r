@@ -232,7 +232,9 @@ body.compact .fill-cell { min-height:18px; }
 body.compact .fig { margin:5px 0; }
 body.compact .fig-frame img { max-height:150px; }
 body.compact .callout, body.compact .info-box, body.compact .epist-box { margin:6px 0; padding:6px 10px; }
-body.compact .tasca-box { margin-top:8px; padding:7px 12px; }
+body.compact .tasca-box { margin-top:5px; padding:4px 10px; display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 10px; }
+body.compact .tasca-box .tasca-title { margin:0; }
+body.compact .tasca-box .tasca-item { margin:0; flex:1 1 60%; }
 body.compact .frase-completar { line-height:2.1; margin:2px 0 4px; }
 
 </style>
@@ -322,7 +324,7 @@ body.compact .frase-completar { line-height:2.1; margin:2px 0 4px; }
 <div class="word-bank deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="word-bank-title">Banc de paraules</div><div class="chips"><span class="chip">grip</span><span class="chip">refredat</span><span class="chip">mascareta</span><span class="chip">rentar mans</span><span class="chip">netejar</span><span class="chip">ventilar</span><span class="chip">conjuntivitis</span><span class="chip">COVID-19</span></div></div>
 <div class="pq deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="pq-num">12</div><span class="ico-wrap ico-fitxa" title="Respon a la fitxa"><svg class="ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M3 1.5h7l3 3v10H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 1.5v3h3M5.5 8h5M5.5 10.5h5M5.5 13h3" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><div class="pq-body" contenteditable="true"><b>Enigma A.</b> La Martina no estava vacunada i no va agafar la grip; la seva àvia sí que ho estava i tampoc. Escriu una hipòtesi.<p class="pista">💡 Potser la Martina… / Potser la gent del seu voltant…</p><div class="wline" contenteditable="true"></div><div class="wline" contenteditable="true"></div></div></div>
 </div>
-<div class="tasca-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-title">📚 Abans de la sessió següent</div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">1</div><div contenteditable="true">Recorda: la placa del teu grup creix una setmana. No la toquis.</div></div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">2</div><div contenteditable="true">Mira a casa: quina superfície toques més cada dia? Porta-ho pensat.</div></div></div>
+<div class="tasca-box deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-title">📚 Abans de la sessió següent</div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">1</div><div contenteditable="true">Recorda: la placa del teu grup creix una setmana. No la toquis.</div></div><div class="tasca-item deletable"><div class="del-btn" onclick="deleteEl(this)">✕</div><div class="tasca-num">2</div><div contenteditable="true">Mira a casa: quina superfície toques més cada dia? Porta-ho pensat: ho posarem en comú a l'inici de la S2.</div></div></div>
 
   </div><!-- .content -->
 </div><!-- .page-wrap -->

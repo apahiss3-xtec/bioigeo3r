@@ -125,6 +125,7 @@ export const sa3s4 = {
   fitxaGuide: {
     fitxaName: "Fitxa S4 — Medicaments",
     steps: [
+      { apartat: "↺", title: "Droga o no?", time: "5 min", phase: "engage", instruction: "Escriu la substància que vas pensar a casa i si creus que és una «droga». Votació a mà alçada i tres raons a la pissarra; hi tornarem a la S5.", hints: [] },
       { apartat: "1", title: "Estacions de medicaments", time: "30 min", phase: "explore", instruction: "Passa per les estacions de les 5 famílies (analgèsics, antiinflamatoris, antibiòtics, antivirals, vacunes) i omple la taula.", hints: [] },
       { apartat: "2", title: "Com actuen per dins", time: "20 min", phase: "explica", instruction: "Símptoma, causa i mecanisme: on actua cada fàrmac (per exemple, l'ibuprofèn bloqueja l'enzim COX).", hints: [] },
       { apartat: "3", title: "Funciona de debò? Dissenyem l'assaig", time: "40 min", phase: "elabora", instruction: "Cas Yasmina: com sabríem si un remei funciona de debò? Dissenya un assaig amb placebo: grups, què mesuraries, cec/doble cec i què faria canviar la conclusió.", hints: ["Grup control = pren placebo i no sap quin pren."] },
@@ -141,7 +142,7 @@ export const sa3s4 = {
   ],
   exitTicketNote: "Fulls de sortida individuals, sense ajuda, es recullen. Versions A i B: dos fulls per A4 (es retallen); versió C: un per pàgina, amb pistes. Qui ha faltat pot respondre-les en línia.",
 
-  homework: { description: "Pensa en una substància que creus que pot generar dependència i una raó. Ho comentareu en veu alta a l'inici de S5 (no cal recerca)." },
+  homework: { description: "Pensa en una substància que creus que pot generar dependència i una raó. La posarem en comú a l'apartat 1 de la S5 (no cal recerca)." },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (famílies de fàrmacs, mecanisme COX, automedicació, placebo)",
     "Omple la taula de famílies de fàrmacs (analgèsic / antitèrmic / antisèptic / antiinflamatori)",

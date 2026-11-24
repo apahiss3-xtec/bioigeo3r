@@ -169,10 +169,11 @@ export const sa3s3 = {
   fitxaGuide: {
     fitxaName: "Fitxa S3 — Vacunes: ciència o mite?",
     steps: [
+      { apartat: "↺", title: "Els titulars que heu portat", time: "10 min", phase: "engage", instruction: "En parelles, ensenyeu-vos el titular que heu portat: tema, font i si d'entrada us sembla fiable. La classe en tria un, que serà l'article C de l'apartat 2.", hints: ["Si no n'has portat cap, treballa amb el del company."] },
       { apartat: "1", title: "Ronda 3: vacunem", time: "30 min", phase: "explore", instruction: "Repetim la simulació amb el 30 % i el 80 % de vacunats. Predius abans, compteu després i compares amb el llindar d'immunitat de grup (1 − 1/R₀).", hints: ["1 − 1/R₀: amb R₀ = 2,5 cal vacunar el 60 %."] },
       { apartat: "2", title: "Com funciona una vacuna", time: "15 min", phase: "explica", instruction: "Completa el mecanisme: antigen sense malaltia → memòria → resposta secundària ràpida. Per què la de la grip s'ha de repetir cada any i la del xarampió no?", hints: [] },
-      { apartat: "3", title: "Ciència o mite? Avaluem fonts", time: "30 min", phase: "elabora", instruction: "Graella de 6 criteris de fiabilitat aplicada a una notícia i al cas Wakefield. Compara-ho amb el disseny de les nostres plaques: què teníem que ell no tenia?", hints: ["Mida de la mostra, grup control, conflicte d'interès, revisió per experts."] },
-      { apartat: "4", title: "Trasplantaments", time: "15 min", phase: "elabora", instruction: "Per què el cos pot rebutjar un òrgan d'una altra persona (HLA) i per què cal prendre immunosupressors?", hints: [] },
+      { apartat: "3", title: "Ciència o mite? Avaluem fonts", time: "25 min", phase: "elabora", instruction: "Graella de 6 criteris de fiabilitat aplicada als articles A i B i al titular triat per la classe (C), i el cas Wakefield. Compara-ho amb el disseny de les nostres plaques: què teníem que ell no tenia?", hints: ["Mida de la mostra, grup control, conflicte d'interès, revisió per experts."] },
+      { apartat: "4", title: "Trasplantaments", time: "10 min", phase: "elabora", instruction: "Per què el cos pot rebutjar un òrgan d'una altra persona (HLA) i per què cal prendre immunosupressors?", hints: [] },
       { apartat: "5", title: "Comencem la campanya", time: "15 min", phase: "elabora", instruction: "En grup: missatge, públic i format de la campanya. Enigma B (Wakefield): primera hipòtesi.", hints: [] },
       { apartat: "Final", title: "Full de sortida", time: "10 min", phase: "elabora", instruction: "Sol/a i sense ajuda, en un full a part. A les versions A i B, les respostes obertes van a la llibreta sense copiar l'enunciat; només s'omplen a la fitxa les taules, les frases i els esquemes (icona 📄).", hints: [] }
     ]
@@ -186,7 +187,7 @@ export const sa3s3 = {
   ],
   exitTicketNote: "Fulls de sortida individuals, sense ajuda, es recullen. Versions A i B: dos fulls per A4 (es retallen); versió C: un per pàgina, amb pistes. Qui ha faltat pot respondre-les en línia.",
 
-  homework: { description: "Reflexió: pensa en una substància que modifica el cos o el comportament (un medicament, una beguda energètica, l'alcohol, el tabac, el cafè...). A S4 hauràs de dir per quina raó creus que és o no és una «droga». No cal recerca: cal pensar-hi." },
+  homework: { description: "Reflexió: pensa en una substància que modifica el cos o el comportament (un medicament, una beguda energètica, l'alcohol, el tabac, el cafè...). És una «droga»? Porta una raó pensada: la posarem en comú a l'inici de la S4 (5 min). No cal recerca." },
   recoveryInstructions: [
     "Llegeix la teoria d'aquesta pàgina (vacunes, immunitat de grup, 6 criteris de qualitat)",
     "Aplica els 6 criteris a 1 afirmació sobre salut que trobis a les xarxes (qualsevol)",

@@ -132,7 +132,7 @@ export const sa3s5 = {
   fitxaGuide: {
     fitxaName: "Fitxa S5 — Drogues, addicció i síntesi",
     steps: [
-      { apartat: "1", title: "Idees prèvies i la demostració", time: "10 min", phase: "engage", instruction: "Escriu primer què en penses i després mira la demostració; ho compararàs amb el que vas escriure a la S1.", hints: [] },
+      { apartat: "1", title: "Idees prèvies (deures de la S4) i la demostració", time: "10 min", phase: "engage", instruction: "Posem en comú la substància que creies que genera dependència. Escriu primer què en penses i després mira la demostració; ho compararàs amb el que vas escriure a la S1.", hints: [] },
       { apartat: "2", title: "Classificació de substàncies", time: "25 min", phase: "explore", instruction: "Endògena/exògena, medicament/droga i la zona grisa, amb les targetes de substàncies.", hints: [] },
       { apartat: "3", title: "La sinapsi i la droga", time: "25 min", phase: "explica", instruction: "Com una substància segresta el sistema de recompensa: inundació de dopamina, tolerància i abstinència.", hints: [] },
       { apartat: "4", title: "Mapa de síntesi i els dos enigmes", time: "15 min", phase: "elabora", instruction: "Mapa de tota la SA (a la llibreta a les versions A i B) i resolució dels enigmes A (la Martina) i B (Wakefield). La classe tanca el pòster (v3).", hints: [] },
