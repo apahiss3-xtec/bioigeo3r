@@ -849,7 +849,7 @@ export default function SessionPage() {
                 >
                   📄 {t('session.downloadFitxa')} (Nivell {nivell})
                 </a>
-              ) : (
+              ) : session.noFitxa ? null : (
                 <span className="rounded-xl border border-[var(--rule-strong)] px-5 py-2.5 text-[var(--muted)]">
                   📄 {t('session.fitxaAtClass')}
                 </span>
@@ -917,6 +917,8 @@ export default function SessionPage() {
         </section>
 
         {/* ── SECCIÓ 5 · EXIT TIQUET ───────────────────────── */}
+        {/* noExitTicket (25/11/2026): sessions de tancament (presentacions + prova) sense full de sortida. */}
+        {!session.noExitTicket && (
         <section className="pb-12">
           <SectionTitle>{t('session.exitTicket')}</SectionTitle>
           {session.exitTicketNote && (
@@ -934,6 +936,7 @@ export default function SessionPage() {
               : 'session.exitPaperNote')}
           </p>
         </section>
+        )}
 
         {/* Estructura informe (SA2 S7) */}
         {session.reportStructure && (

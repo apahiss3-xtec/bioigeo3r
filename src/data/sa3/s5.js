@@ -1,106 +1,40 @@
 export const sa3s5 = {
   id: "s5", saId: "sa3",
-  title: "Drogues, addicció i síntesi",
+  title: "Tancament: campanyes i prova",
   sessionNumber: 5, biome: "sa3", duration: "2h",
   engageImage: "/images/sa3-s5-drogues.jpg",
   isFinalSession: true,
+  // Sessió de tancament (25/11/2026): sense fitxa ni full de sortida.
+  noFitxa: true,
+  noExitTicket: true,
 
-  engageQuestion: "Avui és la sessió final de la SA. Resoleu els dos enigmes que han estat a la paret tot el mes. Però primer: per quina raó costa tant deixar una addicció? És només qüestió de «voluntat»?",
-  engageContext: "Avui es resolen els dos enigmes de la paret. Abans, però, entraràs a la sinapsi per veure què hi fa una droga, i acabaràs construint la campanya de comunicació científica.",
+  engageQuestion: "Avui és la sessió final de la SA. Cada grup presenta la seva campanya: quin mite desmunteu i amb quina evidència? Després, la prova escrita.",
+  engageContext: "Primer, 10 minuts per acabar de muntar el cartell o el vídeo. Després, les presentacions (3–4 minuts per grup) i, per acabar, la prova escrita de la SA.",
 
   // NO es renderitza al web: guió del docent (logística, temps,
   // material, revisió de deures). Tasca 2, 09/09/2026.
-  teacherNotes: "Posada en comú de la reflexió sobre la dependència (deures de S4). Estructura: classificació de substàncies → sinapsi i droga → mapa de síntesi de tota la unitat → campanya.",
+  teacherNotes: "Tancament de la SA3 (decisió 25/11/2026: sense S6). Muntatge final 10 · presentacions ~8 grups × 3–4 min amb la rúbrica 35 · prova escrita (versió estàndard de 55 min, B i C) 55 · marge 10. La campanya no s'entrega al Classroom: s'avalua a la presentació. Retorn de la prova i la campanya a la SA4·S1.",
 
   // ── OBJECTIUS D'APRENENTATGE PER NIVELL (A/B/C) ──────────
   levelObjectives: {
     A: [
-      "Explico la sinapsi i el mecanisme de recompensa de la dopamina a nivell molecular.",
-      "Analitzo com les drogues segresten el sistema de recompensa (agonisme, antagonisme, bloqueig de la recaptació).",
-      "Explico l'addicció com a plasticitat neuronal (reducció de receptors, tolerància, abstinència).",
-      "Faig una síntesi connectant tots els conceptes de la unitat en un mapa conceptual argumentat i resolc els dos enigmes amb l'evidència acumulada.",
-      "Dissenyo una campanya de comunicació científica i en justifico les decisions davant d'una audiència concreta."
+      "Presento una campanya que desmunta un mite de salut i en justifico les decisions davant del públic.",
+      "Responc a les preguntes de la classe amb evidència de la SA.",
+      "Demostro a la prova el que he après de tota la SA."
     ],
     B: [
-      "Explico la sinapsi i com la dopamina marca la recompensa.",
-      "Explico que les drogues fan arribar molta més dopamina als receptors, per camins diferents segons quina sigui.",
-      "Explico l'addicció com un canvi físic del cervell (tolerància, abstinència), no com a debilitat moral.",
-      "Connecto els conceptes de la unitat en un mapa (patogen → defenses → vacuna → fàrmac → droga) i resolc els dos enigmes.",
-      "Dissenyo una campanya de comunicació científica aplicant els 6 criteris de qualitat d'una font."
+      "Presento amb el meu grup una campanya que desmunta un mite de salut.",
+      "Explico quin criteri de fiabilitat falla en el mite i quina és l'evidència real.",
+      "Demostro a la prova el que he après de tota la SA."
     ],
     C: [
-      "Sé que les drogues actuen com a neurotransmissors i inunden els receptors de dopamina.",
-      "Sé que l'addicció és un canvi físic del cervell, no una qüestió de voluntat.",
-      "Sé que la tolerància significa que cal cada vegada més dosi per sentir el mateix.",
-      "Sé connectar els conceptes de la unitat: patogen → defenses → vacuna → fàrmac → droga.",
-      "Preparo amb el meu grup una campanya que desmunta un mite sobre la salut."
-    ]
-  },
-
-  // ── APARTAT 0 · IDEES PRÈVIES ─────────────────────────────
-  ideesPrevies: {
-    startPoint: "Avui és la sessió final de la SA. Resoleu els dos enigmes que han estat a la paret tot el mes. Abans d'escoltar les explicacions, escriviu individualment el que sabeu ara — compareu amb el que vau escriure a S1.",
-    prompts: [
-      {
-        kind: "write",
-        text: "Què és per a tu una «droga»? Creus que l'alcohol n'és una? I el cafè?",
-        starter: "Per a mi, una droga és..."
-      },
-      {
-        kind: "write",
-        text: "Per quina raó costa tant deixar una addicció? És només qüestió de «voluntat»?",
-        starter: "Crec que costa tant perquè..."
-      }
+      "Presento amb el meu grup la part de la campanya que he preparat.",
+      "Sé dir per què el mite és fals.",
+      "Faig la prova de la SA."
     ]
   },
 
   theoryPoints: [
-    {
-      id: "t1",
-      images: [
-        {
-          "src": "images/sa3-fotos/s5-t1.jpg",
-          "caption": "Model de la dopamina: el cos la fabrica (és endògena), i moltes drogues n'alteren els nivells.",
-          "credit": "Jynto · CC0 · Wikimedia Commons"
-        }
-      ],
-      apartat: "1",
-      heading: "==Endogen== vs ==exogen==: medicament o droga?",
-      text: "Hi ha substàncies que el cos fabrica (==endògenes|g==: dopamina, endorfines) i d'altres que entren des de fora (==exògenes|o==: cafè, alcohol, fàrmacs, drogues). Una ==droga== és una substància exògena que altera el sistema nerviós i pot crear dependència. El ==cafè i l'alcohol també són drogues|r== — encara que siguin legals. La classificació legal ==no sempre reflecteix el risc real|r== per a la salut.",
-      type: "concept"
-    },
-    {
-      id: "t2",
-      apartat: "2",
-      image: "/images/s5_droga_vs_neurotransmissor.png",
-      imageCaption: "① Poques molècules: el senyal normal. ② Moltíssimes de cop: la inundació dels receptors.",
-      heading: "==Drogues==: per quina raó enganyen el cervell",
-      text: "Moltes drogues imiten els neurotransmissors naturals (com la ==dopamina==) però en concentracions molt més altes: ==inunden|r== els receptors del nucli accumbens (centre de recompensa). El cervell interpreta: «==això ha estat bo, repeteix-ho|g==». No totes ho fan igual: unes ==imiten|o== el neurotransmissor, d'altres impedeixen que es ==retiri|r== de la sinapsi (cocaïna) i d'altres fan que la neurona n'==alliberi més|p==.",
-      type: "concept"
-    },
-    {
-      id: "t3",
-      apartat: "2",
-      image: "/images/s5_receptors_tolerancia.svg",
-      imageCaption: "① sinapsi normal · ② la droga inunda · ③ el cervell retira receptors (tolerància) · ④ sense la droga, el senyal cau per sota del normal (abstinència).",
-      heading: "==Tolerància== i ==abstinència==: la base física de l'addicció",
-      text: "Amb l'ús repetit, el cervell redueix els ==receptors|r== de dopamina (el que en diem <em>reducció de receptors</em>) → cal cada cop ==més dosi|r== per sentir el mateix efecte (==tolerància==). Si la droga falta, apareix un malestar físic real (==abstinència==). ==Addicció|r==: comportament compulsiu de recerca de la droga malgrat les conseqüències negatives. ==Idea clau|g==: és una malaltia del cervell amb base física, NO una qüestió de voluntat.",
-      type: "concept"
-    },
-    {
-      id: "t5",
-      images: [
-        {
-          "src": "images/sa3-fotos/s5-t5.jpg",
-          "caption": "Sinapsi: la comunicació entre neurones és el punt on actuen les drogues.",
-          "credit": "vectorization: Mouagip Synapse_diag1.png: Drawn by fr:Utilis · CC BY-SA 3.0 · Wikimedia Commons"
-        }
-      ],
-      apartat: "2",
-      heading: "Tres famílies de ==drogues== segons com actuen",
-      text: "==Depressores|b==: alenteixen el sistema nerviós (alcohol, benzodiazepines). ==Estimulants|o==: l'acceleren (cocaïna, amfetamines, cafeïna). ==Al·lucinògenes|p==: alteren la percepció de la realitat (LSD, psilocibina). La classificació agrupa per l'==efecte sobre el sistema nerviós|g==, no per la legalitat: l'alcohol i la cafeïna hi són, tot i ser legals. Cada droga pot tenir ==més d'un efecte|o== i el seu risc depèn de la dosi i de la persona.",
-      type: "concept"
-    },
     {
       id: "t4",
       images: [
@@ -112,64 +46,47 @@ export const sa3s5 = {
       ],
       apartat: "3",
       heading: "Síntesi SA3: de la ==infecció== a la ==decisió==",
-      text: "Cadena completa: ==patogen entra|r== (S1) → SI innata (hores) → SI adaptativa (dies): anticossos + memòria (S2) → ==vacuna|g== = entrenar el SI per avançat (S3) → ==immunitat de grup|g== = protecció col·lectiva → fàrmac tracta el ==símptoma|o== (S4) → droga ==segresta la sinapsi|r== (S5). I ara ja tens tot el que et cal per tancar els ==dos enigmes|g== de la paret: el de la grip de la Martina i el de l'article sobre les vacunes.",
+      text: "Cadena completa: ==patogen entra|r== (S1) → SI innata (hores) → SI adaptativa (dies): anticossos + memòria (S2) → ==vacuna|g== = entrenar el SI per avançat (S3) → ==immunitat de grup|g== = protecció col·lectiva → fàrmac tracta el ==símptoma|o== (S4) → droga ==segresta la sinapsi|r== (S4). És el fil de la prova d'avui: repassa'l abans de començar, amb els ==dos enigmes|g== de la paret (la grip de la Martina i l'article sobre les vacunes).",
       type: "synthesis",
       badge: "✅ SA3 Síntesi completa"
     }
   ],
 
   sessionMaterials: [
-    { name: "Targetes de substàncies (20 targetes retallables)", url: "/fitxes/sa3-s5-targetes-substancies.html" },
-    { name: "Rúbrica de la campanya de comunicació científica", url: "/fitxes/sa3-s5-rubrica-campanya.html" },
-    { name: "Full de sortida — versions A i B", url: "/fitxes/sa3-s5-full-sortida.html" },
-    { name: "Full de sortida — versió C (amb bastida)", url: "/fitxes/sa3-s5-full-sortida-C.html" },
-    { name: "Fitxa de la sessió · acollida (urdú)", url: "/fitxes/sa3-s5-fitxa-acollida-UR.html" },
-    { name: "Fitxa de la sessió · acollida (àrab)", url: "/fitxes/sa3-s5-fitxa-acollida-AR.html" }
+    { name: "Rúbrica de la campanya de comunicació científica", url: "/fitxes/sa3-s5-rubrica-campanya.html" }
   ],
 
-  fitxaUrl: { A: "/fitxes/sa3-s5-fitxa-A.html", B: "/fitxes/sa3-s5-fitxa-B.html", C: "/fitxes/sa3-s5-fitxa-C.html" }, teoriaPdfUrl: "/teoria/sa3-s5-teoria.pdf",
+  teoriaPdfUrl: "/teoria/sa3-s5-teoria.pdf",
 
   fitxaGuide: {
-    fitxaName: "Fitxa S5 — Drogues, addicció i síntesi",
+    fitxaName: "Guió de la S5 — Tancament (sense fitxa)",
     steps: [
-      { apartat: "1", title: "Idees prèvies (deures de la S4) i la demostració", time: "10 min", phase: "engage", instruction: "Posem en comú la substància que creies que genera dependència. Escriu primer què en penses i després mira la demostració; ho compararàs amb el que vas escriure a la S1.", hints: [] },
-      { apartat: "2", title: "Classificació de substàncies", time: "25 min", phase: "explore", instruction: "Endògena/exògena, medicament/droga i la zona grisa, amb les targetes de substàncies.", hints: [] },
-      { apartat: "3", title: "La sinapsi i la droga", time: "25 min", phase: "explica", instruction: "Com una substància segresta el sistema de recompensa: inundació de dopamina, tolerància i abstinència.", hints: [] },
-      { apartat: "4", title: "Mapa de síntesi i els dos enigmes", time: "15 min", phase: "elabora", instruction: "Mapa de tota la SA (a la llibreta a les versions A i B) i resolució dels enigmes A (la Martina) i B (Wakefield). La classe tanca el pòster (v3).", hints: [] },
-      { apartat: "5", title: "La campanya de comunicació científica", time: "25 min", phase: "elabora", instruction: "En grup, producte final de la unitat (rúbrica a part).", hints: [] },
-      { apartat: "Final", title: "Full de sortida", time: "10 min", phase: "elabora", instruction: "Sol/a i sense ajuda, en un full a part. A les versions A i B, les respostes obertes van a la llibreta sense copiar l'enunciat; només s'omplen a la fitxa les taules, les frases i els esquemes (icona 📄).", hints: [] }
+      { apartat: "1", title: "Muntatge final", time: "10 min", phase: "elabora", instruction: "Cada grup acaba de muntar el cartell o prepara el vídeo per projectar. Els cartells es pengen a la paret.", hints: [] },
+      { apartat: "2", title: "Presentacions de les campanyes", time: "35 min", phase: "elabora", instruction: "Cada grup presenta en 3–4 minuts: el mite, per què és un mite (quin criteri falla), l'evidència real i el missatge final. Tothom del grup en presenta una part. El docent avalua amb la rúbrica.", hints: ["Rúbrica de la campanya a Materials."] },
+      { apartat: "3", title: "Prova escrita", time: "55 min", phase: "explica", instruction: "Prova individual de tota la SA: defenses i vacunes, fonts fiables, medicaments i drogues, i disseny d'un experiment.", hints: [] },
+      { apartat: "4", title: "Marge", time: "10 min", phase: "elabora", instruction: "Temps de reserva per a les presentacions o la prova. Si sobra, la classe tanca el pòster del model (v3).", hints: [] }
     ]
   },
 
-  exitTicketType: "paper",
-  exitTicketQuestions: [
-    { id: "q1", type: "open", text: "Enigma A. Per què la Martina (no vacunada) i la seva àvia (vacunada) van escapar de la grip? Dona dues explicacions per a la Martina.", hint: "Ja l'havia passada? Immunitat de grup?" },
-    { id: "q2", type: "open", text: "Enigma B. Per què la revista va retirar l'article de Wakefield? Cita dues raons concretes i compara-ho amb el nostre experiment de les plaques.", hint: "12 nens, sense grup control, interès econòmic…" },
-    { id: "q3", type: "open", text: "Per què l'addicció NO és «només qüestió de voluntat»? Fes servir les paraules dopamina i receptors.", hint: "Amb l'ús repetit el cervell retira receptors…" }
-  ],
-  exitTicketNote: "Fulls de sortida individuals, sense ajuda, es recullen. Versions A i B: dos fulls per A4 (es retallen); versió C: un per pàgina, amb pistes. Qui ha faltat pot respondre-les en línia.",
-
   deliverables: [
-    { name: "Campanya de comunicació científica (cartell o vídeo de 60 s)", note: "Es comença a classe a l'apartat 4 i s'acaba a casa. Entrega a Classroom, termini 1 setmana. Desmunta un mite sobre salut aplicant els 6 criteris de qualitat. Rúbrica: /fitxes/sa3-s5-rubrica-campanya.html" }
+    { name: "Campanya de comunicació científica (cartell o vídeo de 60 s)", note: "Es planifica a la S4 (apartat 5), s'acaba en grup durant la setmana i es presenta a classe a la S5 (3–4 min per grup). No s'entrega al Classroom: s'avalua amb la rúbrica durant la presentació." }
   ],
 
   campanyaStructure: {
     title: "Campanya: estructura mínima",
     sections: [
-      "1. L'afirmació que desmuntes (cita la font original)",
-      "2. Per quina raó és un mite: aplica els 6 criteris de qualitat a la font original",
-      "3. L'evidència real: cita almenys 1 estudi científic vàlid",
-      "4. Missatge final: clar, breu i dirigit al públic objectiu (companys de classe)"
+      "1. El mite que desmunteu (i on l'heu vist)",
+      "2. Per quina raó és un mite: quin criteri de fiabilitat falla",
+      "3. L'evidència real: una dada o un experiment de la SA",
+      "4. Missatge final: clar, breu i dirigit al públic (companys de classe)"
     ]
   },
 
-  homework: { description: "Prova escrita de la SA (Defensors del cos): repassa el mapa síntesi, els dos enigmes i els mecanismes (vacuna, fàrmac, droga). Acaba i entrega la campanya de comunicació científica a Classroom." },
+  homework: { description: "Cap.", note: "La prova i la campanya es retornen a la SA4·S1." },
 
   recoveryInstructions: [
-    "Llegeix la teoria d'aquesta pàgina (endogen/exogen, sinapsi i dopamina, tolerància i abstinència, síntesi SA3)",
-    "Omple el diagrama de síntesi: patogen → SI innata → SI adaptativa → tractament → prevenció (vacuna) → fàrmac → droga",
-    "Escriu la resolució dels dos enigmes (Martina + article Wakefield) amb les cadenes causals",
-    "Prepara la campanya de comunicació científica amb el guió de 4 apartats i entrega-la a Classroom (cartell o vídeo de 60 s), seguint la rúbrica"
+    "Si has faltat el dia de les presentacions, parla amb el docent: presentaràs la part de la campanya del teu grup un altre dia",
+    "La prova es farà un altre dia; repassa la síntesi de la SA d'aquesta pàgina i les fitxes S1–S4"
   ],
   oaLinks: ["OA3"], competencies: ["CE1", "CE2", "CE5"]
 }
